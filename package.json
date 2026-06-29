@@ -1,0 +1,15 @@
+{
+  "name": "taoli-weekend-planner-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Build-time tooling for the Family Weekend Planner: fetches live local events into weekend-planner/data/events.json.",
+  "scripts": {
+    "fetch-events": "node scripts/fetch-events.mjs",
+    "test-parsers": "node scripts/test-parsers.mjs"
+  },
+  "dependencies": {
+    "node-ical": "^0.20.1",
+    "rss-parser": "^3.13.0"
+  }
+}

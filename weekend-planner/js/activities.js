@@ -3,6 +3,7 @@
 // proxy without touching planner.js, as long as it returns the same shape.
 
 let _cache = null;
+let _eventsCache = null;
 
 export async function loadActivities() {
   if (_cache) return _cache;
@@ -10,6 +11,22 @@ export async function loadActivities() {
   if (!res.ok) throw new Error(`activities.json HTTP ${res.status}`);
   _cache = await res.json();
   return _cache;
+}
+
+// Live local events, refreshed daily into data/events.json by the GitHub Action.
+// Returns { events: [...] } even if the file is missing/empty so callers don't
+// have to special-case the pre-population state.
+export async function loadEvents() {
+  if (_eventsCache) return _eventsCache;
+  try {
+    const res = await fetch("data/events.json");
+    if (!res.ok) throw new Error(`events.json HTTP ${res.status}`);
+    _eventsCache = await res.json();
+  } catch (err) {
+    console.warn("No live events available:", err.message);
+    _eventsCache = { events: [], count: 0, sources: [] };
+  }
+  return _eventsCache;
 }
 
 // Haversine distance in miles between two lat/lon points.

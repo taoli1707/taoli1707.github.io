@@ -1,0 +1,15 @@
+{
+  "_comment": "Venue name (lowercased substring match) -> coordinates + address, used to give coordinates to feed events that lack them. Add entries as new venues appear.",
+  "venues": [
+    { "match": "westfield memorial library", "venue": "Westfield Memorial Library", "address": "550 E Broad St, Westfield, NJ", "lat": 40.6528, "lon": -74.3372 },
+    { "match": "town of westfield", "venue": "Town of Westfield", "address": "425 E Broad St, Westfield, NJ", "lat": 40.6500, "lon": -74.3473 },
+    { "match": "municipal building", "venue": "Westfield Municipal Building", "address": "425 E Broad St, Westfield, NJ", "lat": 40.6500, "lon": -74.3473 },
+    { "match": "mindowaskin", "venue": "Mindowaskin Park", "address": "425 E Broad St, Westfield, NJ", "lat": 40.6533, "lon": -74.3389 },
+    { "match": "tamaques", "venue": "Tamaques Park", "address": "Tamaques Way, Westfield, NJ", "lat": 40.6325, "lon": -74.3531 },
+    { "match": "echo lake", "venue": "Echo Lake Park", "address": "Springfield Ave, Mountainside, NJ", "lat": 40.6731, "lon": -74.3389 },
+    { "match": "trailside", "venue": "Trailside Nature & Science Center", "address": "452 New Providence Rd, Mountainside, NJ", "lat": 40.6889, "lon": -74.3736 },
+    { "match": "watchung", "venue": "Watchung Reservation", "address": "Mountainside, NJ", "lat": 40.6917, "lon": -74.3833 },
+    { "match": "nomahegan", "venue": "Nomahegan Park", "address": "1024 Springfield Ave, Cranford, NJ", "lat": 40.6708, "lon": -74.3094 },
+    { "match": "union county", "venue": "Union County", "address": "Union County, NJ", "lat": 40.6600, "lon": -74.3000 }
+  ]
+}

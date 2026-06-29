@@ -9,7 +9,7 @@ import {
   AFTERNOON_HOURS,
   MORNING_HOURS,
 } from "./weather.js";
-import { loadActivities, withDistance } from "./activities.js";
+import { loadActivities, withDistance, loadEvents, distanceMiles } from "./activities.js";
 import { buildDayPlan, DEFAULT_PROFILE } from "./planner.js";
 import { makeDemoDay } from "./demo.js";
 
@@ -19,6 +19,7 @@ const state = {
   days: {},        // date -> hourly array
   weekend: [],     // [{date, label}] for upcoming Sat/Sun
   activities: [],  // distance-annotated
+  events: [],      // live local events (data/events.json)
   selectedDate: null,
 };
 
@@ -31,6 +32,13 @@ async function init() {
   try {
     const data = await loadActivities();
     state.activities = withDistance(data.activities, HOME);
+
+    // Live events load independently; failure here must not break the planner.
+    const ev = await loadEvents();
+    state.events = (ev.events || []).map((e) => ({
+      ...e,
+      distanceMiles: e.location && e.location.lat != null ? Math.round(distanceMiles(HOME, e.location) * 10) / 10 : null,
+    }));
 
     if (demo) {
       // Verification mode: synthesize a day's forecast so nap logic / Plan B
@@ -102,6 +110,56 @@ function renderDay() {
   renderMorning(plan.morning);
   renderNap(plan.afternoon.nap);
   renderAfternoon(plan.afternoon);
+  renderEvents(state.selectedDate);
+}
+
+// Live local events that fall on the selected day, nearest first.
+function renderEvents(date) {
+  const list = el("events-list");
+  const note = el("events-note");
+  const todays = state.events
+    .filter((e) => e.start && e.start.slice(0, 10) === date)
+    .sort((a, b) => new Date(a.start) - new Date(b.start));
+
+  if (!state.events.length) {
+    note.textContent =
+      "No live events loaded yet — they populate automatically once the daily refresh is configured.";
+    list.innerHTML = "";
+    return;
+  }
+  note.textContent = "Live local events (library, town & county) for the day you picked.";
+  if (!todays.length) {
+    list.innerHTML = `<div class="text-muted">Nothing listed for this day yet — check the other day or back soon.</div>`;
+    return;
+  }
+  list.innerHTML = todays.map(eventCard).join("");
+}
+
+function eventCard(e) {
+  const time = e.start ? fmtClock(e.start) : "";
+  const io = { outdoor: "Outdoor", indoor: "Indoor", mixed: "Indoor + Outdoor", unknown: "" }[e.indoorOutdoor] || "";
+  const age = e.ageRange ? `ages ${e.ageRange.min}–${e.ageRange.max}` : "";
+  const dist = e.distanceMiles != null ? `${e.distanceMiles} mi` : "";
+  const meta = [time, io, age, dist, costLabel(e.cost)].filter(Boolean).join(" · ");
+  const link = e.url ? `<a href="${e.url}" target="_blank" rel="noopener">Details ↗</a>` : "";
+  return `
+    <div class="wp-activity">
+      <div class="wp-activity-head"><strong>${e.title}</strong></div>
+      <div class="wp-activity-meta text-muted">${meta}</div>
+      <div class="wp-activity-notes">${e.venue || ""}</div>
+      <div class="wp-activity-link">${link}</div>
+    </div>`;
+}
+
+function fmtClock(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return "";
+  // Local events are in NJ; pin display to Eastern so it's right for any viewer.
+  return d.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "America/New_York",
+  });
 }
 
 function renderForecastStrip(dayHours) {
