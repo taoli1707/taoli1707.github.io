@@ -25,16 +25,16 @@ window.CFA_DATA["equity"] = {
       id: "equity-q2",
       section: "Market Organization",
       q: "If the initial margin requirement is 40%, the maximum leverage ratio for a margin purchase is <em>closest to</em>:",
-      choices: ["2.5", "1.67", "4.0"],
-      answer: 0,
+      choices: ["1.67", "2.5", "4.0"],
+      answer: 1,
       expl: "Maximum leverage ratio = 1 ⁄ initial margin = 1 ⁄ 0.40 = 2.5: a $100 position can be carried with $40 of equity. 1.67 uses 1 ⁄ (1 − 0.40); 4.0 has no basis in the formula."
     },
     {
       id: "equity-q3",
       section: "Market Organization",
       q: "A stock trades at $30. A trader wants to buy the stock, but only if its price falls to $25 or lower. The trader should <em>most likely</em> place a:",
-      choices: ["limit order to buy at $25", "stop order to buy at $25", "market order to buy"],
-      answer: 0,
+      choices: ["stop order to buy at $25", "market order to buy", "limit order to buy at $25"],
+      answer: 2,
       expl: "A limit buy at $25 executes only at $25 or better (lower) — exactly the instruction. A stop buy at $25 would be invalid here in spirit: stop-buy orders trigger when the price RISES to the stop and are used to cover shorts or chase momentum. A market order executes immediately at about $30."
     },
     {
@@ -49,24 +49,24 @@ window.CFA_DATA["equity"] = {
       id: "equity-q5",
       section: "Market Organization",
       q: "In which market structure do customers trade at prices quoted by dealers who trade from their own inventory?",
-      choices: ["Quote-driven market", "Order-driven market", "Brokered market"],
-      answer: 0,
+      choices: ["Order-driven market", "Quote-driven market", "Brokered market"],
+      answer: 1,
       expl: "Quote-driven (dealer/OTC) markets are exactly this — most bond and currency trading. Order-driven markets match public orders against each other using precedence rules; brokered markets rely on brokers to find counterparties for unique, illiquid assets."
     },
     {
       id: "equity-q6",
       section: "Market Indexes",
       q: "A price-weighted index contains two stocks: Stock X (price $40 → $44) and Stock Y (price $60 → $63). The index return for the period is <em>closest to</em>:",
-      choices: ["7.0%", "7.5%", "5.0%"],
-      answer: 0,
+      choices: ["7.5%", "5.0%", "7.0%"],
+      answer: 2,
       expl: "Price-weighted return = change in the sum of prices: (44 + 63) ⁄ (40 + 60) − 1 = 107 ⁄ 100 − 1 = 7.0%. 7.5% is the equal-weighted answer (average of +10% and +5%); 5.0% is just Y's return. The higher-priced stock dominates a price-weighted index."
     },
     {
       id: "equity-q7",
       section: "Market Indexes",
       q: "Which index weighting scheme requires the <em>most frequent</em> rebalancing?",
-      choices: ["Equal weighting", "Market-capitalization weighting", "Price weighting"],
-      answer: 0,
+      choices: ["Market-capitalization weighting", "Equal weighting", "Price weighting"],
+      answer: 1,
       expl: "Equal weights drift away from 1/n as soon as constituent prices diverge, so they must be reset regularly. A cap-weighted index is largely self-rebalancing (weights move with prices automatically). Price-weighted indexes need divisor adjustments for splits, not routine rebalancing."
     },
     {
@@ -81,8 +81,8 @@ window.CFA_DATA["equity"] = {
       id: "equity-q9",
       section: "Market Indexes",
       q: "Over the same period and with identical constituents, a total return index compared with the corresponding price return index will <em>most likely</em> show:",
-      choices: ["a higher value, because it includes reinvested dividends and interest", "the same value, because both hold the same securities", "a lower value, because fees are deducted"],
-      answer: 0,
+      choices: ["the same value, because both hold the same securities", "a lower value, because fees are deducted", "a higher value, because it includes reinvested dividends and interest"],
+      answer: 2,
       expl: "The total return version adds all cash distributions, assumed reinvested, so it grows faster than the price-only version from the same inception value, and the gap compounds. Indexes do not deduct management fees; that is a fund characteristic."
     },
     {
@@ -97,16 +97,16 @@ window.CFA_DATA["equity"] = {
       id: "equity-q11",
       section: "Market Efficiency",
       q: "Researchers document that corporate insiders earn consistent abnormal profits trading their own companies' shares. This evidence <em>most directly</em> rejects:",
-      choices: ["strong-form market efficiency", "semi-strong-form market efficiency", "weak-form market efficiency"],
-      answer: 0,
+      choices: ["semi-strong-form market efficiency", "strong-form market efficiency", "weak-form market efficiency"],
+      answer: 1,
       expl: "Only the strong form claims prices reflect private information; insider profits contradict it. Semi-strong and weak forms concern public information and past market data respectively, and insider profits are fully consistent with both holding."
     },
     {
       id: "equity-q12",
       section: "Market Efficiency",
       q: "The January effect — abnormally high small-cap returns in early January — is <em>best</em> classified as a:",
-      choices: ["time-series (calendar) anomaly", "cross-sectional anomaly", "violation of strong-form efficiency"],
-      answer: 0,
+      choices: ["cross-sectional anomaly", "violation of strong-form efficiency", "time-series (calendar) anomaly"],
+      answer: 2,
       expl: "Calendar patterns are time-series anomalies. Cross-sectional anomalies compare securities to each other at a point in time (size effect, value effect). The January effect involves only public/past information, so it bears on weak/semi-strong efficiency, not the strong form; it has also largely faded since publication."
     },
     {
@@ -121,8 +121,8 @@ window.CFA_DATA["equity"] = {
       id: "equity-q14",
       section: "Equity Securities",
       q: "A company with cumulative preference shares outstanding skipped its preferred dividend for two years. Before it can pay any dividend to common shareholders, it must <em>most likely</em>:",
-      choices: ["pay all preferred dividends in arrears in full", "pay only the current year's preferred dividend", "obtain a waiver vote from the preferred shareholders"],
-      answer: 0,
+      choices: ["pay only the current year's preferred dividend", "pay all preferred dividends in arrears in full", "obtain a waiver vote from the preferred shareholders"],
+      answer: 1,
       expl: "Cumulative preference shares accrue unpaid dividends as dividends in arrears, all of which must be paid before any common dividend. With non-cumulative shares the skipped dividends would simply be lost. No waiver mechanism is part of the standard cumulative feature."
     },
     {
@@ -137,8 +137,8 @@ window.CFA_DATA["equity"] = {
       id: "equity-q16",
       section: "Equity Securities",
       q: "A firm reports net income of $150 million. Shareholders' equity was $900 million at the beginning of the year and $1,100 million at the end. Using average equity, ROE is <em>closest to</em>:",
-      choices: ["15.0%", "16.7%", "13.6%"],
-      answer: 0,
+      choices: ["16.7%", "13.6%", "15.0%"],
+      answer: 2,
       expl: "Average equity = (900 + 1,100) ⁄ 2 = 1,000, so ROE = 150 ⁄ 1,000 = 15.0%. 16.7% uses beginning equity only (150/900) and 13.6% uses ending equity only (150/1,100) — both are the standard distractors when the question specifies AVERAGE equity."
     },
     {
@@ -153,16 +153,16 @@ window.CFA_DATA["equity"] = {
       id: "equity-q18",
       section: "Company Analysis",
       q: "A firm has revenue of $800, variable costs of $480, and fixed operating costs of $240. Its degree of operating leverage is <em>closest to</em>:",
-      choices: ["4.0", "10.0", "2.5"],
-      answer: 0,
+      choices: ["10.0", "4.0", "2.5"],
+      answer: 1,
       expl: "Contribution margin = 800 − 480 = 320; operating income = 320 − 240 = 80; DOL = 320 ⁄ 80 = 4.0, meaning a 1% revenue change moves operating income about 4%. 10.0 wrongly uses revenue ⁄ operating income; 2.5 wrongly uses revenue ⁄ contribution margin — only contribution margin over operating income is correct."
     },
     {
       id: "equity-q19",
       section: "Company Analysis",
       q: "A company's days sales outstanding is 45, days of inventory on hand is 60, and days payables outstanding is 30. Its cash conversion cycle is <em>closest to</em>:",
-      choices: ["75 days", "135 days", "15 days"],
-      answer: 0,
+      choices: ["135 days", "15 days", "75 days"],
+      answer: 2,
       expl: "CCC = DSO + DOH − DPO = 45 + 60 − 30 = 75 days. 135 adds all three (forgetting that payables are financing PROVIDED to the firm and are subtracted); 15 subtracts inventory instead of payables."
     },
     {
@@ -177,8 +177,8 @@ window.CFA_DATA["equity"] = {
       id: "equity-q21",
       section: "Industry Analysis",
       q: "An industry has slowing growth, excess capacity, intense price competition, and weaker firms exiting or being acquired. This industry is <em>most likely</em> in which life-cycle stage?",
-      choices: ["Shakeout", "Mature", "Growth"],
-      answer: 0,
+      choices: ["Mature", "Shakeout", "Growth"],
+      answer: 1,
       expl: "Shakeout is defined by decelerating growth colliding with capacity built for faster growth: price cutting, margin compression, and consolidation of weak players. The mature stage features little growth but stable shares and pricing discipline among survivors; the growth stage has rapid demand growth and limited competitive pressure."
     },
     {
@@ -193,16 +193,16 @@ window.CFA_DATA["equity"] = {
       id: "equity-q23",
       section: "Forecasting",
       q: "An analyst forecasts a company's revenue by estimating national GDP growth, deriving industry sales from its historical relationship to GDP, and applying the company's expected market share. This approach is <em>best</em> described as:",
-      choices: ["top-down", "bottom-up", "time-series extrapolation"],
-      answer: 0,
+      choices: ["bottom-up", "time-series extrapolation", "top-down"],
+      answer: 2,
       expl: "Starting from the macro economy and narrowing to industry and then company is the definition of top-down forecasting. Bottom-up starts from company-level drivers (stores, units, customers) and aggregates upward; extrapolating the firm's own historical growth is a bottom-up technique."
     },
     {
       id: "equity-q24",
       section: "Forecasting",
       q: "A firm expects unit volume to grow 4% and average selling prices to rise 2% next year. Expected revenue growth is <em>closest to</em>:",
-      choices: ["6.1%", "6.0%", "8.0%"],
-      answer: 0,
+      choices: ["6.0%", "6.1%", "8.0%"],
+      answer: 1,
       expl: "Growth compounds multiplicatively: (1.04)(1.02) − 1 = 6.08% ≈ 6.1%. Simply adding 4% + 2% = 6.0% ignores the interaction term (higher prices apply to the additional volume); 8.0% double-counts."
     },
     {
@@ -217,16 +217,16 @@ window.CFA_DATA["equity"] = {
       id: "equity-q26",
       section: "Equity Valuation",
       q: "A firm's dividend payout ratio is 50%, its required return on equity is 10%, and its expected constant growth rate is 6%. The justified forward P/E is <em>closest to</em>:",
-      choices: ["12.5", "25.0", "8.3"],
-      answer: 0,
+      choices: ["25.0", "8.3", "12.5"],
+      answer: 2,
       expl: "Justified forward P/E = payout ⁄ (r − g) = 0.50 ⁄ (0.10 − 0.06) = 0.50 ⁄ 0.04 = 12.5. 25.0 forgets the payout ratio (1/0.04); 8.3 divides the payout by g (0.50/0.06) instead of by r − g."
     },
     {
       id: "equity-q27",
       section: "Equity Valuation",
       q: "A perpetual, non-callable preference share has a $100 par value and pays a 6% annual dividend. If investors require an 8% return, the share's value is <em>closest to</em>:",
-      choices: ["$75.00", "$100.00", "$60.00"],
-      answer: 0,
+      choices: ["$100.00", "$75.00", "$60.00"],
+      answer: 1,
       expl: "The share is a perpetuity: V = D ⁄ r = (100 × 0.06) ⁄ 0.08 = 6 ⁄ 0.08 = $75.00. $100 is par (correct only if required return equals the 6% stated rate); $60.00 comes from dividing the dividend by 10% or multiplying par by the dividend rate incorrectly."
     },
     {
@@ -241,16 +241,16 @@ window.CFA_DATA["equity"] = {
       id: "equity-q29",
       section: "Equity Valuation",
       q: "In a two-stage DDM with a three-year high-growth stage, the terminal value computed as P₃ = D₄ ⁄ (r − g) should be discounted to the present over:",
-      choices: ["3 periods", "4 periods", "the length of the stable-growth stage"],
-      answer: 0,
+      choices: ["4 periods", "3 periods", "the length of the stable-growth stage"],
+      answer: 1,
       expl: "P₃ is the value AT time 3 of all dividends from time 4 onward, so it is discounted 3 periods, together with D₃. Discounting it 4 periods (because D₄ appears in the numerator) is the most common exam error; the stable stage is infinite and already captured inside the perpetuity formula."
     },
     {
       id: "equity-q30",
       section: "Equity Valuation",
       q: "Asset-based valuation is <em>most appropriate</em> for valuing:",
-      choices: ["a closely held shipping company whose fleet has readily determinable market values", "a fast-growing software firm whose main assets are developer talent and internally built code", "a mature consumer brand whose value derives chiefly from trademarks and customer loyalty"],
-      answer: 0,
+      choices: ["a fast-growing software firm whose main assets are developer talent and internally built code", "a mature consumer brand whose value derives chiefly from trademarks and customer loyalty", "a closely held shipping company whose fleet has readily determinable market values"],
+      answer: 2,
       expl: "Asset-based valuation works when assets are tangible, separable, and have observable market values — ships, real estate, securities portfolios — or in liquidation. It badly understates firms whose value lies in intangibles (software, brands, human capital) because those rarely appear at fair value, or at all, on the balance sheet."
     }
   ],
