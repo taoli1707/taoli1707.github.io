@@ -10,21 +10,381 @@
 <header id="topnav" class="topnav" data-root=".." data-here=""></header>
 <div class="wrap">
 <h1>Quantitative Methods <span class="pill">Exam weight: 6–9%</span></h1>
-<p class="lead muted">TEST page.</p>
+<p class="lead muted">Quantitative Methods is the numerical toolkit for the whole Level 1 exam: how to measure returns, move money through time, describe and test data, and build portfolio math. Master it early — Fixed Income, Equity, and Portfolio Management all reuse these tools.</p>
 <div id="topic-progress" class="card" style="margin:1rem 0"></div>
 <div class="layout">
   <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
   <main data-topic="quant">
+
     <section class="lm" id="lm-1">
       <h2>1. Rates and Returns</h2>
-      <p>Test content.</p>
-      <div class="formula">EAR = (1 + r/m)<sup>m</sup> − 1</div>
-      <div class="example"><p><strong>Question.</strong> Test?</p><div class="solution"><p><strong>Solution.</strong> Test.</p></div></div>
+      <p>Everything in finance starts with a rate of return. This module defines what an interest rate <em>is</em>, then builds the vocabulary of returns you will use on almost every other exam question: holding period returns, the three kinds of "average" return, and the two ways to measure a portfolio's performance over time.</p>
+
+      <h3>Interest rates: three ways to read the same number</h3>
+      <p>An interest rate can be interpreted as:</p>
+      <ul>
+        <li>A <strong>required rate of return</strong> — the minimum return an investor demands to invest.</li>
+        <li>A <strong>discount rate</strong> — the rate used to translate future cash into today's dollars.</li>
+        <li>An <strong>opportunity cost</strong> — the return forgone by spending now instead of investing.</li>
+      </ul>
+      <p>A required rate is built from components, each compensating for a specific risk:</p>
+      <div class="formula">Required rate = real risk-free rate + inflation premium + default risk premium + liquidity premium + maturity premium</div>
+      <p>The <strong>nominal risk-free rate</strong> (e.g., a T-bill rate) is approximately the real risk-free rate plus expected inflation. The exact relationship is multiplicative:</p>
+      <div class="formula">(1 + nominal) = (1 + real) × (1 + inflation) &nbsp;&nbsp;→&nbsp;&nbsp; real return = (1 + nominal) ⁄ (1 + inflation) − 1</div>
+      <p>Example: a nominal return of 8% with 3% inflation gives a real return of 1.08 ⁄ 1.03 − 1 = 4.85%, not exactly 5%. The additive version (8% − 3% = 5%) is only an approximation.</p>
+
+      <h3>Holding period return (HPR)</h3>
+      <p>The HPR is the total return from holding an asset over one period, including both price change and any income received:</p>
+      <div class="formula">HPR = (P<sub>1</sub> − P<sub>0</sub> + D<sub>1</sub>) ⁄ P<sub>0</sub></div>
+      <p>where P<sub>0</sub> is the beginning price, P<sub>1</sub> the ending price, and D<sub>1</sub> income (dividend or coupon) received at the end of the period. Multi-period HPRs compound: HPR = (1 + R<sub>1</sub>)(1 + R<sub>2</sub>)…(1 + R<sub>n</sub>) − 1.</p>
+
+      <h3>Three means: arithmetic, geometric, harmonic</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Mean</th><th>Formula</th><th>Use it for</th></tr>
+        <tr><td>Arithmetic</td><td>ΣR<sub>i</sub> ⁄ n</td><td>Best estimate of the return in a <em>single</em> future period; input for many statistics.</td></tr>
+        <tr><td>Geometric</td><td>[(1+R<sub>1</sub>)(1+R<sub>2</sub>)…(1+R<sub>n</sub>)]<sup>1/n</sup> − 1</td><td>Actual compound growth per period over <em>multiple</em> past periods.</td></tr>
+        <tr><td>Harmonic</td><td>n ⁄ Σ(1 ⁄ X<sub>i</sub>)</td><td>Average cost per share when investing a fixed dollar amount each period (cost averaging); averaging ratios like P/E.</td></tr>
+      </table></div>
+      <p>For any data set with variation: <strong>harmonic mean ≤ geometric mean ≤ arithmetic mean</strong>. They are equal only when every observation is identical, and the gap between arithmetic and geometric grows with the volatility of returns.</p>
+
+      <div class="example"><p><strong>Question.</strong> A stock returns +10% in Year 1 and −5% in Year 2. Separately, an investor puts $1,000 into a fund in each of two months, at unit prices of $20 and $25. Compute (a) the arithmetic and geometric mean returns for the stock and (b) the average price paid per fund unit.</p>
+      <div class="solution"><p><strong>Solution.</strong> (a) Arithmetic mean = (10% + (−5%)) ⁄ 2 = <strong>2.50%</strong>. Geometric mean = [(1.10)(0.95)]<sup>1/2</sup> − 1 = (1.045)<sup>0.5</sup> − 1 = 1.02225 − 1 = <strong>2.23%</strong>. Geometric is lower, as it must be when returns vary. (b) The average cost is the harmonic mean: 2 ⁄ (1/20 + 1/25) = 2 ⁄ 0.09 = <strong>$22.22</strong>. Check: $2,000 buys 50 + 40 = 90 units, and 2,000 ⁄ 90 = 22.22. The arithmetic mean of the prices ($22.50) overstates the cost because more units are bought when the price is low.</p></div></div>
+
+      <h3>Money-weighted vs time-weighted return</h3>
+      <p>The <strong>money-weighted return (MWR)</strong> is the internal rate of return (IRR) on all portfolio cash flows — it weights each period by how much money was invested, so it is influenced by the timing and size of deposits and withdrawals. The <strong>time-weighted return (TWR)</strong> breaks the horizon at every cash flow, computes each sub-period HPR, and links them geometrically. TWR strips out the effect of client cash flows.</p>
+      <div class="keypoint">Use <strong>TWR to judge a portfolio manager</strong> who does not control when the client adds or withdraws money. MWR is appropriate when the investor controls the timing of cash flows. MWR &gt; TWR when money is added before strong periods; MWR &lt; TWR when money is added before weak periods.</div>
+
+      <div class="example"><p><strong>Question.</strong> An investor buys 1 fund share for $100. After one year it is worth $120 and she invests another $50. The fund falls 10% in Year 2, leaving the account worth $153. Compute the TWR and the MWR.</p>
+      <div class="solution"><p><strong>Solution.</strong> Year 1 HPR = 120 ⁄ 100 − 1 = 20%. Year 2 HPR = 153 ⁄ 170 − 1 = −10%. TWR = [(1.20)(0.90)]<sup>1/2</sup> − 1 = (1.08)<sup>0.5</sup> − 1 = <strong>3.92%</strong> per year. MWR is the IRR of the cash flows −100, −50, +153: on the BA II Plus, <code>CF, CF0=−100, C01=−50, C02=153 → IRR CPT = 1.19%</code>. So MWR = <strong>1.19%</strong> &lt; TWR because the extra $50 was invested right before the losing year — bad timing that TWR correctly ignores when evaluating the manager.</p></div></div>
+
+      <h3>Annualizing and other return flavors</h3>
+      <div class="formula">Annualized return = (1 + R<sub>period</sub>)<sup>c</sup> − 1, &nbsp; where c = number of periods in a year</div>
+      <p>Example: a 1.5% monthly return annualizes to (1.015)<sup>12</sup> − 1 = 19.56%, not 12 × 1.5% = 18%.</p>
+      <ul>
+        <li><strong>Gross return</strong>: before deducting management and administrative fees (but after trading costs) — measures the manager's investment skill. <strong>Net return</strong>: after all fees — what the investor actually receives.</li>
+        <li><strong>Pre-tax nominal return</strong> is the default quoted return; the <strong>after-tax nominal return</strong> deducts taxes paid. The <strong>real return</strong> removes inflation (formula above); a real after-tax return is the investor's true gain in purchasing power.</li>
+        <li><strong>Leveraged return</strong>: borrowing magnifies the equity investor's return in both directions:
+          <div class="formula">R<sub>L</sub> = R<sub>P</sub> + (V<sub>B</sub> ⁄ V<sub>E</sub>) × (R<sub>P</sub> − r<sub>D</sub>)</div>
+          where V<sub>B</sub> ⁄ V<sub>E</sub> is the debt-to-equity ratio and r<sub>D</sub> the borrowing rate. Example: a portfolio earns 10%, financed with debt equal to half of equity (V<sub>B</sub> ⁄ V<sub>E</sub> = 0.5) costing 5%: R<sub>L</sub> = 10% + 0.5 × (10% − 5%) = 12.5%.</li>
+      </ul>
+      <div class="warning">Classic traps: (1) annualizing by multiplying instead of compounding; (2) using the arithmetic mean to describe multi-period growth — the geometric mean is the correct compound rate; (3) subtracting inflation instead of dividing when the question asks for the <em>exact</em> real return.</div>
     </section>
+
     <section class="lm" id="lm-2">
-      <h2>2. Time Value of Money</h2>
-      <p>Test content 2.</p>
+      <h2>2. Time Value of Money in Finance</h2>
+      <p>Time value of money (TVM) says a dollar today is worth more than a dollar tomorrow, because today's dollar can be invested to earn a return. Every valuation on the exam — bonds, stocks, projects — is discounting future cash flows at a required rate. Learn the five TVM keys on the BA II Plus (<code>N, I/Y, PV, PMT, FV</code>) cold.</p>
+
+      <h3>Present value and future value</h3>
+      <div class="formula">FV = PV × (1 + r)<sup>N</sup> &nbsp;&nbsp;&nbsp; PV = FV ⁄ (1 + r)<sup>N</sup></div>
+      <p>With compounding m times per year at stated annual rate r, use r ⁄ m per period for N × m periods. The <strong>effective annual rate</strong> converts any compounding frequency into a true annual return:</p>
+      <div class="formula">EAR = (1 + r ⁄ m)<sup>m</sup> − 1; &nbsp; with continuous compounding, EAR = e<sup>r</sup> − 1</div>
+      <ul>
+        <li>An <strong>annuity</strong> is a level stream of payments for a fixed number of periods. An <strong>ordinary annuity</strong> pays at period-end; an <strong>annuity due</strong> pays at period-start and is worth (1 + r) times more. Calculator: <code>2ND BGN, 2ND SET</code> for annuity due — and remember to set it back.</li>
+        <li>A <strong>perpetuity</strong> pays forever: PV = PMT ⁄ r. The PV sits one period <em>before</em> the first payment.</li>
+      </ul>
+
+      <h3>Pricing a bond with TVM</h3>
+      <p>A fixed-coupon bond is an annuity (the coupons) plus a lump sum (the face value). Its price is the PV of those cash flows at the market discount rate (the yield to maturity, YTM). Price and yield move inversely.</p>
+      <div class="example"><p><strong>Question.</strong> A 3-year bond pays a 5% annual coupon on a $1,000 face value. The market requires a 4% yield. What is the bond's price?</p>
+      <div class="solution"><p><strong>Solution.</strong> Cash flows: $50 in years 1 and 2, $1,050 in year 3. PV = 50 ⁄ 1.04 + 50 ⁄ 1.04<sup>2</sup> + 1,050 ⁄ 1.04<sup>3</sup> = 48.08 + 46.23 + 933.45 = <strong>$1,027.75</strong>. Calculator: <code>N=3, I/Y=4, PMT=50, FV=1000 → CPT PV = −1,027.75</code>. The bond trades at a premium because its 5% coupon exceeds the 4% required yield. For a semiannual bond, double N and halve I/Y and PMT.</p></div></div>
+
+      <h3>Pricing a stock with TVM</h3>
+      <p>A stock's value is the PV of its expected dividends. If dividends grow at a constant rate g forever (a growing perpetuity), the <strong>Gordon (constant) growth model</strong> applies — valid only when r &gt; g:</p>
+      <div class="formula">P<sub>0</sub> = D<sub>1</sub> ⁄ (r − g), &nbsp; where D<sub>1</sub> = next year's dividend = D<sub>0</sub>(1 + g)</div>
+      <div class="example"><p><strong>Question.</strong> A stock will pay a $2.00 dividend next year, expected to grow 4% per year indefinitely. Investors require 9%. Value the stock.</p>
+      <div class="solution"><p><strong>Solution.</strong> P<sub>0</sub> = 2.00 ⁄ (0.09 − 0.04) = 2.00 ⁄ 0.05 = <strong>$40.00</strong>. Watch the timing: the formula needs D<sub>1</sub>, next year's dividend. If the question gives the dividend <em>just paid</em> (D<sub>0</sub> = $2.00), grow it first: P<sub>0</sub> = 2.00 × 1.04 ⁄ 0.05 = $41.60. For stocks with a temporary high-growth phase, discount each early dividend separately, then apply the model at the point growth turns constant and discount that terminal value back.</p></div></div>
+
+      <h3>Implied return: solving for the rate</h3>
+      <p>Given a price today and known future cash flows, the same equation solved backward yields the return the market price implies.</p>
+      <div class="example"><p><strong>Question.</strong> A zero-coupon note pays $100 in 2 years and sells today for $95. What annual return does the price imply?</p>
+      <div class="solution"><p><strong>Solution.</strong> r = (100 ⁄ 95)<sup>1/2</sup> − 1 = (1.05263)<sup>0.5</sup> − 1 = <strong>2.60%</strong>. Calculator: <code>N=2, PV=−95, PMT=0, FV=100 → CPT I/Y = 2.60</code>. For a stock priced by the Gordon model, the implied return is r = D<sub>1</sub> ⁄ P<sub>0</sub> + g — dividend yield plus growth.</p></div></div>
+
+      <div class="keypoint">Sign convention: the calculator treats cash paid out as negative and cash received as positive. Enter PV as negative when you buy an asset, or CPT I/Y will error out. Keep P/Y = 1 so I/Y is always the periodic rate you intend.</div>
+      <div class="warning">Two recurring traps: (1) mismatched periods — a semiannual bond needs N doubled and I/Y and PMT halved; (2) leaving the calculator in BGN mode after an annuity-due problem, which silently shifts every later answer by one period of interest.</div>
     </section>
+
+    <section class="lm" id="lm-3">
+      <h2>3. Statistical Measures of Asset Returns</h2>
+      <p>Descriptive statistics summarize a sample of returns in four dimensions: central tendency (where returns center), dispersion (how spread out they are), shape (skewness and kurtosis), and association between two series (correlation). The exam tests both computation and interpretation.</p>
+
+      <h3>Central tendency and location</h3>
+      <ul>
+        <li><strong>Mean</strong>: the arithmetic average — uses all data but is sensitive to outliers. A <strong>trimmed mean</strong> discards an equal percentage of the highest and lowest values; a <strong>winsorized mean</strong> replaces extremes with cutoff values instead of discarding them.</li>
+        <li><strong>Median</strong>: middle value of the sorted data — robust to outliers.</li>
+        <li><strong>Mode</strong>: most frequent value; a distribution can have one, several, or no modes.</li>
+        <li><strong>Quantiles</strong> divide sorted data: quartiles (4 parts), quintiles (5), deciles (10), percentiles (100). The location of the y-th percentile among n observations is L<sub>y</sub> = (n + 1) × y ⁄ 100; interpolate linearly when L is not an integer. The <strong>interquartile range</strong> = Q3 − Q1 and is the box in a box-and-whisker plot.</li>
+      </ul>
+
+      <h3>Dispersion</h3>
+      <div class="formula">Range = max − min &nbsp;&nbsp;|&nbsp;&nbsp; MAD = Σ|X<sub>i</sub> − X̄| ⁄ n &nbsp;&nbsp;|&nbsp;&nbsp; sample variance s<sup>2</sup> = Σ(X<sub>i</sub> − X̄)<sup>2</sup> ⁄ (n − 1) &nbsp;&nbsp;|&nbsp;&nbsp; s = √s<sup>2</sup></div>
+      <p>Dividing by n − 1 (not n) makes the sample variance an unbiased estimator of the population variance. The <strong>coefficient of variation</strong> scales risk by return so assets with different means can be compared:</p>
+      <div class="formula">CV = s ⁄ X̄ = risk per unit of return (lower is better)</div>
+      <p><strong>Target downside deviation</strong> (target semideviation) measures only the risk investors dislike — deviations <em>below</em> a target B:</p>
+      <div class="formula">s<sub>target</sub> = √[ Σ<sub>Xi&lt;B</sub> (X<sub>i</sub> − B)<sup>2</sup> ⁄ (n − 1) ]</div>
+      <p>Only observations strictly below the target enter the numerator, but the divisor stays n − 1 for the full sample.</p>
+
+      <div class="example"><p><strong>Question.</strong> Annual returns: 4%, 8%, −2%, 10%, 5%. Compute the mean, median, range, MAD, sample standard deviation, CV, and the target downside deviation with a 4% target.</p>
+      <div class="solution"><p><strong>Solution.</strong> Mean = 25 ⁄ 5 = <strong>5%</strong>. Sorted: −2, 4, 5, 8, 10 → median = <strong>5%</strong>; range = 10 − (−2) = <strong>12%</strong>. Deviations from the mean: −1, 3, −7, 5, 0 → MAD = (1 + 3 + 7 + 5 + 0) ⁄ 5 = <strong>3.2%</strong>. Squared deviations sum to 1 + 9 + 49 + 25 + 0 = 84 → s<sup>2</sup> = 84 ⁄ 4 = 21 → s = <strong>4.58%</strong>. CV = 4.58 ⁄ 5 = <strong>0.92</strong>. Only −2% is below the 4% target: (−2 − 4)<sup>2</sup> = 36 → s<sub>target</sub> = √(36 ⁄ 4) = <strong>3.0%</strong>. Bonus: the 75th percentile location is (5 + 1)(0.75) = 4.5, halfway between 8 and 10 → 9%.</p></div></div>
+
+      <h3>Shape: skewness and kurtosis</h3>
+      <ul>
+        <li><strong>Positive (right) skew</strong>: long right tail — a few very large gains. Ordering: <strong>mean &gt; median &gt; mode</strong>.</li>
+        <li><strong>Negative (left) skew</strong>: long left tail — a few very large losses. Ordering: mean &lt; median &lt; mode. Equity return series typically show negative skew, the direction investors fear.</li>
+        <li><strong>Kurtosis</strong> measures tail weight. A normal distribution has kurtosis 3, so <strong>excess kurtosis = kurtosis − 3</strong>. Excess &gt; 0 is <strong>leptokurtic</strong> (fat tails — more extreme outcomes than normal, typical of asset returns); excess &lt; 0 is <strong>platykurtic</strong> (thin tails); excess = 0 is mesokurtic.</li>
+      </ul>
+      <div class="keypoint">Remember the skew ordering with "the mean gets pulled toward the tail." Fat tails (leptokurtosis) mean models assuming normality understate the probability of extreme losses.</div>
+
+      <h3>Correlation and covariance</h3>
+      <div class="formula">sample covariance s<sub>XY</sub> = Σ(X<sub>i</sub> − X̄)(Y<sub>i</sub> − Ȳ) ⁄ (n − 1) &nbsp;&nbsp;&nbsp; correlation r<sub>XY</sub> = s<sub>XY</sub> ⁄ (s<sub>X</sub> s<sub>Y</sub>)</div>
+      <p>Covariance has awkward units and unbounded scale; correlation standardizes it to the range −1 to +1. Correlation measures only the strength of a <em>linear</em> relationship: r = 0 does not rule out a strong nonlinear relationship, and correlation never proves causation.</p>
+      <div class="warning"><strong>Spurious correlation</strong> — a high measured correlation with no economic basis — arises from (1) pure chance, (2) both variables being driven by a third variable, or (3) constructed relationships (e.g., correlating two ratios that share a denominator). Always ask whether a correlation makes economic sense before using it. Outliers can also manufacture or hide correlation — inspect a scatter plot.</div>
+    </section>
+
+    <section class="lm" id="lm-4">
+      <h2>4. Probability Trees and Conditional Expectations</h2>
+      <p>Analysts form expectations under uncertainty: expected EPS depends on whether the economy expands, and a default probability changes when new evidence arrives. This module gives the machinery — expected values, probability trees, the total probability rule, and Bayes' formula for updating beliefs.</p>
+
+      <h3>Expected value and conditional expectation</h3>
+      <div class="formula">E(X) = Σ P(x<sub>i</sub>) × x<sub>i</sub> &nbsp;&nbsp;&nbsp; E(X | S) = expected value of X given that scenario S occurs</div>
+      <p>A <strong>probability tree</strong> lays out mutually exclusive scenarios as branches, with probabilities on the branches and outcomes at the tips. The unconditional expected value is the probability-weighted average of the conditional expected values — the <strong>total probability rule for expected value</strong>:</p>
+      <div class="formula">E(X) = E(X | S) × P(S) + E(X | S<sup>c</sup>) × P(S<sup>c</sup>)</div>
+      <p>Similarly, the <strong>total probability rule</strong> builds an unconditional probability from conditional probabilities across mutually exclusive and exhaustive scenarios:</p>
+      <div class="formula">P(A) = P(A | S<sub>1</sub>)P(S<sub>1</sub>) + P(A | S<sub>2</sub>)P(S<sub>2</sub>) + … + P(A | S<sub>n</sub>)P(S<sub>n</sub>)</div>
+      <p>Conditional probability itself is defined as P(A | B) = P(AB) ⁄ P(B). When new information arrives, expectations are revised — and it is the <em>revision</em> (actual vs expected), not the level, that moves prices.</p>
+
+      <div class="example"><p><strong>Question.</strong> An analyst expects EPS of $3.00 if GDP growth is strong (probability 60%) and $1.50 if weak (40%). What is expected EPS today, and what happens when strong growth is announced?</p>
+      <div class="solution"><p><strong>Solution.</strong> E(EPS) = 0.60 × 3.00 + 0.40 × 1.50 = 1.80 + 0.60 = <strong>$2.40</strong>. On the announcement, the conditional expectation E(EPS | strong) = $3.00 replaces the $2.40 — the $0.60 upward revision is the news the market prices in.</p></div></div>
+
+      <h3>Bayes' formula: updating with new information</h3>
+      <p>Bayes' formula reverses the direction of conditioning — from P(Information | Event) to P(Event | Information):</p>
+      <div class="formula">P(Event | Info) = P(Info | Event) × P(Event) ⁄ P(Info)</div>
+      <p>The denominator P(Info) usually comes from the total probability rule. The prior probability P(Event) is updated to the posterior P(Event | Info).</p>
+
+      <div class="example"><p><strong>Question.</strong> The probability of recession next year is 30%. A fund underperforms its benchmark with probability 80% if there is a recession and 30% if there is not. (a) What is the unconditional probability the fund underperforms? (b) The year ends and the fund underperformed. What is the updated probability that the economy was in recession?</p>
+      <div class="solution"><p><strong>Solution.</strong> (a) Total probability rule: P(U) = 0.80 × 0.30 + 0.30 × 0.70 = 0.24 + 0.21 = <strong>0.45</strong>. (b) Bayes: P(R | U) = P(U | R) × P(R) ⁄ P(U) = (0.80 × 0.30) ⁄ 0.45 = 0.24 ⁄ 0.45 = <strong>0.533</strong>. Observing underperformance raises the recession probability from the 30% prior to a 53.3% posterior. A tree makes this mechanical: two branches (R, no R) each split into (U, no U); the posterior is the "R and U" path divided by the sum of all paths ending in U.</p></div></div>
+
+      <div class="keypoint">Total probability rule: weight conditional probabilities by scenario probabilities. Bayes: posterior = likelihood × prior ⁄ unconditional probability of the observed information.</div>
+      <div class="warning">The classic Bayes trap is confusing P(A | B) with P(B | A) — e.g., quoting P(underperform | recession) = 80% as the answer to "probability of recession given underperformance." They are different numbers; Bayes is the bridge between them.</div>
+    </section>
+
+    <section class="lm" id="lm-5">
+      <h2>5. Portfolio Mathematics</h2>
+      <p>Portfolio theory begins here: a portfolio's expected return is a simple weighted average, but its risk is <em>not</em> — covariance between assets creates the diversification benefit. This math reappears throughout Portfolio Management.</p>
+
+      <h3>Expected return and variance of a portfolio</h3>
+      <div class="formula">E(R<sub>P</sub>) = Σ w<sub>i</sub> E(R<sub>i</sub>)</div>
+      <div class="formula">σ<sub>P</sub><sup>2</sup> = w<sub>1</sub><sup>2</sup>σ<sub>1</sub><sup>2</sup> + w<sub>2</sub><sup>2</sup>σ<sub>2</sub><sup>2</sup> + 2w<sub>1</sub>w<sub>2</sub>Cov(R<sub>1</sub>,R<sub>2</sub>), &nbsp; where Cov(R<sub>1</sub>,R<sub>2</sub>) = ρ<sub>12</sub>σ<sub>1</sub>σ<sub>2</sub></div>
+      <p>For n assets, variance sums w<sub>i</sub>w<sub>j</sub>Cov(R<sub>i</sub>,R<sub>j</sub>) over every pair — conveniently organized in a <strong>covariance matrix</strong>, an n × n table whose diagonal entries are variances (each asset's covariance with itself) and whose off-diagonal entries are pairwise covariances. The matrix is symmetric, so n assets require n variances plus n(n − 1) ⁄ 2 distinct covariances. From a joint probability model: Cov(R<sub>1</sub>,R<sub>2</sub>) = Σ P(state) × [R<sub>1</sub> − E(R<sub>1</sub>)] × [R<sub>2</sub> − E(R<sub>2</sub>)].</p>
+      <p>Because ρ ≤ 1, portfolio standard deviation is at most the weighted average of the assets' standard deviations — and strictly less whenever ρ &lt; 1. That shortfall is the diversification benefit.</p>
+
+      <div class="example"><p><strong>Question.</strong> A portfolio holds 60% in Asset 1 (E(R) = 8%, σ = 15%) and 40% in Asset 2 (E(R) = 12%, σ = 25%). Correlation is 0.4. Compute the portfolio's expected return and standard deviation.</p>
+      <div class="solution"><p><strong>Solution.</strong> E(R<sub>P</sub>) = 0.6 × 8% + 0.4 × 12% = <strong>9.6%</strong>. Covariance = 0.4 × 15 × 25 = 150 (%²). Variance = (0.6)<sup>2</sup>(225) + (0.4)<sup>2</sup>(625) + 2(0.6)(0.4)(150) = 81 + 100 + 72 = 253. σ<sub>P</sub> = √253 = <strong>15.91%</strong>. Compare with the weighted-average σ of 0.6 × 15 + 0.4 × 25 = 19%: diversification cut risk by about 3 percentage points while the expected return stayed a simple weighted average.</p></div></div>
+
+      <h3>Shortfall risk and Roy's safety-first ratio</h3>
+      <p><strong>Shortfall risk</strong> is the probability that a portfolio's return falls below a minimum threshold level R<sub>L</sub> (e.g., the return needed to fund liabilities). Roy's safety-first criterion selects the portfolio that minimizes that probability; assuming normal returns, that is the portfolio with the largest:</p>
+      <div class="formula">SFRatio = [E(R<sub>P</sub>) − R<sub>L</sub>] ⁄ σ<sub>P</sub></div>
+      <p>The SFRatio counts how many standard deviations the threshold lies below the expected return — a bigger ratio means a smaller left-tail probability of breaching the threshold. It is the Sharpe ratio with the threshold R<sub>L</sub> in place of the risk-free rate.</p>
+
+      <div class="example"><p><strong>Question.</strong> An investor must earn at least 3%. Portfolio A: E(R) = 10%, σ = 14%. Portfolio B: E(R) = 8%, σ = 8%. Which is preferred under Roy's safety-first criterion?</p>
+      <div class="solution"><p><strong>Solution.</strong> SF<sub>A</sub> = (10 − 3) ⁄ 14 = 0.50. SF<sub>B</sub> = (8 − 3) ⁄ 8 = 0.625. <strong>Choose B</strong>: despite its lower expected return, the 3% threshold sits 0.625σ below B's mean versus only 0.50σ for A, so B has the smaller probability of returning less than 3%.</p></div></div>
+
+      <div class="keypoint">Expected return: weighted average. Risk: never a weighted average unless ρ = 1. Do not forget the factor of 2 on the covariance term, and do not forget to take the square root at the end.</div>
+      <div class="warning">Safety-first uses the <em>threshold</em> return, not the risk-free rate. If a question supplies both, using r<sub>f</sub> computes a Sharpe ratio — and will usually match one of the wrong answer choices.</div>
+    </section>
+
+    <section class="lm" id="lm-6">
+      <h2>6. Simulation Methods</h2>
+      <p>When a problem has no clean formula — path-dependent options, portfolios with many interacting risks — analysts simulate. This module covers the lognormal model of prices, continuous compounding, Monte Carlo simulation, and bootstrap resampling.</p>
+
+      <h3>Lognormal distribution and why prices use it</h3>
+      <p>A variable is <strong>lognormal</strong> if its natural logarithm is normally distributed. The lognormal distribution is bounded below by zero and skewed to the right — exactly the properties an asset <em>price</em> must have (prices cannot go negative; upside is unlimited). The standard model: continuously compounded <em>returns</em> are normal, so the price <em>level</em> is lognormal.</p>
+
+      <h3>Continuous compounding</h3>
+      <div class="formula">r<sub>cc</sub> = ln(1 + HPR) = ln(P<sub>1</sub> ⁄ P<sub>0</sub>) &nbsp;&nbsp;&nbsp; P<sub>1</sub> = P<sub>0</sub> × e<sup>r<sub>cc</sub> × t</sup></div>
+      <p>Continuously compounded (log) returns are additive across time: the T-period log return is the sum of the one-period log returns. That additivity is why they pair naturally with the normal distribution and with simulation. A log return is always smaller than the matching HPR.</p>
+      <div class="example"><p><strong>Question.</strong> (a) A stock rises from $100 to $110 in one year. What is the continuously compounded annual return? (b) What will $100 grow to in 2 years at a 6% continuously compounded rate?</p>
+      <div class="solution"><p><strong>Solution.</strong> (a) r<sub>cc</sub> = ln(110 ⁄ 100) = ln(1.10) = <strong>9.53%</strong> — below the 10% HPR, as a log return always is. (b) FV = 100 × e<sup>0.06 × 2</sup> = 100 × e<sup>0.12</sup> = 100 × 1.1275 = <strong>$112.75</strong>. Calculator: <code>1.1 LN → 0.0953</code>; <code>0.12 2ND [e^x] → 1.1275</code>.</p></div></div>
+
+      <h3>Monte Carlo simulation</h3>
+      <p>Monte Carlo simulation generates thousands of possible futures from an assumed statistical model:</p>
+      <ul>
+        <li>Specify the key variables, their assumed distributions and parameters (e.g., normal log returns with a given mean and σ), and how they interact.</li>
+        <li>Draw random values, compute the outcome of interest (portfolio value, option payoff), and repeat thousands of times.</li>
+        <li>The distribution of simulated outcomes estimates expected value, dispersion, and tail risk.</li>
+      </ul>
+      <p>Uses: valuing path-dependent (e.g., Asian) options and complex securities, projecting retirement-plan outcomes, estimating VaR, stress testing. Limitations: results are only as good as the assumed model and inputs — a statistical tool, not an analytical pricing method, and it provides no insight beyond its own assumptions.</p>
+
+      <h3>Bootstrap resampling</h3>
+      <p>The <strong>bootstrap</strong> skips the distributional assumption: it treats the observed historical sample as if it were the population and repeatedly draws samples of size n from it <strong>with replacement</strong>, recomputing the statistic each time to build an empirical sampling distribution (e.g., to estimate a standard error).</p>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>Monte Carlo</th><th>Bootstrap</th></tr>
+        <tr><td>Data source</td><td>Random draws from an <em>assumed</em> distribution</td><td>Random redraws from the <em>observed</em> data</td></tr>
+        <tr><td>Key assumption</td><td>You know the distribution's form and parameters</td><td>The sample represents the population well</td></tr>
+        <tr><td>Captures fat tails?</td><td>Only if you model them explicitly</td><td>Only those present in the historical sample</td></tr>
+      </table></div>
+      <div class="keypoint">Prices are lognormal; log returns are normal. Bootstrap = resampling the observed data with replacement; Monte Carlo = sampling from an assumed model.</div>
+      <div class="warning">"With replacement" is the tested detail: each bootstrap draw is put back, so the same observation can appear multiple times in one resample. Sampling without replacement would merely reshuffle the original sample.</div>
+    </section>
+
+    <section class="lm" id="lm-7">
+      <h2>7. Estimation and Inference</h2>
+      <p>We rarely observe a whole population — we work with samples and infer. This module covers how to sample, why sample means behave predictably (the central limit theorem), and how precise a sample mean is (the standard error).</p>
+
+      <h3>Sampling methods</h3>
+      <ul>
+        <li><strong>Probability sampling</strong> — every population member has a known, nonzero chance of selection:
+          <ul>
+            <li><em>Simple random sampling</em>: each member equally likely; fine when the population is homogeneous.</li>
+            <li><em>Systematic sampling</em>: every k-th member from a list.</li>
+            <li><em>Stratified random sampling</em>: divide the population into strata (e.g., bond sectors and maturities), then randomly sample <em>within every stratum</em>, usually in proportion to its size. Guarantees each subgroup is represented; used to build bond index portfolios.</li>
+            <li><em>Cluster sampling</em>: divide the population into clusters, randomly select <em>whole clusters</em>, then use all members (one-stage) or a random subsample of them (two-stage). Cheaper and faster, but less accurate because the chosen clusters may not represent the population.</li>
+          </ul></li>
+        <li><strong>Non-probability sampling</strong> — selection depends on convenience or judgment, so representativeness is unknown:
+          <ul>
+            <li><em>Convenience sampling</em>: whatever data are easiest to obtain — fast but low reliability.</li>
+            <li><em>Judgmental sampling</em>: the analyst hand-picks observations — efficient given expertise, but exposed to selection bias.</li>
+          </ul></li>
+      </ul>
+      <div class="warning">Stratified vs cluster is a favorite exam contrast: stratified samples <em>from every</em> stratum; cluster samples <em>only some</em> clusters, in their entirety. Stratified is more precise; cluster is cheaper.</div>
+
+      <h3>Central limit theorem (CLT)</h3>
+      <p>Whatever the population's distribution, if it has a finite variance σ<sup>2</sup>, the distribution of the <em>sample mean</em> becomes approximately normal as the sample grows, with mean μ and variance σ<sup>2</sup> ⁄ n. Rule of thumb: n ≥ 30 is large enough. This is why tests and confidence intervals for means work without knowing the population's shape.</p>
+
+      <h3>Standard error of the sample mean</h3>
+      <div class="formula">σ<sub>X̄</sub> = σ ⁄ √n &nbsp; (population σ known) &nbsp;&nbsp;&nbsp; s<sub>X̄</sub> = s ⁄ √n &nbsp; (σ estimated by sample s)</div>
+      <p>The standard error measures how much the sample mean varies from sample to sample. It shrinks with √n. When no formula exists for a statistic's standard error, resampling estimates it empirically: the <strong>bootstrap</strong> (redraw with replacement) or the <strong>jackknife</strong> (recompute the statistic leaving out one observation at a time).</p>
+
+      <div class="example"><p><strong>Question.</strong> Monthly returns on an index have a standard deviation of 20%. For a random sample of 25 months, what is the standard error of the sample mean, and what happens if the sample grows to 100 months?</p>
+      <div class="solution"><p><strong>Solution.</strong> σ<sub>X̄</sub> = 20% ⁄ √25 = 20 ⁄ 5 = <strong>4%</strong>. With n = 100: 20 ⁄ 10 = <strong>2%</strong>. Quadrupling the sample size only halved the standard error — precision improves with the square root of n, not with n itself.</p></div></div>
+
+      <div class="keypoint">CLT: the sample mean is approximately normal for large n regardless of the population's distribution. Standard error = σ ⁄ √n — do not confuse it with the standard deviation of the underlying data.</div>
+    </section>
+
+    <section class="lm" id="lm-8">
+      <h2>8. Hypothesis Testing</h2>
+      <p>Hypothesis testing turns "the fund's average return looks higher than 5%" into a disciplined decision with a known error rate. The framework — hypotheses, test statistic, significance level, decision rule — is reused for means, correlations, and regression slopes.</p>
+
+      <h3>The framework</h3>
+      <ul>
+        <li><strong>Null hypothesis H<sub>0</sub></strong>: the claim assumed true unless the data reject it; it always contains the equality (=, ≤, or ≥). <strong>Alternative H<sub>a</sub></strong>: what the researcher hopes to demonstrate.</li>
+        <li><strong>Two-tailed test</strong>: H<sub>0</sub>: μ = μ<sub>0</sub> vs H<sub>a</sub>: μ ≠ μ<sub>0</sub> — reject in either tail, critical values ±t<sub>α/2</sub>. <strong>One-tailed test</strong>: H<sub>0</sub>: μ ≤ μ<sub>0</sub> vs H<sub>a</sub>: μ &gt; μ<sub>0</sub> — all of α in one tail, so the critical value is smaller in magnitude and rejection is easier in that direction.</li>
+        <li><strong>Type I error</strong>: rejecting a true H<sub>0</sub>; its probability is the <strong>significance level α</strong>. <strong>Type II error</strong>: failing to reject a false H<sub>0</sub>; its probability is β, and <strong>power = 1 − β</strong>. For a fixed sample size, lowering α raises β; only more data improve both.</li>
+        <li><strong>p-value</strong>: the smallest significance level at which H<sub>0</sub> can be rejected — the probability of a result at least this extreme if H<sub>0</sub> is true. Reject when p &lt; α.</li>
+      </ul>
+      <div class="tablewrap"><table>
+        <tr><th>Decision</th><th>H<sub>0</sub> is true</th><th>H<sub>0</sub> is false</th></tr>
+        <tr><td>Reject H<sub>0</sub></td><td>Type I error (prob. = α)</td><td>Correct (power = 1 − β)</td></tr>
+        <tr><td>Fail to reject H<sub>0</sub></td><td>Correct</td><td>Type II error (prob. = β)</td></tr>
+      </table></div>
+
+      <h3>t-test of a single mean</h3>
+      <div class="formula">t = (X̄ − μ<sub>0</sub>) ⁄ (s ⁄ √n), &nbsp; df = n − 1</div>
+      <p>The t-distribution is symmetric like the normal but with fatter tails; it converges to the normal as df grows. Use it whenever the population variance is unknown — which is nearly always.</p>
+
+      <div class="example"><p><strong>Question.</strong> A fund's mean annual return over 36 years of data is 6.4% with a sample standard deviation of 4%. Test at the 5% level whether the mean return differs from 5% (two-tailed critical t with df = 35 is ±2.030).</p>
+      <div class="solution"><p><strong>Solution.</strong> H<sub>0</sub>: μ = 5 vs H<sub>a</sub>: μ ≠ 5. Standard error = 4 ⁄ √36 = 0.667. t = (6.4 − 5) ⁄ 0.667 = <strong>2.10</strong>. Since 2.10 &gt; 2.030, <strong>reject H<sub>0</sub></strong>: the mean is statistically different from 5% at the 5% level; the p-value is just under 0.05. Had the test been one-tailed (H<sub>a</sub>: μ &gt; 5, critical value 1.690), rejection would be even clearer.</p></div></div>
+
+      <h3>Tests of differences in means and paired data</h3>
+      <ul>
+        <li><strong>Difference in means (independent samples)</strong>: tests H<sub>0</sub>: μ<sub>1</sub> = μ<sub>2</sub> for two unrelated samples (e.g., returns of two separate fund groups), using a t-statistic that pools the two sample variances when they are assumed equal.</li>
+        <li><strong>Paired comparisons (dependent samples)</strong>: when the samples are naturally matched (the same funds before and after a policy change), test the <em>mean of the paired differences</em>: t = d̄ ⁄ s<sub>d̄</sub>, df = n − 1.</li>
+        <li>Also know which distribution goes with which test: a single variance → chi-square; equality of two variances → F-distribution.</li>
+      </ul>
+      <div class="keypoint">"Fail to reject" is not "accept" — the data are merely consistent with H<sub>0</sub>. And statistical significance is not economic significance: a tiny alpha can be statistically significant yet vanish after transaction costs.</div>
+      <div class="warning">Choose the tail carefully: testing whether a manager <em>adds</em> value is one-tailed (H<sub>a</sub>: μ &gt; 0); applying two-tailed critical values makes rejection harder and is a classic wrong-answer path. Independent samples → difference-in-means test; matched samples → paired-comparisons test.</div>
+    </section>
+
+    <section class="lm" id="lm-9">
+      <h2>9. Parametric and Non-Parametric Tests of Independence</h2>
+      <p>Are two variables related at all? This module tests independence three ways: a parametric t-test on the correlation coefficient, the non-parametric Spearman rank correlation, and a chi-square test for categorical data.</p>
+
+      <h3>Parametric t-test of a correlation</h3>
+      <p>A <strong>parametric test</strong> relies on assumptions about the population distribution (here, normality) and tests a population parameter. To test H<sub>0</sub>: ρ = 0 (no linear association):</p>
+      <div class="formula">t = r√(n − 2) ⁄ √(1 − r<sup>2</sup>), &nbsp; df = n − 2</div>
+      <p>Significance rises with both the magnitude of r and the sample size — even a small correlation becomes statistically significant if n is large enough.</p>
+
+      <div class="example"><p><strong>Question.</strong> The sample correlation between two stocks' monthly returns over 32 months is 0.35. Test at the 5% level (two-tailed) whether the true correlation is zero. Critical t with df = 30 is ±2.042.</p>
+      <div class="solution"><p><strong>Solution.</strong> t = 0.35 × √30 ⁄ √(1 − 0.1225) = 0.35 × 5.477 ⁄ 0.937 = <strong>2.05</strong>. Since 2.05 &gt; 2.042, <strong>reject H<sub>0</sub></strong> — the correlation is (barely) significant at 5%. With only 20 observations the same r = 0.35 gives t = 0.35 × √18 ⁄ 0.937 = 1.59, and we would fail to reject: sample size drives significance.</p></div></div>
+
+      <h3>Spearman rank correlation (non-parametric)</h3>
+      <p>A <strong>non-parametric test</strong> makes minimal distributional assumptions. Use one when returns are clearly non-normal (outliers, fat tails), the sample is small, or the data are ordinal (ranks) rather than true numbers. The <strong>Spearman rank correlation r<sub>s</sub></strong> converts each variable to ranks and correlates the ranks; it captures any monotonic relationship and is robust to outliers. For large samples it is tested with the same t formula, substituting r<sub>s</sub> for r.</p>
+
+      <h3>Chi-square test of independence (contingency tables)</h3>
+      <p>For two <em>categorical</em> variables (e.g., fund size small/mid/large vs. ESG rating high/low), arrange the observed counts in a contingency table with r rows and c columns and test H<sub>0</sub>: the two classifications are independent.</p>
+      <div class="formula">χ<sup>2</sup> = Σ (O<sub>ij</sub> − E<sub>ij</sub>)<sup>2</sup> ⁄ E<sub>ij</sub>, &nbsp; E<sub>ij</sub> = (row i total × column j total) ⁄ grand total, &nbsp; df = (r − 1)(c − 1)</div>
+      <p>Large gaps between observed and expected counts inflate χ<sup>2</sup>; the test is always <strong>right-tailed</strong> — reject independence when χ<sup>2</sup> exceeds the critical value. Example df: a 3 × 4 table has (3 − 1)(4 − 1) = 6 degrees of freedom.</p>
+      <div class="keypoint">Parametric = tests a parameter under distributional assumptions (t-test of ρ). Non-parametric = ranks or categories with few assumptions (Spearman, chi-square).</div>
+      <div class="warning">Expected frequencies in the chi-square test come from the independence assumption (row total × column total ⁄ grand total) — not from an even split across cells. And df for the correlation t-test is n − 2, not n − 1.</div>
+    </section>
+
+    <section class="lm" id="lm-10">
+      <h2>10. Simple Linear Regression</h2>
+      <p>Simple linear regression (SLR) fits a line explaining one dependent variable Y with one independent variable X — the foundation for the factor models and forecasting you will meet at Level 2. Know the assumptions, the ANOVA pieces, and the tests.</p>
+
+      <h3>The model and its assumptions</h3>
+      <div class="formula">Y<sub>i</sub> = b<sub>0</sub> + b<sub>1</sub>X<sub>i</sub> + ε<sub>i</sub> &nbsp;&nbsp;&nbsp; estimated line: Ŷ = b̂<sub>0</sub> + b̂<sub>1</sub>X, &nbsp; b̂<sub>1</sub> = Cov(X,Y) ⁄ Var(X), &nbsp; b̂<sub>0</sub> = Ȳ − b̂<sub>1</sub>X̄</div>
+      <p>Estimation is by <strong>ordinary least squares (OLS)</strong>: choose the line that minimizes the sum of squared residuals. The slope b<sub>1</sub> is the expected change in Y for a one-unit change in X, and the fitted line always passes through (X̄, Ȳ). Four assumptions:</p>
+      <ul>
+        <li><strong>Linearity</strong>: the true relationship between X and Y is linear.</li>
+        <li><strong>Homoskedasticity</strong>: the error variance is constant across observations (violation = heteroskedasticity, visible as a fan-shaped residual plot).</li>
+        <li><strong>Independence</strong>: errors are uncorrelated with each other (no serial correlation).</li>
+        <li><strong>Normality</strong>: errors are normally distributed (needed for small-sample inference).</li>
+      </ul>
+
+      <h3>Decomposing variation: ANOVA</h3>
+      <div class="formula">SST = SSR + SSE &nbsp;&nbsp; (total variation = explained by regression + unexplained error)</div>
+      <div class="formula">R<sup>2</sup> = SSR ⁄ SST = 1 − SSE ⁄ SST &nbsp;&nbsp;|&nbsp;&nbsp; SEE = √[SSE ⁄ (n − 2)] &nbsp;&nbsp;|&nbsp;&nbsp; F = MSR ⁄ MSE = (SSR ⁄ 1) ⁄ [SSE ⁄ (n − 2)]</div>
+      <p>R<sup>2</sup> (the coefficient of determination) is the fraction of Y's variation explained by X; in SLR it equals the squared correlation between X and Y. The <strong>standard error of estimate (SEE)</strong> is the typical size of a residual — smaller SEE means a tighter fit. The F-statistic tests whether the regression explains anything at all (H<sub>0</sub>: b<sub>1</sub> = 0), with df of 1 and n − 2; in SLR, F = t<sup>2</sup> for the slope, so the F-test and the slope t-test always agree.</p>
+
+      <h3>Testing the slope and predicting Y</h3>
+      <div class="formula">t = (b̂<sub>1</sub> − B<sub>1</sub>) ⁄ s<sub>b̂1</sub>, &nbsp; df = n − 2 &nbsp; (usually H<sub>0</sub>: B<sub>1</sub> = 0)</div>
+      <p>A prediction plugs a value of X into the fitted equation; a <strong>prediction interval</strong> around Ŷ uses the standard error of the forecast, which widens the further X is from X̄ — extrapolating beyond the sample range of X is unreliable. Functional forms extend SLR to nonlinear data: <em>log-lin</em> (ln Y on X: slope = relative change in Y per unit of X), <em>lin-log</em> (Y on ln X), and <em>log-log</em> (slope = an elasticity).</p>
+
+      <div class="example"><p><strong>Question.</strong> A regression of a fund's monthly excess returns (Y, %) on the market's excess returns (X, %) over n = 22 months gives Ŷ = 0.20 + 0.80X, SST = 100, SSE = 40, and s<sub>b̂1</sub> = 0.146. Compute R², the SEE, and the F-statistic; test the slope at 5% (critical t, df = 20, is ±2.086); and predict Y when X = 2%.</p>
+      <div class="solution"><p><strong>Solution.</strong> SSR = 100 − 40 = 60, so R² = 60 ⁄ 100 = <strong>0.60</strong>: the market explains 60% of the fund's return variation. SEE = √(40 ⁄ 20) = √2 = <strong>1.41%</strong>. MSE = 40 ⁄ 20 = 2, so F = 60 ⁄ 2 = <strong>30</strong>, far above any 5% critical F with df 1 and 20 (≈ 4.35) — the regression is significant. Slope test: t = 0.80 ⁄ 0.146 = <strong>5.48</strong> &gt; 2.086 → reject H<sub>0</sub>: b<sub>1</sub> = 0 (and note t² = 5.48² ≈ 30 = F, as it must in SLR). Prediction: Ŷ = 0.20 + 0.80 × 2 = <strong>1.80%</strong>.</p></div></div>
+
+      <div class="keypoint">SST = SSR + SSE; R² = SSR ⁄ SST; SEE uses SSE with df = n − 2. In simple regression, slope significance, F-test significance, and correlation significance are the same test.</div>
+      <div class="warning">Watch the acronyms: some sources call explained variation RSS (regression sum of squares) and unexplained SSE; others reverse the letters. Anchor on the words — <em>explained</em> (regression) vs <em>unexplained</em> (error/residual). R² always = explained ⁄ total.</div>
+    </section>
+
+    <section class="lm" id="lm-11">
+      <h2>11. Introduction to Big Data Techniques</h2>
+      <p>This closing module is conceptual: what fintech and Big Data mean for investment analysis, the main types of machine learning, and the steps of a data-science workflow. Exam questions test definitions and classification, not computation.</p>
+
+      <h3>Fintech and Big Data</h3>
+      <p><strong>Fintech</strong> is technology-driven innovation in financial services — big data analysis, artificial intelligence, automated advice (robo-advisers), and automated trading. <strong>Big Data</strong> is characterized by three Vs, plus a quality caveat:</p>
+      <ul>
+        <li><strong>Volume</strong> — enormous quantities of data (terabytes to petabytes).</li>
+        <li><strong>Velocity</strong> — data arrive at high speed, often in real time (latency matters).</li>
+        <li><strong>Variety</strong> — structured (tables, SQL), semi-structured (HTML, XML), and unstructured (text, images, audio, video) forms.</li>
+        <li><strong>Veracity</strong> — the credibility and reliability of the source; more data are not automatically better data.</li>
+      </ul>
+      <p>Sources of <strong>alternative data</strong>: data generated by <em>individuals</em> (social media posts, product reviews, web searches), by <em>business processes</em> (credit card transactions, corporate exhaust data), and by <em>sensors</em> (satellite imagery, smartphone foot traffic, IoT devices).</p>
+
+      <h3>Machine learning: the main types</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Type</th><th>Training data</th><th>Typical tasks</th></tr>
+        <tr><td><strong>Supervised learning</strong></td><td>Labeled — inputs paired with known target outputs</td><td>Regression (predict a number), classification (predict a category, e.g., default / no default)</td></tr>
+        <tr><td><strong>Unsupervised learning</strong></td><td>Unlabeled — no target given</td><td>Clustering similar firms, dimension reduction of many variables</td></tr>
+        <tr><td><strong>Deep learning</strong></td><td>Either; uses multi-layer neural networks</td><td>Image and speech recognition, complex nonlinear patterns; underlies reinforcement learning systems that learn from trial-and-error feedback</td></tr>
+      </table></div>
+      <p>Two fitting problems to know: <strong>overfitting</strong> — the model learns the training data's noise and generalizes poorly (low training error, high out-of-sample error); <strong>underfitting</strong> — the model is too simple to capture the real pattern (high error everywhere).</p>
+
+      <h3>Data science workflow and text analytics</h3>
+      <ul>
+        <li><strong>Capture</strong> the data (collection at the needed latency), then <strong>curate</strong> it (clean it; detect and handle missing or erroneous values — data quality assurance).</li>
+        <li><strong>Storage</strong> of raw and processed data, then <strong>search</strong> (locating relevant records) and <strong>transfer</strong> (moving data to where the analysis happens).</li>
+        <li><strong>Processing / analysis</strong>, and finally <strong>visualization</strong> — charts and heat maps for numbers; word clouds and tag lists for text.</li>
+      </ul>
+      <p><strong>Natural language processing (NLP)</strong> applies machine learning to text and speech: scoring the sentiment of earnings-call transcripts and news flow, monitoring communications for compliance, extracting themes from filings. Text-derived sentiment is a common alternative-data input to return forecasts.</p>
+
+      <div class="example"><p><strong>Question.</strong> An analyst has 10 years of labeled loan records (borrower characteristics plus whether each loan defaulted) and wants a model that flags new applicants as likely defaulters. A colleague instead wants to group the bank's customers into natural segments without predefined categories. Which ML type does each need — and if the analyst's model shows 1% error on the training data but 15% error on new data, what has gone wrong?</p>
+      <div class="solution"><p><strong>Solution.</strong> The analyst needs <strong>supervised learning</strong> — specifically classification, because the data are labeled with a known categorical outcome (default / no default). The colleague needs <strong>unsupervised learning</strong> — clustering, because no labels exist and the algorithm must find structure on its own. The gap between training and out-of-sample error is <strong>overfitting</strong>: the model memorized noise in the training set. Remedies include simplifying the model and validating on held-out data.</p></div></div>
+
+      <div class="keypoint">Supervised = labeled data, predict a known target. Unsupervised = unlabeled data, find structure. Big Data's three Vs: volume, velocity, variety — with veracity as the data-quality concern.</div>
+      <div class="warning">Do not confuse the ML task names: predicting a <em>number</em> is regression and predicting a <em>category</em> is classification — both supervised. Clustering sounds like classification but is unsupervised, because no labels exist in advance.</div>
+    </section>
+
     <div id="quiz"></div>
   </main>
 </div>
