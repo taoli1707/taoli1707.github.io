@@ -155,7 +155,7 @@ window.CFA_DATA["equity"] = {
       q: "A firm has revenue of $800, variable costs of $480, and fixed operating costs of $240. Its degree of operating leverage is <em>closest to</em>:",
       choices: ["4.0", "10.0", "2.5"],
       answer: 0,
-      expl: "Contribution margin = 800 − 480 = 320; operating income = 320 − 240 = 80; DOL = 320 ⁄ 80 = 4.0, meaning a 1% revenue change moves operating income about 4%. 10.0 wrongly uses revenue ⁄ operating income; 2.5 is fixed costs uncertainty (240/80 = 3, or other mis-ratios) — only contribution margin over operating income is correct."
+      expl: "Contribution margin = 800 − 480 = 320; operating income = 320 − 240 = 80; DOL = 320 ⁄ 80 = 4.0, meaning a 1% revenue change moves operating income about 4%. 10.0 wrongly uses revenue ⁄ operating income; 2.5 wrongly uses revenue ⁄ contribution margin — only contribution margin over operating income is correct."
     },
     {
       id: "equity-q19",
