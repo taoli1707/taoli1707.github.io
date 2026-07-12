@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NJ Rental Investment Analyzer</title>
+<style>
+  :root {
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --series-1: #2a78d6;   /* North */
+    --series-2: #1baf7a;   /* Central */
+    --series-3: #eda100;   /* South */
+    --accent: #2a78d6;
+    --good-text: #006300;
+    --bad-text: #b3261e;
+    --chip-bg: #f0efec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --series-1: #3987e5;
+      --series-2: #199e70;
+      --series-3: #c98500;
+      --accent: #3987e5;
+      --good-text: #0ca30c;
+      --bad-text: #e66767;
+      --chip-bg: #262624;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding: 28px 20px 60px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  header h1 { font-size: 26px; font-weight: 650; letter-spacing: -0.01em; }
+  header .sub { color: var(--text-secondary); margin-top: 4px; font-size: 14.5px; max-width: 72ch; }
+  .vintage { display: inline-block; margin-top: 10px; font-size: 12.5px; color: var(--muted);
+    border: 1px solid var(--border); border-radius: 999px; padding: 3px 12px; background: var(--surface-1); }
+
+  section { margin-top: 28px; }
+  h2 { font-size: 17px; font-weight: 650; margin-bottom: 4px; }
+  .sechint { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  /* ---------- controls ---------- */
+  .controls { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: flex-end; }
+  .ctl { display: flex; flex-direction: column; gap: 4px; }
+  .ctl label { font-size: 12px; color: var(--text-secondary); font-weight: 550; }
+  .ctl input, .ctl select {
+    font: inherit; font-size: 13.5px; color: var(--text-primary);
+    background: var(--page); border: 1px solid var(--border); border-radius: 7px;
+    padding: 6px 9px; width: 108px;
+  }
+  .ctl select { width: auto; min-width: 108px; }
+  .ctl input:focus, .ctl select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--page); }
+  .seg button {
+    font: inherit; font-size: 13px; padding: 6px 13px; border: none; background: transparent;
+    color: var(--text-secondary); cursor: pointer;
+  }
+  .seg button + button { border-left: 1px solid var(--border); }
+  .seg button.on { background: var(--accent); color: #fff; font-weight: 600; }
+  .check { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--text-secondary); padding-bottom: 7px; cursor: pointer; }
+
+  /* ---------- stat tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .tile .tlabel { font-size: 12.5px; color: var(--text-secondary); }
+  .tile .tvalue { font-size: 27px; font-weight: 600; margin-top: 2px; letter-spacing: -0.01em; }
+  .tile .tsub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+  /* ---------- charts ---------- */
+  .charts { display: grid; grid-template-columns: 1.35fr 1fr; gap: 14px; }
+  .chart-title { font-size: 14px; font-weight: 650; }
+  .chart-sub { font-size: 12.5px; color: var(--text-secondary); margin-bottom: 10px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+  .legend .key { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-secondary); }
+  .legend .dot { width: 9px; height: 9px; border-radius: 50%; }
+  svg text { font-family: inherit; }
+
+  .barrow { display: grid; grid-template-columns: 118px 1fr; align-items: center; gap: 10px; margin: 7px 0; }
+  .barrow .bname { font-size: 12.5px; color: var(--text-secondary); text-align: right;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .barrow .btrack { position: relative; height: 18px; display: flex; align-items: center; }
+  .barrow .bfill { height: 16px; border-radius: 0 4px 4px 0; background: var(--series-1); min-width: 2px; }
+  .barrow .bval { font-size: 12px; color: var(--text-primary); font-weight: 600; margin-left: 7px; white-space: nowrap; }
+  .barrow:hover .bfill { filter: brightness(1.12); }
+
+  /* ---------- tooltip ---------- */
+  #tip {
+    position: fixed; z-index: 50; pointer-events: none; display: none;
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
+    padding: 9px 12px; font-size: 12.5px; box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+    max-width: 260px;
+  }
+  #tip .t-head { font-weight: 650; margin-bottom: 4px; }
+  #tip .t-row { display: flex; justify-content: space-between; gap: 16px; color: var(--text-secondary); }
+  #tip .t-row b { color: var(--text-primary); font-weight: 600; }
+
+  /* ---------- table ---------- */
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  thead th {
+    text-align: right; font-weight: 600; color: var(--text-secondary); font-size: 12px;
+    padding: 8px 10px; border-bottom: 1px solid var(--baseline); cursor: pointer; user-select: none;
+    white-space: nowrap;
+  }
+  thead th:first-child, thead th:nth-child(2) { text-align: left; }
+  thead th.sorted { color: var(--text-primary); }
+  tbody td { padding: 8px 10px; border-bottom: 1px solid var(--grid); text-align: right;
+    font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody td:first-child, tbody td:nth-child(2) { text-align: left; font-variant-numeric: normal; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover { background: var(--chip-bg); }
+  .town-name { font-weight: 600; }
+  .county { color: var(--muted); font-size: 12px; }
+  .regdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 7px; }
+  .pos { color: var(--good-text); font-weight: 600; }
+  .neg { color: var(--bad-text); font-weight: 600; }
+  .rc { font-size: 11px; border: 1px solid var(--border); background: var(--chip-bg); border-radius: 999px; padding: 1px 8px; color: var(--text-secondary); }
+  .scorebadge { display: inline-block; min-width: 34px; text-align: center; font-weight: 650; border-radius: 6px; padding: 1px 7px; }
+
+  /* ---------- analyzer ---------- */
+  .an-grid { display: grid; grid-template-columns: 340px 1fr; gap: 14px; align-items: start; }
+  .an-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; }
+  .an-inputs .ctl input, .an-inputs .ctl select { width: 100%; }
+  .an-inputs .full { grid-column: 1 / -1; }
+  .an-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+  .an-tiles .tile { padding: 13px 15px; }
+  .an-tiles .tvalue { font-size: 23px; }
+  #an-verdict { font-size: 13.5px; color: var(--text-secondary); border-top: 1px solid var(--grid);
+    padding-top: 12px; margin-top: 2px; }
+  .subtwo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .minitable table { font-size: 12.5px; }
+  .minitable thead th { cursor: default; }
+  .minitable h3 { font-size: 13.5px; font-weight: 650; margin-bottom: 8px; }
+
+  footer { margin-top: 34px; font-size: 12.5px; color: var(--muted); max-width: 90ch; }
+  footer h2 { font-size: 14px; color: var(--text-secondary); }
+  footer p { margin-top: 8px; }
+  footer code { background: var(--chip-bg); border-radius: 4px; padding: 1px 5px; font-size: 12px; }
+
+  .tile, .card { min-width: 0; }
+  @media (max-width: 900px) {
+    .tiles, .an-tiles { grid-template-columns: repeat(2, 1fr); }
+    .charts, .an-grid, .subtwo { grid-template-columns: 1fr; }
+    .tile .tvalue { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>New Jersey Rental Investment Analyzer</h1>
+  <div class="sub">Screen ~30 NJ municipalities for buy-and-hold rental potential, then stress-test a specific
+    property with the deal analyzer. Adjust financing and operating assumptions below — every score, chart, and
+    cash-flow figure recomputes against them.</div>
+  <span class="vintage">Embedded market data: illustrative mid-2025 estimates — verify before acting (see notes at bottom)</span>
+</header>
+
+<!-- ============ assumptions + filters ============ -->
+<section>
+  <h2>Assumptions &amp; filters</h2>
+  <div class="sechint">These scope everything below — tiles, charts, rankings, and default analyzer values.</div>
+  <div class="card controls">
+    <div class="ctl">
+      <label>Strategy</label>
+      <div class="seg" id="strategy">
+        <button data-s="cashflow">Cash flow</button>
+        <button data-s="balanced" class="on">Balanced</button>
+        <button data-s="appreciation">Appreciation</button>
+      </div>
+    </div>
+    <div class="ctl"><label>Down payment %</label><input type="number" id="a-down" value="25" min="0" max="100" step="1"></div>
+    <div class="ctl"><label>Mortgage rate %</label><input type="number" id="a-rate" value="6.5" min="0" max="15" step="0.125"></div>
+    <div class="ctl"><label>Mgmt % of rent</label><input type="number" id="a-mgmt" value="8" min="0" max="20" step="1"></div>
+    <div class="ctl"><label>Maint. % of rent</label><input type="number" id="a-maint" value="8" min="0" max="25" step="1"></div>
+    <div class="ctl"><label>CapEx % of rent</label><input type="number" id="a-capex" value="5" min="0" max="20" step="1"></div>
+    <div class="ctl"><label>Region</label>
+      <select id="f-region">
+        <option value="all">All regions</option>
+        <option value="North">North Jersey</option>
+        <option value="Central">Central Jersey</option>
+        <option value="South">South Jersey</option>
+      </select>
+    </div>
+    <div class="ctl"><label>Max price $</label><input type="number" id="f-maxprice" placeholder="no cap" step="25000"></div>
+    <label class="check"><input type="checkbox" id="f-norc"> Exclude rent-controlled</label>
+  </div>
+</section>
+
+<!-- ============ stat tiles ============ -->
+<section>
+  <div class="tiles" id="tiles"></div>
+</section>
+
+<!-- ============ charts ============ -->
+<section>
+  <div class="charts">
+    <div class="card">
+      <div class="chart-title">Price vs. estimated cap rate</div>
+      <div class="chart-sub">Each dot is a municipality. Up and to the left = cheaper entry, stronger unlevered yield.</div>
+      <div class="legend" id="scatter-legend"></div>
+      <svg id="scatter" viewBox="0 0 720 400" width="100%" role="img" aria-label="Scatter plot of median price versus estimated cap rate for filtered NJ municipalities"></svg>
+    </div>
+    <div class="card">
+      <div class="chart-title">Top markets by investment score</div>
+      <div class="chart-sub" id="bar-sub">Composite score under the selected strategy (0–100).</div>
+      <div id="bars"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ranking table ============ -->
+<section>
+  <h2>Market rankings</h2>
+  <div class="sechint">Click a column to sort. Click a row to load that market into the deal analyzer below.</div>
+  <div class="card tablewrap">
+    <table id="ranktable">
+      <thead><tr id="thead-row"></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ deal analyzer ============ -->
+<section id="analyzer">
+  <h2>Deal analyzer</h2>
+  <div class="sechint">Underwrite a specific property. Picking a market pre-fills its median price, rent, and effective tax rate — override any field.</div>
+  <div class="an-grid">
+    <div class="card">
+      <div class="an-inputs">
+        <div class="ctl full"><label>Market (sets tax rate + defaults)</label><select id="d-town"></select></div>
+        <div class="ctl"><label>Purchase price $</label><input type="number" id="d-price" step="5000"></div>
+        <div class="ctl"><label>Monthly rent $</label><input type="number" id="d-rent" step="50"></div>
+        <div class="ctl"><label>Down payment %</label><input type="number" id="d-down" step="1" min="0" max="100"></div>
+        <div class="ctl"><label>Rate %</label><input type="number" id="d-rate" step="0.125"></div>
+        <div class="ctl"><label>Term (years)</label><input type="number" id="d-term" value="30" step="5"></div>
+        <div class="ctl"><label>Closing costs %</label><input type="number" id="d-closing" value="4" step="0.5"></div>
+        <div class="ctl"><label>Annual taxes $</label><input type="number" id="d-tax" step="100"></div>
+        <div class="ctl"><label>Annual insurance $</label><input type="number" id="d-ins" step="100"></div>
+        <div class="ctl"><label>Vacancy %</label><input type="number" id="d-vac" step="0.5"></div>
+        <div class="ctl"><label>Maint. % of rent</label><input type="number" id="d-maint" step="1"></div>
+        <div class="ctl"><label>CapEx % of rent</label><input type="number" id="d-capex" step="1"></div>
+        <div class="ctl"><label>Mgmt % of rent</label><input type="number" id="d-mgmt" step="1"></div>
+        <div class="ctl"><label>Rent growth %/yr</label><input type="number" id="d-rgrow" value="3" step="0.5"></div>
+        <div class="ctl"><label>Appreciation %/yr</label><input type="number" id="d-appr" value="4" step="0.5"></div>
+      </div>
+    </div>
+    <div>
+      <div class="an-tiles" id="an-tiles"></div>
+      <div class="card">
+        <div class="subtwo">
+          <div class="minitable">
+            <h3>Monthly breakdown</h3>
+            <table><tbody id="an-expenses"></tbody></table>
+          </div>
+          <div class="minitable">
+            <h3>5-year projection</h3>
+            <table>
+              <thead><tr><th style="text-align:left">Yr</th><th>Cash flow</th><th>Value</th><th>Equity</th></tr></thead>
+              <tbody id="an-proj"></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="an-verdict"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>Methodology &amp; caveats</h2>
+  <p><b>Cap rate</b> = net operating income ÷ price, where NOI = rent × 12 − vacancy loss − property tax −
+  insurance (est. 0.4% of value) − maintenance − CapEx − management. <b>Cash flow</b> subtracts principal &amp;
+  interest at your financing assumptions. <b>Cash-on-cash</b> = annual cash flow ÷ (down payment + closing costs).
+  <b>Investment score</b> min-max normalizes cap rate, 5-yr appreciation, vacancy (inverted), and tax rate
+  (inverted) across all markets, then weights them by strategy — Cash flow 60/10/15/15, Balanced 40/30/15/15,
+  Appreciation 20/55/15/10.</p>
+  <p>Market figures (median price, median rent, effective tax rate, appreciation, vacancy, rent-control status) are
+  <b>illustrative mid-2025 estimates</b> embedded in the <code>DATA</code> array at the top of this page's script —
+  refresh them from Zillow ZHVI/ZORI, the NJ Division of Taxation general tax-rate tables, and each municipality's
+  rent-control ordinance before making decisions. Rent-control flags especially require local verification; New Jersey
+  has 100+ ordinances that differ in coverage (many exempt 1–4 unit owner-occupied or post-1987 construction).
+  This tool is for screening and education only — not financial, legal, or tax advice.</p>
+</footer>
+
+</div>
+<div id="tip"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   DATA — illustrative mid-2025 estimates. Edit here to refresh.
+   price: median home value ($) · rent: median monthly rent ($)
+   tax: effective property tax rate (%) · appr5: 5-yr price growth (%)
+   vac: rental vacancy (%) · rc: rent-control ordinance (verify locally)
+   ===================================================================== */
+const DATA = [
+  // --- North Jersey ---
+  { name:"Newark",         county:"Essex",      region:"North",   price:460000, rent:2600, tax:2.90, appr5:55, vac:5.0, rc:true  },
+  { name:"Jersey City",    county:"Hudson",     region:"North",   price:660000, rent:3300, tax:1.65, appr5:45, vac:5.5, rc:true  },
+  { name:"Paterson",       county:"Passaic",    region:"North",   price:480000, rent:2350, tax:3.10, appr5:65, vac:4.5, rc:true  },
+  { name:"Elizabeth",      county:"Union",      region:"North",   price:520000, rent:2500, tax:2.85, appr5:58, vac:4.0, rc:true  },
+  { name:"Clifton",        county:"Passaic",    region:"North",   price:560000, rent:2500, tax:3.05, appr5:50, vac:3.5, rc:false },
+  { name:"Bayonne",        county:"Hudson",     region:"North",   price:560000, rent:2600, tax:2.60, appr5:48, vac:4.5, rc:true  },
+  { name:"Union City",     county:"Hudson",     region:"North",   price:560000, rent:2500, tax:2.95, appr5:42, vac:5.0, rc:true  },
+  { name:"East Orange",    county:"Essex",      region:"North",   price:460000, rent:2300, tax:3.35, appr5:62, vac:6.0, rc:true  },
+  { name:"Irvington",      county:"Essex",      region:"North",   price:430000, rent:2200, tax:4.10, appr5:68, vac:6.5, rc:true  },
+  { name:"Hackensack",     county:"Bergen",     region:"North",   price:520000, rent:2650, tax:2.90, appr5:45, vac:4.5, rc:false },
+  { name:"Bloomfield",     county:"Essex",      region:"North",   price:540000, rent:2500, tax:3.15, appr5:52, vac:3.5, rc:true  },
+  { name:"Passaic",        county:"Passaic",    region:"North",   price:500000, rent:2200, tax:3.70, appr5:58, vac:5.0, rc:true  },
+  { name:"Fort Lee",       county:"Bergen",     region:"North",   price:640000, rent:2900, tax:2.20, appr5:35, vac:5.5, rc:true  },
+  { name:"Montclair",      county:"Essex",      region:"North",   price:950000, rent:3400, tax:3.10, appr5:40, vac:4.0, rc:true  },
+  { name:"Morristown",     county:"Morris",     region:"North",   price:680000, rent:3100, tax:2.05, appr5:42, vac:4.0, rc:false },
+  // --- Central Jersey ---
+  { name:"New Brunswick",  county:"Middlesex",  region:"Central", price:460000, rent:2500, tax:2.40, appr5:48, vac:4.0, rc:false },
+  { name:"Edison",         county:"Middlesex",  region:"Central", price:620000, rent:2800, tax:2.20, appr5:45, vac:3.5, rc:false },
+  { name:"Woodbridge",     county:"Middlesex",  region:"Central", price:530000, rent:2600, tax:2.45, appr5:47, vac:3.5, rc:false },
+  { name:"Perth Amboy",    county:"Middlesex",  region:"Central", price:460000, rent:2200, tax:2.75, appr5:55, vac:4.5, rc:false },
+  { name:"Trenton",        county:"Mercer",     region:"Central", price:250000, rent:1850, tax:3.60, appr5:75, vac:6.5, rc:false },
+  { name:"Princeton",      county:"Mercer",     region:"Central", price:1050000,rent:3600, tax:2.25, appr5:38, vac:3.0, rc:false },
+  { name:"Lakewood",       county:"Ocean",      region:"Central", price:620000, rent:2700, tax:2.05, appr5:60, vac:3.0, rc:false },
+  { name:"Toms River",     county:"Ocean",      region:"Central", price:490000, rent:2500, tax:2.10, appr5:52, vac:4.0, rc:false },
+  { name:"Brick",          county:"Ocean",      region:"Central", price:480000, rent:2450, tax:2.05, appr5:50, vac:4.0, rc:false },
+  { name:"Asbury Park",    county:"Monmouth",   region:"Central", price:600000, rent:2600, tax:2.55, appr5:58, vac:5.5, rc:false },
+  // --- South Jersey ---
+  { name:"Camden",         county:"Camden",     region:"South",   price:140000, rent:1550, tax:3.30, appr5:80, vac:7.0, rc:false },
+  { name:"Cherry Hill",    county:"Camden",     region:"South",   price:470000, rent:2400, tax:2.85, appr5:50, vac:3.5, rc:false },
+  { name:"Pennsauken",     county:"Camden",     region:"South",   price:300000, rent:2000, tax:3.30, appr5:62, vac:4.5, rc:false },
+  { name:"Gloucester Twp", county:"Camden",     region:"South",   price:330000, rent:2100, tax:3.45, appr5:55, vac:4.0, rc:false },
+  { name:"Willingboro",    county:"Burlington", region:"South",   price:330000, rent:2250, tax:3.60, appr5:65, vac:4.5, rc:false },
+  { name:"Vineland",       county:"Cumberland", region:"South",   price:300000, rent:1800, tax:2.90, appr5:55, vac:4.5, rc:false },
+  { name:"Atlantic City",  county:"Atlantic",   region:"South",   price:190000, rent:1600, tax:3.85, appr5:45, vac:9.0, rc:false },
+  { name:"Egg Harbor Twp", county:"Atlantic",   region:"South",   price:360000, rent:2100, tax:2.80, appr5:50, vac:4.5, rc:false },
+];
+
+const INSURANCE_PCT = 0.004;         // annual insurance as share of value
+const WEIGHTS = {
+  cashflow:     { cap:0.60, appr:0.10, vac:0.15, tax:0.15 },
+  balanced:     { cap:0.40, appr:0.30, vac:0.15, tax:0.15 },
+  appreciation: { cap:0.20, appr:0.55, vac:0.15, tax:0.10 },
+};
+const REGION_COLOR = { North:"var(--series-1)", Central:"var(--series-2)", South:"var(--series-3)" };
+
+const state = {
+  strategy:"balanced", region:"all", maxPrice:null, noRC:false,
+  down:25, rate:6.5, mgmt:8, maint:8, capex:5,
+};
+
+const $ = id => document.getElementById(id);
+const fmt$  = new Intl.NumberFormat("en-US", { style:"currency", currency:"USD", maximumFractionDigits:0 });
+const fmtK  = v => v >= 1e6 ? "$" + (v/1e6).toFixed(2) + "M" : "$" + Math.round(v/1e3) + "K";
+const fmtPct = (v,d=1) => v.toFixed(d) + "%";
+
+/* ---------- finance core (shared by screener + analyzer) ---------- */
+function monthlyPI(loan, ratePct, years) {
+  const r = ratePct/100/12, n = years*12;
+  if (loan <= 0) return 0;
+  if (r === 0) return loan/n;
+  return loan * r / (1 - Math.pow(1+r, -n));
+}
+function underwrite(p) {
+  // p: {price, rent, taxAnnual, insAnnual, vacPct, maintPct, capexPct, mgmtPct, downPct, ratePct, termYrs, closingPct}
+  const gross = p.rent*12;
+  const vacLoss = gross*p.vacPct/100;
+  const egi = gross - vacLoss;
+  const opex = p.taxAnnual + p.insAnnual + gross*(p.maintPct+p.capexPct+p.mgmtPct)/100;
+  const noi = egi - opex;
+  const loan = p.price*(1-p.downPct/100);
+  const pi = monthlyPI(loan, p.ratePct, p.termYrs);
+  const cashInvested = p.price*p.downPct/100 + p.price*p.closingPct/100;
+  const annualCF = noi - pi*12;
+  return {
+    grossYield: gross/p.price*100,
+    capRate: noi/p.price*100,
+    noi, pi,
+    monthlyCF: annualCF/12,
+    coc: cashInvested > 0 ? annualCF/cashInvested*100 : 0,
+    dscr: pi > 0 ? noi/(pi*12) : Infinity,
+    grm: p.price/gross,
+    onePct: p.rent/p.price*100,
+    cashInvested, loan, vacLoss, opex, egi, gross,
+  };
+}
+function townUnderwrite(t) {
+  return underwrite({
+    price:t.price, rent:t.rent,
+    taxAnnual:t.price*t.tax/100, insAnnual:t.price*INSURANCE_PCT,
+    vacPct:t.vac, maintPct:state.maint, capexPct:state.capex, mgmtPct:state.mgmt,
+    downPct:state.down, ratePct:state.rate, termYrs:30, closingPct:4,
+  });
+}
+
+/* ---------- scoring (normalized across ALL markets, so filters never reshuffle scores) ---------- */
+function computeMetrics() {
+  const rows = DATA.map(t => ({ ...t, m: townUnderwrite(t) }));
+  const norm = (vals, v) => {
+    const lo = Math.min(...vals), hi = Math.max(...vals);
+    return hi === lo ? 50 : (v-lo)/(hi-lo)*100;
+  };
+  const caps = rows.map(r => r.m.capRate), apprs = rows.map(r => r.appr5),
+        vacs = rows.map(r => r.vac), taxes = rows.map(r => r.tax);
+  const w = WEIGHTS[state.strategy];
+  rows.forEach(r => {
+    r.score = Math.round(
+      w.cap  * norm(caps, r.m.capRate) +
+      w.appr * norm(apprs, r.appr5) +
+      w.vac  * (100 - norm(vacs, r.vac)) +
+      w.tax  * (100 - norm(taxes, r.tax))
+    );
+  });
+  return rows;
+}
+function filtered(rows) {
+  return rows.filter(r =>
+    (state.region === "all" || r.region === state.region) &&
+    (state.maxPrice == null || r.price <= state.maxPrice) &&
+    (!state.noRC || !r.rc)
+  );
+}
+
+/* ---------- tooltip ---------- */
+const tip = $("tip");
+function showTip(x, y, head, pairs) {
+  tip.replaceChildren();
+  const h = document.createElement("div"); h.className = "t-head"; h.textContent = head; tip.appendChild(h);
+  pairs.forEach(([k,v]) => {
+    const row = document.createElement("div"); row.className = "t-row";
+    const kk = document.createElement("span"); kk.textContent = k;
+    const vv = document.createElement("b"); vv.textContent = v;
+    row.append(kk, vv); tip.appendChild(row);
+  });
+  tip.style.display = "block";
+  const w = tip.offsetWidth, hgt = tip.offsetHeight;
+  tip.style.left = Math.min(x+14, window.innerWidth - w - 10) + "px";
+  tip.style.top  = (y - hgt - 12 < 8 ? y + 16 : y - hgt - 12) + "px";
+}
+function hideTip() { tip.style.display = "none"; }
+
+/* ---------- stat tiles ---------- */
+function renderTiles(rows) {
+  const el = $("tiles");
+  el.replaceChildren();
+  const tile = (label, value, sub) => {
+    const d = document.createElement("div"); d.className = "card tile";
+    const l = document.createElement("div"); l.className = "tlabel"; l.textContent = label;
+    const v = document.createElement("div"); v.className = "tvalue"; v.textContent = value;
+    const s = document.createElement("div"); s.className = "tsub"; s.textContent = sub;
+    d.append(l, v, s); el.appendChild(d);
+  };
+  if (!rows.length) { tile("No markets match", "—", "Loosen the filters above"); return; }
+  const byScore = [...rows].sort((a,b) => b.score - a.score);
+  const byCap   = [...rows].sort((a,b) => b.m.capRate - a.m.capRate);
+  const cfPos   = rows.filter(r => r.m.monthlyCF > 0).length;
+  const prices  = rows.map(r => r.price).sort((a,b) => a-b);
+  const median  = prices[Math.floor(prices.length/2)];
+  tile("Top market — " + state.strategy + " strategy", byScore[0].name, "score " + byScore[0].score + " of 100");
+  tile("Best estimated cap rate", fmtPct(byCap[0].m.capRate), byCap[0].name + " · " + fmtK(byCap[0].price) + " median");
+  tile("Cash-flow-positive markets", cfPos + " of " + rows.length, "at " + state.down + "% down, " + state.rate + "% rate");
+  tile("Median entry price (filtered)", fmtK(median), rows.length + " markets in view");
+}
+
+/* ---------- scatter chart ---------- */
+const SVGNS = "http://www.w3.org/2000/svg";
+function svgEl(tag, attrs, parent) {
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function niceTicks(lo, hi, n) {
+  const span = hi-lo || 1, step0 = span/n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const step = [1,2,2.5,5,10].map(m => m*mag).find(s => span/s <= n) || 10*mag;
+  const start = Math.floor(lo/step)*step, ticks = [];
+  for (let v = start; v <= hi + step*0.51; v += step) ticks.push(v);
+  return ticks;
+}
+function renderScatter(rows) {
+  const svg = $("scatter");
+  svg.replaceChildren();
+  const legend = $("scatter-legend");
+  legend.replaceChildren();
+  ["North","Central","South"].forEach(reg => {
+    const k = document.createElement("span"); k.className = "key";
+    const d = document.createElement("span"); d.className = "dot"; d.style.background = REGION_COLOR[reg];
+    const t = document.createElement("span"); t.textContent = reg + " Jersey";
+    k.append(d, t); legend.appendChild(k);
+  });
+  if (!rows.length) return;
+
+  const W = 720, H = 400, L = 56, R = 18, T = 14, B = 44;
+  const xs = rows.map(r => r.price), ys = rows.map(r => r.m.capRate);
+  const xt = niceTicks(Math.min(...xs)*0.92, Math.max(...xs)*1.05, 6);
+  const yt = niceTicks(Math.min(0, Math.min(...ys))-0.3, Math.max(...ys)+0.4, 6);
+  const xlo = xt[0], xhi = xt[xt.length-1], ylo = yt[0], yhi = yt[yt.length-1];
+  const X = v => L + (v-xlo)/(xhi-xlo)*(W-L-R);
+  const Y = v => H-B - (v-ylo)/(yhi-ylo)*(H-T-B);
+
+  yt.forEach(v => {
+    svgEl("line", { x1:L, x2:W-R, y1:Y(v), y2:Y(v), stroke:"var(--grid)", "stroke-width":1 }, svg);
+    svgEl("text", { x:L-8, y:Y(v)+4, "text-anchor":"end", "font-size":11, fill:"var(--muted)",
+      style:"font-variant-numeric:tabular-nums" }, svg).textContent = v.toFixed(1) + "%";
+  });
+  xt.forEach(v => {
+    svgEl("text", { x:X(v), y:H-B+18, "text-anchor":"middle", "font-size":11, fill:"var(--muted)",
+      style:"font-variant-numeric:tabular-nums" }, svg).textContent = fmtK(v);
+  });
+  svgEl("line", { x1:L, x2:W-R, y1:H-B, y2:H-B, stroke:"var(--baseline)", "stroke-width":1 }, svg);
+  svgEl("text", { x:(L+W-R)/2, y:H-6, "text-anchor":"middle", "font-size":11.5, fill:"var(--muted)" }, svg)
+    .textContent = "Median home price";
+
+  // direct-label the top 3 by score in view (selective, per the relief rule)
+  const top3 = new Set([...rows].sort((a,b) => b.score - a.score).slice(0,3).map(r => r.name));
+
+  rows.forEach(r => {
+    const cx = X(r.price), cy = Y(r.m.capRate);
+    svgEl("circle", { cx, cy, r:5.5, fill:REGION_COLOR[r.region],
+      stroke:"var(--surface-1)", "stroke-width":2 }, svg);
+    if (top3.has(r.name)) {
+      const anchor = cx > W-110 ? "end" : "start";
+      svgEl("text", { x: cx + (anchor === "end" ? -10 : 10), y: cy - 8, "text-anchor":anchor,
+        "font-size":11.5, "font-weight":600, fill:"var(--text-primary)" }, svg).textContent = r.name;
+    }
+    // oversized transparent hit target (≥24px)
+    const hit = svgEl("circle", { cx, cy, r:14, fill:"transparent", style:"cursor:pointer" }, svg);
+    hit.addEventListener("pointermove", ev => showTip(ev.clientX, ev.clientY, r.name + " · " + r.county, [
+      ["Median price", fmt$.format(r.price)],
+      ["Median rent", fmt$.format(r.rent) + "/mo"],
+      ["Est. cap rate", fmtPct(r.m.capRate)],
+      ["Cash flow /mo", fmt$.format(r.m.monthlyCF)],
+      ["Score", String(r.score)],
+    ]));
+    hit.addEventListener("pointerleave", hideTip);
+    hit.addEventListener("click", () => loadTown(r.name));
+  });
+}
+
+/* ---------- score bars ---------- */
+function renderBars(rows) {
+  const el = $("bars");
+  el.replaceChildren();
+  const top = [...rows].sort((a,b) => b.score - a.score).slice(0, 10);
+  const max = Math.max(...top.map(r => r.score), 1);
+  top.forEach(r => {
+    const row = document.createElement("div"); row.className = "barrow";
+    const name = document.createElement("div"); name.className = "bname"; name.textContent = r.name;
+    const track = document.createElement("div"); track.className = "btrack";
+    const fill = document.createElement("div"); fill.className = "bfill";
+    fill.style.width = (r.score/max*82) + "%";
+    const val = document.createElement("span"); val.className = "bval"; val.textContent = r.score;
+    track.append(fill, val);
+    row.append(name, track);
+    row.style.cursor = "pointer";
+    row.addEventListener("pointermove", ev => showTip(ev.clientX, ev.clientY, r.name + " — score " + r.score, [
+      ["Est. cap rate", fmtPct(r.m.capRate)],
+      ["5-yr appreciation", fmtPct(r.appr5, 0)],
+      ["Vacancy", fmtPct(r.vac)],
+      ["Tax rate", fmtPct(r.tax, 2)],
+    ]));
+    row.addEventListener("pointerleave", hideTip);
+    row.addEventListener("click", () => loadTown(r.name));
+    el.appendChild(row);
+  });
+}
+
+/* ---------- ranking table ---------- */
+const COLS = [
+  { key:"rank",   label:"#",             sortable:false },
+  { key:"name",   label:"Market",        sortable:true, str:true },
+  { key:"price",  label:"Median price",  sortable:true },
+  { key:"rent",   label:"Rent /mo",      sortable:true },
+  { key:"gy",     label:"Gross yield",   sortable:true },
+  { key:"tax",    label:"Tax rate",      sortable:true },
+  { key:"cap",    label:"Est. cap",      sortable:true },
+  { key:"cf",     label:"Cash flow /mo", sortable:true },
+  { key:"appr5",  label:"5-yr appr.",    sortable:true },
+  { key:"vac",    label:"Vacancy",       sortable:true },
+  { key:"rc",     label:"Rent ctrl",     sortable:true },
+  { key:"score",  label:"Score",         sortable:true },
+];
+let sortKey = "score", sortDir = -1;
+const colVal = (r, k) => ({
+  name:r.name, price:r.price, rent:r.rent, gy:r.m.grossYield, tax:r.tax,
+  cap:r.m.capRate, cf:r.m.monthlyCF, appr5:r.appr5, vac:r.vac, rc:r.rc?1:0, score:r.score,
+}[k]);
+
+function renderTable(rows) {
+  const head = $("thead-row");
+  head.replaceChildren();
+  COLS.forEach(c => {
+    const th = document.createElement("th");
+    th.textContent = c.label + (c.key === sortKey ? (sortDir === -1 ? " ↓" : " ↑") : "");
+    if (c.key === sortKey) th.className = "sorted";
+    if (c.sortable) th.addEventListener("click", () => {
+      if (sortKey === c.key) sortDir *= -1;
+      else { sortKey = c.key; sortDir = c.str ? 1 : -1; }
+      renderAll();
+    });
+    head.appendChild(th);
+  });
+
+  const sorted = [...rows].sort((a,b) => {
+    const va = colVal(a, sortKey), vb = colVal(b, sortKey);
+    return (typeof va === "string" ? va.localeCompare(vb) : va-vb) * sortDir;
+  });
+  const body = $("tbody");
+  body.replaceChildren();
+  sorted.forEach((r, i) => {
+    const tr = document.createElement("tr");
+    const td = (content, cls) => {
+      const c = document.createElement("td");
+      if (content instanceof Node) c.appendChild(content); else c.textContent = content;
+      if (cls) c.className = cls;
+      tr.appendChild(c); return c;
+    };
+    td(String(i+1));
+    const nameWrap = document.createElement("span");
+    const dot = document.createElement("span"); dot.className = "regdot"; dot.style.background = REGION_COLOR[r.region];
+    const nm = document.createElement("span"); nm.className = "town-name"; nm.textContent = r.name;
+    const ct = document.createElement("span"); ct.className = "county"; ct.textContent = " · " + r.county;
+    nameWrap.append(dot, nm, ct);
+    td(nameWrap);
+    td(fmtK(r.price));
+    td(fmt$.format(r.rent));
+    td(fmtPct(r.m.grossYield));
+    td(fmtPct(r.tax, 2));
+    td(fmtPct(r.m.capRate));
+    td(fmt$.format(r.m.monthlyCF), r.m.monthlyCF >= 0 ? "pos" : "neg");
+    td(fmtPct(r.appr5, 0));
+    td(fmtPct(r.vac));
+    if (r.rc) { const chip = document.createElement("span"); chip.className = "rc"; chip.textContent = "yes"; td(chip); }
+    else td("—");
+    const badge = document.createElement("span"); badge.className = "scorebadge"; badge.textContent = r.score;
+    const alpha = 0.10 + 0.35*(r.score/100);
+    badge.style.background = "color-mix(in srgb, var(--series-1) " + Math.round(alpha*100) + "%, transparent)";
+    td(badge);
+    tr.addEventListener("click", () => { loadTown(r.name); $("analyzer").scrollIntoView({ behavior:"smooth" }); });
+    body.appendChild(tr);
+  });
+}
+
+/* ---------- deal analyzer ---------- */
+function loadTown(name) {
+  const t = DATA.find(d => d.name === name);
+  if (!t) return;
+  $("d-town").value = name;
+  $("d-price").value = t.price;
+  $("d-rent").value = t.rent;
+  $("d-tax").value = Math.round(t.price*t.tax/100);
+  $("d-ins").value = Math.round(t.price*INSURANCE_PCT);
+  $("d-vac").value = t.vac;
+  // annualized 5-yr growth, capped at 5%/yr as a forward assumption
+  const annAppr = (Math.pow(1 + t.appr5/100, 1/5) - 1) * 100;
+  $("d-appr").value = Math.min(Math.max(annAppr, 0), 5).toFixed(1);
+  renderAnalyzer();
+}
+function analyzerParams() {
+  const num = (id, fb) => { const v = parseFloat($(id).value); return Number.isFinite(v) ? v : fb; };
+  return {
+    price:num("d-price", 400000), rent:num("d-rent", 2400),
+    taxAnnual:num("d-tax", 9000), insAnnual:num("d-ins", 1600),
+    vacPct:num("d-vac", 5), maintPct:num("d-maint", state.maint),
+    capexPct:num("d-capex", state.capex), mgmtPct:num("d-mgmt", state.mgmt),
+    downPct:num("d-down", state.down), ratePct:num("d-rate", state.rate),
+    termYrs:num("d-term", 30), closingPct:num("d-closing", 4),
+    rentGrow:num("d-rgrow", 3), appr:num("d-appr", 4),
+  };
+}
+function renderAnalyzer() {
+  const p = analyzerParams();
+  const m = underwrite(p);
+
+  const tiles = $("an-tiles");
+  tiles.replaceChildren();
+  const tile = (label, value, sub, good) => {
+    const d = document.createElement("div"); d.className = "card tile";
+    const l = document.createElement("div"); l.className = "tlabel"; l.textContent = label;
+    const v = document.createElement("div"); v.className = "tvalue"; v.textContent = value;
+    if (good !== undefined) v.style.color = good ? "var(--good-text)" : "var(--bad-text)";
+    const s = document.createElement("div"); s.className = "tsub"; s.textContent = sub;
+    d.append(l, v, s); tiles.appendChild(d);
+  };
+  tile("Monthly cash flow", fmt$.format(m.monthlyCF), "after P&I + all reserves", m.monthlyCF >= 0);
+  tile("Cap rate", fmtPct(m.capRate), "NOI " + fmt$.format(m.noi) + "/yr");
+  tile("Cash-on-cash", fmtPct(m.coc), "on " + fmt$.format(m.cashInvested) + " invested");
+  tile("DSCR", m.dscr === Infinity ? "∞" : m.dscr.toFixed(2), "lenders often want ≥ 1.20", m.dscr >= 1.2);
+  tile("Rent-to-price", fmtPct(m.onePct, 2), "the “1% rule” benchmark");
+  tile("GRM", m.grm.toFixed(1), "price ÷ gross annual rent");
+
+  const exp = $("an-expenses");
+  exp.replaceChildren();
+  const gross = p.rent;
+  const rows = [
+    ["Gross rent", gross],
+    ["Vacancy (" + p.vacPct + "%)", -gross*p.vacPct/100],
+    ["Property tax", -p.taxAnnual/12],
+    ["Insurance", -p.insAnnual/12],
+    ["Maintenance (" + p.maintPct + "%)", -gross*p.maintPct/100],
+    ["CapEx (" + p.capexPct + "%)", -gross*p.capexPct/100],
+    ["Management (" + p.mgmtPct + "%)", -gross*p.mgmtPct/100],
+    ["Principal & interest", -m.pi],
+    ["Net cash flow", m.monthlyCF],
+  ];
+  rows.forEach(([label, v], i) => {
+    const tr = document.createElement("tr");
+    const a = document.createElement("td"); a.style.textAlign = "left"; a.textContent = label;
+    const b = document.createElement("td"); b.textContent = fmt$.format(v);
+    if (i === rows.length-1) { a.style.fontWeight = b.style.fontWeight = "650";
+      b.className = v >= 0 ? "pos" : "neg"; }
+    tr.append(a, b); exp.appendChild(tr);
+  });
+
+  // 5-year projection: rent & opex grow, value appreciates, loan amortizes
+  const proj = $("an-proj");
+  proj.replaceChildren();
+  let bal = m.loan, value = p.price;
+  const r = p.ratePct/100/12;
+  for (let yr = 1; yr <= 5; yr++) {
+    const g = Math.pow(1 + p.rentGrow/100, yr-1);
+    const yGross = p.rent*12*g;
+    const yNOI = yGross*(1 - p.vacPct/100) - (p.taxAnnual + p.insAnnual)*g - yGross*(p.maintPct+p.capexPct+p.mgmtPct)/100;
+    const yCF = yNOI - m.pi*12;
+    for (let mth = 0; mth < 12; mth++) bal = Math.max(0, bal - (m.pi - bal*r));
+    value = p.price * Math.pow(1 + p.appr/100, yr);
+    const tr = document.createElement("tr");
+    [String(yr), fmt$.format(yCF), fmtK(value), fmtK(value - bal)].forEach((txt, i) => {
+      const c = document.createElement("td"); c.textContent = txt;
+      if (i === 0) c.style.textAlign = "left";
+      if (i === 1) c.className = yCF >= 0 ? "pos" : "neg";
+      tr.appendChild(c);
+    });
+    proj.appendChild(tr);
+  }
+
+  const notes = [];
+  notes.push(m.monthlyCF >= 200 ? "Cash flow clears a $200/mo cushion at these assumptions."
+    : m.monthlyCF >= 0 ? "Cash flow is positive but thin — one surprise repair erases a year of margin."
+    : "Negative cash flow: you are paying to hold this property and betting on appreciation.");
+  if (m.dscr < 1.2 && m.dscr !== Infinity) notes.push("DSCR below 1.20 will complicate DSCR-based financing.");
+  if (m.onePct >= 0.9) notes.push("Rent-to-price near/above 1% — strong by NJ standards.");
+  const t = DATA.find(d => d.name === $("d-town").value);
+  if (t && t.rc) notes.push(t.name + " has a rent-control ordinance — verify coverage and allowable increases before underwriting rent growth.");
+  $("an-verdict").textContent = notes.join(" ");
+}
+
+/* ---------- wiring ---------- */
+function renderAll() {
+  const rows = computeMetrics();
+  const view = filtered(rows);
+  renderTiles(view);
+  renderScatter(view);
+  renderBars(view);
+  renderTable(view);
+}
+document.querySelectorAll("#strategy button").forEach(b =>
+  b.addEventListener("click", () => {
+    document.querySelectorAll("#strategy button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    state.strategy = b.dataset.s;
+    renderAll();
+  }));
+[["a-down","down"],["a-rate","rate"],["a-mgmt","mgmt"],["a-maint","maint"],["a-capex","capex"]].forEach(([id,key]) =>
+  $(id).addEventListener("input", () => {
+    const v = parseFloat($(id).value);
+    if (Number.isFinite(v)) { state[key] = v; renderAll(); }
+  }));
+$("f-region").addEventListener("change", e => { state.region = e.target.value; renderAll(); });
+$("f-maxprice").addEventListener("input", e => {
+  const v = parseFloat(e.target.value);
+  state.maxPrice = Number.isFinite(v) && v > 0 ? v : null;
+  renderAll();
+});
+$("f-norc").addEventListener("change", e => { state.noRC = e.target.checked; renderAll(); });
+
+const townSel = $("d-town");
+[...DATA].sort((a,b) => a.name.localeCompare(b.name)).forEach(t => {
+  const o = document.createElement("option"); o.value = t.name; o.textContent = t.name + " (" + t.county + ")";
+  townSel.appendChild(o);
+});
+townSel.addEventListener("change", () => loadTown(townSel.value));
+["d-price","d-rent","d-down","d-rate","d-term","d-closing","d-tax","d-ins","d-vac",
+ "d-maint","d-capex","d-mgmt","d-rgrow","d-appr"].forEach(id =>
+  $(id).addEventListener("input", renderAnalyzer));
+$("d-down").value = state.down; $("d-rate").value = state.rate;
+$("d-maint").value = state.maint; $("d-capex").value = state.capex; $("d-mgmt").value = state.mgmt;
+
+renderAll();
+loadTown("New Brunswick");
+</script>
+</body>
+</html>
