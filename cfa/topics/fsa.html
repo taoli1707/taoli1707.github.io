@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial Statement Analysis — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root=".." data-here=""></header>
+<div class="wrap">
+<h1>Financial Statement Analysis <span class="pill">Exam weight: 11–14%</span></h1>
+<p class="lead muted">Financial Statement Analysis (FSA) teaches you to read, adjust, and interrogate the three core financial statements so you can judge a company's profitability, liquidity, solvency, and reporting quality. It is one of the heaviest Level 1 topics, and it feeds directly into Equity and Corporate Issuers — the ratios and adjustments you learn here are the raw material of valuation.</p>
+<div id="topic-progress" class="card" style="margin:1rem 0"></div>
+<div class="layout">
+  <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
+  <main data-topic="fsa">
+
+    <section class="lm" id="lm-1">
+      <h2>1. Introduction to Financial Statement Analysis</h2>
+      <p>This module sets the stage: what each statement tells you, who vouches for the numbers, where else to look for information, and the standard six-step framework analysts follow. The exam tests definitions here — especially the four audit opinions.</p>
+
+      <h3>Roles of the financial statements</h3>
+      <p>Financial reporting exists to give investors and creditors information useful for deciding whether to provide capital to a company. Each statement answers a different question:</p>
+      <ul>
+        <li><strong>Balance sheet (statement of financial position):</strong> what the company owns (assets), owes (liabilities), and the residual owners' claim (equity) <em>at a point in time</em>. The accounting equation: <em>Assets = Liabilities + Equity</em>.</li>
+        <li><strong>Income statement (statement of profit or loss):</strong> revenues, expenses, and the resulting profit <em>over a period</em>. Prepared on the accrual basis — revenue is recognized when earned, not when cash arrives.</li>
+        <li><strong>Statement of comprehensive income:</strong> net income plus <strong>other comprehensive income (OCI)</strong> — gains and losses that bypass the income statement (e.g., foreign currency translation, certain unrealized investment gains, pension remeasurements).</li>
+        <li><strong>Statement of changes in equity:</strong> reconciles beginning to ending equity — contributions, buybacks, dividends, net income, OCI.</li>
+        <li><strong>Statement of cash flows:</strong> cash receipts and payments over the period, split into operating, investing, and financing activities. It links accrual profits to actual cash.</li>
+        <li><strong>Notes (footnotes):</strong> an integral part of the statements — accounting policies, estimates, detail behind line items. The <strong>MD&amp;A</strong> (management discussion and analysis) gives management's view of results, trends, and risks but is generally unaudited.</li>
+      </ul>
+
+      <h3>Auditor's reports and opinions</h3>
+      <p>An independent audit provides <em>reasonable assurance</em> (not a guarantee) that the statements are fairly presented, free of <em>material</em> misstatement, in accordance with the applicable framework (IFRS or US GAAP). The four possible opinions:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Opinion</th><th>Meaning</th></tr>
+        <tr><td><strong>Unqualified (unmodified / "clean")</strong></td><td>Statements are fairly presented in accordance with the framework. This is the standard, desired outcome.</td></tr>
+        <tr><td><strong>Qualified</strong></td><td>Fairly presented <em>except for</em> a specific material departure or scope limitation, which the report describes. "Fine, except…"</td></tr>
+        <tr><td><strong>Adverse</strong></td><td>Statements are <em>not</em> fairly presented — misstatements are material and pervasive.</td></tr>
+        <tr><td><strong>Disclaimer of opinion</strong></td><td>The auditor cannot form an opinion (e.g., severe scope limitation).</td></tr>
+      </table></div>
+      <ul>
+        <li>Audit reports also highlight <strong>key audit matters</strong> (international standards) or <strong>critical audit matters</strong> (US) — the areas involving the most difficult, subjective judgment.</li>
+        <li>For US-listed companies, the <strong>Sarbanes-Oxley Act</strong> requires the auditor to also opine on the effectiveness of the company's <strong>internal control over financial reporting</strong>, and management must certify the statements.</li>
+        <li>A <strong>going-concern</strong> paragraph flags substantial doubt about the firm's ability to continue operating — a serious red flag even with a clean opinion.</li>
+      </ul>
+
+      <h3>Other information sources</h3>
+      <ul>
+        <li><strong>Interim reports</strong> (quarterly/semiannual): reviewed, typically <em>not audited</em>.</li>
+        <li><strong>Regulatory filings:</strong> in the US, Form 10-K (annual), 10-Q (quarterly), 8-K (material events), proxy statements (governance, compensation, related-party items).</li>
+        <li><strong>Earnings releases and calls, investor presentations</strong> — timely but selective and unaudited; watch for non-GAAP ("adjusted") measures that must be reconciled to GAAP figures.</li>
+        <li><strong>Third-party sources:</strong> industry data, economic statistics, peer filings, analyst reports.</li>
+      </ul>
+
+      <h3>The financial statement analysis framework</h3>
+      <p>Six steps, in order — the exam likes to ask which step comes first or what belongs in each:</p>
+      <ol>
+        <li><strong>Articulate the purpose and context</strong> of the analysis (what question, for whom, with what resources and time).</li>
+        <li><strong>Collect input data</strong> (financial statements, industry and economic data, site visits, management calls).</li>
+        <li><strong>Process the data</strong> (adjust statements, compute ratios, build common-size statements, charts, forecasts).</li>
+        <li><strong>Analyze and interpret</strong> the processed data — turn numbers into answers to the original question.</li>
+        <li><strong>Develop and communicate conclusions</strong> (report, recommendation).</li>
+        <li><strong>Follow up</strong> — update the analysis periodically as new information arrives.</li>
+      </ol>
+
+      <div class="example"><p><strong>Question.</strong> An auditor completes the audit of Ravel Corp. The statements comply with IFRS in all respects except that Ravel refused to consolidate a material subsidiary, and the effect is confined to identifiable line items. Separately, the auditor notes substantial doubt about a customer concentration but concludes it is adequately disclosed. What opinion is most likely issued, and how should an analyst react?</p><div class="solution"><p><strong>Solution.</strong> A material but <em>not pervasive</em> departure from the framework produces a <strong>qualified opinion</strong> ("except for" the non-consolidation). It is not adverse, because the misstatement is not pervasive; it is not a disclaimer, because the auditor had sufficient evidence to form an opinion. The analyst should treat the qualification as a signal to adjust the statements manually — e.g., consolidate the subsidiary — before computing ratios, and to scrutinize management's reporting incentives.</p></div></div>
+
+      <div class="keypoint"><strong>Key point.</strong> Unqualified = clean; qualified = "except for"; adverse = materially and pervasively misstated; disclaimer = no opinion possible. An audit gives <em>reasonable assurance</em>, not certainty, and MD&amp;A and earnings releases are unaudited.</div>
+      <div class="warning"><strong>Exam trap.</strong> "Qualified" sounds positive in everyday English but is the <em>worse</em> of the two common opinions. The clean opinion is "unqualified" (or "unmodified"). Also remember step 1 of the framework is defining the purpose — not collecting data.</div>
+    </section>
+
+    <section class="lm" id="lm-2">
+      <h2>2. Analyzing Income Statements</h2>
+      <p>The income statement module is calculation-heavy: the five-step revenue model, expense recognition, non-recurring items, and above all basic and diluted EPS. Expect at least one EPS calculation on the exam.</p>
+
+      <h3>Revenue recognition: the converged five-step model</h3>
+      <p>IFRS 15 and US GAAP (ASC 606) share one principle: recognize revenue to depict the transfer of goods or services in an amount reflecting the consideration the firm expects to be entitled to. The five steps:</p>
+      <ol>
+        <li><strong>Identify the contract</strong> with a customer.</li>
+        <li><strong>Identify the performance obligations</strong> — the distinct promises in the contract.</li>
+        <li><strong>Determine the transaction price.</strong></li>
+        <li><strong>Allocate the transaction price</strong> to the performance obligations (based on standalone selling prices).</li>
+        <li><strong>Recognize revenue when (or as) each performance obligation is satisfied</strong> — i.e., when control transfers to the customer. Long-term contracts often satisfy obligations <em>over time</em>, recognizing revenue by progress toward completion (e.g., costs incurred ÷ total expected costs).</li>
+      </ol>
+      <p>Related judgments: a firm acting as a <strong>principal</strong> (controls the good before transfer) reports gross revenue; an <strong>agent</strong> reports only its fee (net). Variable consideration (rebates, refunds) is included only to the extent a significant reversal is not probable.</p>
+
+      <h3>Expense recognition</h3>
+      <ul>
+        <li><strong>Matching:</strong> costs directly tied to revenue (e.g., cost of goods sold) are recognized in the same period as that revenue.</li>
+        <li><strong>Period costs</strong> (e.g., administrative salaries) are expensed as incurred.</li>
+        <li><strong>Capitalization then allocation:</strong> costs of long-lived assets are capitalized and expensed over time as depreciation or amortization.</li>
+        <li>Estimates matter: bad-debt allowances, warranty provisions, and useful lives all shift expense between periods. Less conservative estimates (lower bad-debt %, longer lives) raise current earnings.</li>
+      </ul>
+
+      <h3>Capitalizing vs. expensing (income statement view)</h3>
+      <p>Capitalizing a cost puts it on the balance sheet and spreads it into future income statements; expensing hits profit immediately. In the year of the expenditure, capitalizing shows <strong>higher net income, higher assets and equity, higher CFO</strong> (the outflow is classified as investing), and <strong>smoother earnings</strong>. In later years, the capitalizer carries extra depreciation, so its income is lower. Total profit over the asset's whole life is identical — only timing differs. (Section 7 revisits this from the asset side.)</p>
+
+      <h3>Non-recurring items and changes</h3>
+      <ul>
+        <li><strong>Discontinued operations:</strong> a component that has been or will be disposed of is reported separately, <em>net of tax, below income from continuing operations</em> — under both IFRS and US GAAP. Analysts usually exclude it when forecasting.</li>
+        <li><strong>Unusual or infrequent items</strong> (restructuring, asset sale gains/losses, writedowns): reported <em>within</em> continuing operations, pre-tax. Neither IFRS nor US GAAP permits items to be labeled "extraordinary." Analysts assess whether each is truly one-off.</li>
+        <li><strong>Change in accounting policy/principle:</strong> applied <strong>retrospectively</strong> (prior statements restated as if always used), unless a new standard says otherwise.</li>
+        <li><strong>Change in accounting estimate</strong> (e.g., useful life): applied <strong>prospectively</strong> — no restatement.</li>
+        <li><strong>Correction of a prior-period error:</strong> restate prior statements; a red flag for reporting quality.</li>
+      </ul>
+
+      <h3>Earnings per share</h3>
+      <p>A <strong>simple capital structure</strong> has no potentially dilutive securities and reports only basic EPS. A <strong>complex structure</strong> (convertibles, options, warrants) must report both basic and diluted EPS.</p>
+      <div class="formula">Basic EPS = (Net income − Preferred dividends) ⁄ Weighted-average shares outstanding</div>
+      <ul>
+        <li>Weight shares by the fraction of the year outstanding. <strong>Stock splits and stock dividends</strong> are applied retroactively to all shares outstanding <em>before</em> the split, as if outstanding from the start of the year.</li>
+        <li><strong>Convertible debt — if-converted method:</strong> add back after-tax interest saved to the numerator; add conversion shares to the denominator.</li>
+        <li><strong>Convertible preferred — if-converted:</strong> do <em>not</em> subtract the preferred dividend; add conversion shares.</li>
+        <li><strong>Options/warrants — treasury stock method:</strong> assume exercise at the strike; assume proceeds repurchase shares at the <em>average</em> market price. Net new shares = shares issued − shares repurchased. Dilutive only when the average market price exceeds the exercise price (in the money).</li>
+        <li><strong>Antidilutive securities</strong> — those that would <em>raise</em> EPS — are excluded. Diluted EPS can never exceed basic EPS.</li>
+      </ul>
+      <div class="formula">Treasury stock method: incremental shares = N<sub>options</sub> − (N<sub>options</sub> × X) ⁄ P<sub>avg</sub>, where X = exercise price</div>
+
+      <div class="example"><p><strong>Question.</strong> Corvid Inc. earns net income of $1,150,000 and pays preferred dividends of $100,000. It began the year with 1,000,000 common shares and issued 200,000 more on 1 July. It also has 100,000 employee stock options outstanding all year with a $20 exercise price; the average market price was $25. Compute basic and diluted EPS.</p><div class="solution"><p><strong>Solution.</strong> Weighted-average shares = 1,000,000 + 200,000 × (6/12) = 1,100,000.<br>
+      Basic EPS = (1,150,000 − 100,000) ⁄ 1,100,000 = 1,050,000 ⁄ 1,100,000 = <strong>$0.95</strong>.<br>
+      Treasury stock method: exercise proceeds = 100,000 × $20 = $2,000,000; shares repurchased = 2,000,000 ⁄ 25 = 80,000; incremental shares = 100,000 − 80,000 = 20,000.<br>
+      Diluted EPS = 1,050,000 ⁄ (1,100,000 + 20,000) = 1,050,000 ⁄ 1,120,000 = <strong>$0.94</strong>. The options are dilutive (0.94 &lt; 0.95), so diluted EPS is reported at $0.94.</p></div></div>
+
+      <div class="example"><p><strong>Question.</strong> Suppose Corvid's preferred stock ($100,000 dividend) is convertible into 200,000 common shares. Is it dilutive?</p><div class="solution"><p><strong>Solution.</strong> If-converted EPS (ignoring the options) = (1,050,000 + 100,000) ⁄ (1,100,000 + 200,000) = 1,150,000 ⁄ 1,300,000 = $0.88. Since $0.88 &lt; basic $0.95, the preferred is <strong>dilutive</strong> and must be included in diluted EPS. Test each potentially dilutive security: include it only if it lowers EPS.</p></div></div>
+
+      <h3>Common-size analysis and margins</h3>
+      <p>A <strong>vertical common-size income statement</strong> states every line as a percentage of revenue, stripping out size so you can compare firms and years. The key margins:</p>
+      <div class="formula">Gross margin = Gross profit ⁄ Revenue&nbsp;&nbsp;•&nbsp;&nbsp;Operating margin = Operating income ⁄ Revenue&nbsp;&nbsp;•&nbsp;&nbsp;Net margin = Net income ⁄ Revenue</div>
+      <p>Gross margin reflects pricing power and product cost; the gap between gross and operating margin reflects operating cost control; the gap between operating and net margin reflects interest, taxes, and non-operating items.</p>
+
+      <div class="keypoint"><strong>Key point.</strong> Revenue is recognized when control transfers (step 5). Basic EPS subtracts preferred dividends; diluted EPS adds back the effect of any security you assume converted. Options use the treasury stock method with the <em>average</em> market price; convertibles use the if-converted method. Diluted ≤ basic, always.</div>
+      <div class="warning"><strong>Exam trap.</strong> Two classic errors: (1) forgetting to weight mid-year share issues by months outstanding while applying splits retroactively for the full year; (2) subtracting the preferred dividend in the numerator even after assuming the preferred converts — if it converts, no dividend is paid.</div>
+    </section>
+
+    <section class="lm" id="lm-3">
+      <h2>3. Analyzing Balance Sheets</h2>
+      <p>The balance sheet shows financial position at a moment in time. The exam focuses on measurement bases (what "value" each line actually represents), the treatment of intangibles and goodwill, financial instrument categories, and liquidity/solvency ratios.</p>
+
+      <h3>Format and classification</h3>
+      <ul>
+        <li>A <strong>classified balance sheet</strong> separates <strong>current</strong> items (expected to be realized or settled within one year or one operating cycle, whichever is longer) from <strong>non-current</strong> items.</li>
+        <li><strong>Working capital</strong> = current assets − current liabilities.</li>
+        <li>Under IFRS, a <strong>liquidity-based presentation</strong> (assets listed by liquidity, no current/non-current split) is allowed when it is more relevant — common for banks.</li>
+      </ul>
+
+      <h3>Measurement bases — the balance sheet is a mixed model</h3>
+      <p>Different line items are carried on different bases, so total assets is <em>not</em> a market value:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Item</th><th>Typical measurement</th></tr>
+        <tr><td>Cash, receivables</td><td>Face / net realizable amount (receivables net of allowance for doubtful accounts)</td></tr>
+        <tr><td>Inventory</td><td>Lower of cost or NRV (IFRS); see Section 6 for US GAAP nuances</td></tr>
+        <tr><td>PP&amp;E</td><td>Historical cost less accumulated depreciation (IFRS also permits revaluation)</td></tr>
+        <tr><td>Identifiable intangibles</td><td>Cost less amortization (finite life) or unamortized with impairment tests (indefinite life)</td></tr>
+        <tr><td>Goodwill</td><td>Cost at acquisition, tested for impairment, never amortized</td></tr>
+        <tr><td>Marketable securities</td><td>Fair value or amortized cost depending on classification</td></tr>
+        <tr><td>Financial liabilities (bonds)</td><td>Amortized cost (usually)</td></tr>
+      </table></div>
+
+      <h3>Intangibles and goodwill</h3>
+      <ul>
+        <li><strong>Identifiable intangibles</strong> (patents, licenses, trademarks) are recognized when purchased. <strong>Internally generated</strong> intangibles are mostly <em>not</em> capitalized: research is expensed under both frameworks; IFRS capitalizes <strong>development</strong> costs once technical and commercial feasibility criteria are met, while US GAAP expenses both R&amp;D (with a narrow exception for software development costs after feasibility).</li>
+        <li><strong>Goodwill</strong> arises only in an acquisition: purchase price minus the fair value of identifiable net assets acquired. It is not amortized; it is tested (at least annually) for impairment. Internally generated goodwill is never recognized.</li>
+        <li>Analysts often compute ratios <em>excluding</em> goodwill (e.g., tangible book value) to compare acquisitive and organic growers.</li>
+      </ul>
+
+      <h3>Financial instruments</h3>
+      <p>Measurement of marketable securities depends on classification:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Category (IFRS 9)</th><th>Balance sheet</th><th>Unrealized gains/losses</th><th>US GAAP analog</th></tr>
+        <tr><td><strong>Amortized cost</strong> (held to collect contractual cash flows)</td><td>Amortized cost</td><td>Not recognized</td><td>Held-to-maturity (debt)</td></tr>
+        <tr><td><strong>FVOCI</strong> (fair value through OCI)</td><td>Fair value</td><td>In OCI (equity), not P&amp;L</td><td>Available-for-sale (debt)</td></tr>
+        <tr><td><strong>FVTPL</strong> (fair value through profit or loss)</td><td>Fair value</td><td>In the income statement</td><td>Trading securities; equity securities generally</td></tr>
+      </table></div>
+      <p>Under current US GAAP, most <em>equity</em> investments are carried at fair value with changes through profit or loss; the AFS/OCI treatment applies to debt securities.</p>
+
+      <h3>Common-size balance sheet and ratios</h3>
+      <p>A vertical common-size balance sheet expresses each item as a percentage of <strong>total assets</strong>, revealing asset mix and leverage across firms and time.</p>
+      <p><strong>Liquidity ratios</strong> (ability to meet short-term obligations), from most to least inclusive:</p>
+      <div class="formula">Current ratio = Current assets ⁄ Current liabilities<br>Quick ratio = (Cash + Short-term marketable securities + Receivables) ⁄ Current liabilities<br>Cash ratio = (Cash + Short-term marketable securities) ⁄ Current liabilities</div>
+      <p><strong>Solvency ratios</strong> (ability to meet long-term obligations):</p>
+      <div class="formula">Debt-to-equity = Total debt ⁄ Total equity&nbsp;&nbsp;•&nbsp;&nbsp;Debt-to-capital = Total debt ⁄ (Total debt + Total equity)<br>Debt-to-assets = Total debt ⁄ Total assets&nbsp;&nbsp;•&nbsp;&nbsp;Financial leverage = Average total assets ⁄ Average total equity</div>
+      <p>"Total debt" here means interest-bearing debt (short- plus long-term), not all liabilities.</p>
+
+      <div class="example"><p><strong>Question.</strong> Marlowe Co. reports: cash $50, short-term investments $30, accounts receivable $120, inventory $200 (all current assets), and current liabilities of $250. Compute the current, quick, and cash ratios.</p><div class="solution"><p><strong>Solution.</strong> Current assets = 50 + 30 + 120 + 200 = 400.<br>
+      Current ratio = 400 ⁄ 250 = <strong>1.60</strong>.<br>
+      Quick ratio = (50 + 30 + 120) ⁄ 250 = 200 ⁄ 250 = <strong>0.80</strong> — inventory is excluded because it is the least liquid current asset.<br>
+      Cash ratio = (50 + 30) ⁄ 250 = 80 ⁄ 250 = <strong>0.32</strong>. Marlowe looks adequately liquid overall, but heavily dependent on selling inventory to cover near-term obligations.</p></div></div>
+
+      <div class="keypoint"><strong>Key point.</strong> The balance sheet mixes historical cost, amortized cost, and fair value — it is not the market value of the firm. Goodwill: purchased only, never amortized, impairment-tested. FVOCI keeps unrealized gains out of net income; FVTPL puts them in.</div>
+      <div class="warning"><strong>Exam trap.</strong> The quick ratio excludes <em>inventory</em> (and prepaid expenses), not receivables. And internally generated goodwill and brands are never on the balance sheet — a company rich in self-built intangibles will look "asset-light" and can post inflated ROA/ROE versus an acquirer of the same assets.</div>
+    </section>
+
+    <section class="lm" id="lm-4">
+      <h2>4. Analyzing Statements of Cash Flows I</h2>
+      <p>The cash flow statement reconciles accrual accounting back to cash. You must know the three activity categories, exactly where IFRS and US GAAP differ on interest and dividends, and how to build CFO both indirectly and directly. This is among the most reliably tested calculations at Level 1.</p>
+
+      <h3>Classification: CFO, CFI, CFF</h3>
+      <ul>
+        <li><strong>Operating (CFO):</strong> cash effects of transactions that enter net income — collections from customers, payments to suppliers and employees, taxes.</li>
+        <li><strong>Investing (CFI):</strong> buying and selling long-term assets and investments (PP&amp;E, acquisitions, security purchases other than trading/cash equivalents).</li>
+        <li><strong>Financing (CFF):</strong> transactions with capital providers — issuing/repurchasing shares, borrowing/repaying debt, paying dividends (under US GAAP).</li>
+        <li><strong>Non-cash transactions</strong> (e.g., acquiring an asset by issuing stock, converting debt to equity) appear in <em>disclosures</em>, not on the statement itself.</li>
+      </ul>
+
+      <h3>IFRS vs. US GAAP classification — memorize this table</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Item</th><th>US GAAP</th><th>IFRS</th></tr>
+        <tr><td>Interest received</td><td>CFO</td><td>CFO <em>or</em> CFI</td></tr>
+        <tr><td>Interest paid</td><td>CFO</td><td>CFO <em>or</em> CFF</td></tr>
+        <tr><td>Dividends received</td><td>CFO</td><td>CFO <em>or</em> CFI</td></tr>
+        <tr><td>Dividends paid</td><td>CFF</td><td>CFO <em>or</em> CFF</td></tr>
+        <tr><td>Taxes paid</td><td>CFO</td><td>CFO, unless specifically tied to an investing or financing transaction</td></tr>
+        <tr><td>Bank overdrafts</td><td>Financing (borrowing)</td><td>May be included in cash and cash equivalents</td></tr>
+      </table></div>
+      <p>The logic: US GAAP forces income-statement-related flows (interest, dividends received) into CFO; IFRS lets firms choose, as long as the choice is consistent. When comparing an IFRS firm to a US firm, reclassify to a common basis — e.g., an IFRS firm putting interest paid in CFF will show a flattered CFO.</p>
+
+      <h3>Direct vs. indirect method</h3>
+      <ul>
+        <li><strong>Direct method:</strong> shows gross operating receipts and payments (cash from customers, cash to suppliers, cash to employees…). More informative; encouraged by both frameworks; rarely used in practice. US GAAP direct-method filers must also disclose the indirect reconciliation.</li>
+        <li><strong>Indirect method:</strong> starts with net income and adjusts to CFO. Used by almost everyone. Only the CFO section differs — CFI and CFF are presented the same way under both methods.</li>
+      </ul>
+
+      <h3>Indirect CFO: the adjustment rules</h3>
+      <div class="formula">CFO = Net income + non-cash charges (depreciation, amortization) − gains (+ losses) on investing/financing items − increases in operating assets (AR, inventory, prepaids) + increases in operating liabilities (AP, accrued wages, unearned revenue)</div>
+      <ul>
+        <li>An <em>increase</em> in an operating <em>asset</em> uses cash → subtract. A <em>decrease</em> releases cash → add.</li>
+        <li>An <em>increase</em> in an operating <em>liability</em> conserves cash → add. A <em>decrease</em> → subtract.</li>
+        <li>Gains on asset sales are removed from CFO (the full sale proceeds belong in CFI); losses are added back.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> Halcyon Ltd. (US GAAP) reports net income $200, depreciation $40, a $10 gain on sale of equipment, an increase in accounts receivable of $25, a decrease in inventory of $15, an increase in accounts payable of $20, and a decrease in wages payable of $5. Compute CFO (indirect).</p><div class="solution"><p><strong>Solution.</strong> Start with NI and adjust:<br>
+      CFO = 200 + 40 (depreciation, non-cash) − 10 (gain belongs in CFI) − 25 (AR up = cash not yet collected) + 15 (inventory down = cash released) + 20 (AP up = cash conserved) − 5 (wages payable down = cash paid out)<br>
+      CFO = <strong>$235</strong>.</p></div></div>
+
+      <h3>Converting indirect to direct</h3>
+      <p>Take each income statement line and adjust it by the change in its related balance sheet account:</p>
+      <div class="formula">Cash collected from customers = Revenue − ΔAccounts receivable (increase) + ΔUnearned revenue (increase)<br>Cash paid to suppliers = −[COGS + ΔInventory (increase) − ΔAccounts payable (increase)]<br>Cash paid for taxes = −[Tax expense − ΔTaxes payable (increase) + ΔDeferred tax liability (decrease)]</div>
+
+      <div class="example"><p><strong>Question.</strong> Using Halcyon's data: revenue $1,000, AR up $25; COGS $600, inventory down $15, AP up $20. Compute cash collected from customers and cash paid to suppliers.</p><div class="solution"><p><strong>Solution.</strong> Cash collected = 1,000 − 25 = <strong>$975</strong> (revenue booked but $25 not yet collected).<br>
+      Purchases = COGS + ΔInventory = 600 + (−15) = 585 (inventory fell, so the firm bought less than it sold).<br>
+      Cash paid to suppliers = Purchases − ΔAP = 585 − 20 = <strong>$565</strong> (AP rose, so $20 of purchases remain unpaid).</p></div></div>
+
+      <div class="keypoint"><strong>Key point.</strong> Under US GAAP: interest paid/received and dividends received are CFO; dividends paid are CFF. IFRS allows choices (interest/dividends paid: CFO or CFF; interest/dividends received: CFO or CFI). Indirect CFO: add back non-cash charges and liability increases; subtract gains and operating-asset increases.</div>
+      <div class="warning"><strong>Exam trap.</strong> Sign errors kill this question. "Accounts receivable increased" means <em>subtract</em>; "accounts payable increased" means <em>add</em>. And a gain on sale of equipment is <em>subtracted</em> from CFO — including it twice (in NI and in CFI proceeds) overstates total cash flow.</div>
+    </section>
+
+    <section class="lm" id="lm-5">
+      <h2>5. Analyzing Statements of Cash Flows II</h2>
+      <p>Part II uses the cash flow statement analytically: free cash flow to the firm and to equity, and performance/coverage ratios built on CFO. FCFF and FCFE reappear in Equity valuation, so learn them properly now.</p>
+
+      <h3>Free cash flow to the firm (FCFF)</h3>
+      <p>FCFF is cash available to <em>all</em> capital providers (debt and equity) after operating expenses and the investment needed to sustain the business. Because CFO already deducts interest paid (US GAAP), you add back after-tax interest to get a pre-financing measure:</p>
+      <div class="formula">FCFF = CFO + Interest expense × (1 − tax rate) − Fixed capital investment (FCInv)</div>
+      <div class="formula">FCFF = NI + Non-cash charges (NCC) + Interest × (1 − t) − FCInv − Working capital investment (WCInv)</div>
+      <p>If an IFRS firm classifies interest paid in CFF, its CFO needs no interest add-back — check the classification before applying the formula.</p>
+
+      <h3>Free cash flow to equity (FCFE)</h3>
+      <p>FCFE is cash available to common shareholders after all operating needs, capital spending, and dealings with debtholders:</p>
+      <div class="formula">FCFE = CFO − FCInv + Net borrowing&nbsp;&nbsp;(net borrowing = new debt issued − debt repaid)</div>
+
+      <div class="example"><p><strong>Question.</strong> Quarry Corp. (US GAAP): CFO = $300, interest expense = $50, tax rate = 25%, capital expenditures = $120, new long-term debt issued = $60, debt repaid = $20. Compute FCFF and FCFE.</p><div class="solution"><p><strong>Solution.</strong> FCFF = 300 + 50 × (1 − 0.25) − 120 = 300 + 37.5 − 120 = <strong>$217.5</strong>.<br>
+      Net borrowing = 60 − 20 = 40.<br>
+      FCFE = 300 − 120 + 40 = <strong>$220</strong>.</p></div></div>
+
+      <div class="example"><p><strong>Question.</strong> Same firm from the income-statement side: NI = $180, depreciation = $60, interest = $50, t = 25%, FCInv = $120, WCInv = $30. Confirm FCFF.</p><div class="solution"><p><strong>Solution.</strong> FCFF = 180 + 60 + 50 × 0.75 − 120 − 30 = 180 + 60 + 37.5 − 150 = <strong>$127.5</strong>. (Consistency check: CFO = NI + NCC − WCInv = 180 + 60 − 30 = 210, and 210 + 37.5 − 120 = 127.5 — the two routes agree when the inputs describe the same firm.)</p></div></div>
+
+      <h3>Cash flow ratios</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Ratio</th><th>Formula</th><th>Measures</th></tr>
+        <tr><td>Cash flow to revenue</td><td>CFO ⁄ Revenue</td><td>Cash generated per dollar of sales</td></tr>
+        <tr><td>Cash return on assets</td><td>CFO ⁄ Average total assets</td><td>Cash productivity of assets</td></tr>
+        <tr><td>Cash return on equity</td><td>CFO ⁄ Average equity</td><td>Cash productivity of owners' capital</td></tr>
+        <tr><td>Cash flow per share</td><td>(CFO − preferred dividends) ⁄ weighted-avg shares</td><td>Cash analog of EPS</td></tr>
+        <tr><td>Debt coverage</td><td>CFO ⁄ Total debt</td><td>Leverage/solvency from a cash view</td></tr>
+        <tr><td>Interest coverage (cash)</td><td>(CFO + interest paid + taxes paid) ⁄ Interest paid</td><td>Ability to pay interest from cash</td></tr>
+        <tr><td>Reinvestment</td><td>CFO ⁄ Cash paid for long-term assets</td><td>Ability to self-fund capex</td></tr>
+        <tr><td>Dividend payment</td><td>CFO ⁄ Dividends paid</td><td>Ability to cover the dividend</td></tr>
+      </table></div>
+      <p>Analysts also compare CFO to net income over time: persistent NI growth without CFO growth suggests aggressive accruals (a Section 10 warning sign).</p>
+
+      <div class="keypoint"><strong>Key point.</strong> FCFF = CFO + Int(1 − t) − FCInv; FCFE = CFO − FCInv + net borrowing. FCFF is pre-financing (available to everyone); FCFE is post-debt (available to shareholders).</div>
+      <div class="warning"><strong>Exam trap.</strong> The interest add-back is <em>after-tax</em> — adding back the full $50 instead of $37.5 is the built-in distractor. And FCFE adds <em>net</em> borrowing (issuance minus repayment), not gross issuance.</div>
+    </section>
+
+    <section class="lm" id="lm-6">
+      <h2>6. Analysis of Inventories</h2>
+      <p>Inventory cost-flow choice (FIFO vs. LIFO vs. weighted average) changes COGS, profit, inventory value, taxes, and every ratio built on them — without changing the physical business. LIFO exists only under US GAAP; the LIFO reserve lets you convert LIFO firms to FIFO for comparison. This is one of the most heavily tested FSA areas.</p>
+
+      <h3>Cost flow methods</h3>
+      <ul>
+        <li><strong>FIFO (first-in, first-out):</strong> oldest costs go to COGS; ending inventory holds the newest costs — closest to current replacement cost.</li>
+        <li><strong>LIFO (last-in, first-out):</strong> newest costs go to COGS; inventory holds old (possibly ancient) costs. <strong>Permitted only under US GAAP — prohibited under IFRS.</strong></li>
+        <li><strong>Weighted average cost:</strong> total cost available ÷ total units available; results fall between FIFO and LIFO.</li>
+        <li><strong>Specific identification:</strong> used for unique, high-value items (jewelry, custom equipment).</li>
+      </ul>
+
+      <h3>Effects when prices are rising (and inventory quantities stable)</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Measure</th><th>LIFO vs. FIFO</th></tr>
+        <tr><td>COGS</td><td>LIFO <strong>higher</strong> (newest, most expensive costs expensed)</td></tr>
+        <tr><td>Gross profit, net income</td><td>LIFO <strong>lower</strong></td></tr>
+        <tr><td>Ending inventory, total assets, equity</td><td>LIFO <strong>lower</strong></td></tr>
+        <tr><td>Income taxes paid (if LIFO used for tax)</td><td>LIFO <strong>lower</strong> → LIFO CFO <strong>higher</strong></td></tr>
+        <tr><td>Inventory turnover (COGS ⁄ avg inventory)</td><td>LIFO <strong>higher</strong> (bigger numerator, smaller denominator)</td></tr>
+        <tr><td>Current ratio</td><td>LIFO <strong>lower</strong></td></tr>
+        <tr><td>Gross/net margin</td><td>LIFO <strong>lower</strong></td></tr>
+      </table></div>
+      <p>Analyst's rule of thumb: for <em>income statement</em> analysis, LIFO COGS is more current and economically meaningful; for <em>balance sheet</em> analysis, FIFO inventory is more current. All effects reverse when prices are falling.</p>
+
+      <div class="example"><p><strong>Question.</strong> Beacon Co. begins the year with 100 units at $10. It purchases 100 units at $12, then 100 units at $14. It sells 220 units at $20 each. Compute COGS, ending inventory, and gross profit under FIFO, LIFO, and weighted average.</p><div class="solution"><p><strong>Solution.</strong> Units available = 300, cost available = 1,000 + 1,200 + 1,400 = $3,600. Revenue = 220 × 20 = $4,400. Ending units = 80.<br>
+      <strong>FIFO:</strong> COGS = 100×10 + 100×12 + 20×14 = 1,000 + 1,200 + 280 = $2,480; ending inventory = 80 × 14 = $1,120; gross profit = 4,400 − 2,480 = <strong>$1,920</strong>.<br>
+      <strong>LIFO:</strong> COGS = 100×14 + 100×12 + 20×10 = 1,400 + 1,200 + 200 = $2,800; ending inventory = 80 × 10 = $800; gross profit = <strong>$1,600</strong>.<br>
+      <strong>Weighted average:</strong> unit cost = 3,600 ⁄ 300 = $12; COGS = 220 × 12 = $2,640; ending inventory = 80 × 12 = $960; gross profit = <strong>$1,760</strong>.<br>
+      Check: COGS + ending inventory = $3,600 under every method. In this rising-price environment, LIFO reports the highest COGS and the lowest income and inventory.</p></div></div>
+
+      <h3>The LIFO reserve and LIFO-to-FIFO conversion</h3>
+      <p>US GAAP requires LIFO firms to disclose the <strong>LIFO reserve</strong> — the difference between what inventory would be under FIFO and its LIFO carrying amount. Conversion formulas:</p>
+      <div class="formula">FIFO inventory = LIFO inventory + LIFO reserve<br>FIFO COGS = LIFO COGS − (change in LIFO reserve during the year)<br>FIFO net income ≈ LIFO net income + ΔLIFO reserve × (1 − t)<br>FIFO retained earnings ≈ LIFO retained earnings + LIFO reserve × (1 − t)</div>
+
+      <div class="example"><p><strong>Question.</strong> A LIFO firm reports COGS of $5,000 and ending inventory of $2,000. Its LIFO reserve was $400 at the start of the year and $600 at the end. Tax rate 25%. Restate inventory, COGS, and the net income difference on a FIFO basis.</p><div class="solution"><p><strong>Solution.</strong> FIFO inventory = 2,000 + 600 = <strong>$2,600</strong>.<br>
+      ΔLIFO reserve = 600 − 400 = 200, so FIFO COGS = 5,000 − 200 = <strong>$4,800</strong>.<br>
+      FIFO pre-tax income is $200 higher, so FIFO net income is higher by 200 × (1 − 0.25) = <strong>$150</strong>.</p></div></div>
+
+      <h3>LIFO liquidation</h3>
+      <p>If a LIFO firm sells more than it buys, it dips into old, cheap cost layers. COGS temporarily collapses and margins spike — a <strong>one-time, unsustainable</strong> profit boost (with a real tax cost). A <em>declining</em> LIFO reserve signals possible liquidation (or falling prices). Analysts strip the liquidation profit out of recurring earnings; disclosure of the effect is required.</p>
+
+      <h3>Inventory writedowns: IFRS vs. US GAAP</h3>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>IFRS</th><th>US GAAP</th></tr>
+        <tr><td>Rule</td><td>Lower of cost or <strong>net realizable value (NRV)</strong> = estimated selling price − completion and selling costs</td><td>Lower of cost or NRV for FIFO/weighted-average firms; for <strong>LIFO and retail-method</strong> firms, lower of cost or <strong>market</strong> (market = replacement cost, capped at NRV and floored at NRV − normal profit margin)</td></tr>
+        <tr><td>Reversal of writedown</td><td><strong>Allowed</strong>, up to the amount of the original writedown</td><td><strong>Prohibited</strong></td></tr>
+      </table></div>
+      <p>Writedowns raise COGS (or a separate expense), cutting income and inventory. They also mechanically <em>raise</em> future inventory turnover — an apparent "efficiency improvement" that is really bad news.</p>
+
+      <div class="keypoint"><strong>Key point.</strong> Rising prices: LIFO → higher COGS, lower NI, lower inventory, lower taxes, higher CFO. FIFO inventory = LIFO inventory + LIFO reserve; FIFO COGS = LIFO COGS − ΔLIFO reserve. IFRS bans LIFO and allows writedown reversals; US GAAP allows LIFO and bans reversals.</div>
+      <div class="warning"><strong>Exam trap.</strong> Direction of the COGS adjustment: an <em>increase</em> in the LIFO reserve means FIFO COGS is <em>lower</em> (subtract the change). Also, don't equate "higher inventory turnover under LIFO" with better management — it is an accounting artifact.</div>
+    </section>
+
+    <section class="lm" id="lm-7">
+      <h2>7. Analysis of Long-Term Assets</h2>
+      <p>This module covers what happens after a long-lived asset lands on the balance sheet: the capitalize-vs-expense decision, depreciation method choices, impairment, and IFRS's unique revaluation option. IFRS/GAAP impairment mechanics are a favorite exam contrast.</p>
+
+      <h3>Capitalizing vs. expensing — full financial statement effects</h3>
+      <p>Costs that create future economic benefits (purchase price, delivery, installation, and interest on construction borrowing) are <strong>capitalized</strong>; repairs and maintenance are <strong>expensed</strong>. Relative to expensing, capitalizing in the expenditure year produces:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Effect of capitalizing (vs. expensing)</th><th>Year of expenditure</th><th>Later years</th></tr>
+        <tr><td>Net income</td><td>Higher</td><td>Lower (extra depreciation)</td></tr>
+        <tr><td>Total assets, equity</td><td>Higher</td><td>Higher but converging</td></tr>
+        <tr><td>CFO</td><td>Higher (outflow shown in CFI)</td><td>Same</td></tr>
+        <tr><td>CFI</td><td>Lower</td><td>Same</td></tr>
+        <tr><td>Earnings volatility</td><td colspan="2">Lower (smoother)</td></tr>
+      </table></div>
+      <p>Total cash flow and lifetime income are unchanged — only classification and timing move. A firm that suddenly capitalizes costs it used to expense may be managing earnings.</p>
+
+      <h3>Depreciation methods</h3>
+      <ul>
+        <li><strong>Straight-line:</strong> (cost − salvage) ⁄ useful life. Equal expense each year.</li>
+        <li><strong>Double-declining balance (DDB):</strong> rate = 2 ⁄ life, applied to <em>beginning net book value</em>; salvage is ignored in the rate but depreciation stops once book value reaches salvage.</li>
+        <li><strong>Units of production:</strong> (cost − salvage) × (units produced ⁄ total expected units).</li>
+        <li><strong>Component depreciation</strong> (depreciating significant parts separately) is <em>required</em> under IFRS, permitted but rare under US GAAP.</li>
+      </ul>
+      <div class="formula">Straight-line = (Cost − Salvage) ⁄ Life&nbsp;&nbsp;•&nbsp;&nbsp;DDB year t = (2 ⁄ Life) × Book value at start of t&nbsp;&nbsp;•&nbsp;&nbsp;UOP = (Cost − Salvage) × Output<sub>t</sub> ⁄ Total expected output</div>
+
+      <div class="example"><p><strong>Question.</strong> A machine costs $100,000, has a $10,000 salvage value, a 5-year life, and expected lifetime output of 45,000 units (12,000 produced in year 1). Compute year-1 and year-2 depreciation under straight-line, DDB, and units of production (year 2 output 9,000 units).</p><div class="solution"><p><strong>Solution.</strong> <strong>Straight-line:</strong> (100,000 − 10,000) ⁄ 5 = <strong>$18,000</strong> per year (years 1 and 2).<br>
+      <strong>DDB:</strong> rate = 2/5 = 40%. Year 1 = 0.40 × 100,000 = <strong>$40,000</strong> (salvage ignored in the calculation). Year 2 = 0.40 × (100,000 − 40,000) = <strong>$24,000</strong>. Book value = 36,000, still above salvage, so no cap yet.<br>
+      <strong>Units of production:</strong> rate = 90,000 ⁄ 45,000 = $2 per unit. Year 1 = 2 × 12,000 = <strong>$24,000</strong>; year 2 = 2 × 9,000 = <strong>$18,000</strong>.<br>
+      Accelerated methods front-load expense: lower early income, higher later income; lifetime totals are equal.</p></div></div>
+
+      <h3>Useful-life and salvage estimates</h3>
+      <p>Longer lives and higher salvage values mean lower annual depreciation and higher current profit — a soft lever for earnings management. Disclosure-based estimates for a firm's asset base:</p>
+      <div class="formula">Estimated total useful life = Gross PP&amp;E ⁄ Annual depreciation expense<br>Average age = Accumulated depreciation ⁄ Annual depreciation expense<br>Remaining life = Net PP&amp;E ⁄ Annual depreciation expense</div>
+      <p>An old asset base (high average age relative to total life) warns of looming capex.</p>
+
+      <h3>Impairment: IFRS vs. US GAAP</h3>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>IFRS (one step)</th><th>US GAAP (two steps, held-for-use)</th></tr>
+        <tr><td>Trigger/test</td><td>Impaired if carrying amount &gt; <strong>recoverable amount</strong> = the <em>higher</em> of (fair value − costs to sell) and <strong>value in use</strong> (PV of expected future cash flows)</td><td>Step 1 (recoverability): impaired only if carrying amount &gt; <em>undiscounted</em> expected future cash flows</td></tr>
+        <tr><td>Loss measured as</td><td>Carrying amount − recoverable amount</td><td>Step 2: carrying amount − <strong>fair value</strong></td></tr>
+        <tr><td>Reversals</td><td><strong>Allowed</strong> for identifiable assets (never for goodwill), up to the original carrying path</td><td><strong>Prohibited</strong> for assets held for use</td></tr>
+      </table></div>
+
+      <div class="example"><p><strong>Question.</strong> An asset has carrying value $500. Fair value less costs to sell is $420; value in use (PV of future cash flows) is $450; undiscounted expected future cash flows are $480; fair value is $420. Compute the impairment loss under IFRS and under US GAAP.</p><div class="solution"><p><strong>Solution.</strong> <strong>IFRS:</strong> recoverable amount = max(420, 450) = 450 &lt; 500, so loss = 500 − 450 = <strong>$50</strong>.<br>
+      <strong>US GAAP:</strong> Step 1: undiscounted cash flows 480 &lt; carrying 500 → fails recoverability, asset is impaired. Step 2: loss = 500 − fair value 420 = <strong>$80</strong>.<br>
+      Same asset, different loss — the frameworks use different tests and different measurement bases.</p></div></div>
+
+      <h3>Revaluation model (IFRS only)</h3>
+      <ul>
+        <li>IFRS permits carrying PP&amp;E (and intangibles with active markets) at <strong>fair value</strong>: upward revaluations go to OCI as <strong>revaluation surplus</strong> in equity (unless reversing a previously expensed loss, in which case income first); downward revaluations hit income (unless reversing a prior surplus, in which case OCI first).</li>
+        <li><strong>US GAAP prohibits revaluation</strong> — cost model only.</li>
+        <li>Revaluing upward raises assets and equity (lowering leverage ratios) and raises future depreciation (lowering future income). Watch for revaluations timed before debt issuance.</li>
+        <li><strong>Derecognition:</strong> on sale, gain/loss = proceeds − carrying amount, reported in the income statement (usually in other income).</li>
+        <li><strong>Investment property</strong> (held for rent/appreciation) is a separate IFRS category that may use a fair-value model with changes through <em>profit or loss</em>; US GAAP has no such category.</li>
+      </ul>
+
+      <div class="keypoint"><strong>Key point.</strong> IFRS impairment is one step against the recoverable amount (higher of FV − costs to sell and value in use) and can be reversed; US GAAP screens with undiscounted cash flows, measures the loss against fair value, and never reverses. Only IFRS allows revaluation, with gains normally in OCI.</div>
+      <div class="warning"><strong>Exam trap.</strong> In the US GAAP test, the <em>screen</em> uses undiscounted cash flows but the <em>loss</em> uses fair value — mixing these up is the standard distractor. For DDB, ignore salvage when computing the annual charge, but never depreciate below salvage value.</div>
+    </section>
+
+    <section class="lm" id="lm-8">
+      <h2>8. Topics in Long-Term Liabilities and Equity</h2>
+      <p>Four financing topics: bonds at amortized cost, leases, pensions, and share-based compensation. The bond amortization table is a must-know calculation; leases are a must-know IFRS/GAAP contrast.</p>
+
+      <h3>Bond issuance and amortization</h3>
+      <p>A bond's sales proceeds equal the present value of its promised payments discounted at the <strong>market rate</strong> at issuance:</p>
+      <ul>
+        <li>Coupon rate = market rate → issued at <strong>par</strong>.</li>
+        <li>Coupon rate &lt; market rate → issued at a <strong>discount</strong> (below face).</li>
+        <li>Coupon rate &gt; market rate → issued at a <strong>premium</strong> (above face).</li>
+      </ul>
+      <p>Thereafter the liability is carried at <strong>amortized cost</strong> using the <strong>effective interest method</strong> (required by IFRS; US GAAP allows straight-line if not materially different):</p>
+      <div class="formula">Interest expense<sub>t</sub> = Carrying amount<sub>t−1</sub> × market rate at issuance<br>Amortization<sub>t</sub> = Interest expense<sub>t</sub> − Coupon payment&nbsp;&nbsp;(discount amortization is positive; premium negative)</div>
+      <p>Debt issuance costs reduce the bond's initial carrying amount under both frameworks, raising the effective interest rate. Interest expense is unaffected by later market-rate changes (unless the firm elects the fair-value option).</p>
+
+      <div class="example"><p><strong>Question.</strong> Ferris Co. issues a 3-year, $1,000,000 face, 4% annual-pay bond when the market rate is 5%. Compute the issue price and build the amortization table.</p><div class="solution"><p><strong>Solution.</strong> Coupon = $40,000 per year. Price = PV at 5%: <code>N=3, I/Y=5, PMT=40,000, FV=1,000,000 → CPT PV = −972,768</code>. Issued at a discount of $27,232.<br>
+      Year 1: interest expense = 972,768 × 5% = 48,638; amortization = 48,638 − 40,000 = 8,638; carrying = 972,768 + 8,638 = 981,406.<br>
+      Year 2: expense = 981,406 × 5% = 49,070; amortization = 9,070; carrying = 990,476.<br>
+      Year 3: expense = 990,476 × 5% = 49,524; amortization = 9,524; carrying = 990,476 + 9,524 = <strong>1,000,000</strong> — the discount is fully amortized at maturity.<br>
+      Note the pattern: for a discount bond, interest expense <em>rises</em> each year and always exceeds the cash coupon; for a premium bond, expense falls and is below the coupon.</p></div></div>
+      <p>Cash flow note: the coupon is CFO under US GAAP (CFO or CFF under IFRS), while repaying face value at maturity is CFF. Zero-coupon bonds therefore overstate CFO — all their economic interest shows up as a financing outflow at maturity.</p>
+
+      <h3>Leases</h3>
+      <p>A lease is a contract conveying the right to use an asset for a period in exchange for consideration. Leases can offer financing without large upfront cash and with less obsolescence risk. Classification: a <strong>finance lease</strong> transfers substantially all the risks and rewards of ownership (e.g., ownership transfers, bargain purchase option, lease term covers most of the asset's life, PV of payments ≈ asset's value); otherwise it is an <strong>operating lease</strong>.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Perspective</th><th>IFRS</th><th>US GAAP</th></tr>
+        <tr><td><strong>Lessee</strong></td><td><strong>Single model:</strong> recognize a right-of-use (ROU) asset and lease liability for virtually all leases; expense = depreciation of ROU asset + interest on the liability (front-loaded total expense). Exemptions: leases ≤ 12 months and low-value assets.</td><td><strong>Dual model:</strong> finance leases mirror IFRS (depreciation + interest). <strong>Operating leases</strong> still put an ROU asset and lease liability on the balance sheet, but report one straight-line lease expense in operating income.</td></tr>
+        <tr><td><strong>Lessee cash flows</strong></td><td>Principal portion CFF; interest per the firm's interest policy (CFO or CFF)</td><td>Finance lease: principal CFF, interest CFO. Operating lease: entire payment CFO.</td></tr>
+        <tr><td><strong>Lessor</strong></td><td colspan="2">Broadly similar under both: a finance (US: sales-type) lease derecognizes the asset and books a lease receivable, recognizing interest income over time (and any selling profit at inception for sales-type); an operating lease keeps the asset on the lessor's books, recognizing rental income and depreciation.</td></tr>
+      </table></div>
+      <p>Analytical effect: capitalizing leases raises assets, liabilities, and leverage ratios; the IFRS/finance-lease pattern also lifts EBITDA (rent is replaced by depreciation + interest, both excluded from EBITDA).</p>
+
+      <h3>Pensions: defined contribution vs. defined benefit</h3>
+      <ul>
+        <li><strong>Defined contribution (DC):</strong> the employer promises only the contribution. Expense = the contribution; <strong>the employee bears investment risk</strong>; nothing accrues on the employer's balance sheet beyond unpaid contributions.</li>
+        <li><strong>Defined benefit (DB):</strong> the employer promises a future benefit (usually based on salary and service) and bears investment risk. The balance sheet reports the <strong>funded status</strong> = fair value of plan assets − pension obligation (net asset if overfunded, net liability if underfunded).</li>
+        <li>Periodic cost components: current service cost, interest cost on the obligation, returns on plan assets, and remeasurements (actuarial gains/losses). Under <strong>IFRS</strong>, service cost and <em>net interest</em> on the net liability go to P&amp;L and remeasurements go to OCI <em>without later recycling to income</em>. Under <strong>US GAAP</strong>, income uses the <em>expected</em> return on plan assets, and actuarial gains/losses parked in OCI may be amortized into income over time.</li>
+      </ul>
+
+      <h3>Share-based compensation</h3>
+      <ul>
+        <li>Grants of stock or options are measured at <strong>grant-date fair value</strong> and expensed over the <strong>vesting (service) period</strong>. Options require a model (e.g., Black-Scholes); restricted stock uses the grant-date share price.</li>
+        <li>The expense is <strong>non-cash</strong> (added back in indirect CFO) but real to shareholders: it dilutes existing owners — captured in diluted EPS via the treasury stock method.</li>
+        <li>No later remeasurement of equity-classified awards for share-price changes; cash-settled (liability-classified) awards <em>are</em> remeasured each period.</li>
+      </ul>
+
+      <div class="keypoint"><strong>Key point.</strong> Interest expense = carrying value × market rate at issuance; discount bonds show rising expense and carrying value, premium bonds the opposite. IFRS lessees use one on-balance-sheet finance-style model for essentially all leases; US GAAP lessees keep a finance/operating split (operating = straight-line single expense, but still on the balance sheet). DC plans: expense = contribution, employee bears risk.</div>
+      <div class="warning"><strong>Exam trap.</strong> Interest expense uses the <em>historical market rate at issuance</em> applied to the <em>carrying amount</em>, never the coupon rate on carrying value or the market rate on face value. And under US GAAP an operating lease is on the balance sheet since ASC 842 — "operating leases are off-balance-sheet" is now false.</div>
+    </section>
+
+    <section class="lm" id="lm-9">
+      <h2>9. Analysis of Income Taxes</h2>
+      <p>Financial statements and tax returns follow different rules, so "income tax expense" rarely equals "taxes paid." Temporary differences create deferred tax liabilities and assets; the exam tests which differences create which, plus the effective-rate reconciliation.</p>
+
+      <h3>Two sets of books</h3>
+      <ul>
+        <li><strong>Accounting profit</strong> (pre-tax income) is computed under IFRS/US GAAP; <strong>taxable income</strong> is computed under the tax code. <strong>Taxes payable</strong> = taxable income × tax rate — the current liability actually owed.</li>
+        <li><strong>Income tax expense</strong> on the income statement = taxes payable + change in deferred tax liabilities − change in deferred tax assets.</li>
+        <li>The <strong>tax base</strong> of an asset/liability is its value for tax purposes; the <strong>carrying amount</strong> is its financial-statement value. Differences between them drive deferred taxes.</li>
+      </ul>
+
+      <h3>Temporary vs. permanent differences</h3>
+      <ul>
+        <li><strong>Temporary differences</strong> reverse over time and create deferred taxes. A <strong>deferred tax liability (DTL)</strong> arises when taxable income is temporarily <em>lower</em> than accounting profit (e.g., accelerated tax depreciation) — taxes are deferred to the future. A <strong>deferred tax asset (DTA)</strong> arises when taxable income is temporarily <em>higher</em> (e.g., warranty expense accrued for books but deductible only when paid; tax loss carryforwards).</li>
+        <li>Rule of thumb: asset carrying amount &gt; tax base → DTL; asset carrying amount &lt; tax base → DTA. (Reverse the inequality for liabilities.)</li>
+        <li><strong>Permanent differences</strong> (e.g., tax-exempt municipal interest, non-deductible fines) never reverse: no deferred taxes; instead they push the <strong>effective tax rate</strong> away from the statutory rate.</li>
+      </ul>
+      <div class="formula">DTL or DTA = (Carrying amount − Tax base) × tax rate&nbsp;&nbsp;•&nbsp;&nbsp;Effective tax rate = Income tax expense ⁄ Pre-tax accounting income</div>
+
+      <div class="example"><p><strong>Question.</strong> Ilex Co. buys equipment for $60,000 with a 3-year life and no salvage. It uses straight-line for the books ($20,000/yr) but deducts $30,000 for tax in year 1. Pre-depreciation earnings are $100,000 and the tax rate is 25%. Compute taxes payable, income tax expense, and the year-1 DTL.</p><div class="solution"><p><strong>Solution.</strong> Accounting profit = 100,000 − 20,000 = 80,000. Taxable income = 100,000 − 30,000 = 70,000.<br>
+      Taxes payable = 70,000 × 25% = <strong>$17,500</strong>.<br>
+      End of year 1: carrying amount = 60,000 − 20,000 = 40,000; tax base = 60,000 − 30,000 = 30,000. DTL = (40,000 − 30,000) × 25% = <strong>$2,500</strong>.<br>
+      Income tax expense = taxes payable + ΔDTL = 17,500 + 2,500 = <strong>$20,000</strong> (= 80,000 × 25%, as it should since the difference is purely temporary). In later years tax depreciation falls below book depreciation and the DTL reverses.</p></div></div>
+
+      <h3>Tax rate changes</h3>
+      <p>DTLs and DTAs are measured at the tax rate expected when they reverse. When the statutory rate changes, existing balances are <strong>remeasured immediately</strong>, with the adjustment flowing through income tax expense: a rate <em>cut</em> shrinks both DTLs (good for a net-DTL firm) and DTAs (bad for a net-DTA firm).</p>
+
+      <h3>Valuation allowance and recognition (IFRS vs. US GAAP)</h3>
+      <ul>
+        <li>A DTA has value only if there will be future taxable income to absorb it. Under <strong>US GAAP</strong>, the full DTA is recognized and then reduced by a <strong>valuation allowance</strong> if it is <em>more likely than not</em> (&gt;50%) that some portion will not be realized. Increasing the allowance raises tax expense and cuts income — and releasing it later boosts income, a known earnings-management lever.</li>
+        <li>Under <strong>IFRS</strong>, there is no valuation allowance account: a DTA is recognized only to the extent recovery is <em>probable</em>, and the carrying amount is adjusted directly.</li>
+        <li>Analysts treat a DTL as debt-like if reversal is expected, and closer to equity if it keeps growing indefinitely (e.g., from perpetual capex-driven depreciation differences).</li>
+      </ul>
+
+      <h3>Statutory vs. effective rate reconciliation</h3>
+      <p>The notes reconcile the statutory rate to the effective rate; recurring items (foreign rate differentials, tax-exempt income, credits) are useful for forecasting, one-offs are not. The <strong>cash tax rate</strong> (taxes actually paid ÷ pre-tax income) can differ from both.</p>
+
+      <div class="keypoint"><strong>Key point.</strong> DTL: accounting profit &gt; taxable income now, reverse later (accelerated tax depreciation is the canonical case). DTA: the opposite (warranties, loss carryforwards). Tax expense = taxes payable + ΔDTL − ΔDTA. GAAP handles doubtful DTAs with a valuation allowance; IFRS just recognizes less.</div>
+      <div class="warning"><strong>Exam trap.</strong> Accelerated <em>tax</em> depreciation creates a <em>liability</em>, not an asset — you pay less tax now, more later. And permanent differences never create DTAs/DTLs; they only move the effective rate away from the statutory rate.</div>
+    </section>
+
+    <section class="lm" id="lm-10">
+      <h2>10. Financial Reporting Quality</h2>
+      <p>Two distinct concepts: <strong>reporting quality</strong> (are the statements decision-useful, faithful, and standard-compliant?) and <strong>earnings (results) quality</strong> (are the reported earnings high and sustainable?). A firm can have honest reports of terrible earnings, or beautiful earnings reported dishonestly. The exam tests the quality spectrum, the conservative/aggressive distinction, and warning signs.</p>
+
+      <h3>The quality spectrum (best to worst)</h3>
+      <ol>
+        <li>GAAP-compliant and decision-useful, with <strong>sustainable, adequate returns</strong> — the ideal.</li>
+        <li>GAAP-compliant and decision-useful, but earnings quality is low (unsustainable or inadequate returns).</li>
+        <li>GAAP-compliant but <strong>biased choices</strong> ("earnings management") — within the rules, but chosen to obscure or smooth performance.</li>
+        <li>Non-compliant accounting — departures from GAAP.</li>
+        <li><strong>Fraudulent</strong> — fictitious transactions, fabricated numbers.</li>
+      </ol>
+
+      <h3>Conservative vs. aggressive accounting</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Aggressive (inflates current results)</th><th>Conservative (deflates current results)</th></tr>
+        <tr><td>Recognize revenue early (bill-and-hold, channel stuffing)</td><td>Defer revenue recognition</td></tr>
+        <tr><td>Capitalize costs; long useful lives; high salvage values</td><td>Expense immediately; short lives; low salvage</td></tr>
+        <tr><td>Low bad-debt and warranty accruals</td><td>High accruals and reserves</td></tr>
+        <tr><td>Delay impairments and writedowns</td><td>Take impairments promptly (or excessively — "big bath")</td></tr>
+      </table></div>
+      <p>Neither bias is "good": unbiased reporting is the standard. Conservatism today (e.g., a <strong>big bath</strong> — piling excessive writedowns into one bad year, or building <strong>cookie-jar reserves</strong>) inflates <em>future</em> earnings, which is itself earnings management.</p>
+
+      <h3>Motivations and conditions for low-quality reporting</h3>
+      <ul>
+        <li><strong>Motivations:</strong> beat analyst forecasts or guidance, boost stock-linked pay, satisfy debt covenants, smooth earnings, dress up results before equity/debt issuance or M&amp;A.</li>
+        <li>The <strong>fraud triangle</strong>: <em>opportunity</em> (weak internal controls, ineffective board), <em>motivation/pressure</em>, and <em>rationalization</em>. Discipline comes from regulators, auditors, and private contracts — none foolproof.</li>
+      </ul>
+
+      <h3>Mechanisms of earnings management</h3>
+      <ul>
+        <li><strong>Revenue:</strong> premature recognition, channel stuffing (shipping ahead of demand), bill-and-hold sales, gross-vs-net (principal/agent) games, fictitious revenue.</li>
+        <li><strong>Expenses:</strong> improper capitalization, stretched depreciation lives, under-accrued reserves, delayed impairments.</li>
+        <li><strong>Balance sheet/cash flow:</strong> off-balance-sheet structures, misclassifying operating outflows as investing, stretching payables to pump CFO, one-time monetizations (securitizing receivables) presented as operating cash.</li>
+      </ul>
+
+      <h3>Warning signs</h3>
+      <ul>
+        <li>Revenue growth far above peers; <strong>receivables growing faster than revenue</strong> (rising days sales outstanding).</li>
+        <li><strong>Net income persistently outrunning CFO</strong> — a low cash-earnings ratio suggests aggressive accruals.</li>
+        <li>Fourth-quarter surges without seasonality; frequent one-time items; frequent "adjusted" non-GAAP emphasis.</li>
+        <li>Rising inventory relative to sales (possible obsolescence or overproduction to bury fixed costs).</li>
+        <li>Capitalization ratios out of line with peers; depreciation lives longer than industry norms.</li>
+        <li>Related-party transactions, auditor changes, late filings, management turnover in finance roles, aggressive incentive pay.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> Sable Corp. beat consensus EPS every quarter for five years. Revenue grew 18% last year while receivables grew 41%; CFO fell 6% despite a 15% rise in net income; in Q4 it recognized revenue on goods shipped to distributors with unlimited return rights. Assess reporting quality.</p><div class="solution"><p><strong>Solution.</strong> Three classic warning signs converge: receivables outpacing revenue (aggressive or premature recognition), NI diverging from CFO (accrual-driven earnings), and Q4 shipments with return rights that likely fail the "collection probable / control transferred" tests — this is channel stuffing. The unbroken beat streak adds motivation evidence. This sits at the "biased choices within GAAP" level of the spectrum at best, possibly non-compliant. The analyst should re-estimate revenue net of expected returns, and weight CFO-based measures over EPS.</p></div></div>
+
+      <div class="keypoint"><strong>Key point.</strong> Reporting quality ≠ earnings quality. The spectrum runs from compliant-and-useful down to fraud. Both aggressive <em>and</em> excessively conservative choices (big baths, cookie-jar reserves) are earnings management. The single best cross-check: compare net income to CFO over time.</div>
+      <div class="warning"><strong>Exam trap.</strong> Conservative accounting is <em>not</em> automatically high-quality — deliberately understating today's income to inflate tomorrow's is manipulation too. And high earnings quality requires results to be <em>sustainable</em>, not just large.</div>
+    </section>
+
+    <section class="lm" id="lm-11">
+      <h2>11. Financial Analysis Techniques</h2>
+      <p>This module organizes the toolkit: ratio categories, trend and cross-sectional comparison, and DuPont decomposition of ROE — a near-certain exam calculation. Ratios are only meaningful relative to something: the firm's history, its peers, or a benchmark.</p>
+
+      <h3>Tools and their limits</h3>
+      <ul>
+        <li><strong>Common-size statements</strong> (vertical: % of revenue or total assets; horizontal: indexed to a base year) for trend and peer comparison.</li>
+        <li><strong>Ratios</strong> express relationships; they don't explain causes. Limits: accounting choices differ across firms (LIFO/FIFO, leases, revaluation), conglomerates blur industry benchmarks, ratios can be window-dressed at period end, and a ratio is neither good nor bad in isolation.</li>
+      </ul>
+
+      <h3>Ratio categories</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Category</th><th>Question answered</th><th>Examples</th></tr>
+        <tr><td><strong>Activity (efficiency)</strong></td><td>How well are assets used?</td><td>Inventory turnover = COGS ⁄ avg inventory; receivables turnover = revenue ⁄ avg AR; payables turnover = purchases ⁄ avg AP; total asset turnover = revenue ⁄ avg assets. Days versions = 365 ⁄ turnover (DOH, DSO, days payable).</td></tr>
+        <tr><td><strong>Liquidity</strong></td><td>Can it meet short-term obligations?</td><td>Current, quick, cash ratios; cash conversion cycle = DOH + DSO − days payable.</td></tr>
+        <tr><td><strong>Solvency</strong></td><td>Can it meet long-term obligations?</td><td>Debt-to-equity, debt-to-capital, financial leverage; interest coverage = EBIT ⁄ interest; fixed-charge coverage = (EBIT + lease payments) ⁄ (interest + lease payments).</td></tr>
+        <tr><td><strong>Profitability</strong></td><td>How profitable are sales and capital?</td><td>Gross/operating/net margins; ROA = NI ⁄ avg assets; operating ROA = EBIT ⁄ avg assets; ROE = NI ⁄ avg equity.</td></tr>
+        <tr><td><strong>Valuation</strong></td><td>What is a claim worth per unit?</td><td>P/E, P/B, P/CF, dividend payout and retention, sustainable growth g = retention × ROE.</td></tr>
+      </table></div>
+
+      <h3>DuPont analysis</h3>
+      <p>DuPont decomposes ROE to show <em>where</em> returns come from — margins, efficiency, or leverage:</p>
+      <div class="formula">3-way: ROE = Net profit margin × Asset turnover × Financial leverage<br>= (NI ⁄ Revenue) × (Revenue ⁄ Avg assets) × (Avg assets ⁄ Avg equity)</div>
+      <div class="formula">5-way: ROE = Tax burden × Interest burden × EBIT margin × Asset turnover × Leverage<br>= (NI ⁄ EBT) × (EBT ⁄ EBIT) × (EBIT ⁄ Revenue) × (Revenue ⁄ Avg assets) × (Avg assets ⁄ Avg equity)</div>
+      <p>Interpretation: tax burden = fraction of pre-tax income <em>kept</em> after tax (higher is better); interest burden = fraction of EBIT kept after interest (higher means less interest drag). Leverage raises ROE only while the extra debt's cost stays below the return it funds — it also drags down the interest burden.</p>
+
+      <div class="example"><p><strong>Question.</strong> Verdant Inc.: revenue $2,000, EBIT $200, EBT $160, net income $120, average assets $1,600, average equity $800. Compute ROE via the 3-way and 5-way DuPont decompositions.</p><div class="solution"><p><strong>Solution.</strong> <strong>3-way:</strong> net margin = 120 ⁄ 2,000 = 6%; asset turnover = 2,000 ⁄ 1,600 = 1.25; leverage = 1,600 ⁄ 800 = 2.0.<br>
+      ROE = 0.06 × 1.25 × 2.0 = <strong>15%</strong>.<br>
+      <strong>5-way:</strong> tax burden = 120 ⁄ 160 = 0.75; interest burden = 160 ⁄ 200 = 0.80; EBIT margin = 200 ⁄ 2,000 = 10%.<br>
+      ROE = 0.75 × 0.80 × 0.10 × 1.25 × 2.0 = <strong>15%</strong> ✓. Reading: of each revenue dollar, 10 cents survives operations; interest takes 20% of that and tax 25% of the rest; the 6% net margin is doubled by turning assets 1.25× and levering equity 2×.</p></div></div>
+
+      <h3>Segment analysis</h3>
+      <ul>
+        <li>A <strong>reportable operating segment</strong> is a business component with its own results reviewed by management, meeting a <strong>10% test</strong> (of combined revenue, assets, or profit). Both IFRS and US GAAP require segment revenue, profit measure, and assets disclosures.</li>
+        <li>Analysts compute segment margins, asset turnover, and capex-to-assets by segment to see which businesses create value and where capital is being deployed — a conglomerate's blended ratios can hide a great segment subsidizing a poor one.</li>
+      </ul>
+
+      <div class="keypoint"><strong>Key point.</strong> ROE = margin × turnover × leverage; the 5-way splits margin into tax burden × interest burden × EBIT margin. A rising ROE is not automatically good — decompose it: leverage-driven ROE growth carries risk that margin-driven growth does not.</div>
+      <div class="warning"><strong>Exam trap.</strong> Tax burden is NI ⁄ EBT — the <em>keep</em> rate, not the tax rate (a tax burden of 0.75 means a 25% effective tax rate). Use <em>average</em> assets and equity in ROE/ROA when balance-sheet levels change materially.</div>
+    </section>
+
+    <section class="lm" id="lm-12">
+      <h2>12. Introduction to Financial Statement Modeling</h2>
+      <p>The final module turns analysis into forecasts: projecting the income statement, balance sheet, and cash flows for a company model. Level 1 keeps it conceptual — approaches to forecasting revenue and costs, the behavioral biases that distort forecasts, and scenario thinking.</p>
+
+      <h3>Forecasting revenue</h3>
+      <ul>
+        <li><strong>Top-down:</strong> start from the macro level — GDP growth or total market size — then apply the firm's market share ("growth relative to GDP" or "market growth &amp; market share" approaches).</li>
+        <li><strong>Bottom-up:</strong> build from the firm's own drivers — price × volume, store count × sales per store, capacity, backlog, or historical run rates by product line.</li>
+        <li><strong>Hybrid:</strong> combine both (e.g., bottom-up by segment, sanity-checked against a top-down market forecast). Most common in practice.</li>
+      </ul>
+
+      <h3>Forecasting costs and the rest of the model</h3>
+      <ul>
+        <li>Split costs into <strong>COGS</strong> (often modeled as a stable or trending % of revenue, adjusted for input prices, hedging, and mix) and <strong>SG&amp;A</strong> (portions are fixed, so they don't scale one-for-one with revenue).</li>
+        <li><strong>Operating leverage:</strong> with high fixed costs, margins expand as revenue grows and compress when it falls — don't hold margins constant across a big volume change. <strong>Economies of scale</strong> show up as gross margins rising with size.</li>
+        <li>Working capital lines are projected with efficiency ratios (DSO, DOH, days payable); PP&amp;E via capex and depreciation schedules; interest expense from the projected debt balance; taxes at a normalized effective rate.</li>
+        <li>Choose a <strong>forecast horizon</strong> long enough to reach a normalized, mid-cycle state, and be explicit about which items are recurring.</li>
+      </ul>
+
+      <h3>Behavioral biases in forecasting</h3>
+      <ul>
+        <li><strong>Overconfidence:</strong> forecast ranges are too narrow; mitigate with scenario analysis and by recording forecasts to review later.</li>
+        <li><strong>Illusion of control:</strong> believing more inputs and model complexity mean more accuracy; prefer parsimonious models and focus on the few variables that matter.</li>
+        <li><strong>Conservatism (anchoring):</strong> clinging to prior estimates and updating too slowly for new information; revisit forecasts on a schedule and after material news.</li>
+        <li><strong>Representativeness:</strong> classifying by superficial similarity and ignoring <strong>base rates</strong> (e.g., assuming a hot startup will grow like past winners); take the "outside view."</li>
+        <li><strong>Confirmation bias:</strong> seeking only supporting evidence; actively look for disconfirming data and speak to bears as well as bulls.</li>
+      </ul>
+
+      <h3>Scenario and sensitivity analysis</h3>
+      <ul>
+        <li><strong>Sensitivity analysis</strong> changes one input at a time to see which drivers move the output most.</li>
+        <li><strong>Scenario analysis</strong> changes a coherent <em>set</em> of inputs together (bull/base/bear: e.g., recession lowers volume, price, and margin simultaneously) — better for correlated risks. Attach rough probabilities to produce an expected value and a distribution rather than a single point estimate.</li>
+        <li>Model how the firm responds to inflation and deflation: can it pass through input costs (pricing power), and with what lag and volume loss?</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> An analyst models Tessera Retail. Base case: revenue $1,000, contribution margin 30%, fixed costs $220 → operating profit $80. In a downturn she expects volume-driven revenue of $900. She initially forecasts operating profit of $72 (holding the 8% operating margin constant). What is wrong, and what is the better estimate?</p><div class="solution"><p><strong>Solution.</strong> Holding the operating <em>margin</em> constant ignores operating leverage — fixed costs don't shrink with revenue. Better: operating profit = 30% × 900 − 220 = 270 − 220 = <strong>$50</strong>, a 37.5% profit decline on a 10% revenue decline. The margin falls from 8.0% to 5.6%. Her $72 estimate reflects an anchoring/model-simplification error; scenario analysis with explicit fixed/variable cost structure fixes it.</p></div></div>
+
+      <div class="keypoint"><strong>Key point.</strong> Revenue: top-down (market × share), bottom-up (price × volume), or hybrid. High fixed costs mean margins move more than revenue (operating leverage). Scenario analysis moves correlated inputs together; sensitivity analysis moves one at a time.</div>
+      <div class="warning"><strong>Exam trap.</strong> On bias questions, match the description precisely: too-narrow ranges = overconfidence; slow updating = conservatism/anchoring; ignoring base rates = representativeness; loving model complexity = illusion of control.</div>
+    </section>
+
+    <div id="quiz"></div>
+  </main>
+</div>
+</div>
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="../js/topics.js"></script>
+<script src="../data/fsa.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

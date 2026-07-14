@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equity Investments — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root=".." data-here=""></header>
+<div class="wrap">
+<h1>Equity Investments <span class="pill">Exam weight: 11–14%</span></h1>
+<p class="lead muted">Equity Investments covers how securities markets are organized, how indexes are built, whether prices are "right" (market efficiency), what equity securities are, how to analyze a company and its industry, and how to put a value on a stock. It is one of the heaviest topics at Level 1 and feeds directly into Corporate Issuers, Portfolio Management, and the Level 2 equity valuation material.</p>
+<div id="topic-progress" class="card" style="margin:1rem 0"></div>
+<div class="layout">
+  <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
+  <main data-topic="equity">
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-1">
+      <h2>1. Market Organization and Structure</h2>
+      <p>This module is the plumbing of finance: what gets traded, who helps trades happen, and the rules that govern them. Exam questions here are mostly definitional, plus one reliable calculation — the <strong>margin call price</strong> and <strong>leveraged returns</strong>. Learn the vocabulary precisely; the distractors are built from near-synonyms.</p>
+
+      <h3>What the financial system does</h3>
+      <p>The financial system exists so people can (1) save for the future, (2) borrow against future income, (3) raise capital for businesses, (4) manage risks (hedging), (5) exchange assets for immediate delivery (spot trading), and (6) trade on information. In doing this the system performs two aggregate functions: it <strong>determines equilibrium rates of return</strong> (the rate at which total savings equals total borrowing) and it <strong>allocates capital</strong> to its most productive uses. A market that does this well — where prices reflect fundamental value and trading is cheap — is called <em>informationally</em> and <em>operationally</em> efficient.</p>
+
+      <h3>Assets and asset classes</h3>
+      <ul>
+        <li><strong>Securities:</strong> fixed income (bonds, notes, bills, repos, convertibles) and equities (common shares, preference shares, warrants). Securities may be <em>public</em> (exchange-traded, registered) or <em>private</em> (placed directly with qualified investors, illiquid).</li>
+        <li><strong>Pooled investment vehicles:</strong> mutual funds (open-end trade at NAV; closed-end trade on exchanges at premiums/discounts to NAV), exchange-traded funds (ETFs), hedge funds, asset-backed securities.</li>
+        <li><strong>Currencies</strong>, traded in spot and forward FX markets.</li>
+        <li><strong>Contracts (derivatives):</strong> forwards, futures, options, swaps — their value derives from an underlying asset.</li>
+        <li><strong>Commodities</strong> (energy, metals, agriculture) and <strong>real assets</strong> (real estate, equipment) — heterogeneous, illiquid, costly to trade directly, so often accessed through securities (REITs, MLPs).</li>
+      </ul>
+      <p>Markets are also classified by delivery timing: <strong>spot markets</strong> (immediate delivery) versus forward/futures/options markets (future delivery), and by maturity: <strong>money markets</strong> (debt ≤ 1 year) versus <strong>capital markets</strong> (longer-term debt and equity). <strong>Traditional</strong> investments are publicly traded debt and equity; <strong>alternative</strong> investments include hedge funds, private equity, real estate, and commodities.</p>
+
+      <h3>Financial intermediaries</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Intermediary</th><th>What it does</th></tr>
+        <tr><td>Broker</td><td>Agent — finds a counterparty for the client; does not trade with the client. Block brokers handle large orders discreetly.</td></tr>
+        <tr><td>Dealer (market maker)</td><td>Principal — trades <em>with</em> clients from its own inventory, quoting bid and ask prices; profits from the spread. Provides liquidity.</td></tr>
+        <tr><td>Exchange</td><td>Venue that matches buyers and sellers; often also regulates listed issuers (disclosure standards).</td></tr>
+        <tr><td>Alternative trading systems (ATS/ECN/dark pools)</td><td>Exchange-like matching without regulatory authority over users; dark pools do not display orders.</td></tr>
+        <tr><td>Securitizer</td><td>Buys assets (mortgages, loans), pools them, and sells securities backed by the pool's cash flows.</td></tr>
+        <tr><td>Depository institutions</td><td>Banks etc. — take deposits, make loans; intermediate between savers and borrowers.</td></tr>
+        <tr><td>Insurance companies</td><td>Sell contracts that pay on defined events; pool uncorrelated risks; manage moral hazard, adverse selection, fraud.</td></tr>
+        <tr><td>Arbitrageur</td><td>Buys in one market and sells the same instrument at a higher price in another, connecting prices across markets.</td></tr>
+        <tr><td>Clearinghouse / custodian</td><td>Clearinghouses guarantee settlement and limit counterparty risk (margin, position limits); custodians hold securities to prevent loss or fraud.</td></tr>
+      </table></div>
+
+      <h3>Long and short positions</h3>
+      <p>A <strong>long</strong> position benefits from price increases; a <strong>short</strong> position benefits from decreases. To sell short, the trader <em>borrows</em> shares (via the broker), sells them, and must later repurchase ("cover") and return them. The short seller must pay the lender any dividends paid during the loan (<em>payments-in-lieu of dividends</em>) and typically leaves the short-sale proceeds with the lender as collateral, earning interest on it at the <strong>short rebate rate</strong> (usually slightly below market rates; can be negative for hard-to-borrow stocks).</p>
+      <div class="warning"><strong>Exam trap.</strong> A short position has theoretically <em>unlimited</em> potential loss (price can rise without bound) and maximum gain of 100% of the sale price (price falls to zero). A long position is the reverse. Also: the party long a put option has <em>short exposure</em> to the underlying — classify exposure by what makes the position profitable, not by the word "buy."</div>
+
+      <h3>Leverage and margin</h3>
+      <p>Buying <strong>on margin</strong> means borrowing part of the purchase price from the broker (the loan is a <em>margin loan</em>; its interest rate is the <em>call money rate</em>). The trader's own equity at purchase must be at least the <strong>initial margin requirement</strong>; afterward equity must stay above the <strong>maintenance margin requirement</strong> or the trader receives a <strong>margin call</strong> — a demand to deposit more equity.</p>
+      <div class="formula">Leverage ratio = Position value ⁄ Equity &nbsp;&nbsp;&nbsp; Maximum leverage ratio = 1 ⁄ Initial margin requirement</div>
+      <p>Leverage multiplies returns in <em>both</em> directions: a position with 2.5× leverage turns a +10% asset return into roughly +25% on equity (before interest and fees), and a −10% return into roughly −25%.</p>
+      <div class="formula">Margin call price (long position) = P<sub>0</sub> × (1 − Initial margin) ⁄ (1 − Maintenance margin)</div>
+      <p>Intuition: your equity per share is price minus the loan per share; the loan per share is fixed at P<sub>0</sub>(1 − initial margin). Set equity ⁄ price equal to the maintenance margin and solve for price.</p>
+
+      <div class="example"><p><strong>Question (margin call price).</strong> An investor buys 500 shares at $40 per share on margin. The initial margin requirement is 50% and the maintenance margin requirement is 25%. Below what price will the investor receive a margin call?</p>
+      <div class="solution"><p><strong>Solution.</strong> The loan per share is fixed: $40 × (1 − 0.50) = $20. Equity per share at price P is P − 20. A margin call occurs when equity ⁄ position value falls below 25%:</p>
+      <p>(P − 20) ⁄ P = 0.25 → P − 20 = 0.25P → 0.75P = 20 → P = <strong>$26.67</strong>.</p>
+      <p>Shortcut: P = 40 × (1 − 0.50) ⁄ (1 − 0.25) = 40 × 0.50 ⁄ 0.75 = <strong>$26.67</strong>. Below $26.67, the investor must post additional equity.</p></div></div>
+
+      <div class="example"><p><strong>Question (leveraged return).</strong> A trader buys 1,000 shares at $20 on 50% initial margin. The call money rate is 4%, commissions are $0.10 per share each way, and the stock pays a $0.50 dividend during the year. The trader sells after one year at $24. What is the one-year return on the trader's equity investment?</p>
+      <div class="solution"><p><strong>Solution.</strong> Initial equity = 0.50 × $20,000 = $10,000, plus $100 purchase commission → total investment $10,100. Loan = $10,000; interest = $10,000 × 4% = $400. Dividends received = 1,000 × $0.50 = $500. Sale proceeds = $24,000 − $100 commission = $23,900.</p>
+      <p>Ending equity = 23,900 + 500 − 10,000 (loan) − 400 (interest) = $14,000.</p>
+      <p>Return = (14,000 − 10,100) ⁄ 10,100 = 3,900 ⁄ 10,100 ≈ <strong>+38.6%</strong> — versus about +22.5% unlevered ((4,000 + 500 − 200 commissions) ⁄ 20,100). Leverage magnified the gain.</p></div></div>
+
+      <h3>Orders: execution, validity, and clearing instructions</h3>
+      <ul>
+        <li><strong>Execution instructions</strong> — how to trade. A <strong>market order</strong> executes immediately at the best available price (certainty of execution, uncertainty of price). A <strong>limit order</strong> executes only at the limit price or better (certainty of price, uncertainty of execution). A buy limit above the best ask is <em>marketable</em>; one between bid and ask is <em>making a new market</em>; at the best bid it is <em>making the market</em>; below the best bid it is <em>behind the market</em>. Other instructions: all-or-nothing, hidden orders, iceberg orders (display size).</li>
+        <li><strong>Validity instructions</strong> — when the order may execute: day orders, good-till-cancelled (GTC), immediate-or-cancel (IOC/fill-and-kill), good-on-close (market-on-close), good-on-open. A <strong>stop order</strong> (e.g., stop-loss) is a validity condition: it becomes executable only after the stock trades at or through the stop price. A stop-<em>sell</em> triggers when price falls to the stop; a stop-<em>buy</em> triggers when price rises to it (used to cover shorts or to buy into momentum). Stop orders reinforce price moves; limit orders absorb them.</li>
+        <li><strong>Clearing instructions</strong> — how to settle (which entity clears; for sells, whether it is a long sale or short sale).</li>
+      </ul>
+      <div class="warning"><strong>Exam trap.</strong> "Buy if the price drops to $25" = a <em>limit</em> buy at $25. "Buy if the price rises to $25" = a <em>stop</em> buy at $25. Stop orders offer no price guarantee — after triggering, they become market orders (unless a stop-limit).</div>
+
+      <h3>Primary and secondary markets</h3>
+      <p><strong>Primary markets</strong> are where issuers sell new securities: initial public offerings (IPOs) and seasoned/secondary offerings by firms already public. Methods include <strong>underwritten offerings</strong> (investment bank guarantees the issue by buying any unsold shares — issuer bears less risk; note the conflict: the underwriter sets the price and often underprices IPOs), <strong>best-efforts</strong> (bank acts only as broker), <strong>private placements</strong> (sold directly to qualified investors; cheaper, no registration, but illiquid so investors demand higher returns), <strong>shelf registrations</strong> (register once, sell over time), <strong>dividend reinvestment plans (DRIPs)</strong>, and <strong>rights offerings</strong> (existing shareholders may buy new shares at a discount — dilutive unless rights are exercised or sold).</p>
+      <p><strong>Secondary markets</strong> are where investors trade existing securities with each other. Active secondary markets help issuers because investors pay more for securities they can later sell cheaply and quickly (liquidity lowers the issuer's cost of capital).</p>
+
+      <h3>Market structures</h3>
+      <ul>
+        <li><strong>Call markets</strong> — all trades occur at a single price at a scheduled time (good for illiquid securities; used at exchange opens/closes). <strong>Continuous markets</strong> — trade any time the market is open.</li>
+        <li><strong>Quote-driven (dealer/OTC) markets</strong> — customers trade with dealers at the dealers' quoted prices. Most bonds, currencies, and spot commodities trade this way.</li>
+        <li><strong>Order-driven markets</strong> — an order-matching system crosses public orders using <em>order precedence rules</em> (price priority first, then hidden vs. displayed, then time — earliest first) and <em>trade pricing rules</em> (uniform pricing in call markets; discriminatory pricing — the standing limit order's price — in continuous markets; derivative pricing in crossing networks, e.g., the midpoint of another market's quotes).</li>
+        <li><strong>Brokered markets</strong> — brokers find counterparties for unique, illiquid assets (blocks of stock, real estate).</li>
+      </ul>
+      <p>Markets differ in transparency: <strong>pre-trade transparent</strong> markets publish quotes and orders; <strong>post-trade transparent</strong> markets publish completed trade prices and sizes. Dealers prefer opacity (wider spreads); investors prefer transparency.</p>
+
+      <h3>Well-functioning markets and regulation</h3>
+      <p>A well-functioning financial system has complete markets (all six purposes achievable), operational efficiency (low transaction costs), and informational efficiency (prices reflect fundamental value), which together produce allocational efficiency. Regulation exists because market failures — fraud, theft, insider exploitation, weak disclosure — destroy trust. Objectives of market regulation:</p>
+      <ul>
+        <li>Control fraud, theft, and agency problems (agents serving themselves rather than clients).</li>
+        <li>Promote fairness (level playing field; restrict trading on inside information).</li>
+        <li>Set mutually beneficial standards (common financial reporting, e.g., IFRS, so information is comparable and cheaper to gather).</li>
+        <li>Prevent exploitation of the uninformed by requiring minimum standards of competence and disclosure.</li>
+        <li>Ensure liabilities can be met — minimum capital and reserve requirements for banks, insurers, and pensions.</li>
+      </ul>
+      <div class="keypoint"><strong>Remember.</strong> Margin call price = P<sub>0</sub>(1 − initial margin)⁄(1 − maintenance margin). Maximum leverage = 1⁄initial margin. Limit order = price certainty; market order = execution certainty; stop orders trigger on adverse-side moves and add momentum to prices.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-2">
+      <h2>2. Security Market Indexes</h2>
+      <p>An index is a portfolio in miniature: a rule for choosing securities and a rule for weighting them. The exam loves to make you compute the same period's return under different weighting schemes and to ask which scheme needs the most rebalancing. Master the mechanics once and these are free points.</p>
+
+      <h3>Index basics: price return vs. total return</h3>
+      <p>A <strong>security market index</strong> represents a security market, market segment, or asset class, built from a sample of securities (the <em>constituents</em>). Each index has two versions of value and return:</p>
+      <ul>
+        <li><strong>Price return index</strong> — reflects only the prices of constituents.</li>
+        <li><strong>Total return index</strong> — reflects prices <em>plus</em> all income (dividends, interest) assumed reinvested in the index.</li>
+      </ul>
+      <p>Both start at the same inception value, but the total return index grows faster, and the gap compounds over time. Multi-period returns chain geometrically: V<sub>T</sub> = V<sub>0</sub>(1 + R<sub>1</sub>)(1 + R<sub>2</sub>)…(1 + R<sub>T</sub>).</p>
+      <p>Index construction requires five decisions: which target market, which securities, how to weight them, when to <strong>rebalance</strong> (restore target weights), and when to <strong>reconstitute</strong> (change the constituent list).</p>
+
+      <h3>Weighting schemes</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Scheme</th><th>Weight of stock i</th><th>Pros</th><th>Cons</th></tr>
+        <tr><td>Price-weighted</td><td>Price<sub>i</sub> ⁄ Σ prices</td><td>Simple; long history (DJIA, Nikkei 225)</td><td>Arbitrary — a stock split changes its weight; high-priced stocks dominate; divisor must be adjusted for splits</td></tr>
+        <tr><td>Equal-weighted</td><td>1 ⁄ n</td><td>Simple</td><td>Underweights large firms; requires frequent rebalancing (weights drift as soon as prices move); index return = simple average of constituent returns</td></tr>
+        <tr><td>Market-cap-weighted</td><td>Cap<sub>i</sub> ⁄ Σ caps</td><td>Weights match each firm's market importance; largely self-rebalancing</td><td>Momentum tilt — overpriced stocks get ever-bigger weights; concentration in a few mega-caps</td></tr>
+        <tr><td>Float-adjusted cap-weighted</td><td>Float cap<sub>i</sub> ⁄ Σ float caps</td><td>Reflects shares actually <em>available to public investors</em> (excludes controlling holders, cross-holdings, government stakes); most investable</td><td>Same momentum issue as cap weighting</td></tr>
+        <tr><td>Fundamental-weighted</td><td>By earnings, book value, sales, dividends, cash flow…</td><td>Breaks the link between price and weight; contrarian/value tilt (overweights stocks cheap relative to fundamentals)</td><td>A deliberate bet against the market's pricing — no longer "neutral"</td></tr>
+      </table></div>
+
+      <div class="example"><p><strong>Question (index returns under each scheme).</strong> An index contains three stocks. Over one period (no dividends):</p>
+      <div class="tablewrap"><table>
+        <tr><th>Stock</th><th>Begin price</th><th>End price</th><th>Shares outstanding</th><th>Return</th></tr>
+        <tr><td>A</td><td>$50</td><td>$55</td><td>100</td><td>+10%</td></tr>
+        <tr><td>B</td><td>$20</td><td>$24</td><td>300</td><td>+20%</td></tr>
+        <tr><td>C</td><td>$10</td><td>$9</td><td>1,000</td><td>−10%</td></tr>
+      </table></div>
+      <p>Compute the period return of (a) a price-weighted index, (b) an equal-weighted index, (c) a market-cap-weighted index, and (d) a float-adjusted index where the free floats are 100% (A), 50% (B), and 30% (C).</p>
+      <div class="solution"><p><strong>Solution.</strong></p>
+      <p>(a) <em>Price-weighted:</em> sum of prices, divided by the divisor (3). Begin = (50 + 20 + 10)⁄3 = 26.67; End = (55 + 24 + 9)⁄3 = 29.33. Return = 88⁄80 − 1 = <strong>+10.0%</strong>. The $50 stock dominates.</p>
+      <p>(b) <em>Equal-weighted:</em> simple average of returns = (10% + 20% − 10%)⁄3 = <strong>+6.67%</strong>.</p>
+      <p>(c) <em>Market-cap-weighted:</em> Begin caps: A = 5,000; B = 6,000; C = 10,000; total 21,000. End caps: 5,500 + 7,200 + 9,000 = 21,700. Return = 700⁄21,000 = <strong>+3.33%</strong>. C's large cap (and −10% return) drags the index down.</p>
+      <p>(d) <em>Float-adjusted:</em> Begin float caps: A = 5,000 × 1.00 = 5,000; B = 6,000 × 0.50 = 3,000; C = 10,000 × 0.30 = 3,000; total 11,000. End: 5,500 + 3,600 + 2,700 = 11,800. Return = 800⁄11,000 = <strong>+7.27%</strong>. Shrinking C's weight (mostly held by insiders) raises the measured return.</p>
+      <p>Same stocks, same prices — four different "market returns." Weighting is a real decision, not a detail.</p></div></div>
+
+      <div class="example"><p><strong>Question (fundamental weighting).</strong> Using the same three stocks, a fundamental index weights by prior-year earnings: A 50%, B 30%, C 20%. What is its return?</p>
+      <div class="solution"><p><strong>Solution.</strong> Return = 0.50(10%) + 0.30(20%) + 0.20(−10%) = 5% + 6% − 2% = <strong>+9.0%</strong>. Because weights come from earnings rather than market prices, the scheme leans toward stocks priced low relative to fundamentals — a value tilt.</p></div></div>
+
+      <div class="warning"><strong>Exam trap.</strong> When a stock in a price-weighted index <em>splits</em>, the index value must not jump, so the <strong>divisor is adjusted downward</strong> — but the split stock's influence on the index permanently falls. Cap-weighted indexes are unaffected by splits (cap is unchanged). Also: an equal-weighted index return is the <em>arithmetic average</em> of constituent returns only for a single period immediately after rebalancing.</div>
+
+      <h3>Rebalancing and reconstitution</h3>
+      <ul>
+        <li><strong>Rebalancing</strong> — adjusting constituent weights back to target, usually quarterly. Matters most for <strong>equal-weighted</strong> indexes (weights drift the moment prices diverge). Cap-weighted indexes largely rebalance themselves.</li>
+        <li><strong>Reconstitution</strong> — replacing securities that no longer meet the index criteria (delistings, bankruptcies, style drift). Prices of added stocks tend to rise and of deleted stocks tend to fall when changes are announced, because index funds must trade them.</li>
+      </ul>
+
+      <h3>Uses of indexes and major types</h3>
+      <ul>
+        <li>Gauge of market sentiment; proxy for measuring/modeling returns, systematic risk, and risk-adjusted performance (the "market portfolio" and β in the CAPM); benchmark for active managers; model portfolio for index funds and ETFs; basis for derivatives and structured products.</li>
+        <li><strong>Equity indexes:</strong> broad market (&gt;90% of a market's cap), multi-market (regional/global, sometimes GDP-weighted), sector, and style (growth vs. value, large vs. small — style indexes need frequent reconstitution as stocks migrate).</li>
+        <li><strong>Fixed-income indexes:</strong> huge universes, illiquid constituents that mature and must be replaced — hard and costly to replicate, mostly dealer-priced.</li>
+        <li><strong>Alternative indexes:</strong> commodities (futures-based — index return can differ sharply from spot price change because of roll yield and collateral yield; weighting is arbitrary), real estate (appraisal-based, repeat-sales, or REIT-based), hedge funds (rely on <em>voluntary</em> reporting → survivorship and self-selection <strong>upward bias</strong>: poor performers stop reporting).</li>
+      </ul>
+      <div class="keypoint"><strong>Remember.</strong> Price-weighted → average of prices (divisor-adjusted for splits). Equal-weighted → average of returns, most rebalancing. Cap-weighted → value-of-portfolio return, momentum tilt; float adjustment restricts to publicly available shares. Fundamental → value tilt. Hedge fund indexes are biased upward by voluntary reporting.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-3">
+      <h2>3. Market Efficiency</h2>
+      <p>Market efficiency asks a single question with large consequences: do prices already reflect information? The answer determines whether active management can work, which is why this module connects directly to Portfolio Management. Exam questions test the three forms, what each form implies for technical and fundamental analysis, and the anomaly/behavioral vocabulary.</p>
+
+      <h3>The concept</h3>
+      <p>An <strong>informationally efficient market</strong> is one in which prices adjust quickly and rationally to new information, so that current prices fully reflect all available information. In such a market you cannot <em>consistently</em> earn positive risk-adjusted <strong>abnormal returns</strong> (returns above those expected for the risk taken) by trading on that information. Efficiency is about speed and accuracy of adjustment — minutes in liquid markets, not days.</p>
+      <p>Distinguish <strong>market value</strong> (the price at which an asset trades) from <strong>intrinsic (fundamental) value</strong> (the value a rational investor with full knowledge would assign). In a perfectly efficient market they coincide; active management is a bet that they diverge and that the gap can be identified and captured after costs.</p>
+
+      <h3>Factors affecting the degree of efficiency</h3>
+      <ul>
+        <li><strong>Number of market participants</strong> — more analysts and traders → faster price adjustment → more efficient.</li>
+        <li><strong>Information availability</strong> — deep, timely, cheap disclosure (large developed markets) → more efficient. Note: acting on <em>material nonpublic</em> information is illegal in most jurisdictions, not merely an efficiency question.</li>
+        <li><strong>Impediments to trading</strong> — short-selling restrictions, illiquidity, and limits to arbitrage keep prices from correcting (overvaluation persists when pessimists cannot short).</li>
+        <li><strong>Transaction and information costs</strong> — if the mispricing is smaller than the cost of exploiting it, prices are still <em>efficient after costs</em>. Efficiency is defined net of these costs.</li>
+      </ul>
+
+      <h3>The three forms (Fama)</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Form</th><th>Prices reflect…</th><th>Implication if true</th></tr>
+        <tr><td><strong>Weak</strong></td><td>All past market data (prices, volume)</td><td><strong>Technical analysis</strong> cannot consistently produce abnormal returns. Fundamental analysis and inside information still might.</td></tr>
+        <tr><td><strong>Semi-strong</strong></td><td>All <em>public</em> information (past market data + financial statements, announcements, economic data)</td><td>Neither technical <em>nor</em> <strong>fundamental analysis</strong> of public information produces abnormal returns. Prices react fully and immediately to news (tested with event studies). Only inside information might work.</td></tr>
+        <tr><td><strong>Strong</strong></td><td>All information, public <em>and private</em></td><td>Even insider trading would not produce abnormal returns. Empirically rejected — insiders do profit — which is one reason insider trading is illegal.</td></tr>
+      </table></div>
+      <p>The forms nest: semi-strong efficiency implies weak-form efficiency; strong-form implies both. Developed markets are generally found to be weak-form and largely semi-strong-form efficient; no market is strong-form efficient.</p>
+
+      <h3>Implications for investors</h3>
+      <ul>
+        <li>If markets are semi-strong efficient, <strong>passive investing</strong> (index funds) should outperform active management <em>on average after fees</em> — and empirically, most active managers underperform their benchmarks net of costs.</li>
+        <li>Portfolio managers still add value in efficient markets through functions that do not require mispricing: establishing risk-return objectives, diversification, asset allocation, tax management, and rebalancing.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question (mini-scenario).</strong> (1) A company announces earnings 20% above consensus at 9:00; by 9:05 the stock has jumped and then trades flat — traders who bought at 9:05 earn no abnormal return. (2) A fund manager consistently earns abnormal profits trading ahead of unannounced mergers using tips from an investment banker. What does each observation imply about market efficiency?</p>
+      <div class="solution"><p><strong>Solution.</strong> (1) is <em>consistent with semi-strong-form efficiency</em>: the price adjusted quickly and completely to new public information, leaving nothing for those who trade after the announcement. (2) is <em>evidence against strong-form efficiency</em> — private (inside) information generates abnormal returns — and it is also illegal. Neither observation says anything against weak-form efficiency; note that (2) being profitable is exactly why strong-form efficiency fails in practice.</p></div></div>
+
+      <h3>Market anomalies</h3>
+      <p>An <strong>anomaly</strong> is a persistent pattern of returns that appears to contradict efficiency. Most documented anomalies shrink or vanish once discovered (they get arbitraged away), reflect data mining, or are compensation for risk or costs — so the curriculum's bottom line is that anomalies are <em>not reliable bases for trading strategies</em>.</p>
+      <ul>
+        <li><strong>Time-series anomalies:</strong> calendar effects (the <strong>January effect</strong> — small-cap outperformance in early January, largely explained by tax-loss selling and window dressing, and much weaker since publication); <strong>momentum and overreaction</strong> (short-term winners keep winning; long-term losers subsequently outperform, contradicting weak-form efficiency if exploitable).</li>
+        <li><strong>Cross-sectional anomalies:</strong> the <strong>size effect</strong> (small caps beat large caps — weak after discovery) and the <strong>value effect</strong> (low P/E, low P/B, high dividend-yield stocks beat growth stocks — possibly a risk premium, not mispricing).</li>
+        <li><strong>Other:</strong> closed-end fund discounts, post-earnings-announcement drift (prices keep drifting after earnings surprises — strongest for small firms), and IPOs (initial underpricing "pop," then long-run underperformance).</li>
+      </ul>
+
+      <h3>Behavioral finance</h3>
+      <p>Behavioral finance studies how actual investor behavior departs from rationality, offering explanations for anomalies. Key biases:</p>
+      <ul>
+        <li><strong>Loss aversion</strong> — losses hurt more than equal gains please; can explain overreaction.</li>
+        <li><strong>Overconfidence</strong> — investors overestimate their information and ability → mispricing, excessive trading.</li>
+        <li><strong>Herding</strong> — trading with the crowd regardless of one's own information; <strong>information cascades</strong> — imitating the first movers' trades (can be rational if first movers are informed, and can improve pricing).</li>
+        <li><strong>Representativeness</strong> (judging by resemblance to past patterns), <strong>mental accounting</strong> (treating money in separate buckets), <strong>conservatism</strong> (updating beliefs too slowly), <strong>narrow framing</strong> (viewing issues in isolation).</li>
+      </ul>
+      <div class="keypoint"><strong>Remember.</strong> Weak = past prices; semi-strong = all public info; strong = everything including private. Semi-strong efficiency kills fundamental analysis of public data, not insider profits. Anomalies exist on paper but rarely survive costs and discovery. Behavioral biases explain <em>why</em> prices may deviate — but markets can still be efficient even if individuals are irrational.</div>
+      <div class="warning"><strong>Exam trap.</strong> "Markets are weak-form efficient" does NOT mean fundamental analysis is useless — that requires <em>semi-strong</em> efficiency. Match the form to the information set precisely. And remember that finding that insiders earn abnormal returns rejects only the strong form.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-4">
+      <h2>4. Overview of Equity Securities</h2>
+      <p>This module catalogs the securities you will spend the rest of the topic valuing: common versus preference shares, their option features, private equity, and the vehicles for investing across borders. It closes with the link between accounting return (ROE) and value creation — a bridge to company analysis.</p>
+
+      <h3>Why issue equity, and what it gives investors</h3>
+      <p>Companies issue equity to finance growth (assets, R&D, acquisitions) without contractual repayment obligations; equity increases the capital base and, unlike debt, cannot force bankruptcy. Investors buy equity for <strong>capital gains</strong> and <strong>dividend income</strong>. Total return = price change + dividends; for foreign holdings add <strong>foreign exchange gains/losses</strong>. Historically, equities have delivered higher average returns than bonds or bills — with much higher volatility, which is precisely the equity risk premium story.</p>
+
+      <h3>Common shares</h3>
+      <p><strong>Common (ordinary) shares</strong> are the residual claim: holders are paid after creditors and preferred holders in liquidation, and dividends are discretionary. In exchange they get voting rights — electing the board, approving mergers, choosing auditors — exercised in person or by <strong>proxy</strong>.</p>
+      <ul>
+        <li><strong>Statutory voting:</strong> one vote per share per board seat. <strong>Cumulative voting:</strong> shareholders may concentrate all their votes (shares × seats) on one candidate — helps minority shareholders win representation.</li>
+        <li><strong>Multiple share classes</strong> (dual-class): different voting rights and dividend priority per class (e.g., founders' super-voting shares).</li>
+        <li><strong>Callable common shares:</strong> the <em>issuer</em> may buy them back at a fixed price — valuable to the issuer, so investors pay less and expect the call when the market price exceeds the call price.</li>
+        <li><strong>Putable common shares:</strong> the <em>holder</em> may sell them back to the issuer at a fixed price — a floor that benefits the investor, so these carry <em>lower risk</em>, sell at higher prices, and lower the firm's cost of capital.</li>
+      </ul>
+
+      <h3>Preference shares</h3>
+      <p><strong>Preference (preferred) shares</strong> rank between debt and common equity: priority over common for dividends and liquidation, usually a fixed dividend, and normally <em>no voting rights</em>. Like debt, they pay a scheduled amount; like equity, the dividend is not a contractual obligation and the shares are typically perpetual. Features:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Feature</th><th>Meaning</th></tr>
+        <tr><td><strong>Cumulative</strong></td><td>Unpaid (passed) dividends accrue as <em>dividends in arrears</em> and must be paid in full before any common dividend. Non-cumulative: missed dividends are simply lost.</td></tr>
+        <tr><td><strong>Participating</strong></td><td>Receives the stated dividend <em>plus</em> an extra dividend if firm profits exceed a set level, and possibly extra value in liquidation. Common in smaller, riskier firms. Non-participating: fixed claim only.</td></tr>
+        <tr><td><strong>Convertible</strong></td><td>Exchangeable into a fixed number of common shares — upside participation with a higher initial income and less risk than the common. Frequently used in venture capital financing.</td></tr>
+        <tr><td>Callable / putable</td><td>Same logic as for common: call helps issuer (higher dividend yield demanded), put helps holder (lower yield accepted).</td></tr>
+      </table></div>
+
+      <h3>Private equity</h3>
+      <p>Private equity is issued to institutional investors via private placements, with no active secondary market. Three main forms:</p>
+      <ul>
+        <li><strong>Venture capital</strong> — financing for start-up and early-stage firms (seed, early-stage, mezzanine financing); investors exit in 3–10 years via IPO or sale.</li>
+        <li><strong>Leveraged buyout (LBO)</strong> — investors buy all of a public firm's equity using mostly borrowed money, taking it private; a <strong>management buyout (MBO)</strong> is an LBO led by the firm's own managers.</li>
+        <li><strong>PIPE (private investment in public equity)</strong> — a public firm sells a block of shares privately, at a discount, to raise money quickly.</li>
+      </ul>
+      <p>Trade-offs versus public equity: weaker disclosure and lower liquidity, but management can focus on long-term value rather than quarterly results, and by design the investors expect a higher return for illiquidity.</p>
+
+      <h3>Investing in non-domestic equity</h3>
+      <p>Barriers to direct foreign investment have fallen; many firms also list abroad to raise capital, improve liquidity, and raise their profile. Vehicles:</p>
+      <ul>
+        <li><strong>Direct investing</strong> in the foreign market — exposes the investor to foreign currency, local rules, and possibly weaker disclosure.</li>
+        <li><strong>Depository receipts (DRs)</strong> — a depository bank holds foreign shares and issues receipts that trade like local shares. A <strong>global depository receipt (GDR)</strong> trades outside the issuer's home country and outside the US (commonly London/Luxembourg, usually USD). An <strong>American depository receipt (ADR)</strong> is a USD-denominated security trading in the United States (the underlying pool is an American depository share). <strong>Sponsored</strong> DRs: the issuing company participates, investors get voting rights, and disclosure is fuller. <strong>Unsponsored:</strong> the bank acts alone and <em>the bank</em> retains the votes. ADR levels: Level I (OTC only, minimal disclosure), Level II (exchange-listed), Level III (exchange-listed <em>and</em> can raise new capital), plus Rule 144A private placements to qualified institutional buyers.</li>
+        <li><strong>Global registered shares (GRS)</strong> — the same share trades on exchanges worldwide in local currencies. <strong>Baskets of listed depository receipts (BLDRs)</strong> — ETFs holding DR portfolios.</li>
+      </ul>
+
+      <h3>Risk and return characteristics</h3>
+      <p>The riskiness of an equity security is driven by the uncertainty of its future cash flows. Ranking (least to most risky, for the investor): <strong>putable preference → preference → putable common → common → callable common/preference</strong> in spirit — puts reduce risk (investor holds a floor), calls add risk (issuer caps the upside), and preference shares' fixed, prior claim makes them less risky than common but with less upside. Cumulative preference shares are less risky than otherwise-identical non-cumulative ones.</p>
+
+      <h3>Book value, market value, and ROE</h3>
+      <p><strong>Book value of equity</strong> is assets minus liabilities on the balance sheet — the cumulative result of past decisions (retained earnings accumulate into it). <strong>Market value</strong> is the market's forward-looking assessment of the firm's future cash flows. Management can directly influence book value; it can only <em>indirectly</em> influence market value. The <strong>price-to-book ratio</strong> compares the two; growth firms with high expected returns trade at high P/B.</p>
+      <div class="formula">ROE = Net income ⁄ Average total equity &nbsp;&nbsp; (average = (beginning + ending) ⁄ 2; beginning equity alone is also acceptable)</div>
+      <div class="example"><p><strong>Question (ROE).</strong> A firm reports net income of $120 million. Total shareholders' equity was $750 million at the start of the year and $850 million at the end. Compute ROE using average equity, and interpret a rising ROE that coincides with rising financial leverage.</p>
+      <div class="solution"><p><strong>Solution.</strong> Average equity = (750 + 850)⁄2 = $800m. ROE = 120⁄800 = <strong>15.0%</strong>. A higher ROE is not automatically better: if it rises because the firm issued debt to buy back equity (shrinking the denominator), the increase reflects leverage and higher risk, not better operating performance — decompose it (DuPont) before applauding.</p></div></div>
+      <p>Finally, a firm creates value only when it earns a return above its <strong>cost of equity</strong> — the minimum return shareholders require, which is also the investors' expected/required return. Accounting ROE above the cost of equity signals value creation.</p>
+      <div class="keypoint"><strong>Remember.</strong> Cumulative preference = arrears must be paid before common dividends. Putable = investor's floor (lower risk, lower required return); callable = issuer's option (higher required return). Sponsored DRs carry voting rights for the investor; unsponsored give votes to the depository bank. ROE uses <em>average</em> (or beginning) equity.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-5">
+      <h2>5. Company Analysis: Past and Present</h2>
+      <p>Before forecasting a company you must understand what it has actually done: what it sells, what drives its revenue, how its costs behave, and how much capital it consumes. This module gives the checklist and the ratios; the exam tests revenue/cost drivers, operating leverage, and working-capital measures.</p>
+
+      <h3>The company research report and business description</h3>
+      <p>A full company analysis begins with a clear description of the <strong>business model</strong>: what the firm sells, to whom, how it prices, how it produces and delivers, and how it makes money (the unit economics). The research report typically covers the company front (business description, industry overview, competitive positioning), followed by financial analysis (revenue, profitability, capital), forecasts, and valuation, with risks flagged throughout. Analysts should present assumptions explicitly and distinguish facts from opinion.</p>
+
+      <h3>Analyzing revenue</h3>
+      <p>Revenue growth decomposes into <strong>volume</strong> (units sold) and <strong>price/mix</strong> (average selling price and product mix). Three lenses:</p>
+      <ul>
+        <li><strong>Bottom-up drivers:</strong> stores × sales per store; users × revenue per user; units × price. Identify which lever management actually controls.</li>
+        <li><strong>Pricing power:</strong> the ability to raise prices without losing proportionate volume — rooted in differentiation, switching costs, and brand; visible in gross margins that are high and stable versus peers.</li>
+        <li><strong>Geographic/segment mix:</strong> segment disclosures show where growth comes from and where it is decelerating.</li>
+      </ul>
+
+      <h3>Operating profitability and cost structure</h3>
+      <p>Classify costs two ways: by <em>nature/function</em> (COGS → gross profit; SG&amp;A, R&amp;D → operating profit) and by <em>behavior</em>:</p>
+      <ul>
+        <li><strong>Variable costs</strong> move with output (materials, sales commissions); <strong>fixed costs</strong> do not (rent, depreciation, salaried overhead) within the relevant range.</li>
+        <li>A high proportion of fixed costs creates high <strong>operating leverage</strong>: small revenue changes produce large operating-income changes, in both directions.</li>
+        <li><strong>Economies of scale</strong> exist when average cost per unit falls as output rises — visible as gross or operating margins <em>rising with revenue</em> over time or versus larger peers.</li>
+      </ul>
+      <div class="formula">Degree of operating leverage (DOL) = % Δ Operating income ⁄ % Δ Revenue = Contribution margin ⁄ Operating income<br>where Contribution margin = Revenue − Variable costs</div>
+      <div class="example"><p><strong>Question (operating leverage).</strong> A firm has revenue of $1,000, variable costs of 60% of revenue, and fixed operating costs of $300. (a) Compute operating income and DOL. (b) If revenue grows 10%, what is the new operating income?</p>
+      <div class="solution"><p><strong>Solution.</strong> (a) Contribution margin = 1,000 − 600 = $400. Operating income = 400 − 300 = $100. DOL = 400⁄100 = <strong>4.0</strong>.</p>
+      <p>(b) Revenue 1,100; variable costs 660; contribution 440; fixed still 300 → operating income = <strong>$140</strong>, a 40% increase — exactly DOL × 10%. If revenue instead <em>fell</em> 10%, operating income would fall 40% to $60. High fixed costs cut both ways.</p></div></div>
+      <div class="warning"><strong>Exam trap.</strong> DOL is computed <em>at a given level of sales</em> — it is not a constant. And do not confuse operating leverage (fixed operating costs) with financial leverage (debt): a firm can have high operating leverage and zero debt.</div>
+
+      <h3>Working capital and capital investments</h3>
+      <p>Growth consumes cash through two channels beyond the income statement:</p>
+      <ul>
+        <li><strong>Working capital</strong> — receivables, inventory, and payables. Efficiency is tracked with days ratios: <strong>DSO</strong> (days sales outstanding = 365 × receivables⁄revenue), <strong>DOH/DIO</strong> (days of inventory on hand = 365 × inventory⁄COGS), <strong>DPO</strong> (days payables outstanding = 365 × payables⁄purchases or COGS).
+        <div class="formula">Cash conversion cycle = DSO + DOH − DPO</div>
+        A shorter (even negative) cycle means suppliers and customers finance the firm's operations; a lengthening cycle absorbs cash and can flag channel stuffing or obsolete inventory.</li>
+        <li><strong>Capital investments</strong> — distinguish <strong>maintenance capex</strong> (sustaining current capacity; often proxied by depreciation, adjusted for inflation) from <strong>growth capex</strong> (adding capacity). Capex⁄revenue and capex⁄depreciation reveal the firm's investment phase. Returns on those investments show up in <strong>ROIC</strong> (after-tax operating profit ⁄ invested capital) — a company creates value when ROIC exceeds its cost of capital.</li>
+      </ul>
+      <div class="keypoint"><strong>Remember.</strong> Revenue = volume × price/mix; margins reveal pricing power and scale economies; DOL = contribution margin ⁄ operating income; cash conversion cycle = DSO + DOH − DPO; maintenance capex ≈ depreciation, growth capex is the rest.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-6">
+      <h2>6. Industry and Competitive Analysis</h2>
+      <p>A company's profitability is bounded by the economics of its industry. This module supplies the frameworks — classification schemes, Porter's Five Forces, PESTLE, and the industry life cycle — and the exam tests whether you can name, apply, and (especially for Five Forces) reason with them.</p>
+
+      <h3>Uses of industry analysis and classification schemes</h3>
+      <p>Industry analysis supports understanding a company's environment, relative valuation against peers, sector rotation strategies, and performance attribution. To compare companies you must first group them:</p>
+      <ul>
+        <li><strong>Commercial classification providers:</strong> GICS (MSCI/S&amp;P — 11 sectors, then industry groups, industries, sub-industries), ICB (FTSE Russell), and TRBC (Refinitiv). These classify each <em>company</em> (by principal business activity, usually largest revenue source) into exactly one group — practical for building peer groups and sector indexes.</li>
+        <li><strong>Government/statistical schemes:</strong> ISIC (UN), NACE (EU), NAICS (North America). Built for economic statistics; they classify <em>establishments</em>, are updated infrequently, and don't distinguish small from large or public from private firms — less useful for investment work.</li>
+        <li>A traditional shorthand sorts firms by economic sensitivity: <strong>cyclical</strong> (demand tracks the business cycle — autos, housing, industrials, consumer discretionary), <strong>defensive/non-cyclical</strong> (stable demand — utilities, staples, healthcare), and <strong>growth</strong> (demand driven by company-specific innovation rather than the cycle). The limitation: real companies straddle categories, and even "defensive" industries can be poor investments if competition destroys pricing.</li>
+      </ul>
+      <p>A useful <strong>peer group</strong> — companies with similar business activities, demand drivers, cost structure, and access to capital — usually starts from a commercial classification and is then refined by reading annual reports and finding which competitors companies name themselves.</p>
+
+      <h3>Porter's Five Forces</h3>
+      <p>The five forces determine the <em>intensity of competition</em> and hence the industry's long-run profit potential. Stronger forces → lower sustainable profitability.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Force</th><th>Stronger (bad for incumbents) when…</th></tr>
+        <tr><td><strong>1. Threat of new entrants</strong></td><td>Barriers to entry are low: little capital needed, no economies of scale, weak brand loyalty, easy distribution access, no regulatory licensing, low switching costs. Note the trap: high barriers to entry do <em>not</em> guarantee pricing power (e.g., airlines — capital-intensive but brutally competitive), and industries with low <em>exit</em> barriers adjust capacity better.</td></tr>
+        <tr><td><strong>2. Bargaining power of suppliers</strong></td><td>Few, concentrated suppliers of critical inputs; few substitutes for the input; suppliers can credibly integrate forward; the industry is a minor customer of the supplier.</td></tr>
+        <tr><td><strong>3. Bargaining power of buyers</strong></td><td>Few, large customers; the product is undifferentiated; switching costs are low; buyers can integrate backward; the purchase is a large share of buyers' costs (so they negotiate hard).</td></tr>
+        <tr><td><strong>4. Threat of substitutes</strong></td><td>Products <em>from outside the industry</em> meet the same need at attractive price-performance (video calls vs. air travel), capping the prices incumbents can charge.</td></tr>
+        <tr><td><strong>5. Rivalry among existing competitors</strong></td><td>Many similar-sized competitors; slow industry growth (fight for share); high fixed costs and excess capacity (price wars to fill capacity); undifferentiated products; high exit barriers keep unprofitable capacity in the market.</td></tr>
+      </table></div>
+      <div class="example"><p><strong>Question (mini-scenario).</strong> Apply the Five Forces to the passenger airline industry and state the implication for long-run profitability.</p>
+      <div class="solution"><p><strong>Solution.</strong> Rivalry: high — many carriers, high fixed costs (aircraft, gates), perishable inventory (empty seats), commodity-like product → chronic fare wars. Buyer power: high — travelers compare fares instantly, near-zero switching costs. Supplier power: high — two aircraft makers (Airbus/Boeing), concentrated jet-fuel suppliers, unionized labor. Threat of substitutes: moderate — high-speed rail on short routes, videoconferencing for business travel. Threat of new entrants: moderate — capital and slots are barriers, but leasing lowers them and low-cost carriers keep entering. Four of five forces are strong → structurally <strong>low sustainable profitability</strong>, exactly what the industry's history shows. Note that high capital intensity (a barrier) did not protect returns — pricing power is what matters.</p></div></div>
+
+      <h3>External influences: PESTLE</h3>
+      <p>Beyond the five forces, analyze macro influences on the industry:</p>
+      <ul>
+        <li><strong>P</strong>olitical — trade policy, taxation, government stability and spending priorities.</li>
+        <li><strong>E</strong>conomic — GDP growth, interest rates, inflation, exchange rates (matters most for cyclical industries).</li>
+        <li><strong>S</strong>ocial — demographics, lifestyle and preference shifts, urbanization.</li>
+        <li><strong>T</strong>echnological — innovations that create, transform, or destroy industries (digital photography vs. film).</li>
+        <li><strong>L</strong>egal/regulatory — licensing, antitrust, product approval regimes (pharma), data rules.</li>
+        <li><strong>E</strong>nvironmental — climate policy, emissions costs, physical climate risks, stakeholder pressure.</li>
+      </ul>
+
+      <h3>Industry life cycle</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Stage</th><th>Growth</th><th>Characteristics</th></tr>
+        <tr><td><strong>Embryonic</strong></td><td>Slow</td><td>New industry; high prices, heavy investment, high failure risk; customers unfamiliar with product.</td></tr>
+        <tr><td><strong>Growth</strong></td><td>Rapid</td><td>Demand takes off, prices fall as scale builds, competition still limited (a rising tide), profitability improving.</td></tr>
+        <tr><td><strong>Shakeout</strong></td><td>Slowing</td><td>Growth decelerates; overcapacity emerges; intense competition and price cutting; weaker players fail or are acquired; margins compress.</td></tr>
+        <tr><td><strong>Mature</strong></td><td>Little/none (GDP-like)</td><td>Consolidated, high barriers; stable share; pricing discipline among survivors; cash-generative "cash cows."</td></tr>
+        <tr><td><strong>Decline</strong></td><td>Negative</td><td>Substitutes/social change/global competition shrink demand; excess capacity; price wars; exit.</td></tr>
+      </table></div>
+      <p>Limitations: the model describes tendencies, not laws — technological change can catapult an industry straight to shakeout or revive a declining one; stages differ in length; and firm-level performance can diverge wildly from the industry stage.</p>
+
+      <h3>Competitive positioning</h3>
+      <p>Within an industry, a firm defends profitability through one of Porter's generic strategies:</p>
+      <ul>
+        <li><strong>Cost leadership</strong> — lowest cost producer at quality comparable to rivals; wins through scale, process efficiency, and bargaining power; can price aggressively (defensively to protect share, offensively to take it).</li>
+        <li><strong>Differentiation</strong> — products or service customers perceive as distinctly superior (brand, quality, features), commanding a price premium that exceeds the cost of differentiating.</li>
+        <li><strong>Focus</strong> — either strategy applied to a narrow segment (cost focus or differentiation focus).</li>
+      </ul>
+      <div class="warning"><strong>Exam trap.</strong> A firm "stuck in the middle" — neither cheapest nor meaningfully differentiated — tends to underperform. Also, don't confuse frameworks: regulation belongs to PESTLE (and to entry barriers), but "regulatory environment" is <em>not</em> one of Porter's five forces.</div>
+      <div class="keypoint"><strong>Remember.</strong> Five forces: entry, suppliers, buyers, substitutes, rivalry — stronger forces mean lower industry profitability. Life cycle: embryonic → growth → shakeout → mature → decline, with margin pressure concentrated in shakeout and decline. GICS-type schemes group by company and revenue source; statistical schemes serve census-takers, not analysts.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-7">
+      <h2>7. Company Analysis: Forecasting</h2>
+      <p>Valuation models run on forecasts. This module covers what analysts forecast, the three approaches to building forecasts, and how to handle uncertainty with scenarios. The exam favors classifying an approach as top-down, bottom-up, or hybrid, and simple revenue/margin arithmetic.</p>
+
+      <h3>Forecast objects, horizon, and principles</h3>
+      <p>Analysts forecast the drivers of value: <strong>income statement</strong> items (revenue, operating margins, taxes → earnings), <strong>balance sheet</strong> items (working capital, capex/PP&amp;E, capital structure), and hence <strong>free cash flow</strong>. The forecast horizon typically matches the investment thesis (often 3–5 explicit years plus a terminal assumption); longer horizons usually assume convergence to a normalized, mid-cycle level. Good practice: forecast fewer, more material line items; tie every assumption to an economic rationale (documented and testable); beware behavioral biases — overconfidence in point estimates, anchoring on current levels, confirmation bias in evidence gathering.</p>
+
+      <h3>Three forecasting approaches</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Approach</th><th>Logic</th><th>Example</th></tr>
+        <tr><td><strong>Top-down</strong></td><td>Start with the macro economy or total market, narrow to the industry, then to the company.</td><td>Forecast national GDP growth → industry revenue as "growth relative to GDP" (e.g., GDP + 2 pp) or via market size → company revenue = market size × forecast <em>market share</em>.</td></tr>
+        <tr><td><strong>Bottom-up</strong></td><td>Start at the level of the company's own drivers and aggregate up.</td><td>Revenue = stores × revenue per store; units × average selling price; installed capacity × utilization × price; sum of customer contracts. "Time series" extrapolation of the firm's own growth is also bottom-up.</td></tr>
+        <tr><td><strong>Hybrid</strong></td><td>Combine both — most common in practice; also exposes inconsistencies between the two views.</td><td>Bottom-up model of volumes, with prices tied to a top-down inflation forecast; or market-share approach (top-down market, company-specific share assumption).</td></tr>
+      </table></div>
+
+      <h3>Forecasting revenue and operating costs</h3>
+      <ul>
+        <li><strong>Revenue:</strong> split into volume and price where possible. Growth relative to GDP is convenient for mature businesses; market share × market size suits firms with clear addressable markets. Sanity-check: implied share cannot exceed 100%, and above-GDP growth cannot persist forever.</li>
+        <li><strong>Operating costs and margins:</strong> classify costs as variable (forecast as % of revenue, i.e., roughly stable margins) or fixed (forecast in currency, growing with capacity — so margins <em>expand</em> as revenue grows: operating leverage and economies of scale). COGS is usually forecast as a percentage of revenue (watch input-price swings and hedging); SG&amp;A is stickier and less revenue-sensitive. Check forecasts against peers' margins and the industry's competitive dynamics — a forecast of ever-rising margins in a shakeout industry needs a very good justification.</li>
+        <li><strong>Working capital and capex:</strong> project via efficiency ratios (DSO, DIO, DPO) and capex as % of revenue, splitting maintenance from growth capex.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question (revenue and margin forecast).</strong> A beverage company sold 100 million cases at an average price of $5.00 last year (revenue $500m). For next year the analyst forecasts volume growth of 4% and price increases of 2%. Variable costs are 55% of revenue; fixed operating costs were $150m and are expected to grow 2%. Forecast next year's revenue, operating income, and operating margin (this year's margin: operating income = 500 − 275 − 150 = $75m → 15.0%).</p>
+      <div class="solution"><p><strong>Solution.</strong> Revenue growth = (1.04 × 1.02) − 1 = 6.08% → revenue = 500 × 1.0608 = <strong>$530.4m</strong>. Variable costs = 0.55 × 530.4 = 291.7. Fixed costs = 150 × 1.02 = 153.0. Operating income = 530.4 − 291.7 − 153.0 = <strong>$85.7m</strong>. Operating margin = 85.7⁄530.4 = <strong>16.2%</strong>, up from 15.0% — margin expansion came from fixed costs growing slower than revenue (operating leverage), not from any change in variable-cost intensity.</p></div></div>
+
+      <h3>Scenario analysis</h3>
+      <p>Point forecasts hide uncertainty. <strong>Scenario analysis</strong> builds a small set of internally consistent cases — typically base, bull (upside), and bear (downside) — by flexing the key drivers together (e.g., in a recession: volumes fall <em>and</em> pricing weakens <em>and</em> bad debts rise), then attaches probabilities to produce an expected value and a range.</p>
+      <div class="example"><p><strong>Question (scenario expected value).</strong> An analyst values a stock at $60 in a bull case (25% probability), $45 in the base case (55%), and $28 in a bear case (20%). What is the probability-weighted value, and why might the analyst still report the full range?</p>
+      <div class="solution"><p><strong>Solution.</strong> E(V) = 0.25(60) + 0.55(45) + 0.20(28) = 15.00 + 24.75 + 5.60 = <strong>$45.35</strong>. The range matters because risk is asymmetric here (downside −$17.35 vs. upside +$14.65 around the expected value), and a single number would conceal how sensitive the thesis is to the bear-case drivers.</p></div></div>
+      <div class="warning"><strong>Exam trap.</strong> Growth from combined price and volume changes is <em>multiplicative</em>: (1 + g<sub>volume</sub>)(1 + g<sub>price</sub>) − 1, not simply g<sub>volume</sub> + g<sub>price</sub> (4% + 2% = 6% ≠ 6.08%). Small difference, but it is exactly the kind of distractor the exam builds.</div>
+      <div class="keypoint"><strong>Remember.</strong> Top-down starts with the economy/market; bottom-up starts with the company's own drivers; hybrid blends them. Variable costs scale with revenue (stable margin effect); fixed costs don't (margin expansion as revenue grows). Scenario analysis = internally consistent cases × probabilities.</div>
+    </section>
+
+    <!-- ============================================================ -->
+    <section class="lm" id="lm-8">
+      <h2>8. Equity Valuation: Concepts and Basic Tools</h2>
+      <p>The payoff module: turning forecasts into a value per share. Three families of models — present value (dividends or free cash flow), multiplier (price and enterprise-value multiples), and asset-based — plus rules for when each fits. This is the most calculation-heavy part of the topic; the Gordon growth model and justified P/E appear on nearly every exam.</p>
+
+      <h3>Intrinsic value vs. market price</h3>
+      <p><strong>Intrinsic value</strong> is the present value of the expected future cash flows to the investor, given a required return that reflects risk. If your estimate V exceeds market price P, the stock is <em>undervalued</em>; if V &lt; P, <em>overvalued</em>; if V ≈ P, fairly valued. Two humility checks before acting: the more efficient the market, the more the price deserves the benefit of the doubt, and your estimate is only as good as your inputs — small changes in g or r move DDM values a lot.</p>
+
+      <h3>Dividend discount models (DDM)</h3>
+      <p>Dividends are the cash flows shareholders actually receive, so the most direct present-value model discounts expected dividends at the required return on equity r.</p>
+      <div class="formula">One-period: V<sub>0</sub> = (D<sub>1</sub> + P<sub>1</sub>) ⁄ (1 + r) &nbsp;&nbsp;&nbsp; n-period: V<sub>0</sub> = Σ D<sub>t</sub>⁄(1+r)<sup>t</sup> + P<sub>n</sub>⁄(1+r)<sup>n</sup></div>
+      <div class="example"><p><strong>Question (one-period DDM).</strong> An investor expects a stock to pay a $1.00 dividend in one year and to sell for $30.00 immediately after. With a required return of 8%, what is the stock's value today?</p>
+      <div class="solution"><p><strong>Solution.</strong> V<sub>0</sub> = (1.00 + 30.00) ⁄ 1.08 = 31.00 ⁄ 1.08 = <strong>$28.70</strong>. <code>N=1, I/Y=8, PMT=0, FV=31 → CPT PV = −28.70</code>. If the market price is $27, the stock is undervalued by this analysis.</p></div></div>
+
+      <h3>Gordon growth model (constant-growth DDM)</h3>
+      <p>If dividends grow forever at a constant rate g &lt; r, the infinite sum collapses to:</p>
+      <div class="formula">V<sub>0</sub> = D<sub>1</sub> ⁄ (r − g) = D<sub>0</sub>(1 + g) ⁄ (r − g)</div>
+      <p>Assumptions: dividends are the right cash-flow measure; g is constant forever; r &gt; g. Best suited to mature, stable, dividend-paying firms. The <strong>sustainable growth rate</strong> links g to fundamentals:</p>
+      <div class="formula">g = b × ROE, &nbsp; where b = retention ratio = 1 − dividend payout ratio</div>
+      <div class="example"><p><strong>Question (GGM #1 — value from D<sub>1</sub>).</strong> A utility will pay a dividend of $2.00 next year, expected to grow at 4% indefinitely. The required return is 10%. Value the stock.</p>
+      <div class="solution"><p><strong>Solution.</strong> V<sub>0</sub> = 2.00 ⁄ (0.10 − 0.04) = 2.00 ⁄ 0.06 = <strong>$33.33</strong>. Note the sensitivity: at g = 5%, V = 2.00⁄0.05 = $40.00 — a one-point change in g moved the value 20%.</p></div></div>
+      <div class="example"><p><strong>Question (GGM #2 — value from D<sub>0</sub>).</strong> A firm just paid (D<sub>0</sub>) a dividend of $1.50. Dividends are expected to grow 5% per year; the required return is 11%. Value the stock — and beware the classic error.</p>
+      <div class="solution"><p><strong>Solution.</strong> First grow the dividend: D<sub>1</sub> = 1.50 × 1.05 = $1.575. Then V<sub>0</sub> = 1.575 ⁄ (0.11 − 0.05) = 1.575 ⁄ 0.06 = <strong>$26.25</strong>. Using D<sub>0</sub> instead of D<sub>1</sub> gives $25.00 — always one of the answer choices, always wrong.</p></div></div>
+      <div class="example"><p><strong>Question (GGM #3 — implied required return).</strong> A stock trades at $40.00, next year's dividend is expected to be $1.60, and growth is 6% forever. What required return does the market price imply?</p>
+      <div class="solution"><p><strong>Solution.</strong> Rearranging: r = D<sub>1</sub>⁄P<sub>0</sub> + g = 1.60⁄40.00 + 0.06 = 4% + 6% = <strong>10%</strong>. The required return equals the expected dividend yield plus growth — a decomposition worth memorizing.</p></div></div>
+      <p>For a <strong>non-dividend-paying</strong> stock, the GGM can only be applied by forecasting when dividends will begin — highly uncertain — so analysts usually switch to free-cash-flow or multiplier models instead.</p>
+
+      <h3>Multistage (two-stage) DDM</h3>
+      <p>Fast growers can't sustain g &gt; r forever. The two-stage model forecasts dividends explicitly through a high-growth stage, then applies the GGM to get a <strong>terminal value</strong> at the point growth becomes constant:</p>
+      <div class="formula">V<sub>0</sub> = Σ<sub>t=1..n</sub> D<sub>t</sub>⁄(1+r)<sup>t</sup> + P<sub>n</sub>⁄(1+r)<sup>n</sup>, &nbsp; where P<sub>n</sub> = D<sub>n+1</sub> ⁄ (r − g<sub>L</sub>)</div>
+      <div class="example"><p><strong>Question (two-stage DDM).</strong> A company just paid a dividend of $1.00. Dividends will grow 20% per year for two years, then 5% per year forever. The required return is 12.5%. Value the stock.</p>
+      <div class="solution"><p><strong>Solution.</strong> Stage 1 dividends: D<sub>1</sub> = 1.00 × 1.20 = 1.20; D<sub>2</sub> = 1.20 × 1.20 = 1.44.</p>
+      <p>Terminal value at t = 2 (uses the <em>first stable-growth</em> dividend): D<sub>3</sub> = 1.44 × 1.05 = 1.512; P<sub>2</sub> = 1.512 ⁄ (0.125 − 0.05) = 1.512 ⁄ 0.075 = 20.16.</p>
+      <p>Discount everything: V<sub>0</sub> = 1.20⁄1.125 + (1.44 + 20.16)⁄1.125<sup>2</sup> = 1.067 + 21.60⁄1.2656 = 1.067 + 17.067 = <strong>$18.13</strong>.</p>
+      <p>Note that the terminal value is discounted <strong>2</strong> periods — the number of the period at which it is measured — not 3, even though it is built from D<sub>3</sub>.</p></div></div>
+      <div class="warning"><strong>Exam trap.</strong> Two reliable traps: (1) using D<sub>0</sub> instead of D<sub>1</sub> in the GGM; (2) discounting the terminal value by n+1 periods instead of n. The terminal value P<sub>n</sub> sits at time n because it is the PV <em>at n</em> of dividends from n+1 onward.</div>
+
+      <h3>Free cash flow to equity (FCFE)</h3>
+      <p>Many firms pay no or token dividends while generating plenty of cash. <strong>FCFE</strong> measures the cash available for distribution to shareholders after operating needs, investment, and debt flows — dividends the firm <em>could</em> pay:</p>
+      <div class="formula">FCFE = CFO − FCInv + Net borrowing &nbsp;&nbsp;(FCInv = fixed capital investment, i.e., capex)</div>
+      <div class="formula">V<sub>0</sub> = Σ FCFE<sub>t</sub> ⁄ (1 + r)<sup>t</sup> &nbsp;&nbsp;(constant growth: V<sub>0</sub> = FCFE<sub>1</sub> ⁄ (r − g))</div>
+      <div class="example"><p><strong>Question (FCFE).</strong> A firm reports cash flow from operations of $200m, capital expenditures of $80m, and net new borrowing of $20m. FCFE is expected to grow 4% forever, the required return on equity is 9%, and there are 100 million shares. Value per share?</p>
+      <div class="solution"><p><strong>Solution.</strong> FCFE<sub>0</sub> = 200 − 80 + 20 = $140m → per share $1.40. FCFE<sub>1</sub> = 1.40 × 1.04 = $1.456. V<sub>0</sub> = 1.456 ⁄ (0.09 − 0.04) = <strong>$29.12</strong>. Net borrowing is <em>added</em> — new debt raises cash available to equity holders (repayment would be subtracted).</p></div></div>
+
+      <h3>Preferred stock valuation</h3>
+      <p>A non-callable, non-convertible perpetual preferred pays a level dividend forever — a perpetuity:</p>
+      <div class="formula">V<sub>0</sub> = D<sub>p</sub> ⁄ r &nbsp;&nbsp;(D<sub>p</sub> = par value × stated dividend rate)</div>
+      <div class="example"><p><strong>Question (preferred).</strong> A perpetual preference share has a $100 par value and a 6% annual dividend rate. Investors require 8%. Value the share.</p>
+      <div class="solution"><p><strong>Solution.</strong> D<sub>p</sub> = 100 × 6% = $6.00. V<sub>0</sub> = 6.00 ⁄ 0.08 = <strong>$75.00</strong>. It trades below par because the required return exceeds the stated rate. For preferred with a finite maturity, value like a bond (PV of dividends plus par); a call feature lowers value to the investor, a put feature raises it.</p></div></div>
+
+      <h3>Price multiples</h3>
+      <p>Multiples compare price to a fundamental. Two ways to use them: the <strong>method of comparables</strong> (compare a firm's multiple to peers or its own history — relative valuation, quick and market-based, but "cheap vs. peers" can just mean the whole peer group is overpriced) and the <strong>method of forecasted (justified) fundamentals</strong> (derive what the multiple <em>should</em> be from a valuation model).</p>
+      <div class="formula">Justified forward P⁄E: &nbsp; P<sub>0</sub>⁄E<sub>1</sub> = (D<sub>1</sub>⁄E<sub>1</sub>) ⁄ (r − g) = p ⁄ (r − g), &nbsp; where p = payout ratio</div>
+      <p>Higher payout raises the multiple <em>directly</em> — but beware: higher payout also lowers b and hence g = b × ROE, which pulls the multiple down. Higher g raises it; higher r lowers it.</p>
+      <div class="example"><p><strong>Question (justified P/E).</strong> A firm pays out 60% of earnings, earns ROE of 10% on reinvested earnings, and has a required return of 9%. Compute the justified forward P/E. If the stock actually trades at 15× forward earnings, what is the implication?</p>
+      <div class="solution"><p><strong>Solution.</strong> g = b × ROE = (1 − 0.60) × 10% = 4%. Justified P⁄E = 0.60 ⁄ (0.09 − 0.04) = 0.60 ⁄ 0.05 = <strong>12.0×</strong>. At an actual 15×, the market price embeds more optimism than the fundamentals justify → the stock appears <em>overvalued</em> relative to these assumptions (or the market expects higher growth/lower risk than assumed).</p></div></div>
+      <ul>
+        <li><strong>P/E</strong> — most used; earnings drive value. Weaknesses: meaningless if earnings are negative; distorted by transitory items and differing accounting choices. Trailing P/E uses last 12 months' EPS; forward (leading) P/E uses expected EPS.</li>
+        <li><strong>P/B</strong> — book value is usually positive and more stable than EPS; useful for financial firms whose assets are marked near market. Weaknesses: ignores intangibles and human capital; distorted by accounting (historical cost) and share buybacks. Justified P/B rises with ROE relative to r.</li>
+        <li><strong>P/S</strong> — sales are hardest to manipulate and positive even for loss-makers; useful for early-stage firms. Weakness: sales tell you nothing about profitability or cost structure.</li>
+        <li><strong>P/CF</strong> — cash flow is less manipulable than earnings; several definitions of "cash flow" complicate comparisons.</li>
+        <li><strong>Dividend yield (D/P)</strong> — a component of return, but ignores capital gains and penalizes low-payout growers.</li>
+      </ul>
+
+      <h3>Enterprise value multiples</h3>
+      <p><strong>Enterprise value (EV)</strong> is the cost of buying the whole company: market value of common equity + market value of preferred + market value of debt − cash and short-term investments (the buyer pockets the cash). <strong>EV/EBITDA</strong> is the workhorse EV multiple: EBITDA is available to <em>all</em> capital providers, so the ratio is comparable across firms with <strong>different capital structures</strong> — and EBITDA is usually positive even when EPS is not. Weakness: EBITDA ignores capex and working-capital needs, so it can flatter capital-hungry businesses; and market values of debt may need to be estimated.</p>
+      <div class="example"><p><strong>Question (EV/EBITDA).</strong> A company has 50 million shares at $20, debt with a market value of $400m, no preferred stock, and cash of $100m. EBITDA is $130m. Compute EV/EBITDA and interpret it against a peer median of 12×.</p>
+      <div class="solution"><p><strong>Solution.</strong> Equity = 50 × 20 = $1,000m. EV = 1,000 + 400 − 100 = <strong>$1,300m</strong>. EV⁄EBITDA = 1,300 ⁄ 130 = <strong>10.0×</strong>. Trading three turns below the peer median suggests relative <em>under</em>valuation — provided the company's growth, margins, capital intensity, and risk are genuinely comparable to the peers'. Forgetting to subtract cash (1,000 + 400 = 1,400 → 10.8×) or to add debt (1,000 − 100 = 900 → 6.9×) are the standard distractors.</p></div></div>
+
+      <h3>Asset-based valuation</h3>
+      <p>Value equity as the <strong>fair value of assets minus liabilities</strong> (and minus preferred claims). Works best when the firm is mostly <em>tangible, separable assets with determinable market values</em> — natural resources, real estate, investment companies, banks with marked portfolios — or in liquidation. Works poorly for going concerns rich in intangibles, brands, and human capital (book values based on historical cost understate them badly) and in high-inflation environments. Often used as a floor value or alongside a multiplier model.</p>
+
+      <h3>Choosing a model</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Model</th><th>Fits best when…</th></tr>
+        <tr><td>Gordon growth DDM</td><td>Mature, stable firm; reliable dividend history tied to earnings; g comfortably below r.</td></tr>
+        <tr><td>Multistage DDM</td><td>Firm currently growing faster than the sustainable long-run rate but expected to settle down.</td></tr>
+        <tr><td>FCFE models</td><td>No/erratic dividends but positive, forecastable free cash flow; controlling-stakeholder perspective.</td></tr>
+        <tr><td>Multiples (comparables)</td><td>Plenty of genuinely similar traded peers; quick relative-value screening; market prices trusted on average.</td></tr>
+        <tr><td>EV/EBITDA</td><td>Comparing firms with different leverage; negative EPS but positive EBITDA; capital-intensive sectors.</td></tr>
+        <tr><td>Asset-based</td><td>Tangible-asset-heavy firms, investment companies, liquidation scenarios; fair values obtainable.</td></tr>
+      </table></div>
+      <div class="keypoint"><strong>Remember.</strong> GGM: V<sub>0</sub> = D<sub>1</sub>⁄(r − g), requires r &gt; g and constant growth; g = b × ROE. Terminal value in a two-stage model sits at time n and is discounted n periods. Justified forward P/E = payout⁄(r − g). EV = equity + preferred + debt − cash; EV/EBITDA is capital-structure neutral. Asset-based works for tangibles, fails for intangibles.</div>
+    </section>
+
+    <div id="quiz"></div>
+  </main>
+</div>
+</div>
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="../js/topics.js"></script>
+<script src="../data/equity.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
