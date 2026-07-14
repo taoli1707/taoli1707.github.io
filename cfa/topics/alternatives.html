@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alternative Investments — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root=".." data-here=""></header>
+<div class="wrap">
+<h1>Alternative Investments <span class="pill">Exam weight: 7–10%</span></h1>
+<p class="lead muted">Alternative investments are everything outside long-only public stocks, bonds, and cash: private capital, real estate, infrastructure, natural resources, hedge funds, and digital assets. The exam tests why investors hold them, how funds are structured and how managers get paid, how performance is measured (and distorted), and the mechanics of a handful of calculations — fund fees, real estate capitalization rates, commodity roll yield, and multiples like TVPI and DPI. It connects to Portfolio Management (diversification, risk premiums) and Corporate Issuers (buyouts, capital structure).</p>
+<div id="topic-progress" class="card" style="margin:1rem 0"></div>
+<div class="layout">
+  <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
+  <main data-topic="alternatives">
+
+    <section class="lm" id="lm-1">
+      <h2>1. Features, Methods, and Structures</h2>
+      <p>This module defines what makes an investment "alternative," the three ways investors can access alternatives, and the general partner / limited partner structure that dominates the industry. Exam questions here are conceptual: know the trade-offs of each access method and the vocabulary of fund compensation cold.</p>
+
+      <h3>What makes an investment "alternative"?</h3>
+      <p><strong>Traditional investments</strong> are long-only positions in publicly traded stocks, bonds, and cash. <strong>Alternative investments</strong> are everything else. The main categories are:</p>
+      <ul>
+        <li><strong>Private capital</strong> — private equity and private debt (capital provided to companies outside public markets).</li>
+        <li><strong>Real assets</strong> — real estate, infrastructure, and natural resources (commodities, timberland, farmland).</li>
+        <li><strong>Hedge funds</strong> — pooled vehicles that trade mostly public securities but use flexible strategies: leverage, short selling, and derivatives.</li>
+        <li><strong>Digital assets</strong> — cryptocurrencies, tokens, and related instruments recorded on distributed ledgers.</li>
+      </ul>
+      <p>Compared with traditional assets, alternatives typically share these features:</p>
+      <ul>
+        <li><strong>Narrow specialization</strong> of managers, who often have an information or skill edge in a niche market.</li>
+        <li><strong>Low correlation with traditional assets</strong>, so they can improve portfolio diversification (part of the appeal is a higher Sharpe ratio at the portfolio level).</li>
+        <li><strong>Illiquidity</strong> — many positions cannot be sold quickly, and fund interests often cannot be redeemed for years. Investors demand an <em>illiquidity premium</em> (extra expected return) in exchange.</li>
+        <li><strong>Less regulation and less transparency</strong> than public markets — fewer disclosure requirements, limited historical data.</li>
+        <li><strong>Higher fees</strong>, including performance-based fees, and more complex fee structures.</li>
+        <li><strong>Unique legal and tax considerations</strong>, concentrated portfolios, and heavy use of leverage in some strategies.</li>
+        <li><strong>Appraisal-based valuations</strong> for assets that do not trade, which smooths reported returns (covered in Module 2).</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> Investors hold alternatives for two reasons: (1) diversification — returns with low correlation to stocks and bonds — and (2) higher expected returns from illiquidity premiums, leverage, and manager skill. The price is illiquidity, opacity, and high fees.</div>
+
+      <h3>Three investment methods</h3>
+      <p>An investor can access an alternative asset three ways:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Method</th><th>What it is</th><th>Pros</th><th>Cons</th></tr>
+        <tr><td><strong>Fund investing</strong></td><td>Buy a stake in a fund; the fund manager selects and manages the assets.</td><td>Manager expertise, diversification across deals, low investor effort; the only route available to most investors.</td><td>Highest fees; no control over individual investments; long lockups.</td></tr>
+        <tr><td><strong>Co-investing</strong></td><td>Invest in a fund <em>and</em> invest directly alongside it in specific deals the manager offers.</td><td>Lower average fees (co-invested portion often has reduced or no fees); learn the process; deeper deal exposure.</td><td>Requires more skill and speed; risk of adverse selection (manager may offer weaker deals); more concentrated.</td></tr>
+        <tr><td><strong>Direct investing</strong></td><td>Buy the asset or company yourself, no intermediary fund.</td><td>Full control; no fund fees; flexibility on timing and exit.</td><td>Requires the most expertise, resources, and capital; least diversification; investor bears all due-diligence cost.</td></tr>
+      </table></div>
+      <p>Fund investing is available to nearly all qualified investors; co-investing and direct investing generally require larger size and in-house expertise (large pensions and sovereign wealth funds do both).</p>
+
+      <h3>Ownership structure: GP and LPs</h3>
+      <p>Most alternative funds are organized as <strong>limited partnerships</strong>:</p>
+      <ul>
+        <li>The <strong>general partner (GP)</strong> is the fund manager. The GP runs the fund, makes investment decisions, and bears theoretically <em>unlimited liability</em> for the fund's obligations.</li>
+        <li><strong>Limited partners (LPs)</strong> are the investors. Their liability is <em>limited to their committed capital</em>, and they play a passive role. LPs must usually be <em>accredited investors</em> (institutions or wealthy individuals presumed able to bear the risk), because these funds are exempt from much retail-investor regulation.</li>
+      </ul>
+      <p>The <strong>limited partnership agreement (LPA)</strong> is the master legal document establishing the fund's terms. <strong>Side letters</strong> are supplemental agreements between the GP and a specific LP granting terms that differ from other LPs' — for example fee discounts, extra reporting, first-redemption rights, or most-favored-nation clauses. Hedge funds may also offer <strong>separately managed accounts (SMAs)</strong> for very large investors, and a common hedge fund structure is the <em>master–feeder</em> arrangement (Module 6).</p>
+
+      <h3>Compensation structure</h3>
+      <p>The classic model is <strong>"2 and 20"</strong>:</p>
+      <ul>
+        <li><strong>Management fee</strong> — e.g., 2% per year. Hedge funds charge it on <em>assets under management (AUM)</em>. Private capital funds charge it on <em>committed capital</em> during the investment period (so LPs pay fees even on money not yet invested), often stepping down to invested capital later.</li>
+        <li><strong>Performance fee</strong> (incentive fee; called <strong>carried interest</strong> in private capital) — e.g., 20% of profits, sometimes only above a threshold.</li>
+        <li><strong>Hurdle rate</strong> — a minimum return before performance fees are earned. A <strong>hard hurdle</strong> pays the fee only on gains <em>above</em> the hurdle; a <strong>soft hurdle</strong> pays the fee on <em>all</em> gains once the hurdle is cleared. A <strong>catch-up clause</strong> paired with a hurdle gives the GP 100% of gains just above the hurdle until the GP has received its full share of total profits, after which normal splitting resumes.</li>
+        <li><strong>High-water mark (HWM)</strong> — the highest net asset value (after fees) on which a performance fee has already been paid. The manager earns new performance fees only on gains <em>above</em> the HWM, so investors never pay twice for the same performance.</li>
+      </ul>
+      <p>In private capital, the order in which profits are split between GP and LPs is the <strong>distribution waterfall</strong>:</p>
+      <ul>
+        <li><strong>Deal-by-deal (American) waterfall</strong> — carried interest is calculated and paid on each exited deal. More GP-friendly: the GP can collect carry on early winners even if later deals lose money.</li>
+        <li><strong>Whole-of-fund (European) waterfall</strong> — LPs receive back <em>all</em> contributed capital (plus any preferred return) before the GP receives any carry. More LP-friendly.</li>
+        <li>A <strong>clawback provision</strong> requires the GP to return previously received carry if later losses mean the GP was overpaid relative to the fund's final results.</li>
+      </ul>
+
+      <h3>Committed capital, drawdowns, and capital calls</h3>
+      <p>Private capital funds do not take all the cash up front. An LP signs up for <strong>committed capital</strong> (say $10 million). The GP then issues <strong>capital calls</strong> (drawdowns) over the <em>investment period</em> — typically the first 3–5 years of a fund life of about 10 years — as deals are found. Money is returned to LPs as investments are exited in the fund's later <em>harvesting</em> period. Because fees are charged from day one while investments take years to mature and appraisals are conservative early on, cumulative net returns are negative in the early years and turn positive later — the <strong>J-curve</strong> (detailed in Module 2).</p>
+      <div class="warning"><strong>Exam trap.</strong> Private capital management fees are charged on <em>committed</em> capital during the investment period, not just on invested capital — a favorite distractor. Also don't confuse the waterfalls: <em>American = deal-by-deal = GP-friendly; European = whole-of-fund = LP-friendly.</em></div>
+
+      <div class="example"><p><strong>Question.</strong> A pension fund invests in a buyout fund and also accepts the GP's offer to put additional money directly into two specific portfolio companies alongside the fund, paying no fees on that additional money. Which investment method(s) is the pension using, and what is the main risk of the second arrangement?</p>
+      <div class="solution"><p><strong>Solution.</strong> The pension is doing <em>fund investing</em> (the buyout fund stake) combined with <em>co-investing</em> (direct stakes in specific deals alongside the fund). The main risk of co-investing is adverse selection: the GP may offer co-investment rights mainly on deals it is less confident about or that are too large for the fund, so the co-investor can end up concentrated in weaker deals. The pension also needs the internal capability to evaluate deals quickly.</p></div></div>
+    </section>
+
+    <section class="lm" id="lm-2">
+      <h2>2. Performance Calculation and Appraisal</h2>
+      <p>This is the most calculation-heavy module in the topic. You must know why reported alternative returns are biased, when to use IRR versus multiples (MOIC, TVPI, DPI, RVPI), what the J-curve is, and — above all — how to compute investor returns net of "2 and 20" fees with hurdles and high-water marks. Expect at least one fee calculation on the exam.</p>
+
+      <h3>Why reported performance is distorted</h3>
+      <ul>
+        <li><strong>Survivorship bias</strong> — indexes and databases drop funds that fail or stop reporting. Since the dropouts are usually poor performers, the surviving sample overstates average returns and understates risk.</li>
+        <li><strong>Backfill bias</strong> (self-selection bias) — when a fund joins a database, its <em>past</em> returns are added ("backfilled"). Funds volunteer to join after good runs, so backfilled history is upwardly biased.</li>
+        <li><strong>Appraisal-based smoothing</strong> — private assets are valued by periodic appraisals, not market trades. Appraisals adjust slowly, so reported returns are <em>smoothed</em>: measured volatility and correlation with public markets are understated, making alternatives look better on risk-adjusted metrics (e.g., Sharpe ratio) than they truly are. Stale or managed prices in illiquid holdings have the same effect.</li>
+      </ul>
+      <div class="warning"><strong>Exam trap.</strong> Both survivorship and backfill bias push reported index returns <em>up</em>. Appraisal smoothing pushes reported <em>risk</em> (volatility, correlation, drawdowns) <em>down</em>. Either way, historical alternative-index data flatters the asset class.</div>
+
+      <h3>IRR versus multiples</h3>
+      <p>Because private funds control the timing of capital calls and distributions, time-weighted returns (standard for public portfolios) are inappropriate. Instead:</p>
+      <ul>
+        <li><strong>Internal rate of return (IRR)</strong> — a money-weighted return: the discount rate that sets the present value of all cash flows (calls out, distributions in, plus ending NAV) to zero. It captures <em>both</em> the size of gains and <em>when</em> they occurred, but it assumes interim cash flows are reinvested at the IRR and can be gamed by early exits or subscription credit lines that delay capital calls.</li>
+        <li><strong>Multiple of invested capital (MOIC)</strong>, also called the money multiple: total value (realized + unrealized) divided by invested capital. Easy to compute and understand but <em>ignores the time value of money</em> — a 2.0× over 4 years and a 2.0× over 10 years look identical.</li>
+      </ul>
+      <div class="formula">
+        DPI (distributed to paid-in) = cumulative distributions ⁄ paid-in capital &nbsp;&nbsp;<em>(realized return, "cash on cash")</em><br>
+        RVPI (residual value to paid-in) = current NAV ⁄ paid-in capital &nbsp;&nbsp;<em>(unrealized return)</em><br>
+        TVPI (total value to paid-in) = DPI + RVPI
+      </div>
+      <p>All three are net of fees and carried interest. DPI measures what LPs have actually received; RVPI depends on appraised values; TVPI is the overall multiple.</p>
+
+      <div class="example"><p><strong>Question.</strong> An LP committed $100 million to a private equity fund. To date the fund has called $80 million, has distributed $60 million back to the LP, and the LP's share of the fund's remaining NAV is appraised at $70 million. Compute DPI, RVPI, and TVPI. Is the fund's performance mostly realized or unrealized?</p>
+      <div class="solution"><p><strong>Solution.</strong> Paid-in capital = $80M (committed capital is irrelevant to the multiples).<br>
+      DPI = 60 ⁄ 80 = <strong>0.75×</strong>.<br>
+      RVPI = 70 ⁄ 80 = <strong>0.875×</strong>.<br>
+      TVPI = 0.75 + 0.875 = <strong>1.625×</strong> (equivalently (60 + 70) ⁄ 80).<br>
+      Since RVPI (0.875×) exceeds DPI (0.75×), more than half the total value is still <em>unrealized</em> and rests on appraisals — the 1.625× multiple is not yet locked in.</p></div></div>
+
+      <h3>The J-curve</h3>
+      <p>Plot a private fund's cumulative net return (or IRR) against time and you get a "J": <em>negative</em> in the early years, then rising. Early on, management fees are charged on full committed capital, deal costs are expensed, and immature investments are carried conservatively; value is realized only in later years as deals are exited. The J-curve is why interim IRRs of young funds are close to meaningless.</p>
+
+      <h3>Hedge fund fees: the calculations</h3>
+      <p>Standard assumptions unless a question says otherwise: the management fee is computed on <em>end-of-period</em> AUM; the incentive fee is computed on gains <em>net of</em> the management fee ("net of" or "independent of" will be specified); fees are paid annually; the HWM is the highest <em>after-fee</em> value on which incentive fees were paid.</p>
+      <div class="formula">
+        Management fee = fee rate × AUM (period-end unless stated otherwise)<br>
+        Incentive fee (no hurdle) = 20% × max(0, gain − management fee, if "net of")<br>
+        Incentive fee (hard hurdle) = 20% × max(0, gain − management fee − hurdle amount)<br>
+        With a HWM: gains are measured only above the high-water mark
+      </div>
+
+      <div class="example"><p><strong>Question (fee example 1 — single year, no hurdle).</strong> A hedge fund starts the year with $200 million and charges "2 and 20": a 2% management fee on end-of-year AUM and a 20% incentive fee on returns net of the management fee. The fund's gross return for the year is 25%. What is the investor's net return, and what fraction of the gross profit went to fees?</p>
+      <div class="solution"><p><strong>Solution.</strong> End-of-year AUM before fees = 200 × 1.25 = $250M.<br>
+      Management fee = 2% × 250 = <strong>$5.0M</strong>.<br>
+      Gain net of management fee = 250 − 5 − 200 = $45M.<br>
+      Incentive fee = 20% × 45 = <strong>$9.0M</strong>.<br>
+      Investor's ending value = 250 − 5 − 9 = $236M → net return = 236 ⁄ 200 − 1 = <strong>18.0%</strong>.<br>
+      Total fees = $14M on a $50M gross profit = <strong>28%</strong> of the profit. (If the incentive fee had been <em>independent</em> of the management fee, it would be 20% × 50 = $10M and the net return 17.5%.)</p></div></div>
+
+      <div class="example"><p><strong>Question (fee example 2 — hard hurdle and high-water mark, two years).</strong> An investor puts $100 million in a fund charging a 2% management fee on end-of-year AUM and a 20% incentive fee, net of the management fee, subject to a 5% <em>hard</em> hurdle and a high-water mark. Gross returns are +30% in Year 1 and −10% in Year 2. Compute the investor's net value and return each year.</p>
+      <div class="solution"><p><strong>Solution.</strong> <em>Year 1:</em> AUM = 100 × 1.30 = $130M. Management fee = 2% × 130 = $2.6M. Hurdle amount = 5% × 100 = $5M. Incentive base = 130 − 2.6 − 100 − 5 = $22.4M (hard hurdle → fee only on the excess above the hurdle). Incentive fee = 20% × 22.4 = $4.48M. Investor value = 130 − 2.6 − 4.48 = <strong>$122.92M</strong>; net return = <strong>+22.9%</strong>. The HWM is set at $122.92M.<br>
+      <em>Year 2:</em> AUM = 122.92 × 0.90 = $110.63M. Management fee = 2% × 110.63 = $2.21M (management fees are charged regardless of performance). After-fee value = $108.42M, which is below the HWM of $122.92M, so <strong>no incentive fee</strong>. Investor value = <strong>$108.42M</strong>; net return = 108.42 ⁄ 122.92 − 1 = <strong>−11.8%</strong>. In future years the fund must exceed $122.92M (plus clear the hurdle) before earning another incentive fee.</p></div></div>
+
+      <div class="warning"><strong>Exam traps.</strong> (1) Read whether the incentive fee is computed <em>net of</em> or <em>independent of</em> the management fee. (2) Hard hurdle: fee on gains <em>above</em> the hurdle only; soft hurdle: fee on <em>all</em> gains once the hurdle is met. (3) The management fee is charged in loss years too. (4) The HWM is the highest <em>after-fee</em> value — not the highest gross value.</div>
+
+      <h3>Custom fee terms</h3>
+      <p>Large or early investors increasingly negotiate away from a flat 2-and-20:</p>
+      <ul>
+        <li><strong>Founders shares</strong> — discounted fees (e.g., 1.5-and-10) for the first investors in a new fund.</li>
+        <li><strong>"1 or 30"</strong> — the investor pays the <em>greater</em> of a 1% management fee or a 30% incentive fee (with the management fee credited against the incentive fee), designed to guarantee the LP keeps ~70% of alpha.</li>
+        <li><strong>Either/or fees</strong>, fee reductions for longer lockups, and rebates via side letters.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> Fees compound: they are the single biggest drag separating gross from net alternative returns, and fee structure (hurdle type, HWM, waterfall) changes GP incentives. Always compute investor value step by step: gross AUM → subtract management fee → apply hurdle/HWM logic → subtract incentive fee.</div>
+    </section>
+
+    <section class="lm" id="lm-3">
+      <h2>3. Private Capital</h2>
+      <p>Private capital is capital provided directly to companies outside public markets — equity (private equity) or debt (private debt). Know the financing stages, the exit routes, the private debt menu, and how risk and return line up against public markets.</p>
+
+      <h3>Private equity by company stage</h3>
+      <ul>
+        <li><strong>Venture capital (VC)</strong> — minority equity in young companies with little or no revenue. Sub-stages:
+          <ul>
+            <li><em>Pre-seed / angel</em> — idea stage, often individual investors.</li>
+            <li><em>Seed / start-up</em> — product development, market research; usually the first VC fund money.</li>
+            <li><em>Early stage (Series A, B…)</em> — company is starting operations or initial sales but is generally pre-profit; funds support commercial production and sales.</li>
+            <li><em>Later-stage VC</em> — expansion of a company with revenue growth, before an IPO.</li>
+          </ul>
+          High failure rates; a few big winners drive fund returns.</li>
+        <li><strong>Growth equity (growth capital)</strong> — minority stakes in maturing companies that need capital to expand faster than internal cash flow allows; less risky than VC.</li>
+        <li><strong>Buyouts</strong> — acquiring a controlling stake (usually 100%) of an <em>established</em> company, typically financed heavily with debt: a <strong>leveraged buyout (LBO)</strong>. In a <strong>management buyout (MBO)</strong> the existing management team participates in the purchase. Returns come from leverage, operational improvement, and multiple expansion. Buyouts are the largest segment of private equity.</li>
+      </ul>
+
+      <h3>Exit routes</h3>
+      <p>Private equity returns are realized at exit. Main routes, roughly from most to least favorable market conditions required:</p>
+      <ul>
+        <li><strong>IPO (initial public offering)</strong> — sell shares to the public. Often the highest valuation, but expensive, slow, and dependent on receptive equity markets; the sponsor usually exits gradually.</li>
+        <li><strong>Trade sale</strong> — sell the company to a strategic buyer (a corporation in the same industry), which may pay a premium for synergies.</li>
+        <li><strong>Secondary sale (sponsor-to-sponsor / secondary buyout)</strong> — sell to another private equity firm.</li>
+        <li><strong>Recapitalization</strong> — the company borrows to pay the PE owner a special dividend. <em>Not a true exit</em> (the sponsor keeps control) but returns capital early and is common preparation for a later exit.</li>
+        <li><strong>Write-off / liquidation</strong> — the failure outcome; remaining value, if any, is salvaged.</li>
+      </ul>
+
+      <h3>Private debt</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Type</th><th>Description</th><th>Risk/return</th></tr>
+        <tr><td><strong>Direct lending</strong></td><td>Funds lend directly to (usually mid-size) companies, bypassing banks; often senior secured, floating rate. A <em>unitranche</em> loan blends senior and subordinated debt into one instrument with a blended rate.</td><td>Lowest risk in private debt; steady income.</td></tr>
+        <tr><td><strong>Mezzanine debt</strong></td><td>Subordinated debt filling the gap between senior debt and equity, common in LBOs. Typically carries equity kickers — warrants or conversion rights — to compensate for junior ranking.</td><td>Higher yield than senior debt; equity-like upside.</td></tr>
+        <tr><td><strong>Venture debt</strong></td><td>Loans to venture-stage companies with little cash flow, extending their runway between equity rounds; usually includes warrants.</td><td>High risk; protects founders from dilution.</td></tr>
+        <tr><td><strong>Distressed debt</strong></td><td>Buying debt of companies in or near default at deep discounts, betting on recovery or profiting through restructuring/bankruptcy.</td><td>Highest risk; requires legal and restructuring expertise; returns can be equity-like.</td></tr>
+      </table></div>
+
+      <h3>Risk and return versus public markets</h3>
+      <ul>
+        <li>Expected returns: <strong>venture capital &gt; buyouts / other PE &gt; mezzanine and distressed debt &gt; senior direct lending</strong> — the usual risk ordering, with private equity expected to beat public equity and private debt to beat comparable public credit, largely as compensation for <em>illiquidity</em> and, in buyouts, leverage.</li>
+        <li>Reported risk is understated: appraisal smoothing lowers measured volatility and correlation with public equities, overstating diversification benefits (link back to Module 2).</li>
+        <li>Dispersion across managers is enormous — picking top-quartile GPs matters far more than in public markets, and past top-quartile status is not guaranteed to persist.</li>
+        <li>Adding private capital can still genuinely diversify: private companies represent sectors and stages underrepresented in public indexes, and distressed strategies can be countercyclical.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> VC buys minority stakes in young, unprofitable firms and expects many failures; buyouts take control of mature, cash-generating firms using debt. Exit vocabulary: IPO, trade sale, secondary sale, recapitalization (not a full exit), write-off.</div>
+      <div class="warning"><strong>Exam trap.</strong> "Highest expected return" among private debt types is distressed/mezzanine, not direct lending; and a recapitalization is a way to <em>return capital while keeping control</em> — choosing it as a "final exit route" is a classic wrong answer.</div>
+
+      <div class="example"><p><strong>Question.</strong> A PE firm buys a mature industrial company for $500M, funding it with $350M of debt and $150M of fund equity, with management joining the ownership group. Three years later it sells the company to a competitor for $650M when net debt is $250M. Classify the transaction and the exit, and compute the equity MOIC.</p>
+      <div class="solution"><p><strong>Solution.</strong> The purchase is a <em>leveraged buyout</em> (70% debt-financed) and, because incumbent management co-invests, a <em>management buyout</em>. The exit is a <em>trade sale</em> (sale to a strategic buyer). Equity proceeds at exit = 650 − 250 = $400M. MOIC = 400 ⁄ 150 ≈ <strong>2.7×</strong> the fund's equity — note how debt paydown ($350M → $250M) plus enterprise value growth ($500M → $650M) both flowed to the equity. MOIC ignores that this took three years; the IRR (~38%) captures the timing.</p></div></div>
+    </section>
+
+    <section class="lm" id="lm-4">
+      <h2>4. Real Estate and Infrastructure</h2>
+      <p>Real assets with long lives and (mostly) contract-based cash flows. For real estate, know the four quadrants (public/private × equity/debt), REITs, and the income approach to valuation — the cap rate calculation is highly testable. For infrastructure, know greenfield vs brownfield and economic vs social categories.</p>
+
+      <h3>Real estate: forms of investment (the four quadrants)</h3>
+      <p>Any real estate exposure is either <em>equity</em> (ownership) or <em>debt</em> (lending against property), and either <em>private</em> or <em>public</em> (traded securities):</p>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>Equity</th><th>Debt</th></tr>
+        <tr><td><strong>Private</strong></td><td>Direct ownership of property; sole ownership, joint ventures, limited partnerships, open-/closed-end funds.</td><td>Whole mortgage loans; construction lending; private real estate debt funds.</td></tr>
+        <tr><td><strong>Public</strong></td><td>REITs (real estate investment trusts) and REOCs (real estate operating companies); real estate ETFs.</td><td>Mortgage-backed securities (residential MBS, commercial CMBS); covered bonds; mortgage REITs.</td></tr>
+      </table></div>
+      <ul>
+        <li><strong>Equity investors</strong> earn rental income and price appreciation; returns are levered when the property carries a mortgage.</li>
+        <li><strong>Debt investors</strong> earn interest; their return is capped but protected by the property collateral (loan-to-value cushion).</li>
+        <li><strong>Public</strong> forms are liquid and priced continuously (so they correlate more with equities in the short run); <strong>private</strong> forms are illiquid, appraisal-valued, and smoother.</li>
+      </ul>
+      <p><strong>REITs</strong> are tax-advantaged companies owning income-producing property. To avoid corporate tax they must distribute most of their taxable income (in the US, ≥90%) as dividends. They give small investors liquid, diversified, professionally managed property exposure — at the cost of equity-market volatility.</p>
+
+      <h3>Valuing income-producing property</h3>
+      <p>Three approaches: <strong>cost</strong> (replacement cost less depreciation — useful for new/unusual properties), <strong>sales comparison</strong> (prices of similar properties, adjusted), and the <strong>income approach</strong>, the workhorse for commercial property. The income approach starts from <strong>net operating income (NOI)</strong>:</p>
+      <div class="formula">
+        NOI = rental income (net of vacancy and collection losses) + other income − operating expenses<br>
+        <em>NOI is before financing costs (mortgage interest), income taxes, and depreciation.</em>
+      </div>
+      <p>Two income-approach methods:</p>
+      <ul>
+        <li><strong>Direct capitalization</strong> — divide one year of stabilized NOI by a market-derived <strong>capitalization rate</strong> (cap rate):
+          <div class="formula">Value = NOI ⁄ cap rate &nbsp;&nbsp;&nbsp; cap rate = NOI ⁄ price (from comparable sales)</div>
+          The cap rate is like a required yield: <em>higher cap rate → lower value</em>. It embeds growth expectations (conceptually, cap rate ≈ discount rate − growth rate), so it is a single-number shortcut, best for stable, mature properties.</li>
+        <li><strong>Discounted cash flow (DCF)</strong> — project NOI year by year (capturing lease rollovers, renovations, vacancy changes), plus a terminal (resale) value, and discount at a required return. More flexible and appropriate when cash flows are not stable, but sensitive to many assumptions.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> An office building is expected to generate effective gross income of $5.6 million next year with operating expenses of $1.4 million. Comparable buildings recently sold at capitalization rates of 7.0%. Using direct capitalization, the value of the building is <em>closest to</em> what? What happens to the value if market cap rates rise to 8.0%?</p>
+      <div class="solution"><p><strong>Solution.</strong> NOI = 5.6 − 1.4 = $4.2M (financing and taxes are excluded from NOI).<br>
+      Value = NOI ⁄ cap rate = 4.2 ⁄ 0.07 = <strong>$60 million</strong>.<br>
+      At an 8% cap rate: 4.2 ⁄ 0.08 = $52.5 million — a <strong>12.5% drop in value with no change in income</strong>. Cap rates move with interest rates and risk appetite, which is why rising rates hurt property values even when rents are stable.</p></div></div>
+
+      <div class="warning"><strong>Exam trap.</strong> NOI excludes mortgage interest, income taxes, and depreciation — subtracting them is the classic error. And remember the inverse relationship: a <em>higher</em> cap rate means a <em>lower</em> value.</div>
+
+      <h3>Infrastructure</h3>
+      <p>Infrastructure assets are long-lived, capital-intensive real assets providing essential services, usually with monopoly-like positions and cash flows fixed by contract, concession, or regulation — hence stable, often inflation-linked income. Government involvement is common (public–private partnerships).</p>
+      <ul>
+        <li><strong>By stage:</strong>
+          <ul>
+            <li><strong>Greenfield</strong> — assets to be <em>built</em>. Construction and demand risk; no operating history; higher expected return; investors may intend to build-and-hold or build-and-sell.</li>
+            <li><strong>Brownfield</strong> — <em>existing</em> assets, often privatized or sold by governments. Operating history, immediate yield, lower risk and return.</li>
+          </ul>
+        </li>
+        <li><strong>By category:</strong>
+          <ul>
+            <li><strong>Economic infrastructure</strong> — supports economic activity and typically charges users: transportation (toll roads, airports, ports, rail), utilities and energy (power generation, transmission, water, pipelines), information/communications (broadcast towers, data centers).</li>
+            <li><strong>Social infrastructure</strong> — serves communities, revenue usually from government availability payments: schools, hospitals, courts, prisons.</li>
+          </ul>
+        </li>
+        <li><strong>Access:</strong> direct ownership (huge and concentrated), infrastructure funds (most common), listed infrastructure companies, ETFs, and master limited partnerships (MLPs).</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> Direct capitalization: <em>Value = first-year stabilized NOI ⁄ cap rate</em> — for stable properties. DCF — for changing cash flows. Infrastructure: greenfield = build it (higher risk/return), brownfield = buy it (stable yield); economic = user-paid, social = government-paid.</div>
+    </section>
+
+    <section class="lm" id="lm-5">
+      <h2>5. Natural Resources</h2>
+      <p>Natural resources cover commodities (usually accessed through futures) plus the land-based assets timberland and farmland. The examinable calculation is roll yield; the examinable concepts are contango vs backwardation, the three sources of a commodity futures return, and the distinct characteristics of timber and farmland.</p>
+
+      <h3>Commodities: how investors get exposure</h3>
+      <p>Holding physical commodities means storage, insurance, and transport costs, so most investors gain exposure through <strong>commodity futures</strong> (or ETFs and index products built on futures). Producers and consumers hedge in these markets; investors take the other side. Commodities pay no cash flows — pricing rests on supply and demand, not discounted cash flow — and their main portfolio roles are <em>inflation hedging</em> (commodity prices feed directly into inflation indexes) and diversification.</p>
+
+      <h3>Futures curve shapes: contango and backwardation</h3>
+      <div class="formula">
+        Futures price ≈ spot price × (1 + r) + storage costs − convenience yield
+      </div>
+      <ul>
+        <li><strong>Contango</strong> — futures price <em>above</em> spot (curve slopes up). Typical when storage costs are high and convenience yield is low.</li>
+        <li><strong>Backwardation</strong> — futures price <em>below</em> spot (curve slopes down). Typical when the <strong>convenience yield</strong> — the benefit of holding the physical commodity when it is scarce (keeping a refinery running, meeting a delivery) — is high.</li>
+      </ul>
+      <p>Hedging-pressure theory adds: if hedgers are net short (producers locking in prices), speculators must be paid to go long, pushing futures below expected spot (backwardation), and vice versa.</p>
+
+      <h3>Sources of a commodity futures return</h3>
+      <div class="formula">
+        Total return ≈ price (spot) return + roll return + collateral return
+      </div>
+      <ul>
+        <li><strong>Price return</strong> — the change in the spot (or front-contract) price.</li>
+        <li><strong>Roll return (roll yield)</strong> — the gain or loss from replacing an expiring contract with a longer-dated one, or equivalently from the futures price converging toward spot as expiry approaches. In <strong>backwardation, roll yield is positive</strong> for a long investor (you hold contracts priced below spot that pull up toward it); in <strong>contango, roll yield is negative</strong> (you repeatedly buy dearer contracts that decay toward spot).</li>
+        <li><strong>Collateral return</strong> — interest earned on the cash (e.g., T-bills) posted to collateralize the futures position.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> In January, spot crude oil is $80 per barrel and the April futures contract trades at $84 (contango). An investor buys the April contract and holds it to expiry, when the spot price is $85 and the futures price has converged to spot. Ignoring collateral interest, decompose the investor's return into spot return and roll yield.</p>
+      <div class="solution"><p><strong>Solution.</strong> Spot return = (85 − 80) ⁄ 80 = <strong>+6.25%</strong> — what a physical holder would have made.<br>
+      Futures return = (85 − 84) ⁄ 84 = <strong>+1.19%</strong> — what the futures investor actually made.<br>
+      Roll yield ≈ futures return − spot return = 1.19% − 6.25% = <strong>−5.06%</strong> (in dollars: the $4 contango premium decayed as the futures price converged to spot, offsetting most of the $5 spot rally).<br>
+      The market was in contango, so the long investor paid a premium that eroded — negative roll yield — and captured only $1 of the $5 spot gain. Had the curve been in backwardation (say April futures at $77), the roll yield would have been positive and the futures return would have <em>exceeded</em> the spot return.</p></div></div>
+
+      <div class="warning"><strong>Exam trap.</strong> Memorize the direction: <em>backwardation → positive roll yield for longs; contango → negative roll yield for longs</em>. Roll yield is not a cash flow you collect — it is the convergence effect, and it can dominate total return for a fully collateralized futures index. Also, a rising spot price does <em>not</em> guarantee a positive futures return if contango is steep.</div>
+
+      <h3>Timberland and farmland</h3>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>Timberland</th><th>Farmland</th></tr>
+        <tr><td>Return sources</td><td>Biological growth of trees, timber (lumber) prices, land appreciation.</td><td>Harvest yields and crop (commodity) prices, rental income if leased to farmers, land appreciation.</td></tr>
+        <tr><td>Flexibility</td><td><strong>High</strong> — harvest can be delayed when prices are low; trees keep growing in value ("warehouse" optionality).</td><td><strong>Low</strong> — crops must be harvested when ripe; two types: <em>row crops</em> (annual planting: corn, soybeans) and <em>permanent crops</em> (vines, orchards).</td></tr>
+        <tr><td>Key risks</td><td>Fire, disease, weather, lumber demand cycles (construction).</td><td>Weather and drought, crop prices, water rights; climate risk.</td></tr>
+        <tr><td>Common traits</td><td colspan="2">Illiquid, appraisal-valued, positively linked to inflation (food/materials feed CPI), low correlation with financial assets; increasingly analyzed for ESG (carbon sequestration).</td></tr>
+      </table></div>
+      <div class="keypoint"><strong>Key point.</strong> Commodity futures return = spot + roll + collateral. Timberland's distinguishing feature is harvest <em>flexibility</em> (an embedded timing option); farmland's is <em>inflexibility</em> plus dual income (crops + land). All natural resources are inflation hedges with low correlation to stocks and bonds.</div>
+    </section>
+
+    <section class="lm" id="lm-6">
+      <h2>6. Hedge Funds</h2>
+      <p>Hedge funds are actively managed, lightly regulated pooled vehicles that trade mostly liquid public securities but with tools traditional funds lack: short selling, leverage, and derivatives. The exam tests the four strategy groups, fund structure, and the liquidity/redemption vocabulary — lockups, gates, and side pockets.</p>
+
+      <h3>Strategy classifications</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Group</th><th>Idea</th><th>Main strategies</th></tr>
+        <tr><td><strong>Equity hedge</strong></td><td>Bottom-up long and short positions in equities.</td><td><em>Long/short equity</em> (net long typically); <em>equity market neutral</em> (offsetting longs/shorts, ~zero beta, low volatility, uses leverage to scale small spreads); <em>dedicated short bias</em>; fundamental growth/value.</td></tr>
+        <tr><td><strong>Event-driven</strong></td><td>Profit from corporate events.</td><td><em>Merger arbitrage</em> (buy the target, short the acquirer's shares in a stock deal; earn the deal spread; big loss if the deal breaks); <em>distressed/restructuring</em> (securities of troubled companies); activist investing; special situations.</td></tr>
+        <tr><td><strong>Relative value</strong></td><td>Exploit pricing discrepancies between related securities, usually with heavy leverage.</td><td><em>Convertible bond arbitrage</em> (long convertible, short the stock); <em>fixed-income arbitrage</em> (mispriced rate relationships); volatility arbitrage; multi-strategy.</td></tr>
+        <tr><td><strong>Opportunistic (macro &amp; CTA)</strong></td><td>Top-down bets on macro trends across asset classes.</td><td><em>Global macro</em> (discretionary bets on currencies, rates, commodities, indexes); <em>managed futures / CTAs</em> (commodity trading advisors — typically systematic, trend-following futures programs). Often perform well in crises/trending markets ("crisis alpha").</td></tr>
+      </table></div>
+
+      <h3>Structures and terms</h3>
+      <ul>
+        <li>Organized as <strong>limited partnerships</strong> (GP = manager, LPs = investors), restricted to accredited/qualified investors, which keeps them exempt from most retail-fund regulation.</li>
+        <li>A <strong>master–feeder structure</strong> pools an onshore feeder fund (domestic taxable investors) and an offshore feeder (foreign and tax-exempt investors) into one master fund that does the actual trading — one portfolio, multiple tax wrappers.</li>
+        <li>Fees: management fee on AUM plus incentive fee, with hurdles and high-water marks (Module 2). <strong>Funds of funds</strong> add a second fee layer (historically "1 and 10" on top) in exchange for diversification, access, and due diligence.</li>
+      </ul>
+
+      <h3>Redemption terms: managing the liquidity mismatch</h3>
+      <p>Hedge funds hold assets that are more liquid than private equity but can still be hard to sell fast. To prevent forced fire sales when investors want out, funds impose:</p>
+      <ul>
+        <li><strong>Lockup period</strong> — a minimum time (e.g., 1 year) after investing during which no redemptions are allowed (a <em>hard</em> lockup forbids them; a <em>soft</em> lockup allows exit for a redemption fee).</li>
+        <li><strong>Redemption notice period</strong> — advance notice (e.g., 30–90 days) required before withdrawing.</li>
+        <li><strong>Gates</strong> — a cap on the fraction of fund (or investor) capital that can be redeemed on any redemption date (e.g., 25% per quarter), spreading heavy outflows over time.</li>
+        <li><strong>Side pockets</strong> — illiquid or hard-to-value positions segregated into a separate account; redeeming investors cannot cash out of the side pocket until those assets are realized.</li>
+      </ul>
+
+      <h3>Leverage and short selling</h3>
+      <ul>
+        <li>Leverage comes from margin borrowing via <strong>prime brokers</strong> (which also provide securities lending for shorts, custody, and financing), repurchase agreements, and derivatives. Leverage magnifies both gains and losses, and margin calls can force selling at the worst time.</li>
+        <li><strong>Short selling</strong>: borrow a security, sell it, hope to repurchase cheaper. Losses are theoretically unlimited (prices can rise without bound), and shorts face recall risk and short squeezes.</li>
+        <li>Relative-value strategies look low-risk day to day but embed tail risk: small spreads levered many times can produce catastrophic losses when correlations break down.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> Map the strategy families: equity hedge (stock picking long/short), event-driven (deals and distress), relative value (levered convergence trades), macro/CTA (top-down trends). Liquidity tools in order of a redemption's life: lockup → notice period → gate → side pocket.</div>
+      <div class="warning"><strong>Exam trap.</strong> Merger arbitrage in a stock-for-stock deal means long the <em>target</em>, short the <em>acquirer</em> — reversing them is the standard wrong answer. And "equity market neutral" means near-zero market beta, not zero risk: it relies on leverage, so idiosyncratic shocks still hurt.</div>
+
+      <div class="example"><p><strong>Question.</strong> A hedge fund holds mostly liquid equities plus a 10% position in a private pre-IPO company. It offers quarterly redemptions with 60 days' notice, a one-year lockup, a 20% investor-level quarterly gate, and side-pocket authority. An LP with $40M invested (past its lockup) requests full redemption. What does the LP actually receive at the next redemption date?</p>
+      <div class="solution"><p><strong>Solution.</strong> The lockup has expired and notice was given, so redemption proceeds — but the gate limits the LP to 20% of its capital per quarter: 0.20 × $40M = <strong>$8M</strong> at the next date, with the rest queued for later quarters. In addition, 10% of the LP's stake sits in the side-pocketed pre-IPO position (~$4M), which is <em>not</em> redeemable until that asset is sold; the LP keeps a claim on it. So the LP receives $8M now, the liquid remainder over subsequent gated quarters, and the side-pocket value only upon realization.</p></div></div>
+    </section>
+
+    <section class="lm" id="lm-7">
+      <h2>7. Digital Assets</h2>
+      <p>Digital assets are the newest curriculum addition: assets created, traded, and stored on distributed ledgers. Know the blockchain mechanics vocabulary (consensus, PoW vs PoS, permissioned vs permissionless), the asset types (cryptocurrencies, stablecoins, tokens, NFTs), the investment vehicles, and — heavily tested — the distinctive risks.</p>
+
+      <h3>Distributed ledger technology (DLT) and blockchain</h3>
+      <ul>
+        <li>A <strong>distributed ledger</strong> is a database shared across a network of participants (nodes), each holding an identical copy — no central authority reconciles it. Cryptography secures entries; records are effectively <em>immutable</em> (practically irreversible once confirmed).</li>
+        <li>A <strong>blockchain</strong> is a distributed ledger where transactions are grouped into blocks, each cryptographically chained to the previous one. Altering history would require redoing the chain across most of the network — prohibitively costly.</li>
+        <li>New transactions are validated by a <strong>consensus mechanism</strong>:
+          <ul>
+            <li><strong>Proof of work (PoW)</strong> — "miners" compete to solve a computational puzzle; the winner adds the block and earns rewards. Very secure but energy-intensive and slow (Bitcoin).</li>
+            <li><strong>Proof of stake (PoS)</strong> — validators pledge (stake) their own coins for the right to validate; misbehavior forfeits the stake. Far less energy, faster (Ethereum since 2022).</li>
+          </ul>
+        </li>
+        <li><strong>Permissionless</strong> networks are open to anyone (Bitcoin, Ethereum) — trust comes from consensus, not identity. <strong>Permissioned</strong> networks restrict who may validate or view — used by institutions and consortia.</li>
+        <li><strong>Smart contracts</strong> are self-executing programs on a blockchain that trigger automatically when conditions are met (the foundation of DeFi and tokenization).</li>
+      </ul>
+
+      <h3>Types of digital assets</h3>
+      <ul>
+        <li><strong>Cryptocurrencies</strong> — native coins (Bitcoin, Ether) intended as mediums of exchange or network fuel. No cash flows, no issuer backing; valuation rests on scarcity (e.g., Bitcoin's 21 million cap) and adoption, so prices are extremely volatile.</li>
+        <li><strong>Stablecoins</strong> — tokens pegged to an asset (usually the US dollar), backed by reserve baskets or algorithms. Peg integrity depends on the quality and transparency of reserves — algorithmic pegs have failed.</li>
+        <li><strong>Central bank digital currencies (CBDCs)</strong> — digital fiat issued by central banks (not decentralized).</li>
+        <li><strong>Tokenization</strong> — representing ownership rights to a physical or financial asset (real estate, art, funds) as blockchain tokens. Benefits: fractional ownership, cheaper transfer and settlement, broader access to illiquid assets. <em>Security tokens</em> digitize regulated securities.</li>
+        <li><strong>Non-fungible tokens (NFTs)</strong> — unique, non-interchangeable tokens proving ownership of a specific digital (or linked physical) item, such as digital art. Fungible tokens are interchangeable; NFTs are one of a kind.</li>
+        <li><strong>Decentralized finance (DeFi)</strong> — financial services (lending, borrowing, trading on decentralized exchanges, yield products) built from smart contracts, without traditional intermediaries. Utility and governance tokens grant usage or voting rights in these protocols.</li>
+      </ul>
+
+      <h3>Investment vehicles</h3>
+      <ul>
+        <li><strong>Direct ownership</strong> — buy coins on a crypto exchange, hold in a digital wallet with private keys (self-custody or custodial). Full exposure, but full custody/security burden: lose the key, lose the asset.</li>
+        <li><strong>Exchange-traded products (ETPs/ETFs)</strong> — listed funds holding spot coins or crypto futures; brokerage-account convenience, regulated wrapper, management fees; futures-based ETPs suffer roll costs in contango (same mechanics as Module 5).</li>
+        <li><strong>Trusts and closed-end vehicles</strong> — hold coins on investors' behalf; can trade at large premiums or discounts to NAV.</li>
+        <li><strong>Cryptocurrency futures and options</strong> — regulated exchange-traded derivatives (e.g., CME Bitcoin futures); allow leverage and shorting.</li>
+        <li><strong>Indirect equity exposure</strong> — shares of exchanges, miners, or companies holding coins on their balance sheets; hedge funds and venture funds specializing in digital assets.</li>
+      </ul>
+
+      <h3>Risks</h3>
+      <ul>
+        <li><strong>Volatility and no intrinsic cash flows</strong> — valuation has no earnings or coupons to anchor it; drawdowns of 50–80% have occurred.</li>
+        <li><strong>Fraud and market integrity</strong> — manipulation, pump-and-dump schemes, exchange failures and misappropriation of customer assets; limited investor protection.</li>
+        <li><strong>Custody and operational risk</strong> — hacking of exchanges and wallets; irreversible transactions mean stolen coins are usually unrecoverable; lost private keys are permanent losses.</li>
+        <li><strong>Regulatory risk</strong> — treatment varies by country and keeps changing (bans, securities classification, taxation); a rule change can reprice assets overnight.</li>
+        <li><strong>Diversification claims are unstable</strong> — measured correlations with equities were low historically but have risen in stress periods, exactly when diversification is needed.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> PoW = compete with computation (secure, energy-hungry); PoS = pledge coins (efficient). Permissionless = open; permissioned = restricted. Tokenization's promise is fractionalizing illiquid assets; DeFi's is disintermediation via smart contracts. The distinctive risk bundle: no cash flows, custody/hacking, fraud, and shifting regulation.</div>
+      <div class="warning"><strong>Exam trap.</strong> Blockchain records are immutable, but that does <em>not</em> make crypto safe — immutability means fraudulent or mistaken transfers cannot be reversed. And a stablecoin is only as stable as its reserves; "pegged" is a design goal, not a guarantee.</div>
+
+      <div class="example"><p><strong>Question.</strong> An adviser wants Bitcoin exposure for a client who cannot manage private keys and whose account allows only exchange-listed securities. She considers (a) a spot Bitcoin ETP, (b) a futures-based Bitcoin ETP, and (c) coins on a crypto exchange. Which fits, and what return difference should she expect between (a) and (b) if Bitcoin futures trade in persistent contango?</p>
+      <div class="solution"><p><strong>Solution.</strong> Option (c) fails both constraints (self/exchange custody, not an exchange-listed security). Both ETPs fit the account. If futures are in persistent contango, the futures-based ETP (b) repeatedly rolls into higher-priced contracts and suffers <strong>negative roll yield</strong>, so it should be expected to <em>underperform</em> the spot ETP (a) even if Bitcoin's spot price is flat or rising — the same roll mechanics as commodity futures. The spot ETP tracks price minus its fee, making (a) the better tracking choice.</p></div></div>
+    </section>
+
+    <div id="quiz"></div>
+  </main>
+</div>
+</div>
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="../js/topics.js"></script>
+<script src="../data/alternatives.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

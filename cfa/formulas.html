@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formula Sheet — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root="." data-here="formulas.html"></header>
+
+<div class="wrap" style="max-width:900px">
+  <h1>Master formula sheet</h1>
+  <p class="lead muted">The highest-yield formulas across all 10 topics. Don't memorize this list cold — learn each formula inside its topic page with worked examples, then use this sheet for final-week review.</p>
+
+  <h2>Quantitative Methods</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Future value</td><td>FV = PV × (1 + r/m)<sup>m·n</sup></td><td>m = compounding periods/yr</td></tr>
+    <tr><td>Continuous compounding</td><td>FV = PV × e<sup>r·n</sup></td><td>highest FV for a given stated rate</td></tr>
+    <tr><td>Effective annual rate</td><td>EAR = (1 + r/m)<sup>m</sup> − 1</td><td></td></tr>
+    <tr><td>Holding period return</td><td>HPR = (P₁ − P₀ + D) / P₀</td><td>D = income received</td></tr>
+    <tr><td>Geometric mean return</td><td>[(1+R₁)(1+R₂)…(1+Rₙ)]<sup>1/n</sup> − 1</td><td>≤ arithmetic mean; gap grows with volatility</td></tr>
+    <tr><td>Sample variance</td><td>s² = Σ(xᵢ − x̄)² / (n − 1)</td><td>divide by n−1, not n</td></tr>
+    <tr><td>Coefficient of variation</td><td>CV = s / x̄</td><td>risk per unit of return; lower is better</td></tr>
+    <tr><td>Sharpe ratio</td><td>(R̄ₚ − R̄f) / σₚ</td><td>excess return per unit of total risk</td></tr>
+    <tr><td>Bayes' formula</td><td>P(A|B) = P(B|A)·P(A) / P(B)</td><td>update probability with new info</td></tr>
+    <tr><td>Standard error of mean</td><td>SE = s / √n</td><td></td></tr>
+    <tr><td>t-test of a mean</td><td>t = (x̄ − μ₀) / (s/√n)</td><td>df = n − 1</td></tr>
+    <tr><td>Simple regression</td><td>Y = b₀ + b₁X + ε; b₁ = Cov(X,Y)/Var(X)</td><td>R² = explained/total variation (= r² here)</td></tr>
+  </table></div>
+
+  <h2>Economics</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Price elasticity of demand</td><td>%ΔQd / %ΔP</td><td>|E| &gt; 1 elastic; &lt; 1 inelastic</td></tr>
+    <tr><td>Cross-rate</td><td>A/C = (A/B) × (B/C)</td><td>cancel the common currency</td></tr>
+    <tr><td>Forward rate (points)</td><td>F = S × (1 + i_price·T)/(1 + i_base·T)</td><td>currency with higher rate trades at forward discount</td></tr>
+    <tr><td>Fisher effect</td><td>i ≈ r + expected inflation</td><td></td></tr>
+    <tr><td>Money multiplier</td><td>1 / reserve requirement</td><td></td></tr>
+    <tr><td>GDP (expenditure)</td><td>GDP = C + I + G + (X − M)</td><td></td></tr>
+  </table></div>
+
+  <h2>Financial Statement Analysis</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Basic EPS</td><td>(NI − preferred div) / wtd avg shares</td><td></td></tr>
+    <tr><td>Diluted EPS</td><td>adjusted NI / (wtd shares + dilutive shares)</td><td>use treasury stock method for options</td></tr>
+    <tr><td>Current ratio</td><td>current assets / current liabilities</td><td>quick ratio drops inventory</td></tr>
+    <tr><td>Inventory turnover</td><td>COGS / average inventory</td><td>DOH = 365 / turnover</td></tr>
+    <tr><td>Receivables turnover</td><td>revenue / average receivables</td><td>DSO = 365 / turnover</td></tr>
+    <tr><td>Cash conversion cycle</td><td>DOH + DSO − days payable</td><td>shorter is better</td></tr>
+    <tr><td>ROE (DuPont, 5-way)</td><td>tax burden × interest burden × EBIT margin × asset turnover × leverage</td><td>NI/EBT × EBT/EBIT × EBIT/Rev × Rev/Assets × Assets/Equity</td></tr>
+    <tr><td>Ending inventory (FIFO vs LIFO)</td><td>FIFO EI = LIFO EI + LIFO reserve</td><td>rising prices: LIFO → higher COGS, lower NI, lower inventory</td></tr>
+    <tr><td>Free cash flow to firm</td><td>FCFF = CFO + Int×(1−t) − FCInv</td><td>FCFE = CFO − FCInv + net borrowing</td></tr>
+  </table></div>
+
+  <h2>Corporate Issuers</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>NPV</td><td>Σ CFₜ/(1+r)ᵗ − outlay</td><td>accept if NPV &gt; 0</td></tr>
+    <tr><td>IRR</td><td>rate where NPV = 0</td><td>conflicts with NPV → trust NPV</td></tr>
+    <tr><td>WACC</td><td>w_d·r_d(1−t) + w_p·r_p + w_e·r_e</td><td>only debt gets the tax shield</td></tr>
+    <tr><td>Cost of equity (CAPM)</td><td>r_e = r_f + β(E[R_m] − r_f)</td><td></td></tr>
+    <tr><td>Degree of operating leverage</td><td>%ΔEBIT / %ΔSales = Q(P−V) / [Q(P−V) − F]</td><td></td></tr>
+    <tr><td>Breakeven quantity</td><td>(F + C) / (P − V)</td><td>operating breakeven excludes fixed financing costs</td></tr>
+  </table></div>
+
+  <h2>Equity Investments</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Gordon growth model</td><td>V₀ = D₁ / (r − g)</td><td>use next year's dividend; r &gt; g required</td></tr>
+    <tr><td>Sustainable growth</td><td>g = b × ROE</td><td>b = retention ratio = 1 − payout</td></tr>
+    <tr><td>Justified forward P/E</td><td>P₀/E₁ = (1 − b) / (r − g)</td><td></td></tr>
+    <tr><td>Preferred stock value</td><td>V = D / r</td><td>perpetuity</td></tr>
+    <tr><td>Margin call price</td><td>P₀ × (1 − initial margin) / (1 − maintenance margin)</td><td>for long positions</td></tr>
+    <tr><td>Price return index</td><td>Σ(price × shares) / divisor</td><td>float-adjusted for most major indexes</td></tr>
+  </table></div>
+
+  <h2>Fixed Income</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Bond price</td><td>Σ coupon/(1+y)ᵗ + face/(1+y)ⁿ</td><td>price and yield move inversely</td></tr>
+    <tr><td>Current yield</td><td>annual coupon / price</td><td></td></tr>
+    <tr><td>Forward rate link</td><td>(1+z₂)² = (1+z₁)(1+1y1y)</td><td>spot rates are geometric means of forwards</td></tr>
+    <tr><td>Modified duration</td><td>ModDur = MacDur / (1 + y/m)</td><td>%ΔP ≈ −ModDur × Δy</td></tr>
+    <tr><td>Price change w/ convexity</td><td>%ΔP ≈ −ModDur·Δy + ½·Conv·(Δy)²</td><td>convexity term always adds</td></tr>
+    <tr><td>Money duration</td><td>ModDur × price</td><td>PVBP = money dur × 0.0001</td></tr>
+    <tr><td>G-spread</td><td>bond YTM − government YTM</td><td>Z-spread: constant spread over whole spot curve</td></tr>
+    <tr><td>FRN quoted margin</td><td>price &gt; par when QM &gt; required (discount) margin</td><td></td></tr>
+  </table></div>
+
+  <h2>Derivatives</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Forward price (no income)</td><td>F₀ = S₀ × (1+r)ᵀ</td><td>cost of carry: add costs, subtract benefits</td></tr>
+    <tr><td>Forward w/ income & cost</td><td>F₀ = [S₀ − PV(income) + PV(cost)] × (1+r)ᵀ</td><td></td></tr>
+    <tr><td>Forward value (long, at t)</td><td>Vₜ = Sₜ − F₀/(1+r)^(T−t)</td><td>zero at initiation</td></tr>
+    <tr><td>Put–call parity</td><td>S₀ + p₀ = c₀ + PV(X)</td><td>protective put = fiduciary call</td></tr>
+    <tr><td>Binomial risk-neutral prob.</td><td>π = (1 + r − d)/(u − d)</td><td>value = PV of π-weighted payoffs</td></tr>
+    <tr><td>Call payoff / put payoff</td><td>max(0, Sₜ−X) / max(0, X−Sₜ)</td><td>profit subtracts premium (FV)</td></tr>
+  </table></div>
+
+  <h2>Alternative Investments</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Hedge fund fees ("2 and 20")</td><td>mgmt fee on AUM + incentive fee on gains</td><td>watch hurdle rate & high-water mark wording</td></tr>
+    <tr><td>Cap rate (real estate)</td><td>NOI / property value</td><td>value = NOI / cap rate</td></tr>
+    <tr><td>Roll yield (futures)</td><td>positive in backwardation, negative in contango</td><td></td></tr>
+  </table></div>
+
+  <h2>Portfolio Management</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Concept</th><th>Formula</th><th>Notes</th></tr>
+    <tr><td>Portfolio variance (2 assets)</td><td>w₁²σ₁² + w₂²σ₂² + 2w₁w₂σ₁σ₂ρ₁₂</td><td>lower ρ → more diversification</td></tr>
+    <tr><td>Covariance & correlation</td><td>Cov = ρ·σ₁·σ₂</td><td></td></tr>
+    <tr><td>Beta</td><td>β = Cov(Rᵢ,R_m) / σ²_m = ρ·σᵢ/σ_m</td><td></td></tr>
+    <tr><td>CAPM / SML</td><td>E[Rᵢ] = r_f + βᵢ(E[R_m] − r_f)</td><td>above SML = undervalued</td></tr>
+    <tr><td>Sharpe vs Treynor</td><td>Sharpe: excess/σ · Treynor: excess/β</td><td>M² and Jensen's alpha are the other two</td></tr>
+    <tr><td>Jensen's alpha</td><td>Rₚ − [r_f + βₚ(R_m − r_f)]</td><td>actual minus CAPM-required</td></tr>
+  </table></div>
+</div>
+
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="js/topics.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

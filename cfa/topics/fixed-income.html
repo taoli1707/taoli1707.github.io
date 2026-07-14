@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixed Income — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root=".." data-here=""></header>
+<div class="wrap">
+<h1>Fixed Income <span class="pill">Exam weight: 11–14%</span></h1>
+<p class="lead muted">Fixed income covers bonds: how they are structured, issued, priced, and analyzed for interest rate risk and credit risk. It is one of the heaviest and most calculation-intensive topics on the exam, and it feeds directly into Portfolio Management and Derivatives — master duration, yields, and spreads here and they pay off everywhere else.</p>
+<div id="topic-progress" class="card" style="margin:1rem 0"></div>
+<div class="layout">
+  <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
+  <main data-topic="fixed-income">
+
+    <section class="lm" id="lm-1">
+      <h2>1. Fixed-Income Instrument Features</h2>
+      <p>A bond is a loan packaged as a tradable security: the issuer borrows money and promises a schedule of payments. Every question in this topic starts from the contract terms, so the exam tests them heavily — who owes what, when, in which currency, and under what protections.</p>
+
+      <h3>The basic features</h3>
+      <ul>
+        <li><strong>Issuer</strong> — the borrower (government, corporation, financial institution, or a special purpose entity for securitized bonds).</li>
+        <li><strong>Maturity</strong> — the date the final payment is due. The remaining time to maturity is the bond's <em>tenor</em>. Money market securities mature in one year or less; capital market securities mature in more than one year. A <em>perpetual bond</em> has no stated maturity.</li>
+        <li><strong>Par value</strong> (face value, principal) — the amount repaid at maturity. Prices are quoted as a percentage of par: a bond quoted at 98.5 with $1,000 par costs $985. Above 100 = <em>premium</em>; below 100 = <em>discount</em>; at 100 = <em>par</em>.</li>
+        <li><strong>Coupon rate</strong> — the annual interest rate promised, paid annually, semiannually (typical for US corporates and Treasuries), quarterly, or monthly. A 5% semiannual-pay bond on $1,000 par pays $25 every six months.</li>
+        <li><strong>Currency</strong> — bonds may pay in one currency or be <em>dual-currency</em> (coupons in one currency, principal in another). A <em>currency option bond</em> lets the holder choose the payment currency.</li>
+      </ul>
+
+      <h3>The indenture and covenants</h3>
+      <p>The <strong>indenture</strong> (trust deed) is the legal contract describing the bond's features and the issuer's obligations. A <strong>trustee</strong> is appointed to enforce it on behalf of bondholders. The indenture identifies the entity actually promising the cash flows, the source of repayment funds, any collateral, any credit enhancements, and the covenants.</p>
+      <ul>
+        <li><strong>Affirmative covenants</strong> say what the issuer <em>must do</em>: pay interest and principal on time, maintain insurance, comply with laws, and often two important promises — a <em>cross-default clause</em> (default on one debt triggers default on this one) and a <em>pari passu clause</em> (this bond ranks equally with the issuer's other senior debt). Affirmative covenants are administrative and do not materially constrain operations.</li>
+        <li><strong>Negative (restrictive) covenants</strong> say what the issuer <em>must not do</em>: limits on additional borrowing (e.g., maximum debt-to-EBITDA), restrictions on asset sales, restrictions on dividends, and a <em>negative pledge</em> (the issuer may not pledge assets to new lenders in a way that subordinates existing bondholders). Restrictive covenants protect bondholders but reduce issuer flexibility.</li>
+      </ul>
+      <div class="keypoint"><p><strong>Key point.</strong> Affirmative covenants = "must do" (pay on time, cross-default, pari passu). Negative covenants = "must not do" (limit debt, negative pledge, restrict dividends). Negative covenants are the ones that constrain the issuer and protect creditors.</p></div>
+
+      <h3>Seniority and secured vs unsecured</h3>
+      <p>Seniority is the priority of claim in bankruptcy. From highest to lowest: <strong>first lien / senior secured</strong> (backed by specific collateral), <strong>senior unsecured</strong>, <strong>senior subordinated</strong>, <strong>subordinated</strong>, and <strong>junior subordinated</strong>. Secured debt is backed by pledged assets; unsecured debt is a general claim on the issuer. Higher seniority means higher expected recovery in default and therefore a lower yield.</p>
+
+      <h3>Principal repayment structures</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Structure</th><th>How principal is repaid</th><th>Credit/other implications</th></tr>
+        <tr><td><strong>Bullet</strong></td><td>Entire principal in one payment at maturity; coupons only until then</td><td>Most common structure; largest payment is at the end (balloon payment)</td></tr>
+        <tr><td><strong>Fully amortizing</strong></td><td>Level payments of interest + principal fully retire the loan by maturity (like a mortgage)</td><td>Lower credit risk because principal is returned gradually</td></tr>
+        <tr><td><strong>Partially amortizing</strong></td><td>Some principal repaid during the life; remaining balloon payment at maturity</td><td>Between bullet and fully amortizing</td></tr>
+        <tr><td><strong>Sinking fund</strong></td><td>Issuer must retire a portion of the issue on a schedule (repurchase or redeem, often at par, sometimes bonds chosen by lottery)</td><td>Reduces credit risk, but adds <em>reinvestment risk</em>: investors may be repaid at par when rates have fallen and the bond trades above par</td></tr>
+      </table></div>
+
+      <h3>Coupon structures</h3>
+      <ul>
+        <li><strong>Fixed coupon</strong> — the plain-vanilla case.</li>
+        <li><strong>Floating-rate notes (FRNs)</strong> — coupon = <em>market reference rate (MRR)</em> (e.g., SOFR) + a fixed <em>quoted margin</em>, reset each period. Because the coupon tracks market rates, FRN prices stay close to par and interest rate risk is low. FRNs may carry a <em>cap</em> (maximum coupon — protects the issuer, hurts the investor) or a <em>floor</em> (minimum coupon — protects the investor).</li>
+        <li><strong>Step-up coupons</strong> — the coupon increases on a schedule or when a trigger occurs (e.g., a rating downgrade). Protects investors against deterioration; often paired with a call so the issuer can escape the higher coupon.</li>
+        <li><strong>Payment-in-kind (PIK)</strong> — the issuer may pay coupons with additional bonds (or by increasing principal) instead of cash. Used by highly leveraged issuers with cash flow concerns; investors demand a higher yield.</li>
+        <li><strong>Deferred (split) coupon</strong> — no coupons in early years, then higher coupons later.</li>
+        <li><strong>Zero-coupon (pure discount)</strong> — no coupons at all; issued at a deep discount to par, and the investor's entire return is the accretion from purchase price to par. All interest is effectively paid at maturity.</li>
+        <li><strong>Index-linked</strong> — payments tied to an index. Inflation-linked bonds ("linkers," e.g., US TIPS) most commonly use <em>capital indexing</em>: the principal is adjusted for inflation and the fixed coupon rate is paid on the adjusted principal.</li>
+      </ul>
+      <div class="warning"><p><strong>Exam trap.</strong> A cap on an FRN benefits the <em>issuer</em> (coupon can't rise above the cap); a floor benefits the <em>investor</em>. Candidates routinely reverse these. Also remember: a sinking fund <em>reduces credit risk</em> but <em>adds reinvestment/prepayment-style risk</em> for the investor.</p></div>
+
+      <div class="example"><p><strong>Question.</strong> A 5-year FRN pays MRR + 150 bps, reset quarterly, with a 6% cap. At the current reset, three-month MRR is 5.1%. What coupon (annualized) does the note pay for the quarter, and who benefits from the cap?</p>
+      <div class="solution"><p><strong>Solution.</strong> Uncapped coupon = 5.1% + 1.5% = 6.6%. The 6% cap binds, so the note pays 6.0% (annualized) for the quarter, i.e., 1.5% for the quarter itself. The cap benefits the issuer, whose interest cost is limited; the investor receives less than the market rate formula and therefore requires extra compensation (the cap makes the FRN worth less than an identical uncapped FRN).</p></div></div>
+    </section>
+
+    <section class="lm" id="lm-2">
+      <h2>2. Cash Flows and Types of Issuers</h2>
+      <p>The exam expects you to classify bonds by issuer, credit quality, currency, and embedded options, and — critically — to know who benefits from each contingency provision and how it affects yield.</p>
+
+      <h3>Classifying fixed-income markets</h3>
+      <ul>
+        <li><strong>By issuer (sector):</strong> governments (sovereign national governments and their agencies), <em>non-sovereign</em> governments (states, provinces, municipalities), <em>quasi-government</em> agencies, <em>supranationals</em> (World Bank, IMF), corporates (financial and non-financial), and <em>structured finance</em> (securitized bonds issued by special purpose entities).</li>
+        <li><strong>By credit quality:</strong> <em>investment grade</em> (rated Baa3/BBB− or above) vs <em>high yield</em> ("junk," below investment grade). This split matters because many institutional mandates only allow investment grade.</li>
+        <li><strong>By maturity:</strong> money market (≤ 1 year: T-bills, commercial paper, CDs) vs capital market (&gt; 1 year).</li>
+        <li><strong>By currency and geography:</strong> <em>domestic bonds</em> (local issuer, local currency), <em>foreign bonds</em> (foreign issuer selling in a local market in local currency — e.g., "panda" bonds in China, "kangaroo" bonds in Australia), and <em>Eurobonds</em> (issued outside the jurisdiction of any single country, named for their currency, e.g., "Eurodollar" bonds; traditionally issued in bearer form).</li>
+        <li><strong>By coupon:</strong> fixed vs floating. Banks often prefer issuing and holding floating-rate debt because their own funding costs float.</li>
+      </ul>
+
+      <h3>Contingency provisions (embedded options)</h3>
+      <p>A contingency provision allows an action only if a specified event occurs. The three big ones:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Provision</th><th>Right belongs to</th><th>Benefits</th><th>Effect on yield vs straight bond</th><th>Effect on price</th></tr>
+        <tr><td><strong>Callable</strong></td><td>Issuer (right to redeem early at a set call price)</td><td>Issuer — can refinance when rates fall or credit improves</td><td>Higher yield (investors demand compensation)</td><td>Price of callable = straight − call option value (lower price)</td></tr>
+        <tr><td><strong>Putable</strong></td><td>Bondholder (right to sell back to issuer, usually at par)</td><td>Investor — can exit when rates rise or credit deteriorates</td><td>Lower yield</td><td>Price of putable = straight + put option value (higher price)</td></tr>
+        <tr><td><strong>Convertible</strong></td><td>Bondholder (right to convert into a set number of issuer's shares)</td><td>Investor gets equity upside; issuer pays a lower coupon and defers dilution</td><td>Lower yield than straight debt</td><td>Price ≥ max(straight value, conversion value)</td></tr>
+      </table></div>
+      <p>Call protection details: a <em>lockout/deferment period</em> bars calls for the first years ("10NC3" = 10-year bond, not callable for 3 years). Call styles: <strong>American</strong> (callable anytime after lockout), <strong>European</strong> (only on one date), <strong>Bermuda</strong> (on scheduled dates, typically coupon dates). A <em>make-whole call</em> requires the issuer to pay the present value of remaining cash flows discounted at Treasury + small spread — expensive, so rarely exercised opportunistically.</p>
+      <p>Convertible vocabulary: <strong>conversion ratio</strong> = shares per bond; <strong>conversion price</strong> = par ⁄ conversion ratio; <strong>conversion value</strong> = share price × conversion ratio. The bond trades at a <em>conversion premium</em> when its price exceeds conversion value.</p>
+      <div class="keypoint"><p><strong>Key point.</strong> Options held by the issuer (call) raise the bond's yield and lower its price; options held by the investor (put, conversion) lower the yield and raise the price. If you remember only one thing, remember whose option it is.</p></div>
+      <div class="warning"><p><strong>Exam trap.</strong> Callable bonds suffer most when rates <em>fall</em> (the issuer calls, capping price appreciation — "price compression"); putable bonds protect when rates <em>rise</em>. Don't attach the wrong rate scenario to the wrong option.</p></div>
+
+      <div class="example"><p><strong>Question.</strong> A convertible bond with $1,000 par has a conversion ratio of 25. The issuer's stock trades at $44. The bond trades at $1,150. Compute the conversion price and conversion value. Is the bond trading above or below conversion value?</p>
+      <div class="solution"><p><strong>Solution.</strong> Conversion price = 1,000 ⁄ 25 = $40 per share. Conversion value = 25 × $44 = $1,100. The bond trades at $1,150 &gt; $1,100, so it trades at a conversion premium of $50 (about 4.5%), reflecting the remaining option time value and its bond-floor protection.</p></div></div>
+    </section>
+
+    <section class="lm" id="lm-3">
+      <h2>3. Issuance, Trading, and Funding Markets</h2>
+      <p>This module covers how bonds get to market, how they trade afterward, and how issuers — especially governments, banks, and corporations — fund themselves short term. Repos are a favorite exam topic because they involve a rate, a haircut, and two-sided risk.</p>
+
+      <h3>Primary markets (new issues)</h3>
+      <ul>
+        <li><strong>Underwritten offering (firm commitment):</strong> an investment bank (or syndicate) buys the entire issue from the issuer at a set price and resells it, bearing the risk of unsold bonds. Typical for corporate bonds.</li>
+        <li><strong>Best-efforts offering:</strong> the bank acts only as a broker, selling what it can for a commission; the issuer bears placement risk.</li>
+        <li><strong>Auction:</strong> the standard mechanism for sovereign debt. US Treasuries use a <em>single-price (uniform price) auction</em>: all winning bidders — competitive and non-competitive — pay the same price implied by the highest accepted yield (the "stop-out" yield).</li>
+        <li><strong>Private placement:</strong> sale directly to a small group of qualified investors; unregistered, less liquid, typically higher yield.</li>
+        <li><strong>Shelf registration:</strong> the issuer registers a large amount once and sells pieces over time as funding needs arise.</li>
+      </ul>
+
+      <h3>Secondary markets</h3>
+      <p>Most bonds trade <strong>over the counter (OTC)</strong> through dealers who quote bid and ask (offer) prices; the <em>bid–ask spread</em> is the dealer's compensation and the standard measure of liquidity. Recently issued sovereign bonds ("on-the-run" issues) are the most liquid and trade with the tightest spreads; seasoned ("off-the-run") and small corporate issues are less liquid. Settlement is typically T+1 for government bonds and T+2 (moving toward T+1) for corporates; money market instruments often settle same day (cash settlement).</p>
+
+      <h3>Repurchase agreements (repos)</h3>
+      <p>A <strong>repo</strong> is a collateralized loan dressed as a sale: one party sells a security and agrees to repurchase it later at a higher price. The seller is the borrower of cash (doing a "repo"); the buyer lends cash (a "reverse repo") and holds the security as collateral. The implied interest rate is the <strong>repo rate</strong>:</p>
+      <div class="formula">Repo interest = Principal × repo rate × (days ⁄ 360) &nbsp;&nbsp;(money market convention)</div>
+      <ul>
+        <li>The <strong>haircut (initial margin)</strong> is the amount by which the collateral's value exceeds the cash lent. A 2% haircut on $10m of collateral means the borrower receives about $9.8m. The haircut protects the cash lender against a fall in collateral value.</li>
+        <li>Repo rates are <em>lower</em> when: collateral quality is higher, the term is shorter, collateral is delivered to the lender, and the security is in high demand ("on special" collateral can even command a below-market repo rate).</li>
+        <li>Risks run both directions: the cash lender faces borrower default combined with falling collateral value; the collateral provider faces the lender failing to return the security. <em>Variation margin</em> (margin calls) keeps the protection topped up as prices move.</li>
+        <li>Repos are the main leverage and short-term funding tool for dealers and hedge funds, and overnight repo is the single largest funding market for securities firms.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> A dealer finances a $10,000,000 (market value) Treasury position for 7 days in the repo market at a repo rate of 3.00% with a 2% haircut. How much cash is borrowed and how much interest is paid?</p>
+      <div class="solution"><p><strong>Solution.</strong> Cash lent = collateral × (1 − haircut) = 10,000,000 × 0.98 = $9,800,000. Interest = 9,800,000 × 0.03 × 7⁄360 = $5,716.67. The dealer repurchases the collateral for 9,800,000 + 5,716.67 = $9,805,716.67.</p></div></div>
+
+      <h3>Short-term funding alternatives</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Instrument</th><th>Issuer</th><th>Notes</th></tr>
+        <tr><td><strong>T-bills</strong></td><td>Governments</td><td>Discount instruments ≤ 1 year; the benchmark risk-free money market rate</td></tr>
+        <tr><td><strong>Commercial paper (CP)</strong></td><td>High-quality corporates</td><td>Unsecured, usually ≤ 270 days in the US (to avoid registration); typically rolled over, so issuers keep <em>backup lines of credit</em> against rollover risk; ECP (Eurocommercial paper) uses add-on yields while US CP is quoted on a discount basis</td></tr>
+        <tr><td><strong>Medium-term notes (MTNs)</strong></td><td>Corporates, financials</td><td>Continuously offered through agents in a range of maturities (9 months to 30+ years despite the name); flexible, often customized</td></tr>
+        <tr><td><strong>Bank deposits and CDs</strong></td><td>Banks (as borrowers)</td><td>Retail deposits, large negotiable CDs (tradable) vs non-negotiable CDs</td></tr>
+        <tr><td><strong>Interbank funds / central bank funds</strong></td><td>Banks</td><td>Unsecured overnight-to-one-year borrowing between banks; in the US, fed funds</td></tr>
+        <tr><td><strong>Credit lines</strong></td><td>Corporates (from banks)</td><td>Uncommitted lines (bank may refuse), committed/regular lines (bank promises, charges a commitment fee), and revolving credit ("revolvers" — strongest form, often multi-year)</td></tr>
+      </table></div>
+      <div class="keypoint"><p><strong>Key point.</strong> In a repo, the security seller is the cash <em>borrower</em>; the repo rate is the borrowing cost; the haircut protects the cash <em>lender</em>. Higher-quality collateral and shorter terms → lower repo rates and smaller haircuts.</p></div>
+    </section>
+
+    <section class="lm" id="lm-4">
+      <h2>4. Bond Valuation: Prices and Yields</h2>
+      <p>A bond's price is the present value of its promised cash flows discounted at the required yield. This is the mechanical core of fixed income — expect several direct calculations on the exam, and be fast on the calculator.</p>
+
+      <h3>Pricing with a single discount rate (YTM)</h3>
+      <div class="formula">Price = Σ<sub>t=1</sub><sup>N</sup> PMT ⁄ (1 + r)<sup>t</sup> + FV ⁄ (1 + r)<sup>N</sup></div>
+      <p>where r is the <strong>yield to maturity (YTM) per period</strong>, PMT the coupon per period, and FV the par value. YTM is the single discount rate that makes PV of cash flows equal the price — equivalently, the internal rate of return of buying the bond. It equals the realized return only if the bond is held to maturity, all payments arrive on time, and coupons are reinvested at the YTM.</p>
+
+      <div class="example"><p><strong>Question.</strong> A 5-year bond pays a 6% annual coupon on $1,000 par. The market discount rate is 7%. Its price is closest to?</p>
+      <div class="solution"><p><strong>Solution.</strong> PV of coupons = 60 × [1 − 1.07<sup>−5</sup>] ⁄ 0.07 = 60 × 4.1002 = 246.01. PV of par = 1,000 ⁄ 1.07<sup>5</sup> = 1,000 ⁄ 1.40255 = 712.99. Price = 246.01 + 712.99 = <strong>$959.00</strong> (95.90 per 100). BA II Plus: <code>N=5, I/Y=7, PMT=60, FV=1000 → CPT PV = −959.00</code>. Coupon (6%) &lt; yield (7%) → the bond trades at a discount, as expected.</p></div></div>
+
+      <div class="example"><p><strong>Question.</strong> A 10-year bond pays an 8% coupon semiannually on $1,000 par. The market yield is 6% (semiannual bond basis). Its price is closest to?</p>
+      <div class="solution"><p><strong>Solution.</strong> Work in semiannual periods: N = 20, r = 3%, PMT = $40. PV of coupons = 40 × [1 − 1.03<sup>−20</sup>] ⁄ 0.03 = 40 × 14.8775 = 595.10. PV of par = 1,000 ⁄ 1.03<sup>20</sup> = 553.68. Price = <strong>$1,148.77</strong> (114.877 per 100). BA II Plus: <code>N=20, I/Y=3, PMT=40, FV=1000 → CPT PV = −1,148.77</code>. Coupon &gt; yield → premium.</p></div></div>
+
+      <h3>Price–yield relationships</h3>
+      <ul>
+        <li><strong>Inverse:</strong> price and yield move in opposite directions.</li>
+        <li><strong>Convex:</strong> the price–yield curve bows toward the origin. A given yield <em>decrease</em> raises the price by <em>more</em> than the same yield increase lowers it. This asymmetry is convexity, and it favors the bondholder.</li>
+        <li><strong>Coupon effect:</strong> lower-coupon bonds are more sensitive to yield changes than higher-coupon bonds of the same maturity.</li>
+        <li><strong>Maturity effect:</strong> longer-maturity bonds are generally more sensitive (rare exceptions exist for some long-maturity, low-coupon discount bonds).</li>
+        <li><strong>Discount/premium/par:</strong> coupon &lt; yield → discount; coupon &gt; yield → premium; coupon = yield → par.</li>
+        <li><strong>Pull to par (constant-yield price trajectory):</strong> holding the yield constant, a discount bond's price rises toward par and a premium bond's price falls toward par as maturity approaches; at maturity the price equals par.</li>
+      </ul>
+
+      <h3>Full price, flat price, and accrued interest</h3>
+      <p>Between coupon dates, the buyer must compensate the seller for interest earned but not yet paid. The <strong>full (invoice, dirty) price</strong> is what the buyer actually pays; the <strong>flat (clean, quoted) price</strong> is what dealers quote. Bonds are quoted flat because the full price rises mechanically each day (the accrued interest builds) and then drops on the coupon date, which would obscure genuine market moves.</p>
+      <div class="formula">Full price = Flat price + Accrued interest (AI)<br>AI = (t ⁄ T) × coupon payment, where t = days since last coupon, T = days in the period<br>PV<sup>full</sup> = PV<sub>(at last coupon date)</sub> × (1 + r)<sup>t/T</sup></div>
+      <p>Day counts: government bonds usually use <strong>actual/actual</strong>; corporate bonds usually use <strong>30/360</strong> (every month counted as 30 days).</p>
+
+      <div class="example"><p><strong>Question.</strong> A corporate bond pays a 5% coupon semiannually ($2.50 per $100 per period), yield 6% (3% per period), with 4 semiannual periods remaining as of the last coupon date. It settles 90 days into the 180-day coupon period (30/360). Find the full price, accrued interest, and flat price per 100 of par.</p>
+      <div class="solution"><p><strong>Solution.</strong> Step 1 — price at the last coupon date: <code>N=4, I/Y=3, PMT=2.5, FV=100 → CPT PV = −98.1414</code>. Step 2 — roll forward: full price = 98.1414 × 1.03<sup>90/180</sup> = 98.1414 × 1.03<sup>0.5</sup> = 98.1414 × 1.014889 = <strong>99.6027</strong>. Step 3 — accrued interest = (90⁄180) × 2.50 = <strong>1.25</strong>. Step 4 — flat price = 99.6027 − 1.25 = <strong>98.3527</strong>. The buyer pays 99.60; the screen shows 98.35.</p></div></div>
+      <div class="warning"><p><strong>Exam trap.</strong> Roll the last-coupon-date PV <em>forward</em> by multiplying by (1 + r)<sup>t/T</sup> — do not discount the next-coupon-date value with simple interest, and do not subtract AI before rolling forward. Flat = full − AI, always.</p></div>
+
+      <h3>Matrix pricing</h3>
+      <p>When a bond rarely trades (most corporates), estimate its yield by <strong>matrix pricing</strong>: take observed yields on comparable bonds (same issuer or same rating/sector) with maturities bracketing the target, linearly interpolate a yield for the target maturity, then discount the bond's cash flows at that yield. Matrix pricing is also used to price new issues by adding an appropriate spread over the interpolated benchmark yield.</p>
+      <div class="example"><p><strong>Question.</strong> Comparable A-rated bonds yield 4.20% at 3 years and 4.80% at 5 years. Estimate the yield for a 4-year A-rated bond by matrix pricing.</p>
+      <div class="solution"><p><strong>Solution.</strong> Linear interpolation: 4.20% + [(4 − 3)⁄(5 − 3)] × (4.80% − 4.20%) = 4.20% + 0.5 × 0.60% = <strong>4.50%</strong>. Discount the 4-year bond's cash flows at 4.50% to estimate its price.</p></div></div>
+    </section>
+
+    <section class="lm" id="lm-5">
+      <h2>5. Yield and Yield Spread Measures</h2>
+      <p>Yields are only comparable when stated for the same compounding frequency, and spreads isolate the credit/liquidity component of yield from the risk-free component. Both conversions and spread definitions are classic exam material.</p>
+
+      <h3>Periodicity and annualized yields</h3>
+      <p>The <strong>periodicity</strong> of a yield is the number of compounding periods per year. A "semiannual bond basis" yield (periodicity 2) of 6% means 3% per half-year. To convert between periodicities m and n:</p>
+      <div class="formula">(1 + APR<sub>m</sub> ⁄ m)<sup>m</sup> = (1 + APR<sub>n</sub> ⁄ n)<sup>n</sup></div>
+      <p>The <em>effective annual yield</em> is the periodicity-1 equivalent. For a given cash flow pattern, the annualized yield <em>falls</em> as periodicity rises (8% quarterly compounding is a better deal for the lender than 8% annual, so its annual-periodicity equivalent is higher than 8%).</p>
+      <div class="example"><p><strong>Question.</strong> A bond has a yield of 8% quoted on a quarterly basis (periodicity 4). Convert it to (a) a semiannual bond basis and (b) an effective annual yield.</p>
+      <div class="solution"><p><strong>Solution.</strong> (a) (1 + 0.08⁄4)<sup>4</sup> = (1 + APR<sub>2</sub>⁄2)<sup>2</sup> → 1.02<sup>4</sup> = 1.08243 → (1 + APR<sub>2</sub>⁄2) = √1.08243 = 1.04040 → APR<sub>2</sub> = 2 × 0.04040 = <strong>8.08%</strong>. (b) EAY = 1.02<sup>4</sup> − 1 = <strong>8.24%</strong>. Note the annualized number rises as compounding frequency in the quote falls.</p></div></div>
+
+      <h3>Yield measures for fixed-rate bonds</h3>
+      <ul>
+        <li><strong>Current yield</strong> = annual coupon ⁄ flat price. Crude: ignores accrued interest, reinvestment, and the pull to par.</li>
+        <li><strong>Yield to maturity</strong> — the IRR assuming the bond is held to maturity with all cash flows on time. "Street convention" YTM assumes payments on scheduled dates even if they fall on weekends; "true yield" uses actual payment dates.</li>
+        <li><strong>Yield to call (YTC)</strong> — the IRR assuming the bond is called on a given call date at the call price. Compute one YTC per call date.</li>
+        <li><strong>Yield to worst (YTW)</strong> — the lowest of YTM and all YTCs; the conservative yield for a callable bond.</li>
+        <li><strong>Option-adjusted yield</strong> — the yield after adding the value of the embedded call back to the bond's price (pricing the bond as if it were option-free). For a callable bond, option-adjusted yield &lt; YTM.</li>
+      </ul>
+
+      <h3>Floating-rate note margins</h3>
+      <ul>
+        <li><strong>Quoted margin (QM):</strong> the contractual spread over the MRR set at issuance.</li>
+        <li><strong>Required margin (discount margin, DM):</strong> the spread investors currently require given the issuer's credit. Price the FRN by discounting (MRR + QM) cash flows at (MRR + DM).</li>
+      </ul>
+      <div class="keypoint"><p><strong>Key point.</strong> If DM = QM the FRN resets to par; if the issuer's credit deteriorates so DM &gt; QM, the FRN trades at a <em>discount</em>; if DM &lt; QM it trades at a <em>premium</em>. Rate moves barely affect FRN prices — credit changes do.</p></div>
+
+      <h3>Money market yields</h3>
+      <p>Money market instruments use simple (non-compounded) annualization with either a 360- or 365-day year, and quote either on a <strong>discount rate</strong> basis (rate applied to <em>face value</em> — T-bills, US CP) or an <strong>add-on rate (AOR)</strong> basis (rate applied to the <em>price paid</em> — CDs, ECP):</p>
+      <div class="formula">Discount basis: PV = FV × (1 − (days⁄year) × DR)<br>Add-on basis: PV = FV ⁄ (1 + (days⁄year) × AOR), &nbsp; AOR = (year⁄days) × (FV − PV) ⁄ PV</div>
+      <div class="example"><p><strong>Question.</strong> A 91-day T-bill is quoted at a 5.00% discount rate (360-day year). Find its price per $100 face and its bond-equivalent add-on yield on a 365-day basis.</p>
+      <div class="solution"><p><strong>Solution.</strong> Price = 100 × (1 − (91⁄360) × 0.05) = 100 × (1 − 0.012639) = <strong>98.7361</strong>. Add-on yield = (365⁄91) × (100 − 98.7361) ⁄ 98.7361 = 4.010989 × 0.012801 = <strong>5.135%</strong>. The add-on yield is always higher than the discount rate for the same instrument, because the discount rate understates return by dividing by face value instead of the smaller purchase price (and here the year basis is longer too).</p></div></div>
+      <div class="warning"><p><strong>Exam trap.</strong> Discount rate → divide by FV; add-on rate → divide by PV. A discount rate always <em>understates</em> the investor's true return. Check the day-count basis (360 vs 365) before comparing two money market yields — convert both to the same add-on 365 ("bond equivalent") basis.</p></div>
+
+      <h3>Yield spread measures</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Spread</th><th>Definition</th><th>Use / caveat</th></tr>
+        <tr><td><strong>G-spread</strong></td><td>Bond YTM − interpolated yield of an actual/theoretical government bond of the same maturity</td><td>Simple benchmark spread over sovereigns</td></tr>
+        <tr><td><strong>I-spread</strong></td><td>Bond YTM − swap rate (MRR-based) of the same maturity</td><td>Common for comparing corporates when swaps are the funding benchmark</td></tr>
+        <tr><td><strong>Z-spread</strong></td><td>The constant spread that, added to <em>every point</em> on the government <em>spot</em> curve, makes discounted cash flows equal the bond's price</td><td>Accounts for curve shape ("zero-volatility" spread); correct for option-free bonds</td></tr>
+        <tr><td><strong>OAS</strong></td><td>Z-spread minus the option cost (in bps): OAS = Z-spread − option value</td><td>The spread of a bond with embedded options <em>after removing the option effect</em>; for a callable bond OAS &lt; Z-spread; for a putable bond OAS &gt; Z-spread</td></tr>
+      </table></div>
+      <p>Benchmark yields reflect macro factors (expected inflation, expected real rates); spreads reflect issuer-specific credit risk and liquidity. A widening spread with an unchanged benchmark signals deteriorating credit or liquidity, not monetary policy.</p>
+    </section>
+
+    <section class="lm" id="lm-6">
+      <h2>6. The Term Structure of Interest Rates</h2>
+      <p>Different maturities carry different yields. The exam tests three related curves — spot, par, and forward — how to move between them, and the classic theories for why the curve slopes the way it does.</p>
+
+      <h3>Three curves</h3>
+      <ul>
+        <li><strong>Spot (zero) curve:</strong> yields on zero-coupon bonds for each maturity — z<sub>1</sub>, z<sub>2</sub>, ... Each spot rate is the pure discount rate for a single cash flow at that date. "No-arbitrage" valuation discounts each bond cash flow at its own spot rate; the sum must equal the bond's market price (otherwise the bond could be profitably stripped or reconstituted).</li>
+        <li><strong>Par curve:</strong> for each maturity, the coupon rate at which a bond would price exactly at par given the spot curve. Par rates are handy because most benchmark bonds are issued near par.</li>
+        <li><strong>Forward curve:</strong> rates agreed today for loans starting in the future. Notation on the exam: a rate like <em>2y1y</em> is the 1-year rate starting 2 years from now (also written F<sub>2,1</sub> or IFR<sub>2,1</sub>).</li>
+      </ul>
+
+      <h3>Deriving forward rates from spot rates</h3>
+      <p>The logic is pure no-arbitrage: investing for A+B years at the (A+B)-year spot must earn the same as investing A years at the A-year spot, then rolling into the forward rate for B years:</p>
+      <div class="formula">(1 + z<sub>A</sub>)<sup>A</sup> × (1 + IFR<sub>A,B</sub>)<sup>B</sup> = (1 + z<sub>A+B</sub>)<sup>A+B</sup></div>
+      <div class="example"><p><strong>Question.</strong> The 1-year spot rate is 4.00% and the 2-year spot rate is 5.00%. The 1-year forward rate one year from now (1y1y) is closest to?</p>
+      <div class="solution"><p><strong>Solution.</strong> (1.04) × (1 + IFR<sub>1,1</sub>) = (1.05)<sup>2</sup> = 1.1025 → 1 + IFR<sub>1,1</sub> = 1.1025 ⁄ 1.04 = 1.060096 → IFR<sub>1,1</sub> = <strong>6.01%</strong>. Quick check: the forward sits above both spots because the curve is upward sloping — the 2-year rate is roughly the average of 4% and the forward. Approximation: 2 × 5% − 4% = 6%, confirming the answer's magnitude.</p></div></div>
+      <div class="example"><p><strong>Question.</strong> With z<sub>2</sub> = 5.00% and z<sub>3</sub> = 6.00%, find the 1-year rate two years forward (2y1y).</p>
+      <div class="solution"><p><strong>Solution.</strong> (1.05)<sup>2</sup>(1 + IFR<sub>2,1</sub>) = (1.06)<sup>3</sup> → 1 + IFR<sub>2,1</sub> = 1.191016 ⁄ 1.102500 = 1.080287 → IFR<sub>2,1</sub> = <strong>8.03%</strong>.</p></div></div>
+
+      <h3>Bootstrapping the spot curve</h3>
+      <p><strong>Bootstrapping</strong> extracts spot rates from coupon (par) bond prices one maturity at a time: the 1-year spot comes directly from the 1-year bond; then the 2-year bond's price, with its first coupon discounted at the known 1-year spot, pins down the 2-year spot; and so on outward. Each step solves for exactly one unknown rate. Spot rates and forward rates contain the same information in different form: the spot rate for maturity N is the geometric average of the first N one-period forward rates.</p>
+
+      <h3>Curve shapes and term structure theories</h3>
+      <ul>
+        <li><strong>Shapes:</strong> upward sloping ("normal" — the usual state), inverted (short rates above long rates — historically a recession signal), flat, and humped. The spread between long and short benchmark yields (e.g., 10y − 2y) summarizes steepness.</li>
+        <li><strong>Pure (unbiased) expectations theory:</strong> forward rates are unbiased forecasts of future spot rates; the curve slope reflects only expected rate changes. Ignores risk.</li>
+        <li><strong>Local expectations theory:</strong> risk-neutral pricing holds only over short horizons — all bonds earn the risk-free rate over very short periods.</li>
+        <li><strong>Liquidity preference theory:</strong> investors demand a premium for longer maturities (price risk), so forwards = expected future spots + a liquidity premium that grows with maturity. Explains why the curve is usually upward sloping even when rates are not expected to rise.</li>
+        <li><strong>Segmented markets theory:</strong> each maturity is its own market with its own supply and demand (e.g., pensions demand long bonds); rates at different maturities are set independently.</li>
+        <li><strong>Preferred habitat theory:</strong> investors have preferred maturities but will leave them for sufficient extra yield — a compromise between expectations and segmentation.</li>
+      </ul>
+      <div class="keypoint"><p><strong>Key point.</strong> With an upward-sloping spot curve: forward rates &gt; spot rates &gt; par rates for the same maturity. With a downward-sloping curve the ordering flips. Forwards act as break-even reinvestment rates — if future spots turn out below the forwards, the longer-maturity strategy wins.</p></div>
+    </section>
+
+    <section class="lm" id="lm-7">
+      <h2>7. Interest Rate Risk and Return</h2>
+      <p>A bond's total return has three sources, and a rate change affects two of them in opposite directions. Whether a rate rise helps or hurts you depends entirely on your investment horizon relative to the bond's duration — the exam loves this tension.</p>
+
+      <h3>Sources of return</h3>
+      <ul>
+        <li><strong>Coupon and principal payments</strong> — the promised cash flows.</li>
+        <li><strong>Reinvestment income</strong> — interest earned on reinvested coupons. Grows with the level of rates and matters more for longer horizons and higher coupons.</li>
+        <li><strong>Capital gain or loss</strong> — from selling before maturity at a price different from the constant-yield ("carrying") value. If the bond is held to maturity and doesn't default, there is no capital gain/loss versus carrying value; the discount or premium amortizes away (pull to par).</li>
+      </ul>
+      <div class="formula">Horizon yield: (Total future dollars ⁄ Full purchase price)<sup>1/H</sup> − 1, per period<br>Total future dollars = reinvested coupons + sale price (or par)</div>
+
+      <h3>Price risk vs reinvestment risk</h3>
+      <p>A rate <em>increase</em> lowers the bond's price (bad now) but raises reinvestment income (good later). A rate <em>decrease</em> does the opposite. Which effect dominates depends on the horizon:</p>
+      <ul>
+        <li><strong>Short horizon (&lt; Macaulay duration):</strong> price risk dominates — you sell before reinvestment gains catch up. Rising rates hurt you.</li>
+        <li><strong>Long horizon (&gt; Macaulay duration):</strong> reinvestment risk dominates. Rising rates <em>help</em> you; falling rates hurt.</li>
+        <li><strong>Horizon = Macaulay duration:</strong> the two effects offset for a one-time parallel shift — the realized horizon yield ≈ the original YTM. This is the basis of immunization.</li>
+      </ul>
+      <div class="formula">Duration gap = Macaulay duration − investment horizon<br>Gap &gt; 0 → exposed to rising rates (price risk dominates)<br>Gap &lt; 0 → exposed to falling rates (reinvestment risk dominates)</div>
+
+      <div class="example"><p><strong>Question.</strong> An investor buys a 3-year, 5% annual coupon bond at par (100) and holds it to maturity. Immediately after purchase, the yield for reinvesting coupons drops to 4% and stays there. What is the realized annual return?</p>
+      <div class="solution"><p><strong>Solution.</strong> Future value of reinvested coupons at 4%: 5 × 1.04<sup>2</sup> + 5 × 1.04 + 5 = 5.408 + 5.200 + 5.000 = 15.608. Total future dollars = 15.608 + 100 = 115.608. Realized return = (115.608 ⁄ 100)<sup>1/3</sup> − 1 = 1.15608<sup>1/3</sup> − 1 = <strong>4.95%</strong>, below the 5% YTM. Held to maturity, there is no price effect — the shortfall is pure reinvestment risk. Had rates risen instead, the realized return would have exceeded 5%.</p></div></div>
+
+      <div class="example"><p><strong>Question.</strong> A bond has a Macaulay duration of 7.8 years. An investor's horizon is 10 years. State the duration gap and the investor's main risk.</p>
+      <div class="solution"><p><strong>Solution.</strong> Duration gap = 7.8 − 10 = <strong>−2.2 years</strong>. A negative gap means the horizon exceeds the duration, so <em>reinvestment risk dominates</em>: the investor is hurt by <em>falling</em> rates (coupons and the maturing principal get reinvested at lower rates for the remaining horizon) and helped by rising rates.</p></div></div>
+      <div class="warning"><p><strong>Exam trap.</strong> "Rising rates are bad for bondholders" is only true for horizons shorter than the duration. For a long-horizon investor (negative duration gap), rising rates <em>increase</em> the realized return. Read the horizon before answering.</p></div>
+    </section>
+
+    <section class="lm" id="lm-8">
+      <h2>8. Duration and Convexity</h2>
+      <p>Duration measures a bond's price sensitivity to yield changes; convexity refines the estimate. This is the single most testable quantitative cluster in fixed income — know every definition, formula, and direction of effect cold.</p>
+
+      <h3>The duration family</h3>
+      <ul>
+        <li><strong>Macaulay duration (MacDur)</strong> — the weighted-average time to receipt of cash flows, weights = PV of each cash flow ⁄ price. Measured in years. A zero-coupon bond's MacDur equals its maturity; a coupon bond's is less.</li>
+        <li><strong>Modified duration (ModDur)</strong> = MacDur ⁄ (1 + r), where r is the yield per period. It converts time into price sensitivity:</li>
+      </ul>
+      <div class="formula">%ΔPrice ≈ −ModDur × Δyield<br>ModDur = MacDur ⁄ (1 + r)</div>
+      <ul>
+        <li><strong>Money (dollar) duration</strong> = ModDur × full price: the price change in currency per 1.00 (100%) change in yield. For the change per basis point, use PVBP.</li>
+        <li><strong>Price value of a basis point (PVBP)</strong> = money duration × 0.0001 ≈ |price at y−1bp − price at y+1bp| ⁄ 2: the currency price change for a 1 bp yield move.</li>
+      </ul>
+
+      <h3>Approximate modified duration</h3>
+      <p>When you can reprice the bond at yields a little above and below the current yield, estimate duration numerically:</p>
+      <div class="formula">ApproxModDur = (PV<sub>−</sub> − PV<sub>+</sub>) ⁄ (2 × PV<sub>0</sub> × Δy)</div>
+      <div class="example"><p><strong>Question.</strong> A 10-year, 6% annual coupon bond trades at par (PV<sub>0</sub> = 100, YTM 6%). Repricing at yields ±25 bps gives PV<sub>−</sub> = 101.8619 (at 5.75%) and PV<sub>+</sub> = 98.1815 (at 6.25%). Estimate modified duration.</p>
+      <div class="solution"><p><strong>Solution.</strong> ApproxModDur = (101.8619 − 98.1815) ⁄ (2 × 100 × 0.0025) = 3.6804 ⁄ 0.50 = <strong>7.36</strong>. Interpretation: a 100 bp yield rise lowers the price by roughly 7.36%. (Check: MacDur of this bond is 7.80; 7.80 ⁄ 1.06 = 7.36. ✓)</p></div></div>
+
+      <h3>Properties of duration</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Holding all else equal…</th><th>Effect on duration</th></tr>
+        <tr><td>Longer time to maturity</td><td>Higher duration (generally)</td></tr>
+        <tr><td>Higher coupon rate</td><td>Lower duration (more cash arrives early)</td></tr>
+        <tr><td>Higher yield to maturity</td><td>Lower duration (distant cash flows get down-weighted)</td></tr>
+        <tr><td>Just before a coupon payment vs just after</td><td>Duration is slightly lower just before (then jumps up after payment)</td></tr>
+      </table></div>
+      <p>A zero-coupon bond has the highest duration for its maturity (MacDur = maturity). A perpetuity's MacDur = (1 + r) ⁄ r, which is finite even though maturity is infinite.</p>
+
+      <h3>Convexity</h3>
+      <p>Duration is a straight-line approximation of a curved price–yield relationship, so it understates price rises and overstates price falls. The <strong>convexity adjustment</strong> corrects the second-order error:</p>
+      <div class="formula">%ΔPrice ≈ −ModDur × Δy + ½ × Convexity × (Δy)<sup>2</sup><br>ApproxCon = (PV<sub>−</sub> + PV<sub>+</sub> − 2 × PV<sub>0</sub>) ⁄ (PV<sub>0</sub> × (Δy)<sup>2</sup>)</div>
+      <div class="example"><p><strong>Question.</strong> Using the bond above (ModDur = 7.36; PV<sub>−</sub> = 101.8619, PV<sub>+</sub> = 98.1815, PV<sub>0</sub> = 100, Δy = 0.0025), compute approximate convexity and the estimated price change for a 100 bp yield <em>increase</em>.</p>
+      <div class="solution"><p><strong>Solution.</strong> ApproxCon = (101.8619 + 98.1815 − 200) ⁄ (100 × 0.0025<sup>2</sup>) = 0.0434 ⁄ 0.000625 = <strong>69.4</strong>. Estimated %ΔPrice = −7.36 × 0.01 + ½ × 69.4 × 0.01<sup>2</sup> = −0.0736 + 0.00347 = −0.0701 → <strong>−7.01%</strong>. Duration alone would say −7.36%; convexity softens the loss. For a 100 bp <em>decrease</em>: +7.36% + 0.35% = +7.71% — convexity adds to gains and cushions losses, which is why investors pay for it.</p></div></div>
+      <div class="warning"><p><strong>Exam trap.</strong> The convexity term is <em>always added</em> (it is positive for option-free bonds whether yields rise or fall) because (Δy)<sup>2</sup> is positive either way. Also keep units straight: use Δy as a decimal (100 bp = 0.01) consistently in both terms.</p></div>
+
+      <h3>Portfolio duration</h3>
+      <p>Two approaches: (1) compute the cash-flow yield duration of the whole portfolio's aggregated cash flows (theoretically correct, rarely practical); (2) the market-standard approach — the <strong>market-value-weighted average of the component bonds' durations</strong>. Approach 2 implicitly assumes a <em>parallel shift</em>: all yields change by the same amount, which is its main limitation.</p>
+
+      <h3>Curve-based measures: effective and key rate duration</h3>
+      <ul>
+        <li><strong>Effective duration</strong> = (PV<sub>−</sub> − PV<sub>+</sub>) ⁄ (2 × PV<sub>0</sub> × ΔCurve), where the reprices come from shifting the <em>benchmark curve</em>, not the bond's own yield. Required for bonds whose cash flows change with rates — callables, putables, MBS — because their YTM is not well defined. Effective convexity is defined analogously and can be <em>negative</em> for callable bonds and MBS at low yields (price compression).</li>
+        <li><strong>Key rate (partial) durations</strong> — sensitivity to a change at one maturity point on the curve, holding others fixed. They capture non-parallel shifts (steepening, flattening); the key rate durations sum to the overall effective duration.</li>
+        <li><strong>Empirical vs analytical duration:</strong> analytical duration comes from formulas/repricing and assumes the benchmark yield and spread move independently. <em>Empirical duration</em> is estimated by regressing actual bond returns on benchmark yield changes. For credit-risky bonds (especially high yield), benchmark yields and credit spreads are often <em>negatively correlated</em> (flight to quality: government yields fall while credit spreads widen), so empirical duration is typically <em>lower</em> than analytical duration for high-yield bonds.</li>
+      </ul>
+      <div class="keypoint"><p><strong>Key point.</strong> Use yield duration (Macaulay/modified) only for option-free bonds. Any bond with contingent cash flows — callable, putable, MBS — needs <em>effective</em> duration off a curve shift. Callables and MBS can show <em>negative convexity</em> when rates are low.</p></div>
+    </section>
+
+    <section class="lm" id="lm-9">
+      <h2>9. Credit Risk Fundamentals</h2>
+      <p>Credit risk is the risk of loss from a borrower failing to pay in full and on time. The exam wants the expected-loss decomposition, the rating scales, and what actually moves credit spreads.</p>
+
+      <h3>Decomposing credit risk</h3>
+      <ul>
+        <li><strong>Default risk (probability of default, POD)</strong> — the likelihood the issuer misses payment. Measured over a horizon (e.g., annual default probability).</li>
+        <li><strong>Loss severity (loss given default, LGD)</strong> — the fraction of the exposure lost if default occurs. LGD = 1 − recovery rate. Recovery depends heavily on seniority and collateral.</li>
+        <li><strong>Expected exposure (EE)</strong> — the amount at risk at the time of default (for a bond, roughly the full price plus, less any collateral).</li>
+      </ul>
+      <div class="formula">Expected loss = POD × LGD (× exposure, in currency terms)<br>LGD = Exposure × (1 − Recovery rate)</div>
+      <div class="example"><p><strong>Question.</strong> A bank holds a $10 million senior unsecured exposure. The issuer's one-year probability of default is 2%, and the expected recovery rate for this seniority is 40%. The one-year expected loss is closest to?</p>
+      <div class="solution"><p><strong>Solution.</strong> LGD = 10,000,000 × (1 − 0.40) = $6,000,000. Expected loss = 0.02 × 6,000,000 = <strong>$120,000</strong> (1.2% of exposure, i.e., POD × loss severity = 2% × 60%). The yield spread must at minimum compensate for this expected loss plus a risk premium for the uncertainty and illiquidity around it.</p></div></div>
+      <p>The <strong>credit spread</strong> — yield over a same-maturity government bond — compensates for expected loss <em>plus</em> premiums for credit risk uncertainty, liquidity, and taxes. That is why spreads exceed pure expected loss, and why they widen in downturns even when defaults haven't happened yet.</p>
+
+      <h3>Credit ratings</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Category</th><th>Moody's</th><th>S&amp;P / Fitch</th><th>Meaning</th></tr>
+        <tr><td rowspan="2"><strong>Investment grade</strong></td><td>Aaa, Aa, A</td><td>AAA, AA, A</td><td>High quality; Aaa/AAA is highest</td></tr>
+        <tr><td>Baa (Baa1–Baa3)</td><td>BBB (BBB+–BBB−)</td><td>Lowest investment grade: Baa3 / BBB−</td></tr>
+        <tr><td rowspan="2"><strong>High yield ("junk")</strong></td><td>Ba, B</td><td>BB, B</td><td>Speculative</td></tr>
+        <tr><td>Caa, Ca, C</td><td>CCC, CC, C, D</td><td>Substantial risk through in-default (D at S&amp;P/Fitch)</td></tr>
+      </table></div>
+      <p>Agencies (Moody's, S&amp;P, Fitch) are paid by issuers — a potential conflict of interest. Ratings aim to be stable "through the cycle," so they <em>lag</em> market prices; spreads move first. Other rating limitations: they can be wrong, some risks (litigation, environmental) are hard to rate, and event risk (LBOs, big buybacks) can hit suddenly.</p>
+
+      <h3>What moves credit spreads</h3>
+      <ul>
+        <li><strong>Macro cycle:</strong> spreads widen in recessions/credit contractions and tighten in expansions. High yield spreads move much more than investment grade ("spread beta").</li>
+        <li><strong>Market liquidity:</strong> thinner dealer risk-taking or issue-specific illiquidity widens spreads regardless of default outlook.</li>
+        <li><strong>Issuer fundamentals:</strong> leverage rising, profitability falling → wider spreads; downgrades and rising POD widen spreads.</li>
+        <li><strong>Supply/flows:</strong> heavy new issuance or fund outflows can temporarily push spreads wider.</li>
+      </ul>
+      <p>Price impact of a spread change uses the same duration/convexity machinery: %ΔPrice ≈ −ModDur × ΔSpread + ½ × Convexity × (ΔSpread)<sup>2</sup>. Longer-duration, lower-rated bonds are hit hardest by spread widening.</p>
+      <div class="keypoint"><p><strong>Key point.</strong> Expected loss = POD × LGD. Recovery rate and LGD sum to 100% of exposure. Investment grade starts at Baa3/BBB−; one notch below is high yield — this boundary drives forced selling by mandate-constrained investors ("fallen angels").</p></div>
+      <div class="warning"><p><strong>Exam trap.</strong> Don't equate the credit spread with expected loss — the spread is larger because it also prices uncertainty, liquidity, and tax effects. And don't use the recovery rate where LGD belongs: a 40% recovery means a 60% LGD.</p></div>
+    </section>
+
+    <section class="lm" id="lm-10">
+      <h2>10. Credit Analysis of Governments and Corporates</h2>
+      <p>Rating a sovereign and rating a corporation use different toolkits. For corporates the exam leans on the "four Cs" and a handful of ratios; for sovereigns it splits factors into qualitative and quantitative. Issuer-versus-issue ratings and structural subordination round out the module.</p>
+
+      <h3>Sovereign credit analysis</h3>
+      <p>Sovereigns are unusual borrowers: they can tax, they can print their own currency (for local-currency debt), and creditors cannot seize a country. Analysis asks about both <em>capacity</em> and <em>willingness</em> to pay (a sovereign may default by choice — repudiation is hard to litigate).</p>
+      <ul>
+        <li><strong>Qualitative factors:</strong> institutional quality and governance strength (rule of law, corruption control, policy credibility), political stability, monetary flexibility (own currency and credible central bank vs a currency peg or currency union), fiscal flexibility (ability to raise taxes/cut spending), and external status (a reserve currency helps enormously).</li>
+        <li><strong>Quantitative factors:</strong> debt burden (debt⁄GDP), fiscal balance (deficit⁄GDP), economic growth and income per capita, current account balance, foreign exchange reserves relative to external debt, and interest cost relative to revenues.</li>
+      </ul>
+      <p>Local-currency ratings are often (modestly) higher than foreign-currency ratings, because a government can always create local currency but cannot print dollars.</p>
+
+      <h3>Corporate credit analysis: the four Cs</h3>
+      <ul>
+        <li><strong>Capacity</strong> — ability to pay. Assessed <em>top-down</em> (industry structure via Porter's five forces, industry fundamentals — cyclicality and growth — then company position) and <em>bottom-up</em> (issuer-specific ratios, quality of management, funding sources). This is the heart of the analysis.</li>
+        <li><strong>Collateral</strong> — asset quality and value available to creditors, most relevant for weaker credits and secured debt. Watch intangibles-heavy balance sheets and depreciation running above capex (underinvestment).</li>
+        <li><strong>Covenants</strong> — the legal protections in the indenture (Section 1). Strong covenants substitute for trust in weak credits; "covenant-lite" issuance signals a hot market.</li>
+        <li><strong>Character</strong> — management's integrity and track record: accounting aggressiveness, past restructurings, treatment of creditors, strategy execution.</li>
+      </ul>
+
+      <h3>Key credit ratios</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Ratio</th><th>Formula</th><th>Better credit =</th></tr>
+        <tr><td>Leverage</td><td>Debt ⁄ EBITDA</td><td>Lower</td></tr>
+        <tr><td>Leverage (balance sheet)</td><td>Debt ⁄ Capital; RCF ⁄ Net debt</td><td>Lower debt ratios; higher RCF/net debt</td></tr>
+        <tr><td>Coverage</td><td>EBIT ⁄ Interest expense (or EBITDA ⁄ Interest)</td><td>Higher</td></tr>
+        <tr><td>Cash flow</td><td>FFO ⁄ Debt; FCF after dividends ⁄ Debt</td><td>Higher</td></tr>
+      </table></div>
+      <p>Profitability (EBIT margin) and its volatility matter too: stable, high-margin businesses support more debt at any rating.</p>
+
+      <h3>Issuer vs issue ratings; structural subordination</h3>
+      <ul>
+        <li>An <strong>issuer rating</strong> (corporate family rating) reflects the entity's overall creditworthiness, conventionally based on its <em>senior unsecured</em> debt. An <strong>issue rating</strong> applies to a specific bond and can be <em>notched up</em> (strong collateral) or <em>notched down</em> (subordination) from the issuer rating. Notching is wider for lower-rated issuers because default is closer and recovery differences matter more.</li>
+        <li><strong>Structural subordination:</strong> debt issued by a <em>holding company</em> is effectively junior to debt issued by its <em>operating subsidiaries</em>, because the subsidiaries' creditors get paid from operating cash flows and assets before anything is upstreamed to the parent. Holding-company bonds therefore often carry lower ratings and higher yields than op-co bonds of the same group.</li>
+        <li><strong>Cross-default and pari passu provisions</strong> mean all obligations of a single issuer usually default together; recovery, not default probability, is what differs across an issuer's bonds.</li>
+      </ul>
+
+      <div class="example"><p><strong>Question.</strong> HoldCo Inc. has bonds outstanding at the parent level; its main subsidiary, OpSub, also has bonds. Both carry cross-default clauses. Which bond most likely has the higher rating, and is the difference about default probability or recovery?</p>
+      <div class="solution"><p><strong>Solution.</strong> OpSub's bonds most likely rate higher. Because of cross-default provisions, both entities' bonds have essentially the same probability of default; the difference is <em>expected recovery</em>. OpSub's creditors have first claim on the operating assets and cash flows; HoldCo's creditors only receive what is left after OpSub's creditors are satisfied — structural subordination. The rating gap is a notching difference driven by loss severity, not POD.</p></div></div>
+      <div class="keypoint"><p><strong>Key point.</strong> Four Cs: Capacity, Collateral, Covenants, Character — capacity dominates. Sovereign analysis adds <em>willingness</em> to pay and distinguishes local- vs foreign-currency debt. Holding-company debt is structurally subordinated to subsidiary debt.</p></div>
+    </section>
+
+    <section class="lm" id="lm-11">
+      <h2>11. Securitization and ABS</h2>
+      <p>Securitization pools loans and sells claims on the pool's cash flows as tradable bonds. Understand the parties, why the special purpose entity is the legal heart of the deal, and how tranching redistributes credit risk — the waterfall is a guaranteed exam theme.</p>
+
+      <h3>Parties and process</h3>
+      <ul>
+        <li><strong>Seller/depositor (originator)</strong> — e.g., a bank that made auto loans; it sells the loan pool and thereby moves it off balance sheet, freeing capital.</li>
+        <li><strong>Issuer / special purpose entity (SPE)</strong> — a legally separate, <em>bankruptcy-remote</em> trust that buys the pool (a "true sale") and issues the ABS. Bankruptcy remoteness means: if the <em>originator</em> later goes bankrupt, its creditors cannot claw back the securitized assets — ABS investors' claim survives. This separation lets the ABS carry a <em>higher rating than the originator itself</em>.</li>
+        <li><strong>Servicer</strong> — collects payments, manages delinquencies (often the originator). Servicer failure is itself a risk.</li>
+        <li>Plus rating agencies, trustees, and financial guarantors/credit enhancers.</li>
+      </ul>
+      <h3>Benefits of securitization</h3>
+      <ul>
+        <li>For issuers/banks: cheaper funding than issuing on their own credit, off-balance-sheet treatment, frees capital to lend again.</li>
+        <li>For investors: access to asset classes (mortgages, auto loans, receivables) otherwise unreachable, with a risk/maturity profile tailored by tranching.</li>
+        <li>For the economy: greater credit availability and lower borrowing rates; banks shift from "originate to hold" toward "originate to distribute."</li>
+      </ul>
+
+      <h3>Credit tranching and the waterfall</h3>
+      <p><strong>Credit tranching</strong> (subordination) creates senior and subordinated bond classes. Losses flow <em>bottom-up</em> (equity/first-loss first, then mezzanine, then senior); cash flows generally flow <em>top-down</em>. The subordinated tranches are internal credit enhancement for the senior tranche. Other enhancements: overcollateralization (pool balance &gt; bond balance) and excess spread (pool interest &gt; bond coupons + fees).</p>
+      <div class="example"><p><strong>Question.</strong> A $100 million pool backs three classes: Senior $80m, Mezzanine $15m, Equity (first-loss) $5m. Pool credit losses total $8 million. Allocate the losses.</p>
+      <div class="solution"><p><strong>Solution.</strong> Losses hit the bottom first. Equity absorbs its full $5m and is wiped out. The remaining $3m hits the Mezzanine class: it loses 3⁄15 = 20% of principal. The Senior class loses nothing — losses would have to exceed $20m (equity + mezzanine) before it is touched. This is why the senior class can be rated far above the pool's average quality.</p></div></div>
+
+      <h3>Covered bonds vs ABS</h3>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>ABS (securitization)</th><th>Covered bond</th></tr>
+        <tr><td>Assets</td><td>Sold to an SPE; off the originator's balance sheet</td><td>Stay <em>on</em> the issuing bank's balance sheet in a segregated "cover pool"</td></tr>
+        <tr><td>Recourse</td><td>To the pool only</td><td><em>Dual recourse</em>: to the bank AND to the cover pool</td></tr>
+        <tr><td>Pool composition</td><td>Static (typically)</td><td>Dynamic — the bank must replace non-performing or prepaid assets</td></tr>
+        <tr><td>Tranching / prepayment risk</td><td>Yes / passed to investors</td><td>No tranching; investors largely shielded from prepayment</td></tr>
+        <tr><td>Yield</td><td>Higher</td><td>Lower (safer — dual recourse and replenished pool)</td></tr>
+      </table></div>
+
+      <h3>Non-mortgage ABS and CDOs</h3>
+      <ul>
+        <li><strong>Auto loan ABS:</strong> backed by fully <em>amortizing</em> loans; monthly cash includes interest, scheduled principal, and prepayments. Credit enhancement via subordination, overcollateralization, excess spread.</li>
+        <li><strong>Credit card ABS:</strong> backed by <em>non-amortizing, revolving</em> receivables. During the <em>lockout (revolving) period</em>, principal collections are reinvested in new receivables and investors receive only finance charges; principal is repaid only after lockout ends. <em>Early amortization triggers</em> protect investors if pool performance deteriorates.</li>
+        <li><strong>CDOs (collateralized debt obligations):</strong> securitizations of debt pools — bonds, loans (CLOs), or even other ABS — with a <em>collateral manager</em> who actively trades the pool. The manager must generate enough return to pay the debt tranches, with equity taking the residual; coverage tests divert cash to senior tranches if collateral quality slips. Unlike a plain ABS, a CDO's performance depends on the manager.</li>
+      </ul>
+      <div class="warning"><p><strong>Exam trap.</strong> Time (prepayment) tranching addresses <em>prepayment</em> risk; credit tranching (subordination) addresses <em>default</em> risk. They are different levers and can coexist in one deal. Covered bonds are NOT securitizations — the assets never leave the bank's balance sheet.</p></div>
+    </section>
+
+    <section class="lm" id="lm-12">
+      <h2>12. Mortgage-Backed Securities</h2>
+      <p>MBS transform pools of home or commercial mortgages into bonds. The defining risk is not default (for agency deals) but <em>prepayment</em> — borrowers refinance and repay at the worst times for investors. Know contraction vs extension, the CMO structures built to manage them, and why CMBS behave differently.</p>
+
+      <h3>Mortgage loan features</h3>
+      <ul>
+        <li><strong>Amortization:</strong> most residential mortgages are fully amortizing level-payment loans; interest-only and balloon variants exist. The outstanding balance falls each month as scheduled principal is paid.</li>
+        <li><strong>Rate type:</strong> fixed-rate, adjustable-rate (ARM: rate resets off a reference rate), and hybrids (fixed then floating).</li>
+        <li><strong>Prepayment option:</strong> borrowers can prepay (usually penalty-free in the US) — this is a call option the homeowner holds against the investor.</li>
+        <li><strong>Recourse:</strong> in <em>non-recourse</em> lending (most US states, most CMBS), the lender's claim is limited to the property — borrowers may strategically default when the loan exceeds the property value (low or negative equity). Key underwriting metrics: <strong>loan-to-value (LTV)</strong> and <strong>debt-to-income (DTI)</strong>; lower LTV = more borrower equity = safer loan.</li>
+      </ul>
+
+      <h3>Prepayment risk: contraction and extension</h3>
+      <ul>
+        <li><strong>Contraction risk:</strong> rates <em>fall</em> → refinancing surges → principal comes back <em>sooner</em> than expected, exactly when reinvestment rates are low, and price upside is compressed (negative convexity — the MBS behaves like a callable bond).</li>
+        <li><strong>Extension risk:</strong> rates <em>rise</em> → prepayments slow → principal comes back <em>later</em> than expected, stretching duration just when you'd rather have cash to reinvest at higher rates.</li>
+      </ul>
+      <p>Prepayment speed conventions: the <strong>single monthly mortality (SMM)</strong> rate is the monthly fraction of remaining balance prepaid; annualized it becomes the <strong>conditional prepayment rate (CPR)</strong>; speeds are quoted against the <strong>PSA benchmark</strong> (100 PSA = CPR ramping to 6% by month 30, then flat; 200 PSA = twice those speeds). <strong>Weighted average life (WAL)</strong> — the average time until principal is received — is the standard maturity measure for MBS and shortens as prepayment speeds rise.</p>
+
+      <h3>Agency vs non-agency RMBS</h3>
+      <ul>
+        <li><strong>Agency RMBS</strong> — issued/guaranteed by Ginnie Mae (full US government backing) or the GSEs Fannie Mae and Freddie Mac. Loans must be <em>conforming</em> (meet underwriting standards: size limits, LTV, documentation). Credit risk is largely removed; prepayment risk remains and is the whole game.</li>
+        <li><strong>Non-agency RMBS</strong> — private-label deals backed by non-conforming loans (jumbo, weaker credit). No guarantee, so they need real credit enhancement (subordination, overcollateralization, excess spread) and carry both credit and prepayment risk.</li>
+      </ul>
+
+      <h3>Pass-throughs and CMOs</h3>
+      <p>A <strong>mortgage pass-through</strong> sends each month's pool cash flows (interest, scheduled principal, prepayments), minus servicing fees, pro rata to all certificate holders. Pool descriptors: weighted average coupon (WAC) and weighted average maturity (WAM). A <strong>collateralized mortgage obligation (CMO)</strong> re-slices pass-through cash flows into tranches with different prepayment exposures — it <em>redistributes</em> prepayment risk; it cannot destroy it.</p>
+      <ul>
+        <li><strong>Sequential-pay CMO:</strong> all principal goes to tranche A until it is retired, then B, then C... Short tranches (A) bear more contraction risk; long tranches bear more extension risk.</li>
+        <li><strong>PAC / support structure:</strong> the <strong>planned amortization class (PAC)</strong> tranche follows a fixed principal schedule as long as prepayments stay within a band (the "PAC collar," e.g., 100–300 PSA); the <strong>support (companion)</strong> tranche absorbs the variability — it takes extra principal when prepayments are fast and waits when they are slow. PAC holders get stability and accept a lower yield; support holders bear amplified contraction <em>and</em> extension risk for a higher yield. If prepayments persist outside the collar, the support can be exhausted and the PAC becomes a "broken PAC."</li>
+      </ul>
+
+      <h3>CMBS</h3>
+      <ul>
+        <li>Backed by income-producing commercial property loans (offices, retail, hotels, apartments). Underwriting is property-level: <strong>debt service coverage ratio (DSCR = net operating income ⁄ debt service, want &gt; 1×)</strong> and LTV.</li>
+        <li><strong>Call protection</strong> is strong (unlike RMBS): prepayment lockouts, defeasance (borrower substitutes Treasuries replicating the loan cash flows), yield maintenance charges, prepayment penalty points — so CMBS trade more like corporate bonds with little contraction risk.</li>
+        <li><strong>Balloon risk:</strong> most commercial mortgages are balloon loans — large principal due at maturity that the borrower expects to refinance. If credit conditions or the property's value prevent refinancing, the loan extends or defaults ("extension risk" in its CMBS form).</li>
+      </ul>
+      <div class="example"><p><strong>Question.</strong> Mortgage rates fall 150 bps. An investor holds (a) a support tranche and (b) a PAC tranche from the same CMO, with prepayments staying inside the PAC collar. What happens to each?</p>
+      <div class="solution"><p><strong>Solution.</strong> Falling rates trigger refinancing — fast prepayments (contraction). (a) The support tranche absorbs the excess principal: its WAL shortens sharply, cash returns early at low reinvestment rates, and its price gain is compressed — it bears the contraction. (b) The PAC tranche keeps receiving principal on its planned schedule because the support absorbed the surge; its cash flows and WAL are essentially unchanged. That stability is precisely what PAC buyers paid for via a lower yield.</p></div></div>
+      <div class="keypoint"><p><strong>Key point.</strong> Falling rates → contraction risk; rising rates → extension risk. CMOs redistribute — never eliminate — prepayment risk: PACs shed it, supports concentrate it. CMBS have strong call protection but face balloon (refinancing) risk at maturity.</p></div>
+      <div class="warning"><p><strong>Exam trap.</strong> Agency MBS have negligible <em>credit</em> risk but heavy <em>prepayment</em> risk — don't call them "risk-free." And don't mix up the direction: contraction comes with <em>falling</em> rates, extension with <em>rising</em> rates.</p></div>
+    </section>
+
+    <div id="quiz"></div>
+  </main>
+</div>
+</div>
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="../js/topics.js"></script>
+<script src="../data/fixed-income.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

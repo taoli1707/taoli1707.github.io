@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Management — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root=".." data-here=""></header>
+<div class="wrap">
+<h1>Portfolio Management <span class="pill">Exam weight: 8–12%</span></h1>
+<p class="lead muted">Portfolio Management is where the exam stops looking at single securities and starts looking at combinations of them: how diversification works mathematically, how the CAPM prices risk, how a written investment policy statement turns a client's life into portfolio constraints, and why real investors systematically deviate from rational behavior. It links directly to Quantitative Methods (mean, variance, correlation) and to Equity and Fixed Income (where the assets come from).</p>
+<div id="topic-progress" class="card" style="margin:1rem 0"></div>
+<div class="layout">
+  <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
+  <main data-topic="portfolio">
+
+    <section class="lm" id="lm-1">
+      <h2>1. Portfolio Risk and Return: Part I</h2>
+      <p>This module is the quantitative heart of the topic and one of the most tested. It builds the machinery of modern portfolio theory: how to measure the return and risk of a two-asset portfolio, why correlation is the engine of diversification, and how an investor picks a single best portfolio from all the possibilities. Expect calculation questions.</p>
+
+      <h3>Risk aversion and utility</h3>
+      <p>A <strong>risk-averse</strong> investor prefers less risk to more risk for the same expected return. Given two investments with identical expected returns, a risk-averse investor always takes the one with lower risk, and demands extra expected return (a risk premium) to accept extra risk. A <strong>risk-neutral</strong> investor cares only about expected return and ignores risk; a <strong>risk-seeking</strong> investor actually prefers more risk (think lottery tickets). Portfolio theory — and the whole idea that risky assets must offer higher expected returns — rests on the assumption that investors are risk averse.</p>
+      <p>Preferences are summarized by a <strong>utility function</strong>, which scores each combination of expected return and risk:</p>
+      <div class="formula">U = E(R) − ½ × A × σ<sup>2</sup></div>
+      <p>Here E(R) is expected return, σ<sup>2</sup> is the variance of returns (both in decimal form), and A is the <strong>risk-aversion coefficient</strong>. A larger A means the investor is more risk averse and penalizes variance more heavily. A = 0 describes a risk-neutral investor; a negative A describes a risk seeker. An <strong>indifference curve</strong> plots all risk–return combinations that give the investor the same utility. For a risk-averse investor, indifference curves slope upward in (σ, E(R)) space — more risk must be compensated with more return — and steeper curves mean higher risk aversion.</p>
+
+      <h3>Portfolio expected return and standard deviation (two assets)</h3>
+      <p>The expected return of a portfolio is simply the weighted average of the assets' expected returns:</p>
+      <div class="formula">E(R<sub>p</sub>) = w<sub>1</sub>E(R<sub>1</sub>) + w<sub>2</sub>E(R<sub>2</sub>)</div>
+      <p>Risk is the interesting part. Portfolio variance is <em>not</em> a simple weighted average — it depends on how the assets move together, captured by the covariance or, equivalently, the correlation:</p>
+      <div class="formula">σ<sub>p</sub><sup>2</sup> = w<sub>1</sub><sup>2</sup>σ<sub>1</sub><sup>2</sup> + w<sub>2</sub><sup>2</sup>σ<sub>2</sub><sup>2</sup> + 2w<sub>1</sub>w<sub>2</sub>ρ<sub>1,2</sub>σ<sub>1</sub>σ<sub>2</sub></div>
+      <p>where ρ<sub>1,2</sub> is the correlation between the two assets' returns and Cov<sub>1,2</sub> = ρ<sub>1,2</sub>σ<sub>1</sub>σ<sub>2</sub>. Take the square root of variance to get the portfolio standard deviation σ<sub>p</sub>.</p>
+
+      <div class="example"><p><strong>Question.</strong> An investor puts 60% in an equity fund with E(R) = 10% and σ = 20%, and 40% in a bond fund with E(R) = 5% and σ = 8%. The correlation between the two funds is 0.25. The portfolio's expected return and standard deviation are closest to what values?</p>
+      <div class="solution"><p><strong>Solution.</strong> Expected return: E(R<sub>p</sub>) = 0.60 × 10% + 0.40 × 5% = 6.0% + 2.0% = <strong>8.0%</strong>.</p>
+      <p>Variance (working in %<sup>2</sup> units): σ<sub>p</sub><sup>2</sup> = (0.60)<sup>2</sup>(20)<sup>2</sup> + (0.40)<sup>2</sup>(8)<sup>2</sup> + 2(0.60)(0.40)(0.25)(20)(8)<br>
+      = 0.36 × 400 + 0.16 × 64 + 0.48 × 0.25 × 160<br>
+      = 144 + 10.24 + 19.2 = 173.44.</p>
+      <p>σ<sub>p</sub> = √173.44 ≈ <strong>13.17%</strong>. Note this is well below the weighted average of the standard deviations (0.6 × 20 + 0.4 × 8 = 15.2%) — that gap is the diversification benefit.</p></div></div>
+
+      <div class="example"><p><strong>Question.</strong> Assets X and Y have σ<sub>X</sub> = 25% and σ<sub>Y</sub> = 15%, and their returns are uncorrelated (ρ = 0). For a 50/50 portfolio, the portfolio standard deviation is closest to what value?</p>
+      <div class="solution"><p><strong>Solution.</strong> With ρ = 0 the covariance term vanishes:<br>
+      σ<sub>p</sub><sup>2</sup> = (0.5)<sup>2</sup>(25)<sup>2</sup> + (0.5)<sup>2</sup>(15)<sup>2</sup> = 0.25 × 625 + 0.25 × 225 = 156.25 + 56.25 = 212.5.<br>
+      σ<sub>p</sub> = √212.5 ≈ <strong>14.58%</strong>.</p>
+      <p>The portfolio is less risky than the <em>less risky asset held with more of the safer asset would suggest by simple averaging</em>: the weighted average σ would be 20%, so diversification removed more than 5 percentage points of risk without giving up any expected return relative to that average.</p></div></div>
+
+      <div class="warning"><strong>Trap.</strong> Never average standard deviations. Portfolio σ equals the weighted average of the assets' σ only in the special case ρ = +1. For any ρ &lt; 1, portfolio σ is strictly less than the weighted average. Also watch units: either keep everything in decimals (0.20) or everything in percent (20) — mixing them is the classic calculation error.</div>
+
+      <h3>Correlation and diversification</h3>
+      <p>Correlation ρ ranges from −1 to +1 and controls how much risk diversification removes:</p>
+      <ul>
+        <li><strong>ρ = +1:</strong> no diversification benefit; portfolio σ is the weighted average of the two σs.</li>
+        <li><strong>ρ &lt; +1:</strong> some risk cancels; the lower the correlation, the bigger the benefit.</li>
+        <li><strong>ρ = −1:</strong> maximum benefit; with the right weights, portfolio risk can be driven to exactly zero.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> Diversification benefits exist whenever ρ &lt; +1 — the assets do not need to be negatively correlated. Adding an asset with correlation of, say, 0.4 still lowers portfolio risk relative to the weighted average.</div>
+
+      <h3>The efficient frontier and minimum-variance portfolios</h3>
+      <p>Plot every feasible portfolio of risky assets in (σ, E(R)) space. The left boundary of that cloud — the set of portfolios with the lowest risk for each level of expected return — is the <strong>minimum-variance frontier</strong>. The single leftmost point is the <strong>global minimum-variance portfolio</strong>, the risky portfolio with the smallest possible standard deviation. The <strong>efficient frontier</strong> (Markowitz efficient frontier) is only the <em>top half</em> of the minimum-variance frontier, from the global minimum-variance portfolio upward: for each risk level, it holds the portfolio with the <em>highest</em> expected return. Portfolios on the bottom half are inefficient because another portfolio offers more return for the same risk.</p>
+
+      <h3>Adding a risk-free asset: the capital allocation line</h3>
+      <p>Now let the investor also hold a <strong>risk-free asset</strong> with return R<sub>f</sub> and σ = 0. Combining the risk-free asset with any risky portfolio P produces portfolios lying on a straight line in (σ, E(R)) space, called the <strong>capital allocation line (CAL)</strong>:</p>
+      <div class="formula">E(R<sub>c</sub>) = R<sub>f</sub> + σ<sub>c</sub> × [E(R<sub>P</sub>) − R<sub>f</sub>] ⁄ σ<sub>P</sub></div>
+      <p>The slope, [E(R<sub>P</sub>) − R<sub>f</sub>] ⁄ σ<sub>P</sub>, is the portfolio's Sharpe ratio — the extra return per unit of total risk. The best CAL is the steepest one: the line from R<sub>f</sub> that is <em>tangent</em> to the efficient frontier. The tangency point is the <strong>optimal risky portfolio</strong>, because it has the highest Sharpe ratio of any risky portfolio.</p>
+
+      <h3>The optimal investor portfolio</h3>
+      <p>Every investor should hold some combination of the risk-free asset and the optimal risky portfolio — that is, a point on the best CAL. <em>Which</em> point depends on risk aversion: the investor's optimal portfolio is where their highest attainable indifference curve is <em>tangent to the CAL</em>. A highly risk-averse investor (steep indifference curves) ends up near R<sub>f</sub>, holding mostly the risk-free asset; a more risk-tolerant investor holds more of the risky portfolio, or even borrows at R<sub>f</sub> to hold a leveraged position beyond the tangency point.</p>
+      <div class="keypoint"><strong>Key point.</strong> Two separate tangencies, two separate decisions. (1) CAL tangent to the efficient frontier identifies the optimal <em>risky</em> portfolio — the same for everyone with the same expectations. (2) Indifference curve tangent to the CAL identifies each investor's <em>own</em> mix of risk-free asset and risky portfolio.</div>
+    </section>
+
+    <section class="lm" id="lm-2">
+      <h2>2. Portfolio Risk and Return: Part II</h2>
+      <p>Part II turns portfolio theory into an asset-pricing model. It introduces the market portfolio and the capital market line, splits risk into the part that is rewarded (systematic) and the part that is not (unsystematic), derives the CAPM and the security market line, and applies them to security selection and performance evaluation. This module supplies some of the most reliable calculation questions on the exam.</p>
+
+      <h3>From CAL to CML: the market portfolio</h3>
+      <p>If all investors share the same expectations (homogeneous expectations), they all compute the same optimal risky portfolio. In equilibrium that tangency portfolio must be the <strong>market portfolio</strong> — the portfolio of all risky assets held in proportion to their market values. The CAL built on the market portfolio gets its own name: the <strong>capital market line (CML)</strong>:</p>
+      <div class="formula">E(R<sub>p</sub>) = R<sub>f</sub> + σ<sub>p</sub> × [E(R<sub>m</sub>) − R<sub>f</sub>] ⁄ σ<sub>m</sub></div>
+      <p>So the CML is a special case of the CAL where the risky portfolio is the market portfolio. Points to the left of the market portfolio on the CML are <strong>lending portfolios</strong> (part of the money in the risk-free asset); points to the right are <strong>borrowing portfolios</strong> (leveraged, borrowing at R<sub>f</sub> to invest more than 100% in the market).</p>
+
+      <h3>Systematic vs. unsystematic risk</h3>
+      <p>Total risk (σ) splits into two parts:</p>
+      <ul>
+        <li><strong>Systematic risk</strong> (market risk, non-diversifiable risk): risk from economy-wide factors — interest rates, recessions, inflation — that affect all assets. It cannot be diversified away.</li>
+        <li><strong>Unsystematic risk</strong> (firm-specific, idiosyncratic, diversifiable risk): risk unique to a company or industry — a failed product, a lawsuit, a strike. Holding roughly 12–30 well-chosen stocks eliminates most of it.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> Markets do not reward risk you could have diversified away for free. Only <em>systematic</em> risk earns a risk premium, which is why the CAPM prices assets on beta (systematic risk), not on total σ.</div>
+
+      <h3>Return-generating models and beta</h3>
+      <p>A <strong>return-generating model</strong> forecasts an asset's return from one or more factors. Multifactor models use macroeconomic, fundamental, or statistical factors. The simplest is the <strong>single-index (market) model</strong>, which uses one factor — the market's excess return: R<sub>i</sub> − R<sub>f</sub> = α<sub>i</sub> + β<sub>i</sub>(R<sub>m</sub> − R<sub>f</sub>) + e<sub>i</sub>. The sensitivity β (beta) measures how much the asset's return moves with the market:</p>
+      <div class="formula">β<sub>i</sub> = Cov(R<sub>i</sub>, R<sub>m</sub>) ⁄ σ<sub>m</sub><sup>2</sup> = ρ<sub>i,m</sub> × σ<sub>i</sub> ⁄ σ<sub>m</sub></div>
+      <p>The market itself has β = 1. Beta above 1 means more sensitive than the market; below 1, less sensitive; a negative beta asset moves against the market. Graphically, beta is the slope of the <strong>security characteristic line</strong> — the regression line of the asset's excess returns on the market's excess returns.</p>
+
+      <div class="example"><p><strong>Question.</strong> Stock Q has a standard deviation of returns of 30%. The market portfolio has a standard deviation of 20%, and the correlation between Q and the market is 0.70. Stock Q's beta is closest to what value?</p>
+      <div class="solution"><p><strong>Solution.</strong> β<sub>Q</sub> = ρ<sub>Q,m</sub> × σ<sub>Q</sub> ⁄ σ<sub>m</sub> = 0.70 × 0.30 ⁄ 0.20 = 0.70 × 1.5 = <strong>1.05</strong>.</p>
+      <p>Equivalently, Cov(Q, m) = 0.70 × 0.30 × 0.20 = 0.042 and σ<sub>m</sub><sup>2</sup> = 0.04, so β = 0.042 ⁄ 0.04 = 1.05. Q is slightly more sensitive to market moves than the market itself, even though much of its high total risk (30%) is diversifiable.</p></div></div>
+
+      <h3>The CAPM and the security market line</h3>
+      <p>The <strong>capital asset pricing model (CAPM)</strong> says the required (expected equilibrium) return on any asset depends only on the risk-free rate, the asset's beta, and the market risk premium:</p>
+      <div class="formula">E(R<sub>i</sub>) = R<sub>f</sub> + β<sub>i</sub> × [E(R<sub>m</sub>) − R<sub>f</sub>]</div>
+      <p>Its key assumptions: investors are risk-averse, utility-maximizing, rational; markets are frictionless (no taxes or transaction costs, borrowing and lending at R<sub>f</sub>); all investors have the same single-period horizon and homogeneous expectations; investments are infinitely divisible; and investors are price takers. Unrealistic, but the model's simplicity and intuition keep it central.</p>
+      <p>The graph of the CAPM — expected return against <strong>beta</strong> — is the <strong>security market line (SML)</strong>. Every fairly priced asset and portfolio plots on the SML, whatever its total risk.</p>
+
+      <div class="example"><p><strong>Question.</strong> The risk-free rate is 3% and the expected market return is 9%. Using the CAPM, the required return on a stock with β = 1.2 is closest to what value?</p>
+      <div class="solution"><p><strong>Solution.</strong> Market risk premium = 9% − 3% = 6%. E(R) = 3% + 1.2 × 6% = 3% + 7.2% = <strong>10.2%</strong>.</p></div></div>
+
+      <div class="example"><p><strong>Question.</strong> The risk-free rate is 4% and the market risk premium is 5%. An analyst forecasts a return of 9.5% on a stock with β = 0.8. Is the stock overvalued, fairly valued, or undervalued?</p>
+      <div class="solution"><p><strong>Solution.</strong> CAPM required return = 4% + 0.8 × 5% = 8.0%. The forecast return of 9.5% exceeds the required 8.0%, so the stock offers more than fair compensation for its systematic risk — it plots <em>above</em> the SML and is <strong>undervalued</strong> (buy). Forecast below the SML would mean overvalued; on the line, fairly valued.</p></div></div>
+
+      <div class="warning"><strong>Trap.</strong> Read carefully whether you are given the expected <em>market return</em> E(R<sub>m</sub>) or the <em>market risk premium</em> E(R<sub>m</sub>) − R<sub>f</sub>. Plugging a risk premium in where E(R<sub>m</sub>) belongs (or vice versa) is the most common CAPM error, and the distractors are built from it.</div>
+
+      <h3>Performance measures</h3>
+      <p>Four standard risk-adjusted performance measures — know which risk each one uses:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Measure</th><th>Formula</th><th>Risk used</th><th>Best when…</th></tr>
+        <tr><td>Sharpe ratio</td><td>(R<sub>p</sub> − R<sub>f</sub>) ⁄ σ<sub>p</sub></td><td>Total risk (σ)</td><td>The portfolio is the investor's entire wealth (not fully diversified)</td></tr>
+        <tr><td>M² (M-squared)</td><td>(R<sub>p</sub> − R<sub>f</sub>) × σ<sub>m</sub>⁄σ<sub>p</sub> + R<sub>f</sub></td><td>Total risk (σ)</td><td>Same ranking as Sharpe but expressed in % return units, easy to compare to the market</td></tr>
+        <tr><td>Treynor measure</td><td>(R<sub>p</sub> − R<sub>f</sub>) ⁄ β<sub>p</sub></td><td>Systematic risk (β)</td><td>The portfolio is one of many in a well-diversified overall portfolio</td></tr>
+        <tr><td>Jensen's alpha</td><td>R<sub>p</sub> − [R<sub>f</sub> + β<sub>p</sub>(R<sub>m</sub> − R<sub>f</sub>)]</td><td>Systematic risk (β)</td><td>You want the excess return over the CAPM requirement, in % units</td></tr>
+      </table></div>
+
+      <div class="example"><p><strong>Question.</strong> R<sub>f</sub> = 3%; the market returned 9% with σ<sub>m</sub> = 15%. Fund A returned 11% with σ = 20% and β = 1.1. Fund B returned 9% with σ = 12% and β = 0.8. Compute Sharpe, Treynor, M², and Jensen's alpha for both funds. Which fund performed better?</p>
+      <div class="solution"><p><strong>Solution.</strong> Excess returns: A = 11 − 3 = 8%; B = 9 − 3 = 6%; market = 6%.</p>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>Fund A</th><th>Fund B</th><th>Market</th></tr>
+        <tr><td>Sharpe = (R−R<sub>f</sub>)/σ</td><td>8/20 = 0.40</td><td>6/12 = 0.50</td><td>6/15 = 0.40</td></tr>
+        <tr><td>Treynor = (R−R<sub>f</sub>)/β</td><td>8/1.1 = 7.27</td><td>6/0.8 = 7.50</td><td>6/1 = 6.00</td></tr>
+        <tr><td>M² = Sharpe × σ<sub>m</sub> + R<sub>f</sub></td><td>0.40 × 15 + 3 = 9.0%</td><td>0.50 × 15 + 3 = 10.5%</td><td>9.0%</td></tr>
+        <tr><td>Jensen's α = R − [R<sub>f</sub> + β × 6%]</td><td>11 − 9.6 = +1.4%</td><td>9 − 7.8 = +1.2%</td></tr>
+      </table></div>
+      <p>Fund B has the higher Sharpe ratio, Treynor measure, and M² (its M² of 10.5% beats the market's 9.0% by 1.5%). Fund A has the higher Jensen's alpha (+1.4% vs +1.2%) because alpha is not scaled by the amount of risk taken. On a risk-adjusted basis, <strong>Fund B</strong> is the better performer; both funds beat the market after adjusting for risk.</p></div></div>
+
+      <h3>SML vs. CML — do not confuse them</h3>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>CML</th><th>SML</th></tr>
+        <tr><td>x-axis (risk measure)</td><td>Total risk, σ</td><td>Systematic risk, β</td></tr>
+        <tr><td>What plots on it</td><td>Only efficient portfolios (combinations of R<sub>f</sub> and the market portfolio)</td><td>All fairly priced assets and portfolios, efficient or not</td></tr>
+        <tr><td>Slope</td><td>Market Sharpe ratio, (E(R<sub>m</sub>) − R<sub>f</sub>)⁄σ<sub>m</sub></td><td>Market risk premium, E(R<sub>m</sub>) − R<sub>f</sub></td></tr>
+        <tr><td>Use</td><td>Capital allocation between R<sub>f</sub> and the market</td><td>Pricing individual securities; spotting mispricing via alpha</td></tr>
+      </table></div>
+      <div class="warning"><strong>Trap.</strong> A single stock with lots of firm-specific risk plots on the SML (if fairly priced) but <em>below</em> the CML, because the CML only contains fully diversified, efficient portfolios. "Plots below the CML" does not mean mispriced — it usually just means undiversified.</div>
+    </section>
+
+    <section class="lm" id="lm-3">
+      <h2>3. Portfolio Management: An Overview</h2>
+      <p>This module is the big-picture tour: why investors should think in portfolios rather than individual securities, the three-step portfolio management process, and who the clients and providers in the asset management industry are. Questions here are conceptual — definitions, classifications, and the DB-vs-DC contrast.</p>
+
+      <h3>Why take a portfolio approach?</h3>
+      <p>The central benefit is <strong>diversification</strong>: combining assets that are less than perfectly correlated reduces risk without necessarily reducing expected return. The <strong>diversification ratio</strong> — the ratio of an equally weighted portfolio's standard deviation to the average standard deviation of its component securities — measures how much risk the portfolio structure removes; lower is better. A portfolio approach also avoids catastrophic single-position outcomes (an investor holding only their employer's stock can lose both job and savings at once — think Enron). One caveat: in severe market crises, correlations across risky assets tend to rise toward 1, so diversification protects least exactly when it is wanted most.</p>
+
+      <h3>The three steps of the portfolio management process</h3>
+      <ul>
+        <li><strong>Planning:</strong> understand the client's objectives and constraints and write them into an <strong>investment policy statement (IPS)</strong>, including a benchmark for evaluating performance.</li>
+        <li><strong>Execution:</strong> decide the <strong>asset allocation</strong> (top-down analysis of economies and markets), perform <strong>security analysis</strong> (bottom-up selection within asset classes), and construct the portfolio.</li>
+        <li><strong>Feedback:</strong> <strong>monitor and rebalance</strong> the portfolio as prices move and circumstances change, and <strong>measure and report performance</strong> against the benchmark.</li>
+      </ul>
+
+      <h3>Types of investors and their needs</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Investor</th><th>Typical horizon</th><th>Risk tolerance</th><th>Liquidity needs</th><th>Income needs</th></tr>
+        <tr><td>Individuals</td><td>Varies with life stage</td><td>Varies</td><td>Varies</td><td>Varies (retirees need income)</td></tr>
+        <tr><td>DB pension plan</td><td>Long</td><td>Usually high</td><td>Low (predictable payouts)</td><td>Must meet promised benefits</td></tr>
+        <tr><td>Endowments / foundations</td><td>Very long (perpetual)</td><td>High</td><td>Low</td><td>Fund spending (e.g., ~5% of assets)</td></tr>
+        <tr><td>Banks</td><td>Short</td><td>Low</td><td>High</td><td>Pay interest on deposits; conservative reserve portfolio</td></tr>
+        <tr><td>Insurance companies</td><td>Short (P&amp;C) to long (life)</td><td>Low</td><td>High</td><td>Must fund claims</td></tr>
+        <tr><td>Sovereign wealth funds</td><td>Long</td><td>Varies by mandate</td><td>Varies</td><td>Varies</td></tr>
+      </table></div>
+
+      <h3>Defined benefit vs. defined contribution pension plans</h3>
+      <p>In a <strong>defined benefit (DB)</strong> plan, the employer promises a specified retirement benefit (often a formula based on salary and years of service). The <em>employer bears the investment risk</em>: if plan assets fall short of the promised obligations, the employer must make up the difference. The plan invests as a single large pool with a long horizon. In a <strong>defined contribution (DC)</strong> plan, the employer's obligation ends with the contribution; the <em>employee bears the investment risk</em>, makes the investment decisions (choosing among offered funds), and owns the account — which also makes DC benefits portable between jobs.</p>
+      <div class="keypoint"><strong>Key point.</strong> DB = employer promises the benefit and bears investment risk. DC = employer promises only the contribution; the employee bears investment risk and makes the decisions. This contrast is a perennial exam question.</div>
+
+      <h3>The asset management industry</h3>
+      <ul>
+        <li><strong>Buy-side vs. sell-side:</strong> asset managers are the buy side; brokers/dealers and investment banks that sell securities and research are the sell side.</li>
+        <li><strong>Active vs. passive:</strong> active managers try to beat a benchmark (and charge higher fees); passive managers replicate an index cheaply. Passive has been gaining share for years.</li>
+        <li><strong>Traditional vs. alternative:</strong> traditional managers run long-only equity and fixed income; alternative managers run hedge funds, private equity, venture capital — higher fees, less liquidity.</li>
+        <li><strong>Pooled vehicles:</strong> open-end mutual funds (buy/redeem at NAV; may hold cash for redemptions), closed-end funds (fixed share count, trade at premiums/discounts to NAV), <strong>ETFs</strong> (trade intraday like closed-end funds but with in-kind creation/redemption keeping price near NAV; typically low cost and tax efficient), separately managed accounts (direct ownership of securities, customizable), hedge funds and private equity funds (limited partnerships for qualified investors).</li>
+        <li><strong>Robo-advisors:</strong> digital platforms that build and rebalance portfolios (usually of low-cost ETFs) from an online questionnaire, with little human interaction. Low fees and low account minimums make advice accessible to smaller investors — their key advantage; the concern is opaque algorithms and limited hand-holding in complex situations or market panics.</li>
+      </ul>
+    </section>
+
+    <section class="lm" id="lm-4">
+      <h2>4. Basics of Portfolio Planning and Construction</h2>
+      <p>This module operationalizes the planning step: writing the investment policy statement (IPS), specifying risk and return objectives, cataloging constraints, and turning it all into a strategic asset allocation. The exam loves the "ability vs. willingness to take risk" distinction and the five constraint categories.</p>
+
+      <h3>The investment policy statement</h3>
+      <p>The <strong>IPS</strong> is the written plan governing the portfolio — the starting point of the whole process, reviewed regularly (e.g., every few years) and whenever the client's circumstances change materially. Major components:</p>
+      <ul>
+        <li><strong>Introduction</strong> — describes the client.</li>
+        <li><strong>Statement of purpose</strong> and <strong>statement of duties and responsibilities</strong> of client, custodian, and managers.</li>
+        <li><strong>Procedures</strong> — how to update the IPS and respond to contingencies.</li>
+        <li><strong>Investment objectives</strong> — the risk objective and the return objective.</li>
+        <li><strong>Investment constraints</strong> — liquidity, time horizon, tax, legal/regulatory, unique circumstances.</li>
+        <li><strong>Investment guidelines</strong> — permitted assets, leverage policy, exclusions.</li>
+        <li><strong>Evaluation and review</strong> — the <strong>benchmark</strong> for performance measurement.</li>
+        <li><strong>Appendices</strong> — strategic asset allocation and rebalancing policy.</li>
+      </ul>
+
+      <h3>The risk objective: ability vs. willingness</h3>
+      <p>Risk objectives can be <strong>absolute</strong> ("no more than a 10% loss in any 12 months", "σ below 12%") or <strong>relative</strong> ("tracking error within 2% of the benchmark"). Risk <em>tolerance</em> has two dimensions that must be assessed separately:</p>
+      <ul>
+        <li><strong>Ability (capacity) to take risk</strong> — objective, financial: longer horizon, larger wealth relative to needs, more secure income, and smaller liquidity needs all raise ability.</li>
+        <li><strong>Willingness to take risk</strong> — subjective, psychological: the client's attitudes, stated preferences, and past behavior.</li>
+      </ul>
+      <div class="keypoint"><strong>Key point.</strong> When ability and willingness conflict, the adviser should go with the <em>lower</em> of the two for now — and if willingness is the binding constraint, <em>educate</em> the client rather than simply override their stated preferences. Never invest above the client's ability to bear losses.</div>
+
+      <div class="example"><p><strong>Question (mini-scenarios).</strong> Classify each investor's risk tolerance. (a) Elena, 30, a tenured professor with high savings, no debt, and a 35-year horizon, says market losses keep her up at night and she "couldn't stand" a 10% drawdown. (b) Marcus, 68, retired, must draw 6% of his portfolio every year to cover living costs, and says he loves aggressive tech stocks and wants "maximum growth."</p>
+      <div class="solution"><p><strong>Solution.</strong> (a) Elena has <strong>high ability</strong> (long horizon, secure income, strong balance sheet) but <strong>low willingness</strong>. Overall risk tolerance is constrained to <em>below her ability</em>; the adviser should adopt a moderate/conservative allocation and educate her about long-horizon risk capacity. (b) Marcus has <strong>low ability</strong> (short horizon, heavy spending needs from the portfolio) but <strong>high willingness</strong>. Ability binds: the portfolio must be conservative despite his enthusiasm, and the adviser should explain why. In both cases, the <em>lower</em> dimension governs.</p></div></div>
+
+      <h3>The return objective</h3>
+      <p>Return objectives can also be absolute (e.g., "8% per year", "inflation + 3%") or relative (e.g., "beat the S&amp;P 500 by 1%"). The <strong>required return</strong> is the return needed to meet the client's goals (e.g., fund retirement spending); the <strong>desired return</strong> is what the client would like. The return objective must be <em>consistent with the risk objective</em> — a required return achievable only with risk beyond the client's tolerance forces a conversation: save more, spend less, retire later, or accept lower goals. Be clear whether the target is nominal or real, and pre- or post-tax.</p>
+
+      <h3>The five investment constraints</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Constraint</th><th>What it covers</th><th>Portfolio implication</th></tr>
+        <tr><td>Liquidity</td><td>Expected and possible cash withdrawals (tuition, home purchase, medical, emergency reserve)</td><td>Hold cash/short-term bonds; avoid illiquid assets if needs are high</td></tr>
+        <tr><td>Time horizon</td><td>Time until objectives are reached; may be multistage (career, then retirement)</td><td>Longer horizon → more ability to hold risky, less liquid assets</td></tr>
+        <tr><td>Tax concerns</td><td>Tax status and rates; income vs. capital gains treatment</td><td>Asset location (tax-exempt bonds, retirement accounts), deferral of gains</td></tr>
+        <tr><td>Legal &amp; regulatory</td><td>Rules on trusts, pensions (e.g., maximum stakes, prudence standards), insider restrictions</td><td>Restricts holdings and strategies</td></tr>
+        <tr><td>Unique circumstances</td><td>Anything client-specific: ESG preferences, religious screens, concentrated stock the client will not sell, health issues</td><td>Custom exclusions or tilts</td></tr>
+      </table></div>
+
+      <h3>Strategic asset allocation</h3>
+      <p>The <strong>strategic asset allocation (SAA)</strong> sets target percentage weights for each asset class, chosen so the portfolio's expected risk and return match the IPS objectives. An <strong>asset class</strong> should contain assets that are relatively homogeneous (highly correlated within the class) while having low correlations <em>across</em> classes — otherwise splitting them adds no diversification. SAA matters because, empirically, asset allocation explains the bulk of a diversified portfolio's return variability over time — far more than security selection.</p>
+      <ul>
+        <li><strong>Tactical asset allocation (TAA):</strong> deliberate short-term deviations from SAA weights to exploit perceived opportunities.</li>
+        <li><strong>Security selection:</strong> attempts to beat the asset-class benchmark by picking individual securities within the class.</li>
+        <li><strong>Core–satellite:</strong> a passive (indexed) core plus active satellite positions seeking alpha.</li>
+      </ul>
+
+      <h3>Rebalancing</h3>
+      <p>Market moves push actual weights away from targets — a stock rally leaves the portfolio overweight equities and riskier than intended. The IPS should specify a <strong>rebalancing policy</strong>: calendar-based (e.g., quarterly) or corridor/threshold-based (rebalance when a weight drifts outside a band such as ±5 percentage points around target). Rebalancing enforces discipline — systematically selling what has risen and buying what has fallen — but incurs transaction costs and, in taxable accounts, capital gains taxes, so bands should be wider for illiquid or high-tax asset classes.</p>
+
+      <h3>ESG integration</h3>
+      <p>Environmental, social, and governance considerations can enter portfolio construction several ways: <strong>negative screening</strong> (excluding sectors such as tobacco or weapons), <strong>positive screening / best-in-class</strong> (overweighting strong ESG performers), <strong>ESG integration</strong> (folding ESG factors into standard financial analysis), <strong>thematic investing</strong> (e.g., clean energy funds), <strong>engagement/active ownership</strong> (using shareholder voting and dialogue), and <strong>impact investing</strong> (targeting measurable social/environmental outcomes alongside financial return). A client's ESG requirements are documented in the IPS, typically under unique circumstances.</p>
+      <div class="warning"><strong>Trap.</strong> On the exam, do not confuse the IPS with the portfolio itself: the IPS specifies objectives, constraints, benchmark, and the SAA <em>policy</em> — it does not list individual securities. And remember the IPS is reviewed periodically <em>and</em> upon material changes in circumstances, not only when markets move.</div>
+    </section>
+
+    <section class="lm" id="lm-5">
+      <h2>5. The Behavioral Biases of Individuals</h2>
+      <p>Traditional finance assumes rational, utility-maximizing investors. Behavioral finance documents how real people systematically deviate. The exam wants you to (1) classify a bias as cognitive or emotional, (2) recognize each bias from a one-line vignette, and (3) know the standard remedy: cognitive errors are best fixed with education and process, emotional biases usually must be <em>accommodated</em> as well as moderated.</p>
+
+      <h3>Cognitive errors vs. emotional biases</h3>
+      <p><strong>Cognitive errors</strong> are faulty reasoning — statistical mistakes, memory errors, sloppy information processing. Because they stem from bad analysis rather than feelings, they are easier to correct with better information, training, and disciplined process. <strong>Emotional biases</strong> arise from impulse, intuition, and feelings (fear, regret, pride). They are harder to correct; advisers often adapt the portfolio to them rather than fight them. Cognitive errors split into two families: <em>belief perseverance</em> (clinging to prior views) and <em>information-processing</em> errors (using information illogically).</p>
+
+      <h3>Belief perseverance biases (cognitive)</h3>
+      <ul>
+        <li><strong>Conservatism:</strong> overweighting prior views and underreacting to new information. <em>Example: an analyst keeps a buy rating for weeks after an earnings miss because updating the model "takes time."</em></li>
+        <li><strong>Confirmation:</strong> seeking and overweighting evidence that supports an existing view while ignoring contradicting evidence. <em>Example: an investor who owns a stock only reads bullish message boards about it and dismisses the short-seller's report.</em></li>
+        <li><strong>Representativeness:</strong> classifying new information by resemblance to familiar patterns — base-rate neglect (judging a stock by its "story," ignoring how rarely such stories succeed) and sample-size neglect (extrapolating from tiny samples). <em>Example: "This fund beat the market three years running, so the manager must be skilled."</em></li>
+        <li><strong>Illusion of control:</strong> believing you can influence or predict outcomes you cannot; leads to overtrading and concentration. <em>Example: a day trader is convinced his chart setup lets him control results, so he trades constantly and diversifies little.</em></li>
+        <li><strong>Hindsight:</strong> remembering past events as having been predictable ("I knew it all along"), inflating confidence in forecasting. <em>Example: after the crash, an investor insists the bubble was obvious and berates her manager for missing it.</em></li>
+      </ul>
+
+      <h3>Information-processing errors (cognitive)</h3>
+      <ul>
+        <li><strong>Anchoring and adjustment:</strong> fixating on an initial number and adjusting from it insufficiently. <em>Example: an investor won't sell below the $50 he paid, even though fundamentals now justify $30.</em></li>
+        <li><strong>Mental accounting:</strong> treating money differently by arbitrary category rather than viewing wealth as one portfolio. <em>Example: a client keeps a savings account at 1% for "safety" while carrying 20% credit-card debt, and gambles freely with "house money" gains.</em></li>
+        <li><strong>Framing:</strong> answering differently depending on how a question is posed. <em>Example: a client accepts a fund described as having a "90% chance of meeting the goal" but rejects the identical fund described as having a "10% chance of falling short."</em></li>
+        <li><strong>Availability:</strong> judging probability by how easily examples come to mind (recent, vivid, personally experienced events loom large). <em>Example: after seeing news of a single airline crash — or a market plunge — an investor slashes equity exposure because disaster now feels likely.</em></li>
+      </ul>
+
+      <h3>Emotional biases</h3>
+      <ul>
+        <li><strong>Loss aversion:</strong> losses hurt roughly twice as much as equal gains please; investors hold losers too long hoping to break even and sell winners too early (the <strong>disposition effect</strong>). <em>Example: an investor refuses to realize a 40% loss on a failing stock but instantly sold a stock that gained 10%.</em></li>
+        <li><strong>Overconfidence:</strong> overestimating one's own judgment and information (illusion of knowledge, self-attribution: wins are skill, losses are bad luck); leads to underdiversification and excessive trading. <em>Example: a manager attributes his good year entirely to skill and doubles position sizes.</em></li>
+        <li><strong>Self-control:</strong> favoring short-term consumption over long-term goals; failing to save enough, then taking excessive risk to catch up. <em>Example: a 50-year-old who under-saved loads up on speculative stocks to "make up" for lost time.</em></li>
+        <li><strong>Status quo:</strong> doing nothing rather than making a change, even when change is warranted. <em>Example: an employee never updates the default allocation in her retirement plan for 20 years.</em></li>
+        <li><strong>Endowment:</strong> valuing an asset more merely because you own it. <em>Example: an heir refuses to sell inherited company stock he would never buy at today's price.</em></li>
+        <li><strong>Regret aversion:</strong> avoiding decisions for fear of regretting them; produces herding (if everyone else did it too, the regret is smaller) and excessive conservatism. <em>Example: an investor buys the same hot fund as her friends because being wrong with the crowd feels safer than being wrong alone.</em></li>
+      </ul>
+
+      <div class="example"><p><strong>Question (classification drill).</strong> An investor (i) will not sell his cottage for less than the price a neighbor got two summers ago; (ii) keeps his inherited shares "because they were Dad's," though he admits he wouldn't buy them today; (iii) reads only articles agreeing with his gold thesis. Identify each bias and classify it as cognitive or emotional.</p>
+      <div class="solution"><p><strong>Solution.</strong> (i) <strong>Anchoring</strong> — cognitive (information-processing): the neighbor's old price is an irrelevant anchor. (ii) <strong>Endowment bias</strong> — emotional: ownership (and sentiment) inflates the asset's value to him. (iii) <strong>Confirmation bias</strong> — cognitive (belief perseverance): he seeks only supporting evidence. Remedies: (i) and (iii) respond to disciplined process and actively seeking disconfirming evidence; (ii) usually must be moderated <em>and</em> partially accommodated.</p></div></div>
+
+      <div class="warning"><strong>Trap.</strong> Several biases produce similar behavior, so key on the <em>mechanism</em>: holding a loser because of the purchase-price reference point is anchoring (cognitive) or loss aversion (emotional — pain of realizing the loss); refusing to sell something merely because it is <em>owned</em> is endowment; doing nothing out of inertia is status quo; avoiding action for fear of future regret is regret aversion. Also, overconfidence is classified as an <strong>emotional</strong> bias in the CFA curriculum, even though it has cognitive elements.</div>
+
+      <h3>Market-level impact</h3>
+      <p>Biases aggregate into market anomalies that challenge efficient markets. <strong>Bubbles and crashes</strong> — extended periods of prices far above (then collapsing back toward) intrinsic value — are fed by overconfidence, confirmation bias, regret-aversion herding, and the disposition effect (in a bubble, investors sell winners too early, then buy back in near the top; in the crash, they hold losers all the way down). <strong>Momentum</strong> — returns correlated with their own recent past — is consistent with herding, availability (recency), and initial underreaction (conservatism/anchoring) followed by overreaction. <strong>Value vs. growth</strong> anomalies (value stocks outperforming glamour stocks over long periods) have been attributed partly to representativeness — investors extrapolate a good <em>company</em> into a good <em>stock</em> at any price — though risk-based explanations compete.</p>
+      <div class="keypoint"><strong>Key point.</strong> Classify first, remedy second: cognitive errors → educate, use better process and data; emotional biases → moderate where possible, but often accommodate (e.g., hold a "safety" bucket for a loss-averse client). High-wealth clients' emotional biases are usually accommodated more, since their standard of living is not at risk.</div>
+    </section>
+
+    <section class="lm" id="lm-6">
+      <h2>6. Introduction to Risk Management</h2>
+      <p>Risk management is not risk elimination — it is deciding which risks to take, in what size, and how to keep the total consistent with the organization's tolerance. This module gives the framework vocabulary: governance, risk budgeting, financial vs. non-financial risks, risk measures such as VaR, and the four ways to modify a risk. Questions are conceptual.</p>
+
+      <h3>The risk management framework</h3>
+      <p>A <strong>risk management framework</strong> is the infrastructure, processes, and analytics needed to manage risk effectively. Its elements: risk <strong>governance</strong>; risk <strong>identification and measurement</strong>; risk <strong>infrastructure</strong> (people, systems, models); <strong>policies and processes</strong> (day-to-day limits and procedures); risk <strong>monitoring, mitigation, and management</strong>; <strong>communications</strong>; and <strong>strategic analysis and integration</strong> — using risk analysis to improve decisions and add value, not just to avoid losses.</p>
+      <div class="keypoint"><strong>Key point.</strong> Risk management is about aligning risk-taking with risk tolerance and taking the risks the organization is <em>best rewarded</em> for taking — not minimizing risk. Zero risk means zero expected excess return.</div>
+
+      <h3>Risk governance and risk tolerance</h3>
+      <p><strong>Risk governance</strong> is the top-down oversight — the board sets the <strong>risk tolerance</strong>: which risks are acceptable, which must be avoided or transferred, and how much total loss the organization can bear given its ability to absorb shocks and its strategic goals. Good governance takes an <strong>enterprise risk management</strong> view (all risks across the whole organization, considered together), and may include a chief risk officer and a risk committee. Risk tolerance should be set <em>before</em> a crisis, at the top, and communicated clearly.</p>
+
+      <h3>Risk budgeting</h3>
+      <p><strong>Risk budgeting</strong> allocates the permitted total risk across activities — it asks "where do we spend our risk?" the way a spending budget allocates money. A budget can be single-dimension (a cap on total portfolio σ, VaR, or beta) or multidimensional (allocating risk by factor, asset class, or desk — e.g., each trading desk gets a VaR limit). Risk budgeting shifts attention from returns to <em>risk-adjusted</em> returns: any position must justify the risk budget it consumes.</p>
+
+      <h3>Financial vs. non-financial risks</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Financial risks (arise from market/financial positions)</th><th>Non-financial risks (arise from operations and environment)</th></tr>
+        <tr><td><strong>Market risk</strong> — losses from changes in prices/rates: equity prices, interest rates, exchange rates, commodities.</td><td><strong>Operational risk</strong> — failed people, processes, systems: fraud, cyberattacks, model errors, natural disasters.</td></tr>
+        <tr><td><strong>Credit (default) risk</strong> — a counterparty fails to pay what it owes.</td><td><strong>Legal risk</strong> — lawsuits; contracts proving unenforceable.</td></tr>
+        <tr><td><strong>Liquidity risk</strong> — selling an asset requires a large price concession (widened bid–ask spread, thin depth) when it must be sold.</td><td><strong>Compliance/regulatory, accounting, and tax risk</strong> — rule changes or violations.</td></tr>
+        <tr><td></td><td><strong>Solvency risk</strong> — running out of cash/capital to survive; <strong>model risk</strong>; <strong>settlement risk</strong>; for individuals, <strong>mortality and longevity risk</strong> (dying early vs. outliving assets).</td></tr>
+      </table></div>
+
+      <h3>Measuring risk: standard deviation, beta, VaR and friends</h3>
+      <p>Common metrics map to the risk being measured: standard deviation (total volatility), beta (market risk), duration (interest-rate risk, from Fixed Income), and the "Greeks" (delta, gamma, vega for derivatives). <strong>Value at risk (VaR)</strong> is the minimum loss expected over a period with a given probability — e.g., "one-day 5% VaR of $1 million" means there is a 5% chance the portfolio loses <em>at least</em> $1 million in a day. VaR is a probabilistic floor on tail losses, not a maximum loss: it says nothing about how bad the loss could get beyond the threshold, it depends heavily on estimation assumptions, and complementary measures — <strong>conditional VaR</strong> (expected loss given VaR is exceeded), <strong>scenario analysis</strong>, and <strong>stress testing</strong> — address its blind spots. Losses beyond what VaR-style models capture (extreme, rare events) are <strong>tail risk</strong>.</p>
+      <div class="warning"><strong>Trap.</strong> On the exam, "5% VaR of $1m" is <em>not</em> "the most you can lose" and <em>not</em> "the expected loss." It is the loss you expect to be exceeded 5% of the time — a minimum bound on the bad-tail loss at that confidence level.</div>
+
+      <h3>Methods of risk modification</h3>
+      <ul>
+        <li><strong>Risk prevention and avoidance:</strong> do not engage in the activity at all (exit the business line, hold no foreign-currency assets). Sensible when the risk offers no adequate reward.</li>
+        <li><strong>Risk acceptance:</strong> bear the risk, ideally with <strong>self-insurance</strong> (reserves set aside) or <strong>diversification</strong> — the cheapest risk mitigant available.</li>
+        <li><strong>Risk transfer:</strong> pass the risk to another party via an <strong>insurance</strong> contract (or surety bond) for a premium. Classic for non-financial risks (fire, theft).</li>
+        <li><strong>Risk shifting:</strong> change the distribution of outcomes using <strong>derivatives</strong> — forwards, futures, swaps, options. Classic for financial risks (hedging currency or interest-rate exposure).</li>
+      </ul>
+      <p>The choice weighs costs against benefits: high-frequency/low-severity risks are often accepted and self-insured; low-frequency/high-severity risks are insured or avoided; priced financial exposures are shifted with derivatives when the cost of hedging is below the value of the risk reduction.</p>
+
+      <h3>Interactions among risks</h3>
+      <p>Risks rarely arrive one at a time, and their combination is often worse than the sum of the parts. A market crash (market risk) can trigger counterparty defaults (credit risk) exactly when positions are hardest to sell (liquidity risk) — as in 2008. Correlations between risks rise in stress, so risk measured "one silo at a time" understates enterprise risk. This is the core argument for enterprise-wide risk management and for stress tests that shock several risks simultaneously.</p>
+
+      <div class="example"><p><strong>Question (mini-scenario).</strong> A family office holds a concentrated stock position, writes uncovered options for income, keeps six months of spending in cash, and buys earthquake insurance on its properties. Map each action to the risk framework.</p>
+      <div class="solution"><p><strong>Solution.</strong> The concentrated stock is a <em>market risk</em> the office has chosen to <strong>accept</strong> (and could cheaply reduce via diversification). Writing uncovered options <em>adds</em> risk for premium income — a risk-budgeting question: is the reward worth the budget consumed? The cash reserve is <strong>self-insurance</strong> against liquidity risk (risk acceptance). Earthquake insurance is <strong>risk transfer</strong> of a low-frequency, high-severity non-financial risk. A good governance process would ask whether total exposure, including the options book, stays within the family's stated risk tolerance.</p></div></div>
+    </section>
+
+    <div id="quiz"></div>
+  </main>
+</div>
+</div>
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="../js/topics.js"></script>
+<script src="../data/portfolio.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

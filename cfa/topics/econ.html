@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Economics — CFA Level 1 Interactive Study Guide</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header id="topnav" class="topnav" data-root=".." data-here=""></header>
+<div class="wrap">
+<h1>Economics <span class="pill">Exam weight: 6–9%</span></h1>
+<p class="lead muted">Economics covers how firms compete, how whole economies cycle, how governments and central banks steer them, and how trade and currencies link countries together. It supplies the macro backdrop for every other topic: business cycles drive earnings in Equity, interest rates drive Fixed Income, and exchange rates reappear in Portfolio Management.</p>
+<div id="topic-progress" class="card" style="margin:1rem 0"></div>
+<div class="layout">
+  <aside class="toc"><h4>On this page</h4><ol id="toc-list"></ol></aside>
+  <main data-topic="econ">
+
+    <section class="lm" id="lm-1">
+      <h2>1. Firms and Market Structures</h2>
+      <p>This module asks a single question: how much pricing power does a firm have? The answer depends on the structure of its market — how many sellers there are, how similar their products are, and how easy it is for new firms to enter. Exam questions test the four structures' characteristics, the profit-maximizing rule, breakeven and shutdown points, and concentration measures.</p>
+
+      <h3>The four market structures</h3>
+      <p>Every market sits somewhere on a spectrum from perfect competition (no pricing power) to monopoly (maximum pricing power). Memorize this table — it is directly testable.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Feature</th><th>Perfect competition</th><th>Monopolistic competition</th><th>Oligopoly</th><th>Monopoly</th></tr>
+        <tr><td>Number of sellers</td><td>Many</td><td>Many</td><td>Few</td><td>One</td></tr>
+        <tr><td>Product</td><td>Homogeneous (identical)</td><td>Differentiated</td><td>Homogeneous or differentiated</td><td>Unique, no close substitutes</td></tr>
+        <tr><td>Barriers to entry</td><td>Very low</td><td>Low</td><td>High</td><td>Very high</td></tr>
+        <tr><td>Pricing power</td><td>None (price taker)</td><td>Some</td><td>Some to significant</td><td>Significant (constrained by demand and regulation)</td></tr>
+        <tr><td>Non-price competition</td><td>None</td><td>Heavy advertising, branding</td><td>Advertising, product features</td><td>Advertising/PR</td></tr>
+        <tr><td>Demand curve facing the firm</td><td>Perfectly elastic (horizontal)</td><td>Downward sloping, elastic</td><td>Downward sloping; may be kinked</td><td>Downward sloping (= market demand)</td></tr>
+        <tr><td>Long-run economic profit</td><td>Zero</td><td>Zero (entry erodes profit)</td><td>Possible</td><td>Possible</td></tr>
+        <tr><td>Examples</td><td>Wheat farming</td><td>Restaurants, apparel</td><td>Airlines, telecom</td><td>Local utility</td></tr>
+      </table></div>
+      <p><strong>Economic profit</strong> is revenue minus <em>all</em> costs including the opportunity cost of the owners' capital. Zero economic profit ("normal profit") still means investors earn their required return — it does not mean accounting profit is zero.</p>
+
+      <h3>Profit maximization: MR = MC</h3>
+      <p>Every firm, in every structure, maximizes profit by producing the quantity where <strong>marginal revenue equals marginal cost</strong>. Marginal revenue (MR) is the extra revenue from selling one more unit; marginal cost (MC) is the extra cost of producing it. If MR &gt; MC, producing more adds profit; if MR &lt; MC, the last unit lost money.</p>
+      <div class="formula">Profit-maximizing output: MR = MC<br>
+      Perfect competition: P = MR, so produce where P = MC<br>
+      Linear demand P = a − bQ &nbsp;⇒&nbsp; MR = a − 2bQ (same intercept, twice the slope)</div>
+      <p>Under perfect competition the firm can sell any amount at the market price, so price <em>is</em> marginal revenue. For a price-searcher (the other three structures), selling one more unit requires cutting price on all units, so MR &lt; P and the firm produces less and charges more than a competitive market would.</p>
+
+      <div class="example"><p><strong>Question.</strong> A monopolist faces demand P = 100 − Q (P in dollars, Q in thousands of units). Marginal cost is constant at $20 and fixed costs are $500 (thousand). Find the profit-maximizing quantity, price, and economic profit.</p>
+      <div class="solution"><p><strong>Solution.</strong> With linear demand P = 100 − Q, marginal revenue has twice the slope: MR = 100 − 2Q. Set MR = MC: 100 − 2Q = 20 ⇒ Q = 40. Price comes from the demand curve: P = 100 − 40 = $60. Profit = (P − ATC per unit variable) × Q − fixed cost = (60 − 20) × 40 − 500 = 1,600 − 500 = <strong>$1,100 (thousand)</strong>. A perfectly competitive industry with the same costs would produce where P = MC: 100 − Q = 20 ⇒ Q = 80 at P = $20 — twice the output at a third of the price. The gap is the monopoly's deadweight loss.</p></div></div>
+
+      <h3>Breakeven and shutdown points</h3>
+      <p>Whether a firm should operate at all depends on how price compares to average costs. Distinguish <strong>average total cost (ATC)</strong>, which includes fixed costs, from <strong>average variable cost (AVC)</strong>, which excludes them. Fixed costs are sunk in the short run — the firm pays them whether or not it produces — so the short-run decision hinges on variable costs only.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Price condition</th><th>Short run</th><th>Long run</th></tr>
+        <tr><td>P ≥ ATC</td><td>Operate — earning economic profit (or breaking even at P = ATC)</td><td>Operate</td></tr>
+        <tr><td>AVC ≤ P &lt; ATC</td><td>Operate at a loss — revenue covers variable costs and contributes something toward fixed costs</td><td>Exit the industry</td></tr>
+        <tr><td>P &lt; AVC</td><td><strong>Shut down</strong> — every unit produced deepens the loss</td><td>Exit the industry</td></tr>
+      </table></div>
+      <div class="formula">Breakeven point: P = minimum ATC (economic profit = 0)<br>Short-run shutdown point: P = minimum AVC</div>
+      <div class="example"><p><strong>Question.</strong> A firm's price is $6 per unit. At its best output level, AVC = $7 and ATC = $9. In the short run, the firm should <em>most likely</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> Price ($6) is below AVC ($7), so each unit sold fails to cover even its variable cost — producing makes the loss bigger than just paying fixed costs and producing nothing. The firm should <strong>shut down immediately</strong>. If instead the price were $8 (between AVC of $7 and ATC of $9), it should keep operating in the short run, because each unit contributes $1 toward fixed costs, but exit in the long run.</p></div></div>
+      <div class="warning"><strong>Exam trap.</strong> "Operating at a loss" is not the same as "should shut down." Between AVC and ATC the firm loses money but loses <em>less</em> by operating. Shutdown is triggered only when P &lt; AVC (short run). In the long run all costs are variable, so the exit rule becomes P &lt; ATC.</div>
+
+      <h3>Economies and diseconomies of scale</h3>
+      <p><strong>Economies of scale</strong> exist when long-run average total cost falls as output rises — from specialization of labor, bulk purchasing, spreading fixed costs (R&amp;D, marketing) over more units, and cheaper financing for large firms. <strong>Diseconomies of scale</strong> set in when a firm gets so large that bureaucracy, coordination problems, and motivation issues push average cost back up. The output where LRATC is at its minimum is the <strong>minimum efficient scale</strong>. If minimum efficient scale is large relative to market demand, only a few firms fit — economies of scale are themselves a barrier to entry, and in the extreme produce a <strong>natural monopoly</strong> (one firm can serve the whole market cheaper than two could).</p>
+
+      <h3>Measuring market concentration: CR and HHI</h3>
+      <p>Regulators and analysts summarize how concentrated an industry is with two measures. The <strong>N-firm concentration ratio (CR)</strong> is simply the sum of the market shares of the N largest firms. It is easy to compute but insensitive to mergers among the top firms (if the top 4 hold 80% in total, a merger of #1 and #2 leaves CR4 at 80%). The <strong>Herfindahl–Hirschman Index (HHI)</strong> fixes that by summing the <em>squared</em> market shares of the largest firms, so it rises sharply when big firms combine.</p>
+      <div class="formula">HHI = Σ (market share<sub>i</sub>)<sup>2</sup> &nbsp;&nbsp;(shares in percent: max 10,000 for a monopoly; shares as decimals: max 1.0)</div>
+      <div class="example"><p><strong>Question.</strong> An industry has five firms with market shares 30%, 25%, 20%, 15%, and 10%. Compute the 3-firm concentration ratio and the HHI. If the two largest firms merge, what happens to each measure?</p>
+      <div class="solution"><p><strong>Solution.</strong> CR3 = 30 + 25 + 20 = <strong>75%</strong>. HHI = 30² + 25² + 20² + 15² + 10² = 900 + 625 + 400 + 225 + 100 = <strong>2,250</strong>. After a merger of the top two firms (combined share 55%): CR3 = 55 + 20 + 15 = 90%, but HHI = 55² + 20² + 15² + 10² = 3,025 + 400 + 225 + 100 = <strong>3,750</strong> — a jump of 1,500 points. The HHI captures the increase in concentration far more dramatically, which is why antitrust authorities rely on it.</p></div></div>
+      <div class="keypoint"><strong>Remember.</strong> (1) All firms maximize profit at MR = MC; only under perfect competition does P = MR. (2) Short-run shutdown at P &lt; AVC; breakeven at P = min ATC. (3) HHI = sum of squared shares — sensitive to mergers; concentration ratio is not. Neither measure captures barriers to entry or the elasticity of demand, so high concentration does not automatically mean high pricing power (contestable markets).</div>
+    </section>
+
+    <section class="lm" id="lm-2">
+      <h2>2. Understanding Business Cycles</h2>
+      <p>Economies do not grow in a straight line — output, employment, and credit fluctuate in recurring but irregular cycles. Analysts care because the cycle phase drives which sectors outperform, how central banks act, and how credit spreads behave. The exam tests phase characteristics, indicator classification, and inflation measurement.</p>
+
+      <h3>Phases of the business cycle</h3>
+      <p>A business cycle runs from one trough to the next, through four phases. Cycles typically last several years but vary widely; the pattern of expansion and contraction recurs, not its length or amplitude.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Phase</th><th>Activity</th><th>Typical features</th></tr>
+        <tr><td><strong>Recovery</strong> (trough to trend)</td><td>Economy turns up from its trough</td><td>Negative output gap begins to close; unemployment still high but stabilizing; firms rely on overtime before hiring; inflation low or falling</td></tr>
+        <tr><td><strong>Expansion</strong> (above trend)</td><td>Growth accelerates past potential output</td><td>Positive output gap opens; hiring broadens, unemployment falls; capacity utilization and investment rise; inflation starts to pick up</td></tr>
+        <tr><td><strong>Slowdown</strong> (peak to trend)</td><td>Growth decelerates from the peak</td><td>Output still above potential but momentum fades; inflation continues rising; interest-rate-sensitive sectors weaken first</td></tr>
+        <tr><td><strong>Contraction</strong> (below trend, possibly recession)</td><td>Activity falls</td><td>Output gap turns negative; firms cut overtime, then jobs; inventories pile up unexpectedly then are cut; inflation decelerates with a lag</td></tr>
+      </table></div>
+      <p>A common working definition of <strong>recession</strong> is two consecutive quarters of declining real GDP, though official arbiters (e.g., the NBER in the US) use a broader judgment across output, employment, and income. Housing and durable-goods spending are the most cyclical demand components; inventory swings, though small in level, are a large share of the <em>change</em> in GDP around turning points.</p>
+
+      <h3>Credit cycles</h3>
+      <p><strong>Credit cycles</strong> describe fluctuations in the availability and cost of credit. In expansions lenders loosen standards and asset prices (especially property) rise, often amplifying the business cycle; when credit tightens, contractions tend to be deeper and longer, and recoveries weaker. Credit cycles are typically <em>longer</em> than business cycles and do not line up with them one-for-one — but recessions that coincide with a credit bust (e.g., 2008) are unusually severe. Investors watch credit conditions to anticipate financial-crisis risk and turns in lending-sensitive sectors.</p>
+
+      <h3>Economic indicators: leading, coincident, lagging</h3>
+      <p>Indicators are classified by whether they turn before, with, or after the overall economy. Leading indicators are the most valuable for forecasting; lagging indicators confirm what already happened.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Type</th><th>Turns</th><th>Classic examples</th></tr>
+        <tr><td><strong>Leading</strong></td><td>Before the economy</td><td>Stock prices; yield curve slope (10-yr minus policy rate); building permits; new orders for capital goods; consumer expectations; weekly initial unemployment claims; average weekly hours (manufacturing)</td></tr>
+        <tr><td><strong>Coincident</strong></td><td>With the economy</td><td>Nonfarm payroll employment; real personal income less transfers; industrial production; manufacturing and trade sales</td></tr>
+        <tr><td><strong>Lagging</strong></td><td>After the economy</td><td>Average duration of unemployment; inventory-to-sales ratio; unit labor cost change; average prime rate; commercial &amp; industrial loans outstanding; CPI for services</td></tr>
+      </table></div>
+      <div class="warning"><strong>Exam trap.</strong> Unemployment-related series appear in all three buckets: initial <em>claims</em> are leading, payroll <em>employment</em> is coincident, and <em>duration</em> of unemployment is lagging. The unemployment <em>rate</em> itself is a lagging indicator — firms delay both firing and rehiring, and job-seekers re-entering the labor force can push the measured rate up early in a recovery.</div>
+
+      <h3>Unemployment measures</h3>
+      <p>A person is <strong>unemployed</strong> if not working but actively seeking work. The <strong>labor force</strong> = employed + unemployed; the <strong>participation rate</strong> is the labor force as a share of the working-age population. Two groups make the headline rate misleading: <strong>discouraged workers</strong> have stopped looking and drop out of the labor force entirely (making the unemployment rate look better), and the <strong>underemployed</strong> hold jobs below their skill level or work part-time involuntarily (counted as employed). Frictional unemployment (normal job search) and structural unemployment (skills mismatch requiring retraining) exist even at "full employment"; cyclical unemployment is the part driven by the business cycle.</p>
+      <div class="formula">Unemployment rate = unemployed ⁄ labor force &nbsp;&nbsp;·&nbsp;&nbsp; Participation rate = labor force ⁄ working-age population</div>
+
+      <h3>Inflation measures</h3>
+      <p><strong>Inflation</strong> is a sustained rise in the overall price level; <strong>disinflation</strong> is a falling (but still positive) inflation rate; <strong>deflation</strong> is a falling price level — dangerous because it raises the real burden of debt and can trigger a spiral of postponed spending. <strong>Hyperinflation</strong> is extremely rapid inflation, typically when governments finance spending by printing money.</p>
+      <ul>
+        <li><strong>CPI (Consumer Price Index):</strong> price of a fixed basket of consumer goods and services. Most countries' headline measure; used to index wages, pensions, and inflation-linked bonds.</li>
+        <li><strong>PPI (Producer Price Index):</strong> prices received by domestic producers at earlier stages of production. Because input costs feed through to consumer prices, PPI changes often lead CPI changes.</li>
+        <li><strong>GDP deflator:</strong> covers all domestically produced goods and services, not just consumption.</li>
+        <li><strong>Headline vs core:</strong> headline inflation includes everything; <strong>core</strong> inflation strips out food and energy, whose volatile swings often reverse. Central banks focus on core to avoid overreacting to temporary spikes.</li>
+      </ul>
+      <p>A fixed-basket (Laspeyres) index like the CPI tends to <em>overstate</em> true cost-of-living inflation for three reasons: substitution bias (consumers shift toward relatively cheaper goods but the basket doesn't), quality improvements (price rises partly pay for better products), and new products entering baskets late. Chained indexes and hedonic adjustment mitigate these biases.</p>
+      <div class="example"><p><strong>Question.</strong> A consumption basket cost 1,000 in the base period and 1,092 one year ago. Today it costs 1,150. Inflation over the most recent year is <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> Inflation is the percentage change in the index over the period in question, not the change from the base period. Rate = 1,150 ⁄ 1,092 − 1 = 0.0531 ≈ <strong>5.3%</strong>. Using the base period by mistake gives 15.0% cumulative over two years — a classic distractor.</p></div></div>
+
+      <h3>Demand-pull vs cost-push inflation</h3>
+      <p><strong>Demand-pull</strong> inflation comes from aggregate demand outrunning capacity — "too much money chasing too few goods." Watch capacity utilization and the output gap: an economy running above potential generates demand-pull pressure. <strong>Cost-push</strong> inflation comes from rising input costs — wages and commodities — shifting supply back. Watch unit labor costs and the unemployment rate relative to its natural rate (NAIRU): tight labor markets let wages rise faster than productivity. A <strong>wage-price spiral</strong> occurs when workers demand raises to match expected inflation, pushing costs and prices up further — which is why anchored inflation expectations matter so much to central banks.</p>
+      <div class="keypoint"><strong>Remember.</strong> (1) Classify every indicator: claims = leading, payrolls = coincident, unemployment duration/rate = lagging. (2) Core inflation = headline minus food and energy. (3) Demand-pull → check the output gap; cost-push → check unit labor costs and commodity prices.</div>
+    </section>
+
+    <section class="lm" id="lm-3">
+      <h2>3. Fiscal Policy</h2>
+      <p>Fiscal policy is the government's use of spending and taxation to influence the economy. On the exam you must know its objectives, its tools, how the fiscal multiplier works, why implementation is slow, and the debate over deficits and crowding out.</p>
+
+      <h3>Roles and objectives</h3>
+      <p>Governments use fiscal policy to (1) influence aggregate demand and stabilize the cycle, (2) redistribute income and wealth, and (3) allocate resources among sectors (subsidizing some activities, taxing others). Policy is <strong>expansionary</strong> when it raises the budget deficit (more spending and/or lower taxes), stimulating aggregate demand; it is <strong>contractionary</strong> when it shrinks the deficit. The stance is judged by the <em>change</em> in the <strong>structural (cyclically adjusted) deficit</strong> — the deficit that would exist at full employment — because the raw deficit moves automatically with the cycle.</p>
+
+      <h3>Tools</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Category</th><th>Tool</th><th>Notes</th></tr>
+        <tr><td rowspan="3">Spending</td><td>Transfer payments</td><td>Welfare, pensions, unemployment benefits. Redistribute income; <em>not</em> counted in GDP (no production).</td></tr>
+        <tr><td>Current spending</td><td>Ongoing purchases of goods and services (salaries, supplies, defense).</td></tr>
+        <tr><td>Capital spending</td><td>Infrastructure — roads, schools, hospitals. Also raises future productive capacity.</td></tr>
+        <tr><td rowspan="2">Revenue</td><td>Direct taxes</td><td>On income, wealth, profits, capital gains, estates. Can redistribute; slow to change.</td></tr>
+        <tr><td>Indirect taxes</td><td>On goods and services (VAT, sales, excise). Quick to implement and to take effect; can target demerit goods (tobacco, alcohol).</td></tr>
+      </table></div>
+      <p>Desirable properties of a tax system: simplicity, efficiency (minimal interference with decisions), fairness (horizontal equity — similar people taxed similarly; vertical equity — the better-off pay more), and revenue sufficiency. Spending tools (especially capital spending) are considered more potent per dollar than tax cuts, because part of any tax cut is saved rather than spent — but tax changes can be implemented faster than construction projects.</p>
+
+      <h3>Deficits and debt</h3>
+      <p>A <strong>budget deficit</strong> is one year's shortfall of revenue below spending; <strong>government debt</strong> is the accumulated stock of past deficits. Sustainability is judged by the <strong>debt-to-GDP ratio</strong> and by whether the real interest rate on debt exceeds the economy's real growth rate (if it does, the ratio compounds upward without primary surpluses). Arguments that deficits matter less: debt may be owed internally ("to ourselves"), it may finance productivity-raising capital, and <strong>Ricardian equivalence</strong> — the theory that taxpayers, anticipating future tax rises to repay the debt, increase saving today, fully offsetting the fiscal stimulus. Arguments that they matter more: higher future taxes distort incentives, markets may lose confidence and demand higher rates, and government borrowing can crowd out private investment.</p>
+
+      <h3>The fiscal multiplier</h3>
+      <p>An extra dollar of government spending becomes someone's income; they spend part of it, creating more income, and so on. How much of each extra dollar of <em>disposable</em> income is spent is the <strong>marginal propensity to consume (MPC)</strong>. Taxes leak out of each round, so the tax rate t reduces the multiplier.</p>
+      <div class="formula">Fiscal multiplier = 1 ⁄ [1 − MPC × (1 − t)]<br>Total impact on demand = spending increase × multiplier</div>
+      <div class="example"><p><strong>Question.</strong> The MPC is 0.8 and the tax rate is 25%. The government raises spending by $100 billion. The eventual total increase in aggregate demand is <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> Multiplier = 1 ⁄ [1 − 0.8 × (1 − 0.25)] = 1 ⁄ [1 − 0.60] = 1 ⁄ 0.40 = 2.5. Total impact = $100b × 2.5 = <strong>$250 billion</strong>. Trap check: using 1/(1 − MPC) = 5 ignores the tax leakage; each round only 0.8 × 0.75 = 60 cents is re-spent. Note also the <strong>balanced budget multiplier</strong> is positive: equal increases in spending and taxes still raise demand, because the government spends 100% of the money while taxpayers would have saved part of it.</p></div></div>
+
+      <h3>Automatic stabilizers vs discretionary policy</h3>
+      <p><strong>Automatic stabilizers</strong> work without any new legislation: in a downturn, progressive income tax receipts fall and unemployment benefits rise, automatically pushing the budget toward deficit and cushioning demand; in a boom the reverse cools things down. <strong>Discretionary policy</strong> requires deliberate government decisions (a stimulus bill, a tax cut) and therefore suffers from lags.</p>
+
+      <h3>Lags</h3>
+      <ul>
+        <li><strong>Recognition lag:</strong> time to realize the economy has turned — data arrive late and get revised.</li>
+        <li><strong>Action (implementation) lag:</strong> time to legislate and launch the response — often the longest for fiscal policy, since budgets need political approval.</li>
+        <li><strong>Impact lag:</strong> time for the measures to actually change spending and output.</li>
+      </ul>
+      <div class="warning"><strong>Exam trap.</strong> Because of these lags, discretionary fiscal stimulus can arrive after the recovery has already begun — making it <em>pro</em>-cyclical and destabilizing. Automatic stabilizers have no recognition or action lag, which is their key advantage.</div>
+
+      <h3>Crowding out</h3>
+      <p><strong>Crowding out</strong>: government borrowing to fund a deficit raises the demand for loanable funds, pushing interest rates up and squeezing out private investment. The net stimulus is then smaller than the multiplier suggests. Crowding out is strongest when the economy is near full capacity; in a deep recession with idle resources and low rates, it is weak, and fiscal policy is correspondingly more powerful.</p>
+      <div class="keypoint"><strong>Remember.</strong> Multiplier = 1/[1 − MPC(1 − t)]. Expansionary = larger structural deficit. Automatic stabilizers skip the recognition and action lags; discretionary policy suffers all three. Ricardian equivalence and crowding out are the two classic reasons fiscal stimulus may underdeliver.</div>
+    </section>
+
+    <section class="lm" id="lm-4">
+      <h2>4. Monetary Policy</h2>
+      <p>Monetary policy is the central bank's management of the money supply and interest rates. The exam tests how banks create money, the central bank's roles and tools, how a policy rate change transmits to the economy, inflation targeting, and the limits of monetary policy.</p>
+
+      <h3>Money: functions and creation</h3>
+      <p>Money serves three functions: <strong>medium of exchange</strong>, <strong>unit of account</strong>, and <strong>store of value</strong>. In a fractional reserve banking system, banks hold only a fraction of deposits as reserves and lend out the rest — and each loan, when redeposited, supports further lending. Money is therefore created by the banking system, not just printed by the state.</p>
+      <div class="formula">Money multiplier = 1 ⁄ reserve requirement<br>Maximum new money created = new deposit × (1 ⁄ reserve requirement)</div>
+      <div class="example"><p><strong>Question.</strong> The reserve requirement is 10%. A customer deposits $1,000 of new cash. The maximum increase in the money supply the banking system can create is <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> Money multiplier = 1 ⁄ 0.10 = 10. Maximum money created = $1,000 × 10 = <strong>$10,000</strong>. Mechanics: the bank lends $900 (keeping $100 in reserve); the $900 is redeposited and $810 is lent; and so on — a geometric series 1,000 × (1 + 0.9 + 0.9² + …) = 1,000 ⁄ 0.1. In practice the multiplier is smaller because banks hold excess reserves and people hold cash outside banks.</p></div></div>
+      <p>The <strong>quantity theory of money</strong> links money to prices: MV = PY (money × velocity = price level × real output). If velocity V and real output Y are stable, money growth translates one-for-one into inflation — the basis of the monetarist view that inflation is "always and everywhere a monetary phenomenon."</p>
+
+      <h3>Central bank roles</h3>
+      <ul>
+        <li>Sole supplier of currency (legal tender); modern money is <strong>fiat money</strong> — valuable by decree and trust, not backed by gold.</li>
+        <li>Banker to the government and to the banks; <strong>lender of last resort</strong> in crises.</li>
+        <li>Regulator/supervisor of the banking and payments system; holder of gold and FX reserves.</li>
+        <li>Conductor of monetary policy — usually with price stability (low, stable inflation) as the primary objective.</li>
+      </ul>
+      <p>Effective central banks share three qualities: <strong>independence</strong> (operational freedom from politicians, who face short-term temptations to inflate), <strong>credibility</strong> (people believe the target, so expectations anchor to it and become self-fulfilling), and <strong>transparency</strong> (publishing forecasts and rationale, e.g., inflation reports).</p>
+
+      <h3>Policy tools</h3>
+      <ul>
+        <li><strong>Policy rate:</strong> the main tool — the rate at which banks borrow from or park funds at the central bank (refinancing rate, discount rate, fed funds target). Raising it makes bank funding costlier, which propagates to all lending rates.</li>
+        <li><strong>Open market operations:</strong> buying government securities injects reserves into the banking system (expansionary); selling drains reserves (contractionary). This is how the policy rate target is enforced day to day.</li>
+        <li><strong>Reserve requirements:</strong> raising required reserves cuts the money multiplier and lending capacity. Blunt and rarely changed in developed markets.</li>
+      </ul>
+
+      <h3>The transmission mechanism</h3>
+      <p>A policy rate increase reaches the real economy through four channels: (1) <strong>bank lending rates</strong> rise, discouraging borrowing and spending; (2) <strong>asset prices</strong> fall as future cash flows are discounted at higher rates, cutting wealth and spending; (3) <strong>expectations</strong> shift — households and firms anticipate slower growth and lower inflation; (4) the <strong>exchange rate</strong> appreciates as higher rates attract foreign capital, curbing exports and import prices. All four channels push aggregate demand and inflation down. Cuts work in reverse.</p>
+      <div class="formula">Neutral rate = trend real growth + inflation target<br>Policy rate &gt; neutral ⇒ contractionary · Policy rate &lt; neutral ⇒ expansionary<br>Real interest rate ≈ nominal rate − expected inflation</div>
+
+      <h3>Inflation targeting</h3>
+      <p>Most developed-market central banks target inflation of about <strong>2%</strong> (not zero — measured inflation overstates true inflation, and a buffer above zero reduces deflation risk), typically within a ±1% band, and aim at <em>forecast</em> inflation one to two years ahead because of policy lags. Exceptions to a domestic inflation target: some countries <strong>peg their exchange rate</strong> to an anchor currency, importing that country's monetary policy and giving up independent rate-setting; and the US Federal Reserve has a <strong>dual mandate</strong> — price stability <em>and</em> maximum employment.</p>
+
+      <h3>Limitations of monetary policy</h3>
+      <ul>
+        <li><strong>Long-term rates may not follow.</strong> The central bank controls the short rate; bond markets set long rates from inflation expectations. If markets doubt the bank's resolve, long rates can move the "wrong" way.</li>
+        <li><strong>Liquidity trap:</strong> when rates are near zero and demand for money is highly elastic, further easing just piles up idle cash — additional money does not lower rates or spur lending.</li>
+        <li><strong>You can't push on a string:</strong> banks may refuse to lend (rebuilding capital) and borrowers may refuse to borrow (deleveraging) no matter how cheap money is — the post-2008 experience that led to <strong>quantitative easing</strong>, large-scale purchases of longer-dated and riskier assets to compress yields directly.</li>
+        <li><strong>Deflation is asymmetric:</strong> rates cannot go meaningfully below zero, so central banks have far less ammunition against deflation than against inflation.</li>
+      </ul>
+
+      <h3>Fiscal and monetary policy interaction</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Fiscal</th><th>Monetary</th><th>Likely result</th></tr>
+        <tr><td>Expansionary</td><td>Expansionary</td><td>Strong demand growth; lower interest rates; both public and private sectors expand</td></tr>
+        <tr><td>Contractionary</td><td>Contractionary</td><td>Demand shrinks; higher real rates; both sectors contract</td></tr>
+        <tr><td>Expansionary</td><td>Contractionary</td><td>Higher interest rates; government sector grows relative to private sector</td></tr>
+        <tr><td>Contractionary</td><td>Expansionary</td><td>Lower interest rates; private sector grows relative to government sector</td></tr>
+      </table></div>
+      <div class="warning"><strong>Exam trap.</strong> The policy <em>mix</em> determines which sector grows and where rates go. "Tight fiscal + easy money" = low rates, private-sector-led growth. Don't reverse it. Also, monetary policy affects inflation with a lag of 1–2 years, which is why central banks target <em>forecast</em> inflation.</div>
+      <div class="keypoint"><strong>Remember.</strong> Money multiplier = 1/reserve requirement. Neutral rate = trend growth + target inflation; the stance is judged relative to neutral. The three pillars of an effective central bank: independent, credible, transparent.</div>
+    </section>
+
+    <section class="lm" id="lm-5">
+      <h2>5. Introduction to Geopolitics</h2>
+      <p>Geopolitics studies how geography, politics, and economics interact among nations — and how those interactions create investment risk and opportunity. This is a qualitative module: the exam tests the vocabulary of actors, cooperation, globalization archetypes, geopolitical tools, and risk types.</p>
+
+      <h3>Actors and motivations</h3>
+      <p><strong>State actors</strong> are national governments and their organs; <strong>non-state actors</strong> include NGOs, multinational corporations, cartels, and even influential individuals. States pursue two sometimes-conflicting goals: <strong>national security</strong> (territorial integrity, military strength, control of strategic resources) and <strong>economic interest</strong> (growth, trade, access to capital). A state's institutions matter: strong, stable institutions make behavior more predictable and lower geopolitical risk premia.</p>
+
+      <h3>Cooperation vs non-cooperation</h3>
+      <p>A country's posture can be mapped on two dimensions. The first is <strong>cooperation</strong>: a cooperative state engages in and abides by international rules — harmonizing standards, allowing exchange of goods, services, capital, labor, technology, and information. A non-cooperative state acts unilaterally, breaks agreements, and restricts flows. Cooperation is more likely where a state depends on imported resources, shares borders needing coordination, or benefits from standardization (e.g., telecom standards). The second dimension is <strong>globalization vs nationalism</strong>: the degree to which a country economically integrates with the world versus prioritizing domestic interests. Crossing the two dimensions gives four archetypes:</p>
+      <div class="tablewrap"><table>
+        <tr><th>Archetype</th><th>Cooperation</th><th>Globalization</th><th>Description</th></tr>
+        <tr><td><strong>Autarky</strong></td><td>Low</td><td>Low</td><td>Self-sufficiency; state-controlled industry and media; minimal external trade (e.g., North Korea)</td></tr>
+        <tr><td><strong>Hegemony</strong></td><td>Low</td><td>High</td><td>Engages globally but on its own terms, using size and market power to influence others without being bound by rules</td></tr>
+        <tr><td><strong>Multilateralism</strong></td><td>High</td><td>High</td><td>Extensive trade and rule-following through international organizations (e.g., Singapore)</td></tr>
+        <tr><td><strong>Bilateralism</strong></td><td>High</td><td>Low</td><td>Cooperates through one-on-one agreements rather than broad multilateral frameworks</td></tr>
+      </table></div>
+      <p>Firms globalize to seek new markets, cheaper inputs and labor, resources, and higher investment returns; the costs of globalization include unequal distribution of gains, dependence on foreign supply chains, and loss of some policy autonomy. International organizations — the IMF (stability of the international monetary system and crisis lending), the World Bank (development finance), and the WTO (trade rules and dispute resolution) — provide the architecture of cooperation.</p>
+
+      <h3>Tools of geopolitics</h3>
+      <ul>
+        <li><strong>National security tools:</strong> armed conflict, espionage, alliances (e.g., NATO). Can be active or threatened.</li>
+        <li><strong>Economic tools:</strong> multilateral trade agreements, common markets, and — on the non-cooperative side — nationalization, tariffs, and voluntary export restraints.</li>
+        <li><strong>Financial tools:</strong> foreign investment access and currency exchange; non-cooperatively, <strong>sanctions</strong> (freezing assets, restricting banking access) and limits on capital flows.</li>
+      </ul>
+
+      <h3>Geopolitical risk: types, likelihood, velocity, impact</h3>
+      <ul>
+        <li><strong>Event risk:</strong> tied to known calendar events — elections, referendums, leadership transitions. Timing known, outcome uncertain.</li>
+        <li><strong>Exogenous risk:</strong> sudden shocks no calendar predicts — invasions, coups, natural disasters affecting supply chains.</li>
+        <li><strong>Thematic risk:</strong> slow-burning structural themes that play out over years — climate change, cyber threats, migration, the rise of populism.</li>
+      </ul>
+      <p>Assess each risk on <strong>likelihood</strong> (probability it occurs), <strong>velocity</strong> (how fast it hits portfolios: high-velocity shocks hit risk assets immediately; low-velocity themes erode fundamentals slowly), and <strong>impact</strong> (how large and broad the damage). High-velocity risks matter most to short-horizon investors; long-horizon investors can often ride them out but must heed thematic risks. Investors respond with scenario analysis, signposts (indicators that a risk is escalating), and hedges; geopolitical risk generally raises risk premia, widens spreads, and hits emerging markets hardest.</p>
+      <div class="example"><p><strong>Question.</strong> A portfolio manager holds equities in a country facing a closely contested election in six months; one candidate proposes nationalizing the mining sector. Classify the risk and describe an appropriate response.</p>
+      <div class="solution"><p><strong>Solution.</strong> This is <strong>event risk</strong> — the date is known (the election), the outcome is not. Likelihood is assessable from polls; velocity would be high for mining equities (immediate repricing on the result) and impact concentrated in that sector. Sensible responses: run scenario analysis on both outcomes, set signposts (polling shifts, coalition announcements), and reduce or hedge the concentrated mining exposure ahead of the vote rather than after. Waiting for the outcome converts a manageable event risk into a realized loss.</p></div></div>
+      <div class="keypoint"><strong>Remember.</strong> Two dimensions — cooperation and globalization — give four archetypes: autarky, hegemony, multilateralism, bilateralism. Three risk types: event (known timing), exogenous (sudden), thematic (slow structural). Assess likelihood × velocity × impact.</div>
+    </section>
+
+    <section class="lm" id="lm-6">
+      <h2>6. International Trade</h2>
+      <p>Trade lets countries consume beyond what they could produce alone. The exam tests why trade creates gains (comparative advantage), who wins and loses from trade restrictions, and the hierarchy of trading blocs.</p>
+
+      <h3>Absolute vs comparative advantage</h3>
+      <p>A country has an <strong>absolute advantage</strong> in a good if it can produce it with fewer resources than another country. It has a <strong>comparative advantage</strong> if it can produce the good at a lower <em>opportunity cost</em> — giving up less of other goods. The key insight (Ricardo): even a country with an absolute advantage in <em>everything</em> gains by specializing in its comparative-advantage goods and trading, because trade is driven by relative, not absolute, costs.</p>
+      <div class="example"><p><strong>Question.</strong> With one unit of labor, Country A can make 6 cars or 3 tons of wheat; Country B can make 2 cars or 2 tons of wheat. Who has absolute and comparative advantage in each good?</p>
+      <div class="solution"><p><strong>Solution.</strong> A has absolute advantage in both (6 &gt; 2 cars; 3 &gt; 2 wheat). Opportunity costs: for A, 1 car costs 3⁄6 = 0.5 wheat; 1 wheat costs 2 cars. For B, 1 car costs 1 wheat; 1 wheat costs 1 car. A's car cost (0.5 wheat) &lt; B's (1 wheat) ⇒ <strong>A has comparative advantage in cars</strong>. B's wheat cost (1 car) &lt; A's (2 cars) ⇒ <strong>B has comparative advantage in wheat</strong>. Both gain by trading at any ratio between 0.5 and 1 wheat per car — e.g., at 0.75 wheat per car, A gets more wheat per car than it could make itself, and B gets cars more cheaply than home production.</p></div></div>
+      <p>Two models explain <em>where</em> comparative advantage comes from: the <strong>Ricardian model</strong> attributes it to differences in labor productivity (technology); the <strong>Heckscher–Ohlin model</strong> attributes it to differences in factor endowments — capital-rich countries export capital-intensive goods, labor-rich countries export labor-intensive goods. In Heckscher–Ohlin, trade shifts income toward the abundant factor used intensively in exports, which is why trade creates domestic winners and losers even when the country gains overall.</p>
+
+      <h3>Gains and costs of trade</h3>
+      <p>Gains: specialization along comparative advantage, economies of scale from larger markets, more variety, sharper competition and efficiency, and technology diffusion. Costs cited by critics: displaced workers in import-competing industries (though economists view these as transition costs, best addressed by retraining rather than protection) and greater dependence on foreign suppliers.</p>
+
+      <h3>Trade restrictions: tariffs, quotas, subsidies</h3>
+      <p>Governments restrict trade to protect infant industries and jobs, for national security, to retaliate, or to raise revenue. All restrictions help domestic producers at a larger cost to domestic consumers — a net welfare loss (deadweight loss) for a small country.</p>
+      <div class="tablewrap"><table>
+        <tr><th>Restriction</th><th>What it is</th><th>Domestic price</th><th>Domestic producers</th><th>Domestic consumers</th><th>Government</th></tr>
+        <tr><td><strong>Tariff</strong></td><td>Tax on imports</td><td>Rises</td><td>Gain (produce more, higher price)</td><td>Lose (pay more, consume less)</td><td>Gains tariff revenue</td></tr>
+        <tr><td><strong>Import quota</strong></td><td>Quantity limit on imports</td><td>Rises</td><td>Gain</td><td>Lose</td><td>No revenue unless it sells import licenses; otherwise the <em>quota rents</em> go to foreign exporters or license holders</td></tr>
+        <tr><td><strong>Voluntary export restraint (VER)</strong></td><td>Exporting country limits its own exports</td><td>Rises</td><td>Gain</td><td>Lose</td><td>None — quota rents accrue to the <em>foreign</em> exporters</td></tr>
+        <tr><td><strong>Export subsidy</strong></td><td>Government pays domestic firms to export</td><td>Rises (goods diverted abroad)</td><td>Gain</td><td>Lose</td><td>Pays out — negative revenue</td></tr>
+      </table></div>
+      <p>A tariff and a quota that restrict imports by the same amount have identical effects on price, production, and consumption; they differ only in who captures the revenue (government vs quota-rent holders). One exception to "restrictions reduce national welfare": a <strong>large country</strong> — one big enough to move world prices — can theoretically gain from a tariff by forcing exporters to cut their prices (improving its terms of trade), but only if trading partners do not retaliate.</p>
+      <div class="warning"><strong>Exam trap.</strong> "Least likely to benefit the government" → quota and VER produce no revenue (unless licenses are auctioned); a VER hands the rents to <em>foreigners</em>, making it the costliest restriction for the importing nation. Export subsidies <em>raise</em> the domestic price of the subsidized good — producers ship abroad to collect the subsidy unless home buyers match the price.</div>
+
+      <h3>Trading blocs: five levels of integration</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Level</th><th>Free trade among members</th><th>Common external trade policy</th><th>Free movement of labor &amp; capital</th><th>Common economic policies</th><th>Common currency</th><th>Example</th></tr>
+        <tr><td><strong>Free trade area</strong></td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>NAFTA/USMCA</td></tr>
+        <tr><td><strong>Customs union</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Mercosur</td></tr>
+        <tr><td><strong>Common market</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>Historical EEC</td></tr>
+        <tr><td><strong>Economic union</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>European Union</td></tr>
+        <tr><td><strong>Monetary union</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Eurozone</td></tr>
+      </table></div>
+      <p>Each level adds one feature to the previous. Blocs create trade among members (<em>trade creation</em>: cheap member imports replace costly home production) but can also divert it (<em>trade diversion</em>: member imports replace even cheaper non-member imports that now face the common tariff). Members of a monetary union give up independent monetary policy and their exchange rate as an adjustment tool.</p>
+      <div class="keypoint"><strong>Remember.</strong> Comparative advantage = lower <em>opportunity</em> cost, and it — not absolute advantage — determines the pattern of trade. Tariff vs quota: same price effect, different revenue recipient. Bloc ladder: FTA → customs union (+ common external tariff) → common market (+ factor mobility) → economic union (+ common policies) → monetary union (+ single currency).</div>
+    </section>
+
+    <section class="lm" id="lm-7">
+      <h2>7. Capital Flows and the FX Market</h2>
+      <p>Trade in goods has a mirror image in flows of capital, tracked in the balance of payments; and every cross-border transaction ultimately passes through the foreign exchange market — the largest financial market in the world. The exam tests BoP accounts, capital restrictions, market participants, and the difference between spot and forward transactions.</p>
+
+      <h3>The balance of payments</h3>
+      <p>The <strong>balance of payments (BoP)</strong> records all transactions between residents of a country and the rest of the world. It has three accounts, and by double-entry construction they sum to zero:</p>
+      <ul>
+        <li><strong>Current account:</strong> trade in goods and services, plus income received on foreign investments (dividends, interest) and unilateral transfers (remittances, aid).</li>
+        <li><strong>Capital account:</strong> capital transfers and transactions in non-produced, non-financial assets (a small account — e.g., debt forgiveness, transfers of mineral rights).</li>
+        <li><strong>Financial account:</strong> transactions in financial assets — direct investment (FDI), portfolio investment in stocks and bonds, official reserves.</li>
+      </ul>
+      <div class="formula">Current account + capital account + financial account = 0<br>Equivalently: CA ≈ (Savings − Investment) + (Taxes − Government spending)</div>
+      <p>The second identity is the exam's favorite insight: a current account <em>deficit</em> means the country invests more than it saves, so it must import foreign capital — a financial account <em>surplus</em>. Deficits driven by borrowing to fund productive investment are more sustainable than deficits funding consumption. Low private saving, high investment, or large fiscal deficits all push toward current account deficits.</p>
+
+      <h3>Capital restrictions</h3>
+      <p>Governments sometimes restrict capital inflows or outflows: taxes or outright bans on foreign ownership of domestic assets, limits on repatriation, requirements to hold inflows for a minimum period. Motives: keep monetary policy independent while managing the exchange rate, protect strategic industries, and prevent "hot money" surges and sudden stops from destabilizing a small economy. Costs: higher cost of capital, less foreign investment and technology transfer, and distorted allocation. The mainstream view is that free capital flows benefit economies in the long run, but temporary controls can help emerging markets weather crises.</p>
+
+      <h3>FX market structure and participants</h3>
+      <p>An <strong>exchange rate</strong> is the price of one currency in terms of another. CFA notation: a quote of <strong>1.4500 USD/EUR</strong> means 1.4500 US dollars (the <strong>price currency</strong>, on top) per 1 euro (the <strong>base currency</strong>, on the bottom). If USD/EUR rises from 1.4500 to 1.5000, the euro (base) has <em>appreciated</em> and the dollar has <em>depreciated</em>: each euro now buys more dollars. Distinguish the <strong>nominal</strong> exchange rate from the <strong>real</strong> exchange rate, which adjusts for relative price levels and measures actual purchasing power: real USD/EUR = nominal USD/EUR × (CPI<sub>eurozone</sub> ⁄ CPI<sub>US</sub>).</p>
+      <p>Participants divide into the <strong>sell side</strong> — the large dealing banks that make markets and quote prices — and the <strong>buy side</strong>:</p>
+      <ul>
+        <li><strong>Corporations:</strong> hedging trade receipts, payments, and foreign operations.</li>
+        <li><strong>Real money accounts:</strong> mutual funds, pension funds, insurers — investors who do not use leverage.</li>
+        <li><strong>Leveraged accounts:</strong> hedge funds, CTAs, prop desks — the most active trading segment.</li>
+        <li><strong>Households/retail:</strong> small speculative and remittance flows.</li>
+        <li><strong>Governments and sovereign wealth funds:</strong> reserve management and long-horizon investment.</li>
+        <li><strong>Central banks:</strong> intervene to influence their currency's level or volatility — participants with a policy motive, not profit.</li>
+      </ul>
+
+      <h3>Spot vs forward</h3>
+      <p>A <strong>spot transaction</strong> is an exchange of currencies at today's quoted rate, settling in (typically) two business days (T+2). A <strong>forward contract</strong> locks in today a rate for an exchange on a specified future date — used by hedgers to eliminate FX uncertainty on future receipts and payments, and by speculators to take positions without upfront exchange. Forward markets are over-the-counter, flexible in size and date. An <strong>FX swap</strong> combines a spot and an offsetting forward and is heavily used to roll hedges forward.</p>
+      <div class="example"><p><strong>Question.</strong> The USD/GBP spot rate moves from 1.2500 to 1.2000. The percentage change in the value of the GBP (against USD), and in the USD (against GBP), are <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> GBP is the base currency, so its change is read directly: 1.2000 ⁄ 1.2500 − 1 = <strong>−4.00%</strong> (GBP depreciated 4%). The USD's change is <em>not</em> +4%. Invert the quote to make USD the base: GBP/USD goes from 1⁄1.2500 = 0.8000 to 1⁄1.2000 = 0.8333. USD change = 0.8333 ⁄ 0.8000 − 1 = <strong>+4.17%</strong>. Appreciation and depreciation percentages are asymmetric because the bases differ.</p></div></div>
+      <div class="keypoint"><strong>Remember.</strong> BoP accounts sum to zero: a current account deficit is financed by a financial account surplus (CA ≈ S − I + T − G). Quote convention: price/base — a rising quote means the <em>base</em> currency appreciates. Percentage appreciation of one currency ≠ percentage depreciation of the other.</div>
+    </section>
+
+    <section class="lm" id="lm-8">
+      <h2>8. Exchange Rate Calculations</h2>
+      <p>This is the computational payoff of the currency readings: cross rates, forward points, and forward rates from interest differentials. These calculations are near-certain exam material and also reappear at Level 2 — get the mechanics cold.</p>
+
+      <h3>Cross rates</h3>
+      <p>A <strong>cross rate</strong> is an exchange rate between two currencies computed from each one's rate against a common third currency (usually USD). The algebra is dimensional analysis: arrange the quotes so the common currency cancels.</p>
+      <div class="formula">JPY/EUR = JPY/USD × USD/EUR &nbsp;&nbsp;(USD cancels)<br>If both quotes share the same base, divide: CAD/GBP = (CAD/USD) ⁄ (GBP/USD)<br>Invert a quote when needed: EUR/USD = 1 ⁄ (USD/EUR)</div>
+      <div class="example"><p><strong>Question.</strong> Spot quotes: USD/EUR = 1.1000 and JPY/USD = 150.00. The JPY/EUR cross rate is <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> You want JPY per EUR. JPY/EUR = JPY/USD × USD/EUR = 150.00 × 1.1000 = <strong>165.00</strong>. Check the units: (JPY⁄USD) × (USD⁄EUR) — USD cancels, leaving JPY⁄EUR. If you had divided (150.00 ⁄ 1.1000 = 136.36) the USD would not cancel; that number is the common wrong answer among the choices.</p></div></div>
+      <div class="example"><p><strong>Question.</strong> Given CAD/USD = 1.3500 and USD/GBP = 1.2400, the CAD/GBP cross rate is <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> CAD/GBP = CAD/USD × USD/GBP = 1.3500 × 1.2400 = <strong>1.6740</strong>. Units: (CAD⁄USD)×(USD⁄GBP) = CAD⁄GBP. One British pound costs 1.6740 Canadian dollars.</p></div></div>
+
+      <h3>Forward premiums, discounts, and points</h3>
+      <p>A currency (always the <strong>base</strong> currency of the quote) trades at a <strong>forward premium</strong> when the forward rate exceeds the spot rate, and at a <strong>forward discount</strong> when the forward is below spot. Dealers quote forwards as <strong>points (pips)</strong> — the difference between forward and spot in the last decimal place of the spot quote, usually the 4th decimal (so divide quoted points by 10,000).</p>
+      <div class="formula">Forward premium (discount) on the base currency = F ⁄ S − 1<br>Forward rate = spot + (points ⁄ 10,000) &nbsp;&nbsp;(for 4-decimal quotes; points may be negative)</div>
+      <div class="example"><p><strong>Question.</strong> Spot USD/EUR is 1.1000 and the 6-month forward is quoted at −25.5 points. The 6-month forward rate, and whether the EUR is at a premium or discount, are:</p>
+      <div class="solution"><p><strong>Solution.</strong> Points are in the 4th decimal place: −25.5 points = −0.00255. Forward = 1.1000 − 0.00255 = <strong>1.09745</strong>. The forward price of the base currency (EUR) is below spot, so the EUR trades at a <strong>forward discount</strong> (and the USD at a premium). The unannualized discount = 1.09745 ⁄ 1.1000 − 1 = −0.23%.</p></div></div>
+
+      <h3>Forward rates from interest rate differentials (covered interest rate parity)</h3>
+      <p>Forwards are priced by <strong>arbitrage</strong>, not by forecasts. An investor must earn the same return from (a) investing at home and (b) converting to a foreign currency, investing there, and locking in a forward rate back. That no-arbitrage condition is covered interest rate parity:</p>
+      <div class="formula">F = S × (1 + i<sub>price</sub> × days⁄360) ⁄ (1 + i<sub>base</sub> × days⁄360)<br>where F and S are quoted price/base, and i<sub>price</sub>, i<sub>base</sub> are the two currencies' interest rates</div>
+      <p>Consequence: the currency with the <strong>higher</strong> interest rate trades at a forward <strong>discount</strong> (as the base currency); the lower-rate currency trades at a premium. Intuition: you can't earn the extra yield <em>and</em> lock in an unchanged exchange rate — the forward "gives back" the interest differential, otherwise riskless profit would exist.</p>
+      <div class="example"><p><strong>Question.</strong> Spot USD/EUR = 1.1000. The 1-year USD interest rate is 5.0% and the 1-year EUR interest rate is 3.0%. The 1-year forward USD/EUR rate and the forward points are <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> F = 1.1000 × (1.050) ⁄ (1.030) = 1.1000 × 1.019417 = <strong>1.1214</strong>. Forward points = (1.1214 − 1.1000) × 10,000 ≈ <strong>+214 points</strong>. The EUR (base, lower rate at 3%) trades at a forward premium of 1.1214⁄1.1000 − 1 ≈ 1.94% — close to the 2% interest differential, as parity requires. Keystroke check: <code>1.1 × 1.05 ÷ 1.03 = 1.121359</code>.</p></div></div>
+      <div class="example"><p><strong>Question.</strong> Spot JPY/USD = 150.00, 90-day USD rate = 4.8%, 90-day JPY rate = 0.8% (both annualized, actual/360, 90 days). The 90-day forward JPY/USD is <em>closest to</em>:</p>
+      <div class="solution"><p><strong>Solution.</strong> Here JPY is the price currency and USD the base. F = 150.00 × (1 + 0.008 × 90⁄360) ⁄ (1 + 0.048 × 90⁄360) = 150.00 × 1.0020 ⁄ 1.0120 = 150.00 × 0.99012 = <strong>148.52</strong>. The USD (base) carries the higher rate, so it trades at a forward <em>discount</em>: the forward (148.52) is below spot (150.00). Putting the USD rate in the numerator — giving 151.50 — is the classic error: the <em>price</em> currency's rate goes on top.</p></div></div>
+      <div class="warning"><strong>Exam trap.</strong> Three recurring errors: (1) numerator/denominator flip — the <strong>price</strong> currency's interest rate goes in the numerator; (2) forgetting to de-annualize rates with days⁄360 for short-dated forwards; (3) points sign — negative points mean forward &lt; spot, a discount on the base currency. And remember: high-interest-rate currency = forward discount, always.</div>
+      <div class="keypoint"><strong>Remember.</strong> Cross rates: line up quotes so the common currency cancels; invert when needed. F = S × (1 + i<sub>price</sub>τ)/(1 + i<sub>base</sub>τ). Points = (F − S) × 10,000. The higher-yield currency always trades at a forward discount — covered interest parity is arbitrage, not a forecast.</div>
+    </section>
+
+    <div id="quiz"></div>
+  </main>
+</div>
+</div>
+<footer class="site">CFA® is a registered trademark of CFA Institute, which does not endorse this site.</footer>
+<script src="../js/topics.js"></script>
+<script src="../data/econ.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
