@@ -1,0 +1,102 @@
+/* planner.css — styles scoped to the Weekend Planner page.
+   Kept self-contained in this subfolder rather than compiled into the global
+   site stylesheet, so it deploys on GitHub Pages without recompiling SCSS. */
+
+body {
+  background: #f4f7fb;
+  font-family: "Nunito", sans-serif;
+  color: #2b2b3a;
+}
+
+.wp-header {
+  background: linear-gradient(135deg, #2f80ed, #56ccf2);
+  color: #fff;
+  padding: 1.5rem 0 2rem;
+}
+.wp-back {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  text-decoration: none;
+}
+.wp-back:hover { color: #fff; text-decoration: underline; }
+.wp-title { margin: 0.5rem 0 0.25rem; font-weight: 700; }
+.wp-subtitle { margin: 0; opacity: 0.92; }
+
+.wp-main { max-width: 760px; margin-top: -1rem; padding-bottom: 3rem; }
+
+.wp-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(20, 40, 80, 0.07);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.25rem;
+}
+.wp-card-nap { background: #fbf7ff; border: 1px solid #ece3fb; }
+.wp-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.wp-card-title { margin: 0 0 0.5rem; font-weight: 700; font-size: 1.1rem; }
+.wp-reason { color: #5a6072; margin-bottom: 0.9rem; }
+
+.wp-weather-chip {
+  background: #eef4ff;
+  color: #2f80ed;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* Hourly strip */
+.wp-forecast-strip {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+}
+.wp-hour {
+  flex: 0 0 auto;
+  min-width: 48px;
+  background: #f6f9ff;
+  border-radius: 10px;
+  padding: 0.5rem 0.25rem;
+}
+.wp-hour-time { font-size: 0.7rem; color: #8a90a2; }
+.wp-hour-icon { font-size: 1.1rem; line-height: 1.4; }
+.wp-hour-temp { font-weight: 700; font-size: 0.9rem; }
+.wp-hour-rain { font-size: 0.72rem; }
+
+/* Activity cards */
+.wp-activity {
+  border: 1px solid #eef0f5;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  margin-top: 0.6rem;
+  background: #fcfdff;
+}
+.wp-activity-head { font-size: 1.02rem; }
+.wp-activity-meta { font-size: 0.82rem; margin: 0.15rem 0 0.4rem; }
+.wp-activity-notes { font-size: 0.9rem; color: #4b5060; }
+.wp-activity-link { margin-top: 0.35rem; font-size: 0.85rem; }
+
+.wp-banner-icon { font-size: 1.3rem; }
+
+/* Spinner */
+.wp-spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #d8e3f5;
+  border-top-color: #2f80ed;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: wp-spin 0.8s linear infinite;
+}
+@keyframes wp-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 575px) {
+  .wp-title { font-size: 1.5rem; }
+}

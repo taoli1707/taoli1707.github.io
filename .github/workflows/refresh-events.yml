@@ -1,0 +1,51 @@
+name: Refresh local events
+
+# Fetches live local events server-side (keys stay in Secrets) and commits a
+# static weekend-planner/data/events.json. Committing each run also keeps this
+# scheduled workflow from being auto-disabled after 60 days of inactivity.
+
+on:
+  schedule:
+    - cron: "0 11 * * *" # daily ~6-7am ET
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-events
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch & normalize events
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+          LIBCAL_ICAL_URL: ${{ secrets.LIBCAL_ICAL_URL }}
+          WESTFIELD_ICAL_URL: ${{ secrets.WESTFIELD_ICAL_URL }}
+          WESTFIELD_RSS_URL: ${{ secrets.WESTFIELD_RSS_URL }}
+          UCNJ_RSS_URL: ${{ secrets.UCNJ_RSS_URL }}
+        run: node scripts/fetch-events.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "events-bot"
+          git config user.email "events-bot@users.noreply.github.com"
+          git add weekend-planner/data/events.json
+          if git diff --staged --quiet; then
+            echo "No event changes."
+          else
+            git commit -m "chore: refresh events.json"
+            git push
+          fi

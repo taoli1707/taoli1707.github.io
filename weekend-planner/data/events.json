@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-06-29T02:59:53.839Z",
+  "home": {
+    "lat": 40.651,
+    "lon": -74.3473,
+    "zip": "07090",
+    "city": "Westfield",
+    "state": "NJ"
+  },
+  "windowDays": 21,
+  "sources": [
+    {
+      "source": "wmlnj-libcal",
+      "status": "skipped (not configured)",
+      "count": 0
+    },
+    {
+      "source": "westfield-civicengage",
+      "status": "skipped (not configured)",
+      "count": 0
+    },
+    {
+      "source": "ucnj-rss",
+      "status": "skipped (not configured)",
+      "count": 0
+    },
+    {
+      "source": "ticketmaster",
+      "status": "skipped (not configured)",
+      "count": 0
+    }
+  ],
+  "count": 0,
+  "events": []
+}

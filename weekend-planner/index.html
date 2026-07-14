@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Family Weekend Planner</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Weather-aware weekend planner for a Westfield, NJ family — with nap timing and a Plan B." />
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" />
+    <!-- Reuse the site's existing assets -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Planner-specific styles (scoped to this subfolder) -->
+    <link rel="stylesheet" href="css/planner.css" />
+  </head>
+  <body>
+    <header class="wp-header">
+      <div class="container">
+        <a href="../" class="wp-back">← Home</a>
+        <h1 class="wp-title">Family Weekend Planner</h1>
+        <p class="wp-subtitle">Westfield, NJ · 07090 — built around an active 5½-yo and a napping 2-yo</p>
+      </div>
+    </header>
+
+    <main class="container wp-main">
+      <div id="loading" class="text-center py-5">
+        <div class="wp-spinner"></div>
+        <p class="mt-3 text-muted">Checking this weekend's weather…</p>
+      </div>
+
+      <div id="error" class="alert alert-danger d-none"></div>
+
+      <section id="planner" class="d-none">
+        <div id="day-tabs" class="mb-3"></div>
+
+        <div id="storm-banner" class="d-none"></div>
+
+        <!-- Hourly forecast strip -->
+        <div class="wp-card">
+          <h5 class="wp-card-title">Hourly outlook</h5>
+          <div id="forecast-strip" class="wp-forecast-strip"></div>
+        </div>
+
+        <!-- Morning: active block for the daughter -->
+        <div class="wp-card">
+          <div class="wp-card-head">
+            <h5 class="wp-card-title">🏃 Morning — run-around time</h5>
+            <span id="morning-weather" class="wp-weather-chip"></span>
+          </div>
+          <p id="morning-reason" class="wp-reason"></p>
+          <div id="morning-plan-a"></div>
+          <div id="morning-plan-b" class="d-none"></div>
+        </div>
+
+        <!-- Afternoon nap: the toddler-aware decision -->
+        <div class="wp-card wp-card-nap">
+          <h5 id="nap-title" class="wp-card-title">😴 Afternoon nap</h5>
+          <p id="nap-reason" class="wp-reason"></p>
+          <div id="nap-place" class="d-none"></div>
+        </div>
+
+        <!-- Afternoon Plan B (storm backup) -->
+        <div id="afternoon-plan-b" class="wp-card d-none"></div>
+
+        <!-- Live local events happening on the selected day -->
+        <div class="wp-card">
+          <h5 class="wp-card-title">📅 Happening this day near you</h5>
+          <p class="wp-reason" id="events-note">Live local events (library, town &amp; county) for the day you picked.</p>
+          <div id="events-list"></div>
+        </div>
+
+        <p id="data-note" class="text-center text-muted small mt-4"></p>
+        <p class="text-center text-muted small">
+          Tip: try <code>?demo=rain</code>, <code>?demo=hot</code>,
+          <code>?demo=mild</code>, or <code>?demo=storm-pm</code> to preview the logic.
+        </p>
+      </section>
+    </main>
+
+    <script src="js/app.js" type="module"></script>
+  </body>
+</html>
