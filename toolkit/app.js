@@ -876,6 +876,76 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Mirror ================= */
+
+(() => {
+  const video = $("#mirror-video");
+  const freezeCanvas = $("#mirror-freeze");
+  const zoomSlider = $("#mirror-zoom");
+  const hint = $("#mirror-hint");
+  const ring = $("#ring-light");
+  let stream = null;
+  let frozen = false;
+
+  function applyZoom() {
+    const t = `scaleX(-1) scale(${+zoomSlider.value})`;
+    video.style.transform = t;
+    freezeCanvas.style.transform = t;
+  }
+  zoomSlider.addEventListener("input", applyZoom);
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user", width: { ideal: 1280 } },
+        audio: false
+      });
+      video.srcObject = stream;
+      hint.textContent = "Front camera mirror";
+    } catch (e) {
+      hint.textContent = "Camera unavailable. Allow camera access to use the mirror.";
+    }
+  }
+  function stop() {
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+    video.srcObject = null;
+    unfreeze();
+    ring.classList.remove("on");
+    $("#mirror-light-btn").classList.remove("active");
+  }
+  function unfreeze() {
+    frozen = false;
+    freezeCanvas.classList.add("hidden");
+    video.classList.remove("hidden");
+    $("#mirror-freeze-btn").textContent = "Freeze";
+    $("#mirror-freeze-btn").classList.remove("active");
+  }
+
+  $("#mirror-freeze-btn").addEventListener("click", () => {
+    if (frozen) { unfreeze(); return; }
+    if (!video.videoWidth) return;
+    freezeCanvas.width = video.videoWidth;
+    freezeCanvas.height = video.videoHeight;
+    freezeCanvas.getContext("2d").drawImage(video, 0, 0);
+    freezeCanvas.classList.remove("hidden");
+    video.classList.add("hidden");
+    frozen = true;
+    $("#mirror-freeze-btn").textContent = "Live";
+    $("#mirror-freeze-btn").classList.add("active");
+  });
+
+  $("#mirror-light-btn").addEventListener("click", (e) => {
+    const on = ring.classList.toggle("on");
+    e.target.classList.toggle("active", on);
+  });
+
+  tools.mirror = {
+    enter() { start(); applyZoom(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Protractor ================= */
 
 (() => {
