@@ -1,4 +1,4 @@
-/* Toolkit service worker — cache-first app shell for offline use */
+/* Toolkit service worker — cache-first app shell for offline use (v3) */
 const CACHE = "toolkit-v3";
 const ASSETS = [
   ".",
