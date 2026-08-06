@@ -876,6 +876,168 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= QR Scanner ================= */
+
+(() => {
+  const video = $("#qr-video");
+  const frame = $("#qr-frame");
+  const hint = $("#qr-hint");
+  const resultBox = $("#qr-result");
+  const resultText = $("#qr-text");
+  const openLink = $("#qr-open");
+  const copyBtn = $("#qr-copy");
+  const torchBtn = $("#qr-torch");
+  const fileInput = $("#qr-file");
+  const workCanvas = document.createElement("canvas");
+  let stream = null;
+  let track = null;
+  let scanTimer = null;
+  let scanning = false;
+  let torchOn = false;
+  let detector = null;
+
+  if ("BarcodeDetector" in window) {
+    try { detector = new BarcodeDetector({ formats: ["qr_code"] }); } catch (e) { detector = null; }
+  }
+
+  function decodeImageData(imgData) {
+    if (typeof jsQR !== "function") return null;
+    const code = jsQR(imgData.data, imgData.width, imgData.height);
+    return code && code.data ? code.data : null;
+  }
+
+  function grabFrame(source, sw, sh) {
+    // Downscale for decode speed; jsQR handles ~640px well
+    const maxDim = 640;
+    const scale = Math.min(1, maxDim / Math.max(sw, sh));
+    workCanvas.width = Math.round(sw * scale);
+    workCanvas.height = Math.round(sh * scale);
+    const c = workCanvas.getContext("2d", { willReadFrequently: true });
+    c.drawImage(source, 0, 0, workCanvas.width, workCanvas.height);
+    return c.getImageData(0, 0, workCanvas.width, workCanvas.height);
+  }
+
+  function showResult(text) {
+    scanning = false;
+    frame.classList.add("found");
+    resultBox.classList.remove("hidden");
+    resultText.textContent = text;
+    const isUrl = /^https?:\/\/\S+$/i.test(text.trim());
+    openLink.classList.toggle("hidden", !isUrl);
+    if (isUrl) openLink.href = text.trim();
+    hint.textContent = "QR code detected";
+    if (navigator.vibrate) navigator.vibrate(80);
+  }
+
+  async function scanOnce() {
+    if (!scanning || !video.videoWidth || document.hidden) return;
+    try {
+      let text = null;
+      if (detector) {
+        const codes = await detector.detect(video);
+        if (codes.length) text = codes[0].rawValue;
+      } else {
+        text = decodeImageData(grabFrame(video, video.videoWidth, video.videoHeight));
+      }
+      if (text && scanning) showResult(text);
+    } catch (e) { /* keep scanning */ }
+  }
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment", width: { ideal: 1280 } },
+        audio: false
+      });
+      video.srcObject = stream;
+      track = stream.getVideoTracks()[0];
+      const caps = track.getCapabilities ? track.getCapabilities() : {};
+      torchBtn.classList.toggle("hidden", !caps.torch);
+      hint.textContent = "Point the camera at a QR code";
+      scanning = true;
+      scanTimer = setInterval(scanOnce, 250);
+    } catch (e) {
+      hint.textContent = "Camera unavailable. Allow camera access, or use “From photo”.";
+    }
+  }
+
+  function stop() {
+    clearInterval(scanTimer);
+    scanTimer = null;
+    scanning = false;
+    if (stream) {
+      stream.getTracks().forEach((t) => t.stop());
+      stream = null;
+      track = null;
+    }
+    video.srcObject = null;
+    torchOn = false;
+    torchBtn.classList.remove("active");
+  }
+
+  function resetResult() {
+    resultBox.classList.add("hidden");
+    frame.classList.remove("found");
+    hint.textContent = stream ? "Point the camera at a QR code" : "Camera unavailable. Allow camera access, or use “From photo”.";
+    scanning = !!stream;
+  }
+
+  $("#qr-again").addEventListener("click", resetResult);
+
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(resultText.textContent);
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => { copyBtn.textContent = "Copy"; }, 1500);
+    } catch (e) {
+      copyBtn.textContent = "Copy failed";
+      setTimeout(() => { copyBtn.textContent = "Copy"; }, 1500);
+    }
+  });
+
+  torchBtn.addEventListener("click", async () => {
+    if (!track) return;
+    torchOn = !torchOn;
+    try {
+      await track.applyConstraints({ advanced: [{ torch: torchOn }] });
+      torchBtn.classList.toggle("active", torchOn);
+    } catch (e) { torchOn = false; }
+  });
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) return;
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = async () => {
+      URL.revokeObjectURL(url);
+      let text = null;
+      try {
+        if (detector) {
+          const codes = await detector.detect(img);
+          if (codes.length) text = codes[0].rawValue;
+        }
+      } catch (e) { /* fall through to jsQR */ }
+      if (!text) text = decodeImageData(grabFrame(img, img.naturalWidth, img.naturalHeight));
+      if (text) showResult(text);
+      else hint.textContent = "No QR code found in that photo.";
+      fileInput.value = "";
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      hint.textContent = "Couldn't read that image.";
+      fileInput.value = "";
+    };
+    img.src = url;
+  });
+
+  tools.qr = {
+    enter() { resetResult(); start(); acquireWakeLock(); },
+    exit() { stop(); resetResult(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Boot ================= */
 
 // Show install hint in Safari when not already installed

@@ -32,6 +32,7 @@
     <a class="tile" href="#timer"><span class="tile-icon" style="background:linear-gradient(135deg,#f77062,#fe5196)">&#9201;&#65039;</span><span class="tile-label">Stopwatch</span></a>
     <a class="tile" href="#counter"><span class="tile-icon" style="background:linear-gradient(135deg,#30cfd0,#330867)">&#128290;</span><span class="tile-label">Counter</span></a>
     <a class="tile" href="#magnifier"><span class="tile-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128269;</span><span class="tile-label">Magnifier</span></a>
+    <a class="tile" href="#qr"><span class="tile-icon" style="background:linear-gradient(135deg,#f857a6,#ff5858)">&#128307;</span><span class="tile-label">QR Scanner</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -236,6 +237,35 @@
   </div>
 </section>
 
+<!-- ============ QR SCANNER ============ -->
+<section id="qr" class="screen tool hidden">
+  <video id="qr-video" autoplay playsinline muted></video>
+  <div class="qr-frame" id="qr-frame">
+    <span class="qr-corner tl"></span><span class="qr-corner tr"></span>
+    <span class="qr-corner bl"></span><span class="qr-corner br"></span>
+  </div>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>QR Scanner</h2><span class="spacer"></span></header>
+    <div class="tool-footer panel">
+      <div id="qr-result" class="qr-result hidden">
+        <p id="qr-text"></p>
+        <div class="chip-row">
+          <button class="chip" id="qr-copy">Copy</button>
+          <a class="chip hidden" id="qr-open" target="_blank" rel="noopener noreferrer">Open link</a>
+          <button class="chip active" id="qr-again">Scan again</button>
+        </div>
+      </div>
+      <div class="chip-row" id="qr-controls">
+        <button class="chip hidden" id="qr-torch">Torch</button>
+        <label class="chip" for="qr-file">From photo</label>
+        <input type="file" id="qr-file" accept="image/*" class="hidden">
+      </div>
+      <p class="hint" id="qr-hint">Point the camera at a QR code</p>
+    </div>
+  </div>
+</section>
+
+<script src="vendor/jsQR.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
