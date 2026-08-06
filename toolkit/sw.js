@@ -1,10 +1,11 @@
 /* Toolkit service worker — cache-first app shell for offline use */
-const CACHE = "toolkit-v1";
+const CACHE = "toolkit-v2";
 const ASSETS = [
   ".",
   "index.html",
   "style.css",
   "app.js",
+  "vendor/jsQR.js",
   "manifest.webmanifest",
   "icons/icon-180.png",
   "icons/icon-512.png"

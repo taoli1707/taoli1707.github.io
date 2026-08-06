@@ -442,6 +442,52 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- QR Scanner ---------- */
+#qr { background: #000; }
+#qr-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#qr .tool-header { background: rgba(0,0,0,0.35); }
+#qr .tool-header h2, #qr .back { color: #fff; }
+.qr-frame {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  width: min(62vw, 300px);
+  height: min(62vw, 300px);
+  pointer-events: none;
+  z-index: 3;
+}
+.qr-frame.found .qr-corner { border-color: #30d158; }
+.qr-corner {
+  position: absolute;
+  width: 34px; height: 34px;
+  border: 4px solid rgba(255,255,255,0.9);
+  border-radius: 2px;
+}
+.qr-corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; border-top-left-radius: 12px; }
+.qr-corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; border-top-right-radius: 12px; }
+.qr-corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; border-bottom-left-radius: 12px; }
+.qr-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; border-bottom-right-radius: 12px; }
+.qr-result p {
+  font-size: 15px;
+  line-height: 1.4;
+  word-break: break-all;
+  max-height: 110px;
+  overflow-y: auto;
+  background: #2c2c34;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+#qr-open { text-decoration: none; display: inline-flex; align-items: center; }
+
 /* ---------- Magnifier ---------- */
 #magnifier { background: #000; }
 #mag-video, #mag-freeze {
