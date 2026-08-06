@@ -37,6 +37,7 @@
     <a class="tile" href="#datecalc"><span class="tile-icon" style="background:linear-gradient(135deg,#ff512f,#dd2476)">&#128197;</span><span class="tile-label">Dates</span></a>
     <a class="tile" href="#tip"><span class="tile-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">&#128181;</span><span class="tile-label">Tip Split</span></a>
     <a class="tile" href="#tone"><span class="tile-icon" style="background:linear-gradient(135deg,#00b09b,#96c93d)">&#127925;</span><span class="tile-label">Tone</span></a>
+    <a class="tile" href="#metronome"><span class="tile-icon" style="background:linear-gradient(135deg,#ee9ca7,#c44569)">&#129345;</span><span class="tile-label">Metronome</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -266,6 +267,36 @@
       </div>
       <p class="hint" id="qr-hint">Point the camera at a QR code</p>
     </div>
+  </div>
+</section>
+
+<!-- ============ METRONOME ============ -->
+<section id="metronome" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Metronome</h2><span class="spacer"></span></header>
+  </div>
+  <div class="metro-stage">
+    <div class="metro-bpm-row">
+      <button class="chip" id="metro-down">&#8722;</button>
+      <div class="metro-bpm"><span id="metro-bpm">120</span><small>BPM</small></div>
+      <button class="chip" id="metro-up">+</button>
+    </div>
+    <div class="metro-name" id="metro-name">Allegro</div>
+    <div class="metro-dots" id="metro-dots"></div>
+    <button class="tone-play" id="metro-play" aria-label="Start or stop metronome">&#9654;</button>
+  </div>
+  <div class="tool-footer panel">
+    <label class="slider-row">Tempo
+      <input type="range" id="metro-slider" min="30" max="240" value="120">
+    </label>
+    <div class="chip-row" id="metro-beats">
+      <button class="chip" data-b="1">1</button>
+      <button class="chip" data-b="2">2</button>
+      <button class="chip" data-b="3">3</button>
+      <button class="chip active" data-b="4">4</button>
+      <button class="chip" data-b="6">6</button>
+    </div>
+    <button class="big-btn" id="metro-tap">Tap tempo</button>
   </div>
 </section>
 

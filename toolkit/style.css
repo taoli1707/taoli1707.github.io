@@ -442,6 +442,32 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- Metronome ---------- */
+#metronome { background: radial-gradient(circle at 50% 35%, #201318, #0b0b0f); }
+.metro-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.metro-bpm-row { display: flex; align-items: center; gap: 22px; }
+.metro-bpm-row .chip { font-size: 22px; width: 48px; height: 48px; padding: 0; }
+.metro-bpm { display: flex; align-items: baseline; gap: 8px; }
+.metro-bpm span { font-size: 72px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.metro-bpm small { color: var(--muted); font-size: 18px; font-weight: 600; }
+.metro-name { color: var(--muted); font-size: 17px; font-weight: 600; }
+.metro-dots { display: flex; gap: 12px; min-height: 20px; margin: 8px 0; }
+.metro-dot {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #2c2c34;
+  transition: transform 0.08s, background 0.08s;
+}
+.metro-dot.hit { background: #ee9ca7; transform: scale(1.5); }
+.metro-dot.hit.accent { background: #ff453a; }
+
 /* ---------- Tone Generator ---------- */
 #tone { background: radial-gradient(circle at 50% 35%, #0e1f1a, #0b0b0f); }
 .tone-stage {

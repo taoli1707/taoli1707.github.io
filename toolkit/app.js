@@ -876,6 +876,117 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Metronome ================= */
+
+(() => {
+  const bpmEl = $("#metro-bpm");
+  const nameEl = $("#metro-name");
+  const slider = $("#metro-slider");
+  const playBtn = $("#metro-play");
+  const dotsEl = $("#metro-dots");
+  let bpm = 120, beatsPerBar = 4;
+  let ac = null, timer = null;
+  let nextBeatTime = 0, beatIndex = 0;
+  let taps = [];
+  const TEMPO_NAMES = [[40, "Grave"], [60, "Largo"], [76, "Adagio"], [108, "Andante"], [120, "Moderato"], [156, "Allegro"], [200, "Presto"], [241, "Prestissimo"]];
+
+  function tempoName(b) {
+    for (const [max, name] of TEMPO_NAMES) if (b < max) return name;
+    return "Prestissimo";
+  }
+  function buildDots() {
+    dotsEl.innerHTML = "";
+    for (let i = 0; i < beatsPerBar; i++) {
+      const d = document.createElement("div");
+      d.className = "metro-dot";
+      dotsEl.appendChild(d);
+    }
+  }
+  function render() {
+    bpmEl.textContent = bpm;
+    nameEl.textContent = tempoName(bpm);
+    slider.value = bpm;
+  }
+  function setBpm(b) { bpm = clamp(Math.round(b), 30, 240); render(); }
+
+  function click(time, accent) {
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    osc.frequency.value = accent ? 1200 : 800;
+    gain.gain.setValueAtTime(accent ? 0.5 : 0.3, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.06);
+    osc.connect(gain).connect(ac.destination);
+    osc.start(time);
+    osc.stop(time + 0.08);
+  }
+  function flashDot(i, accent) {
+    const dots = dotsEl.children;
+    if (!dots[i]) return;
+    dots[i].classList.add("hit");
+    dots[i].classList.toggle("accent", accent);
+    setTimeout(() => dots[i] && dots[i].classList.remove("hit", "accent"), 110);
+  }
+  // Lookahead scheduler: queue audio 100ms ahead so JS timer jitter never lands in the sound
+  function schedule() {
+    while (nextBeatTime < ac.currentTime + 0.1) {
+      const accent = beatIndex % beatsPerBar === 0;
+      click(nextBeatTime, accent && beatsPerBar > 1);
+      const idx = beatIndex % beatsPerBar;
+      const delay = Math.max(0, (nextBeatTime - ac.currentTime) * 1000);
+      setTimeout(() => flashDot(idx, accent && beatsPerBar > 1), delay);
+      nextBeatTime += 60 / bpm;
+      beatIndex++;
+    }
+  }
+  function start() {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    ac.resume();
+    beatIndex = 0;
+    nextBeatTime = ac.currentTime + 0.05;
+    timer = setInterval(schedule, 25);
+    playBtn.classList.add("playing");
+    playBtn.innerHTML = "&#9632;";
+  }
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+    playBtn.classList.remove("playing");
+    playBtn.innerHTML = "&#9654;";
+  }
+
+  playBtn.addEventListener("click", () => (timer ? stop() : start()));
+  slider.addEventListener("input", () => setBpm(+slider.value));
+  $("#metro-up").addEventListener("click", () => setBpm(bpm + 1));
+  $("#metro-down").addEventListener("click", () => setBpm(bpm - 1));
+  $("#metro-beats").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-b]");
+    if (!btn) return;
+    beatsPerBar = +btn.dataset.b;
+    $$("#metro-beats .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    beatIndex = 0;
+    buildDots();
+  });
+  $("#metro-tap").addEventListener("click", () => {
+    const now = performance.now();
+    taps = taps.filter((t) => now - t < 3000);
+    taps.push(now);
+    if (taps.length >= 2) {
+      const intervals = taps.slice(1).map((t, i) => t - taps[i]);
+      const avg = intervals.reduce((a, b) => a + b, 0) / intervals.length;
+      setBpm(60000 / avg);
+    }
+  });
+
+  buildDots();
+  render();
+  tools.metronome = {
+    enter() { acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Tone Generator ================= */
 
 (() => {
