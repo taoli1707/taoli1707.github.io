@@ -1,0 +1,15 @@
+{
+  "name": "Toolkit — Swiss Army Knife",
+  "short_name": "Toolkit",
+  "description": "Everyday utility tools: flashlight, ruler, bubble level, compass, converter, stopwatch, counter and magnifier.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "icons": [
+    { "src": "icons/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

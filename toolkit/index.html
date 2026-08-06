@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Toolkit</title>
+<meta name="description" content="Swiss Army knife utility app: flashlight, ruler, bubble level, compass, converter, stopwatch and more.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Toolkit">
+<meta name="theme-color" content="#0b0b0f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" href="icons/icon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HOME ============ -->
+<main id="home" class="screen">
+  <header class="home-header">
+    <h1>Toolkit</h1>
+    <p class="subtitle">Everyday tools, one app</p>
+  </header>
+  <div class="grid">
+    <a class="tile" href="#flashlight"><span class="tile-icon" style="background:linear-gradient(135deg,#ffd93d,#ff9f1a)">&#128294;</span><span class="tile-label">Flashlight</span></a>
+    <a class="tile" href="#ruler"><span class="tile-icon" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128207;</span><span class="tile-label">Ruler</span></a>
+    <a class="tile" href="#level"><span class="tile-icon" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#127919;</span><span class="tile-label">Level</span></a>
+    <a class="tile" href="#compass"><span class="tile-icon" style="background:linear-gradient(135deg,#fa709a,#fee140)">&#129517;</span><span class="tile-label">Compass</span></a>
+    <a class="tile" href="#converter"><span class="tile-icon" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#128257;</span><span class="tile-label">Converter</span></a>
+    <a class="tile" href="#timer"><span class="tile-icon" style="background:linear-gradient(135deg,#f77062,#fe5196)">&#9201;&#65039;</span><span class="tile-label">Stopwatch</span></a>
+    <a class="tile" href="#counter"><span class="tile-icon" style="background:linear-gradient(135deg,#30cfd0,#330867)">&#128290;</span><span class="tile-label">Counter</span></a>
+    <a class="tile" href="#magnifier"><span class="tile-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128269;</span><span class="tile-label">Magnifier</span></a>
+  </div>
+  <footer class="home-footer">
+    <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
+  </footer>
+</main>
+
+<!-- ============ FLASHLIGHT ============ -->
+<section id="flashlight" class="screen tool hidden">
+  <div id="light-surface" class="light-surface"></div>
+  <div class="tool-chrome" id="light-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Flashlight</h2><span class="spacer"></span></header>
+    <div class="tool-footer panel">
+      <label class="slider-row">Brightness
+        <input type="range" id="light-brightness" min="20" max="100" value="100">
+      </label>
+      <div class="chip-row" id="light-colors">
+        <button class="chip active" data-color="#ffffff">White</button>
+        <button class="chip" data-color="#fff3d6">Warm</button>
+        <button class="chip" data-color="#ff2d2d">Red</button>
+        <button class="chip" data-color="#2dff5e">Green</button>
+        <button class="chip" data-color="#2d7bff">Blue</button>
+      </div>
+      <div class="chip-row">
+        <button class="chip" id="light-strobe">Strobe</button>
+        <button class="chip" id="light-sos">SOS</button>
+      </div>
+      <p class="hint">Tap the light to hide/show controls</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULER ============ -->
+<section id="ruler" class="screen tool hidden">
+  <canvas id="ruler-canvas"></canvas>
+  <div class="ruler-line" id="ruler-line-a"><span class="ruler-handle"></span></div>
+  <div class="ruler-line" id="ruler-line-b"><span class="ruler-handle"></span></div>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Ruler</h2><span class="spacer"></span></header>
+    <div class="ruler-readout" id="ruler-readout">0.0 cm</div>
+    <div class="tool-footer panel">
+      <div class="chip-row">
+        <button class="chip active" id="ruler-unit-cm">cm</button>
+        <button class="chip" id="ruler-unit-in">inch</button>
+        <button class="chip" id="ruler-calibrate">Calibrate</button>
+      </div>
+      <p class="hint">Drag the two lines to measure</p>
+    </div>
+  </div>
+  <div id="ruler-cal" class="modal hidden">
+    <div class="modal-body">
+      <h3>Calibrate</h3>
+      <p>Place a credit card on the screen and adjust until the outline matches its width.</p>
+      <div id="cal-card"><span>Credit card<br>85.6 mm</span></div>
+      <input type="range" id="cal-slider" min="300" max="900" value="513">
+      <div class="chip-row">
+        <button class="chip" id="cal-reset">Reset</button>
+        <button class="chip active" id="cal-done">Done</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEVEL ============ -->
+<section id="level" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Level</h2><span class="spacer"></span></header>
+  </div>
+  <div class="level-stage" id="level-stage">
+    <div id="level-flat" class="level-flat">
+      <div class="level-target"><div class="level-cross-h"></div><div class="level-cross-v"></div></div>
+      <div class="level-bubble" id="level-bubble"></div>
+    </div>
+    <div id="level-edge" class="level-edge hidden">
+      <div class="edge-track"><div class="edge-center"></div><div class="edge-bubble" id="edge-bubble"></div></div>
+    </div>
+    <div class="level-readout" id="level-readout">0.0&deg;</div>
+    <div class="level-sub" id="level-sub">x 0.0&deg; &nbsp; y 0.0&deg;</div>
+  </div>
+  <div class="tool-footer panel">
+    <div class="chip-row">
+      <button class="chip active" id="level-mode-auto">Auto</button>
+      <button class="chip" id="level-mode-flat">Surface</button>
+      <button class="chip" id="level-mode-edge">Edge</button>
+      <button class="chip" id="level-zero">Set zero</button>
+    </div>
+    <button class="big-btn hidden" id="level-perm">Enable motion access</button>
+    <p class="hint" id="level-hint">Lay the phone flat, or hold it on its edge</p>
+  </div>
+</section>
+
+<!-- ============ COMPASS ============ -->
+<section id="compass" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Compass</h2><span class="spacer"></span></header>
+  </div>
+  <div class="compass-stage">
+    <div class="compass-pointer">&#9660;</div>
+    <div class="compass-dial" id="compass-dial">
+      <svg viewBox="0 0 300 300" id="compass-svg"></svg>
+    </div>
+    <div class="compass-readout"><span id="compass-deg">--&deg;</span><span id="compass-dir">--</span></div>
+  </div>
+  <div class="tool-footer panel">
+    <button class="big-btn hidden" id="compass-perm">Enable compass access</button>
+    <p class="hint" id="compass-hint">Hold the phone flat. Move it in a figure-8 to calibrate.</p>
+  </div>
+</section>
+
+<!-- ============ CONVERTER ============ -->
+<section id="converter" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Converter</h2><span class="spacer"></span></header>
+  </div>
+  <div class="conv-body">
+    <div class="chip-row wrap" id="conv-cats"></div>
+    <div class="conv-card">
+      <div class="conv-row">
+        <input type="text" inputmode="decimal" id="conv-input" value="1">
+        <select id="conv-from"></select>
+      </div>
+      <button class="swap-btn" id="conv-swap" aria-label="Swap units">&#8645;</button>
+      <div class="conv-row">
+        <output id="conv-output">--</output>
+        <select id="conv-to"></select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STOPWATCH / TIMER ============ -->
+<section id="timer" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Stopwatch</h2><span class="spacer"></span></header>
+  </div>
+  <div class="chip-row center" id="timer-tabs">
+    <button class="chip active" data-tab="sw">Stopwatch</button>
+    <button class="chip" data-tab="tm">Timer</button>
+  </div>
+  <div id="tab-sw" class="timer-body">
+    <div class="time-display" id="sw-display">00:00<small>.00</small></div>
+    <div class="btn-row">
+      <button class="round-btn" id="sw-lap">Lap</button>
+      <button class="round-btn go" id="sw-startstop">Start</button>
+    </div>
+    <ol class="laps" id="sw-laps" reversed></ol>
+  </div>
+  <div id="tab-tm" class="timer-body hidden">
+    <div class="time-display" id="tm-display">05:00</div>
+    <div class="chip-row center" id="tm-presets">
+      <button class="chip" data-sec="60">1m</button>
+      <button class="chip" data-sec="180">3m</button>
+      <button class="chip" data-sec="300">5m</button>
+      <button class="chip" data-sec="600">10m</button>
+      <button class="chip" data-sec="1800">30m</button>
+    </div>
+    <div class="btn-row">
+      <button class="round-btn" id="tm-reset">Reset</button>
+      <button class="round-btn go" id="tm-startstop">Start</button>
+    </div>
+    <div class="chip-row center">
+      <button class="chip" data-add="-60">-1m</button>
+      <button class="chip" data-add="-10">-10s</button>
+      <button class="chip" data-add="10">+10s</button>
+      <button class="chip" data-add="60">+1m</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COUNTER ============ -->
+<section id="counter" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Counter</h2><span class="spacer"></span></header>
+  </div>
+  <div class="counter-stage" id="counter-tap">
+    <div class="counter-value" id="counter-value">0</div>
+    <p class="hint">Tap anywhere to count up</p>
+  </div>
+  <div class="tool-footer panel">
+    <div class="btn-row">
+      <button class="round-btn" id="counter-minus">&#8722;1</button>
+      <button class="round-btn danger" id="counter-reset">Reset</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAGNIFIER ============ -->
+<section id="magnifier" class="screen tool hidden">
+  <video id="mag-video" autoplay playsinline muted></video>
+  <canvas id="mag-freeze" class="hidden"></canvas>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Magnifier</h2><span class="spacer"></span></header>
+    <div class="tool-footer panel">
+      <label class="slider-row">Zoom
+        <input type="range" id="mag-zoom" min="1" max="6" step="0.1" value="2">
+      </label>
+      <div class="chip-row">
+        <button class="chip" id="mag-freeze-btn">Freeze</button>
+        <button class="chip" id="mag-torch-btn">Torch</button>
+      </div>
+      <p class="hint" id="mag-hint">Camera magnifier</p>
+    </div>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
