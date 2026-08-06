@@ -42,6 +42,7 @@
     <a class="tile" href="#protractor"><span class="tile-icon" style="background:linear-gradient(135deg,#2193b0,#6dd5ed)">&#128208;</span><span class="tile-label">Protractor</span></a>
     <a class="tile" href="#mirror"><span class="tile-icon" style="background:linear-gradient(135deg,#8e9eab,#3f4c6b)">&#129694;</span><span class="tile-label">Mirror</span></a>
     <a class="tile" href="#speed"><span class="tile-icon" style="background:linear-gradient(135deg,#7f00ff,#e100ff)">&#128663;</span><span class="tile-label">Speed</span></a>
+    <a class="tile" href="#color"><span class="tile-icon" style="background:linear-gradient(135deg,#ff9a9e,#a18cd1)">&#127912;</span><span class="tile-label">Color Picker</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -270,6 +271,29 @@
         <input type="file" id="qr-file" accept="image/*" class="hidden">
       </div>
       <p class="hint" id="qr-hint">Point the camera at a QR code</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLOR PICKER ============ -->
+<section id="color" class="screen tool hidden">
+  <video id="color-video" autoplay playsinline muted></video>
+  <div class="color-crosshair"></div>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Color Picker</h2><span class="spacer"></span></header>
+    <div class="tool-footer panel">
+      <div class="color-row">
+        <div class="color-swatch" id="color-swatch"></div>
+        <div class="color-info">
+          <div class="color-hex" id="color-hex">#——</div>
+          <div class="color-rgb" id="color-rgb">&nbsp;</div>
+        </div>
+      </div>
+      <div class="chip-row">
+        <button class="chip" id="color-freeze">Hold</button>
+        <button class="chip" id="color-copy">Copy hex</button>
+      </div>
+      <p class="hint" id="color-hint">Aim the crosshair at anything to read its color</p>
     </div>
   </div>
 </section>

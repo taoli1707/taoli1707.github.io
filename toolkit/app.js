@@ -876,6 +876,98 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Color Picker ================= */
+
+(() => {
+  const video = $("#color-video");
+  const swatch = $("#color-swatch");
+  const hexEl = $("#color-hex");
+  const rgbEl = $("#color-rgb");
+  const hint = $("#color-hint");
+  const copyBtn = $("#color-copy");
+  const holdBtn = $("#color-freeze");
+  const work = document.createElement("canvas");
+  let stream = null, timer = null, held = false;
+  let hex = "";
+
+  function toHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    const l = (max + min) / 2;
+    if (max === min) return [0, 0, Math.round(l * 100)];
+    const d = max - min;
+    const s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    let h;
+    if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+    else if (max === g) h = ((b - r) / d + 2) / 6;
+    else h = ((r - g) / d + 4) / 6;
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+  }
+
+  function sample() {
+    if (held || !video.videoWidth) return;
+    // Average an 11x11 block at the crosshair (center, slightly above middle to match its CSS offset)
+    const vw = video.videoWidth, vh = video.videoHeight;
+    const cx = Math.round(vw / 2), cy = Math.round(vh * 0.5 - vh * 0.02);
+    work.width = 11; work.height = 11;
+    const c = work.getContext("2d", { willReadFrequently: true });
+    c.drawImage(video, cx - 5, cy - 5, 11, 11, 0, 0, 11, 11);
+    const d = c.getImageData(0, 0, 11, 11).data;
+    let r = 0, g = 0, b = 0;
+    for (let i = 0; i < d.length; i += 4) { r += d[i]; g += d[i + 1]; b += d[i + 2]; }
+    const n = d.length / 4;
+    r = Math.round(r / n); g = Math.round(g / n); b = Math.round(b / n);
+    hex = "#" + [r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("");
+    const [h, s, l] = toHsl(r, g, b);
+    swatch.style.background = hex;
+    hexEl.textContent = hex.toUpperCase();
+    rgbEl.textContent = `rgb(${r}, ${g}, ${b}) · hsl(${h}°, ${s}%, ${l}%)`;
+  }
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment", width: { ideal: 1280 } },
+        audio: false
+      });
+      video.srcObject = stream;
+      hint.textContent = "Aim the crosshair at anything to read its color";
+      timer = setInterval(sample, 200);
+    } catch (e) {
+      hint.textContent = "Camera unavailable. Allow camera access to pick colors.";
+    }
+  }
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+    video.srcObject = null;
+    held = false;
+    holdBtn.textContent = "Hold";
+    holdBtn.classList.remove("active");
+  }
+
+  holdBtn.addEventListener("click", () => {
+    held = !held;
+    holdBtn.textContent = held ? "Resume" : "Hold";
+    holdBtn.classList.toggle("active", held);
+  });
+  copyBtn.addEventListener("click", async () => {
+    if (!hex) return;
+    try {
+      await navigator.clipboard.writeText(hex.toUpperCase());
+      copyBtn.textContent = "Copied!";
+    } catch (e) { copyBtn.textContent = "Copy failed"; }
+    setTimeout(() => { copyBtn.textContent = "Copy hex"; }, 1500);
+  });
+
+  tools.color = {
+    enter() { start(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Speedometer ================= */
 
 (() => {
