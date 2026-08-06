@@ -876,6 +876,79 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Random ================= */
+
+(() => {
+  function rand(n) { // uniform integer in [0, n)
+    const max = Math.floor(0xFFFFFFFF / n) * n;
+    const buf = new Uint32Array(1);
+    do { crypto.getRandomValues(buf); } while (buf[0] >= max);
+    return buf[0] % n;
+  }
+  $("#random-tabs").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-tab]");
+    if (!btn) return;
+    $$("#random-tabs .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    ["dice", "coin", "number"].forEach((t) =>
+      $("#tab-" + t).classList.toggle("hidden", btn.dataset.tab !== t));
+  });
+
+  /* Dice */
+  const diceRow = $("#dice-row");
+  let diceCount = 1;
+  $("#dice-count").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-n]");
+    if (!btn) return;
+    diceCount = +btn.dataset.n;
+    $$("#dice-count .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    roll();
+  });
+  function roll() {
+    diceRow.innerHTML = "";
+    let total = 0;
+    for (let i = 0; i < diceCount; i++) {
+      const v = rand(6) + 1;
+      total += v;
+      const die = document.createElement("div");
+      die.className = "die rolling";
+      die.textContent = v;
+      diceRow.appendChild(die);
+    }
+    $("#dice-total").textContent = diceCount > 1 ? "Total: " + total : "";
+    if (navigator.vibrate) navigator.vibrate(15);
+  }
+  $("#dice-roll").addEventListener("click", roll);
+
+  /* Coin */
+  const coinFace = $("#coin-face");
+  let heads = 0, tails = 0;
+  $("#coin-flip").addEventListener("click", () => {
+    coinFace.classList.remove("flipping");
+    void coinFace.offsetWidth; // restart animation
+    coinFace.classList.add("flipping");
+    const isHeads = rand(2) === 0;
+    setTimeout(() => {
+      coinFace.textContent = isHeads ? "Heads" : "Tails";
+      if (isHeads) heads++; else tails++;
+      $("#coin-tally").textContent = `Heads ${heads} · Tails ${tails}`;
+    }, 250);
+    if (navigator.vibrate) navigator.vibrate(15);
+  });
+
+  /* Number */
+  $("#number-go").addEventListener("click", () => {
+    let lo = parseInt($("#number-min").value, 10);
+    let hi = parseInt($("#number-max").value, 10);
+    if (isNaN(lo) || isNaN(hi)) return;
+    if (lo > hi) [lo, hi] = [hi, lo];
+    $("#number-result").textContent = (lo + rand(hi - lo + 1)).toLocaleString("en-US");
+  });
+
+  tools.random = { enter() { if (!diceRow.children.length) roll(); } };
+})();
+
 /* ================= QR Scanner ================= */
 
 (() => {

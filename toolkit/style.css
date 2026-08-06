@@ -442,6 +442,81 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- Random ---------- */
+.random-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 16px 24px calc(var(--safe-bottom) + 24px);
+}
+.random-body .big-btn { max-width: 320px; }
+.dice-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  min-height: 78px;
+}
+.die {
+  width: 72px; height: 72px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fff, #d8d8de);
+  color: #1c1c24;
+  font-size: 44px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+}
+.die.rolling { animation: die-shake 0.35s ease; }
+@keyframes die-shake {
+  0% { transform: rotate(0) scale(0.8); }
+  40% { transform: rotate(12deg) scale(1.1); }
+  70% { transform: rotate(-8deg); }
+  100% { transform: rotate(0); }
+}
+.random-total { font-size: 20px; color: var(--muted); font-weight: 600; min-height: 26px; }
+.random-total.big { font-size: 88px; color: var(--text); font-weight: 800; font-variant-numeric: tabular-nums; min-height: 100px; }
+.coin {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe9a8, #f5c542 55%, #b8860b);
+  color: #5c4400;
+  font-size: 34px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 0 0 8px rgba(255,255,255,0.25);
+}
+.coin.flipping { animation: coin-spin 0.5s ease; }
+@keyframes coin-spin {
+  0% { transform: rotateX(0); }
+  100% { transform: rotateX(720deg); }
+}
+.numrange-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 16px;
+}
+.numrange-row input {
+  width: 110px;
+  background: #2c2c34;
+  border: none;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 700;
+  padding: 12px;
+  text-align: center;
+}
+
 /* ---------- QR Scanner ---------- */
 #qr { background: #000; }
 #qr-video {
