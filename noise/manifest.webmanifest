@@ -1,0 +1,12 @@
+{
+  "name": "Noise Machine",
+  "short_name": "Noise",
+  "description": "Layered white noise, ambient soundscapes, binaural beats, sleep timer and presets — all generated in your browser.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0e1a",
+  "theme_color": "#0b0e1a",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
