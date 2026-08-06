@@ -442,6 +442,43 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- Tone Generator ---------- */
+#tone { background: radial-gradient(circle at 50% 35%, #0e1f1a, #0b0b0f); }
+.tone-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.tone-freq { font-size: 54px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.tone-note { color: var(--muted); font-size: 20px; font-weight: 600; min-height: 26px; }
+.tone-play {
+  margin-top: 26px;
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  border: none;
+  background: #0f3d22;
+  color: #30d158;
+  font-size: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 8px;
+}
+.tone-play.playing {
+  background: #3d1412;
+  color: #ff453a;
+  padding-left: 0;
+  animation: tone-pulse 1s ease-in-out infinite;
+}
+@keyframes tone-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 69, 58, 0.4); }
+  50% { box-shadow: 0 0 0 18px rgba(255, 69, 58, 0); }
+}
+
 /* ---------- Tip Calculator ---------- */
 .tip-input {
   flex: 1;

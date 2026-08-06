@@ -876,6 +876,101 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Tone Generator ================= */
+
+(() => {
+  const slider = $("#tone-slider");
+  const volume = $("#tone-volume");
+  const freqEl = $("#tone-freq");
+  const noteEl = $("#tone-note");
+  const playBtn = $("#tone-play");
+  const NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+  let ac = null, osc = null, gain = null;
+  let wave = "sine";
+
+  // Log scale: slider 0..1000 → 20 Hz .. 20 kHz
+  const sliderToFreq = (t) => Math.round(20 * Math.pow(10, 3 * t / 1000));
+  const freqToSlider = (f) => Math.round(1000 * Math.log10(f / 20) / 3);
+
+  function noteName(f) {
+    if (f < 27 || f > 14000) return "";
+    const n = Math.round(12 * Math.log2(f / 440)) + 57; // semitones from C0
+    const cents = Math.round(1200 * Math.log2(f / (440 * Math.pow(2, (n - 57) / 12))));
+    if (Math.abs(cents) > 40) return "";
+    return NOTES[n % 12] + Math.floor(n / 12) + (cents ? ` ${cents > 0 ? "+" : ""}${cents}¢` : "");
+  }
+
+  let freq = 440; // exact value; the slider is only an approximate control
+
+  function render() {
+    const f = freq;
+    freqEl.textContent = f < 1000 ? f + " Hz" : (f / 1000).toFixed(f < 10000 ? 2 : 1) + " kHz";
+    noteEl.textContent = noteName(f);
+    if (osc) osc.frequency.setTargetAtTime(f, ac.currentTime, 0.01);
+  }
+
+  function targetGain() { return Math.pow(+volume.value / 100, 2) * 0.5; }
+
+  function start() {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    ac.resume();
+    osc = ac.createOscillator();
+    gain = ac.createGain();
+    osc.type = wave;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, ac.currentTime);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.0001, targetGain()), ac.currentTime + 0.05);
+    osc.connect(gain).connect(ac.destination);
+    osc.start();
+    playBtn.classList.add("playing");
+    playBtn.innerHTML = "&#9632;";
+  }
+
+  function stop() {
+    if (osc) {
+      const o = osc, g = gain;
+      g.gain.setTargetAtTime(0.0001, ac.currentTime, 0.02);
+      setTimeout(() => { try { o.stop(); o.disconnect(); g.disconnect(); } catch (e) {} }, 120);
+      osc = null; gain = null;
+    }
+    playBtn.classList.remove("playing");
+    playBtn.innerHTML = "&#9654;";
+  }
+
+  playBtn.addEventListener("click", () => (osc ? stop() : start()));
+  slider.addEventListener("input", () => { freq = sliderToFreq(+slider.value); render(); });
+  volume.addEventListener("input", () => {
+    if (gain) gain.gain.setTargetAtTime(Math.max(0.0001, targetGain()), ac.currentTime, 0.02);
+  });
+  $("#tone-waves").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-w]");
+    if (!btn) return;
+    wave = btn.dataset.w;
+    $$("#tone-waves .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    if (osc) osc.type = wave;
+  });
+  $("#tone-presets").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-f]");
+    if (!btn) return;
+    freq = +btn.dataset.f;
+    slider.value = freqToSlider(freq);
+    if (btn.dataset.vol) {
+      volume.value = btn.dataset.vol;
+      if (gain) gain.gain.setTargetAtTime(Math.max(0.0001, targetGain()), ac.currentTime, 0.02);
+    }
+    render();
+    if (!osc) start();
+  });
+
+  render();
+  tools.tone = {
+    enter() { acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Tip Calculator ================= */
 
 (() => {
