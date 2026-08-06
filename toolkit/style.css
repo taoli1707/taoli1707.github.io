@@ -442,6 +442,33 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- Tip Calculator ---------- */
+.tip-input {
+  flex: 1;
+  background: #2c2c34;
+  border: none;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 24px;
+  font-weight: 700;
+  padding: 12px;
+  text-align: right;
+  min-width: 0;
+}
+.tip-label { color: var(--muted); font-size: 14px; font-weight: 600; }
+.tip-pct-val { min-width: 44px; text-align: right; color: var(--text); font-weight: 700; }
+.tip-results { display: flex; flex-direction: column; gap: 12px; }
+.tip-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: 16px;
+}
+.tip-line strong { color: var(--text); font-size: 22px; font-variant-numeric: tabular-nums; }
+.tip-line.big { border-top: 1px solid #2c2c34; padding-top: 12px; }
+.tip-line.big strong { font-size: 34px; color: #30d158; }
+
 /* ---------- Date Calculator ---------- */
 .date-card { display: flex; flex-direction: column; gap: 14px; }
 .date-row {

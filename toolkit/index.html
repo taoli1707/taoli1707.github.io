@@ -35,6 +35,7 @@
     <a class="tile" href="#qr"><span class="tile-icon" style="background:linear-gradient(135deg,#f857a6,#ff5858)">&#128307;</span><span class="tile-label">QR Scanner</span></a>
     <a class="tile" href="#random"><span class="tile-icon" style="background:linear-gradient(135deg,#56ab2f,#a8e063)">&#127922;</span><span class="tile-label">Random</span></a>
     <a class="tile" href="#datecalc"><span class="tile-icon" style="background:linear-gradient(135deg,#ff512f,#dd2476)">&#128197;</span><span class="tile-label">Dates</span></a>
+    <a class="tile" href="#tip"><span class="tile-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">&#128181;</span><span class="tile-label">Tip Split</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -263,6 +264,41 @@
         <input type="file" id="qr-file" accept="image/*" class="hidden">
       </div>
       <p class="hint" id="qr-hint">Point the camera at a QR code</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIP CALCULATOR ============ -->
+<section id="tip" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Tip &amp; Split</h2><span class="spacer"></span></header>
+  </div>
+  <div class="conv-body">
+    <div class="conv-card date-card">
+      <label class="date-row">Bill
+        <input type="text" inputmode="decimal" id="tip-bill" placeholder="0.00" class="tip-input">
+      </label>
+      <div class="tip-label">Tip</div>
+      <div class="chip-row wrap" id="tip-pcts">
+        <button class="chip" data-pct="10">10%</button>
+        <button class="chip" data-pct="15">15%</button>
+        <button class="chip active" data-pct="18">18%</button>
+        <button class="chip" data-pct="20">20%</button>
+        <button class="chip" data-pct="25">25%</button>
+      </div>
+      <label class="slider-row">Custom
+        <input type="range" id="tip-slider" min="0" max="40" value="18">
+        <span class="tip-pct-val" id="tip-pct-val">18%</span>
+      </label>
+      <div class="tip-label">Split between <span id="tip-people-val">1</span></div>
+      <label class="slider-row">People
+        <input type="range" id="tip-people" min="1" max="12" value="1">
+      </label>
+    </div>
+    <div class="conv-card tip-results">
+      <div class="tip-line"><span>Tip</span><strong id="tip-amount">$0.00</strong></div>
+      <div class="tip-line"><span>Total</span><strong id="tip-total">$0.00</strong></div>
+      <div class="tip-line big"><span>Per person</span><strong id="tip-per">$0.00</strong></div>
     </div>
   </div>
 </section>

@@ -876,6 +876,44 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Tip Calculator ================= */
+
+(() => {
+  const bill = $("#tip-bill");
+  const slider = $("#tip-slider");
+  const people = $("#tip-people");
+  const money = (n) => "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function calc() {
+    const b = parseFloat(bill.value.replace(/[$,]/g, "")) || 0;
+    const pct = +slider.value;
+    const n = +people.value;
+    const tip = b * pct / 100;
+    $("#tip-pct-val").textContent = pct + "%";
+    $("#tip-people-val").textContent = n === 1 ? "1 person" : n + " people";
+    $("#tip-amount").textContent = money(tip);
+    $("#tip-total").textContent = money(b + tip);
+    // Round per-person up to the cent so the group never comes up short
+    $("#tip-per").textContent = money(Math.ceil((b + tip) * 100 / n) / 100);
+  }
+
+  bill.addEventListener("input", calc);
+  people.addEventListener("input", calc);
+  slider.addEventListener("input", () => {
+    $$("#tip-pcts .chip").forEach((c) => c.classList.toggle("active", +c.dataset.pct === +slider.value));
+    calc();
+  });
+  $("#tip-pcts").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-pct]");
+    if (!btn) return;
+    slider.value = btn.dataset.pct;
+    $$("#tip-pcts .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    calc();
+  });
+  calc();
+})();
+
 /* ================= Date Calculator ================= */
 
 (() => {
