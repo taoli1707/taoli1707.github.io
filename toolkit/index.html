@@ -34,6 +34,7 @@
     <a class="tile" href="#magnifier"><span class="tile-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128269;</span><span class="tile-label">Magnifier</span></a>
     <a class="tile" href="#qr"><span class="tile-icon" style="background:linear-gradient(135deg,#f857a6,#ff5858)">&#128307;</span><span class="tile-label">QR Scanner</span></a>
     <a class="tile" href="#random"><span class="tile-icon" style="background:linear-gradient(135deg,#56ab2f,#a8e063)">&#127922;</span><span class="tile-label">Random</span></a>
+    <a class="tile" href="#datecalc"><span class="tile-icon" style="background:linear-gradient(135deg,#ff512f,#dd2476)">&#128197;</span><span class="tile-label">Dates</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -262,6 +263,45 @@
         <input type="file" id="qr-file" accept="image/*" class="hidden">
       </div>
       <p class="hint" id="qr-hint">Point the camera at a QR code</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATE CALCULATOR ============ -->
+<section id="datecalc" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Date Calculator</h2><span class="spacer"></span></header>
+  </div>
+  <div class="chip-row center" id="date-tabs">
+    <button class="chip active" data-tab="diff">Between dates</button>
+    <button class="chip" data-tab="add">Add / subtract</button>
+  </div>
+  <div id="tab-diff" class="conv-body">
+    <div class="conv-card date-card">
+      <label class="date-row">From <input type="date" id="date-a"></label>
+      <label class="date-row">To <input type="date" id="date-b"></label>
+      <div class="date-result" id="date-diff-result">&nbsp;</div>
+      <div class="date-sub" id="date-diff-sub">&nbsp;</div>
+    </div>
+  </div>
+  <div id="tab-add" class="conv-body hidden">
+    <div class="conv-card date-card">
+      <label class="date-row">Start <input type="date" id="date-start"></label>
+      <div class="date-row">
+        <input type="text" inputmode="numeric" id="date-amount" value="30" class="date-amount">
+        <select id="date-unit">
+          <option value="days">days</option>
+          <option value="weeks">weeks</option>
+          <option value="months">months</option>
+          <option value="years">years</option>
+        </select>
+        <div class="chip-row" style="margin:0">
+          <button class="chip active" id="date-plus">+</button>
+          <button class="chip" id="date-minus">&#8722;</button>
+        </div>
+      </div>
+      <div class="date-result" id="date-add-result">&nbsp;</div>
+      <div class="date-sub" id="date-add-sub">&nbsp;</div>
     </div>
   </div>
 </section>

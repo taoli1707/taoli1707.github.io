@@ -442,6 +442,54 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- Date Calculator ---------- */
+.date-card { display: flex; flex-direction: column; gap: 14px; }
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+.date-row input[type="date"] {
+  flex: 1;
+  background: #2c2c34;
+  border: none;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+  padding: 12px;
+  font-family: inherit;
+  min-width: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  color-scheme: dark;
+}
+.date-amount {
+  width: 80px;
+  background: #2c2c34;
+  border: none;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 12px;
+  text-align: center;
+}
+.date-row select {
+  background: #2c2c34;
+  color: var(--text);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 8px;
+}
+.date-result { font-size: 30px; font-weight: 800; text-align: center; margin-top: 6px; min-height: 38px; }
+.date-sub { color: var(--muted); font-size: 14px; text-align: center; min-height: 20px; }
+
 /* ---------- Random ---------- */
 .random-body {
   flex: 1;

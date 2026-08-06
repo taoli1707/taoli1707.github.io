@@ -876,6 +876,104 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Date Calculator ================= */
+
+(() => {
+  const dateA = $("#date-a"), dateB = $("#date-b");
+  const startEl = $("#date-start"), amountEl = $("#date-amount"), unitEl = $("#date-unit");
+  let sign = 1;
+
+  $("#date-tabs").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-tab]");
+    if (!btn) return;
+    $$("#date-tabs .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    $("#tab-diff").classList.toggle("hidden", btn.dataset.tab !== "diff");
+    $("#tab-add").classList.toggle("hidden", btn.dataset.tab !== "add");
+  });
+
+  function isoToday() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  }
+  function parseISO(s) {
+    const [y, m, d] = s.split("-").map(Number);
+    return { y, m, d };
+  }
+  function fmtLong(y, m, d) {
+    return new Date(y, m - 1, d).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+  }
+
+  function diff() {
+    if (!dateA.value || !dateB.value) return;
+    const a = parseISO(dateA.value), b = parseISO(dateB.value);
+    // UTC midnights make the day count immune to DST transitions
+    const days = Math.round((Date.UTC(b.y, b.m - 1, b.d) - Date.UTC(a.y, a.m - 1, a.d)) / 86400000);
+    const abs = Math.abs(days);
+    $("#date-diff-result").textContent = abs === 1 ? "1 day" : abs.toLocaleString("en-US") + " days";
+
+    // Calendar breakdown years/months/days from the earlier date
+    let [lo, hi] = days >= 0 ? [a, b] : [b, a];
+    let years = hi.y - lo.y, months = hi.m - lo.m, ds = hi.d - lo.d;
+    if (ds < 0) { months--; ds += new Date(hi.y, hi.m - 1, 0).getDate(); }
+    if (months < 0) { years--; months += 12; }
+    const parts = [];
+    if (years) parts.push(years + (years === 1 ? " year" : " years"));
+    if (months) parts.push(months + (months === 1 ? " month" : " months"));
+    if (ds) parts.push(ds + (ds === 1 ? " day" : " days"));
+    const wk = Math.floor(abs / 7), rem = abs % 7;
+    let sub = abs >= 7 ? `${wk} wk ${rem} d` : "";
+    if (parts.length > 1 || years || months) sub = parts.join(" ") + (sub ? " · " + sub : "");
+    $("#date-diff-sub").textContent = sub || " ";
+  }
+
+  function addCalc() {
+    if (!startEl.value) return;
+    const s = parseISO(startEl.value);
+    const n = sign * (parseInt(amountEl.value, 10) || 0);
+    const d = new Date(s.y, s.m - 1, s.d);
+    const origDay = d.getDate();
+    if (unitEl.value === "days") d.setDate(d.getDate() + n);
+    else if (unitEl.value === "weeks") d.setDate(d.getDate() + n * 7);
+    else {
+      if (unitEl.value === "months") d.setMonth(d.getMonth() + n);
+      else d.setFullYear(d.getFullYear() + n);
+      // Clamp overflow (e.g. Jan 31 + 1 month → Feb 28, not Mar 3)
+      if (d.getDate() !== origDay) d.setDate(0);
+    }
+    $("#date-add-result").textContent = d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    $("#date-add-sub").textContent = d.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
+  [dateA, dateB].forEach((el) => el.addEventListener("change", diff));
+  [startEl, amountEl, unitEl].forEach((el) => {
+    el.addEventListener("change", addCalc);
+    el.addEventListener("input", addCalc);
+  });
+  $("#date-plus").addEventListener("click", () => {
+    sign = 1;
+    $("#date-plus").classList.add("active");
+    $("#date-minus").classList.remove("active");
+    addCalc();
+  });
+  $("#date-minus").addEventListener("click", () => {
+    sign = -1;
+    $("#date-minus").classList.add("active");
+    $("#date-plus").classList.remove("active");
+    addCalc();
+  });
+
+  tools.datecalc = {
+    enter() {
+      if (!dateA.value) dateA.value = isoToday();
+      if (!dateB.value) dateB.value = isoToday();
+      if (!startEl.value) startEl.value = isoToday();
+      diff();
+      addCalc();
+    }
+  };
+})();
+
 /* ================= Random ================= */
 
 (() => {
