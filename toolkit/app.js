@@ -876,6 +876,112 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Sound Meter ================= */
+
+(() => {
+  const dbEl = $("#sound-db");
+  const descEl = $("#sound-desc");
+  const bar = $("#sound-bar");
+  const graph = $("#sound-graph");
+  const hint = $("#sound-hint");
+  const DB_OFFSET = 94; // rough mapping of dBFS to everyday SPL-like values
+  const DESCRIPTIONS = [[30, "Very quiet"], [45, "Quiet room"], [60, "Conversation"], [75, "Busy street"], [90, "Loud — shouting"], [110, "Very loud — harmful over time"], [999, "Dangerously loud"]];
+  let ac = null, analyser = null, stream = null, raf = null;
+  let data = null;
+  let history = [];
+  let minDb = Infinity, peakDb = -Infinity, sum = 0, count = 0;
+  let smooth = 0;
+
+  function describe(db) {
+    for (const [max, name] of DESCRIPTIONS) if (db < max) return name;
+    return "";
+  }
+  function resetStats() {
+    minDb = Infinity; peakDb = -Infinity; sum = 0; count = 0; history = [];
+    $("#sound-min").textContent = $("#sound-avg").textContent = $("#sound-peak").textContent = "--";
+  }
+
+  function drawGraph() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = graph.clientWidth, h = graph.clientHeight;
+    if (graph.width !== w * dpr) { graph.width = w * dpr; graph.height = h * dpr; }
+    const c = graph.getContext("2d");
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+    c.strokeStyle = "#f9d423";
+    c.lineWidth = 2;
+    c.beginPath();
+    const n = history.length;
+    for (let i = 0; i < n; i++) {
+      const x = w - (n - i) * 2;
+      if (x < 0) continue;
+      const y = h - clamp((history[i] - 20) / 100, 0, 1) * h;
+      i === 0 ? c.moveTo(x, y) : c.lineTo(x, y);
+    }
+    c.stroke();
+  }
+
+  function tick() {
+    analyser.getFloatTimeDomainData(data);
+    let s = 0;
+    for (let i = 0; i < data.length; i++) s += data[i] * data[i];
+    const rms = Math.sqrt(s / data.length);
+    const db = Math.max(0, 20 * Math.log10(rms || 1e-7) + DB_OFFSET);
+    smooth = smooth * 0.8 + db * 0.2;
+
+    dbEl.textContent = Math.round(smooth);
+    descEl.textContent = describe(smooth);
+    bar.style.width = clamp((smooth - 20) / 100 * 100, 0, 100) + "%";
+
+    minDb = Math.min(minDb, db);
+    peakDb = Math.max(peakDb, db);
+    sum += db; count++;
+    $("#sound-min").textContent = Math.round(minDb);
+    $("#sound-avg").textContent = Math.round(sum / count);
+    $("#sound-peak").textContent = Math.round(peakDb);
+
+    history.push(smooth);
+    if (history.length > 400) history.shift();
+    drawGraph();
+    raf = requestAnimationFrame(tick);
+  }
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+      });
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      ac.resume();
+      const src = ac.createMediaStreamSource(stream);
+      analyser = ac.createAnalyser();
+      analyser.fftSize = 2048;
+      data = new Float32Array(analyser.fftSize);
+      src.connect(analyser);
+      hint.textContent = "Approximate level — phone mics aren't calibrated instruments";
+      resetStats();
+      tick();
+    } catch (e) {
+      dbEl.textContent = "--";
+      hint.textContent = "Microphone unavailable. Allow mic access to measure sound.";
+    }
+  }
+  function stop() {
+    cancelAnimationFrame(raf);
+    raf = null;
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+    analyser = null;
+  }
+
+  $("#sound-reset").addEventListener("click", resetStats);
+
+  tools.soundmeter = {
+    enter() { start(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Metronome ================= */
 
 (() => {

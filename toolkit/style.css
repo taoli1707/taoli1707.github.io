@@ -442,6 +442,53 @@ input[type="range"] { flex: 1; accent-color: var(--accent); height: 30px; }
   transition: transform 0.08s;
 }
 
+/* ---------- Sound Meter ---------- */
+#soundmeter { background: radial-gradient(circle at 50% 30%, #1f1408, #0b0b0f); }
+.sound-stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 22px;
+  width: 100%;
+}
+.sound-db { display: flex; align-items: baseline; gap: 8px; }
+.sound-db span { font-size: 84px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.sound-db small { color: var(--muted); font-size: 22px; font-weight: 600; }
+.sound-desc { color: var(--muted); font-size: 16px; font-weight: 600; min-height: 22px; }
+.sound-bar-track {
+  width: 100%;
+  max-width: 420px;
+  height: 14px;
+  border-radius: 999px;
+  background: #1c1c24;
+  overflow: hidden;
+}
+.sound-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #30d158 0 55%, #f9d423 55% 78%, #ff453a 78%);
+  background-size: 100vw 100%;
+  transition: width 0.1s linear;
+}
+#sound-graph {
+  width: 100%;
+  max-width: 420px;
+  height: 110px;
+  border-radius: 12px;
+  background: #14141a;
+}
+.sound-stats {
+  display: flex;
+  gap: 36px;
+}
+.sound-stats div { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.sound-stats small { color: var(--muted); font-size: 12px; font-weight: 600; }
+.sound-stats span { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
 /* ---------- Metronome ---------- */
 #metronome { background: radial-gradient(circle at 50% 35%, #201318, #0b0b0f); }
 .metro-stage {
