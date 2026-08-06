@@ -1,5 +1,5 @@
 /* Toolkit service worker — cache-first app shell for offline use */
-const CACHE = "toolkit-v2";
+const CACHE = "toolkit-v3";
 const ASSETS = [
   ".",
   "index.html",

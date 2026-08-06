@@ -876,6 +876,912 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Color Picker ================= */
+
+(() => {
+  const video = $("#color-video");
+  const swatch = $("#color-swatch");
+  const hexEl = $("#color-hex");
+  const rgbEl = $("#color-rgb");
+  const hint = $("#color-hint");
+  const copyBtn = $("#color-copy");
+  const holdBtn = $("#color-freeze");
+  const work = document.createElement("canvas");
+  let stream = null, timer = null, held = false;
+  let hex = "";
+
+  function toHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r, g, b), min = Math.min(r, g, b);
+    const l = (max + min) / 2;
+    if (max === min) return [0, 0, Math.round(l * 100)];
+    const d = max - min;
+    const s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    let h;
+    if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+    else if (max === g) h = ((b - r) / d + 2) / 6;
+    else h = ((r - g) / d + 4) / 6;
+    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
+  }
+
+  function sample() {
+    if (held || !video.videoWidth) return;
+    // Average an 11x11 block at the crosshair (center, slightly above middle to match its CSS offset)
+    const vw = video.videoWidth, vh = video.videoHeight;
+    const cx = Math.round(vw / 2), cy = Math.round(vh * 0.5 - vh * 0.02);
+    work.width = 11; work.height = 11;
+    const c = work.getContext("2d", { willReadFrequently: true });
+    c.drawImage(video, cx - 5, cy - 5, 11, 11, 0, 0, 11, 11);
+    const d = c.getImageData(0, 0, 11, 11).data;
+    let r = 0, g = 0, b = 0;
+    for (let i = 0; i < d.length; i += 4) { r += d[i]; g += d[i + 1]; b += d[i + 2]; }
+    const n = d.length / 4;
+    r = Math.round(r / n); g = Math.round(g / n); b = Math.round(b / n);
+    hex = "#" + [r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("");
+    const [h, s, l] = toHsl(r, g, b);
+    swatch.style.background = hex;
+    hexEl.textContent = hex.toUpperCase();
+    rgbEl.textContent = `rgb(${r}, ${g}, ${b}) · hsl(${h}°, ${s}%, ${l}%)`;
+  }
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment", width: { ideal: 1280 } },
+        audio: false
+      });
+      video.srcObject = stream;
+      hint.textContent = "Aim the crosshair at anything to read its color";
+      timer = setInterval(sample, 200);
+    } catch (e) {
+      hint.textContent = "Camera unavailable. Allow camera access to pick colors.";
+    }
+  }
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+    video.srcObject = null;
+    held = false;
+    holdBtn.textContent = "Hold";
+    holdBtn.classList.remove("active");
+  }
+
+  holdBtn.addEventListener("click", () => {
+    held = !held;
+    holdBtn.textContent = held ? "Resume" : "Hold";
+    holdBtn.classList.toggle("active", held);
+  });
+  copyBtn.addEventListener("click", async () => {
+    if (!hex) return;
+    try {
+      await navigator.clipboard.writeText(hex.toUpperCase());
+      copyBtn.textContent = "Copied!";
+    } catch (e) { copyBtn.textContent = "Copy failed"; }
+    setTimeout(() => { copyBtn.textContent = "Copy hex"; }, 1500);
+  });
+
+  tools.color = {
+    enter() { start(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
+/* ================= Speedometer ================= */
+
+(() => {
+  const valueEl = $("#speed-value");
+  const unitEl = $("#speed-unit");
+  const accEl = $("#speed-acc");
+  const hint = $("#speed-hint");
+  let watchId = null;
+  let unit = store.get("speedUnit", "kmh"); // kmh | mph
+  let last = null; // {lat, lon, t}
+  let maxMs = 0, tripM = 0, movingMs = 0;
+
+  const toUnit = (ms) => ms * (unit === "kmh" ? 3.6 : 2.23694);
+  const distUnit = () => (unit === "kmh" ? "km" : "mi");
+
+  function haversine(lat1, lon1, lat2, lon2) {
+    const R = 6371000, rad = Math.PI / 180;
+    const dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(a));
+  }
+
+  function renderUnitChips() {
+    $("#speed-kmh").classList.toggle("active", unit === "kmh");
+    $("#speed-mph").classList.toggle("active", unit === "mph");
+    unitEl.textContent = unit === "kmh" ? "km/h" : "mph";
+  }
+
+  function renderStats(currentMs) {
+    if (currentMs !== null) valueEl.textContent = Math.round(toUnit(currentMs));
+    $("#speed-max").textContent = Math.round(toUnit(maxMs));
+    const avgMs = movingMs > 0 ? tripM / (movingMs / 1000) : 0;
+    $("#speed-avg").textContent = Math.round(toUnit(avgMs));
+    const d = tripM / (unit === "kmh" ? 1000 : 1609.344);
+    $("#speed-trip").textContent = (d < 10 ? d.toFixed(2) : d.toFixed(1)) + " " + distUnit();
+  }
+
+  function onPos(pos) {
+    const { latitude, longitude, speed, accuracy } = pos.coords;
+    const t = pos.timestamp;
+    accEl.textContent = accuracy ? `GPS accuracy ±${Math.round(accuracy)} m` : "";
+
+    let ms = speed;
+    if (last && (ms === null || isNaN(ms))) {
+      // No native speed (common indoors / on some devices): derive from movement
+      const dt = (t - last.t) / 1000;
+      if (dt > 0.5) ms = haversine(last.lat, last.lon, latitude, longitude) / dt;
+    }
+    if (ms === null || isNaN(ms)) { valueEl.textContent = "--"; }
+    else {
+      if (ms < 0.5) ms = 0; // ignore GPS jitter when standing still
+      maxMs = Math.max(maxMs, ms);
+      if (last && ms > 0) {
+        const dt = t - last.t;
+        if (dt > 0 && dt < 10000) { movingMs += dt; tripM += ms * dt / 1000; }
+      }
+      renderStats(ms);
+    }
+    last = { lat: latitude, lon: longitude, t };
+  }
+
+  function start() {
+    if (!("geolocation" in navigator)) {
+      hint.textContent = "Location not available on this device.";
+      return;
+    }
+    watchId = navigator.geolocation.watchPosition(onPos, (err) => {
+      hint.textContent = err.code === 1
+        ? "Location access denied. Allow it in Settings to measure speed."
+        : "Waiting for GPS signal…";
+    }, { enableHighAccuracy: true, maximumAge: 0, timeout: 15000 });
+  }
+  function stop() {
+    if (watchId !== null) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+    last = null;
+  }
+
+  function setUnit(u) {
+    unit = u;
+    store.set("speedUnit", u);
+    renderUnitChips();
+    renderStats(null);
+  }
+  $("#speed-kmh").addEventListener("click", () => setUnit("kmh"));
+  $("#speed-mph").addEventListener("click", () => setUnit("mph"));
+  $("#speed-reset").addEventListener("click", () => {
+    maxMs = 0; tripM = 0; movingMs = 0;
+    renderStats(0);
+  });
+
+  renderUnitChips();
+  tools.speed = {
+    enter() { start(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
+/* ================= Mirror ================= */
+
+(() => {
+  const video = $("#mirror-video");
+  const freezeCanvas = $("#mirror-freeze");
+  const zoomSlider = $("#mirror-zoom");
+  const hint = $("#mirror-hint");
+  const ring = $("#ring-light");
+  let stream = null;
+  let frozen = false;
+
+  function applyZoom() {
+    const t = `scaleX(-1) scale(${+zoomSlider.value})`;
+    video.style.transform = t;
+    freezeCanvas.style.transform = t;
+  }
+  zoomSlider.addEventListener("input", applyZoom);
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user", width: { ideal: 1280 } },
+        audio: false
+      });
+      video.srcObject = stream;
+      hint.textContent = "Front camera mirror";
+    } catch (e) {
+      hint.textContent = "Camera unavailable. Allow camera access to use the mirror.";
+    }
+  }
+  function stop() {
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+    video.srcObject = null;
+    unfreeze();
+    ring.classList.remove("on");
+    $("#mirror-light-btn").classList.remove("active");
+  }
+  function unfreeze() {
+    frozen = false;
+    freezeCanvas.classList.add("hidden");
+    video.classList.remove("hidden");
+    $("#mirror-freeze-btn").textContent = "Freeze";
+    $("#mirror-freeze-btn").classList.remove("active");
+  }
+
+  $("#mirror-freeze-btn").addEventListener("click", () => {
+    if (frozen) { unfreeze(); return; }
+    if (!video.videoWidth) return;
+    freezeCanvas.width = video.videoWidth;
+    freezeCanvas.height = video.videoHeight;
+    freezeCanvas.getContext("2d").drawImage(video, 0, 0);
+    freezeCanvas.classList.remove("hidden");
+    video.classList.add("hidden");
+    frozen = true;
+    $("#mirror-freeze-btn").textContent = "Live";
+    $("#mirror-freeze-btn").classList.add("active");
+  });
+
+  $("#mirror-light-btn").addEventListener("click", (e) => {
+    const on = ring.classList.toggle("on");
+    e.target.classList.toggle("active", on);
+  });
+
+  tools.mirror = {
+    enter() { start(); applyZoom(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
+/* ================= Protractor ================= */
+
+(() => {
+  const canvas = $("#prot-canvas");
+  const readout = $("#prot-readout");
+  let armA = 180, armB = 90; // degrees, 0 = right, counterclockwise
+  let dragging = null;
+
+  function geometry() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    // Keep the baseline (and the 0°/180° handles) clear of the bottom control panel
+    return { w, h, cx: w / 2, cy: h - Math.max(170, h * 0.22), r: Math.min(w * 0.44, h * 0.5) };
+  }
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1;
+    const { w, h, cx, cy, r } = geometry();
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const c = canvas.getContext("2d");
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+
+    // Protractor body
+    c.beginPath();
+    c.arc(cx, cy, r, Math.PI, 2 * Math.PI);
+    c.closePath();
+    c.fillStyle = "#191922";
+    c.fill();
+    c.strokeStyle = "#2c2c34";
+    c.stroke();
+
+    // Degree ticks
+    c.fillStyle = "#8e8e93";
+    c.strokeStyle = "#8e8e93";
+    c.font = "12px -apple-system, sans-serif";
+    c.textAlign = "center";
+    c.textBaseline = "middle";
+    for (let d = 0; d <= 180; d += 1) {
+      const a = Math.PI + (d * Math.PI) / 180;
+      const len = d % 10 === 0 ? 16 : d % 5 === 0 ? 10 : 5;
+      c.lineWidth = d % 10 === 0 ? 1.5 : 0.75;
+      c.beginPath();
+      c.moveTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+      c.lineTo(cx + (r - len) * Math.cos(a), cy + (r - len) * Math.sin(a));
+      c.stroke();
+      if (d % 10 === 0) {
+        c.fillText(String(d), cx + (r - 30) * Math.cos(a), cy + (r - 30) * Math.sin(a));
+      }
+    }
+
+    // Angle wedge between arms
+    const a1 = Math.PI + (Math.min(armA, armB) * Math.PI) / 180;
+    const a2 = Math.PI + (Math.max(armA, armB) * Math.PI) / 180;
+    c.beginPath();
+    c.moveTo(cx, cy);
+    c.arc(cx, cy, r * 0.28, a1, a2);
+    c.closePath();
+    c.fillStyle = "rgba(33, 147, 176, 0.25)";
+    c.fill();
+
+    // Arms
+    [[armA, "#0a84ff"], [armB, "#ff9f1a"]].forEach(([deg, color]) => {
+      const a = Math.PI + (deg * Math.PI) / 180;
+      const ex = cx + (r + 26) * Math.cos(a), ey = cy + (r + 26) * Math.sin(a);
+      c.strokeStyle = color;
+      c.lineWidth = 3;
+      c.beginPath();
+      c.moveTo(cx, cy);
+      c.lineTo(ex, ey);
+      c.stroke();
+      c.fillStyle = color;
+      c.beginPath();
+      c.arc(ex, ey, 14, 0, 2 * Math.PI);
+      c.fill();
+      c.fillStyle = "#fff";
+      c.beginPath();
+      c.arc(ex, ey, 5, 0, 2 * Math.PI);
+      c.fill();
+    });
+
+    // Center pivot
+    c.fillStyle = "#f2f2f7";
+    c.beginPath();
+    c.arc(cx, cy, 5, 0, 2 * Math.PI);
+    c.fill();
+
+    readout.innerHTML = Math.abs(armB - armA).toFixed(1) + "&deg;";
+  }
+
+  function pointerAngle(e) {
+    const rect = canvas.getBoundingClientRect();
+    const { cx, cy } = geometry();
+    const x = e.clientX - rect.left - cx;
+    const y = e.clientY - rect.top - cy;
+    let deg = (Math.atan2(y, x) * 180) / Math.PI; // -180..180, 0 = right
+    // Map into protractor space: 0 (left) .. 180 (right) along the top half;
+    // touches below the baseline snap to the nearest end
+    deg = deg <= 0 ? deg + 180 : deg < 90 ? 180 : 0;
+    return clamp(deg, 0, 180);
+  }
+
+  canvas.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    const a = pointerAngle(e);
+    dragging = Math.abs(a - armA) <= Math.abs(a - armB) ? "a" : "b";
+    if (dragging === "a") armA = a; else armB = a;
+    draw();
+  });
+  canvas.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    const a = pointerAngle(e);
+    if (dragging === "a") armA = a; else armB = a;
+    draw();
+  });
+  canvas.addEventListener("pointerup", () => { dragging = null; });
+
+  $("#prot-reset").addEventListener("click", () => { armA = 180; armB = 90; draw(); });
+  window.addEventListener("resize", () => { if (currentTool === "protractor") draw(); });
+
+  tools.protractor = { enter() { draw(); } };
+})();
+
+/* ================= Sound Meter ================= */
+
+(() => {
+  const dbEl = $("#sound-db");
+  const descEl = $("#sound-desc");
+  const bar = $("#sound-bar");
+  const graph = $("#sound-graph");
+  const hint = $("#sound-hint");
+  const DB_OFFSET = 94; // rough mapping of dBFS to everyday SPL-like values
+  const DESCRIPTIONS = [[30, "Very quiet"], [45, "Quiet room"], [60, "Conversation"], [75, "Busy street"], [90, "Loud — shouting"], [110, "Very loud — harmful over time"], [999, "Dangerously loud"]];
+  let ac = null, analyser = null, stream = null, raf = null;
+  let data = null;
+  let history = [];
+  let minDb = Infinity, peakDb = -Infinity, sum = 0, count = 0;
+  let smooth = 0;
+
+  function describe(db) {
+    for (const [max, name] of DESCRIPTIONS) if (db < max) return name;
+    return "";
+  }
+  function resetStats() {
+    minDb = Infinity; peakDb = -Infinity; sum = 0; count = 0; history = [];
+    $("#sound-min").textContent = $("#sound-avg").textContent = $("#sound-peak").textContent = "--";
+  }
+
+  function drawGraph() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = graph.clientWidth, h = graph.clientHeight;
+    if (graph.width !== w * dpr) { graph.width = w * dpr; graph.height = h * dpr; }
+    const c = graph.getContext("2d");
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+    c.strokeStyle = "#f9d423";
+    c.lineWidth = 2;
+    c.beginPath();
+    const n = history.length;
+    for (let i = 0; i < n; i++) {
+      const x = w - (n - i) * 2;
+      if (x < 0) continue;
+      const y = h - clamp((history[i] - 20) / 100, 0, 1) * h;
+      i === 0 ? c.moveTo(x, y) : c.lineTo(x, y);
+    }
+    c.stroke();
+  }
+
+  function tick() {
+    analyser.getFloatTimeDomainData(data);
+    let s = 0;
+    for (let i = 0; i < data.length; i++) s += data[i] * data[i];
+    const rms = Math.sqrt(s / data.length);
+    const db = Math.max(0, 20 * Math.log10(rms || 1e-7) + DB_OFFSET);
+    smooth = smooth * 0.8 + db * 0.2;
+
+    dbEl.textContent = Math.round(smooth);
+    descEl.textContent = describe(smooth);
+    bar.style.width = clamp((smooth - 20) / 100 * 100, 0, 100) + "%";
+
+    minDb = Math.min(minDb, db);
+    peakDb = Math.max(peakDb, db);
+    sum += db; count++;
+    $("#sound-min").textContent = Math.round(minDb);
+    $("#sound-avg").textContent = Math.round(sum / count);
+    $("#sound-peak").textContent = Math.round(peakDb);
+
+    history.push(smooth);
+    if (history.length > 400) history.shift();
+    drawGraph();
+    raf = requestAnimationFrame(tick);
+  }
+
+  async function start() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+      });
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      ac.resume();
+      const src = ac.createMediaStreamSource(stream);
+      analyser = ac.createAnalyser();
+      analyser.fftSize = 2048;
+      data = new Float32Array(analyser.fftSize);
+      src.connect(analyser);
+      hint.textContent = "Approximate level — phone mics aren't calibrated instruments";
+      resetStats();
+      tick();
+    } catch (e) {
+      dbEl.textContent = "--";
+      hint.textContent = "Microphone unavailable. Allow mic access to measure sound.";
+    }
+  }
+  function stop() {
+    cancelAnimationFrame(raf);
+    raf = null;
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+    analyser = null;
+  }
+
+  $("#sound-reset").addEventListener("click", resetStats);
+
+  tools.soundmeter = {
+    enter() { start(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
+/* ================= Metronome ================= */
+
+(() => {
+  const bpmEl = $("#metro-bpm");
+  const nameEl = $("#metro-name");
+  const slider = $("#metro-slider");
+  const playBtn = $("#metro-play");
+  const dotsEl = $("#metro-dots");
+  let bpm = 120, beatsPerBar = 4;
+  let ac = null, timer = null;
+  let nextBeatTime = 0, beatIndex = 0;
+  let taps = [];
+  const TEMPO_NAMES = [[40, "Grave"], [60, "Largo"], [76, "Adagio"], [108, "Andante"], [120, "Moderato"], [156, "Allegro"], [200, "Presto"], [241, "Prestissimo"]];
+
+  function tempoName(b) {
+    for (const [max, name] of TEMPO_NAMES) if (b < max) return name;
+    return "Prestissimo";
+  }
+  function buildDots() {
+    dotsEl.innerHTML = "";
+    for (let i = 0; i < beatsPerBar; i++) {
+      const d = document.createElement("div");
+      d.className = "metro-dot";
+      dotsEl.appendChild(d);
+    }
+  }
+  function render() {
+    bpmEl.textContent = bpm;
+    nameEl.textContent = tempoName(bpm);
+    slider.value = bpm;
+  }
+  function setBpm(b) { bpm = clamp(Math.round(b), 30, 240); render(); }
+
+  function click(time, accent) {
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    osc.frequency.value = accent ? 1200 : 800;
+    gain.gain.setValueAtTime(accent ? 0.5 : 0.3, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.06);
+    osc.connect(gain).connect(ac.destination);
+    osc.start(time);
+    osc.stop(time + 0.08);
+  }
+  function flashDot(i, accent) {
+    const dots = dotsEl.children;
+    if (!dots[i]) return;
+    dots[i].classList.add("hit");
+    dots[i].classList.toggle("accent", accent);
+    setTimeout(() => dots[i] && dots[i].classList.remove("hit", "accent"), 110);
+  }
+  // Lookahead scheduler: queue audio 100ms ahead so JS timer jitter never lands in the sound
+  function schedule() {
+    while (nextBeatTime < ac.currentTime + 0.1) {
+      const accent = beatIndex % beatsPerBar === 0;
+      click(nextBeatTime, accent && beatsPerBar > 1);
+      const idx = beatIndex % beatsPerBar;
+      const delay = Math.max(0, (nextBeatTime - ac.currentTime) * 1000);
+      setTimeout(() => flashDot(idx, accent && beatsPerBar > 1), delay);
+      nextBeatTime += 60 / bpm;
+      beatIndex++;
+    }
+  }
+  function start() {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    ac.resume();
+    beatIndex = 0;
+    nextBeatTime = ac.currentTime + 0.05;
+    timer = setInterval(schedule, 25);
+    playBtn.classList.add("playing");
+    playBtn.innerHTML = "&#9632;";
+  }
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+    playBtn.classList.remove("playing");
+    playBtn.innerHTML = "&#9654;";
+  }
+
+  playBtn.addEventListener("click", () => (timer ? stop() : start()));
+  slider.addEventListener("input", () => setBpm(+slider.value));
+  $("#metro-up").addEventListener("click", () => setBpm(bpm + 1));
+  $("#metro-down").addEventListener("click", () => setBpm(bpm - 1));
+  $("#metro-beats").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-b]");
+    if (!btn) return;
+    beatsPerBar = +btn.dataset.b;
+    $$("#metro-beats .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    beatIndex = 0;
+    buildDots();
+  });
+  $("#metro-tap").addEventListener("click", () => {
+    const now = performance.now();
+    taps = taps.filter((t) => now - t < 3000);
+    taps.push(now);
+    if (taps.length >= 2) {
+      const intervals = taps.slice(1).map((t, i) => t - taps[i]);
+      const avg = intervals.reduce((a, b) => a + b, 0) / intervals.length;
+      setBpm(60000 / avg);
+    }
+  });
+
+  buildDots();
+  render();
+  tools.metronome = {
+    enter() { acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
+/* ================= Tone Generator ================= */
+
+(() => {
+  const slider = $("#tone-slider");
+  const volume = $("#tone-volume");
+  const freqEl = $("#tone-freq");
+  const noteEl = $("#tone-note");
+  const playBtn = $("#tone-play");
+  const NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+  let ac = null, osc = null, gain = null;
+  let wave = "sine";
+
+  // Log scale: slider 0..1000 → 20 Hz .. 20 kHz
+  const sliderToFreq = (t) => Math.round(20 * Math.pow(10, 3 * t / 1000));
+  const freqToSlider = (f) => Math.round(1000 * Math.log10(f / 20) / 3);
+
+  function noteName(f) {
+    if (f < 27 || f > 14000) return "";
+    const n = Math.round(12 * Math.log2(f / 440)) + 57; // semitones from C0
+    const cents = Math.round(1200 * Math.log2(f / (440 * Math.pow(2, (n - 57) / 12))));
+    if (Math.abs(cents) > 40) return "";
+    return NOTES[n % 12] + Math.floor(n / 12) + (cents ? ` ${cents > 0 ? "+" : ""}${cents}¢` : "");
+  }
+
+  let freq = 440; // exact value; the slider is only an approximate control
+
+  function render() {
+    const f = freq;
+    freqEl.textContent = f < 1000 ? f + " Hz" : (f / 1000).toFixed(f < 10000 ? 2 : 1) + " kHz";
+    noteEl.textContent = noteName(f);
+    if (osc) osc.frequency.setTargetAtTime(f, ac.currentTime, 0.01);
+  }
+
+  function targetGain() { return Math.pow(+volume.value / 100, 2) * 0.5; }
+
+  function start() {
+    ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+    ac.resume();
+    osc = ac.createOscillator();
+    gain = ac.createGain();
+    osc.type = wave;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, ac.currentTime);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.0001, targetGain()), ac.currentTime + 0.05);
+    osc.connect(gain).connect(ac.destination);
+    osc.start();
+    playBtn.classList.add("playing");
+    playBtn.innerHTML = "&#9632;";
+  }
+
+  function stop() {
+    if (osc) {
+      const o = osc, g = gain;
+      g.gain.setTargetAtTime(0.0001, ac.currentTime, 0.02);
+      setTimeout(() => { try { o.stop(); o.disconnect(); g.disconnect(); } catch (e) {} }, 120);
+      osc = null; gain = null;
+    }
+    playBtn.classList.remove("playing");
+    playBtn.innerHTML = "&#9654;";
+  }
+
+  playBtn.addEventListener("click", () => (osc ? stop() : start()));
+  slider.addEventListener("input", () => { freq = sliderToFreq(+slider.value); render(); });
+  volume.addEventListener("input", () => {
+    if (gain) gain.gain.setTargetAtTime(Math.max(0.0001, targetGain()), ac.currentTime, 0.02);
+  });
+  $("#tone-waves").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-w]");
+    if (!btn) return;
+    wave = btn.dataset.w;
+    $$("#tone-waves .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    if (osc) osc.type = wave;
+  });
+  $("#tone-presets").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-f]");
+    if (!btn) return;
+    freq = +btn.dataset.f;
+    slider.value = freqToSlider(freq);
+    if (btn.dataset.vol) {
+      volume.value = btn.dataset.vol;
+      if (gain) gain.gain.setTargetAtTime(Math.max(0.0001, targetGain()), ac.currentTime, 0.02);
+    }
+    render();
+    if (!osc) start();
+  });
+
+  render();
+  tools.tone = {
+    enter() { acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
+/* ================= Tip Calculator ================= */
+
+(() => {
+  const bill = $("#tip-bill");
+  const slider = $("#tip-slider");
+  const people = $("#tip-people");
+  const money = (n) => "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function calc() {
+    const b = parseFloat(bill.value.replace(/[$,]/g, "")) || 0;
+    const pct = +slider.value;
+    const n = +people.value;
+    const tip = b * pct / 100;
+    $("#tip-pct-val").textContent = pct + "%";
+    $("#tip-people-val").textContent = n === 1 ? "1 person" : n + " people";
+    $("#tip-amount").textContent = money(tip);
+    $("#tip-total").textContent = money(b + tip);
+    // Round per-person up to the cent so the group never comes up short
+    $("#tip-per").textContent = money(Math.ceil((b + tip) * 100 / n) / 100);
+  }
+
+  bill.addEventListener("input", calc);
+  people.addEventListener("input", calc);
+  slider.addEventListener("input", () => {
+    $$("#tip-pcts .chip").forEach((c) => c.classList.toggle("active", +c.dataset.pct === +slider.value));
+    calc();
+  });
+  $("#tip-pcts").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-pct]");
+    if (!btn) return;
+    slider.value = btn.dataset.pct;
+    $$("#tip-pcts .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    calc();
+  });
+  calc();
+})();
+
+/* ================= Date Calculator ================= */
+
+(() => {
+  const dateA = $("#date-a"), dateB = $("#date-b");
+  const startEl = $("#date-start"), amountEl = $("#date-amount"), unitEl = $("#date-unit");
+  let sign = 1;
+
+  $("#date-tabs").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-tab]");
+    if (!btn) return;
+    $$("#date-tabs .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    $("#tab-diff").classList.toggle("hidden", btn.dataset.tab !== "diff");
+    $("#tab-add").classList.toggle("hidden", btn.dataset.tab !== "add");
+  });
+
+  function isoToday() {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  }
+  function parseISO(s) {
+    const [y, m, d] = s.split("-").map(Number);
+    return { y, m, d };
+  }
+  function fmtLong(y, m, d) {
+    return new Date(y, m - 1, d).toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+  }
+
+  function diff() {
+    if (!dateA.value || !dateB.value) return;
+    const a = parseISO(dateA.value), b = parseISO(dateB.value);
+    // UTC midnights make the day count immune to DST transitions
+    const days = Math.round((Date.UTC(b.y, b.m - 1, b.d) - Date.UTC(a.y, a.m - 1, a.d)) / 86400000);
+    const abs = Math.abs(days);
+    $("#date-diff-result").textContent = abs === 1 ? "1 day" : abs.toLocaleString("en-US") + " days";
+
+    // Calendar breakdown years/months/days from the earlier date
+    let [lo, hi] = days >= 0 ? [a, b] : [b, a];
+    let years = hi.y - lo.y, months = hi.m - lo.m, ds = hi.d - lo.d;
+    if (ds < 0) { months--; ds += new Date(hi.y, hi.m - 1, 0).getDate(); }
+    if (months < 0) { years--; months += 12; }
+    const parts = [];
+    if (years) parts.push(years + (years === 1 ? " year" : " years"));
+    if (months) parts.push(months + (months === 1 ? " month" : " months"));
+    if (ds) parts.push(ds + (ds === 1 ? " day" : " days"));
+    const wk = Math.floor(abs / 7), rem = abs % 7;
+    let sub = abs >= 7 ? `${wk} wk ${rem} d` : "";
+    if (parts.length > 1 || years || months) sub = parts.join(" ") + (sub ? " · " + sub : "");
+    $("#date-diff-sub").textContent = sub || " ";
+  }
+
+  function addCalc() {
+    if (!startEl.value) return;
+    const s = parseISO(startEl.value);
+    const n = sign * (parseInt(amountEl.value, 10) || 0);
+    const d = new Date(s.y, s.m - 1, s.d);
+    const origDay = d.getDate();
+    if (unitEl.value === "days") d.setDate(d.getDate() + n);
+    else if (unitEl.value === "weeks") d.setDate(d.getDate() + n * 7);
+    else {
+      if (unitEl.value === "months") d.setMonth(d.getMonth() + n);
+      else d.setFullYear(d.getFullYear() + n);
+      // Clamp overflow (e.g. Jan 31 + 1 month → Feb 28, not Mar 3)
+      if (d.getDate() !== origDay) d.setDate(0);
+    }
+    $("#date-add-result").textContent = d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    $("#date-add-sub").textContent = d.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
+  [dateA, dateB].forEach((el) => el.addEventListener("change", diff));
+  [startEl, amountEl, unitEl].forEach((el) => {
+    el.addEventListener("change", addCalc);
+    el.addEventListener("input", addCalc);
+  });
+  $("#date-plus").addEventListener("click", () => {
+    sign = 1;
+    $("#date-plus").classList.add("active");
+    $("#date-minus").classList.remove("active");
+    addCalc();
+  });
+  $("#date-minus").addEventListener("click", () => {
+    sign = -1;
+    $("#date-minus").classList.add("active");
+    $("#date-plus").classList.remove("active");
+    addCalc();
+  });
+
+  tools.datecalc = {
+    enter() {
+      if (!dateA.value) dateA.value = isoToday();
+      if (!dateB.value) dateB.value = isoToday();
+      if (!startEl.value) startEl.value = isoToday();
+      diff();
+      addCalc();
+    }
+  };
+})();
+
+/* ================= Random ================= */
+
+(() => {
+  function rand(n) { // uniform integer in [0, n)
+    const max = Math.floor(0xFFFFFFFF / n) * n;
+    const buf = new Uint32Array(1);
+    do { crypto.getRandomValues(buf); } while (buf[0] >= max);
+    return buf[0] % n;
+  }
+  $("#random-tabs").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-tab]");
+    if (!btn) return;
+    $$("#random-tabs .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    ["dice", "coin", "number"].forEach((t) =>
+      $("#tab-" + t).classList.toggle("hidden", btn.dataset.tab !== t));
+  });
+
+  /* Dice */
+  const diceRow = $("#dice-row");
+  let diceCount = 1;
+  $("#dice-count").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-n]");
+    if (!btn) return;
+    diceCount = +btn.dataset.n;
+    $$("#dice-count .chip").forEach((c) => c.classList.remove("active"));
+    btn.classList.add("active");
+    roll();
+  });
+  function roll() {
+    diceRow.innerHTML = "";
+    let total = 0;
+    for (let i = 0; i < diceCount; i++) {
+      const v = rand(6) + 1;
+      total += v;
+      const die = document.createElement("div");
+      die.className = "die rolling";
+      die.textContent = v;
+      diceRow.appendChild(die);
+    }
+    $("#dice-total").textContent = diceCount > 1 ? "Total: " + total : "";
+    if (navigator.vibrate) navigator.vibrate(15);
+  }
+  $("#dice-roll").addEventListener("click", roll);
+
+  /* Coin */
+  const coinFace = $("#coin-face");
+  let heads = 0, tails = 0;
+  $("#coin-flip").addEventListener("click", () => {
+    coinFace.classList.remove("flipping");
+    void coinFace.offsetWidth; // restart animation
+    coinFace.classList.add("flipping");
+    const isHeads = rand(2) === 0;
+    setTimeout(() => {
+      coinFace.textContent = isHeads ? "Heads" : "Tails";
+      if (isHeads) heads++; else tails++;
+      $("#coin-tally").textContent = `Heads ${heads} · Tails ${tails}`;
+    }, 250);
+    if (navigator.vibrate) navigator.vibrate(15);
+  });
+
+  /* Number */
+  $("#number-go").addEventListener("click", () => {
+    let lo = parseInt($("#number-min").value, 10);
+    let hi = parseInt($("#number-max").value, 10);
+    if (isNaN(lo) || isNaN(hi)) return;
+    if (lo > hi) [lo, hi] = [hi, lo];
+    $("#number-result").textContent = (lo + rand(hi - lo + 1)).toLocaleString("en-US");
+  });
+
+  tools.random = { enter() { if (!diceRow.children.length) roll(); } };
+})();
+
 /* ================= QR Scanner ================= */
 
 (() => {

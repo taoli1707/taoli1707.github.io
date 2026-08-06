@@ -33,6 +33,16 @@
     <a class="tile" href="#counter"><span class="tile-icon" style="background:linear-gradient(135deg,#30cfd0,#330867)">&#128290;</span><span class="tile-label">Counter</span></a>
     <a class="tile" href="#magnifier"><span class="tile-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128269;</span><span class="tile-label">Magnifier</span></a>
     <a class="tile" href="#qr"><span class="tile-icon" style="background:linear-gradient(135deg,#f857a6,#ff5858)">&#128307;</span><span class="tile-label">QR Scanner</span></a>
+    <a class="tile" href="#random"><span class="tile-icon" style="background:linear-gradient(135deg,#56ab2f,#a8e063)">&#127922;</span><span class="tile-label">Random</span></a>
+    <a class="tile" href="#datecalc"><span class="tile-icon" style="background:linear-gradient(135deg,#ff512f,#dd2476)">&#128197;</span><span class="tile-label">Dates</span></a>
+    <a class="tile" href="#tip"><span class="tile-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">&#128181;</span><span class="tile-label">Tip Split</span></a>
+    <a class="tile" href="#tone"><span class="tile-icon" style="background:linear-gradient(135deg,#00b09b,#96c93d)">&#127925;</span><span class="tile-label">Tone</span></a>
+    <a class="tile" href="#metronome"><span class="tile-icon" style="background:linear-gradient(135deg,#ee9ca7,#c44569)">&#129345;</span><span class="tile-label">Metronome</span></a>
+    <a class="tile" href="#soundmeter"><span class="tile-icon" style="background:linear-gradient(135deg,#f83600,#f9d423)">&#127908;</span><span class="tile-label">Sound Meter</span></a>
+    <a class="tile" href="#protractor"><span class="tile-icon" style="background:linear-gradient(135deg,#2193b0,#6dd5ed)">&#128208;</span><span class="tile-label">Protractor</span></a>
+    <a class="tile" href="#mirror"><span class="tile-icon" style="background:linear-gradient(135deg,#8e9eab,#3f4c6b)">&#129694;</span><span class="tile-label">Mirror</span></a>
+    <a class="tile" href="#speed"><span class="tile-icon" style="background:linear-gradient(135deg,#7f00ff,#e100ff)">&#128663;</span><span class="tile-label">Speed</span></a>
+    <a class="tile" href="#color"><span class="tile-icon" style="background:linear-gradient(135deg,#ff9a9e,#a18cd1)">&#127912;</span><span class="tile-label">Color Picker</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -262,6 +272,285 @@
       </div>
       <p class="hint" id="qr-hint">Point the camera at a QR code</p>
     </div>
+  </div>
+</section>
+
+<!-- ============ COLOR PICKER ============ -->
+<section id="color" class="screen tool hidden">
+  <video id="color-video" autoplay playsinline muted></video>
+  <div class="color-crosshair"></div>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Color Picker</h2><span class="spacer"></span></header>
+    <div class="tool-footer panel">
+      <div class="color-row">
+        <div class="color-swatch" id="color-swatch"></div>
+        <div class="color-info">
+          <div class="color-hex" id="color-hex">#——</div>
+          <div class="color-rgb" id="color-rgb">&nbsp;</div>
+        </div>
+      </div>
+      <div class="chip-row">
+        <button class="chip" id="color-freeze">Hold</button>
+        <button class="chip" id="color-copy">Copy hex</button>
+      </div>
+      <p class="hint" id="color-hint">Aim the crosshair at anything to read its color</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPEEDOMETER ============ -->
+<section id="speed" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Speedometer</h2><span class="spacer"></span></header>
+  </div>
+  <div class="speed-stage">
+    <div class="speed-main"><span id="speed-value">--</span><small id="speed-unit">km/h</small></div>
+    <div class="speed-acc" id="speed-acc">&nbsp;</div>
+    <div class="sound-stats speed-stats">
+      <div><small>Max</small><span id="speed-max">--</span></div>
+      <div><small>Avg</small><span id="speed-avg">--</span></div>
+      <div><small>Trip</small><span id="speed-trip">--</span></div>
+    </div>
+  </div>
+  <div class="tool-footer panel">
+    <div class="chip-row">
+      <button class="chip active" id="speed-kmh">km/h</button>
+      <button class="chip" id="speed-mph">mph</button>
+      <button class="chip" id="speed-reset">Reset trip</button>
+    </div>
+    <p class="hint" id="speed-hint">Uses GPS — works best outdoors with a clear sky view</p>
+  </div>
+</section>
+
+<!-- ============ MIRROR ============ -->
+<section id="mirror" class="screen tool hidden">
+  <div class="ring-light" id="ring-light"></div>
+  <video id="mirror-video" autoplay playsinline muted></video>
+  <canvas id="mirror-freeze" class="hidden"></canvas>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Mirror</h2><span class="spacer"></span></header>
+    <div class="tool-footer panel">
+      <label class="slider-row">Zoom
+        <input type="range" id="mirror-zoom" min="1" max="4" step="0.1" value="1">
+      </label>
+      <div class="chip-row">
+        <button class="chip" id="mirror-freeze-btn">Freeze</button>
+        <button class="chip" id="mirror-light-btn">Ring light</button>
+      </div>
+      <p class="hint" id="mirror-hint">Front camera mirror</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROTRACTOR ============ -->
+<section id="protractor" class="screen tool hidden">
+  <canvas id="prot-canvas"></canvas>
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Protractor</h2><span class="spacer"></span></header>
+    <div class="prot-readout" id="prot-readout">90.0&deg;</div>
+    <div class="tool-footer panel">
+      <div class="chip-row">
+        <button class="chip" id="prot-reset">Reset arms</button>
+      </div>
+      <p class="hint">Drag the arms to measure an angle — line an object up along them</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOUND METER ============ -->
+<section id="soundmeter" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Sound Meter</h2><span class="spacer"></span></header>
+  </div>
+  <div class="sound-stage">
+    <div class="sound-db"><span id="sound-db">--</span><small>dB</small></div>
+    <div class="sound-desc" id="sound-desc">&nbsp;</div>
+    <div class="sound-bar-track"><div class="sound-bar" id="sound-bar"></div></div>
+    <canvas id="sound-graph"></canvas>
+    <div class="sound-stats">
+      <div><small>Min</small><span id="sound-min">--</span></div>
+      <div><small>Avg</small><span id="sound-avg">--</span></div>
+      <div><small>Peak</small><span id="sound-peak">--</span></div>
+    </div>
+  </div>
+  <div class="tool-footer panel">
+    <div class="chip-row">
+      <button class="chip" id="sound-reset">Reset</button>
+    </div>
+    <p class="hint" id="sound-hint">Approximate level — phone mics aren't calibrated instruments</p>
+  </div>
+</section>
+
+<!-- ============ METRONOME ============ -->
+<section id="metronome" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Metronome</h2><span class="spacer"></span></header>
+  </div>
+  <div class="metro-stage">
+    <div class="metro-bpm-row">
+      <button class="chip" id="metro-down">&#8722;</button>
+      <div class="metro-bpm"><span id="metro-bpm">120</span><small>BPM</small></div>
+      <button class="chip" id="metro-up">+</button>
+    </div>
+    <div class="metro-name" id="metro-name">Allegro</div>
+    <div class="metro-dots" id="metro-dots"></div>
+    <button class="tone-play" id="metro-play" aria-label="Start or stop metronome">&#9654;</button>
+  </div>
+  <div class="tool-footer panel">
+    <label class="slider-row">Tempo
+      <input type="range" id="metro-slider" min="30" max="240" value="120">
+    </label>
+    <div class="chip-row" id="metro-beats">
+      <button class="chip" data-b="1">1</button>
+      <button class="chip" data-b="2">2</button>
+      <button class="chip" data-b="3">3</button>
+      <button class="chip active" data-b="4">4</button>
+      <button class="chip" data-b="6">6</button>
+    </div>
+    <button class="big-btn" id="metro-tap">Tap tempo</button>
+  </div>
+</section>
+
+<!-- ============ TONE GENERATOR ============ -->
+<section id="tone" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Tone Generator</h2><span class="spacer"></span></header>
+  </div>
+  <div class="tone-stage">
+    <div class="tone-freq" id="tone-freq">440 Hz</div>
+    <div class="tone-note" id="tone-note">A4</div>
+    <button class="tone-play" id="tone-play" aria-label="Play or stop tone">&#9654;</button>
+  </div>
+  <div class="tool-footer panel">
+    <label class="slider-row">Pitch
+      <input type="range" id="tone-slider" min="0" max="1000" value="448">
+    </label>
+    <label class="slider-row">Volume
+      <input type="range" id="tone-volume" min="0" max="100" value="50">
+    </label>
+    <div class="chip-row wrap" id="tone-presets">
+      <button class="chip" data-f="165" data-vol="100">&#128167; Water eject</button>
+      <button class="chip" data-f="440">A4 440</button>
+      <button class="chip" data-f="1000">1 kHz</button>
+      <button class="chip" data-f="10000">10 kHz</button>
+    </div>
+    <div class="chip-row" id="tone-waves">
+      <button class="chip active" data-w="sine">Sine</button>
+      <button class="chip" data-w="square">Square</button>
+      <button class="chip" data-w="triangle">Triangle</button>
+      <button class="chip" data-w="sawtooth">Saw</button>
+    </div>
+    <p class="hint" id="tone-hint">Water eject: hold the phone speaker-down and play at full volume</p>
+  </div>
+</section>
+
+<!-- ============ TIP CALCULATOR ============ -->
+<section id="tip" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Tip &amp; Split</h2><span class="spacer"></span></header>
+  </div>
+  <div class="conv-body">
+    <div class="conv-card date-card">
+      <label class="date-row">Bill
+        <input type="text" inputmode="decimal" id="tip-bill" placeholder="0.00" class="tip-input">
+      </label>
+      <div class="tip-label">Tip</div>
+      <div class="chip-row wrap" id="tip-pcts">
+        <button class="chip" data-pct="10">10%</button>
+        <button class="chip" data-pct="15">15%</button>
+        <button class="chip active" data-pct="18">18%</button>
+        <button class="chip" data-pct="20">20%</button>
+        <button class="chip" data-pct="25">25%</button>
+      </div>
+      <label class="slider-row">Custom
+        <input type="range" id="tip-slider" min="0" max="40" value="18">
+        <span class="tip-pct-val" id="tip-pct-val">18%</span>
+      </label>
+      <div class="tip-label">Split between <span id="tip-people-val">1</span></div>
+      <label class="slider-row">People
+        <input type="range" id="tip-people" min="1" max="12" value="1">
+      </label>
+    </div>
+    <div class="conv-card tip-results">
+      <div class="tip-line"><span>Tip</span><strong id="tip-amount">$0.00</strong></div>
+      <div class="tip-line"><span>Total</span><strong id="tip-total">$0.00</strong></div>
+      <div class="tip-line big"><span>Per person</span><strong id="tip-per">$0.00</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATE CALCULATOR ============ -->
+<section id="datecalc" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Date Calculator</h2><span class="spacer"></span></header>
+  </div>
+  <div class="chip-row center" id="date-tabs">
+    <button class="chip active" data-tab="diff">Between dates</button>
+    <button class="chip" data-tab="add">Add / subtract</button>
+  </div>
+  <div id="tab-diff" class="conv-body">
+    <div class="conv-card date-card">
+      <label class="date-row">From <input type="date" id="date-a"></label>
+      <label class="date-row">To <input type="date" id="date-b"></label>
+      <div class="date-result" id="date-diff-result">&nbsp;</div>
+      <div class="date-sub" id="date-diff-sub">&nbsp;</div>
+    </div>
+  </div>
+  <div id="tab-add" class="conv-body hidden">
+    <div class="conv-card date-card">
+      <label class="date-row">Start <input type="date" id="date-start"></label>
+      <div class="date-row">
+        <input type="text" inputmode="numeric" id="date-amount" value="30" class="date-amount">
+        <select id="date-unit">
+          <option value="days">days</option>
+          <option value="weeks">weeks</option>
+          <option value="months">months</option>
+          <option value="years">years</option>
+        </select>
+        <div class="chip-row" style="margin:0">
+          <button class="chip active" id="date-plus">+</button>
+          <button class="chip" id="date-minus">&#8722;</button>
+        </div>
+      </div>
+      <div class="date-result" id="date-add-result">&nbsp;</div>
+      <div class="date-sub" id="date-add-sub">&nbsp;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RANDOM ============ -->
+<section id="random" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Random</h2><span class="spacer"></span></header>
+  </div>
+  <div class="chip-row center" id="random-tabs">
+    <button class="chip active" data-tab="dice">Dice</button>
+    <button class="chip" data-tab="coin">Coin</button>
+    <button class="chip" data-tab="number">Number</button>
+  </div>
+  <div id="tab-dice" class="random-body">
+    <div class="dice-row" id="dice-row"></div>
+    <div class="random-total" id="dice-total"></div>
+    <div class="chip-row center" id="dice-count">
+      <button class="chip active" data-n="1">1 die</button>
+      <button class="chip" data-n="2">2 dice</button>
+      <button class="chip" data-n="3">3 dice</button>
+      <button class="chip" data-n="5">5 dice</button>
+    </div>
+    <button class="big-btn" id="dice-roll">Roll</button>
+  </div>
+  <div id="tab-coin" class="random-body hidden">
+    <div class="coin" id="coin-face">?</div>
+    <div class="random-total" id="coin-tally">&nbsp;</div>
+    <button class="big-btn" id="coin-flip">Flip</button>
+  </div>
+  <div id="tab-number" class="random-body hidden">
+    <div class="random-total big" id="number-result">?</div>
+    <div class="numrange-row">
+      <input type="text" inputmode="numeric" id="number-min" value="1"> to
+    <input type="text" inputmode="numeric" id="number-max" value="100">
+    </div>
+    <button class="big-btn" id="number-go">Pick a number</button>
   </div>
 </section>
 
