@@ -876,6 +876,105 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Speedometer ================= */
+
+(() => {
+  const valueEl = $("#speed-value");
+  const unitEl = $("#speed-unit");
+  const accEl = $("#speed-acc");
+  const hint = $("#speed-hint");
+  let watchId = null;
+  let unit = store.get("speedUnit", "kmh"); // kmh | mph
+  let last = null; // {lat, lon, t}
+  let maxMs = 0, tripM = 0, movingMs = 0;
+
+  const toUnit = (ms) => ms * (unit === "kmh" ? 3.6 : 2.23694);
+  const distUnit = () => (unit === "kmh" ? "km" : "mi");
+
+  function haversine(lat1, lon1, lat2, lon2) {
+    const R = 6371000, rad = Math.PI / 180;
+    const dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) ** 2;
+    return 2 * R * Math.asin(Math.sqrt(a));
+  }
+
+  function renderUnitChips() {
+    $("#speed-kmh").classList.toggle("active", unit === "kmh");
+    $("#speed-mph").classList.toggle("active", unit === "mph");
+    unitEl.textContent = unit === "kmh" ? "km/h" : "mph";
+  }
+
+  function renderStats(currentMs) {
+    if (currentMs !== null) valueEl.textContent = Math.round(toUnit(currentMs));
+    $("#speed-max").textContent = Math.round(toUnit(maxMs));
+    const avgMs = movingMs > 0 ? tripM / (movingMs / 1000) : 0;
+    $("#speed-avg").textContent = Math.round(toUnit(avgMs));
+    const d = tripM / (unit === "kmh" ? 1000 : 1609.344);
+    $("#speed-trip").textContent = (d < 10 ? d.toFixed(2) : d.toFixed(1)) + " " + distUnit();
+  }
+
+  function onPos(pos) {
+    const { latitude, longitude, speed, accuracy } = pos.coords;
+    const t = pos.timestamp;
+    accEl.textContent = accuracy ? `GPS accuracy ±${Math.round(accuracy)} m` : "";
+
+    let ms = speed;
+    if (last && (ms === null || isNaN(ms))) {
+      // No native speed (common indoors / on some devices): derive from movement
+      const dt = (t - last.t) / 1000;
+      if (dt > 0.5) ms = haversine(last.lat, last.lon, latitude, longitude) / dt;
+    }
+    if (ms === null || isNaN(ms)) { valueEl.textContent = "--"; }
+    else {
+      if (ms < 0.5) ms = 0; // ignore GPS jitter when standing still
+      maxMs = Math.max(maxMs, ms);
+      if (last && ms > 0) {
+        const dt = t - last.t;
+        if (dt > 0 && dt < 10000) { movingMs += dt; tripM += ms * dt / 1000; }
+      }
+      renderStats(ms);
+    }
+    last = { lat: latitude, lon: longitude, t };
+  }
+
+  function start() {
+    if (!("geolocation" in navigator)) {
+      hint.textContent = "Location not available on this device.";
+      return;
+    }
+    watchId = navigator.geolocation.watchPosition(onPos, (err) => {
+      hint.textContent = err.code === 1
+        ? "Location access denied. Allow it in Settings to measure speed."
+        : "Waiting for GPS signal…";
+    }, { enableHighAccuracy: true, maximumAge: 0, timeout: 15000 });
+  }
+  function stop() {
+    if (watchId !== null) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+    last = null;
+  }
+
+  function setUnit(u) {
+    unit = u;
+    store.set("speedUnit", u);
+    renderUnitChips();
+    renderStats(null);
+  }
+  $("#speed-kmh").addEventListener("click", () => setUnit("kmh"));
+  $("#speed-mph").addEventListener("click", () => setUnit("mph"));
+  $("#speed-reset").addEventListener("click", () => {
+    maxMs = 0; tripM = 0; movingMs = 0;
+    renderStats(0);
+  });
+
+  renderUnitChips();
+  tools.speed = {
+    enter() { start(); acquireWakeLock(); },
+    exit() { stop(); },
+    wake() { acquireWakeLock(); }
+  };
+})();
+
 /* ================= Mirror ================= */
 
 (() => {

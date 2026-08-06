@@ -41,6 +41,7 @@
     <a class="tile" href="#soundmeter"><span class="tile-icon" style="background:linear-gradient(135deg,#f83600,#f9d423)">&#127908;</span><span class="tile-label">Sound Meter</span></a>
     <a class="tile" href="#protractor"><span class="tile-icon" style="background:linear-gradient(135deg,#2193b0,#6dd5ed)">&#128208;</span><span class="tile-label">Protractor</span></a>
     <a class="tile" href="#mirror"><span class="tile-icon" style="background:linear-gradient(135deg,#8e9eab,#3f4c6b)">&#129694;</span><span class="tile-label">Mirror</span></a>
+    <a class="tile" href="#speed"><span class="tile-icon" style="background:linear-gradient(135deg,#7f00ff,#e100ff)">&#128663;</span><span class="tile-label">Speed</span></a>
   </div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
@@ -270,6 +271,30 @@
       </div>
       <p class="hint" id="qr-hint">Point the camera at a QR code</p>
     </div>
+  </div>
+</section>
+
+<!-- ============ SPEEDOMETER ============ -->
+<section id="speed" class="screen tool hidden">
+  <div class="tool-chrome">
+    <header class="tool-header"><a class="back" href="#">&#8249; Back</a><h2>Speedometer</h2><span class="spacer"></span></header>
+  </div>
+  <div class="speed-stage">
+    <div class="speed-main"><span id="speed-value">--</span><small id="speed-unit">km/h</small></div>
+    <div class="speed-acc" id="speed-acc">&nbsp;</div>
+    <div class="sound-stats speed-stats">
+      <div><small>Max</small><span id="speed-max">--</span></div>
+      <div><small>Avg</small><span id="speed-avg">--</span></div>
+      <div><small>Trip</small><span id="speed-trip">--</span></div>
+    </div>
+  </div>
+  <div class="tool-footer panel">
+    <div class="chip-row">
+      <button class="chip active" id="speed-kmh">km/h</button>
+      <button class="chip" id="speed-mph">mph</button>
+      <button class="chip" id="speed-reset">Reset trip</button>
+    </div>
+    <p class="hint" id="speed-hint">Uses GPS — works best outdoors with a clear sky view</p>
   </div>
 </section>
 
