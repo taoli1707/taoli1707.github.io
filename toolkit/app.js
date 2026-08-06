@@ -876,6 +876,130 @@ function motionNeedsGate() {
   };
 })();
 
+/* ================= Protractor ================= */
+
+(() => {
+  const canvas = $("#prot-canvas");
+  const readout = $("#prot-readout");
+  let armA = 180, armB = 90; // degrees, 0 = right, counterclockwise
+  let dragging = null;
+
+  function geometry() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    // Keep the baseline (and the 0°/180° handles) clear of the bottom control panel
+    return { w, h, cx: w / 2, cy: h - Math.max(170, h * 0.22), r: Math.min(w * 0.44, h * 0.5) };
+  }
+
+  function draw() {
+    const dpr = window.devicePixelRatio || 1;
+    const { w, h, cx, cy, r } = geometry();
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    const c = canvas.getContext("2d");
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+
+    // Protractor body
+    c.beginPath();
+    c.arc(cx, cy, r, Math.PI, 2 * Math.PI);
+    c.closePath();
+    c.fillStyle = "#191922";
+    c.fill();
+    c.strokeStyle = "#2c2c34";
+    c.stroke();
+
+    // Degree ticks
+    c.fillStyle = "#8e8e93";
+    c.strokeStyle = "#8e8e93";
+    c.font = "12px -apple-system, sans-serif";
+    c.textAlign = "center";
+    c.textBaseline = "middle";
+    for (let d = 0; d <= 180; d += 1) {
+      const a = Math.PI + (d * Math.PI) / 180;
+      const len = d % 10 === 0 ? 16 : d % 5 === 0 ? 10 : 5;
+      c.lineWidth = d % 10 === 0 ? 1.5 : 0.75;
+      c.beginPath();
+      c.moveTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+      c.lineTo(cx + (r - len) * Math.cos(a), cy + (r - len) * Math.sin(a));
+      c.stroke();
+      if (d % 10 === 0) {
+        c.fillText(String(d), cx + (r - 30) * Math.cos(a), cy + (r - 30) * Math.sin(a));
+      }
+    }
+
+    // Angle wedge between arms
+    const a1 = Math.PI + (Math.min(armA, armB) * Math.PI) / 180;
+    const a2 = Math.PI + (Math.max(armA, armB) * Math.PI) / 180;
+    c.beginPath();
+    c.moveTo(cx, cy);
+    c.arc(cx, cy, r * 0.28, a1, a2);
+    c.closePath();
+    c.fillStyle = "rgba(33, 147, 176, 0.25)";
+    c.fill();
+
+    // Arms
+    [[armA, "#0a84ff"], [armB, "#ff9f1a"]].forEach(([deg, color]) => {
+      const a = Math.PI + (deg * Math.PI) / 180;
+      const ex = cx + (r + 26) * Math.cos(a), ey = cy + (r + 26) * Math.sin(a);
+      c.strokeStyle = color;
+      c.lineWidth = 3;
+      c.beginPath();
+      c.moveTo(cx, cy);
+      c.lineTo(ex, ey);
+      c.stroke();
+      c.fillStyle = color;
+      c.beginPath();
+      c.arc(ex, ey, 14, 0, 2 * Math.PI);
+      c.fill();
+      c.fillStyle = "#fff";
+      c.beginPath();
+      c.arc(ex, ey, 5, 0, 2 * Math.PI);
+      c.fill();
+    });
+
+    // Center pivot
+    c.fillStyle = "#f2f2f7";
+    c.beginPath();
+    c.arc(cx, cy, 5, 0, 2 * Math.PI);
+    c.fill();
+
+    readout.innerHTML = Math.abs(armB - armA).toFixed(1) + "&deg;";
+  }
+
+  function pointerAngle(e) {
+    const rect = canvas.getBoundingClientRect();
+    const { cx, cy } = geometry();
+    const x = e.clientX - rect.left - cx;
+    const y = e.clientY - rect.top - cy;
+    let deg = (Math.atan2(y, x) * 180) / Math.PI; // -180..180, 0 = right
+    // Map into protractor space: 0 (left) .. 180 (right) along the top half;
+    // touches below the baseline snap to the nearest end
+    deg = deg <= 0 ? deg + 180 : deg < 90 ? 180 : 0;
+    return clamp(deg, 0, 180);
+  }
+
+  canvas.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    canvas.setPointerCapture(e.pointerId);
+    const a = pointerAngle(e);
+    dragging = Math.abs(a - armA) <= Math.abs(a - armB) ? "a" : "b";
+    if (dragging === "a") armA = a; else armB = a;
+    draw();
+  });
+  canvas.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    const a = pointerAngle(e);
+    if (dragging === "a") armA = a; else armB = a;
+    draw();
+  });
+  canvas.addEventListener("pointerup", () => { dragging = null; });
+
+  $("#prot-reset").addEventListener("click", () => { armA = 180; armB = 90; draw(); });
+  window.addEventListener("resize", () => { if (currentTool === "protractor") draw(); });
+
+  tools.protractor = { enter() { draw(); } };
+})();
+
 /* ================= Sound Meter ================= */
 
 (() => {
