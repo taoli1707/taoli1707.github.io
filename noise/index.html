@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b0e1a">
+<meta name="description" content="Noise Machine — layered white noise, ambient soundscapes, binaural beats, sleep timer and presets. 100% generated in your browser, no downloads.">
+<title>Noise Machine</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot" id="brandDot"></span>
+      <h1>Noise&nbsp;Machine</h1>
+    </div>
+    <div class="top-controls">
+      <button id="surpriseBtn" class="ghost-btn" title="Random ambient mix">🎲 Surprise me</button>
+      <div class="master-vol" title="Master volume">
+        <span class="vol-icon">🔊</span>
+        <input type="range" id="masterVol" min="0" max="100" value="80">
+      </div>
+      <button id="playBtn" class="play-btn" aria-label="Play / Pause (Space)">
+        <svg viewBox="0 0 24 24" class="icon-play"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" class="icon-pause"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <canvas id="viz" class="viz" height="120"></canvas>
+
+  <section class="presets-row">
+    <div class="chips" id="presetChips"></div>
+    <div class="preset-actions">
+      <button id="savePresetBtn" class="ghost-btn small">＋ Save mix</button>
+      <button id="stopAllBtn" class="ghost-btn small">✕ Clear</button>
+    </div>
+  </section>
+
+  <main class="grid" id="soundGrid"><!-- sound cards injected --></main>
+
+  <section class="panel binaural" id="binauralPanel">
+    <div class="panel-head" id="binauralToggle" role="button" tabindex="0" aria-pressed="false">
+      <div class="panel-title">
+        <span class="card-emoji">🎧</span>
+        <div>
+          <h2>Binaural beats</h2>
+          <p class="hint">Wear headphones. Each ear hears a slightly different tone; your brain perceives the difference as a slow pulse.</p>
+        </div>
+      </div>
+      <span class="led"></span>
+    </div>
+    <div class="panel-body">
+      <div class="chips" id="brainwaveChips"></div>
+      <label class="slider-row">
+        <span>Beat <b id="beatVal">6&nbsp;Hz</b></span>
+        <input type="range" id="beatFreq" min="0.5" max="30" step="0.5" value="6">
+      </label>
+      <label class="slider-row">
+        <span>Tone <b id="carrierVal">220&nbsp;Hz</b></span>
+        <input type="range" id="carrierFreq" min="80" max="500" step="5" value="220">
+      </label>
+      <label class="slider-row">
+        <span>Volume</span>
+        <input type="range" id="binauralVol" min="0" max="100" value="25">
+      </label>
+    </div>
+  </section>
+
+  <footer class="bottombar">
+    <div class="timer" id="timerBox">
+      <span class="timer-label">🌙 Sleep timer</span>
+      <div class="chips" id="timerChips">
+        <button class="chip" data-min="15">15m</button>
+        <button class="chip" data-min="30">30m</button>
+        <button class="chip" data-min="60">1h</button>
+        <button class="chip" data-min="120">2h</button>
+      </div>
+      <span id="timerDisplay" class="timer-display" hidden></span>
+      <button id="timerCancel" class="ghost-btn small" hidden>cancel</button>
+    </div>
+    <p class="foot-hint">Space = play/pause · Everything is synthesized live — no files, works offline</p>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
