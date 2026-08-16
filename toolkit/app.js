@@ -1959,4 +1959,65 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+/* ---- Registry boot: dynamic sections + generated home ---- */
+(() => {
+  const dynRoot = $("#dyn-root");
+
+  TK.defs.forEach((def) => {
+    if (def.builtin) return;
+    const sec = TK.el("section", "screen tool hidden");
+    sec.id = def.id;
+    const badge = `<span class="mode-badge ${def.mode === "sim" ? "sim" : "live"}">${def.mode === "sim" ? "Simulated" : "Live"}</span>`;
+    sec.innerHTML =
+      `<div class="tool-chrome"><header class="tool-header">` +
+      `<a class="back" href="#">&#8249; Back</a><h2>${TK.esc(def.name)}</h2>${badge}</header></div>` +
+      `<div class="dyn-body"></div>`;
+    dynRoot.appendChild(sec);
+    const body = sec.querySelector(".dyn-body");
+    if (def.note) {
+      const n = TK.el("p", "dyn-note", TK.esc(def.note));
+      body.appendChild(n);
+    }
+    tools[def.id] = {
+      enter() {
+        if (!def._rendered) { def.render(body, def); def._rendered = true; }
+        if (def.enter) def.enter();
+        if (def.wakeLock) acquireWakeLock();
+      },
+      exit() { if (def.exit) def.exit(); },
+      wake() { if (def.wakeLock) acquireWakeLock(); },
+    };
+  });
+
+  const groupsEl = $("#home-groups");
+  function buildHome(filter) {
+    const q = (filter || "").toLowerCase();
+    groupsEl.innerHTML = "";
+    let shown = 0;
+    TK.cats.forEach((cat) => {
+      const defs = TK.defs.filter((d) => d.cat === cat &&
+        (!q || (d.name + " " + cat + " " + (d.keywords || "")).toLowerCase().includes(q)));
+      if (!defs.length) return;
+      groupsEl.appendChild(TK.el("div", "cat-head", TK.esc(cat)));
+      const grid = TK.el("div", "grid");
+      defs.forEach((d) => {
+        const a = TK.el("a", "tile");
+        a.href = "#" + d.id;
+        a.innerHTML =
+          `<span class="tile-icon" style="background:${d.grad}">${d.icon}</span>` +
+          `<span class="tile-label">${TK.esc(d.name)}</span>` +
+          (d.mode === "sim" ? `<span class="tile-sim">SIM</span>` : "");
+        grid.appendChild(a);
+        shown++;
+      });
+      groupsEl.appendChild(grid);
+    });
+    $("#home-sub").textContent = q
+      ? `${shown} tool${shown === 1 ? "" : "s"} match`
+      : `${TK.defs.length} tools, one app`;
+  }
+  $("#home-search").addEventListener("input", (e) => buildHome(e.target.value));
+  buildHome();
+})();
+
 route();
