@@ -17,7 +17,7 @@ window.TK = {
    *   enter(), exit(), wake(),             // lifecycle (optional)
    * }
    */
-  register(def) { this.defs.push(def); },
+  register(def) { TK.defs.push(def); },
 
   /* tiny DOM helpers shared by packs */
   el(tag, cls, html) {
