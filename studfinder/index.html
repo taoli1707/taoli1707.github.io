@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Stud Finder</title>
+<meta name="description" content="Magnetic stud finder — interactive simulator, with live magnetometer mode where the browser supports it.">
+<meta name="theme-color" content="#101014">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+:root {
+  --bg: #101014; --card: #1b1b22; --ink: #f2f2f7; --muted: #8e8e93;
+  --accent: #30d158; --hot: #ff453a; --warm: #ffd60a; --chip: #2c2c34;
+}
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex; flex-direction: column; align-items: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 18px) 16px calc(env(safe-area-inset-bottom, 0px) + 24px);
+  gap: 14px; user-select: none; -webkit-user-select: none; touch-action: manipulation;
+  overscroll-behavior: none;
+}
+header { text-align: center; }
+h1 { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
+.mode {
+  display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 700;
+  padding: 4px 12px; border-radius: 999px; background: var(--chip); color: var(--muted);
+}
+.mode.live { background: #1c2e24; color: var(--accent); }
+.wrap { width: min(560px, 100%); display: flex; flex-direction: column; gap: 14px; }
+
+.readout { text-align: center; }
+.field-val { font-size: 62px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+.field-val small { font-size: 20px; color: var(--muted); font-weight: 600; }
+.delta { margin-top: 4px; font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.delta strong { color: var(--ink); }
+.verdict { margin-top: 6px; font-size: 15px; font-weight: 700; min-height: 20px; }
+.verdict.hit { color: var(--hot); }
+.verdict.near { color: var(--warm); }
+
+.meter { height: 14px; border-radius: 7px; background: var(--chip); overflow: hidden; }
+.meter-fill {
+  height: 100%; width: 0%; border-radius: 7px;
+  background: linear-gradient(90deg, var(--accent) 0 55%, var(--warm) 55% 80%, var(--hot) 80%);
+  background-size: 100% 100%; background-attachment: fixed;
+  transition: width 0.08s linear;
+}
+
+.wall-card { background: var(--card); border-radius: 18px; padding: 14px; }
+.wall-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+#wall {
+  position: relative; height: 240px; border-radius: 12px; overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,0.03) 34px 35px),
+    linear-gradient(180deg, #26262e, #1f1f26);
+  cursor: crosshair; touch-action: none;
+}
+.phone-cursor {
+  position: absolute; top: 0; bottom: 0; width: 46px; margin-left: -23px;
+  background: rgba(10, 132, 255, 0.14);
+  border-left: 1px solid rgba(10,132,255,0.5); border-right: 1px solid rgba(10,132,255,0.5);
+  pointer-events: none; display: none;
+}
+.phone-cursor::after {
+  content: "📱"; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); font-size: 20px;
+}
+.mark {
+  position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px;
+  background: var(--warm); pointer-events: none;
+}
+.mark::after {
+  content: "✏️"; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); font-size: 14px;
+}
+.stud-reveal {
+  position: absolute; top: 0; bottom: 0; width: 34px; margin-left: -17px;
+  background: repeating-linear-gradient(0deg, rgba(48,209,88,0.16) 0 44px, rgba(48,209,88,0.4) 44px 50px);
+  border: 1px dashed rgba(48,209,88,0.55); border-top: none; border-bottom: none;
+  pointer-events: none; display: none;
+}
+.wall-hint { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 8px; }
+
+.controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+button {
+  border: none; font: inherit; font-weight: 700; font-size: 14px;
+  padding: 11px 16px; border-radius: 999px; background: var(--chip); color: var(--ink); cursor: pointer;
+}
+button:active { filter: brightness(1.35); }
+button.primary { background: #0a84ff; color: #fff; }
+button.on { background: var(--accent); color: #04170b; }
+
+.note {
+  background: var(--card); border-radius: 14px; padding: 14px 16px;
+  font-size: 13.5px; color: var(--muted); line-height: 1.55;
+}
+.note strong { color: var(--ink); }
+.note a { color: #0a84ff; text-decoration: none; }
+footer { font-size: 12px; color: var(--muted); text-align: center; }
+footer a { color: #0a84ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🧲 Stud Finder</h1>
+  <span class="mode" id="mode-badge">Simulation</span>
+</header>
+
+<div class="wrap">
+  <div class="readout">
+    <div class="field-val"><span id="field">52.0</span><small> µT</small></div>
+    <div class="delta">Δ from baseline <strong id="delta">+0.0</strong> µT</div>
+    <div class="verdict" id="verdict">&nbsp;</div>
+  </div>
+
+  <div class="meter"><div class="meter-fill" id="meter"></div></div>
+
+  <div class="wall-card" id="wall-card">
+    <div class="wall-label"><span>← sweep the wall →</span><span id="wall-scale">3.0 m section</span></div>
+    <div id="wall">
+      <div class="phone-cursor" id="cursor"></div>
+      <div class="stud-reveal" id="r0"></div>
+      <div class="stud-reveal" id="r1"></div>
+      <div class="stud-reveal" id="r2"></div>
+    </div>
+    <div class="wall-hint">Drag across the wall. Screws hide every 16 in — listen for the clicks.</div>
+  </div>
+
+  <div class="controls">
+    <button class="primary" id="calibrate">Calibrate baseline</button>
+    <button id="mark">✏️ Mark stud</button>
+    <button id="sound">🔊 Sound on</button>
+    <button id="reveal">Reveal studs</button>
+    <button id="reset">New wall</button>
+  </div>
+
+  <div class="note" id="mode-note">
+    <strong>Why this is a simulation on iPhone:</strong> Safari doesn’t expose the phone’s raw
+    magnetometer to web apps — only fused compass headings — so real sensing needs a native app
+    (about 50 lines of Core Motion). This simulator runs the exact app flow: calibrate on blank wall,
+    sweep slowly, watch the µT delta spike over hidden screws, mark and confirm vertically.
+    On Android Chrome this page switches to <strong>live magnetometer mode</strong> automatically.
+  </div>
+  <div class="note">
+    <strong>Real-world caveats the native app would show:</strong> magnetic finders detect the
+    <em>screws</em> in a stud, not the wood; steel pipes and conduit read the same as studs;
+    copper and PEX are invisible; MagSafe cases blind the sensor. Never drill on a single reading —
+    confirm hits line up vertically, and keep clear of likely plumbing and wiring runs.
+  </div>
+</div>
+
+<footer><a href="../mocks/">← All mocks</a> · <a href="../toolkit/">Toolkit app</a></footer>
+
+<script>
+"use strict";
+const $ = (s) => document.querySelector(s);
+const fieldEl = $("#field"), deltaEl = $("#delta"), verdictEl = $("#verdict"), meterEl = $("#meter");
+const wall = $("#wall"), cursor = $("#cursor");
+const AMBIENT = 52;
+let baseline = AMBIENT;
+let current = AMBIENT;
+let soundOn = false;
+let live = false;
+
+/* ---------- Simulated wall ---------- */
+// Studs at 16in centers; wall section ~ 3m. Positions as fractions with jitter.
+let studs = [];
+function newWall() {
+  const first = 0.12 + Math.random() * 0.12;
+  studs = [first, first + 0.33, first + 0.66].map((x) => Math.min(0.95, x + (Math.random() - 0.5) * 0.04));
+  document.querySelectorAll(".mark").forEach((m) => m.remove());
+  studs.forEach((x, i) => { const r = $("#r" + i); r.style.left = (x * 100) + "%"; });
+  baseline = AMBIENT;
+}
+function fieldAt(frac, yFrac) {
+  // Gaussian bump per stud; screws sit in rows, so strength varies a little with height
+  let f = AMBIENT;
+  for (const s of studs) {
+    const d = (frac - s) * 22;               // sharpness of the bump
+    const rowFactor = 0.75 + 0.25 * Math.abs(Math.sin(yFrac * Math.PI * 5)); // screw rows
+    f += 30 * rowFactor * Math.exp(-d * d);
+  }
+  return f + (Math.random() - 0.5) * 0.8;    // sensor noise
+}
+
+/* ---------- Geiger audio ---------- */
+let ac = null, nextClick = 0;
+function click(volume) {
+  const osc = ac.createOscillator(), g = ac.createGain();
+  osc.frequency.value = 2200;
+  g.gain.setValueAtTime(volume, ac.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + 0.03);
+  osc.connect(g).connect(ac.destination);
+  osc.start(); osc.stop(ac.currentTime + 0.04);
+}
+function geiger() {
+  if (!soundOn) return;
+  const delta = Math.max(0, current - baseline);
+  const now = performance.now();
+  if (delta > 1.5 && now > nextClick) {
+    click(Math.min(0.4, 0.08 + delta / 90));
+    nextClick = now + Math.max(35, 420 - delta * 13); // faster clicks as delta grows
+  }
+  if (delta > 18 && navigator.vibrate) navigator.vibrate(8);
+}
+
+/* ---------- Shared render ---------- */
+function render() {
+  const delta = current - baseline;
+  fieldEl.textContent = current.toFixed(1);
+  deltaEl.textContent = (delta >= 0 ? "+" : "") + delta.toFixed(1);
+  meterEl.style.width = Math.min(100, Math.max(0, (delta / 35) * 100)) + "%";
+  if (delta > 18) { verdictEl.textContent = "Strong hit — likely a screw"; verdictEl.className = "verdict hit"; }
+  else if (delta > 6) { verdictEl.textContent = "Getting warmer…"; verdictEl.className = "verdict near"; }
+  else { verdictEl.innerHTML = "&nbsp;"; verdictEl.className = "verdict"; }
+  geiger();
+}
+
+/* ---------- Simulation input ---------- */
+let lastFrac = 0.5;
+function sweep(e) {
+  const rect = wall.getBoundingClientRect();
+  const frac = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+  const yFrac = Math.min(1, Math.max(0, (e.clientY - rect.top) / rect.height));
+  lastFrac = frac;
+  cursor.style.display = "block";
+  cursor.style.left = (frac * 100) + "%";
+  current = fieldAt(frac, yFrac);
+  render();
+}
+wall.addEventListener("pointerdown", (e) => { wall.setPointerCapture(e.pointerId); sweep(e); });
+wall.addEventListener("pointermove", (e) => { if (e.buttons || e.pointerType === "mouse") sweep(e); });
+
+/* ---------- Controls ---------- */
+$("#calibrate").addEventListener("click", () => {
+  baseline = current;
+  verdictEl.textContent = "Baseline set — sweep slowly";
+  verdictEl.className = "verdict";
+  render();
+});
+$("#mark").addEventListener("click", () => {
+  if (live) return;
+  const m = document.createElement("div");
+  m.className = "mark";
+  m.style.left = (lastFrac * 100) + "%";
+  wall.appendChild(m);
+});
+$("#sound").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  if (soundOn && !ac) ac = new (window.AudioContext || window.webkitAudioContext)();
+  if (ac) ac.resume();
+  e.target.classList.toggle("on", soundOn);
+  e.target.textContent = soundOn ? "🔊 Sound on" : "🔇 Sound off";
+});
+$("#reveal").addEventListener("click", (e) => {
+  const show = document.querySelector(".stud-reveal").style.display !== "block";
+  document.querySelectorAll(".stud-reveal").forEach((r) => { r.style.display = show ? "block" : "none"; });
+  e.target.classList.toggle("on", show);
+  e.target.textContent = show ? "Hide studs" : "Reveal studs";
+});
+$("#reset").addEventListener("click", () => { newWall(); render(); });
+
+/* ---------- Live magnetometer (Android Chrome) ---------- */
+async function tryLive() {
+  if (!("Magnetometer" in window)) return false;
+  try {
+    if (navigator.permissions) {
+      const p = await navigator.permissions.query({ name: "magnetometer" });
+      if (p.state === "denied") return false;
+    }
+    const sensor = new Magnetometer({ frequency: 30 });
+    await new Promise((resolve, reject) => {
+      sensor.addEventListener("reading", resolve, { once: true });
+      sensor.addEventListener("error", reject, { once: true });
+      sensor.start();
+      setTimeout(reject, 2500);
+    });
+    live = true;
+    $("#mode-badge").textContent = "Live magnetometer";
+    $("#mode-badge").classList.add("live");
+    $("#wall-card").style.display = "none";
+    $("#mark").style.display = "none";
+    $("#reveal").style.display = "none";
+    $("#reset").style.display = "none";
+    $("#mode-note").innerHTML = "<strong>Live mode:</strong> readings come from this device’s real magnetometer. " +
+      "Hold the phone flat against the wall, calibrate on a blank spot, then sweep slowly. " +
+      "The field spikes when the sensor passes over screws or pipes.";
+    sensor.addEventListener("reading", () => {
+      current = Math.hypot(sensor.x, sensor.y, sensor.z);
+      render();
+    });
+    return true;
+  } catch (e) { return false; }
+}
+
+newWall();
+render();
+tryLive();
+</script>
+</body>
+</html>
