@@ -1,11 +1,21 @@
 /* Toolkit service worker — cache-first app shell for offline use (v3.0.2) */
-const CACHE = "toolkit-v3";
+const CACHE = "toolkit-v4";
 const ASSETS = [
   ".",
   "index.html",
   "style.css",
   "app.js",
+  "registry.js",
+  "pack-calc.js",
+  "pack-ref.js",
+  "pack-timers.js",
+  "pack-audio.js",
+  "pack-camera.js",
+  "pack-sensors.js",
+  "pack-docs.js",
   "vendor/jsQR.js",
+  "vendor/qrcode.js",
+  "vendor/pdf-lib.min.js",
   "manifest.webmanifest",
   "icons/icon-180.png",
   "icons/icon-512.png"
