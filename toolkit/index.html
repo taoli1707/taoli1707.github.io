@@ -21,29 +21,10 @@
 <main id="home" class="screen">
   <header class="home-header">
     <h1>Toolkit</h1>
-    <p class="subtitle">Everyday tools, one app</p>
+    <p class="subtitle" id="home-sub">Everyday tools, one app</p>
+    <input type="search" id="home-search" class="home-search" placeholder="Search tools…" aria-label="Search tools">
   </header>
-  <div class="grid">
-    <a class="tile" href="#flashlight"><span class="tile-icon" style="background:linear-gradient(135deg,#ffd93d,#ff9f1a)">&#128294;</span><span class="tile-label">Flashlight</span></a>
-    <a class="tile" href="#ruler"><span class="tile-icon" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">&#128207;</span><span class="tile-label">Ruler</span></a>
-    <a class="tile" href="#level"><span class="tile-icon" style="background:linear-gradient(135deg,#43e97b,#38f9d7)">&#127919;</span><span class="tile-label">Level</span></a>
-    <a class="tile" href="#compass"><span class="tile-icon" style="background:linear-gradient(135deg,#fa709a,#fee140)">&#129517;</span><span class="tile-label">Compass</span></a>
-    <a class="tile" href="#converter"><span class="tile-icon" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)">&#128257;</span><span class="tile-label">Converter</span></a>
-    <a class="tile" href="#timer"><span class="tile-icon" style="background:linear-gradient(135deg,#f77062,#fe5196)">&#9201;&#65039;</span><span class="tile-label">Stopwatch</span></a>
-    <a class="tile" href="#counter"><span class="tile-icon" style="background:linear-gradient(135deg,#30cfd0,#330867)">&#128290;</span><span class="tile-label">Counter</span></a>
-    <a class="tile" href="#magnifier"><span class="tile-icon" style="background:linear-gradient(135deg,#667eea,#764ba2)">&#128269;</span><span class="tile-label">Magnifier</span></a>
-    <a class="tile" href="#qr"><span class="tile-icon" style="background:linear-gradient(135deg,#f857a6,#ff5858)">&#128307;</span><span class="tile-label">QR Scanner</span></a>
-    <a class="tile" href="#random"><span class="tile-icon" style="background:linear-gradient(135deg,#56ab2f,#a8e063)">&#127922;</span><span class="tile-label">Random</span></a>
-    <a class="tile" href="#datecalc"><span class="tile-icon" style="background:linear-gradient(135deg,#ff512f,#dd2476)">&#128197;</span><span class="tile-label">Dates</span></a>
-    <a class="tile" href="#tip"><span class="tile-icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">&#128181;</span><span class="tile-label">Tip Split</span></a>
-    <a class="tile" href="#tone"><span class="tile-icon" style="background:linear-gradient(135deg,#00b09b,#96c93d)">&#127925;</span><span class="tile-label">Tone</span></a>
-    <a class="tile" href="#metronome"><span class="tile-icon" style="background:linear-gradient(135deg,#ee9ca7,#c44569)">&#129345;</span><span class="tile-label">Metronome</span></a>
-    <a class="tile" href="#soundmeter"><span class="tile-icon" style="background:linear-gradient(135deg,#f83600,#f9d423)">&#127908;</span><span class="tile-label">Sound Meter</span></a>
-    <a class="tile" href="#protractor"><span class="tile-icon" style="background:linear-gradient(135deg,#2193b0,#6dd5ed)">&#128208;</span><span class="tile-label">Protractor</span></a>
-    <a class="tile" href="#mirror"><span class="tile-icon" style="background:linear-gradient(135deg,#8e9eab,#3f4c6b)">&#129694;</span><span class="tile-label">Mirror</span></a>
-    <a class="tile" href="#speed"><span class="tile-icon" style="background:linear-gradient(135deg,#7f00ff,#e100ff)">&#128663;</span><span class="tile-label">Speed</span></a>
-    <a class="tile" href="#color"><span class="tile-icon" style="background:linear-gradient(135deg,#ff9a9e,#a18cd1)">&#127912;</span><span class="tile-label">Color Picker</span></a>
-  </div>
+  <div class="home-scroll" id="home-groups"></div>
   <footer class="home-footer">
     <p id="install-hint" class="install-hint hidden">Tip: open in Safari, tap <strong>Share</strong> → <strong>Add to Home Screen</strong> to install.</p>
   </footer>
@@ -554,7 +535,17 @@
   </div>
 </section>
 
+<div id="dyn-root"></div>
+
 <script src="vendor/jsQR.js"></script>
+<script src="registry.js"></script>
+<script src="pack-calc.js"></script>
+<script src="pack-ref.js"></script>
+<script src="pack-timers.js"></script>
+<script src="pack-audio.js"></script>
+<script src="pack-camera.js"></script>
+<script src="pack-sensors.js"></script>
+<script src="pack-docs.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
