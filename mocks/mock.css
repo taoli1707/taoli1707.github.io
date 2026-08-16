@@ -1,0 +1,185 @@
+/* Shared styles for the app mock gallery */
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --stage: #101014;
+  --stage-ink: #f2f2f7;
+  --stage-muted: #8e8e93;
+  --frame: #1c1c22;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--stage);
+  color: var(--stage-ink);
+  font-family: var(--sans);
+  min-height: 100vh;
+}
+
+/* ---- Presentation chrome around each mock ---- */
+.mock-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 34px 20px 70px;
+  gap: 26px;
+}
+.mock-nav {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.mock-nav a { color: #0a84ff; text-decoration: none; font-size: 15px; }
+.mock-nav a:hover { text-decoration: underline; }
+.mock-meta { text-align: center; max-width: 560px; }
+.mock-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stage-muted);
+}
+.mock-meta h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; margin: 6px 0 8px; }
+.mock-meta p { color: var(--stage-muted); font-size: 15px; line-height: 1.5; }
+.mock-badges { display: flex; gap: 8px; justify-content: center; margin-top: 14px; flex-wrap: wrap; }
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #26262e;
+  color: var(--stage-ink);
+}
+.badge.price { background: #33241a; color: #f08a4b; }
+.badge.tier-build { background: #1c2e24; color: #5cbb84; }
+.badge.tier-prom { background: #2f2718; color: #d9a24a; }
+.badge.tier-pass { background: #332122; color: #d4787a; }
+
+/* ---- iPhone frame ---- */
+.phone {
+  width: 340px;
+  height: 700px;
+  background: var(--frame);
+  border-radius: 48px;
+  padding: 10px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), inset 0 0 0 2px #34343e;
+  flex-shrink: 0;
+}
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-bg, #000);
+  color: var(--app-ink, #fff);
+}
+.notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 26px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 50;
+}
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 26px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  position: relative;
+  z-index: 40;
+}
+.home-indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  border-radius: 3px;
+  background: currentColor;
+  opacity: 0.35;
+  z-index: 50;
+}
+
+/* ---- Common in-app pieces ---- */
+.app-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.app-title { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; }
+.app-header { padding: 14px 20px 6px; display: flex; justify-content: space-between; align-items: center; }
+.icon-btn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  background: var(--chip-bg, rgba(255,255,255,0.12));
+}
+.tabbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 8px 22px;
+  border-top: 1px solid var(--hairline, rgba(255,255,255,0.12));
+  font-size: 10px;
+  font-weight: 600;
+}
+.tab { display: flex; flex-direction: column; align-items: center; gap: 3px; opacity: 0.45; }
+.tab.active { opacity: 1; color: var(--app-accent, #0a84ff); }
+.tab .glyph { font-size: 20px; }
+.pill-btn {
+  border: none;
+  font: inherit;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 14px;
+  background: var(--app-accent, #0a84ff);
+  color: var(--on-accent, #fff);
+  text-align: center;
+}
+
+/* ---- Gallery index ---- */
+.gallery-head { text-align: center; padding: 60px 20px 10px; }
+.gallery-head h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -0.02em; }
+.gallery-head p { color: var(--stage-muted); margin-top: 10px; font-size: 16px; max-width: 60ch; margin-inline: auto; line-height: 1.5; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  max-width: 1180px;
+  margin: 36px auto 80px;
+  padding: 0 20px;
+}
+.app-card {
+  background: #17171d;
+  border: 1px solid #26262e;
+  border-radius: 18px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--stage-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.app-card:hover { transform: translateY(-3px); border-color: #3a3a46; }
+.app-card-top { display: flex; align-items: center; gap: 14px; }
+.app-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+.app-card h2 { font-size: 18px; font-weight: 800; }
+.app-card .tagline { font-size: 13px; color: var(--stage-muted); margin-top: 2px; }
+.app-card .concept { font-size: 13.5px; color: var(--stage-muted); line-height: 1.5; flex: 1; }
+.app-card-foot { display: flex; gap: 8px; flex-wrap: wrap; }
+.app-card-foot .badge { font-size: 11px; padding: 4px 10px; }
