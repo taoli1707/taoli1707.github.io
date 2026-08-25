@@ -1,0 +1,11 @@
+{
+  "name": "holdem-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local Texas Hold'em analysis engine: hand evaluator, equity/range calculator, Nash push-fold solver, bot arena.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build-preflop": "node tools/build-preflop.mjs"
+  }
+}
