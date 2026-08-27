@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hold'em Engine</title>
+<meta name="description" content="A local Texas Hold'em analysis engine: exact hand evaluator, range vs range equity, Nash push/fold solver and a bot arena. Everything runs in your browser.">
+<meta name="theme-color" content="#0e1116">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1116'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%2335d07f'%3E%E2%99%A0%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <h1>Hold'em Engine</h1>
+  <p class="sub">Exact evaluator &middot; range equity &middot; Nash push/fold &middot; bot arena. All local, nothing leaves the page.</p>
+  <p class="sub"><a href="strategy.html" style="color:var(--accent)">The Council →</a> nine specialist agents argue out what to do with any hand, and show their working.</p>
+  <nav class="tabs" id="tabs">
+    <button class="tab is-active" data-tab="equity">Equity</button>
+    <button class="tab" data-tab="pushfold">Push/Fold</button>
+    <button class="tab" data-tab="table">Play</button>
+    <button class="tab" data-tab="arena">Arena</button>
+    <button class="tab" data-tab="about">About</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ── Equity ─────────────────────────────────────────────────────────── -->
+<section class="panel is-active" data-panel="equity">
+  <div class="card">
+    <div class="row">
+      <label class="field grow">
+        <span>Hero range</span>
+        <input id="eq-hero" value="AhKs" spellcheck="false" autocomplete="off">
+      </label>
+      <label class="field grow">
+        <span>Villain range</span>
+        <input id="eq-villain" value="QQ+, AKs" spellcheck="false" autocomplete="off">
+      </label>
+    </div>
+    <div class="row">
+      <label class="field grow">
+        <span>Board <em>0, 3, 4 or 5 cards</em></span>
+        <input id="eq-board" value="" placeholder="Kd 7h 2c" spellcheck="false" autocomplete="off">
+      </label>
+      <label class="field">
+        <span>Dead cards</span>
+        <input id="eq-dead" value="" placeholder="Qs" spellcheck="false" autocomplete="off">
+      </label>
+      <label class="field narrow">
+        <span>Samples</span>
+        <select id="eq-iters">
+          <option value="50000">50k</option>
+          <option value="200000" selected>200k</option>
+          <option value="1000000">1M</option>
+          <option value="4000000">4M</option>
+        </select>
+      </label>
+    </div>
+    <div class="row hints">
+      <span>Try:</span>
+      <button class="chip" data-hero="AhKs" data-villain="QQ+, AKs" data-board="">AK vs a 4-bet range</button>
+      <button class="chip" data-hero="8h7h" data-villain="top 12%" data-board="9h6c2h">Flush + straight draw</button>
+      <button class="chip" data-hero="AA" data-villain="random" data-board="">Aces vs anything</button>
+      <button class="chip" data-hero="JdTd" data-villain="AA, KK, AKs" data-board="Qd9s3d">Monster draw vs a monster</button>
+    </div>
+    <div class="row actions">
+      <button id="eq-run" class="primary">Run</button>
+      <button id="eq-cancel" class="ghost" hidden>Stop</button>
+      <div class="progress" id="eq-progress" hidden><i></i></div>
+      <span class="note" id="eq-status"></span>
+    </div>
+  </div>
+
+  <div class="card" id="eq-results" hidden>
+    <div id="eq-bars"></div>
+    <details class="breakdown">
+      <summary>What each side makes by the river</summary>
+      <div id="eq-categories"></div>
+    </details>
+  </div>
+
+  <div class="card" id="eq-gridwrap" hidden>
+    <h2>Hero range</h2>
+    <div class="grid" id="eq-grid"></div>
+    <p class="note">Suited above the diagonal, offsuit below, pairs on it.</p>
+  </div>
+</section>
+
+<!-- ── Push / Fold ────────────────────────────────────────────────────── -->
+<section class="panel" data-panel="pushfold">
+  <div class="card">
+    <p class="lede">
+      Heads-up, blinds 0.5&thinsp;/&thinsp;1, and the small blind may only shove or fold.
+      That tiny tree has a real, computable, unexploitable answer &mdash; solved here by
+      fictitious play over all 169 starting hands with exact card removal.
+    </p>
+    <label class="field slider">
+      <span>Effective stack <strong id="pf-stack-label">10.0 bb</strong></span>
+      <input id="pf-stack" type="range" min="10" max="250" step="1" value="100">
+    </label>
+    <div class="stats" id="pf-stats"></div>
+  </div>
+
+  <div class="card">
+    <label class="field">
+      <span>Look up a hand</span>
+      <input id="pf-hand" value="A5s" spellcheck="false" autocomplete="off" placeholder="A5s, 77, KTo">
+    </label>
+    <div id="pf-verdict" class="verdict"></div>
+  </div>
+
+  <div class="grids">
+    <div class="card">
+      <h2>Small blind shoves</h2>
+      <div class="grid" id="pf-grid-shove"></div>
+    </div>
+    <div class="card">
+      <h2>Big blind calls the shove</h2>
+      <div class="grid" id="pf-grid-call"></div>
+    </div>
+  </div>
+  <p class="note legend">
+    <i class="sw sw-on"></i> always &nbsp;
+    <i class="sw sw-mix"></i> sometimes &nbsp;
+    <i class="sw sw-off"></i> never
+  </p>
+</section>
+
+<!-- ── Play ───────────────────────────────────────────────────────────── -->
+<section class="panel" data-panel="table">
+  <div class="card">
+    <div class="row">
+      <label class="field narrow">
+        <span>Stack (bb)</span>
+        <input id="tb-stack" type="number" value="100" min="2" max="500" step="1">
+      </label>
+      <label class="field narrow">
+        <span>Bot strength</span>
+        <select id="tb-bot">
+          <option value="600" selected>Standard</option>
+          <option value="2000">Slow &amp; careful</option>
+          <option value="150">Fast &amp; loose</option>
+        </select>
+      </label>
+      <button id="tb-new" class="primary">New hand</button>
+    </div>
+  </div>
+
+  <div class="card felt">
+    <div class="seat opp">
+      <div class="who"><span>Bot</span><b id="tb-opp-stack"></b></div>
+      <div class="cards" id="tb-opp-cards"></div>
+    </div>
+    <div class="middle">
+      <div class="pot" id="tb-pot"></div>
+      <div class="cards board" id="tb-board"></div>
+      <div class="banner" id="tb-banner"></div>
+    </div>
+    <div class="seat you">
+      <div class="who"><span>You</span><b id="tb-you-stack"></b></div>
+      <div class="cards" id="tb-you-cards"></div>
+    </div>
+  </div>
+
+  <div class="card" id="tb-controls">
+    <div class="row actions" id="tb-buttons"></div>
+    <div class="row" id="tb-sizing" hidden>
+      <input id="tb-slider" type="range" min="0" max="100" value="50">
+      <output id="tb-amount"></output>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Hand log</h2>
+    <ol class="log" id="tb-log"></ol>
+  </div>
+</section>
+
+<!-- ── Arena ──────────────────────────────────────────────────────────── -->
+<section class="panel" data-panel="arena">
+  <div class="card">
+    <p class="lede">
+      Every deal is played twice with the seats swapped and the identical deck, so
+      the cards cancel and only the decisions are left. The interval is a paired
+      95% confidence bound &mdash; if it straddles zero, the result means nothing yet.
+    </p>
+    <div class="row">
+      <label class="field grow"><span>Agent A</span><select id="ar-a"></select></label>
+      <label class="field grow"><span>Agent B</span><select id="ar-b"></select></label>
+    </div>
+    <div class="row">
+      <label class="field narrow"><span>Deals</span>
+        <select id="ar-deals">
+          <option value="500">500</option>
+          <option value="2000" selected>2,000</option>
+          <option value="10000">10,000</option>
+        </select>
+      </label>
+      <label class="field narrow"><span>Stack (bb)</span>
+        <select id="ar-stack">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="100" selected>100</option>
+        </select>
+      </label>
+      <button id="ar-run" class="primary">Run</button>
+      <button id="ar-cancel" class="ghost" hidden>Stop</button>
+    </div>
+    <div class="row actions">
+      <div class="progress" id="ar-progress" hidden><i></i></div>
+      <span class="note" id="ar-status"></span>
+    </div>
+  </div>
+  <div class="card" id="ar-results" hidden></div>
+</section>
+
+<!-- ── About ──────────────────────────────────────────────────────────── -->
+<section class="panel" data-panel="about">
+  <div class="card">
+    <h2>What this is</h2>
+    <p>A study tool. It analyses poker situations away from the table: work out
+      whether a call is profitable, see what a range is actually made of, and
+      test strategy ideas against opponents that never get tired or tilt.</p>
+
+    <h2>What it is not</h2>
+    <p>It is not connected to any poker site and it never will be. Reading
+      another site's screen and acting for you is against the rules everywhere
+      that matters, and it takes money from people who believe they are playing
+      a human. That is cheating rather than engineering, and it also tends to
+      end in a seized balance. The maths here is the useful, legitimate part
+      &mdash; and it is the part that actually makes you a better player.</p>
+
+    <h2>How much to trust each piece</h2>
+    <ul>
+      <li><b>Hand evaluator</b> &mdash; exact. Verified against all 2,598,960
+        five-card hands.</li>
+      <li><b>Equity</b> &mdash; exact when the spot is small enough to enumerate,
+        otherwise sampled with the error bar shown. Matches published equities.</li>
+      <li><b>Push/fold</b> &mdash; a genuine Nash equilibrium for the jam-or-fold
+        game, residually exploitable for well under 0.005 bb.</li>
+      <li><b>The bot</b> &mdash; a strong heuristic, not a solved strategy. It
+        beats every baseline here, but its bluff frequency is fixed and its
+        opponent model is crude, so a thinking human will find lines against it.</li>
+    </ul>
+
+    <h2>Running it yourself</h2>
+    <p>The engine is plain ES modules under <code>engine/</code> with no
+      dependencies. <code>npm test</code> runs the suite; <code>npm run
+      build-preflop</code> regenerates the 169&times;169 equity table.</p>
+  </div>
+</section>
+
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

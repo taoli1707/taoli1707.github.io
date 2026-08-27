@@ -1,0 +1,172 @@
+/* The Council — page-specific styling. Tokens come from style.css. */
+
+.crumb { font-size: 13px; margin-bottom: 6px; }
+.crumb a { color: var(--muted); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+
+.anchors {
+  display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 20px;
+}
+.anchors a {
+  color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600;
+  padding: 5px 11px; background: var(--card); border-radius: 999px;
+}
+.anchors a:hover { color: var(--ink); background: var(--card-2); }
+
+section { margin-bottom: 34px; scroll-margin-top: 12px; }
+h2.sec {
+  font-size: 19px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 10px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--line);
+}
+.card h3 {
+  font-size: 15px; font-weight: 700; margin: 20px 0 8px; color: var(--ink);
+}
+.card p { margin-bottom: 10px; font-size: 14.5px; }
+.card p:last-child { margin-bottom: 0; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.93em; }
+
+/* ── Inputs ────────────────────────────────────────────────────────── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px; }
+@media (max-width: 620px) {
+  .grid-2, .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+.field select {
+  width: 100%; background: var(--card-2); border: 1px solid var(--line); color: var(--ink);
+  font: inherit; font-size: 14px; padding: 9px 10px; border-radius: 10px; appearance: none;
+}
+button.primary {
+  background: var(--accent); color: #06210f; border: 0; font: inherit; font-weight: 700;
+  padding: 10px 20px; border-radius: 10px; cursor: pointer;
+}
+button.primary:disabled { opacity: 0.5; cursor: progress; }
+
+.presets { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.presets button {
+  background: var(--card-2); border: 1px solid var(--line); color: var(--muted);
+  font: inherit; font-size: 12.5px; font-weight: 600; padding: 6px 11px;
+  border-radius: 999px; cursor: pointer;
+}
+.presets button:hover { color: var(--ink); border-color: var(--accent-dim); }
+
+/* ── Verdict ───────────────────────────────────────────────────────── */
+.verdict-card { background: var(--card); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; border-left: 3px solid var(--accent); }
+.verdict-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.verdict-action { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+.verdict-mixed { color: var(--warn); }
+.verdict-conf { color: var(--muted); font-size: 13px; }
+.verdict-sum { color: var(--muted); font-size: 14px; margin-top: 10px; }
+
+.dist { display: flex; gap: 3px; margin-top: 14px; height: 30px; border-radius: 8px; overflow: hidden; }
+.dist span {
+  display: flex; align-items: center; justify-content: center; font-size: 11.5px;
+  font-weight: 700; color: #06210f; white-space: nowrap; overflow: hidden; min-width: 0;
+}
+.dist .a-fold  { background: #4a5361; color: var(--ink); }
+.dist .a-check { background: #5aa9ff; }
+.dist .a-call  { background: var(--accent); }
+.dist .a-bet, .dist .a-raise, .dist .a-jam { background: var(--warn); }
+
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.facts div { background: var(--card-2); border-radius: 9px; padding: 7px 11px; font-size: 12.5px; }
+.facts b { display: block; color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; }
+
+.hand-cards { display: inline-flex; align-items: center; gap: 3px; vertical-align: -3px; }
+.pc {
+  display: inline-block; background: var(--card-2); border: 1px solid var(--line);
+  border-radius: 5px; padding: 1px 5px; font-family: ui-monospace, Menlo, monospace;
+  font-size: 13px; font-weight: 700;
+}
+.pc.s-c, .pc.s-s { color: var(--ink); }
+.pc.s-d { color: #5aa9ff; }
+.pc.s-h { color: #ff5c57; }
+
+/* ── Agent cards ───────────────────────────────────────────────────── */
+.agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+@media (max-width: 720px) { .agent-grid { grid-template-columns: 1fr; } }
+
+.agent { background: var(--card); border-radius: 12px; padding: 14px; border-top: 2px solid var(--line); }
+.agent.is-loud { border-top-color: var(--accent); }
+.agent.is-quiet { opacity: 0.72; }
+.agent-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.agent-name { font-weight: 700; font-size: 14.5px; }
+.agent-wants { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 5px; background: var(--card-2); color: var(--muted); }
+.agent-wants.w-fold { color: #9aa4b2; }
+.agent-wants.w-call, .agent-wants.w-check { color: var(--accent); }
+.agent-wants.w-bet, .agent-wants.w-raise, .agent-wants.w-jam { color: var(--warn); }
+.agent-lens { color: var(--muted); font-size: 12px; margin-top: 1px; }
+.agent-bar { height: 3px; background: var(--card-2); border-radius: 2px; margin: 9px 0; overflow: hidden; }
+.agent-bar i { display: block; height: 100%; background: var(--accent-dim); }
+.agent-head { font-size: 13.5px; margin-bottom: 8px; }
+.agent-ev { list-style: none; font-size: 12.5px; }
+.agent-ev li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; border-bottom: 1px solid var(--line); }
+.agent-ev li:last-child { border-bottom: 0; }
+.agent-ev b { color: var(--muted); font-weight: 600; flex: 0 0 auto; }
+.agent-ev span { text-align: right; }
+.agent details { margin-top: 8px; }
+.agent summary { cursor: pointer; color: var(--muted); font-size: 12.5px; font-weight: 600; }
+.agent details p { font-size: 13px; color: var(--muted); margin-top: 7px; }
+
+/* ── Adversary ─────────────────────────────────────────────────────── */
+.adv { background: var(--card); border-radius: var(--radius); padding: 16px; border-left: 3px solid var(--warn); }
+.adv-rows { display: grid; gap: 6px; margin: 12px 0; }
+.adv-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: var(--card-2); border-radius: 9px; padding: 9px 12px; font-size: 13px; }
+.adv-row .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.adv-row .ok { color: var(--accent); }
+.adv-row .no { color: var(--hot); }
+
+/* ── Flow diagram ──────────────────────────────────────────────────── */
+.flow { display: flex; align-items: stretch; gap: 6px; flex-wrap: wrap; margin: 16px 0 6px; }
+.flow-step { flex: 1 1 130px; background: var(--card-2); border-radius: 10px; padding: 10px 12px; }
+.flow-step.wide { flex: 1.6 1 180px; border: 1px solid var(--accent-dim); }
+.flow-step b { display: block; font-size: 13px; }
+.flow-step span { display: block; color: var(--muted); font-size: 11.5px; margin-top: 3px; line-height: 1.35; }
+.flow-arrow { align-self: center; color: var(--muted); font-size: 15px; }
+@media (max-width: 720px) { .flow-arrow { display: none; } }
+
+/* ── Tables ────────────────────────────────────────────────────────── */
+.tablewrap { overflow-x: auto; margin: 12px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+th em, td em { font-style: normal; color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+td.num { font-family: ui-monospace, Menlo, monospace; white-space: nowrap; }
+tr:last-child th, tr:last-child td { border-bottom: 0; }
+.pos { color: var(--accent); }
+.neg { color: var(--hot); }
+.meh { color: var(--muted); }
+
+.findings { list-style: none; }
+.findings li { padding: 9px 0 9px 18px; border-bottom: 1px solid var(--line); font-size: 14px; position: relative; }
+.findings li:last-child { border-bottom: 0; }
+.findings li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
+.findings b { color: var(--ink); }
+
+/* ── 13x13 grid ────────────────────────────────────────────────────── */
+.gridtabs { display: flex; gap: 4px; margin: 14px 0 12px; background: var(--card-2); padding: 4px; border-radius: 10px; overflow-x: auto; }
+.gridtab { flex: 1 0 auto; border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 600; font-size: 12.5px; padding: 6px 12px; border-radius: 7px; cursor: pointer; white-space: nowrap; }
+.gridtab.is-active { background: var(--card); color: var(--ink); }
+
+.grid169 { display: grid; grid-template-columns: repeat(13, 1fr); gap: 2px; }
+.grid169 i {
+  display: flex; align-items: center; justify-content: center; aspect-ratio: 1;
+  font-style: normal; font-size: clamp(7px, 1.55vw, 11px); font-weight: 700;
+  border-radius: 3px; background: var(--card-2); color: var(--muted);
+  font-family: ui-monospace, Menlo, monospace;
+}
+.grid169 i[data-hot] { color: #06210f; }
+
+/* ── Trust tiers ───────────────────────────────────────────────────── */
+.tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 6px; }
+@media (max-width: 620px) { .tiers { grid-template-columns: 1fr; } }
+.tier { background: var(--card-2); border-radius: 10px; padding: 12px 14px; border-left: 3px solid var(--line); }
+.tier b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+.tier p { font-size: 13px; color: var(--muted); margin: 0; }
+.tier-solved { border-left-color: var(--accent); } .tier-solved b { color: var(--accent); }
+.tier-computed { border-left-color: var(--blue); } .tier-computed b { color: var(--blue); }
+.tier-measured { border-left-color: var(--warn); } .tier-measured b { color: var(--warn); }
+.tier-judged { border-left-color: var(--hot); } .tier-judged b { color: var(--hot); }
+
+.foot { color: var(--muted); font-size: 13px; margin-top: 18px; }
+.foot a { color: var(--accent); }
+.err { color: var(--hot); }
