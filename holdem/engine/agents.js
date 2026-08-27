@@ -15,6 +15,8 @@ import { classOf, combosOfClass } from './cards.js';
 import { equity } from './equity.js';
 import { topPercentClasses } from './range.js';
 import { pushFoldChart } from './pushfold.js';
+import { convene } from './council.js';
+import { BIG_BLIND } from './game.js';
 
 // ---------------------------------------------------------------------------
 // Opponent modelling
@@ -269,8 +271,84 @@ export function pushFoldAgent({ seed = 5, name = 'Nash jam/fold' } = {}) {
   return act;
 }
 
+// ---------------------------------------------------------------------------
+// The council, playing
+// ---------------------------------------------------------------------------
+
+/**
+ * Wraps the multi-agent council into something that can sit at the table.
+ * Slower than the other agents by an order of magnitude — it runs eight
+ * specialists and several equity calculations per decision — but it is the only
+ * way to find out whether the reasoning on the page survives contact with an
+ * opponent.
+ */
+export function councilAgent({
+  seed = 11, iters = 250, exactLimit = 20_000, profile = 'unknown', mix = false, name = 'Council',
+} = {}) {
+  const rng = makeRng(seed);
+
+  const act = (obs, legal) => {
+    const bb = obs.bigBlind;
+    let verdict;
+    try {
+      verdict = convene({
+        hero: obs.hole,
+        board: obs.board,
+        // obs.pot is everything contributed so far, which already includes the
+        // bet hero is facing — that is exactly the council's convention, and
+        // adding toCall on top of it quietly hands hero a better price than
+        // the table is offering.
+        potBb: obs.pot / bb,
+        toCallBb: legal.toCall / bb,
+        // What can still be wagered, not what has been wagered: SPR and every
+        // commitment threshold are about the money behind.
+        effectiveBb: Math.min(obs.stacks[obs.seat], obs.stacks[1 - obs.seat] + legal.toCall) / bb,
+        position: obs.seat === obs.button ? 'ip' : 'oop',
+        profile,
+        villainRange: `top ${inferOpponentPercent(obs).toFixed(1)}%`,
+      }, { iters, exactLimit, seed: seed + obs.log.length * 31, skipAdversary: true });
+    } catch {
+      return passive(legal);
+    }
+
+    // Take the council's answer, not a sample from it. The distribution is a
+    // measure of how much the nine lenses agree, and agreement is not the same
+    // thing as an optimal frequency: a quarter of the weight on "fold" means a
+    // quarter of the argument leaned that way, not that folding is right one
+    // time in four. Playing it as though it were a mixed strategy costs about
+    // 250 bb/100 against the engine's own equity bot, which is how this was
+    // found. Pass mix:true to reproduce that.
+    let choice = verdict.action;
+    if (mix) {
+      let roll = rng();
+      for (const [action, weight] of Object.entries(verdict.distribution)) {
+        roll -= weight;
+        if (roll <= 0) { choice = action; break; }
+      }
+    }
+
+    switch (choice) {
+      case 'fold': return passive(legal);
+      case 'check': return legal.canCheck ? check : call;
+      case 'call': return legal.toCall > 0 ? call : check;
+      case 'jam':
+        return legal.canRaise ? { type: 'raise', amount: legal.maxRaiseTo } : (legal.toCall > 0 ? call : passive(legal));
+      case 'bet':
+      case 'raise': {
+        if (!legal.canRaise) return legal.toCall > 0 ? call : check;
+        const fraction = verdict.sizing ? verdict.sizing.fraction : 0.66;
+        return { type: 'raise', amount: raiseTo(obs, legal, fraction) };
+      }
+      default: return passive(legal);
+    }
+  };
+  act.agentName = name;
+  return act;
+}
+
 export const AGENTS = {
   equity: equityAgent,
+  council: councilAgent,
   station: callingStation,
   random: randomAgent,
   maniac,

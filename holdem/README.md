@@ -30,11 +30,18 @@ engine/
   agents.js      the equity bot plus the baselines it has to beat
   arena.js       duplicate-deal benchmarking with paired confidence intervals
   rng.js         seeded RNG so every result reproduces
+  spot.js        situation primitives: pot odds, outs, texture, blockers
+  council.js     the multi-agent system — nine specialists and a chair
 data/
   preflop-equity.js   GENERATED 169x169 all-in equity table (~40 KB)
   preflop.js          derived tables: card removal, hand ranking
+  study.js            GENERATED findings the strategy page reads
 tools/
   build-preflop.mjs   regenerates the table (multi-threaded, a few minutes)
+  study.mjs           runs the council at scale and writes data/study.js
+
+index.html       the engine: equity, push/fold, play, arena
+strategy.html    the council: ask it about a hand, and everything it concluded
 ```
 
 ## Using it
@@ -71,6 +78,50 @@ duel({
 });  // { bbPer100: 245.7, ci95: 26.1, significant: true, ... }
 ```
 
+## The council
+
+`engine/council.js` answers "what should I do with this hand?" with nine
+specialists instead of one estimator. Each gets the same situation, looks at it
+through exactly one lens, and returns a distribution over the legal actions plus
+a confidence — never an action, and never without the numbers it used. A chair
+pools the votes weighted by confidence and by how much authority that lens has
+in that spot, and a tenth agent then re-runs the whole thing under three worse
+assumptions about the opponent and reports whether the answer survives.
+
+```js
+import { convene } from './engine/council.js';
+import { parseCards } from './engine/cards.js';
+
+const r = convene({
+  hero: parseCards('7d6d'),
+  board: parseCards('Ah Kc 9s 4d 2c'),
+  potBb: 14, toCallBb: 0, effectiveBb: 50,
+  profile: 'nit',            // balanced | station | nit | maniac | unknown
+});
+
+r.phrase;        // "Bet 4.62bb (33% pot)"
+r.confidence;    // 0.64
+r.opinions;      // every agent: headline, evidence, reasoning, weight
+r.adversary;     // the three scenarios and whether each flips the answer
+```
+
+Two design decisions did most of the work:
+
+**Agents may abstain.** Averaging nine opinions never bluffed. Hold seven-six on
+an ace-king board against someone folding three times in four and the equity,
+texture and stack agents all reported nothing worth betting — each correct about
+its own lens, collectively wrong, because none of those lenses can see fold
+equity at all. Those agents now vote 50/50 at a confidence of 0.15 and say so in
+their headline, handing the question to the one agent that can answer it.
+
+**A close vote is not a frequency.** The playing agent originally sampled its
+action from the distribution and lost to the engine's own equity bot at
+−283 ± 125 bb/100. Taking the top action instead, with nothing else changed,
+brought the same matchup to −32 ± 100. A vote share measures how much the lenses
+agree; it is not an equilibrium frequency, and playing it as one is expensive.
+The only genuine mixing here is the solver's, which is computed rather than
+voted on.
+
 ## How far to trust each piece
 
 **Evaluator — exact.** Verified against all 2,598,960 five-card hands: every
@@ -90,6 +141,15 @@ comes out genuinely thin: at any given stack only a couple of hands mix, the
 rest are pure. The output reproduces the published Nash charts (10bb: shove
 58%, call 37%) including the known result that jam-or-fold stops being
 profitable for the small blind at around 7bb.
+
+**The council — reasoning you can audit, not a solver.** Every number it argues
+from is computed here and shown; the arithmetic (pot odds, MDF, outs against a
+range, board texture, blockers) is exact and the equity is enumerated or sampled
+with stated error. What is *judged* rather than computed is the scaffolding
+around it: the authority weights, the confidence curves, the sizing rules and
+the five opponent profiles. Those are engineering choices tuned against the
+tests and the benchmark, and they are the part most likely to be wrong. Outside
+the short-stack preflop game it estimates — carefully, but it estimates.
 
 **The bot — a strong heuristic, and no more than that.** It estimates equity
 against a modelled opponent range and prices its decisions properly, which is
@@ -118,8 +178,8 @@ Two rows are worth reading closely.
 The **nit**, 100bb deep, is where the bot stops working: +7 ± 15 is no edge at
 all against an opponent that folds almost everything. The bot bluffs at a fixed
 rate and its opponent model only reacts to aggression, so it never notices it
-is being handed the pot and never widens to take it. That is the single
-clearest thing to fix.
+is being handed the pot and never widens to take it. The council below is what
+fixed that.
 
 **Nash jam/fold at 10bb** comes out at exactly 0 ± 0, which is the intended
 result rather than a broken measurement: below 15bb the equity bot defers to the
@@ -129,6 +189,32 @@ deals cancel identical play perfectly.
 Note on the intervals: per-deal results are heavy-tailed, so the normal
 approximation runs slightly narrow at small samples. A result sitting on the
 edge of its interval needs more deals, or more seeds.
+
+### The council, playing
+
+Same arena, 3,000 hands per matchup (1,500 duplicated deals), regenerated by
+`npm run study`:
+
+| Opponent        | 100bb deep | 20bb deep |
+|-----------------|-----------:|----------:|
+| Maniac          | +1118 ± 120 | +128 ± 34 |
+| Random          |  +728 ± 127 | — |
+| Calling station |  +426 ± 45 | +159 ± 32 |
+| Nit             |   +28 ± 19 |  +13 ± 12 |
+| Equity bot      |   −49 ± 50 |   +2 ± 20 |
+
+The **nit at 100bb** is the row that matters: +28 ± 19 is a real edge where the
+equity bot had none. Nothing about hand strength changed — the exploit agent
+simply gets loud in proportion to how extreme the read is, so against an
+opponent folding 74% of the time it outvotes the lenses that only know how often
+the hand wins at showdown. That is the abstention rule earning its place.
+
+Against the **equity bot** the council is even rather than ahead (−49 ± 50 and
++2 ± 20, both inside their intervals). It reasons better and it is roughly forty
+times slower per decision; on this evidence that trade has not yet bought
+anything against a competent opponent, and saying otherwise would be dishonest.
+Two bugs found while measuring this are documented above and in the source: the
+pot convention, and sampling actions from the vote share.
 
 ## Development
 

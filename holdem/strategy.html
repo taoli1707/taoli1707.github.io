@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Council — how to play any hand</title>
+<meta name="description" content="A multi-agent system for Texas Hold'em strategy: nine specialists, each with one lens, arguing from computed numbers about what to do with any hand in any spot — plus everything they concluded, and a benchmark of whether it works.">
+<meta name="theme-color" content="#0e1116">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1116'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%2335d07f'%3E%E2%99%A0%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="strategy.css">
+</head>
+<body>
+
+<header class="top">
+  <p class="crumb"><a href="index.html">← Hold'em Engine</a></p>
+  <h1>The Council</h1>
+  <p class="sub">Nine specialists, one hand. Each argues from numbers it computed itself; the chair adds them up; a tenth agent attacks the answer before you get it.</p>
+  <nav class="anchors">
+    <a href="#ask">Ask</a>
+    <a href="#how">How it works</a>
+    <a href="#preflop">Preflop</a>
+    <a href="#prices">Prices</a>
+    <a href="#boards">Boards</a>
+    <a href="#opponents">Opponents</a>
+    <a href="#works">Does it work?</a>
+    <a href="#claims">What we claim</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══ 1. Ask the council ═════════════════════════════════════════════ -->
+<section id="ask">
+  <h2 class="sec">Ask it about a hand</h2>
+  <p class="lede">Everything below runs in this tab. No hand histories are uploaded and nothing is sent anywhere — the whole system is about forty kilobytes of JavaScript and a precomputed equity table.</p>
+
+  <div class="card">
+    <div class="presets" id="presets"></div>
+
+    <div class="grid-2">
+      <label class="field"><span>Your hand</span>
+        <input id="in-hand" value="AhKh" spellcheck="false" autocomplete="off"></label>
+      <label class="field"><span>Board <em>blank for preflop</em></span>
+        <input id="in-board" value="Qh 7h 2c" spellcheck="false" autocomplete="off"></label>
+    </div>
+
+    <div class="grid-4">
+      <label class="field"><span>Pot <em>bb, incl. their bet</em></span>
+        <input id="in-pot" type="number" step="0.5" min="0.5" value="10"></label>
+      <label class="field"><span>To call <em>bb, 0 if first</em></span>
+        <input id="in-call" type="number" step="0.5" min="0" value="4"></label>
+      <label class="field"><span>Effective stack <em>bb</em></span>
+        <input id="in-stack" type="number" step="1" min="1" value="95"></label>
+      <label class="field"><span>Position</span>
+        <select id="in-pos"><option value="ip">In position</option><option value="oop">Out of position</option></select></label>
+    </div>
+
+    <div class="grid-2">
+      <label class="field"><span>Who you are playing</span>
+        <select id="in-profile"></select></label>
+      <label class="field"><span>The range they would take this line with <em>optional</em></span>
+        <input id="in-range" placeholder="leave blank to use the profile's default" spellcheck="false" autocomplete="off"></label>
+    </div>
+
+    <div class="row">
+      <button id="go" class="primary">Convene</button>
+      <span class="note" id="status"></span>
+    </div>
+  </div>
+
+  <div id="verdict" hidden></div>
+  <div id="agents" hidden></div>
+  <div id="adversary" hidden></div>
+</section>
+
+<!-- ══ 2. How it works ════════════════════════════════════════════════ -->
+<section id="how">
+  <h2 class="sec">How it works</h2>
+
+  <div class="card">
+    <p>One agent that answers "what should I do here?" end to end has to compress everything it knows into a single number, and once it does, you can no longer see <em>why</em> it wants to fold. That is fine for a bot and useless for learning. So this is nine agents instead.</p>
+
+    <p>Each specialist gets the same situation and looks at it through exactly one lens. None of them may return an action. They return a <strong>distribution over the legal actions</strong> plus a confidence, and they must show the numbers they used. The chair pools those votes, weighted by each agent's confidence and by how much <em>authority</em> that lens has in this particular spot — the solver's word is close to final at 8 big blinds and worth precisely nothing at 100.</p>
+
+    <div class="flow">
+      <div class="flow-step"><b>Situation</b><span>hand, board, pot, stack, opponent</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><b>Facts</b><span>equity, outs, texture, blockers, range shape — computed once, shared</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step wide"><b>Nine specialists</b><span>each votes over the legal actions, from its own lens only</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><b>Chair</b><span>weighted pool → one action, and how close the vote was</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step"><b>Adversary</b><span>re-runs it all under three worse assumptions</span></div>
+    </div>
+
+    <h3>The nine lenses</h3>
+    <div class="tablewrap"><table class="lenses">
+      <thead><tr><th>Agent</th><th>Answers</th><th>Speaks when</th></tr></thead>
+      <tbody id="lens-table"></tbody>
+    </table></div>
+
+    <h3>Why they are allowed to abstain</h3>
+    <p>The first version of this averaged nine opinions and it had a specific, embarrassing failure: it never bluffed. Hold seven-six on an ace-king board against someone who folds three times in four, and the equity agent reported two percent, the texture agent reported no showdown value, the stack agent reported nothing worth protecting — and all three voted to check. They were each correct about their own lens and collectively wrong, because <em>none of those lenses can see fold equity at all</em>.</p>
+    <p>So agents now abstain. When the hand has no showdown value and nobody has bet, the equity agent's headline reads <em>"too little to bet for value, so this is a bluff-or-give-up decision and equity cannot settle it"</em> — and it votes 50/50 at a confidence of 0.15 instead of vetoing. The question passes to the agent that can answer it. That single change is the difference between a system that folds every profitable bluff and one that finds them.</p>
+
+    <h3>Why a close vote is not a frequency</h3>
+    <p>The chair's output looks like a mixed strategy and it is tempting to play it as one. That is wrong, and it is wrong by about <strong>250 big blinds per hundred hands</strong> — which is how it was found.</p>
+    <p>The playing agent originally sampled its action from the distribution: fold 25% of the time when fold held a quarter of the weight. Against the engine's own much simpler equity bot it lost at <span class="mono">−283 ± 125</span> bb/100. Taking the top action instead, changing nothing else, brought the same matchup to <span class="mono">−32 ± 100</span> — inside its own interval.</p>
+    <p>The reason is that a vote share measures <em>how much the nine lenses agree</em>, not how often an action is correct. A quarter of the weight on folding means a quarter of the argument leaned that way; it does not mean folding is right one hand in four. Real mixing does exist in poker, and there is exactly one place on this page where the frequencies are genuine equilibrium frequencies rather than opinion polls: the solver's push/fold output, which is computed rather than voted on.</p>
+    <p>So a close vote is a flag, not a prescription. It marks a spot whose answer turns on the read you supplied — which is a reason to go and check the read, and precisely what the adversary agent is there to help with.</p>
+  </div>
+</section>
+
+<!-- ══ 3. Preflop ═════════════════════════════════════════════════════ -->
+<section id="preflop">
+  <h2 class="sec">Preflop: the part that is actually solved</h2>
+  <div class="card">
+    <p>Heads-up jam-or-fold is one of the very few poker decisions with a real answer. The tree is two nodes deep — the small blind shoves or folds, the big blind calls or folds — which is small enough to solve outright rather than estimate. The solver in this engine reaches an equilibrium exploitable for well under <span class="mono" id="exploit-fig">—</span> big blinds per hand, which is zero for any purpose you have.</p>
+    <p>So the first thing to know about strategy is the depth at which each hand stops being a jam. Brighter means it stays a jam deeper; hover any cell for the number.</p>
+
+    <div class="gridtabs">
+      <button class="gridtab is-active" data-grid="jam">Jam to this depth</button>
+      <button class="gridtab" data-grid="call">Call a jam to this depth</button>
+      <button class="gridtab" data-grid="equity">Equity vs a random hand</button>
+    </div>
+    <div id="grid169" class="grid169"></div>
+    <p class="note" id="grid-legend"></p>
+  </div>
+
+  <div class="card">
+    <h3>What that means at the table</h3>
+    <ul class="findings" id="preflop-findings"></ul>
+  </div>
+
+  <div class="card">
+    <h3>Where the council has nothing useful to say</h3>
+    <p>The obvious next thing to build is the same grid for a hundred big blinds: what does the council open, hand by hand, when the stack is deep? It was built, it ran over all 169 classes, and the answer was <strong id="limp-finding">&mdash;</strong></p>
+    <p>That is not a bug, and it is not quite wrong either. Facing half a big blind into a pot of one and a half, the price is 25% &mdash; and there is no starting hand in the deck with less than 25% equity against a range that wide. Every lens the council owns says the call is correct, and every lens is right. The output is simply useless, because the real question at a hundred big blinds is not "does this call show a profit against the immediate price" but "what does this hand do for the range I will be playing on three future streets", and <em>none of the nine lenses model future streets at all</em>.</p>
+    <p>So the grid was removed rather than shipped. A system that returns one action for every hand in the deck has told you nothing, and putting colour on it would only have hidden that. The short-stack grid above stays because there the tree really does end after one decision &mdash; which is the same reason it can be solved at all.</p>
+  </div>
+</section>
+
+<!-- ══ 4. Prices ══════════════════════════════════════════════════════ -->
+<section id="prices">
+  <h2 class="sec">Prices: the arithmetic you cannot argue with</h2>
+  <div class="card">
+    <p>Three numbers fall straight out of a bet size, and between them they decide more hands than any read ever will.</p>
+    <div class="tablewrap"><table id="price-table">
+      <thead><tr>
+        <th>They bet</th>
+        <th>You need <em>to call</em></th>
+        <th>They need <em>the bluff to work</em></th>
+        <th>You must defend <em>at least</em></th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note">Read the last column as a warning rather than an instruction. It is the frequency below which any two cards can bet at you profitably — not a licence to call with anything to reach it. Defend with the hands that have the most equity and the best blockers, and if you cannot find enough of them, your range arrived on this street too weak.</p>
+  </div>
+</section>
+
+<!-- ══ 5. Boards ══════════════════════════════════════════════════════ -->
+<section id="boards">
+  <h2 class="sec">Boards, measured instead of adjectived</h2>
+  <div class="card">
+    <p>"Wet" and "dry" are guesses at a number nobody bothers to compute. The number is right here: of every two-card holding still possible, what share already has two pair or better, and what share is drawing. Both are exact enumerations over the remaining <span class="mono">1176</span> combinations.</p>
+    <div class="tablewrap"><table id="board-table">
+      <thead><tr><th>Flop</th><th>Two pair or better</th><th>Drawing</th><th>Wetness</th><th>Best possible</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note">The gap between the top and bottom rows is the whole of flop strategy: on a board where three percent of hands have something, a small bet from the range that connects better takes it down; on one where a quarter do, cheap bets are just a discount on someone else's draw.</p>
+  </div>
+</section>
+
+<!-- ══ 6. Opponents ═══════════════════════════════════════════════════ -->
+<section id="opponents">
+  <h2 class="sec">The same hand, five opponents</h2>
+  <div class="card">
+    <p>Both rows below are the same board — <span class="mono">Ah Kc 9s 4d 2c</span>, fourteen big blinds in the pot, first to act. The only thing that changes is who is sitting across the table.</p>
+    <div class="tablewrap"><table id="profile-table">
+      <thead><tr><th>Opponent</th><th>Folds to a bet</th><th>With 7♦6♦ <em>nothing</em></th><th>With A♠Q♦ <em>top pair</em></th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note">If one line is worth taking away from this whole page, it is that row. Seven-high is a bet against one opponent and a fold against another, with identical cards on an identical board, and no amount of thinking about your hand will tell you which — only thinking about theirs.</p>
+  </div>
+</section>
+
+<!-- ══ 7. Benchmark ═══════════════════════════════════════════════════ -->
+<section id="works">
+  <h2 class="sec">Does any of it actually work?</h2>
+  <div class="card">
+    <p>The council was wired into a playing agent and sat down against every baseline in the engine. Each deal is played twice with the seats swapped and the identical deck, so half the luck cancels before the result is counted. Intervals are 95%.</p>
+    <div class="tablewrap"><table id="bench-table">
+      <thead><tr><th>Opponent</th><th>Stack</th><th>Result <em>bb/100</em></th><th>Verdict</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note" id="bench-note"></p>
+
+    <h3>The two rows that matter</h3>
+    <p><strong>The nit, a hundred big blinds deep.</strong> This is the matchup the engine's older, simpler equity bot could not win: it scored <span class="mono">+7 ± 15</span> against an opponent folding three times in four — no edge at all, against the softest possible target. The council wins it. Nothing about how it evaluates hands changed; the exploit agent simply gets louder in proportion to how extreme the read is, and the lenses that can only see showdown value stand aside instead of voting the bluff down. That single rule is the difference between noticing you are being handed the pot and not.</p>
+    <p><strong>The equity bot.</strong> Against the engine's own simpler agent the council is level, not ahead — both rows sit inside their intervals. It reasons better, it shows its working, and it is roughly forty times slower per decision. On this evidence that trade has not yet bought anything against a competent opponent, and the table would be worth less if it pretended otherwise.</p>
+    <p>Both numbers moved a long way during development, and not because of tuning. Two ordinary bugs were costing most of it: the playing agent was adding the bet it faced on top of a pot that already contained it, which quietly improved every price it was offered, and it was sampling its action from the vote share. Fixing the second alone was worth about 250 bb/100.</p>
+  </div>
+</section>
+
+<!-- ══ 8. Claims ══════════════════════════════════════════════════════ -->
+<section id="claims">
+  <h2 class="sec">What is claimed, and what is not</h2>
+  <div class="card">
+    <div class="tiers">
+      <div class="tier tier-solved">
+        <b>Solved</b>
+        <p>The jam/fold equilibrium and everything derived from it. Exact to the limits of floating point, measured by its own exploitability. If this page and a published Nash chart disagree, check the chart.</p>
+      </div>
+      <div class="tier tier-computed">
+        <b>Computed</b>
+        <p>Hand evaluation, pot odds, board texture, blocker counts, range shape, equity. Enumerated exactly where the tree is small enough and sampled with a stated confidence interval where it is not.</p>
+      </div>
+      <div class="tier tier-measured">
+        <b>Measured</b>
+        <p>The benchmark. Real hands, real variance, intervals attached. A result inside its interval is not a result, and the table above says so where that happens.</p>
+      </div>
+      <div class="tier tier-judged">
+        <b>Judged</b>
+        <p>Every authority weight, every confidence curve, the sizing rules, the five opponent profiles. These are engineering choices, tuned against the tests and the benchmark. They are the part most likely to be wrong.</p>
+      </div>
+    </div>
+
+    <h3>Three things this is not</h3>
+    <p><strong>It is not a solver.</strong> Postflop Hold'em has not been solved and this does not solve it. Outside the short-stack preflop game, the council estimates — carefully, from real numbers, with the error bars shown, but it estimates.</p>
+    <p><strong>It is not a tool for playing against people who think they are playing a human.</strong> It runs on hands you type into it, and it is built to be argued with rather than obeyed. Pointing it at a live table would break the terms of every real-money site there is, and take money from opponents who did not agree to play a machine. That is the one thing the engine deliberately cannot do.</p>
+    <p><strong>It is only as good as the range you give it.</strong> Every number on this page is conditional on the opponent's range, and the field marked "the range they would take this line with" means exactly that — not the hands they play, the hands they would <em>bet</em> here. Widen it and the adversary agent will tell you, in the panel at the top, whether the answer survives.</p>
+  </div>
+
+  <p class="foot">Part of the <a href="index.html">Hold'em Engine</a>. Source lives in <span class="mono">holdem/engine/council.js</span>; the numbers on this page come from <span class="mono">tools/study.mjs</span>. Generated <span id="gen-date">—</span>.</p>
+</section>
+
+</main>
+
+<script type="module" src="strategy.js"></script>
+</body>
+</html>
