@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warzone Field Manual</title>
+<meta name="description" content="A field manual for intermediate Call of Duty: Warzone players who want to break the plateau: gunfights, movement, positioning, loadouts, economy, modes, settings, and a four-week practice plan. Snapshot: Season 5 Reloaded, September 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #0f1418;
+    --panel: #161d24;
+    --panel-2: #1c252e;
+    --line: #273240;
+    --line-2: #35455a;
+    --ink: #e8edf1;
+    --ink-2: #b7c2cc;
+    --muted: #8593a0;
+    --accent: #f2a541;
+    --accent-ink: #1a1206;
+    --accent-soft: rgba(242,165,65,.14);
+    --teal: #4fc1b4;
+    --teal-soft: rgba(79,193,180,.14);
+    --good: #5ec48f;
+    --warn: #e9c46a;
+    --bad: #e2655e;
+    --bad-soft: rgba(226,101,94,.14);
+    --shadow: 0 8px 24px rgba(0,0,0,.35);
+    --radius: 10px;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #eef1f4;
+      --panel: #ffffff;
+      --panel-2: #f5f7f9;
+      --line: #d9dee4;
+      --line-2: #c3cbd4;
+      --ink: #171b1f;
+      --ink-2: #3d474f;
+      --muted: #66717c;
+      --accent: #c8731a;
+      --accent-ink: #ffffff;
+      --accent-soft: rgba(200,115,26,.12);
+      --teal: #1d8a80;
+      --teal-soft: rgba(29,138,128,.12);
+      --good: #2f9e63;
+      --warn: #b98a12;
+      --bad: #c9463f;
+      --bad-soft: rgba(201,70,63,.10);
+      --shadow: 0 8px 24px rgba(23,27,31,.08);
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #eef1f4;
+    --panel: #ffffff;
+    --panel-2: #f5f7f9;
+    --line: #d9dee4;
+    --line-2: #c3cbd4;
+    --ink: #171b1f;
+    --ink-2: #3d474f;
+    --muted: #66717c;
+    --accent: #c8731a;
+    --accent-ink: #ffffff;
+    --accent-soft: rgba(200,115,26,.12);
+    --teal: #1d8a80;
+    --teal-soft: rgba(29,138,128,.12);
+    --good: #2f9e63;
+    --warn: #b98a12;
+    --bad: #c9463f;
+    --bad-soft: rgba(201,70,63,.10);
+    --shadow: 0 8px 24px rgba(23,27,31,.08);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px;
+  }
+  .skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 12px; border-radius: 6px; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  .display { font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .02em; line-height: 1; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+  .shell { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100vh; }
+
+  /* rail */
+  .rail { position: sticky; top: 0; height: 100vh; overflow-y: auto; border-right: 1px solid var(--line); background: var(--panel); padding: 22px 16px 28px; }
+  .brand { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .brand .display { font-size: 24px; color: var(--ink); }
+  .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; transform: translateY(-2px); }
+  .rail .stamp { font-size: 11.5px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 18px; }
+  .rail nav { display: flex; flex-direction: column; gap: 2px; }
+  .rail nav a { display: flex; gap: 10px; align-items: baseline; padding: 7px 10px; border-radius: 7px; color: var(--ink-2); font-size: 14px; }
+  .rail nav a .n { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--muted); min-width: 20px; }
+  .rail nav a:hover { background: var(--panel-2); text-decoration: none; color: var(--ink); }
+  .rail nav a.active { background: var(--accent-soft); color: var(--ink); }
+  .rail nav a.active .n { color: var(--accent); }
+  .rail .tools { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+  .btn { appearance: none; border: 1px solid var(--line-2); background: var(--panel-2); color: var(--ink); font: inherit; font-size: 13.5px; padding: 8px 12px; border-radius: 7px; cursor: pointer; }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; }
+  .btn.small { padding: 5px 10px; font-size: 12.5px; }
+  .btn.danger { color: var(--bad); }
+
+  main { padding: 0 40px 80px; max-width: 980px; }
+
+  /* hero */
+  .hero { padding-block: 52px 36px; }
+  .eyebrow { color: var(--accent); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+  .hero h1 { font-size: clamp(48px, 7vw, 84px); margin: 8px 0 14px; color: var(--ink); text-wrap: balance; }
+  .hero h1 span { color: var(--accent); }
+  .lede { font-size: 18px; color: var(--ink-2); max-width: 64ch; margin: 0; }
+  .status { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .chip { font-family: "IBM Plex Mono", monospace; font-size: 12px; padding: 5px 10px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--ink-2); background: var(--panel); }
+  .chip b { color: var(--ink); font-weight: 500; }
+  .chip.hot { border-color: var(--accent); color: var(--ink); }
+  .numbers { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 26px; }
+  .numbers div { background: var(--panel); padding: 14px 16px; }
+  .numbers .v { font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 34px; line-height: 1; color: var(--ink); }
+  .numbers .k { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+
+  /* chapters */
+  .chapter { padding-block: 44px 10px; border-top: 1px solid var(--line); }
+  .chapter-head { margin-bottom: 18px; }
+  .kicker { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+  .chapter h2 { font-size: clamp(32px, 4vw, 44px); margin: 6px 0 8px; color: var(--ink); text-wrap: balance; }
+  .chapter .why { color: var(--ink-2); max-width: 66ch; margin: 0; font-size: 16.5px; }
+  h3 { font-size: 20px; font-weight: 600; margin: 30px 0 8px; letter-spacing: -.005em; }
+  h4 { font-size: 15px; font-weight: 600; margin: 18px 0 6px; color: var(--ink); }
+  p { max-width: 68ch; }
+  ul, ol { padding-left: 22px; max-width: 70ch; }
+  li { margin: 5px 0; }
+  li > ul { margin-top: 4px; }
+  strong { font-weight: 600; color: var(--ink); }
+  .muted { color: var(--muted); }
+  .small { font-size: 13.5px; }
+
+  .callout { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 18px 0; max-width: 72ch; }
+  .callout.teal { border-color: var(--teal); background: var(--teal-soft); }
+  .callout.bad { border-color: var(--bad); background: var(--bad-soft); }
+  .callout .lbl { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--accent); display: block; margin-bottom: 4px; }
+  .callout.teal .lbl { color: var(--teal); }
+  .callout.bad .lbl { color: var(--bad); }
+  .callout p { margin: 0; }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin: 16px 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin: 16px 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .card h4 { margin-top: 0; }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+  .card ul { padding-left: 18px; }
+
+  .drill { border: 1px dashed var(--line-2); border-radius: var(--radius); padding: 14px 16px; margin: 16px 0; max-width: 72ch; background: var(--panel-2); }
+  .drill .lbl { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+  .drill p { margin: 6px 0 0; }
+
+  .tblwrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: var(--radius); }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--panel); }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--panel-2); }
+  tr:last-child td { border-bottom: 0; }
+  td.num, th.num { text-align: right; font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+
+  .tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); }
+  .tag.accent { border-color: var(--accent); color: var(--accent); }
+  .tag.teal { border-color: var(--teal); color: var(--teal); }
+  .tag.bad { border-color: var(--bad); color: var(--bad); }
+
+  details { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); margin: 10px 0; max-width: 76ch; }
+  summary { cursor: pointer; padding: 12px 16px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: "IBM Plex Mono", monospace; color: var(--muted); }
+  details[open] summary::after { content: "–"; }
+  details .body { padding: 0 16px 14px; }
+
+  /* checklists */
+  .checklist { list-style: none; padding: 0; margin: 10px 0; max-width: 72ch; }
+  .checklist li { margin: 0; }
+  .checklist label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 7px; cursor: pointer; }
+  .checklist label:hover { background: var(--panel-2); }
+  .checklist input { margin-top: 4px; accent-color: var(--accent); width: 16px; height: 16px; flex: none; }
+  .checklist input:checked + span { color: var(--muted); text-decoration: line-through; }
+
+  /* audit */
+  .audit { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; margin-top: 18px; }
+  .audit-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px 26px; }
+  .q { display: grid; grid-template-columns: minmax(0,1fr) 120px 22px; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .q:last-child { border-bottom: 0; }
+  .q label { font-size: 14px; }
+  .q label small { display: block; color: var(--muted); font-size: 12px; }
+  .q input[type=range] { width: 100%; accent-color: var(--accent); }
+  .q output { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--ink-2); text-align: right; }
+  .audit-actions { display: flex; gap: 10px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+  .result { margin-top: 18px; display: none; }
+  .result.show { display: block; }
+  .area { display: grid; grid-template-columns: 170px minmax(0,1fr) 44px; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .area:last-child { border-bottom: 0; }
+  .area .name { font-weight: 600; font-size: 14px; }
+  .area .name a { color: var(--teal); font-weight: 500; font-size: 12.5px; margin-left: 6px; }
+  .meter { height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+  .meter i { display: block; height: 100%; border-radius: 4px; background: var(--accent); }
+  .area.weak .meter i { background: var(--bad); }
+  .area .score { font-family: "IBM Plex Mono", monospace; font-size: 13px; text-align: right; }
+  .focus { margin-top: 14px; }
+
+  /* tabs */
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--line); margin: 14px 0 0; }
+  .tabs button { appearance: none; background: none; border: 0; border-bottom: 2px solid transparent; padding: 10px 12px; color: var(--ink-2); font: inherit; font-weight: 500; cursor: pointer; margin-bottom: -1px; }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+  .tabpanel { display: none; padding-top: 14px; }
+  .tabpanel.show { display: block; }
+  .load { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+  .gun { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .gun header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+  .gun h4 { margin: 0; font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 24px; text-transform: uppercase; letter-spacing: .02em; }
+  .gun .role { font-size: 12px; color: var(--muted); }
+  .att { list-style: none; padding: 0; margin: 8px 0 0; font-size: 13.5px; }
+  .att li { display: grid; grid-template-columns: 92px minmax(0,1fr); gap: 8px; padding: 4px 0; border-bottom: 1px solid var(--line); }
+  .att li:last-child { border-bottom: 0; }
+  .att .slot { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .06em; padding-top: 2px; }
+  .gun .note { font-size: 13px; color: var(--ink-2); margin: 10px 0 0; }
+
+  /* log */
+  .logform { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .logform .full { grid-column: 1 / -1; }
+  .field label { display: block; font-size: 12px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+  .field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid var(--line-2); border-radius: 7px; background: var(--panel-2); color: var(--ink); }
+  .field textarea { min-height: 60px; resize: vertical; }
+  .logactions { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .bars { margin: 14px 0; }
+  .bar-row { display: grid; grid-template-columns: 200px minmax(0,1fr) 40px; gap: 12px; align-items: center; padding: 5px 0; }
+  .bar-row .lbl { font-size: 13.5px; color: var(--ink-2); }
+  .bar-row .track { height: 10px; position: relative; }
+  .bar-row .fill { position: absolute; left: 0; top: 0; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
+  .bar-row .val { font-family: "IBM Plex Mono", monospace; font-size: 13px; text-align: right; }
+  .coach { margin-top: 12px; }
+  .empty { color: var(--muted); font-size: 14px; padding: 12px 0; }
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin: 14px 0; }
+  .stats div { background: var(--panel); padding: 10px 14px; }
+  .stats .v { font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 28px; line-height: 1; }
+  .stats .k { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* diagram */
+  figure { margin: 18px 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; max-width: 760px; }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+  .glossary dt { font-weight: 600; margin-top: 10px; }
+  .glossary dd { margin: 2px 0 0 0; color: var(--ink-2); max-width: 70ch; }
+
+  .sources { font-size: 13.5px; color: var(--ink-2); }
+  .sources li { margin: 3px 0; }
+  footer { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 18px; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 1080px) {
+    .grid-3 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  }
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: minmax(0,1fr); }
+    .rail { position: sticky; top: 0; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 12px 16px; z-index: 20; }
+    .rail .stamp { display: none; }
+    .brand { margin-bottom: 8px; }
+    .rail nav { flex-direction: row; overflow-x: auto; gap: 4px; padding-bottom: 4px; scrollbar-width: thin; }
+    .rail nav a { flex: none; padding: 6px 10px; font-size: 13px; white-space: nowrap; }
+    .rail .tools { display: none; }
+    main { padding: 0 20px 60px; }
+    .hero { padding-block: 34px 26px; }
+    .numbers, .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-2, .grid-3, .load, .audit-grid { grid-template-columns: minmax(0,1fr); }
+    .logform { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .q { grid-template-columns: minmax(0,1fr) 90px 22px; }
+    .area { grid-template-columns: 130px minmax(0,1fr) 40px; }
+    .bar-row { grid-template-columns: 130px minmax(0,1fr) 36px; }
+  }
+  @media (max-width: 480px) {
+    .logform { grid-template-columns: minmax(0,1fr); }
+    .numbers, .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .att li { grid-template-columns: 78px minmax(0,1fr); }
+  }
+  @media print {
+    .rail, .btn, .audit-actions, .logform { display: none !important; }
+    .shell { display: block; }
+    main { padding: 0; max-width: none; }
+    details { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <aside class="rail" aria-label="Sections">
+    <div class="brand"><span class="display">Field Manual</span><span class="dot" aria-hidden="true"></span></div>
+    <div class="stamp">Warzone · S5 Reloaded · Sep 2026</div>
+    <nav id="nav">
+      <a href="#state"><span class="n">00</span>State of the game</a>
+      <a href="#diagnose"><span class="n">01</span>Diagnose the plateau</a>
+      <a href="#gunfight"><span class="n">02</span>Gunfights</a>
+      <a href="#movement"><span class="n">03</span>Movement</a>
+      <a href="#positioning"><span class="n">04</span>Positioning & rotations</a>
+      <a href="#info"><span class="n">05</span>Information</a>
+      <a href="#loadouts"><span class="n">06</span>Loadouts</a>
+      <a href="#economy"><span class="n">07</span>Economy & contracts</a>
+      <a href="#modes"><span class="n">08</span>Modes & maps</a>
+      <a href="#squad"><span class="n">09</span>Squad play</a>
+      <a href="#settings"><span class="n">10</span>Settings</a>
+      <a href="#practice"><span class="n">11</span>Practice plan</a>
+      <a href="#log"><span class="n">12</span>Match log</a>
+      <a href="#glossary"><span class="n">13</span>Glossary</a>
+      <a href="#sources"><span class="n">14</span>Sources</a>
+    </nav>
+    <div class="tools">
+      <button class="btn small" id="themeBtn" type="button">Theme: system</button>
+      <span class="small muted">Progress, audit results and the match log stay in this browser only.</span>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header class="hero">
+      <div class="eyebrow">From intermediate to dangerous</div>
+      <h1 class="display">Warzone <span>Field Manual</span></h1>
+      <p class="lede">You already know how to loot, plate, and win a fair 1v1. The next tier is not about aim. It is about taking fewer fair fights, dying to fewer things you could have seen coming, and building repeatable habits. This manual is ordered by leverage: the chapters near the top fix the most deaths per hour of practice.</p>
+      <div class="status">
+        <span class="chip hot">Snapshot <b>Season 5 Reloaded</b> (Aug 20, 2026)</span>
+        <span class="chip">BR rotation <b>Verdansk · Avalon</b></span>
+        <span class="chip">Resurgence <b>Rebirth · Fortune's Keep · Haven's Hollow</b></span>
+        <span class="chip">Season 6 <b>Sep 17</b> re-tunes weapons</span>
+      </div>
+      <div class="numbers" aria-label="Key numbers">
+        <div><div class="v mono">300</div><div class="k">max health in standard BR: 150 base + 3 plates × 50</div></div>
+        <div><div class="v mono">5</div><div class="k">attachments per weapon (no Gunfighter wildcard)</div></div>
+        <div><div class="v mono">2</div><div class="k">primaries by default (Overkill is built in)</div></div>
+        <div><div class="v mono">150</div><div class="k">max SR per Ranked Resurgence match</div></div>
+      </div>
+    </header>
+
+    <!-- 00 STATE -->
+    <section class="chapter" id="state">
+      <div class="chapter-head">
+        <div class="kicker">00 / Read first</div>
+        <h2 class="display">Where the game is in September 2026</h2>
+        <p class="why">Half of "outdated advice" is advice written for a different ruleset. This is the ruleset the manual assumes.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>The engine</h4>
+          <ul>
+            <li>Warzone runs on the <strong>Black Ops 7</strong> integration (since Dec 4, 2025). BO7 weapons, attachments, perks and movement rules apply.</li>
+            <li><strong>Season 5</strong> launched Jul 23, 2026; <strong>Season 5 Reloaded</strong> on Aug 20. <strong>Season 6 (The Haunting)</strong> lands Sep 17 and will re-tune weapons. Modern Warfare 4 ships Oct 23, and history says a new Warzone integration follows within weeks.</li>
+            <li>Read the meta chapter as a snapshot with a short half-life. Read every other chapter as durable.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Modes that matter</h4>
+          <ul>
+            <li><strong>Battle Royale</strong>: map rotation between <strong>Verdansk</strong> and <strong>Avalon</strong>; playlists cycle every few minutes across squad sizes.</li>
+            <li><strong>Resurgence</strong>: Rebirth Island, Fortune's Keep, Haven's Hollow. Respawns while a teammate is alive. Best mode for reps.</li>
+            <li><strong>Black Ops Royale</strong>: Avalon only. Blackout rules: no loadouts, no Gulag, no Buy Stations, consumable perks, respawn tokens and Redeploy Towers, grapple and wingsuit.</li>
+            <li><strong>Ranked Play: Resurgence</strong>: trios, BO7 weapons only, Skill Rating ladder up to Top 250.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Movement rules (BO7 era)</h4>
+          <ul>
+            <li>Omnimovement: sprint, slide and dive in any direction.</li>
+            <li><strong>No default Tactical Sprint.</strong> Base speed is higher; the Tac Sprinter perk brings it back.</li>
+            <li><strong>Wall jump</strong>: chain up to three, each shorter than the last.</li>
+            <li>You <strong>cannot aim down sights while sliding, diving or wall-jumping</strong> unless a perk enables it. Slide into cover, never into the open.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Verdansk in Season 5</h4>
+          <ul>
+            <li>New POI <strong>Drone Labs</strong> east of TV Station, south of Quarry. It launches Supply Drones you can shoot down for loot; expect squads racing you.</li>
+            <li><strong>Stadium</strong> is permanently unlocked and flagged as a High Value Loot Zone.</li>
+            <li>Gulag is a <strong>Rush</strong>-based layout that changes on weekends, with a "jailbreaker" event that frees both players if the fight drags.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="lbl">The thesis</span>
+        <p>Intermediate players lose most of their games to <em>decisions made 20 seconds before the gunfight</em>: where they stood, what they knew, whether they had a way out. Aim decides who wins a fair fight. Good players rarely take one.</p>
+      </div>
+    </section>
+
+    <!-- 01 DIAGNOSE -->
+    <section class="chapter" id="diagnose">
+      <div class="chapter-head">
+        <div class="kicker">01 / Diagnose</div>
+        <h2 class="display">Find your leaks before you grind</h2>
+        <p class="why">Rate yourself honestly. The audit ranks your six skill areas and points you at the chapters to read first. Results save in this browser so you can re-take it in a month.</p>
+      </div>
+
+      <h3>Common intermediate leaks</h3>
+      <div class="grid-3">
+        <div class="card"><h4>Fighting</h4><ul><li>Plating where you can be seen</li><li>Peeking the same angle twice</li><li>Reloading in the open</li><li>Standing still while aiming on controller</li><li>Taking AR fights at sniper range</li></ul></div>
+        <div class="card"><h4>Deciding</h4><ul><li>Chasing a cracked enemy into a building</li><li>Thirsting a down while their team rotates on you</li><li>Rotating late through open ground</li><li>Looting past the point of usefulness</li><li>Third-partied because the fight took 90 seconds</li></ul></div>
+        <div class="card"><h4>Operating</h4><ul><li>No UAV before the final pushes</li><li>Callouts without direction or distance</li><li>Splitting from the squad to loot</li><li>Settings changed every week</li><li>No review: same death, different match</li></ul></div>
+      </div>
+
+      <div class="audit" id="audit">
+        <h3 style="margin-top:0">Skill audit</h3>
+        <p class="small muted">1 = this costs me games often. 5 = rarely a problem. Two questions per area.</p>
+        <div class="audit-grid" id="auditQs"></div>
+        <div class="audit-actions">
+          <button class="btn primary" id="auditRun" type="button">Rank my weak areas</button>
+          <button class="btn" id="auditReset" type="button">Reset</button>
+          <span class="small muted" id="auditSaved"></span>
+        </div>
+        <div class="result" id="auditResult" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- 02 GUNFIGHT -->
+    <section class="chapter" id="gunfight">
+      <div class="chapter-head">
+        <div class="kicker">02 / Gunfights</div>
+        <h2 class="display">Win fights before the first bullet</h2>
+        <p class="why">Most gunfights are decided by who saw whom first, who had cover, and who broke line of sight to plate. Aim comes fourth.</p>
+      </div>
+
+      <h3>Pre-aim and centering</h3>
+      <ul>
+        <li><strong>Crosshair at head height, on the next corner.</strong> Intermediate players look at the ground or the wall while moving. Keep the reticle where a head would appear, so the first shot needs a flick of centimetres, not a swing.</li>
+        <li><strong>Pre-aim common angles</strong> when entering rooms, cresting hills or opening doors. If you know where someone would hold, aim there before you see them.</li>
+        <li><strong>Peek with intent.</strong> Before you peek, decide: I am shooting, or I am gathering info and resetting. Peeking without a plan is how you get hit by the first bullet and then hesitate.</li>
+        <li><strong>Range discipline.</strong> SMG under roughly 15 to 20 metres, AR from 20 to 60, sniper beyond. Swap weapons for the range instead of forcing the one in your hands. If you have the wrong weapon out, break line of sight first, then swap.</li>
+      </ul>
+
+      <h3>Cover discipline</h3>
+      <ul>
+        <li><strong>Never take a fight without a fallback.</strong> The question before every shot: if I get cracked, which cover do I step into? If there is no answer, do not shoot yet.</li>
+        <li><strong>Break line of sight to plate. Always.</strong> One plate takes about a second. Plating in a doorway or on an open roof is a free kill for whoever is watching. Step fully behind cover, plate, then re-peek from a different edge.</li>
+        <li><strong>Head glitches.</strong> Waist-high cover exposes only your head, which shrinks the target massively. Fight from them; do not fight into them. Someone on a head glitch is flanked or grenaded, not out-aimed.</li>
+        <li><strong>Reload behind cover only.</strong> If your mag runs dry mid-fight, swap weapons instead of reloading. Two seconds of reload in the open is the most common intermediate death in Resurgence.</li>
+        <li><strong>Never re-peek the same edge</strong> after you've been shot from it. The enemy is pre-aimed there. Change height (crouch), change edge, or leave.</li>
+      </ul>
+
+      <h3>Controller aim assist works when you move</h3>
+      <p>Rotational aim assist engages only while you give <strong>left-stick movement</strong>. Standing still while aiming turns it off. Strafe left-right while aiming, even a few centimetres, on every fight that is not a long-range sniper shot. The "Black Ops" aim-assist type is the strongest and most consistent preset in the current game.</p>
+
+      <h3>Target priority and finishing</h3>
+      <ul>
+        <li>Shoot the <strong>cracked</strong> player, then the <strong>closest</strong>, then the <strong>most exposed</strong>. A player with no plates dies in a fraction of the time and removes a gun from the fight.</li>
+        <li><strong>After a down, do not stare at the body.</strong> Their teammates know exactly where you are. Plate, move to a new position, and expect the push. Thirst only when your squad confirms it is safe, or use the downed player as bait.</li>
+        <li>Tracking an enemy who is sliding: aim at the <strong>end</strong> of the slide, not the body during it. Slides end predictably.</li>
+      </ul>
+
+      <h3>Health and time-to-kill</h3>
+      <div class="tblwrap">
+        <table>
+          <tr><th>Number</th><th class="num">Value</th><th>Why it matters</th></tr>
+          <tr><td>Base health</td><td class="num">150</td><td>Regenerates on its own after a delay. Plates do not.</td></tr>
+          <tr><td>Per armor plate</td><td class="num">50</td><td>Three worn plates take you to 300. "Cracked" means all plates gone; you are one burst from dead.</td></tr>
+          <tr><td>Plates carried</td><td class="num">5 · 8</td><td>Five spare normally, eight with an Armor Satchel. Never hold fewer than three spares late.</td></tr>
+          <tr><td>Fully plated kill</td><td class="num">300 dmg</td><td>Meta ARs need roughly 8 to 10 body shots at mid range. Two of you shooting halves that. Trade fights.</td></tr>
+        </table>
+      </div>
+      <p class="small muted">Health values are the standard Battle Royale and Resurgence numbers that have held through the BO7 integration. Black Ops Royale uses its own rarity-based armor vests and Trauma Kits that push health above the cap.</p>
+
+      <div class="drill">
+        <span class="lbl">Drill · 15 minutes</span>
+        <p>Load Resurgence. For one match, refuse to shoot anyone unless you can name your fallback cover out loud first. Count how many "no fallback" fights you would have taken. That number is the leak.</p>
+      </div>
+      <div class="drill">
+        <span class="lbl">Drill · 10 minutes</span>
+        <p>Plunder or a multiplayer bot match: walk through three buildings with the reticle glued to head height on every corner. If it drops to the floor, restart the building. Boring for exactly one week, then permanent.</p>
+      </div>
+    </section>
+
+    <!-- 03 MOVEMENT -->
+    <section class="chapter" id="movement">
+      <div class="chapter-head">
+        <div class="kicker">03 / Movement</div>
+        <h2 class="display">Move to not be shot, not to look good</h2>
+        <p class="why">One rule covers 80 percent of movement: move when they cannot see you, stop and shoot when they can. Everything below is technique in service of that rule.</p>
+      </div>
+
+      <h3>Rules that changed with Black Ops 7</h3>
+      <ul>
+        <li><strong>No default tac sprint.</strong> Base sprint is faster than before. If you want the extra burst for rotations, run the Tac Sprinter perk; if you would rather spend the slot on Ghost or a survivability perk, that is a legitimate trade.</li>
+        <li><strong>Wall jumps</strong> chain up to three times and lose distance each time. They are for reaching ledges and roofs in one motion, and for changing the angle you appear from. They are not for fighting: you cannot aim mid-jump.</li>
+        <li><strong>Slide, dive and wall jump lock you out of aiming</strong> unless a perk removes the restriction. So: slide <em>to</em> cover, not <em>through</em> a doorway into a room with an enemy in it.</li>
+        <li><strong>Roll</strong> after a dive in Warzone to keep momentum and recover faster.</li>
+      </ul>
+
+      <h3>Techniques worth owning</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Slide cancel</h4><p>Slide, then crouch (or jump) the instant the slide begins to cancel it and reset your sprint. Use it to change speed unpredictably while crossing a gap, and to peek a corner low and snap back. Do not spam it in the open: it is loud and slows you overall.</p></div>
+        <div class="card"><h4>Jiggle and shoulder peek</h4><p>Show a shoulder for a fraction of a second to bait a shot and see where they hold, then peek wide from a different edge once they are reloading or re-adjusting. Two jiggles, then commit or leave.</p></div>
+        <div class="card"><h4>Mantle, climb, ladders</h4><p>Mantling is fast and silent; ladders are slow and lock your gun away. Never take a ladder with an enemy within 30 metres. Look for stacked crates, awnings and wall jumps instead.</p></div>
+        <div class="card"><h4>Parachute and redeploy</h4><p>Cut the chute low for speed on the initial drop, re-open just before impact. Redeploy balloons and ascenders let you reposition or escape a bad circle. On Avalon, Relay Antennas grant a wingsuit launch that covers half the map; find the nearest one the moment you land.</p></div>
+      </div>
+
+      <h3>Vehicles</h3>
+      <ul>
+        <li>Vehicles win rotations and lose fights. Use them to cross the map early or to beat a far circle; ditch them 100 metres before the destination and arrive on foot.</li>
+        <li>Never drive into the last three circles. Every gun in the lobby hears you.</li>
+        <li>A vehicle parked between you and the enemy is cover. A vehicle you are sitting in is a coffin with a horn.</li>
+      </ul>
+
+      <div class="callout teal">
+        <span class="lbl">Positioning beats movement</span>
+        <p>Flashy movement wins clips; it loses matches when it puts you in the open with no plates. If you find yourself sliding around in an open field, the mistake happened 10 seconds earlier when you left cover without a destination.</p>
+      </div>
+
+      <div class="drill">
+        <span class="lbl">Drill · 10 minutes</span>
+        <p>Private match or empty Plunder area. Pick two pieces of cover 20 metres apart. Cross between them ten times: sprint, slide into the cover, cancel, stand, aim at head height on the far edge. Then add a wall jump onto a ledge and immediately find cover. Speed comes after cleanliness.</p>
+      </div>
+    </section>
+
+    <!-- 04 POSITIONING -->
+    <section class="chapter" id="positioning">
+      <div class="chapter-head">
+        <div class="kicker">04 / Positioning & rotations</div>
+        <h2 class="display">Be somewhere good before they are</h2>
+        <p class="why">This chapter is worth more placement than any loadout. Rotations decide which fights you are offered; positioning decides whether you get to accept them on your terms.</p>
+      </div>
+
+      <h3>What a power position is</h3>
+      <ul>
+        <li><strong>Hard cover</strong> you can stand fully behind, not a bush or a fence.</li>
+        <li><strong>Elevation</strong> over the ground people must cross. Rooftops are strong against ground pushes and weak against snipers on higher ground, so know which one you are.</li>
+        <li><strong>Two exits.</strong> One entrance means one grenade ends you.</li>
+        <li><strong>Sightlines on the likely rotation path</strong> into the next circle, not on scenery.</li>
+        <li><strong>Inside or on the edge of the predicted next zone</strong>, so you hold while others move.</li>
+      </ul>
+
+      <h3>Rotating: early, along the edge, with the gas at your back</h3>
+      <figure aria-label="Diagram of two rotation paths into the next safe zone">
+        <svg viewBox="0 0 760 360" role="img" aria-labelledby="rotTitle">
+          <title id="rotTitle">Two squads rotating from the closing zone into the next zone: one cuts through the open centre, the other hugs the gas edge to cover.</title>
+          <defs>
+            <pattern id="gasPat" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="10" stroke="var(--warn)" stroke-width="2" opacity=".45"/>
+            </pattern>
+          </defs>
+          <!-- current zone -->
+          <circle cx="330" cy="180" r="165" fill="var(--panel-2)" stroke="var(--line-2)" stroke-width="2"/>
+          <!-- gas band outside the current zone -->
+          <circle cx="330" cy="180" r="165" fill="none" stroke="url(#gasPat)" stroke-width="28"/>
+          <!-- next zone -->
+          <circle cx="470" cy="150" r="95" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2" stroke-dasharray="6 5"/>
+          <text x="470" y="60" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--teal)">NEXT ZONE</text>
+          <text x="330" y="330" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)">CURRENT ZONE</text>
+          <!-- buildings (cover) -->
+          <rect x="255" y="118" width="26" height="22" fill="var(--line-2)"/>
+          <rect x="300" y="86" width="22" height="26" fill="var(--line-2)"/>
+          <rect x="360" y="72" width="30" height="20" fill="var(--line-2)"/>
+          <rect x="405" y="96" width="24" height="24" fill="var(--line-2)"/>
+          <rect x="380" y="200" width="22" height="22" fill="var(--line-2)"/>
+          <rect x="430" y="235" width="26" height="20" fill="var(--line-2)"/>
+          <!-- squad start -->
+          <circle cx="205" cy="250" r="9" fill="var(--ink)"/>
+          <text x="190" y="280" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-2)">YOU (60s left)</text>
+          <!-- path A: straight through open middle -->
+          <path d="M205 250 C 300 210, 380 170, 470 150" fill="none" stroke="var(--bad)" stroke-width="3" stroke-dasharray="2 6"/>
+          <text x="318" y="182" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--bad)">A · open field, watched from 3 sides</text>
+          <!-- path B: along the edge via cover -->
+          <path d="M205 250 C 220 160, 250 130, 268 129 L 311 99 L 375 82 L 417 108 C 445 125, 460 135, 470 150" fill="none" stroke="var(--good)" stroke-width="3"/>
+          <text x="196" y="112" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--good)">B · edge, cover to cover, gas at your back</text>
+          <!-- enemy eyes -->
+          <g fill="var(--bad)" opacity=".9">
+            <circle cx="300" cy="270" r="6"/><circle cx="392" cy="255" r="6"/><circle cx="345" cy="145" r="6"/>
+          </g>
+          <text x="392" y="280" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--bad)">enemy squads</text>
+          <!-- zone shrink arrow -->
+          <path d="M120 180 L 160 180" stroke="var(--warn)" stroke-width="2" marker-end="url(#arrow)"/>
+          <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--warn)"/></marker></defs>
+          <text x="88" y="200" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--warn)">gas closing</text>
+        </svg>
+        <figcaption>Path A is shorter and gets you killed: three squads can see the open middle. Path B is longer, stays on the edge where the only threat is in front of you, and arrives with plates on. Leave early enough that the longer path is affordable.</figcaption>
+      </figure>
+
+      <ul>
+        <li><strong>Pull up the map every time the zone timer resets.</strong> Zones bias toward the centre of the current circle; a circle touching an edge tends to pull away from it. Mark a destination, then a fallback destination.</li>
+        <li><strong>Start moving with at least 60 seconds of buffer</strong> when you are far, more if the route needs a vehicle. Late rotations force you across open ground into pre-aimed guns.</li>
+        <li><strong>Gas at your back removes an entire angle.</strong> Holding the edge means the only players who can shoot you are in front of you. Holding the centre means everyone rotating in has a shot at you.</li>
+        <li><strong>Never cross open ground without a reason and a plan.</strong> Use a vehicle, a smoke, the gas edge, or a teammate watching the far side. If none exists, take the long way.</li>
+        <li><strong>Sitting in gas for five extra seconds with plates ready</strong> can beat rushing into an occupied position. Gas is predictable; a pre-aimed AR is not.</li>
+      </ul>
+
+      <h3>Third parties are the default, not bad luck</h3>
+      <p>Every fight rings a bell for every squad within 200 metres. Assume company within 30 to 60 seconds of your first shot. That gives you three choices: <strong>finish fast</strong> (commit with the whole squad), <strong>leave</strong> (take the free reposition while two squads are busy with each other), or <strong>reset</strong> (plate, move one building over, and let the third party arrive into the fight you just left). Choosing none of them, standing where the fight started and looting, is how most intermediate squads die between circles two and four.</p>
+
+      <h3>Late game</h3>
+      <ul>
+        <li>Count squads, not players. Ten players left could be three squads; four squads means chaos and you should hold. Two squads means you can take space.</li>
+        <li><strong>Do not be the first to break cover</strong> in the final circle. The player who moves first eats every bullet. Let the gas do the moving; hold until a gap is guaranteed.</li>
+        <li>In the final two circles, a <strong>UAV before the last push</strong> and a <strong>Precision Airstrike or Cluster</strong> on the strongest position is worth more than a fourth plate satchel.</li>
+        <li>Snipers in the endgame: expose only to shoot and leave the window. Hold angles with an AR, not the sniper.</li>
+      </ul>
+
+      <h3>Resurgence and Avalon specifics</h3>
+      <div class="grid-2">
+        <div class="card"><h4>Resurgence</h4><ul><li>Height and a lockable building beat kills. Own a rooftop with two stairwells, hold with two, roam with one.</li><li>Redeploys land near teammates: fight when you have a respawn coming, disengage when you do not.</li><li>The game is won in the last 90 seconds when respawns stop. Have plates, a self-revive, and a plan for the final position before then.</li></ul></div>
+        <div class="card"><h4>Avalon</h4><ul><li>Verticality is the whole map. Relay Antennas give a wingsuit launch; use them to take high ground or to skip a bad circle entirely.</li><li>Zombie zones carry premium loot and attract squads; go early or not at all.</li><li>Consensus strong landing spots: Low Town, Colosseum, Resorts, High Town, Cliff Town. Trinity Stadium is the hot drop.</li></ul></div>
+      </div>
+
+      <div class="drill">
+        <span class="lbl">Drill · every BR match this week</span>
+        <p>Each time the zone timer resets, say out loud where you are going, why, and which cover you will use if shot on the way. Your squad will hate it for two games and then start doing it too.</p>
+      </div>
+    </section>
+
+    <!-- 05 INFO -->
+    <section class="chapter" id="info">
+      <div class="chapter-head">
+        <div class="kicker">05 / Information</div>
+        <h2 class="display">Know more than they do</h2>
+        <p class="why">Every fight you win "because they didn't see you" was an information win. Buy information, harvest it, and share it.</p>
+      </div>
+
+      <h3>Sources, in order of value</h3>
+      <div class="grid-2">
+        <div class="card"><h4>UAV and Advanced UAV</h4><p>The single best purchase before any late push. Pop it when you are ready to act on it, not while looting. An Advanced UAV in the final two circles tells you every angle to pre-aim.</p></div>
+        <div class="card"><h4>Recon contract</h4><p>Reveals the next zone early. Do one in the first two circles and rotate before anyone else knows where to go. The best contract for placement.</p></div>
+        <div class="card"><h4>Minimap and kill feed</h4><p>Unsuppressed fire shows on the minimap. Downs and kills in the feed tell you where fights are and how many squads are still full. Read it every 20 seconds.</p></div>
+        <div class="card"><h4>Sound</h4><p>Footsteps, plating, chute pops, vehicles, redeploy balloons. Fix your audio mix (see Settings) and stop moving for one second to listen before you enter a building.</p></div>
+        <div class="card"><h4>Perks and equipment</h4><p>Tracker shows footprints. Alertness warns when you are being aimed at. Sensor Dart paints a building. One squadmate on information perks pays for the whole squad.</p></div>
+        <div class="card"><h4>Counting</h4><p>Players left divided by squad size gives you squads left. Circle number tells you how long they have to be near you. A bounty on your squad means someone knows where you are.</p></div>
+      </div>
+
+      <h3>Suppressors are information denial</h3>
+      <p>Unsuppressed shots reveal you on the minimap of everyone in range. Long-range builds in the current meta run a suppressor by default for exactly this reason: you take a fight without telling the two squads next door.</p>
+
+      <div class="drill">
+        <span class="lbl">Drill · one session</span>
+        <p>Play three Resurgence matches with the goal of buying and using a UAV before every push. Track how many fights you started with a UAV up. Aim for all of them by match three.</p>
+      </div>
+    </section>
+
+    <!-- 06 LOADOUTS -->
+    <section class="chapter" id="loadouts">
+      <div class="chapter-head">
+        <div class="kicker">06 / Loadouts</div>
+        <h2 class="display">Build for the fights you will actually take</h2>
+        <p class="why">The meta below is the Season 5 Reloaded snapshot from public usage trackers. It will shift on Sep 17. The principles for building and choosing will not.</p>
+      </div>
+
+      <div class="callout">
+        <span class="lbl">Snapshot · Season 5 Reloaded (Aug 20, 2026)</span>
+        <p><strong>Long range:</strong> AN-94 (buffed, now the top pick), MK35 ISR, AK-27. The MXR-17 was nerfed (max damage 48 to 46, medium range 52 m to 45 m, velocity 900 to 880 m/s) and dropped a tier. <strong>Close range:</strong> REV-46, VST, Ryden 45K, with the CBRS slightly trimmed and Carbon 57 and Dravec 45 as solid alternates. <strong>Snipers:</strong> Hawker HX and VS Recon lead; SVD and AMR Mod 4 got faster sprint-to-fire; LW3A1 Frostline got speed buffs.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Loadout roles">
+        <button role="tab" aria-selected="true" aria-controls="tab-long" id="tabbtn-long" type="button">Long range</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-close" id="tabbtn-close" type="button">Close range</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-sniper" id="tabbtn-sniper" type="button">Snipers</button>
+        <button role="tab" aria-selected="false" aria-controls="tab-perks" id="tabbtn-perks" type="button">Perks & equipment</button>
+      </div>
+
+      <div class="tabpanel show" id="tab-long" role="tabpanel" aria-labelledby="tabbtn-long">
+        <div class="load">
+          <article class="gun">
+            <header><h4>AN-94</h4><span class="role">Long range · #1 in Ranked</span></header>
+            <ul class="att">
+              <li><span class="slot">Optic</span><span>Redwell 30-S 2x</span></li>
+              <li><span class="slot">Muzzle</span><span>Monolithic Suppressor</span></li>
+              <li><span class="slot">Barrel</span><span>15" Benthic Barrel</span></li>
+              <li><span class="slot">Underbarrel</span><span>VAS Convergence Foregrip</span></li>
+              <li><span class="slot">Magazine</span><span>Rexford Extended II</span></li>
+            </ul>
+            <p class="note">Controlled recoil, big mag, suppressed. Built for 30 to 70 metre fights where you shoot, transfer, and suppress a revive without reloading.</p>
+          </article>
+          <article class="gun">
+            <header><h4>MK35 ISR</h4><span class="role">Long range · beam</span></header>
+            <ul class="att">
+              <li><span class="slot">Optic</span><span>Redwell 30-S 2x</span></li>
+              <li><span class="slot">Muzzle</span><span>Monolithic Suppressor</span></li>
+              <li><span class="slot">Barrel</span><span>16.5" Greaves Bellum Barrel</span></li>
+              <li><span class="slot">Underbarrel</span><span>VAS Convergence Foregrip</span></li>
+              <li><span class="slot">Magazine</span><span>Bowen Siren Drum</span></li>
+            </ul>
+            <p class="note">Slower handling than the AN-94, easier to hold on target. Pick it if you play anchor and hold angles rather than push.</p>
+          </article>
+        </div>
+        <h4>How to build any long-range gun with five slots</h4>
+        <p>Suppressor (minimap denial and often velocity), longest barrel (range and velocity), recoil-control foregrip, the biggest magazine that does not tank handling, and a 1.5x to 2.5x optic you can track with. Skip stocks and grips unless the gun's recoil is unmanageable. If a slot has to go, drop the optic before the suppressor.</p>
+      </div>
+
+      <div class="tabpanel" id="tab-close" role="tabpanel" aria-labelledby="tabbtn-close">
+        <div class="load">
+          <article class="gun">
+            <header><h4>REV-46</h4><span class="role">Close range · #1</span></header>
+            <ul class="att">
+              <li><span class="slot">Optic</span><span>Lethal Tools ELO</span></li>
+              <li><span class="slot">Muzzle</span><span>LTI Stentorian Brake</span></li>
+              <li><span class="slot">Barrel</span><span>14.9" Caudal Target Barrel</span></li>
+              <li><span class="slot">Underbarrel</span><span>Sapper Guard Handstop</span></li>
+              <li><span class="slot">Magazine</span><span>Cawdor Extended Mag</span></li>
+            </ul>
+            <p class="note">Highest usage close-range weapon in the current trackers. Aggressive, forgiving, and it reaches out to 20 metres better than most SMGs.</p>
+          </article>
+          <article class="gun">
+            <header><h4>VST</h4><span class="role">Close range · mobility</span></header>
+            <ul class="att">
+              <li><span class="slot">Muzzle</span><span>LTI Stentorian Brake</span></li>
+              <li><span class="slot">Barrel</span><span>9.7" Enmity Barrel</span></li>
+              <li><span class="slot">Underbarrel</span><span>EAM Steady-90 Grip</span></li>
+              <li><span class="slot">Magazine</span><span>Amplify Extended Mag I</span></li>
+              <li><span class="slot">Stock</span><span>Hawker Cub-55 Pad</span></li>
+            </ul>
+            <p class="note">No optic: iron sights are fine inside 15 metres and the slot buys a stock for strafe speed. The streamer favourite alongside the MXR-17 this season.</p>
+          </article>
+          <article class="gun">
+            <header><h4>Ryden 45K</h4><span class="role">Close range · hipfire</span></header>
+            <ul class="att">
+              <li><span class="slot">Optic</span><span>FANG HoverPoint ELO</span></li>
+              <li><span class="slot">Muzzle</span><span>LTI Stentorian Brake</span></li>
+              <li><span class="slot">Barrel</span><span>9" Basilisk Barrel</span></li>
+              <li><span class="slot">Underbarrel</span><span>Flowguard Foregrip</span></li>
+              <li><span class="slot">Magazine</span><span>Forward Breach Mag</span></li>
+            </ul>
+            <p class="note">Wins the room-clearing fights where aiming down sights is too slow. Weak past 15 metres, so pair it with a real AR.</p>
+          </article>
+          <article class="gun">
+            <header><h4>Alternates</h4><span class="role">If the above feel wrong</span></header>
+            <ul>
+              <li><strong>CBRS</strong>: still top-tier after a small trim; the safest all-round SMG.</li>
+              <li><strong>Carbon 57</strong>: fast handling, strong sniper-support pick.</li>
+              <li><strong>Dravec 45</strong>: more raw close-range pressure, less forgiving.</li>
+            </ul>
+            <p class="note">Close-range guns are the most personal choice in the game. Pick the one whose recoil you can keep on a head while strafing, then stop switching.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tabpanel" id="tab-sniper" role="tabpanel" aria-labelledby="tabbtn-sniper">
+        <div class="load">
+          <article class="gun">
+            <header><h4>Hawker HX</h4><span class="role">Sniper · one-shot headshot</span></header>
+            <ul class="att">
+              <li><span class="slot">Muzzle</span><span>Monolithic Suppressor</span></li>
+              <li><span class="slot">Barrel</span><span>23.7" Composite-11 Barrel</span></li>
+              <li><span class="slot">Magazine</span><span>Flatload Speed Mag</span></li>
+              <li><span class="slot">Rear grip</span><span>Auroral Light Grip</span></li>
+              <li><span class="slot">Fire mods</span><span>.338 LM Overpressured</span></li>
+            </ul>
+            <p class="note">The Composite-11 barrel is the whole build: it unlocks one-shot headshots at any distance. Slow, so you must be in position before the fight.</p>
+          </article>
+          <article class="gun">
+            <header><h4>VS Recon</h4><span class="role">Sniper · handling</span></header>
+            <ul class="att">
+              <li><span class="slot">Muzzle</span><span>Suppressor (velocity variant)</span></li>
+              <li><span class="slot">Barrel</span><span>Longest velocity barrel</span></li>
+              <li><span class="slot">Underbarrel</span><span>Stability handguard</span></li>
+              <li><span class="slot">Rear grip</span><span>Quickdraw grip</span></li>
+              <li><span class="slot">Fire mods</span><span>High-velocity ammunition</span></li>
+            </ul>
+            <p class="note">Faster ADS for players who land the opening shot consistently. Trackers list it as the top sniper for aggressive play; attachment names vary by source, so build for velocity, ADS speed and a suppressor and verify in-game.</p>
+          </article>
+        </div>
+        <h4>Should an intermediate player snipe?</h4>
+        <p>Only if you already hit the first shot more often than not. A missed sniper shot tells the enemy where you are and gives them a free re-plate. If your sniper hit rate is low, run two automatic weapons this season and add the sniper back once your positioning gets you uncontested angles.</p>
+      </div>
+
+      <div class="tabpanel" id="tab-perks" role="tabpanel" aria-labelledby="tabbtn-perks">
+        <p>Black Ops 7 perks come in <strong>three slots</strong> drawn from the Enforcer, Recon and Strategist archetypes. Overkill is built in, so both weapons are primaries and there is no Gunfighter wildcard. The exact slot each perk sits in is shown in the loadout menu; pick one answer to each question below.</p>
+        <div class="grid-3">
+          <div class="card"><h4>How do I move and handle?</h4><ul><li><strong>Tac Sprinter</strong>: brings tactical sprint back for rotations</li><li><strong>Dexterity</strong> or <strong>Lightweight</strong>: handling and speed</li><li><strong>Mountaineer</strong>: fall damage and drop-downs; reworked to be genuinely useful</li></ul></div>
+          <div class="card"><h4>What do I know or hide?</h4><ul><li><strong>Ghost</strong>: hidden from UAVs while moving; the default late-game pick</li><li><strong>Tracker</strong>: enemy footprints, ping on hit</li><li><strong>Alertness</strong>: warns when someone is aiming at you (one per squad)</li><li><strong>Bomb Squad</strong>: see equipment through walls, less explosive damage</li></ul></div>
+          <div class="card"><h4>How do I survive?</h4><ul><li><strong>Tempered</strong>: two plates fill you instead of three; the highest-value perk for fighters</li><li><strong>Reactive Armor</strong> or <strong>Plate Hunter</strong>: plate regen or an extra reserve plate</li><li><strong>Field Medic</strong>: revives 25 percent faster (replaced Veteran this season)</li></ul></div>
+        </div>
+        <h4>Equipment</h4>
+        <div class="tblwrap">
+          <table>
+            <tr><th>Slot</th><th>Default pick</th><th>When to swap</th></tr>
+            <tr><td>Tactical</td><td><strong>Stim Shot</strong> (health and sprint reset) or <strong>Smoke</strong> (crossings, revives)</td><td>Stun or Flashbang when your squad pushes buildings; Sensor Dart to paint a compound; EMP against equipment and HDK streaks</td></tr>
+            <tr><td>Lethal</td><td><strong>Semtex</strong> or <strong>Frag</strong> for flushing cover</td><td>Combat Axe for silent finishes; C4 for vehicles; Molotov to block a stairwell</td></tr>
+            <tr><td>Field upgrade</td><td><strong>Trophy System</strong> on the position you hold, or <strong>Bubble Shield</strong> to revive and plate</td><td>Armor Box for the squad before the endgame; Deployable Buy Station when circles pull away from buys; Echo Unit for information; Trauma Kit for temporary health above the cap</td></tr>
+          </table>
+        </div>
+        <h4>Killstreaks worth buying</h4>
+        <p><strong>UAV</strong> and <strong>Advanced UAV</strong> for information, <strong>Precision Airstrike</strong> and <strong>Cluster Strike</strong> to move a squad off a roof or a head glitch, <strong>Bunker Buster</strong> to clear a building through the roof. Care Package, Sentry, SAM Turret, Napalm and Supply UAV exist; buy them only when you already own the information streaks and the loadout.</p>
+      </div>
+
+      <h3>Two-weapon philosophy</h3>
+      <div class="grid-2">
+        <div class="card"><h4>AR + SMG (default)</h4><p>Long-range AR for the 20 to 70 metre fights that decide zone control, SMG for the building. This wins the most fights for the most players. Start here.</p></div>
+        <div class="card"><h4>Sniper + sniper support</h4><p>Hawker HX or VS Recon with a fast-handling AR or SMG (Carbon 57, REV-46). Strong when you play anchor with a squad that pushes off your crack. Weak solo.</p></div>
+      </div>
+      <p class="small muted">Assumption: attachment lists above come from public usage trackers (wzranked, wzstats, warzoneloadout.games) as of Season 5 Reloaded. Names are copied as published; if one does not exist on your account, pick the same attachment category.</p>
+    </section>
+
+    <!-- 07 ECONOMY -->
+    <section class="chapter" id="economy">
+      <div class="chapter-head">
+        <div class="kicker">07 / Economy & contracts</div>
+        <h2 class="display">Cash is time, spend it on tempo</h2>
+        <p class="why">Intermediate squads loot for eight minutes and arrive at the loadout with no plan. Good squads run two contracts, buy the loadout by circle two, and spend the rest of the game buying information and second chances.</p>
+      </div>
+
+      <h3>Contract priorities</h3>
+      <div class="tblwrap">
+        <table>
+          <tr><th>Contract</th><th>What it gives</th><th>When</th></tr>
+          <tr><td><strong>Scavenger</strong></td><td>Three crates, guaranteed cash, an Armor Satchel from the last crate</td><td>First contract after landing. Low risk, funds the loadout.</td></tr>
+          <tr><td><strong>Recon</strong></td><td>Reveals the next zone; cash</td><td>Second contract. Rotate early while others guess.</td></tr>
+          <tr><td><strong>Bounty</strong></td><td>Cash scaling with time; a target's approximate position</td><td>When you want a fight on your terms and your squad is plated. Never with a teammate down.</td></tr>
+          <tr><td><strong>Most Wanted</strong></td><td>Survive three minutes marked for everyone; brings dead teammates back</td><td>When you have lost a teammate and can hold a strong building. Not otherwise.</td></tr>
+          <tr><td><strong>Supply Run</strong></td><td>Reach a Buy Station in time for a discount</td><td>When the station is on your rotation path anyway.</td></tr>
+          <tr><td><strong>Safecracker</strong> (Verdansk)</td><td>Three safes, cash and high-tier loot</td><td>Early, with a squad that can hold three positions in sequence.</td></tr>
+        </table>
+      </div>
+
+      <h3>Buy Station priorities</h3>
+      <ol>
+        <li><strong>Loadout drop</strong> before circle two closes. The public free drop is a fight; buying is a decision.</li>
+        <li><strong>Self-revive</strong> for every player, every late game.</li>
+        <li><strong>UAV</strong> before the final two pushes.</li>
+        <li><strong>Squadmate redeploy</strong> when the Gulag is closed. Buy it as soon as you can afford it; a three-stack beats a two-stack more than any streak does.</li>
+        <li><strong>Armor Box or plates</strong> to reset the squad before the endgame.</li>
+        <li><strong>Precision Airstrike or Cluster</strong> for the last circle.</li>
+      </ol>
+
+      <details>
+        <summary>Reference prices (Verdansk baseline; the in-game station is the source of truth)</summary>
+        <div class="body">
+          <div class="tblwrap">
+            <table>
+              <tr><th>Item</th><th class="num">Price</th></tr>
+              <tr><td>Armor plate</td><td class="num">$300</td></tr>
+              <tr><td>Cluster Strike</td><td class="num">$3,000</td></tr>
+              <tr><td>Gas Mask</td><td class="num">$3,000</td></tr>
+              <tr><td>Self Revive</td><td class="num">$4,000</td></tr>
+              <tr><td>Armor Box</td><td class="num">$4,000</td></tr>
+              <tr><td>Squadmate Redeploy</td><td class="num">$4,000</td></tr>
+              <tr><td>Precision Airstrike</td><td class="num">$5,000</td></tr>
+              <tr><td>UAV</td><td class="num">$6,000 to $8,000</td></tr>
+              <tr><td>Loadout drop (solos)</td><td class="num">$6,000</td></tr>
+              <tr><td>Loadout drop (duos to quads)</td><td class="num">$10,000</td></tr>
+            </table>
+          </div>
+          <p class="small muted">These are the prices published when Verdansk returned; several items were raised 30 to 50 percent in later seasons and limited-time modes change them again. Treat the ordering as reliable and the numbers as approximate.</p>
+        </div>
+      </details>
+
+      <h3>Loot faster</h3>
+      <ul>
+        <li>Open a building with a purpose: plates, a satchel, cash, a self-revive. Once you have them, leave. The loot that wins games is bought, not found.</li>
+        <li>Split a POI with the squad: one building each, then regroup at the exit. Never split across the street from each other.</li>
+        <li>Season 5 Verdansk: Drone Labs' Supply Drones and the Stadium High Value Loot Zone are worth it early with a full squad, and a trap after circle two.</li>
+      </ul>
+
+      <div class="drill">
+        <span class="lbl">Drill · three BR matches</span>
+        <p>Time yourself from landing to loadout. Target: loadout bought before the second circle closes, with two contracts run. Write down the minutes in the match log below.</p>
+      </div>
+    </section>
+
+    <!-- 08 MODES -->
+    <section class="chapter" id="modes">
+      <div class="chapter-head">
+        <div class="kicker">08 / Modes & maps</div>
+        <h2 class="display">Play each mode for what it teaches</h2>
+        <p class="why">Resurgence for gunfight reps, Battle Royale for decisions, Black Ops Royale for looting under pressure, Ranked for consistency. Use them deliberately.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Battle Royale (Verdansk · Avalon rotation)</h4>
+          <ul>
+            <li>Land on the edge of a POI, not the centre, unless you want the fight.</li>
+            <li>Gulag: the Season 5 Rush layout rotates on weekends. Stand still for the first second and listen, then pick a lane. Grab the overtime flag only when the enemy is out of position. If the "jailbreaker" event triggers, both of you return.</li>
+            <li>Verdansk landmarks to learn cold: Stadium, Superstore, Downtown, Hospital, Airport, Storage Town, Boneyard, Prison, Port, Quarry, Dam, Military Base, TV Station, Farmland, Lumber, Train Station, Promenade, Hills, Park, and the new Drone Labs.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Resurgence (Rebirth · Fortune's Keep · Haven's Hollow)</h4>
+          <ul>
+            <li>Play it for volume: 15 to 25 gunfights per match versus three in BR.</li>
+            <li>One focus per match (plating behind cover, pre-aim, callouts). Ignore the scoreboard for that match.</li>
+            <li>Rebirth: Prison and Control Center are the power positions. Fortune's Keep: Keep and the Town rooftops. Learn two rooftops with two exits each per map.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Black Ops Royale (Avalon)</h4>
+          <ul>
+            <li>No loadouts: weapons come with fixed archetypes and five-step rarity upgrade paths. Upgrading your current gun beats swapping.</li>
+            <li>No Gulag, no Buy Stations. One respawn token each, then Redeploy Towers that revive the squad and sound an alarm.</li>
+            <li>Perks are consumables. Stow them and pop them at the fight, not while looting. Trauma Kits push health above the cap.</li>
+            <li>Grapple plus wall jump plus wingsuit: it teaches vertical movement faster than any other mode.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Ranked Play: Resurgence</h4>
+          <ul>
+            <li>Qualify with 20 top placements (top 15 in BR or top 6 in Resurgence).</li>
+            <li>Divisions: Bronze, Silver (900 SR), Gold (2,100), Platinum (3,600), Diamond (5,400), Crimson (7,500), Iridescent (10,000), Top 250.</li>
+            <li>150 SR cap per match. A deployment fee from Silver up means placement pays the rent and kills pay the profit. Kills on higher-ranked players pay up to 4 SR.</li>
+            <li>Climb Bronze to Gold on aggression, then slow down: from Platinum, dying early costs more than a third kill earns.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout teal">
+        <span class="lbl">Weekly mix that works</span>
+        <p>Two Resurgence sessions for reps, one Battle Royale session for decisions, one session of whatever you enjoy. Ranked once your Resurgence K/D is above 1.2 and stable; before that it is an expensive way to learn what Resurgence already teaches.</p>
+      </div>
+    </section>
+
+    <!-- 09 SQUAD -->
+    <section class="chapter" id="squad">
+      <div class="chapter-head">
+        <div class="kicker">09 / Squad play</div>
+        <h2 class="display">Three average players beat one great one</h2>
+        <p class="why">Most squad wipes start with one player being 40 metres from the others. Comms and spacing are the cheapest skill in the game.</p>
+      </div>
+
+      <h3>Callout format</h3>
+      <p>Say it in this order, every time: <strong>count</strong>, <strong>direction or landmark</strong>, <strong>distance</strong>, <strong>state</strong>. "Two, on the red roof north, 60 metres, one cracked." Compass bearings from the top of your screen beat "over there". Ping while you talk.</p>
+
+      <h3>Roles that stay stable</h3>
+      <div class="grid-3">
+        <div class="card"><h4>Caller</h4><p>Decides rotations and when to take or leave a fight. One voice. Others can disagree before the decision, not during it.</p></div>
+        <div class="card"><h4>Anchor</h4><p>Holds the power position with the long-range gun, watches the flank, calls the third party. Rarely first to die.</p></div>
+        <div class="card"><h4>Entry</h4><p>First through the door with the SMG and the stun. Only goes when the anchor confirms the angle is clear and a teammate is within trade range.</p></div>
+      </div>
+
+      <h3>Spacing and trading</h3>
+      <ul>
+        <li><strong>Stay within trade range</strong>: close enough that if one of you gets shot the other can shoot back within two seconds. Usually 10 to 20 metres, one piece of cover apart.</li>
+        <li><strong>Never split for loot</strong> across open ground. Loot the same block, then move together.</li>
+        <li><strong>Revives</strong>: smoke or Bubble Shield first, then pick up. A revive in the open trades one down for two.</li>
+        <li><strong>Share</strong>: plates and cash go to whoever is entry. A squad with one fully stocked entry beats a squad with three half-stocked players.</li>
+        <li><strong>Death comms</strong> are the most valuable thing a dead player does: position of the killer, weapon, plate state, direction they moved. Say it fast and stop talking.</li>
+      </ul>
+
+      <h3>Playing solo in squads mode</h3>
+      <p>If you queue with randoms, become the anchor. Ping everything, call your rotations even if nobody answers, and never follow a random into a building he cannot describe. Playing true Solos is a different game: fewer fights, more edge play, and a self-revive before every circle.</p>
+    </section>
+
+    <!-- 10 SETTINGS -->
+    <section class="chapter" id="settings">
+      <div class="chapter-head">
+        <div class="kicker">10 / Settings</div>
+        <h2 class="display">Set once, then stop touching them</h2>
+        <p class="why">Settings do not make you better; changing them every week makes you worse. Pick from the ranges below, play 20 hours, then adjust one thing at a time.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Controller</h4>
+          <div class="tblwrap"><table>
+            <tr><th>Setting</th><th>Range</th></tr>
+            <tr><td>Horizontal and vertical sensitivity</td><td>6 to 7 on the default scale</td></tr>
+            <tr><td>ADS sensitivity multiplier</td><td>0.85 to 1.00</td></tr>
+            <tr><td>Response curve</td><td>Dynamic</td></tr>
+            <tr><td>Aim assist type</td><td>Black Ops (default)</td></tr>
+            <tr><td>Right stick min deadzone</td><td>0 to 3 (lowest without drift)</td></tr>
+            <tr><td>Left stick max deadzone</td><td>67 to 70</td></tr>
+            <tr><td>Vibration</td><td>Off</td></tr>
+            <tr><td>Button layout</td><td>Tactical or paddles: jump and crouch without leaving the sticks</td></tr>
+          </table></div>
+        </div>
+        <div class="card">
+          <h4>Mouse and keyboard</h4>
+          <div class="tblwrap"><table>
+            <tr><th>Setting</th><th>Range</th></tr>
+            <tr><td>DPI</td><td>400 to 800</td></tr>
+            <tr><td>In-game sensitivity</td><td>A 360-degree turn in 30 to 40 cm of mouse travel</td></tr>
+            <tr><td>ADS multiplier</td><td>1.00, with monitor distance coefficient near 1.33 for consistent feel across zooms</td></tr>
+            <tr><td>Mouse acceleration</td><td>Off, in game and in the OS</td></tr>
+            <tr><td>Key bindings</td><td>Plate on an easy key (mouse side button), slide and dive separated from crouch</td></tr>
+          </table></div>
+        </div>
+        <div class="card">
+          <h4>Display</h4>
+          <div class="tblwrap"><table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Field of view</td><td>105 to 120. Higher shows more and shrinks targets; most players settle at 110 to 115.</td></tr>
+            <tr><td>ADS field of view</td><td>Affected (keeps ADS speed feel consistent with hipfire)</td></tr>
+            <tr><td>Camera movement</td><td>Least (50 percent)</td></tr>
+            <tr><td>Weapon motion blur, world motion blur, film grain, depth of field</td><td>Off</td></tr>
+            <tr><td>Display mode (PC)</td><td>Fullscreen exclusive</td></tr>
+            <tr><td>Upscaling (PC)</td><td>DLSS or FSR in Quality mode if you need frames; native otherwise</td></tr>
+            <tr><td>Nvidia Reflex</td><td>On + Boost</td></tr>
+            <tr><td>Shadows, particles</td><td>Low. Enable XMP or EXPO in BIOS; the game is memory-bandwidth sensitive at low settings.</td></tr>
+          </table></div>
+        </div>
+        <div class="card">
+          <h4>Audio</h4>
+          <div class="tblwrap"><table>
+            <tr><th>Setting</th><th>Value</th></tr>
+            <tr><td>Audio mix</td><td>Headphones Bass Boost or Sucker Punch (compresses gunfire, lifts footsteps)</td></tr>
+            <tr><td>Master volume</td><td>70 to 85 percent</td></tr>
+            <tr><td>Music</td><td>0</td></tr>
+            <tr><td>Dialogue</td><td>40 to 60 percent</td></tr>
+            <tr><td>Effects</td><td>100 percent</td></tr>
+            <tr><td>Enhanced headphone mode</td><td>Off unless you have tested it and prefer it</td></tr>
+            <tr><td>Hit marker sound</td><td>Classic, so you can hear plate breaks over gunfire</td></tr>
+          </table></div>
+        </div>
+      </div>
+
+      <h3>Gameplay toggles worth checking</h3>
+      <ul>
+        <li><strong>Interact/Reload behaviour</strong>: Prioritize Interact if you keep reloading instead of opening doors; Tap to Reload otherwise.</li>
+        <li><strong>Armor plate behaviour</strong>: Apply All so you can hold the button and keep looking around.</li>
+        <li><strong>Slide/dive behaviour</strong>: Tap to slide, hold to dive. Diving by accident in a fight is a death.</li>
+        <li><strong>Auto-move forward</strong> and <strong>sprint assist</strong>: off, they fight your own inputs in close quarters.</li>
+        <li><strong>Ping wheel</strong> on a paddle or a mouse button. Callouts with a ping are twice as fast.</li>
+      </ul>
+    </section>
+
+    <!-- 11 PRACTICE -->
+    <section class="chapter" id="practice">
+      <div class="chapter-head">
+        <div class="kicker">11 / Practice plan</div>
+        <h2 class="display">Four weeks, one focus at a time</h2>
+        <p class="why">Practice with a single intention per session beats playing 40 matches hoping something sticks. Check items off as you go; progress saves in this browser.</p>
+      </div>
+
+      <h3>Every session</h3>
+      <ul class="checklist" data-group="warmup">
+        <li><label><input type="checkbox" data-key="wu1"><span>10 minutes warm-up before anything ranked or serious: a Plunder drop, a multiplayer bot match, or an aim trainer. Track heads on moving targets, not bots standing still.</span></label></li>
+        <li><label><input type="checkbox" data-key="wu2"><span>Pick one focus for the session and say it out loud. Example: "plate only behind cover."</span></label></li>
+        <li><label><input type="checkbox" data-key="wu3"><span>Log every death in the match log with a cause. Two minutes at the end of the session, not per match.</span></label></li>
+        <li><label><input type="checkbox" data-key="wu4"><span>Stop after two tilted deaths in a row. Tilt is not fixable mid-session.</span></label></li>
+      </ul>
+
+      <h3>Week by week</h3>
+      <details open>
+        <summary>Week 1 · Cover and plates (Gunfights, chapter 02)</summary>
+        <div class="body">
+          <ul class="checklist">
+            <li><label><input type="checkbox" data-key="w1a"><span>Three Resurgence sessions where every plate happens behind hard cover. Count the exceptions.</span></label></li>
+            <li><label><input type="checkbox" data-key="w1b"><span>Name a fallback cover before every fight for one full match.</span></label></li>
+            <li><label><input type="checkbox" data-key="w1c"><span>Head-height centering drill through three buildings, twice.</span></label></li>
+            <li><label><input type="checkbox" data-key="w1d"><span>Record one session. Watch only your deaths. Write the cause of each in the log.</span></label></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Week 2 · Information and rotations (chapters 04 and 05)</summary>
+        <div class="body">
+          <ul class="checklist">
+            <li><label><input type="checkbox" data-key="w2a"><span>Battle Royale: Scavenger then Recon, loadout before circle two, three matches in a row.</span></label></li>
+            <li><label><input type="checkbox" data-key="w2b"><span>Say your rotation plan out loud every zone timer reset for one session.</span></label></li>
+            <li><label><input type="checkbox" data-key="w2c"><span>Buy and use a UAV before every push in three Resurgence matches.</span></label></li>
+            <li><label><input type="checkbox" data-key="w2d"><span>Play one match where you never cross open ground without a smoke, a vehicle or the gas edge.</span></label></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Week 3 · Movement and loadout lock-in (chapters 03 and 06)</summary>
+        <div class="body">
+          <ul class="checklist">
+            <li><label><input type="checkbox" data-key="w3a"><span>Cover-to-cover movement drill, ten crossings, twice this week.</span></label></li>
+            <li><label><input type="checkbox" data-key="w3b"><span>Pick one AR and one SMG from the meta tab and do not switch for the whole week.</span></label></li>
+            <li><label><input type="checkbox" data-key="w3c"><span>One Black Ops Royale session for grapple, wall jump and wingsuit reps.</span></label></li>
+            <li><label><input type="checkbox" data-key="w3d"><span>Strafe while aiming in every fight (controller) or check your 360 distance is stable (mouse).</span></label></li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>Week 4 · Squad and consistency (chapters 08 and 09)</summary>
+        <div class="body">
+          <ul class="checklist">
+            <li><label><input type="checkbox" data-key="w4a"><span>Callouts in count, direction, distance, state format for every session.</span></label></li>
+            <li><label><input type="checkbox" data-key="w4b"><span>Stay within trade range of a teammate for one full match; note every time you were not.</span></label></li>
+            <li><label><input type="checkbox" data-key="w4c"><span>Re-take the skill audit in chapter 01 and compare.</span></label></li>
+            <li><label><input type="checkbox" data-key="w4d"><span>Review the match log: what is the top death cause now versus week 1?</span></label></li>
+          </ul>
+        </div>
+      </details>
+
+      <h3>Benchmarks that mean something</h3>
+      <div class="tblwrap">
+        <table>
+          <tr><th>Metric</th><th>Intermediate</th><th>Target</th><th>Why</th></tr>
+          <tr><td>Resurgence K/D</td><td class="num">0.8 to 1.2</td><td class="num">1.5+</td><td>Volume of fights makes this the honest gunfight measure.</td></tr>
+          <tr><td>BR top-10 rate</td><td class="num">15 to 25 %</td><td class="num">40 %+</td><td>Placement is a decisions metric, not an aim metric.</td></tr>
+          <tr><td>Gulag win rate</td><td class="num">40 to 50 %</td><td class="num">60 %+</td><td>The purest 1v1 test in the game.</td></tr>
+          <tr><td>Deaths to third party</td><td class="num">1 in 3</td><td class="num">1 in 6</td><td>Falls as soon as you leave fights on time.</td></tr>
+          <tr><td>Deaths while plating in the open</td><td class="num">common</td><td class="num">zero</td><td>The only metric that should hit zero.</td></tr>
+        </table>
+      </div>
+      <p class="small muted">Assumption: the "intermediate" column is an estimate for a typical 0.9 to 1.1 K/D player, not a published statistic. Use your own match log to replace it.</p>
+    </section>
+
+    <!-- 12 LOG -->
+    <section class="chapter" id="log">
+      <div class="chapter-head">
+        <div class="kicker">12 / Match log</div>
+        <h2 class="display">Log the death, not the kill</h2>
+        <p class="why">Ten logged deaths tell you more than a hundred matches played. Enter each death's cause and the log tallies your pattern and points to the chapter that fixes it. Stored only in this browser.</p>
+      </div>
+
+      <form class="logform" id="logForm" autocomplete="off">
+        <div class="field"><label for="lgDate">Date</label><input type="date" id="lgDate"></div>
+        <div class="field"><label for="lgMode">Mode</label>
+          <select id="lgMode">
+            <option>Battle Royale</option><option>Resurgence</option><option>Black Ops Royale</option><option>Ranked Resurgence</option><option>Plunder</option>
+          </select></div>
+        <div class="field"><label for="lgMap">Map</label>
+          <select id="lgMap">
+            <option>Verdansk</option><option>Avalon</option><option>Rebirth Island</option><option>Fortune's Keep</option><option>Haven's Hollow</option><option>Other</option>
+          </select></div>
+        <div class="field"><label for="lgPlace">Placement</label><input type="number" id="lgPlace" min="1" max="150" placeholder="e.g. 7"></div>
+        <div class="field"><label for="lgKills">Kills</label><input type="number" id="lgKills" min="0" max="60" placeholder="0"></div>
+        <div class="field"><label for="lgDmg">Damage</label><input type="number" id="lgDmg" min="0" step="50" placeholder="optional"></div>
+        <div class="field" style="grid-column: span 2"><label for="lgCause">How did you die?</label>
+          <select id="lgCause">
+            <option value="open">Caught in the open (no cover, crossing)</option>
+            <option value="third">Third-partied during or after a fight</option>
+            <option value="plating">Plating or reloading where I could be seen</option>
+            <option value="aim">Lost a fair 1v1 (aim or tracking)</option>
+            <option value="peek">Re-peeked the same angle / peeked without a plan</option>
+            <option value="chase">Chased or overextended into a building</option>
+            <option value="rotate">Late rotation / gas</option>
+            <option value="sniped">Sniped while exposed</option>
+            <option value="split">Split from the squad, no trade</option>
+            <option value="streak">Killstreak, vehicle or equipment</option>
+            <option value="gulag">Lost the Gulag</option>
+            <option value="win">Did not die (won or last alive)</option>
+          </select></div>
+        <div class="field full"><label for="lgNote">Note (what you would do differently)</label><textarea id="lgNote" placeholder="e.g. should have left the fight when the second squad's shots started east"></textarea></div>
+        <div class="logactions">
+          <button class="btn primary" type="submit">Add match</button>
+          <button class="btn" type="button" id="logExport">Copy log as JSON</button>
+          <button class="btn danger" type="button" id="logClear">Clear log</button>
+          <span class="small muted" id="logMsg"></span>
+        </div>
+      </form>
+
+      <div id="logStats"></div>
+      <h3>Death causes</h3>
+      <div class="bars" id="logBars"><div class="empty">No matches logged yet. Add three and a pattern usually shows.</div></div>
+      <div class="coach" id="logCoach"></div>
+      <h3>Entries</h3>
+      <div class="tblwrap" id="logTableWrap"><table id="logTable"><thead><tr><th>Date</th><th>Mode</th><th>Map</th><th class="num">Place</th><th class="num">Kills</th><th>Death cause</th><th>Note</th><th></th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <!-- 13 GLOSSARY -->
+    <section class="chapter" id="glossary">
+      <div class="chapter-head">
+        <div class="kicker">13 / Glossary</div>
+        <h2 class="display">Words your squad will use</h2>
+      </div>
+      <dl class="glossary">
+        <dt>Anchor</dt><dd>The player who holds the power position and the long-range gun while others push.</dd>
+        <dt>Cracked</dt><dd>An enemy whose plates are gone. Call it every time; it changes who the squad shoots.</dd>
+        <dt>Head glitch</dt><dd>Waist-high cover that exposes only the head. Strong to hold, terrible to fight into.</dd>
+        <dt>High Value Loot Zone</dt><dd>A marked area with dense, better-than-average loot. In Season 5, Verdansk's Stadium.</dd>
+        <dt>Jiggle peek</dt><dd>A quick partial exposure to bait a shot or spot an enemy without committing.</dd>
+        <dt>Power position</dt><dd>Hard cover, elevation, two exits, sightlines on the rotation path, inside the next zone.</dd>
+        <dt>Rank delta</dt><dd>Ranked Play rule that pays more SR for kills on higher-division players.</dd>
+        <dt>Redeploy Tower</dt><dd>Black Ops Royale contract that revives the whole squad and sounds an alarm.</dd>
+        <dt>Relay Antenna</dt><dd>Avalon structure that grants a wingsuit launch for long repositions.</dd>
+        <dt>Reset</dt><dd>Leave the fight, plate, and re-engage from a new position. The most under-used call in the game.</dd>
+        <dt>Rotational aim assist</dt><dd>The strongest part of controller aim assist; it only works while the left stick is moving.</dd>
+        <dt>Thirst</dt><dd>Finishing a downed player. Safe only when the squad confirms it.</dd>
+        <dt>Third party</dt><dd>A squad that joins a fight already in progress. Assume one is coming.</dd>
+        <dt>Trade</dt><dd>Killing the player who just downed your teammate, because you were close enough to shoot back.</dd>
+        <dt>Trauma Kit</dt><dd>Consumable that pushes health above the normal maximum for a short time.</dd>
+      </dl>
+    </section>
+
+    <!-- 14 SOURCES -->
+    <section class="chapter" id="sources">
+      <div class="chapter-head">
+        <div class="kicker">14 / Sources</div>
+        <h2 class="display">Where the numbers came from</h2>
+        <p class="why">Meta and patch data is from public trackers and patch coverage as of September 13, 2026. Tactics chapters are synthesised from coaching content and are opinion, presented as such.</p>
+      </div>
+      <ul class="sources">
+        <li>Weapon usage and builds: <a href="https://wzranked.com/games/call-of-duty-warzone/meta" rel="noopener">wzranked meta (Season 5 Reloaded)</a>, <a href="https://wzstats.gg/" rel="noopener">wzstats.gg</a>, <a href="https://warzoneloadout.games/warzone-meta" rel="noopener">warzoneloadout.games</a>, <a href="https://kitted.gg/meta" rel="noopener">kitted.gg</a></li>
+        <li>Season 5 and 5 Reloaded patch coverage: <a href="https://www.dexerto.com/wikis/warzone/warzone-season-5-update/" rel="noopener">Dexerto Season 5</a>, <a href="https://www.dexerto.com/wikis/warzone/warzone-season-5-reloaded/" rel="noopener">Dexerto Season 5 Reloaded</a>, <a href="https://dotesports.com/call-of-duty/guides/bo7-warzone-season-5-patch-notes" rel="noopener">Dot Esports patch notes</a>, <a href="https://www.callofduty.com/patchnotes/2026/08/call-of-duty-bo7-warzone-season-05-reloaded-patch-notes" rel="noopener">official Season 05 Reloaded notes</a></li>
+        <li>Season 6 timing: <a href="https://blog.playstation.com/2026/09/08/call-of-duty-black-ops-7-and-warzone-season-06-launches-the-haunting-september-17/" rel="noopener">PlayStation Blog</a>, <a href="https://www.dexerto.com/wikis/warzone/warzone-season-6-update/" rel="noopener">Dexerto</a></li>
+        <li>Map rotation: <a href="https://x.com/CODUpdates/status/2042288258021789850" rel="noopener">Call of Duty Updates</a>, <a href="https://www.mapswarzone.com/" rel="noopener">mapswarzone.com live rotation</a></li>
+        <li>Avalon and Black Ops Royale: <a href="https://www.callofduty.com/blog/2026/03/black-ops-7-black-ops-royale-battle-royale-deep-dive" rel="noopener">official deep dive</a>, <a href="https://loadoutlab.net/guides/avalon-map" rel="noopener">LoadoutLab Avalon guide</a>, <a href="https://www.gamespot.com/gallery/cod-warzone-black-ops-royale-avalon-map-and-all-locations/2900-7554/" rel="noopener">GameSpot POI list</a></li>
+        <li>Movement rules: <a href="https://www.turtlebeach.com/blog/black-ops-7-movement-explained-omnimovement-tactical-sprint-and-more" rel="noopener">Turtle Beach BO7 movement</a>, <a href="https://www.destructoid.com/black-ops-7s-omnimovement-evolves-wall-jumps-no-more-tac-sprint/" rel="noopener">Destructoid</a></li>
+        <li>Perks: <a href="https://www.gamespot.com/articles/best-warzone-and-bo7-perks-for-season-1/1100-6536712/" rel="noopener">GameSpot perks guide</a>, <a href="https://wzstats.gg/warzone/meta/black-ops-royale/perks" rel="noopener">wzstats Black Ops Royale perks</a></li>
+        <li>Settings: <a href="https://www.setup.gg/game/warzone/best-controller-settings/" rel="noopener">setup.gg controller</a>, <a href="https://www.setup.gg/game/warzone/best-audio-settings/" rel="noopener">setup.gg audio</a>, <a href="https://loadoutlab.net/guides/settings" rel="noopener">LoadoutLab settings</a></li>
+        <li>Ranked Play: <a href="https://www.thespike.gg/warzone/beginner-guides/warzone-ranked-levels-guide" rel="noopener">TheSpike ranked guide</a>, <a href="https://timesaver.gg/blog/warzone-ranked-play-season-5-reset-guide" rel="noopener">Season 5 reset guide</a></li>
+        <li>Buy Station reference prices: <a href="https://x.com/ModernWarzone/status/1906784563382153718" rel="noopener">ModernWarzone (Verdansk launch)</a></li>
+      </ul>
+      <footer>Warzone Field Manual. Not affiliated with Activision. Snapshot compiled September 13, 2026. Re-check the meta chapter after Season 6 on September 17.</footer>
+    </section>
+  </main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var LS = {
+    get: function (k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } },
+    del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+  };
+
+  /* ---------- theme ---------- */
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeBtn');
+  var order = ['system', 'dark', 'light'];
+  function applyTheme(t) {
+    if (t === 'system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
+    if (themeBtn) themeBtn.textContent = 'Theme: ' + t;
+  }
+  var theme = LS.get('wzfm.theme', 'system');
+  applyTheme(theme);
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    theme = order[(order.indexOf(theme) + 1) % order.length];
+    LS.set('wzfm.theme', theme); applyTheme(theme);
+  });
+
+  /* ---------- nav highlight ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var byId = {};
+  links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var current = null;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          if (current) current.classList.remove('active');
+          current = byId[e.target.id]; if (current) current.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    document.querySelectorAll('section.chapter').forEach(function (s) { io.observe(s); });
+  }
+
+  /* ---------- skill audit ---------- */
+  var AREAS = [
+    { key: 'gun', name: 'Gunfights', href: '#gunfight', qs: [
+      ['I plate only behind hard cover', 'never in doorways, on roofs, or mid-crossing'],
+      ['My reticle sits at head height on the next corner', 'while moving, not just when I expect a fight']]},
+    { key: 'move', name: 'Movement', href: '#movement', qs: [
+      ['I move when unseen and stop to shoot when seen', 'no sliding in the open once the fight starts'],
+      ['I slide into cover, not into rooms', 'and rarely take ladders with enemies near']]},
+    { key: 'pos', name: 'Positioning', href: '#positioning', qs: [
+      ['I rotate early, along the edge, with a fallback', 'zone timer reset means map open and plan spoken'],
+      ['I leave or finish fights before the third party', 'and I know when one is likely']]},
+    { key: 'info', name: 'Information', href: '#info', qs: [
+      ['I have a UAV up before late pushes', 'and I run Recon early for zone info'],
+      ['I read the minimap and kill feed every 20 seconds', 'and count squads left, not players']]},
+    { key: 'load', name: 'Loadout & economy', href: '#loadouts', qs: [
+      ['My loadout is bought before circle two', 'after two contracts, not eight minutes of looting'],
+      ['I run one AR and one SMG I have not changed in a week', 'with a suppressor on the long gun']]},
+    { key: 'squad', name: 'Squad play', href: '#squad', qs: [
+      ['My callouts have count, direction, distance, state', 'plus a ping'],
+      ['I stay within trade range of a teammate', 'and never split for loot across open ground']]}
+  ];
+  var qWrap = document.getElementById('auditQs');
+  var saved = LS.get('wzfm.audit', {});
+  var html = '';
+  AREAS.forEach(function (a) {
+    a.qs.forEach(function (q, i) {
+      var id = 'q_' + a.key + i, v = saved[id] || 3;
+      html += '<div class="q"><label for="' + id + '">' + q[0] + '<small>' + q[1] + '</small></label>' +
+        '<input type="range" min="1" max="5" step="1" id="' + id + '" value="' + v + '" data-area="' + a.key + '">' +
+        '<output for="' + id + '">' + v + '</output></div>';
+    });
+  });
+  if (qWrap) qWrap.innerHTML = html;
+  if (qWrap) qWrap.addEventListener('input', function (e) {
+    if (e.target.type === 'range') e.target.nextElementSibling.textContent = e.target.value;
+  });
+  function runAudit() {
+    var scores = {}, out = {};
+    document.querySelectorAll('#auditQs input[type=range]').forEach(function (r) {
+      out[r.id] = +r.value;
+      scores[r.dataset.area] = (scores[r.dataset.area] || 0) + (+r.value);
+    });
+    LS.set('wzfm.audit', out);
+    var ranked = AREAS.map(function (a) { return { a: a, s: scores[a.key] / a.qs.length }; })
+      .sort(function (x, y) { return x.s - y.s; });
+    var res = document.getElementById('auditResult');
+    var h = '<h4 style="margin-top:0">Ranked, weakest first</h4>';
+    ranked.forEach(function (r, i) {
+      var pct = Math.round((r.s - 1) / 4 * 100);
+      h += '<div class="area' + (i < 2 ? ' weak' : '') + '"><div class="name">' + r.a.name + '<a href="' + r.a.href + '">chapter</a></div>' +
+        '<div class="meter"><i style="width:' + Math.max(4, pct) + '%"></i></div><div class="score">' + r.s.toFixed(1) + '</div></div>';
+    });
+    h += '<div class="callout focus"><span class="lbl">Two-week focus</span><p>Spend the next two weeks on <strong>' + ranked[0].a.name + '</strong> and <strong>' + ranked[1].a.name + '</strong>. Read those chapters first, do their drills, and log every death that falls into them. Ignore the rest until the re-take.</p></div>';
+    res.innerHTML = h; res.classList.add('show');
+    var stamp = document.getElementById('auditSaved'); if (stamp) stamp.textContent = 'Saved locally ' + new Date().toLocaleDateString();
+  }
+  var runBtn = document.getElementById('auditRun'); if (runBtn) runBtn.addEventListener('click', runAudit);
+  var rstBtn = document.getElementById('auditReset'); if (rstBtn) rstBtn.addEventListener('click', function () {
+    document.querySelectorAll('#auditQs input[type=range]').forEach(function (r) { r.value = 3; r.nextElementSibling.textContent = '3'; });
+    LS.del('wzfm.audit'); document.getElementById('auditResult').classList.remove('show');
+    document.getElementById('auditSaved').textContent = '';
+  });
+  if (Object.keys(saved).length) runAudit();
+
+  /* ---------- tabs ---------- */
+  var tabs = document.querySelectorAll('.tabs [role=tab]');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.setAttribute('aria-selected', 'false'); document.getElementById(x.getAttribute('aria-controls')).classList.remove('show'); });
+      t.setAttribute('aria-selected', 'true'); document.getElementById(t.getAttribute('aria-controls')).classList.add('show');
+    });
+  });
+
+  /* ---------- checklists ---------- */
+  var checks = LS.get('wzfm.checks', {});
+  document.querySelectorAll('.checklist input[type=checkbox]').forEach(function (c) {
+    if (checks[c.dataset.key]) c.checked = true;
+    c.addEventListener('change', function () { checks[c.dataset.key] = c.checked; LS.set('wzfm.checks', checks); });
+  });
+
+  /* ---------- match log ---------- */
+  var CAUSES = {
+    open:    { label: 'Caught in the open', href: '#positioning', tip: 'You are dying on the way to fights, not in them. Rotate earlier, use the gas edge, and never cross open ground without smoke, a vehicle, or a teammate watching the far side (chapter 04).' },
+    third:   { label: 'Third-partied', href: '#positioning', tip: 'Fights are running too long. Commit with the whole squad within 20 seconds or leave. After a down, move a building over instead of looting the box (chapter 04).' },
+    plating: { label: 'Plating or reloading exposed', href: '#gunfight', tip: 'The single most fixable death. Break line of sight fully before every plate and every reload; swap weapons instead of reloading mid-fight (chapter 02).' },
+    aim:     { label: 'Lost a fair 1v1', href: '#gunfight', tip: 'Some of this is aim; most of it is taking fair fights. Pre-aim head height, strafe while aiming on controller, and stop taking AR fights at sniper range (chapter 02). Warm up 10 minutes before every session.' },
+    peek:    { label: 'Bad peek', href: '#gunfight', tip: 'Never re-peek the edge you were shot from. Decide shoot-or-reset before you peek, and change height or edge every time (chapter 02).' },
+    chase:   { label: 'Chased or overextended', href: '#positioning', tip: 'A cracked enemy inside a building is bait. Hold the door, throw the lethal, or leave. Kills are not worth positions (chapter 04).' },
+    rotate:  { label: 'Late rotation / gas', href: '#positioning', tip: 'Open the map every zone timer reset and move with 60 seconds of buffer. Recon contracts early tell you where to be before anyone else (chapters 04 and 07).' },
+    sniped:  { label: 'Sniped while exposed', href: '#positioning', tip: 'Rooftops and ridgelines are sniper food. Use cover with a roof, cross behind hard cover, and consider Ghost plus a suppressor so they do not know where to look (chapter 04).' },
+    split:   { label: 'Split from squad', href: '#squad', tip: 'You died alone. Stay within trade range (10 to 20 metres, one cover apart) and loot the same block as your team (chapter 09).' },
+    streak:  { label: 'Streak, vehicle or equipment', href: '#loadouts', tip: 'Trophy System on your held position, Bomb Squad on one player, EMP against HDKs, and leave a building that gets Bunker Bustered instead of holding it (chapter 06).' },
+    gulag:   { label: 'Lost the Gulag', href: '#modes', tip: 'Stand still for one second and listen, pick a lane, and only grab the flag when the enemy is out of position. Pre-aim head height on the lane exits (chapter 08).' },
+    win:     { label: 'Did not die', href: '#practice', tip: 'Good. Log what you did differently so it becomes a habit rather than a memory.' }
+  };
+  var log = LS.get('wzfm.log', []);
+  var form = document.getElementById('logForm');
+  var dateEl = document.getElementById('lgDate');
+  if (dateEl && !dateEl.value) dateEl.value = new Date().toISOString().slice(0, 10);
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+  function renderLog() {
+    var tb = document.querySelector('#logTable tbody');
+    var bars = document.getElementById('logBars');
+    var coach = document.getElementById('logCoach');
+    var stats = document.getElementById('logStats');
+    if (!tb) return;
+    tb.innerHTML = '';
+    if (!log.length) {
+      bars.innerHTML = '<div class="empty">No matches logged yet. Add three and a pattern usually shows.</div>';
+      coach.innerHTML = ''; stats.innerHTML = ''; return;
+    }
+    var counts = {}, deaths = 0, kills = 0, places = [], top10 = 0;
+    log.forEach(function (m) {
+      counts[m.cause] = (counts[m.cause] || 0) + 1;
+      if (m.cause !== 'win') deaths++;
+      kills += (+m.kills || 0);
+      if (m.place) { places.push(+m.place); if (+m.place <= 10) top10++; }
+    });
+    var avgPlace = places.length ? (places.reduce(function (a, b) { return a + b; }, 0) / places.length).toFixed(1) : '–';
+    var kd = deaths ? (kills / deaths).toFixed(2) : (kills ? kills.toFixed(2) : '–');
+    stats.innerHTML = '<div class="stats">' +
+      '<div><div class="v mono">' + log.length + '</div><div class="k">matches logged</div></div>' +
+      '<div><div class="v mono">' + kd + '</div><div class="k">kills per logged death</div></div>' +
+      '<div><div class="v mono">' + avgPlace + '</div><div class="k">average placement</div></div>' +
+      '<div><div class="v mono">' + (places.length ? Math.round(top10 / places.length * 100) + '%' : '–') + '</div><div class="k">top-10 rate</div></div></div>';
+
+    var rows = Object.keys(counts).filter(function (k) { return k !== 'win'; })
+      .map(function (k) { return { k: k, n: counts[k] }; }).sort(function (a, b) { return b.n - a.n; });
+    var max = rows.length ? rows[0].n : 1;
+    bars.innerHTML = rows.length ? rows.map(function (r) {
+      var c = CAUSES[r.k] || { label: r.k };
+      return '<div class="bar-row" title="' + esc(c.label) + ': ' + r.n + ' of ' + deaths + ' deaths">' +
+        '<div class="lbl">' + esc(c.label) + '</div><div class="track"><div class="fill" style="width:' + Math.round(r.n / max * 100) + '%"></div></div>' +
+        '<div class="val">' + r.n + '</div></div>';
+    }).join('') : '<div class="empty">Only wins logged so far.</div>';
+
+    if (rows.length) {
+      var top = CAUSES[rows[0].k];
+      var second = rows[1] ? CAUSES[rows[1].k] : null;
+      coach.innerHTML = '<div class="callout bad"><span class="lbl">Top pattern · ' + esc(top.label) + ' (' + rows[0].n + ' of ' + deaths + ')</span><p>' + esc(top.tip) + ' <a href="' + top.href + '">Go to chapter</a></p></div>' +
+        (second ? '<div class="callout"><span class="lbl">Second · ' + esc(second.label) + '</span><p>' + esc(second.tip) + ' <a href="' + second.href + '">Go to chapter</a></p></div>' : '');
+    } else coach.innerHTML = '';
+
+    log.slice().reverse().forEach(function (m, idx) {
+      var i = log.length - 1 - idx;
+      var c = CAUSES[m.cause] || { label: m.cause };
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td class="mono">' + esc(m.date) + '</td><td>' + esc(m.mode) + '</td><td>' + esc(m.map) + '</td>' +
+        '<td class="num">' + esc(m.place || '–') + '</td><td class="num">' + esc(m.kills == null || m.kills === '' ? '–' : m.kills) + '</td>' +
+        '<td><span class="tag' + (m.cause === 'win' ? ' teal' : '') + '">' + esc(c.label) + '</span></td><td class="small">' + esc(m.note) + '</td>' +
+        '<td><button class="btn small" type="button" data-del="' + i + '" aria-label="Delete entry">×</button></td>';
+      tb.appendChild(tr);
+    });
+  }
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var entry = {
+      date: dateEl.value || new Date().toISOString().slice(0, 10),
+      mode: document.getElementById('lgMode').value,
+      map: document.getElementById('lgMap').value,
+      place: document.getElementById('lgPlace').value,
+      kills: document.getElementById('lgKills').value,
+      dmg: document.getElementById('lgDmg').value,
+      cause: document.getElementById('lgCause').value,
+      note: document.getElementById('lgNote').value.trim()
+    };
+    log.push(entry);
+    var ok = LS.set('wzfm.log', log);
+    document.getElementById('logMsg').textContent = ok ? 'Added.' : 'Added for this page view only (storage unavailable).';
+    document.getElementById('lgNote').value = ''; document.getElementById('lgPlace').value = ''; document.getElementById('lgKills').value = ''; document.getElementById('lgDmg').value = '';
+    renderLog();
+  });
+  var tbl = document.getElementById('logTable');
+  if (tbl) tbl.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-del]'); if (!b) return;
+    log.splice(+b.dataset.del, 1); LS.set('wzfm.log', log); renderLog();
+  });
+  var exp = document.getElementById('logExport');
+  if (exp) exp.addEventListener('click', function () {
+    var txt = JSON.stringify(log, null, 2);
+    var msg = document.getElementById('logMsg');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { msg.textContent = 'Copied ' + log.length + ' entries to clipboard.'; },
+        function () { msg.textContent = 'Clipboard blocked. Open the console and run: copy(localStorage["wzfm.log"])'; });
+    } else msg.textContent = 'Clipboard unavailable in this browser.';
+  });
+  var clr = document.getElementById('logClear');
+  if (clr) clr.addEventListener('click', function () {
+    if (!log.length) return;
+    if (confirm('Delete all ' + log.length + ' logged matches from this browser?')) { log = []; LS.del('wzfm.log'); renderLog(); document.getElementById('logMsg').textContent = 'Cleared.'; }
+  });
+  renderLog();
+})();
+</script>
+</body>
+</html>
