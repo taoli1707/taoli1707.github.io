@@ -1,0 +1,106 @@
+"use strict";
+module.exports = {
+  slug: "drywall-hole",
+  title: "How to Patch a Hole in Drywall (Nail Holes to Doorknob Holes)",
+  short: "Patch a hole in drywall",
+  blurb: "From nail holes to a doorknob-sized crater. The secret is thin coats and a wide knife, not one thick blob.",
+  category: "walls-doors",
+  summary: "Patch drywall holes up to 8 inches: spackle for nail holes, a mesh patch and three thin coats of compound for doorknob holes, then primer so it never shows.",
+  symptoms: ["hole in wall", "hole in drywall", "doorknob hole in wall", "nail holes in wall", "patch drywall", "crack in wall", "dent in wall", "anchor hole in wall", "fix walls before painting", "popped nail head", "moving out fix walls", "patch shows through paint"],
+  keywords: ["spackle", "joint compound", "mud", "mesh patch", "california patch", "sanding sponge", "primer", "flashing", "texture", "taping knife", "sheetrock"],
+  difficulty: 2,
+  time: "1–2 h over two days",
+  timeHours: [1, 2],
+  partsCost: [8, 25],
+  toolCost: 15,
+  risk: "",
+  proCostKey: "drywall-hole",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  safety: [
+    "Before cutting into a wall, think about what's behind it. Switches and outlets mean wires running up and down; sinks and tubs mean pipes. Cut shallow and look before going deeper.",
+    "Sanding dust is gypsum and paint; wear a mask and sand with a damp sponge to keep it down.",
+    "Textured ceilings and joint compound from before the 1980s can contain asbestos. Don't sand old texture; have it tested.",
+  ],
+  callPro: [
+    "The hole is bigger than about 8 inches or spans a stud; that needs a new piece of drywall, backing, and tape, which is a real skill.",
+    "The drywall is soft, stained, or moldy. Water got in. Fix the leak, then replace the section; don't patch over it.",
+    "Heavy wall texture that has to match exactly across a large area.",
+    "Cracks that keep reopening, or run diagonally from door and window corners and are getting longer: that's movement, not cosmetics.",
+  ],
+  tools: [
+    { name: "1.5 in putty knife and a 6 in taping knife", q: "6 inch drywall taping knife", note: "The wide knife is what makes patches invisible. Don't skip it for holes over an inch." },
+    { name: "Fine and medium sanding sponge", q: "drywall sanding sponge" },
+    { name: "Utility knife", q: "retractable utility knife" },
+    { name: "Dust mask", q: "dust mask n95" },
+    { name: "Damp rag and a work light", note: "Light held at a low angle shows every ridge." },
+    { name: "Drill and a drywall saw", q: "drywall jab saw", optional: true, note: "Only for the big-hole method in step 8." },
+  ],
+  parts: [
+    { name: "Lightweight spackle", q: "lightweight spackle", note: "For nail and screw holes only. The kind that dries from pink to white tells you when it's ready." },
+    { name: "Self-adhesive mesh patch (4, 6, or 8 in)", q: "self adhesive drywall repair patch", note: "Pick one that overlaps the hole by an inch on every side." },
+    { name: "All-purpose joint compound, small tub", q: "joint compound small tub", note: "Pre-mixed. Not spackle; it shrinks and cracks over a patch." },
+    { name: "Drywall primer or stain-blocking primer", q: "drywall primer", note: "Skip this and the patch “flashes” through the paint as a dull spot forever." },
+    { name: "Matching paint", note: "No leftover can? Cut a quarter-sized chip from an inconspicuous spot and have the paint store match it." },
+    { name: "Drywall scrap, 1×3 backing strip, and drywall screws", q: "drywall screws 1-1/4", optional: true, note: "For the California patch on holes over 6 in." },
+  ],
+  intro: [
+    `<p>Drywall repair has three sizes. Nail and screw holes: spackle, twenty minutes. Half-inch to six-inch holes (doorknobs, failed anchors, the corner of a bookcase): a mesh patch and three thin coats of joint compound over two days. Bigger than that: a “California patch” or a new piece, which the last step covers up to about eight inches.</p>`,
+    `<p>Every bad patch you've ever seen failed the same way: one thick coat, sanded into a lump, painted without primer. Three thin coats, each wider than the last, sanded lightly, then primed, is invisible.</p>`,
+  ],
+  diagnose: [
+    { if: "Nail, screw, or pin holes; small dents", then: "Spackle. Step 2 only." },
+    { if: "Half inch to 6 in: doorknob, anchor, fist", then: "Mesh patch and compound. Steps 1, 3–7." },
+    { if: "6–8 in, or edges crumbling", then: "California patch. Steps 1, 8, then 4–7." },
+    { if: "Nail head bulging through paint (“popped nail”)", then: "Drive a screw an inch above and below it, tap the nail in, then spackle all three spots." },
+  ],
+  steps: [
+    {
+      title: "Prep the hole",
+      body: `<p>Press in any raised or crushed edges so nothing sticks out past the wall surface. Cut away torn paper facing with the utility knife; loose paper under a patch bubbles. Remove old anchors (pull, or drive them through into the wall cavity with a screwdriver). Wipe the dust off.</p>`,
+    },
+    {
+      title: "Small holes: spackle",
+      body: `<p>Load a little spackle on the small knife and press it into the hole at an angle, then scrape flush with the knife nearly flat. Let it dry (color change or an hour). It will shrink a bit: a second thin swipe fills it. Sand with the fine sponge, wipe, prime the spot with a dab of primer, paint. Done.</p>`,
+      tip: "For lots of nail holes before painting, spackle them all, then sand and prime spots in one pass.",
+    },
+    {
+      title: "Medium holes: stick on the mesh patch",
+      body: `<p>Center the patch over the hole and press it firmly to the wall all around. It needs at least an inch of solid wall on every side.</p>`,
+    },
+    {
+      title: "First coat",
+      body: `<p>With the 6 in knife, spread a thin layer of joint compound over the patch and about 2 inches beyond its edges, pressing so the compound goes through the mesh. You should still see the mesh pattern through this coat; that's correct. Pull the knife across at a low angle to leave it as flat as you can. Let it dry completely, 4 to 24 hours depending on thickness and humidity.</p>`,
+      warn: "Thick coats crack, take days to dry, and are the reason people think this is hard. Thin.",
+    },
+    {
+      title: "Second and third coats",
+      body: `<p>Each coat goes 2–3 inches wider than the last and thinner. Hold the knife flatter and feather the edges out to nothing. Between coats, hold the light at a low angle to see ridges, and knock any off with the knife (not sandpaper). Dry fully between coats.</p>`,
+    },
+    {
+      title: "Sand and feather",
+      body: `<p>Fine sponge, light circles, just enough to remove ridges and blend the edge into the wall. If you see mesh, stop and add a coat. Wipe the dust with the damp rag.</p>`,
+    },
+    {
+      title: "Prime, then paint",
+      body: `<p>Prime the patch and six inches around it. Once dry, paint the patch with a roller (not a brush; brush texture shows) and feather the edges out. Two coats. On textured walls, spray-can texture (orange peel or knockdown) goes on before the primer; practice on cardboard first.</p>`,
+      tip: "Paint the whole wall corner to corner if the color is even a little off. Touch-ups on a sunlit wall always show.",
+    },
+    {
+      title: "Big holes: the California patch",
+      body: `<p>Cut the hole into a neat square or rectangle with the utility knife or drywall saw. Cut a drywall scrap 2 inches bigger in each direction. On its back, score a rectangle the size of the hole, snap and peel the gypsum off the border, leaving a 1-inch paper flange all around. Butter the flange with compound, push the plug into the hole, and press the paper flange to the wall like tape. Alternatively, screw a 1×3 strip inside the hole behind both edges and screw a plain plug to it, then mesh-tape the seams. Either way, proceed with the three coats.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "The patch shows as a dull or shiny spot", a: `<p>It wasn't primed, or the paint is a different sheen. Prime the area and repaint the whole wall.</p>` },
+    { q: "I can see the mesh pattern", a: `<p>Coats too thin or sanded through. Add another thin coat 2 inches wider, sand lightly, prime.</p>` },
+    { q: "The compound has bubbles or pinholes", a: `<p>Air whipped into the mud. Skim a very thin coat over it with the knife held flat, in one direction.</p>` },
+    { q: "A crack came back", a: `<p>Straight cracks at seams or corners that return are movement. Cut a V into the crack, fill, embed paper tape (not mesh) in compound, then coat as usual. If it comes back again, or the crack is growing, get an opinion on the structure.</p>` },
+  ],
+  faq: [
+    { q: "Spackle or joint compound?", a: `<p>Spackle for holes smaller than a dime. Joint compound for anything with a patch under it. Spackle over a patch shrinks and cracks; compound in a nail hole is fine but slower.</p>` },
+    { q: "How long between coats?", a: `<p>Until it's uniformly white and cool to the touch, usually overnight. Damp gray patches aren't dry.</p>` },
+    { q: "Can I paint over spackle without primer?", a: `<p>For a nail hole, most people do and get away with it. For anything you'll see from the couch, prime. Primer is $10 and the difference between “patched” and “was there ever a hole?”</p>` },
+  ],
+  related: ["hang-heavy", "sticking-door", "recaulk-tub"],
+};

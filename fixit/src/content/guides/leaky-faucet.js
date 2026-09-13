@@ -1,0 +1,101 @@
+"use strict";
+module.exports = {
+  slug: "leaky-faucet",
+  title: "How to Fix a Dripping Faucet (Replace the Cartridge)",
+  short: "Fix a dripping faucet",
+  blurb: "A drip is a worn cartridge or washer, not a broken faucet. The part is $15–60 and the fix is mostly patience.",
+  category: "plumbing",
+  summary: "Stop a dripping single-handle faucet by replacing the cartridge: identify the brand, shut the water off, swap the part in the same orientation. 45–90 minutes, $15–60.",
+  symptoms: ["faucet drips", "faucet dripping when off", "leaky faucet", "faucet handle hard to turn", "faucet leaks at base", "kitchen faucet drips", "bathroom faucet drips", "faucet won't shut off completely", "faucet leaking from spout", "hot and cold reversed", "low flow from faucet"],
+  keywords: ["cartridge", "o-ring", "moen 1225", "delta", "kohler", "set screw", "retaining clip", "stem", "compression faucet", "washer", "aerator", "cartridge puller"],
+  difficulty: 2,
+  time: "45–90 min",
+  timeHours: [0.75, 1.5],
+  partsCost: [15, 60],
+  toolCost: 20,
+  risk: "the shutoff valves under the sink can be stiff; if one won't close, stop and use the “call a pro” list.",
+  proCostKey: "leaky-faucet",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  safety: [
+    "Close both shutoff valves under the sink (clockwise) and confirm the faucet runs dry before you take anything apart. If a valve won't close, don't force it: shut the main and read the “call a pro” list.",
+    "Plug the drain. The set screw is tiny and the drain is hungry.",
+    "Lay a towel in the sink so dropped parts don't chip the basin.",
+  ],
+  callPro: [
+    "A shutoff valve under the sink won't close, or leaks when you turn it. Replacing those valves means shutting off the house main.",
+    "Water is leaking under the sink from the faucet body or supply connections, not from the spout.",
+    "The cartridge is seized and a puller won't move it; the faucet body is corroded.",
+    "It's a no-name faucet and nothing matches. Replacing the whole faucet ($60–150 plus an hour or two) is often cheaper than the hunt.",
+  ],
+  tools: [
+    { name: "Hex (Allen) key set", q: "hex key set sae metric", note: "Most handle set screws are 3/32 or 1/8 in." },
+    { name: "Phillips and flat screwdrivers", q: "screwdriver set" },
+    { name: "Needle-nose pliers", q: "needle nose pliers" },
+    { name: "Adjustable wrench", q: "adjustable wrench" },
+    { name: "Headlamp", q: "LED headlamp" },
+    { name: "Cartridge puller", q: "faucet cartridge puller", optional: true, note: "Mainly for stuck Moen 1225 cartridges. Try without it first." },
+    { name: "Phone camera", note: "Photograph every step of disassembly." },
+  ],
+  parts: [
+    { name: "Replacement cartridge for your brand and model", q: "faucet replacement cartridge", note: "The brand is on the handle or the base. Common ones: Moen 1225/1222, Delta RP19804 or RP1740, Kohler GP1138051, Pfister 974-042. Take the old one to the store if in doubt." },
+    { name: "Plumber's silicone grease", q: "plumbers silicone grease", note: "A dab on every O-ring. Not petroleum jelly, which swells rubber." },
+    { name: "Faucet O-ring kit", q: "faucet o-ring kit", optional: true, note: "If the leak is at the base of the spout rather than the tip." },
+    { name: "Compression washers and seats", q: "faucet washer assortment", optional: true, note: "For two-handle faucets that screw down to shut off." },
+  ],
+  intro: [
+    `<p>Inside every faucet there's a valve. In most single-handle faucets made in the last thirty years it's a cartridge: a plastic or brass cylinder with rubber seals that wear out. When it drips from the spout with the handle off, the cartridge or its seals are worn. When water shows up around the base of the spout while it's running, the spout O-rings are worn. Both are parts, not a new faucet.</p>`,
+    `<p>Four faucet types exist. Single-handle cartridge (this guide, and most faucets). Ball type (older Delta and Peerless, with a dome cap; buy the brand's repair kit and follow it). Ceramic disc (newer, rarely drips; clean the inlet seals). Two-handle compression (the handles screw down; replace the rubber washer and seat). The steps are the same shape for all of them: shut off, open, swap, reassemble.</p>`,
+  ],
+  diagnose: [
+    { if: "Drips from the spout with the handle off", then: "Worn cartridge or its seals. This guide." },
+    { if: "Water pools around the base of the spout while it runs", then: "Spout O-rings. Same disassembly; replace the rings on the spout body (see FAQ)." },
+    { if: "Water under the sink", then: "Supply connection or faucet body. Hand-tighten the supply nuts; if it continues, call a pro." },
+    { if: "Weak, sputtering flow", then: "Clogged aerator. Unscrew the tip of the spout, soak it in vinegar an hour, brush, reinstall." },
+  ],
+  steps: [
+    {
+      title: "Identify the faucet and get the cartridge",
+      body: `<p>Find the brand on the handle, base, or spout. Photograph the faucet. Search “<em>brand</em> <em>model</em> cartridge” or, if there's no model, disassemble first (steps 2–5) and take the old cartridge to a hardware store. Buying first saves a trip if you're confident; disassembling first guarantees the match.</p>`,
+    },
+    {
+      title: "Shut off the water and relieve the pressure",
+      body: `<p>Close both valves under the sink. Open the faucet on hot, then cold, until nothing comes out. Plug the drain and lay a towel in the sink.</p>`,
+    },
+    {
+      title: "Remove the handle",
+      body: `<p>Pry off the decorative cap on the handle with a fingernail or a small flat screwdriver. Under it, or on the side of the handle, is a set screw: hex or Phillips. Back it out a few turns (it doesn't need to come all the way out) and lift the handle off, wiggling if it's stuck. Some faucets have a dome-shaped cap that unscrews instead; wrap it in tape and use pliers if it's tight.</p>`,
+      tip: "Put the screw and cap in a cup. That's the whole reason the cup is on the list.",
+    },
+    {
+      title: "Remove the retaining clip or nut",
+      body: `<p>Photograph what you see. A brass U-shaped clip (Moen) pulls straight up with needle-nose pliers. A threaded retaining nut (Delta, Pfister, many others) unscrews counterclockwise. Some have a plastic sleeve or a stop ring on top of the cartridge; note its position before lifting it off.</p>`,
+    },
+    {
+      title: "Pull the cartridge",
+      body: `<p>Note the orientation: a notch, a flat, or a small “H” marks which way it faces, and the new one goes in the same way. Grip the stem with pliers, twist gently side to side to break the mineral bond, and pull straight up. If it won't move, thread the handle screw back into the stem and use it as a handle, or use a cartridge puller, which screws onto the stem and jacks it out.</p>`,
+      warn: "Don't lever sideways against the faucet body. A cracked body is a whole new faucet.",
+    },
+    {
+      title: "Install the new cartridge",
+      body: `<p>Smear silicone grease on every O-ring. Push the cartridge in with the marks facing the same direction the old one did; its tabs line up with slots in the body. Seat it fully, then put the clip or nut back exactly as you found it. Reinstall the handle and set screw.</p>`,
+      tip: "If hot and cold turn out reversed when you test, most cartridges fix that by pulling the stem and rotating it 180°. No need to disassemble the body again.",
+    },
+    {
+      title: "Turn the water on slowly and test",
+      body: `<p>Open the shutoffs a little, then fully. Run the faucet hot and cold for a minute. Check for drips at the spout with it off, water at the base while it runs, and drips under the sink. Come back in an hour and check again.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "It still drips with the new cartridge", a: `<p>On Delta and Peerless faucets there are two small rubber seats with springs under the cartridge; they wear out too and come in a $5 kit. On others, grit on the seat inside the body or a wrong-model cartridge is the usual cause. Pull it and look.</p>` },
+    { q: "The handle is stiff", a: `<p>Not enough grease, or a cartridge that's slightly the wrong model (Moen 1225 and 1222 look alike and aren't). Regrease first.</p>` },
+    { q: "Water at the base of the spout", a: `<p>With the cartridge out you can usually lift the spout body off. Two or three O-rings sit in grooves on the body underneath. Replace them (kit or measure and match), grease, and reassemble.</p>` },
+    { q: "I stripped the set screw", a: `<p>A screw extractor bit or a slightly larger Torx bit tapped into the hex socket usually gets it out. Buy a new set screw with the cartridge.</p>` },
+  ],
+  faq: [
+    { q: "How much water does a drip waste?", a: `<p>The EPA estimates a faucet dripping once per second wastes more than 3,000 gallons a year. Slower drips waste less but the seal only gets worse.</p>` },
+    { q: "How do I know if it's a ball faucet?", a: `<p>A single handle that moves in a rounded dome, common on older Delta and Peerless kitchen faucets. Buy the brand's ball repair kit (about $15–25): new ball, seats, springs, and cam. Same shutoff-and-photo process.</p>` },
+    { q: "What about a two-handle faucet?", a: `<p>If the handles screw down to stop the water, it's compression: pull the handle, unscrew the stem, replace the rubber washer on its end and the O-ring, and check the seat inside the body for roughness. If the handles turn only a quarter turn, they hold small cartridges: same process as this guide, twice.</p>` },
+  ],
+  related: ["showerhead", "running-toilet", "slow-drain"],
+};

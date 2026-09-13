@@ -1,0 +1,102 @@
+"use strict";
+module.exports = {
+  slug: "hang-heavy",
+  title: "How to Hang a TV, Mirror, or Heavy Shelf So It Stays Up",
+  short: "Hang a TV, mirror, or heavy shelf",
+  blurb: "Find the stud, use the right anchor, level it once. Hanging things is easy; hanging things that stay up is a method.",
+  category: "walls-doors",
+  summary: "Hang a TV mount, heavy mirror, or shelf so it stays up: find the studs (or use toggle anchors), pick fasteners by weight, drill pilot holes, and level. 30–90 minutes.",
+  symptoms: ["mount tv on wall", "hang heavy mirror", "hang a shelf", "find a stud", "wall anchor pulled out", "what anchor for drywall", "hang picture on drywall", "tv mount into studs", "hang cabinet", "curtain rod keeps falling", "shelf fell off wall", "how much weight can drywall hold"],
+  keywords: ["stud finder", "16 on center", "lag screw", "toggle bolt", "snap toggle", "drywall anchor", "french cleat", "level", "pilot hole", "vesa", "plaster", "magnet"],
+  difficulty: 2,
+  time: "30–90 min",
+  timeHours: [0.5, 1.5],
+  partsCost: [10, 60],
+  toolCost: 40,
+  risk: "",
+  proCostKey: "hang-heavy",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  diagram: "studs",
+  safety: [
+    "Never drill where a stud finder's AC-detect mode lights up. Assume wires run straight up from every switch and outlet, and horizontally around 12 in and 48 in off the floor. Pipes run above and below sinks and tubs.",
+    "A TV held by plastic drywall anchors over a couch or a crib is a gamble. Studs, or a properly rated toggle system, and nothing less.",
+    "Anything over 40 pounds is a two-person lift. The second person also holds the level.",
+  ],
+  callPro: [
+    "Plaster-and-lath, brick, block, or concrete walls if you don't own a hammer drill (renting one is fine; hiring is fine).",
+    "Over 100 pounds on metal studs, or on a wall where you can't find studs where you need them.",
+    "Running power for the TV inside the wall. An in-wall power kit is legal in most places; a plain extension cord in the wall is not, and many jurisdictions want an electrician for the outlet.",
+  ],
+  tools: [
+    { name: "Stud finder", q: "stud finder", note: "Electronic with AC detection, or a strong magnet that finds the drywall screws. Try the simulator on this site first." },
+    { name: "Drill/driver and bits", q: "cordless drill driver kit" },
+    { name: "24 in level", q: "24 inch level", note: "A torpedo level works for small brackets; the phone level app on this site works in a pinch." },
+    { name: "Tape measure and pencil", q: "25 ft tape measure" },
+    { name: "Painter's tape", q: "painters tape" },
+    { name: "Socket wrench or impact driver with sockets", q: "socket set", note: "For lag screws." },
+    { name: "Strong magnet", q: "neodymium magnet", optional: true, note: "Confirms stud locations by finding screw heads." },
+  ],
+  parts: [
+    { name: "TV wall mount rated for your TV's weight and VESA pattern", q: "tv wall mount", note: "The TV's manual or the back of the set lists the VESA hole spacing (e.g. 400×400). Fixed or tilting mounts are simplest to install." },
+    { name: "5/16 × 3 in lag screws", q: "5/16 lag screws 3 inch", note: "Usually in the mount box. Two per stud." },
+    { name: "Snap toggle anchors", q: "snap toggle drywall anchors", note: "For a bracket hole that misses the stud. Rated well over 100 lb each in 1/2 in drywall; nothing like plastic anchors." },
+    { name: "French cleat or heavy-duty hanging rail", q: "french cleat mirror hanger", optional: true, note: "The best way to hang a heavy mirror or cabinet: level once, then hang." },
+    { name: "Picture wire, D-rings, and hooks", q: "heavy duty picture hangers", optional: true },
+  ],
+  intro: [
+    `<p>Drywall is chalk between two sheets of paper. It holds nothing on its own; everything you hang is held either by the wood studs behind it or by an anchor that spreads the load across the back of the board. Under 10 pounds, a nail or hook is fine. Ten to fifty pounds, a good anchor or a stud. Over fifty pounds, or anything that moves (a TV on an arm, a shelf you'll load), goes into studs or into toggle anchors rated for the job.</p>`,
+    `<p>Studs are 1.5 inches wide and usually 16 inches apart center to center (sometimes 24). Electronic finders sense density; a magnet finds the screws holding the drywall to the stud, and never lies. Outlets and switches are nailed to a stud, so there's one right beside every box.</p>`,
+  ],
+  diagnose: [
+    { if: "An anchor pulled out and took a chunk of drywall with it", then: "Wrong anchor for the load. Patch the hole (drywall guide) and use a stud or a snap toggle next time." },
+    { if: "The stud finder beeps everywhere or nowhere", then: "Recalibrate on a blank spot, slide slowly, and confirm with a magnet or a small test hole hidden behind the bracket." },
+    { if: "The magnet sticks in a continuous vertical line, not at points", then: "Metal studs. Use toggles through the stud web, not lag screws." },
+    { if: "Plaster walls (hard, thick, magnet finds nails in rows)", then: "Lath and plaster. Screw into studs; use toggles sized for the thicker wall." },
+  ],
+  steps: [
+    {
+      title: "Decide the height and tape the outline",
+      body: `<p>TV: the center of the screen at seated eye level, about 42 inches off the floor for a couch, higher only if you must. Mirror or art: center at 57–60 inches. Mark the outline with painter's tape and live with it for a day if you can.</p>`,
+    },
+    {
+      title: "Find the studs",
+      body: `<p>Calibrate the finder on the wall away from the target, then slide it slowly across. Mark both edges of each stud and split the difference for the center. Move up a foot and repeat: the marks should line up vertically. Confirm with the magnet (it grabs screw heads along the stud's center) or by driving a finish nail where the bracket will hide it: wood curls on the bit or firm resistance mean stud; a nail that pops through into nothing means you missed. Check the next stud 16 inches over.</p>`,
+      tip: "Measure from a corner: studs usually land at 16, 32, 48 inches (plus a few inches of variation). Outlets sit against a stud too.",
+    },
+    {
+      title: "Check for hazards",
+      body: `<p>Switch the finder to AC mode and scan the bracket area. Picture where wires would run from the nearest outlet or switch (straight up, and across at about 12 and 48 in). Look at the other side of the wall for sinks, showers, or a panel. If anything is suspicious, move the bracket or drill a small exploratory hole and look with a flashlight.</p>`,
+    },
+    {
+      title: "Mark and level the bracket holes",
+      body: `<p>Hold the bracket against the wall with its holes over the stud centers, set the level on top, and mark every hole you'll use. Most brackets have slots, which forgives a stud that's a half-inch off. For a mirror or cleat, mark the top edge with the level.</p>`,
+    },
+    {
+      title: "Drill pilot holes",
+      body: `<p>Lag screws need a pilot hole about 60–70% of the shank diameter: 3/16 in for a 5/16 lag. Drill straight in, to the full length of the screw. Wood curls on the bit mean you're in the stud; only gypsum dust means you missed; stop and re-find. For toggles, drill the hole size on the package (1/2 in for most snap toggles).</p>`,
+    },
+    {
+      title: "Drive the fasteners",
+      body: `<p>Lags: socket wrench or impact driver, until the bracket is snug against the wall and stops. Don't keep cranking; a stripped lag is a lost stud. Toggles: push the metal channel through the hole, pull the straps until it seats flat against the back of the board, slide the plastic cap to the wall, snap the straps off, and drive the bolt through the bracket.</p>`,
+      warn: "Two lags per stud for a TV mount, in different vertical holes. One screw per stud is how mounts tilt over time.",
+    },
+    {
+      title: "Load it and test",
+      body: `<p>Before the TV goes on, grab the bracket and pull down and out on it as hard as you would a pull-up bar. Nothing should move. Then hang the TV or mirror per its instructions, with your helper. Re-check level (mounts have a small adjustment), route cables in a paintable raceway if they'll show.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "The bracket holes don't line up with two studs", a: `<p>Slide the bracket so at least one column of holes is on a stud and use a snap toggle for the other side; check that the mount's instructions permit it for your TV weight (most do up to a stated limit). Or mount a 3/4 in plywood strip across two studs with lags and screw the bracket to the plywood; painted to match, it's a common installer trick.</p>` },
+    { q: "The drill hits something hard an inch in", a: `<p>Stop. It could be a nail plate protecting a wire or pipe, or blocking. Move the hole an inch and try again; if it's consistent along a line, it's a plate and there's something behind it.</p>` },
+    { q: "A lag screw spins without tightening", a: `<p>The hole is stripped or you're at the edge of the stud. Move up or down an inch on the same stud (still in the bracket's slot) and re-drill. Or go to the next diameter up.</p>` },
+    { q: "Plaster is cracking around the hole", a: `<p>Drill plaster without hammer mode, with a fresh bit, through tape. Use a toggle sized for plaster thickness, or hit the stud, and don't overtighten.</p>` },
+  ],
+  faq: [
+    { q: "How much weight do drywall anchors really hold?", a: `<p>Ratings on the package are best-case shear (straight-down) loads in 1/2 in drywall. Plastic expansion anchors: 10–20 lb, and they loosen. Self-drilling threaded anchors: 25–75 lb. Toggle bolts and snap toggles: 100 lb and up. Anything that pulls out from the wall (a shelf you load at the front, a TV on an extended arm) cuts those numbers a lot. When in doubt, hit the stud.</p>` },
+    { q: "Should I use the anchors that came with the mount?", a: `<p>The lag screws, yes. The plastic anchors some kits include, no: they're for the wall plate on very light TVs at best.</p>` },
+    { q: "How do I find studs in a plaster wall?", a: `<p>Electronic finders struggle with plaster. Run a strong magnet across the wall: it snaps to the nails holding the wood lath, which line up vertically over each stud.</p>` },
+    { q: "Where can I practice finding studs?", a: `<p>The stud finder simulator on this site shows exactly how the reading rises and falls as you sweep across a stud, so the real thing isn't a surprise.</p>` },
+  ],
+  related: ["drywall-hole", "sticking-door", "light-switch"],
+};

@@ -1,0 +1,97 @@
+"use strict";
+module.exports = {
+  slug: "light-switch",
+  title: "How to Replace a Light Switch (Single-Pole)",
+  short: "Replace a light switch",
+  blurb: "A $3 part and a 20-minute job once the breaker is off and you've proven it. Electricians charge about $150 for it.",
+  category: "electrical",
+  summary: "Replace a single-pole light switch safely: breaker off, prove it dead with a tester, move two wires and the ground to the new switch. 20–40 minutes, $3–15.",
+  symptoms: ["light switch not working", "switch feels loose", "light switch buzzing", "switch is hot to touch", "replace light switch", "switch broke", "install dimmer", "flickering light", "crackling switch", "switch stuck", "light switch sparks"],
+  keywords: ["single-pole", "breaker", "non-contact voltage tester", "ground", "terminal screw", "dimmer", "three-way", "backstab", "hot wire", "switch loop"],
+  difficulty: 2,
+  time: "20–40 min",
+  timeHours: [0.35, 0.7],
+  partsCost: [3, 15],
+  toolCost: 25,
+  risk: "it involves household electricity, so the breaker-off step and the tester check are not optional.",
+  proCostKey: "light-switch",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  diagram: "light-switch",
+  safety: [
+    "Turn off the breaker for the circuit, then prove it two ways: the light must not turn on, <strong>and</strong> a non-contact voltage tester must stay silent on every wire in the box, including wires you're not touching. Other circuits can share a box.",
+    "If you see aluminum wire (dull silver instead of copper, often marked “AL” on the cable jacket), stop. Aluminum wiring needs specific devices and a licensed electrician.",
+    "No ground wire and a plastic box, cloth-covered wires, scorch marks, or melted plastic: stop and call an electrician.",
+    "Never work on a wet floor. Keep one hand in your pocket when testing; it's an old electrician's habit for a reason.",
+  ],
+  callPro: [
+    "The switch has three or four terminals plus ground (a three-way or four-way) and you're not confident, or you've swapped one and the lights now act strangely.",
+    "Any wire is aluminum, brittle, cloth-covered, or scorched.",
+    "The breaker won't stay on, or the tester still beeps with the breaker off.",
+    "The new smart switch or dimmer needs a neutral and there's no white wire bundle in the box.",
+    "Your city or state requires a licensed electrician or a permit for device replacement. Some do; check before you start.",
+  ],
+  tools: [
+    { name: "Non-contact voltage tester", q: "non-contact voltage tester", note: "Test it on a known live outlet first so you trust it." },
+    { name: "Flat and Phillips screwdrivers", q: "screwdriver set" },
+    { name: "Needle-nose pliers", q: "needle nose pliers", note: "For forming hooks in the wire ends." },
+    { name: "Wire stripper", q: "wire stripper cutter", optional: true, note: "Only if you need to cut back damaged wire ends." },
+    { name: "Headlamp", q: "LED headlamp", note: "The lights will be off. Obviously." },
+    { name: "Phone camera" },
+  ],
+  parts: [
+    { name: "Single-pole switch, 15 A, 120 V", q: "single pole light switch 15 amp", note: "A “spec grade” or “commercial grade” switch ($3–6) feels and lasts much better than the 89-cent one. For a dimmer, buy one rated for LED bulbs." },
+    { name: "Electrical tape", q: "electrical tape", note: "To mark a white wire that's being used as a hot." },
+    { name: "Wall plate", q: "light switch wall plate", optional: true },
+  ],
+  intro: [
+    `<p>A single-pole switch is the simplest device in your house: it interrupts one hot wire on its way to a light. Two wires connect to it (the hot coming in and the hot going out), plus a ground. Neither of the two hots has a “right” screw. That's the whole job.</p>`,
+    `<p>What makes electrical work safe isn't skill; it's the discipline of proving the power is off before you touch anything, every time. Buy the tester. It costs less than the electrician's trip fee and you'll use it for every outlet, switch, and fixture from now on.</p>`,
+  ],
+  diagnose: [
+    { if: "Two brass screws plus one green screw on the old switch", then: "Single-pole. This guide." },
+    { if: "Three screws (one darker “common”) plus green, or two switches control the same light", then: "Three-way switch. Different wiring; same safety steps, but not this guide." },
+    { if: "The switch is warm or hot, buzzes, or smells", then: "Replace it now. If the new one also gets hot, call an electrician: something upstream is wrong." },
+    { if: "The light flickers with a dimmer", then: "Usually a non-dimmable bulb or a dimmer not rated for LED. Swap the bulb before the dimmer." },
+  ],
+  steps: [
+    {
+      title: "Kill the power and prove it",
+      body: `<p>Flip the breaker for that room (the panel directory is often wrong; flip and check). Try the switch: the light must stay off. Remove the cover plate. Hold the voltage tester against each wire and screw in the box. Silence everywhere. If anything beeps, you have the wrong breaker or a second circuit in the box; keep flipping until it's silent, or stop.</p>`,
+      tip: "Put a piece of tape over the breaker handle so nobody helpfully flips it back on.",
+    },
+    {
+      title: "Unscrew the switch and pull it out",
+      body: `<p>Two screws, top and bottom, hold the switch to the box. Remove them and gently pull the switch out by its metal strap. Don't touch the terminal screws yet. Test again with the tester now that you can reach everything.</p>`,
+    },
+    {
+      title: "Photograph and identify the wires",
+      body: `<p>Take a clear photo. You'll see: two wires on the brass screws (both black, or one black and one white; a white on a switch is a hot in a “switch loop” and should be marked with black tape), a bare or green ground on the green screw, and usually a bundle of white neutrals joined with a wire nut in the back of the box that doesn't touch the switch at all. Leave that bundle alone.</p>`,
+    },
+    {
+      title: "Disconnect the old switch",
+      body: `<p>Loosen each terminal screw and unhook the wire. If the wires go into holes in the back (“backstabbed”), push a small flat screwdriver into the release slot next to each hole and pull the wire out, or cut the wire close to the switch and strip 3/4 inch of new insulation.</p>`,
+    },
+    {
+      title: "Connect the new switch",
+      body: `<p>Ground first: hook the bare wire clockwise around the green screw and tighten. Then each hot to a brass screw, either one; there's no polarity on a single-pole switch. Form a hook with the pliers, hang it on the screw clockwise so tightening pulls the loop closed, and tighten firmly. No bare copper should stick out past the screw head. Use the screws, not the backstab holes.</p>`,
+      warn: "One wire per screw. If two hots need to join, they get a pigtail and a wire nut, not a shared screw.",
+    },
+    {
+      title: "Fold, mount, plate, power",
+      body: `<p>Fold the wires accordion-style into the box, screw the switch to the box so it's straight, and put the plate on. Breaker on. Test. After ten minutes, touch the plate: it should be room temperature.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "The light doesn't turn on", a: `<p>Check the bulb first. Then power off, pull the switch, and confirm both hots are on brass screws, not one on the ground screw. Make sure the wire ends are actually under the screw heads and not just the insulation.</p>` },
+    { q: "The breaker trips when I turn it on", a: `<p>A bare wire is touching the box or another wire. Breaker off, pull the switch, and look for a stray strand or a hook that's too long. Trim and retry.</p>` },
+    { q: "The dimmer flickers or hums", a: `<p>Non-dimmable LED bulbs, or a dimmer not rated for LED, or a dimmer with a minimum load higher than your tiny LED. Check the packaging on all three.</p>` },
+    { q: "The new switch is warm", a: `<p>Dimmers run slightly warm and that's normal. A plain switch that's warm means a loose connection or an overloaded circuit: turn it off and get an electrician.</p>` },
+  ],
+  faq: [
+    { q: "Do I need a permit?", a: `<p>It depends where you live. Many places let homeowners replace devices like-for-like without a permit; a few require a licensed electrician for any work. A two-minute search for “<em>your city</em> electrical permit homeowner” answers it.</p>` },
+    { q: "Why not use the backstab holes? They're faster.", a: `<p>They rely on a small spring clip that loosens over decades and is a common cause of the warm, buzzing switch you may be replacing right now. Screws take a minute longer and last the life of the house.</p>` },
+    { q: "Can I put in a smart switch?", a: `<p>Most need a neutral wire in the box. If there's a bundle of whites in the back, you probably have one. If the only white in the box is on the switch (a switch loop), you need a no-neutral smart switch or an electrician.</p>` },
+  ],
+  related: ["gfci-outlet", "hang-heavy", "sticking-door"],
+};
