@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekend Fixer — Fix it yourself this weekend. Save the pro for the big stuff.</title>
+<meta name="description" content="Step-by-step home repair guides for first-timers: what to buy, what it costs, exactly what to do, and when to call a pro instead.">
+<link rel="canonical" href="https://taoli1707.github.io/fixit/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Weekend Fixer">
+<meta property="og:title" content="Weekend Fixer">
+<meta property="og:description" content="Step-by-step home repair guides for first-timers: what to buy, what it costs, exactly what to do, and when to call a pro instead.">
+<meta property="og:url" content="https://taoli1707.github.io/fixit/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15171b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/fixit/assets/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=JSON.parse(localStorage.getItem("fixit.theme"));if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/fixit/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Weekend Fixer","url":"https://taoli1707.github.io/fixit/","description":"Step-by-step home repair guides for first-timers: what to buy, what it costs, exactly what to do, and when to call a pro instead."}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/fixit/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M22.8 8.2a5 5 0 0 0-6.3 6.4L8 23.1 10.9 26l8.5-8.5a5 5 0 0 0 6.4-6.3l-3 3-2.4-.6-.6-2.4z" fill="#fff"/></svg><span>Weekend<span class="dot">Fixer</span></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/fixit/guides/">Guides</a><a href="/fixit/tools/">Toolkit</a><a href="/fixit/diy-or-pro/">DIY or pro?</a><a href="/fixit/checklist/">Checklist</a><a href="/fixit/about/">About</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Fix it yourself this weekend.</h1>
+      <p class="lede">Step-by-step home repair guides for first-timers: what to buy, what it costs, exactly what to do, and when to call a pro instead. Every guide is written for a first-timer, with honest difficulty ratings and the price a pro would charge.</p>
+      <p><a class="btn btn-primary" href="/fixit/guides/">Browse the guides</a> <a class="btn btn-ghost" href="/fixit/diy-or-pro/">DIY or hire a pro?</a></p>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="hero-card">
+      <h2>What's broken?</h2>
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <label class="visually-hidden" for="symptom">Describe the problem</label>
+        <input id="symptom" type="search" placeholder="Describe it: “toilet keeps running”" autocomplete="off">
+      </div>
+      <ul class="search-results" id="search-results" aria-live="polite"></ul>
+      <p class="examples">Try: <button type="button" data-example="toilet keeps running">toilet keeps running</button> · <button type="button" data-example="sink drains slowly">sink drains slowly</button> · <button type="button" data-example="outlet has no power">outlet has no power</button> · <button type="button" data-example="door sticks">door sticks</button> · <button type="button" data-example="hole in the wall">hole in the wall</button></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="guides">
+  <div class="wrap">
+    <div class="section-head"><h2>Repair guides</h2><p>Sorted easiest first. Each one shows what a pro charges, so you can decide with numbers.</p></div>
+    <div class="chips" role="group" aria-label="Filter by category">
+  <button class="chip" type="button" data-cat="all" aria-pressed="true">All (12)</button>
+  <button class="chip" type="button" data-cat="plumbing" aria-pressed="false">Plumbing (4)</button>
+  <button class="chip" type="button" data-cat="electrical" aria-pressed="false">Electrical (2)</button>
+  <button class="chip" type="button" data-cat="walls-doors" aria-pressed="false">Walls &amp; doors (3)</button>
+  <button class="chip" type="button" data-cat="kitchen-bath-laundry" aria-pressed="false">Kitchen, bath &amp; laundry (3)</button>
+</div>
+    <ul class="cards" id="cards">
+      <li class="card" data-cat="plumbing" data-slug="showerhead">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Plumbing</div>
+  <h3><a href="/fixit/guides/showerhead/">Replace a showerhead</a></h3>
+  <p>Ten minutes, one wrench, a roll of tape. Also the fix for a head that sprays sideways.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 1 of 5">●<span class="off">●●●●</span></span> Beginner</span><span>⏱ 10–20 min</span><span class="saves">Saves ~$150</span></div>
+</li>
+<li class="card" data-cat="kitchen-bath-laundry" data-slug="garbage-disposal">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Kitchen, bath &amp; laundry</div>
+  <h3><a href="/fixit/guides/garbage-disposal/">Fix a humming or jammed disposal</a></h3>
+  <p>The reset button and the hex key on the bottom fix most disposals in ten minutes, and cost nothing.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 1 of 5">●<span class="off">●●●●</span></span> Beginner</span><span>⏱ 10–30 min</span><span class="saves">Saves ~$220</span></div>
+</li>
+<li class="card" data-cat="plumbing" data-slug="slow-drain">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Plumbing</div>
+  <h3><a href="/fixit/guides/slow-drain/">Unclog a slow sink drain</a></h3>
+  <p>Hair and soap scum, every time. Fifteen minutes with a plastic strip and a bucket beats any bottle of drain cleaner.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 1 of 5">●<span class="off">●●●●</span></span> Beginner</span><span>⏱ 15–45 min</span><span class="saves">Saves ~$180</span></div>
+</li>
+<li class="card" data-cat="plumbing" data-slug="running-toilet">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Plumbing</div>
+  <h3><a href="/fixit/guides/running-toilet/">Fix a running toilet</a></h3>
+  <p>The most common toilet problem and the cheapest fix in the house. A $6 flapper solves most of them.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 1 of 5">●<span class="off">●●●●</span></span> Beginner</span><span>⏱ 30–60 min</span><span class="saves">Saves ~$190</span></div>
+</li>
+<li class="card" data-cat="walls-doors" data-slug="sticking-door">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Walls &amp; doors</div>
+  <h3><a href="/fixit/guides/sticking-door/">Fix a sticking or squeaky door</a></h3>
+  <p>Nine times out of ten it&#39;s a loose top hinge, and the fix is one 3-inch screw. Save the planing for last.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 1 of 5">●<span class="off">●●●●</span></span> Beginner</span><span>⏱ 15–60 min</span><span class="saves">Saves ~$110</span></div>
+</li>
+<li class="card" data-cat="kitchen-bath-laundry" data-slug="dryer-vent">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Kitchen, bath &amp; laundry</div>
+  <h3><a href="/fixit/guides/dryer-vent/">Clean a dryer vent</a></h3>
+  <p>Clothes taking two cycles? That&#39;s lint in the duct. A $20 brush kit and 45 minutes fixes it and removes a real fire risk.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 1 of 5">●<span class="off">●●●●</span></span> Beginner</span><span>⏱ 45–90 min</span><span class="saves">Saves ~$120</span></div>
+</li>
+<li class="card" data-cat="electrical" data-slug="light-switch">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Electrical</div>
+  <h3><a href="/fixit/guides/light-switch/">Replace a light switch</a></h3>
+  <p>A $3 part and a 20-minute job once the breaker is off and you&#39;ve proven it. Electricians charge about $150 for it.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</span><span>⏱ 20–40 min</span><span class="saves">Saves ~$140</span></div>
+</li>
+<li class="card" data-cat="electrical" data-slug="gfci-outlet">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Electrical</div>
+  <h3><a href="/fixit/guides/gfci-outlet/">Reset or replace a GFCI outlet</a></h3>
+  <p>Dead bathroom or kitchen outlet? Half the time it&#39;s a tripped GFCI somewhere else. The other half, the $18 outlet is worn out.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</span><span>⏱ 30–60 min</span><span class="saves">Saves ~$130</span></div>
+</li>
+<li class="card" data-cat="plumbing" data-slug="leaky-faucet">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Plumbing</div>
+  <h3><a href="/fixit/guides/leaky-faucet/">Fix a dripping faucet</a></h3>
+  <p>A drip is a worn cartridge or washer, not a broken faucet. The part is $15–60 and the fix is mostly patience.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</span><span>⏱ 45–90 min</span><span class="saves">Saves ~$210</span></div>
+</li>
+<li class="card" data-cat="walls-doors" data-slug="hang-heavy">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Walls &amp; doors</div>
+  <h3><a href="/fixit/guides/hang-heavy/">Hang a TV, mirror, or heavy shelf</a></h3>
+  <p>Find the stud, use the right anchor, level it once. Hanging things is easy; hanging things that stay up is a method.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</span><span>⏱ 30–90 min</span><span class="saves">Saves ~$220</span></div>
+</li>
+<li class="card" data-cat="walls-doors" data-slug="drywall-hole">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Walls &amp; doors</div>
+  <h3><a href="/fixit/guides/drywall-hole/">Patch a hole in drywall</a></h3>
+  <p>From nail holes to a doorknob-sized crater. The secret is thin coats and a wide knife, not one thick blob.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</span><span>⏱ 1–2 h over two days</span><span class="saves">Saves ~$230</span></div>
+</li>
+<li class="card" data-cat="kitchen-bath-laundry" data-slug="recaulk-tub">
+  <span class="done-badge">Done ✓</span>
+  <div class="cat">Kitchen, bath &amp; laundry</div>
+  <h3><a href="/fixit/guides/recaulk-tub/">Re-caulk a tub or shower</a></h3>
+  <p>Black, cracked caulk isn&#39;t just ugly: water behind it rots the wall. Strip it all, dry it, fill the tub, lay one clean bead.</p>
+  <div class="meta"><span><span class="wrenches" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</span><span>⏱ 1.5–2.5 h plus 24 h cure</span><span class="saves">Saves ~$180</span></div>
+</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>How it works</h2></div>
+    <div class="how">
+      <div><span class="n">1</span><h3>Diagnose</h3><p>Type the symptom above. Each guide starts with a two-minute check so you fix the actual cause, not the first guess.</p></div>
+      <div><span class="n">2</span><h3>Gather</h3><p>Every guide has a copyable shopping list with prices. Most repairs need $5–40 in parts and tools you probably own.</p></div>
+      <div><span class="n">3</span><h3>Fix, then check it off</h3><p>Follow numbered steps with photos-in-words, tick them off as you go, and watch your running “saved vs. pro” total grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="panel">
+      <h2>Should you even DIY this?</h2>
+      <p>Sometimes the pro is the right call. The calculator compares parts, your time, and the typical pro price for each job and tells you straight.</p>
+      <a class="btn btn-ghost" href="/fixit/diy-or-pro/">Run the numbers</a>
+    </div>
+    <div class="panel">
+      <h2>The $150 starter toolkit</h2>
+      <p>Thirteen tools cover 80% of home repairs. No 200-piece sets, no gadgets. Plus a free stud finder simulator and level on this site.</p>
+      <a class="btn btn-ghost" href="/fixit/tools/">See the list</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="panel accent">
+      <h2>Free seasonal maintenance checklist</h2>
+      <p>Ten minutes a month catches the leaks, clogs, and lint fires before they become four-figure repairs. Print it and stick it in a cabinet.</p>
+      <a class="btn btn-primary" href="/fixit/checklist/">Open the checklist</a>
+    </div>
+    <div class="panel"><h2>Not sure where to start?</h2><p>Start with the running toilet or the slow drain. Both take under an hour, need almost no tools, and teach you the most useful skill in home repair: shutting off the water and looking.</p><a class="btn btn-ghost" href="/fixit/guides/running-toilet/">Fix a running toilet</a></div>
+  </div>
+</section>
+
+<script type="application/json" id="guide-index">[{"slug":"showerhead","title":"Replace a showerhead","url":"/fixit/guides/showerhead/","cat":"plumbing","symptoms":["showerhead leaks","showerhead drips","low water pressure in shower","showerhead sprays sideways","showerhead clogged","replace shower head","shower head leaking at the arm","install handheld shower","shower head loose","hard water buildup shower"],"keywords":["shower arm","ptfe tape","teflon tape","flow restrictor","descale","vinegar","handheld","thread"],"proMid":185,"partsMid":37.5},{"slug":"garbage-disposal","title":"Fix a humming or jammed disposal","url":"/fixit/guides/garbage-disposal/","cat":"kitchen-bath-laundry","symptoms":["garbage disposal humming","disposal won't turn on","disposal jammed","disposal hums but doesn't spin","disposal leaking","disposal smells","disposal makes loud noise","reset button garbage disposal","sink won't drain on disposal side","disposal tripped breaker","disposal stopped working","something stuck in disposal"],"keywords":["reset button","hex key","allen wrench","flywheel","impeller","insinkerator","tongs","breaker","splash guard","dishwasher hose","jam"],"proMid":225,"partsMid":5},{"slug":"slow-drain","title":"Unclog a slow sink drain","url":"/fixit/guides/slow-drain/","cat":"plumbing","symptoms":["sink drains slowly","bathroom sink clogged","water backs up in sink","gurgling drain","sink smells bad","standing water in sink","tub drains slowly","shower drain clogged with hair","pop-up stopper stuck","sink won't drain","clogged drain"],"keywords":["p-trap","hair","drain snake","zip-it","pop-up stopper","pivot rod","slip nut","auger","plunger"],"proMid":187.5,"partsMid":7.5},{"slug":"running-toilet","title":"Fix a running toilet","url":"/fixit/guides/running-toilet/","cat":"plumbing","symptoms":["toilet keeps running","toilet runs constantly","toilet runs randomly","phantom flush","toilet refills by itself","hissing sound from toilet","water trickling into bowl","high water bill","toilet won't stop running","toilet tank not filling","weak flush","toilet handle has to be jiggled"],"keywords":["flapper","fill valve","float","overflow tube","tank","ballcock","flush valve","chain","dye test"],"proMid":207.5,"partsMid":15},{"slug":"sticking-door","title":"Fix a sticking or squeaky door","url":"/fixit/guides/sticking-door/","cat":"walls-doors","symptoms":["door sticks","door rubs at top","door won't latch","door won't close","sagging door","squeaky door hinge","door swings open by itself","door drags on carpet","stripped hinge screw","door scrapes frame","door hard to close","door won't stay open"],"keywords":["hinge","strike plate","latch","3 inch screw","shim","plane","sand","stripped screw","toothpick","silicone spray","hinge pin","jamb"],"proMid":122.5,"partsMid":8.5},{"slug":"dryer-vent","title":"Clean a dryer vent","url":"/fixit/guides/dryer-vent/","cat":"kitchen-bath-laundry","symptoms":["clothes take too long to dry","dryer takes two cycles","dryer hot on top","burning smell from dryer","lint outside vent","dryer vent clogged","dryer not drying","laundry room humid","dryer overheating shuts off","lint behind dryer","vent flap stuck","dryer vent cleaning"],"keywords":["lint","duct","transition duct","foil duct","rigid metal duct","vent hood","flapper","brush kit","drill","bird nest","foil tape","thermal fuse"],"proMid":146,"partsMid":27.5},{"slug":"light-switch","title":"Replace a light switch","url":"/fixit/guides/light-switch/","cat":"electrical","symptoms":["light switch not working","switch feels loose","light switch buzzing","switch is hot to touch","replace light switch","switch broke","install dimmer","flickering light","crackling switch","switch stuck","light switch sparks"],"keywords":["single-pole","breaker","non-contact voltage tester","ground","terminal screw","dimmer","three-way","backstab","hot wire","switch loop"],"proMid":151.5,"partsMid":9},{"slug":"gfci-outlet","title":"Reset or replace a GFCI outlet","url":"/fixit/guides/gfci-outlet/","cat":"electrical","symptoms":["outlet not working","bathroom outlet dead","kitchen outlet no power","gfci won't reset","gfci keeps tripping","outside outlet not working","garage outlets dead","reset button won't stay in","outlet has no power but breaker is on","gfci red light","outlet stopped working","half the outlets dead"],"keywords":["gfci","gfi","ground fault","line","load","reset","test","downstream","self-test","weather resistant","receptacle"],"proMid":145,"partsMid":20},{"slug":"leaky-faucet","title":"Fix a dripping faucet","url":"/fixit/guides/leaky-faucet/","cat":"plumbing","symptoms":["faucet drips","faucet dripping when off","leaky faucet","faucet handle hard to turn","faucet leaks at base","kitchen faucet drips","bathroom faucet drips","faucet won't shut off completely","faucet leaking from spout","hot and cold reversed","low flow from faucet"],"keywords":["cartridge","o-ring","moen 1225","delta","kohler","set screw","retaining clip","stem","compression faucet","washer","aerator","cartridge puller"],"proMid":250,"partsMid":37.5},{"slug":"hang-heavy","title":"Hang a TV, mirror, or heavy shelf","url":"/fixit/guides/hang-heavy/","cat":"walls-doors","symptoms":["mount tv on wall","hang heavy mirror","hang a shelf","find a stud","wall anchor pulled out","what anchor for drywall","hang picture on drywall","tv mount into studs","hang cabinet","curtain rod keeps falling","shelf fell off wall","how much weight can drywall hold"],"keywords":["stud finder","16 on center","lag screw","toggle bolt","snap toggle","drywall anchor","french cleat","level","pilot hole","vesa","plaster","magnet"],"proMid":259,"partsMid":35},{"slug":"drywall-hole","title":"Patch a hole in drywall","url":"/fixit/guides/drywall-hole/","cat":"walls-doors","symptoms":["hole in wall","hole in drywall","doorknob hole in wall","nail holes in wall","patch drywall","crack in wall","dent in wall","anchor hole in wall","fix walls before painting","popped nail head","moving out fix walls","patch shows through paint"],"keywords":["spackle","joint compound","mud","mesh patch","california patch","sanding sponge","primer","flashing","texture","taping knife","sheetrock"],"proMid":250,"partsMid":16.5},{"slug":"recaulk-tub","title":"Re-caulk a tub or shower","url":"/fixit/guides/recaulk-tub/","cat":"kitchen-bath-laundry","symptoms":["caulk moldy","black mold in shower caulk","caulk peeling around tub","cracked caulk bathtub","water leaking behind tub","recaulk shower","gap between tub and tile","mildew in bathroom caulk","caulk shrinking","caulk turning yellow","water damage under bathroom wall"],"keywords":["silicone","kitchen and bath caulk","caulk gun","caulk remover","mildew","painters tape","tooling","cure time","bead","backer rod","grout"],"proMid":197.5,"partsMid":17.5}]</script>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Weekend Fixer</strong>
+        <p>Step-by-step home repair guides for first-timers: what to buy, what it costs, exactly what to do, and when to call a pro instead.</p>
+        <p class="small">Repairs shown here are common, low-risk jobs. Gas lines, the main electrical panel, roofing, and anything structural belong to a licensed pro. Follow your local code and permit rules.</p>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <ul>
+          <li><a href="/fixit/guides/">All guides</a></li>
+          <li><a href="/fixit/tools/">Starter toolkit</a></li>
+          <li><a href="/fixit/diy-or-pro/">DIY or pro calculator</a></li>
+          <li><a href="/fixit/checklist/">Seasonal checklist</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Fine print</strong>
+        <ul>
+          <li><a href="/fixit/about/">About</a></li>
+          <li><a href="/fixit/about/#disclosure">Affiliate disclosure</a></li>
+          <li><a href="/fixit/about/#privacy">Privacy policy</a></li>
+          <li><a href="/fixit/about/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 Weekend Fixer. Some links on this site are affiliate links; we may earn a commission at no cost to you. Pro prices are typical U.S. ranges from published cost guides and vary by region.</p>
+  </div>
+</footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="/fixit/assets/site.js" defer></script>
+</body>
+</html>

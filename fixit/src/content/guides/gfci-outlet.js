@@ -1,0 +1,102 @@
+"use strict";
+module.exports = {
+  slug: "gfci-outlet",
+  title: "How to Reset or Replace a GFCI Outlet",
+  short: "Reset or replace a GFCI outlet",
+  blurb: "Dead bathroom or kitchen outlet? Half the time it's a tripped GFCI somewhere else. The other half, the $18 outlet is worn out.",
+  category: "electrical",
+  summary: "Find and reset the tripped GFCI that killed your outlets, then replace a worn one the right way: LINE vs LOAD terminals explained. 30–60 minutes, $15–25.",
+  symptoms: ["outlet not working", "bathroom outlet dead", "kitchen outlet no power", "gfci won't reset", "gfci keeps tripping", "outside outlet not working", "garage outlets dead", "reset button won't stay in", "outlet has no power but breaker is on", "gfci red light", "outlet stopped working", "half the outlets dead"],
+  keywords: ["gfci", "gfi", "ground fault", "line", "load", "reset", "test", "downstream", "self-test", "weather resistant", "receptacle"],
+  difficulty: 2,
+  time: "30–60 min",
+  timeHours: [0.5, 1],
+  partsCost: [15, 25],
+  toolCost: 25,
+  risk: "it involves household electricity, so the breaker-off step and the tester check are not optional.",
+  proCostKey: "gfci-outlet",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  diagram: "gfci",
+  safety: [
+    "Turn off the breaker and prove it dead with a non-contact voltage tester on every wire in the box before touching a terminal. Kitchen and bathroom boxes often hold more than one circuit.",
+    "A GFCI that trips instantly with nothing plugged in downstream may be doing its job: something on that circuit is faulty or wet. Don't “fix” it by installing a regular outlet.",
+    "Kitchens, bathrooms, garages, outdoors, laundry areas, and unfinished basements require GFCI protection under the electrical code. Always replace a GFCI with a GFCI.",
+    "If the wiring is aluminum, scorched, or cloth-covered, stop and call an electrician.",
+  ],
+  callPro: [
+    "It trips immediately with nothing plugged in anywhere downstream, even after you've replaced it.",
+    "Breaker on, GFCI reset, tester silent, and the outlet still has no power. That's an open connection somewhere upstream.",
+    "Aluminum wiring, scorched wires, or a box packed so tight the new device won't fit.",
+    "The circuit has no ground wire (two-wire cable). A GFCI is allowed there and must carry a “No equipment ground” sticker, but if that sentence is new to you, hire it out.",
+  ],
+  tools: [
+    { name: "Non-contact voltage tester", q: "non-contact voltage tester" },
+    { name: "Plug-in outlet tester with GFCI test button", q: "gfci outlet tester", note: "Confirms correct wiring in two seconds. Strongly recommended." },
+    { name: "Flat and Phillips screwdrivers", q: "screwdriver set" },
+    { name: "Needle-nose pliers", q: "needle nose pliers" },
+    { name: "Wire stripper", q: "wire stripper cutter" },
+    { name: "Headlamp", q: "LED headlamp" },
+  ],
+  parts: [
+    { name: "GFCI outlet, 15 A or 20 A to match the circuit", q: "gfci outlet 20 amp self test", note: "20 A breaker (kitchens, usually): buy a 20 A GFCI. 15 A breaker: 15 A. Outdoors: a weather-resistant (WR) model. Self-test models have been required since 2015 and are the only kind to buy." },
+    { name: "“GFCI Protected” and “No Equipment Ground” stickers", note: "Come in the box. Use them on downstream outlets." },
+    { name: "Electrical tape", q: "electrical tape", optional: true },
+  ],
+  intro: [
+    `<p>A GFCI (ground-fault circuit interrupter) compares the current going out on the hot wire with the current coming back on the neutral. If a few thousandths of an amp go missing, because they're going through you to the ground, it cuts power in a fraction of a second. One GFCI often protects several ordinary-looking outlets “downstream” of it, which is why a dead outlet in the bathroom is fixed by a button in the garage.</p>`,
+    `<p>GFCIs wear out, typically after ten years or so, and modern ones lock out or show a light when they fail. Replacing one is the same job as replacing an outlet, with one twist that trips up half of first-timers: the LINE and LOAD terminals.</p>`,
+  ],
+  diagnose: [
+    { if: "An ordinary outlet is dead and the breaker is on", then: "Find and reset the GFCI that feeds it. Steps 1–2." },
+    { if: "The GFCI's RESET button pops right back out", then: "A fault downstream, or a dead GFCI. Step 3." },
+    { if: "RESET won't click in at all", then: "No power reaching it (breaker), a dead unit, or LINE and LOAD swapped on a recent install." },
+    { if: "Red or orange light on the face, or it clicks and won't hold", then: "Self-test failed. Replace it (steps 4–7)." },
+  ],
+  steps: [
+    {
+      title: "Reset the obvious one",
+      body: `<p>Press RESET firmly until it clicks. If it's flush and won't move, press TEST first, then RESET. Check the dead outlet.</p>`,
+    },
+    {
+      title: "Hunt for the hidden GFCI",
+      body: `<p>If the dead outlet isn't a GFCI itself, one somewhere else feeds it. Check every bathroom, the kitchen counter outlets, the garage (including behind the freezer), outside outlets under their covers, the basement, and the laundry. Also look at the breaker panel: a GFCI breaker has its own TEST button and resets by pushing the handle fully off, then on.</p>`,
+      tip: "Builders wire the strangest combinations. An outdoor outlet dying because of a GFCI in the primary bathroom is normal.",
+    },
+    {
+      title: "Decide: reset, isolate, or replace",
+      body: `<p>If it resets and stays, you're done; note where it was. If it trips again within minutes, unplug everything on the downstream outlets and try once more. Holds now: plug things back in one at a time to find the faulty appliance. Still trips with nothing plugged in: moisture in an outdoor box, a damaged cable, or a worn-out GFCI. Dry the box, wait a day, and if it still trips, replace the device. If the new one also trips, call an electrician.</p>`,
+    },
+    {
+      title: "Kill the power and prove it",
+      body: `<p>Breaker off. Confirm with the tester on the GFCI face, then take the plate off, unscrew the device, pull it out gently, and test every wire in the box. Silence everywhere or don't continue.</p>`,
+    },
+    {
+      title: "Pull the old GFCI and label the wires",
+      body: `<p>Photograph it. Look at the back: the terminals marked LINE (usually bottom) are the cable bringing power from the breaker; the terminals marked LOAD (usually top, often under a yellow sticker) feed the downstream outlets. If there's only one cable in the box, it's LINE and LOAD stays empty.</p><p>Not sure which cable is which? Disconnect both, spread the bare ends apart so nothing touches, turn the breaker on for ten seconds and hold the tester to each black wire. The one that beeps is LINE. Breaker off again before you touch anything.</p>`,
+      warn: "That live test is the only moment in this job with exposed live wire. Wires apart, nobody near the box, tester only, breaker straight back off.",
+    },
+    {
+      title: "Wire the new GFCI",
+      body: `<p>Strip 5/8 in if the old ends are damaged. Ground to the green screw. LINE cable: black to the brass LINE terminal, white to the silver LINE terminal. If there's a downstream cable, peel the yellow sticker off LOAD and connect black to brass LOAD, white to silver LOAD. Most GFCIs have clamp plates behind the screws: straight wire in, screw tight, no hook needed. Nothing bare should show past the clamp.</p>`,
+      warn: "LINE and LOAD reversed is the classic mistake. The GFCI won't reset, or resets without protecting anything. If it misbehaves at power-up, that's the first thing to check.",
+    },
+    {
+      title: "Mount, power up, and test",
+      body: `<p>Fold the wires in, screw the device to the box, plate on. Breaker on and press RESET. Plug in the outlet tester: the lights should show “correct,” and its GFCI button should trip the outlet. Press the outlet's own TEST button: it should click off and kill any downstream outlets (put the “GFCI Protected” stickers on those). RESET, and you're done.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "It won't reset after installation", a: `<p>No power on LINE (breaker, or the wrong cable on LINE), LINE and LOAD swapped, or a fault downstream. Disconnect the LOAD wires and cap them; if it resets now, the problem is downstream.</p>` },
+    { q: "It trips when the refrigerator or freezer runs", a: `<p>Older motor loads leak a bit of current. Try a new GFCI first (they're more tolerant), and make sure the appliance's cord and plug are dry and intact. If a garage fridge keeps tripping a required GFCI, the fix is an electrician's, not a regular outlet.</p>` },
+    { q: "The outdoor one trips in the rain", a: `<p>Water in the box. Replace with a WR-rated GFCI and install an “in-use” bubble cover that stays sealed with a cord plugged in.</p>` },
+    { q: "The tester says “open ground”", a: `<p>Two-wire cable with no ground. A GFCI is allowed and protects you anyway, but it must wear the “No equipment ground” sticker, and three-prong things plugged into it aren't actually grounded.</p>` },
+  ],
+  faq: [
+    { q: "How often should I test GFCIs?", a: `<p>Monthly: press TEST (it should click off), then RESET. It's on the seasonal checklist.</p>` },
+    { q: "Can I replace a regular outlet with a GFCI?", a: `<p>Yes, and it's a cheap safety upgrade anywhere near water. Same steps; with one cable, only LINE is used.</p>` },
+    { q: "15 A or 20 A?", a: `<p>Match the breaker. A 20 A receptacle has a sideways “T” slot. A 15 A GFCI on a 20 A circuit is permitted when it's one of several outlets on the circuit, but buying the matching one avoids the question.</p>` },
+    { q: "What's the difference between GFCI and AFCI?", a: `<p>GFCI protects people from shock; AFCI protects the house from arcing wires that start fires. Bedrooms and living areas in newer homes use AFCI breakers. Different problem, different device.</p>` },
+  ],
+  related: ["light-switch", "garbage-disposal", "dryer-vent"],
+};

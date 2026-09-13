@@ -1,0 +1,95 @@
+"use strict";
+module.exports = {
+  slug: "running-toilet",
+  title: "How to Fix a Running Toilet (Flapper, Fill Valve, and Float)",
+  short: "Fix a running toilet",
+  blurb: "The most common toilet problem and the cheapest fix in the house. A $6 flapper solves most of them.",
+  category: "plumbing",
+  summary: "Stop a toilet that keeps running in under an hour. A two-minute dye test tells you whether it's the flapper, the fill valve, or the float. Parts cost $5–25.",
+  symptoms: ["toilet keeps running", "toilet runs constantly", "toilet runs randomly", "phantom flush", "toilet refills by itself", "hissing sound from toilet", "water trickling into bowl", "high water bill", "toilet won't stop running", "toilet tank not filling", "weak flush", "toilet handle has to be jiggled"],
+  keywords: ["flapper", "fill valve", "float", "overflow tube", "tank", "ballcock", "flush valve", "chain", "dye test"],
+  difficulty: 1,
+  time: "30–60 min",
+  timeHours: [0.5, 1],
+  partsCost: [5, 25],
+  toolCost: 0,
+  risk: "",
+  proCostKey: "running-toilet",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  diagram: "toilet-tank",
+  safety: [
+    "Turn the supply valve (on the wall behind the toilet, near the floor) clockwise to shut off the water before replacing parts. If it won't turn, or drips when you touch it, stop and read the “call a pro” list.",
+    "Tank water is clean tap water. Bowl water is not. Wash your hands anyway.",
+    "Never use drop-in bleach tablets in the tank. They eat rubber flappers and cause exactly this problem.",
+  ],
+  callPro: [
+    "The shutoff valve is stuck, corroded, or leaks when you move it.",
+    "Water is leaking from the tank onto the floor (a cracked tank or a failed tank-to-bowl gasket).",
+    "You've replaced both the flapper and the fill valve and it still runs. The flush valve seat is probably pitted, which usually means removing the tank.",
+  ],
+  tools: [
+    { name: "Sponge and an old towel", q: "cellulose sponge" },
+    { name: "Adjustable wrench", q: "adjustable wrench", optional: true, note: "Only for the supply line nut if you replace the fill valve." },
+    { name: "Scissors or side cutters", q: "side cutters", optional: true, note: "To shorten the flapper chain." },
+    { name: "Small cup and a bucket", optional: true },
+  ],
+  parts: [
+    { name: "Universal toilet flapper (2 in or 3 in)", q: "universal toilet flapper", note: "Measure the flush valve opening: a 2 in flapper is tennis-ball sized, a 3 in is softball sized. Most toilets made after 2005 use 3 in." },
+    { name: "Universal fill valve", q: "universal toilet fill valve", optional: true, note: "Only if the diagnosis points to the fill valve. Fluidmaster 400-style valves fit nearly every tank." },
+    { name: "Food coloring or dye tablets", q: "toilet leak detection dye tablets", note: "Any food coloring from the kitchen works." },
+  ],
+  intro: [
+    `<p>A toilet “runs” when water keeps flowing from the tank into the bowl after the flush is over. There are only two ways that happens: the flapper isn't sealing the hole at the bottom of the tank, or the water level is high enough to spill into the overflow tube. Both fixes are cheap, and neither needs you to touch anything under the toilet.</p>`,
+    `<p>It's worth fixing this week, not this year. The EPA's WaterSense program puts a running toilet at up to 200 gallons of wasted water a day, which shows up on the bill.</p>`,
+  ],
+  diagnose: [
+    { if: "Water level in the tank is <em>above</em> the top of the overflow tube (you can see water pouring into it)", then: "Float set too high, or the fill valve isn't shutting off. Steps 4–5." },
+    { if: "The bowl water tints within 15 minutes after adding dye to the tank (no flush)", then: "Flapper isn't sealing. Steps 2–3." },
+    { if: "The toilet refills by itself for a few seconds every so often (“phantom flush”)", then: "Flapper leaking slowly. Steps 2–3." },
+    { if: "A hiss that never stops, but the water level is below the overflow tube", then: "Fill valve is worn. Step 5." },
+    { if: "You have to jiggle the handle to make it stop", then: "Chain too long or tangled, or the flapper is hanging up. Step 2." },
+  ],
+  steps: [
+    {
+      title: "Lift the lid and watch one flush",
+      body: `<p>Set the lid on a towel (they crack). Flush and watch. The flapper should lift, the tank should drain, and the flapper should drop cleanly back over the hole. Then the fill valve refills the tank and stops with the water about 1 inch below the top of the overflow tube, or at the fill line marked inside the tank.</p><p>Note anything that doesn't match: water above the tube, a flapper that hangs crooked, a chain that catches under the flapper.</p>`,
+      tip: "Drop a few drops of food coloring in the tank now and don't flush. If the bowl tints in 15 minutes, the flapper is leaking, whatever else you see.",
+    },
+    {
+      title: "Fix the chain and inspect the flapper",
+      body: `<p>The chain from the handle lever to the flapper should have about half an inch of slack, roughly two links. Too long and it tangles under the flapper and holds it open; too short and the flapper never fully seats. Unhook and re-hook it on a different link, and cut off the excess so it can't snag.</p><p>Now rub the flapper with a finger. If it leaves a black smear, feels stiff, or is visibly warped or mineral-crusted, it's done. Replace it (next step). If it looks fine, wipe the rim of the flush valve it sits on; a bit of grit there is enough to cause a slow leak.</p>`,
+    },
+    {
+      title: "Replace the flapper",
+      body: `<p>Shut off the supply valve, flush, and hold the handle down to drain the tank as far as it will go. Unhook the chain. Most flappers have two “ears” that snap onto pegs on the sides of the overflow tube; pull them off. Ring-style flappers slide up and off the tube.</p><p>Match the size (2 in or 3 in) and snap the new one on the pegs. Attach the chain with that half inch of slack, turn the water back on, and let it fill. Flush twice and repeat the dye test.</p>`,
+      tip: "Take the old flapper to the store. Ten seconds of comparing beats a second trip.",
+    },
+    {
+      title: "Set the water level",
+      body: `<p>If water was spilling into the overflow tube, lower the float. On a modern fill valve with a float cup that rides up the valve shaft, there's either a screw on top you turn (clockwise usually lowers it) or a clip on the side you pinch and slide down. On an old-style float ball on an arm, turn the screw where the arm meets the valve, or gently bend the arm down.</p><p>Target: the water stops about 1 inch below the top of the overflow tube, or at the marked line.</p>`,
+      warn: "Too low and the flush turns weak. Adjust in small moves and flush between them.",
+    },
+    {
+      title: "Replace the fill valve (if it hisses or won't shut off)",
+      body: `<p>Shut off the supply, flush, and sponge the last of the water out of the tank. Put a bucket under the tank and unscrew the supply line from the bottom of the fill valve. Unscrew the large plastic locknut under the tank and lift the old valve out.</p><p>Set the new valve's height per its instructions so that its critical-level mark (a “CL” on the shaft) sits about an inch above the top of the overflow tube. Drop it in, hand-tighten the locknut plus a quarter turn, reconnect the supply line, and clip the small refill tube to the top of the overflow tube so its end sits <em>above</em> the water line rather than down inside the tube.</p><p>Turn the water on slowly. Adjust the float as in step 4.</p>`,
+      warn: "The locknut and supply nut are plastic. Hand-tight plus a quarter turn is enough; cranking on them cracks the tank fitting.",
+    },
+    {
+      title: "Test and check for leaks",
+      body: `<p>Flush three times. Do the dye test one more time. Dry the supply connection and the locknut with paper towel, then come back in 30 minutes and check that they're still dry and the floor is dry.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "The new flapper still leaks", a: `<p>The seat it sits on is dirty or pitted. Shut the water off, drain the tank, and scrub the rim of the flush valve with a scouring pad. If you can feel roughness or pits, a flapper with a built-in seat repair ring (sold as a “flush valve repair kit”) sticks a new smooth seat on top. If that fails, the flush valve itself needs replacing, which means removing the tank: a reasonable job, but a longer one.</p>` },
+    { q: "The new fill valve keeps running", a: `<p>Two usual causes. The refill tube is pushed down into the overflow tube and siphoning; clip it so the end sits above the water. Or debris from the supply line got into the valve: on Fluidmaster-style valves, turn the cap an eighth turn to remove it, hold a cup over the opening, and turn the water on for a few seconds to flush grit out.</p>` },
+    { q: "The tank takes forever to fill", a: `<p>Open the supply valve fully (counterclockwise). If it's already open, the supply line's screen or the valve inlet is clogged with sediment; disconnect and rinse.</p>` },
+  ],
+  faq: [
+    { q: "How much water does a running toilet waste?", a: `<p>The EPA says up to 200 gallons per day for a badly running toilet, which can add tens of dollars a month to a metered water bill. A “phantom flush” every 20 minutes is far less, but still adds up.</p>` },
+    { q: "Do I need a 2-inch or 3-inch flapper?", a: `<p>Look at the opening the flapper covers. Tennis-ball sized is 2 in; softball sized is 3 in. Many “universal” flappers ship with adapters for both, but a purpose-sized one seals better.</p>` },
+    { q: "How long does a flapper last?", a: `<p>Three to five years is typical. Chlorine, well water, and in-tank cleaning tablets shorten that a lot.</p>` },
+    { q: "Can I just use those blue tank tablets to keep it clean?", a: `<p>Please don't. They degrade the flapper and the fill valve seals and are the leading cause of the repair you just did. Clean the bowl with a brush instead.</p>` },
+  ],
+  related: ["slow-drain", "leaky-faucet", "showerhead"],
+};

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIY or hire a pro? Cost calculator · Weekend Fixer</title>
+<meta name="description" content="Compare the typical pro price with your parts, tools, and time for common home repairs, and get a straight answer on whether to DIY.">
+<link rel="canonical" href="https://taoli1707.github.io/fixit/diy-or-pro/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Weekend Fixer">
+<meta property="og:title" content="DIY or hire a pro? Cost calculator">
+<meta property="og:description" content="Compare the typical pro price with your parts, tools, and time for common home repairs, and get a straight answer on whether to DIY.">
+<meta property="og:url" content="https://taoli1707.github.io/fixit/diy-or-pro/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15171b" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/fixit/assets/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=JSON.parse(localStorage.getItem("fixit.theme"));if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/fixit/assets/site.css">
+
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/fixit/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M22.8 8.2a5 5 0 0 0-6.3 6.4L8 23.1 10.9 26l8.5-8.5a5 5 0 0 0 6.4-6.3l-3 3-2.4-.6-.6-2.4z" fill="#fff"/></svg><span>Weekend<span class="dot">Fixer</span></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/fixit/guides/">Guides</a><a href="/fixit/tools/">Toolkit</a><a href="/fixit/diy-or-pro/" aria-current="page">DIY or pro?</a><a href="/fixit/checklist/">Checklist</a><a href="/fixit/about/">About</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="section">
+  <div class="wrap">
+    <div class="crumbs"><a href="/fixit/">Home</a><span>›</span>DIY or pro?</div>
+    <h1>DIY or hire a pro?</h1>
+    <p class="lede narrow" style="margin-left:0">Pick the job, tell us what your time is worth, and get an honest answer. The pro prices are typical U.S. ranges from published cost guides; parts and time come from the guides on this site.</p>
+    <div class="calc">
+      <form class="panel" id="calc-form">
+        <div class="field">
+          <label for="job">The job</label>
+          <select id="job"><option value="showerhead">Replace a showerhead</option><option value="garbage-disposal">Fix a humming or jammed disposal</option><option value="slow-drain">Unclog a slow sink drain</option><option value="running-toilet">Fix a running toilet</option><option value="sticking-door">Fix a sticking or squeaky door</option><option value="dryer-vent">Clean a dryer vent</option><option value="light-switch">Replace a light switch</option><option value="gfci-outlet">Reset or replace a GFCI outlet</option><option value="leaky-faucet">Fix a dripping faucet</option><option value="hang-heavy">Hang a TV, mirror, or heavy shelf</option><option value="drywall-hole">Patch a hole in drywall</option><option value="recaulk-tub">Re-caulk a tub or shower</option></select>
+        </div>
+        <div class="field">
+          <label for="hourly">What an hour of your weekend is worth</label>
+          <input id="hourly" type="number" min="0" max="500" step="5" value="30">
+          <span class="hint">Be honest. If you would otherwise be on the couch, it is low. If you are skipping paid work, use that rate.</span>
+        </div>
+        <div class="field">
+          <label for="skill">Experience</label>
+          <select id="skill">
+            <option value="1.6">First time doing anything like this</option>
+            <option value="1" selected>Done a couple of small repairs</option>
+            <option value="0.7">Comfortable with tools</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="check"><input type="checkbox" id="tools"> I don't own basic hand tools yet</label>
+          <span class="hint">Adds a one-time tool cost to this job. The tools then cost nothing on the next one.</span>
+        </div>
+      </form>
+      <div class="panel result" id="result" aria-live="polite">
+        <div class="verdict" id="verdict">—</div>
+        <p id="verdict-note"></p>
+        <div class="bars">
+          <div class="bar-row"><span>Pro (typical)</span><div class="track"><div class="fill pro" id="bar-pro"></div></div><span class="amt" id="amt-pro"></span></div>
+          <div class="bar-row"><span>DIY cash</span><div class="track"><div class="fill diy" id="bar-diy"></div></div><span class="amt" id="amt-diy"></span></div>
+          <div class="bar-row"><span>DIY + your time</span><div class="track"><div class="fill time" id="bar-time"></div></div><span class="amt" id="amt-time"></span></div>
+        </div>
+        <dl>
+          <dt>Pro price range</dt><dd id="d-pro"></dd>
+          <dt>Parts</dt><dd id="d-parts"></dd>
+          <dt>Tools you'd buy</dt><dd id="d-tools"></dd>
+          <dt>Your time</dt><dd id="d-hours"></dd>
+          <dt>Cash you keep</dt><dd id="d-cash"></dd>
+          <dt>Net after valuing your time</dt><dd id="d-net"></dd>
+        </dl>
+        <p class="note" id="source"></p>
+        <p><a class="btn btn-primary" id="go-guide" href="#">Open the guide</a></p>
+      </div>
+    </div>
+    <h2 style="margin-top:36px">How the math works</h2>
+    <ul>
+      <li><strong>Pro (typical)</strong> is the midpoint of the published range. Real quotes depend on your city and whether the trade has a trip fee.</li>
+      <li><strong>DIY cash</strong> is the midpoint of the parts range in the guide, plus tools if you ticked the box.</li>
+      <li><strong>Your time</strong> is the guide's first-timer estimate, scaled by experience, multiplied by your hourly figure.</li>
+      <li>Jobs with an electrical or water-damage risk get a caution for first-timers. That is not a “don't”; it is a “read the safety box twice.”</li>
+    </ul>
+    <p class="sources">Pro price sources: <a href="https://www.angi.com/articles/how-much-should-toilet-repairs-cost.htm" rel="noopener" target="_blank">Angi: Toilet repair cost 2026</a>, <a href="https://homeguide.com/costs/cost-to-unclog-snake-a-drain" rel="noopener" target="_blank">HomeGuide: Cost to unclog or snake a drain 2026</a>, <a href="https://www.angi.com/articles/plumber-cost-to-fix-leaky-faucet.htm" rel="noopener" target="_blank">Angi: Cost to fix a leaky faucet 2026</a>, <a href="https://www.angi.com/articles/cost-replace-shower-head.htm" rel="noopener" target="_blank">Angi: Cost to replace a shower head 2026</a>, <a href="https://www.angi.com/articles/how-much-does-drywall-repair-cost-small-holes.htm" rel="noopener" target="_blank">Angi: Drywall repair cost 2026</a>, <a href="https://homeguide.com/costs/drywall-repair-cost" rel="noopener" target="_blank">HomeGuide: Drywall repair cost 2026</a>, <a href="https://www.angi.com/articles/cost-fix-door.htm" rel="noopener" target="_blank">Angi: Door repair cost 2026</a>, <a href="https://www.angi.com/articles/how-much-does-buying-and-repairing-tv-cost.htm" rel="noopener" target="_blank">Angi: Cost to mount a TV 2026</a>, <a href="https://homeguide.com/costs/tv-mount-installation-cost" rel="noopener" target="_blank">HomeGuide: TV mount installation cost 2026</a>, <a href="https://www.angi.com/articles/how-much-does-it-cost-replace-light-switch.htm" rel="noopener" target="_blank">Angi: Cost to replace a light switch 2026</a>, <a href="https://homeguide.com/costs/gfci-outlet-cost" rel="noopener" target="_blank">HomeGuide: GFCI outlet cost 2026</a>, <a href="https://www.angi.com/articles/cost-to-caulk.htm" rel="noopener" target="_blank">Angi: Cost of caulking 2026</a>, <a href="https://www.angi.com/articles/garbage-disposal-repair-cost.htm" rel="noopener" target="_blank">Angi: Garbage disposal repair cost 2026</a>, <a href="https://www.angi.com/articles/how-much-does-dryer-vent-cleaning-cost.htm" rel="noopener" target="_blank">Angi: Dryer vent cleaning cost 2026</a>. Retrieved 2026-09-13.</p>
+  </div>
+</section>
+<script type="application/json" id="calc-data">{"jobs":[{"slug":"showerhead","label":"Replace a showerhead","proLow":150,"proHigh":220,"proLabel":"Plumber replaces a showerhead","partsLow":15,"partsHigh":60,"hoursLow":0.2,"hoursHigh":0.4,"difficulty":1,"risk":"","toolCost":0,"url":"/fixit/guides/showerhead/","source":{"title":"Angi: Cost to replace a shower head 2026","url":"https://www.angi.com/articles/cost-replace-shower-head.htm"}},{"slug":"garbage-disposal","label":"Fix a humming or jammed disposal","proLow":140,"proHigh":310,"proLabel":"Plumber repairs a garbage disposal","partsLow":0,"partsHigh":10,"hoursLow":0.2,"hoursHigh":0.5,"difficulty":1,"risk":"","toolCost":0,"url":"/fixit/guides/garbage-disposal/","source":{"title":"Angi: Garbage disposal repair cost 2026","url":"https://www.angi.com/articles/garbage-disposal-repair-cost.htm"}},{"slug":"slow-drain","label":"Unclog a slow sink drain","proLow":100,"proHigh":275,"proLabel":"Plumber clears a simple sink or tub clog","partsLow":0,"partsHigh":15,"hoursLow":0.25,"hoursHigh":0.75,"difficulty":1,"risk":"","toolCost":10,"url":"/fixit/guides/slow-drain/","source":{"title":"HomeGuide: Cost to unclog or snake a drain 2026","url":"https://homeguide.com/costs/cost-to-unclog-snake-a-drain"}},{"slug":"running-toilet","label":"Fix a running toilet","proLow":145,"proHigh":270,"proLabel":"Plumber fixes a running toilet","partsLow":5,"partsHigh":25,"hoursLow":0.5,"hoursHigh":1,"difficulty":1,"risk":"","toolCost":0,"url":"/fixit/guides/running-toilet/","source":{"title":"Angi: Toilet repair cost 2026","url":"https://www.angi.com/articles/how-much-should-toilet-repairs-cost.htm"}},{"slug":"sticking-door","label":"Fix a sticking or squeaky door","proLow":95,"proHigh":150,"proLabel":"Handyman fixes a sticking door","partsLow":2,"partsHigh":15,"hoursLow":0.25,"hoursHigh":1,"difficulty":1,"risk":"","toolCost":0,"url":"/fixit/guides/sticking-door/","source":{"title":"Angi: Door repair cost 2026","url":"https://www.angi.com/articles/cost-fix-door.htm"}},{"slug":"dryer-vent","label":"Clean a dryer vent","proLow":104,"proHigh":188,"proLabel":"Pro cleans a dryer vent","partsLow":15,"partsHigh":40,"hoursLow":0.75,"hoursHigh":1.5,"difficulty":1,"risk":"","toolCost":25,"url":"/fixit/guides/dryer-vent/","source":{"title":"Angi: Dryer vent cleaning cost 2026","url":"https://www.angi.com/articles/how-much-does-dryer-vent-cleaning-cost.htm"}},{"slug":"light-switch","label":"Replace a light switch","proLow":100,"proHigh":203,"proLabel":"Electrician replaces a light switch","partsLow":3,"partsHigh":15,"hoursLow":0.35,"hoursHigh":0.7,"difficulty":2,"risk":"it involves household electricity, so the breaker-off step and the tester check are not optional.","toolCost":25,"url":"/fixit/guides/light-switch/","source":{"title":"Angi: Cost to replace a light switch 2026","url":"https://www.angi.com/articles/how-much-does-it-cost-replace-light-switch.htm"}},{"slug":"gfci-outlet","label":"Reset or replace a GFCI outlet","proLow":90,"proHigh":200,"proLabel":"Electrician replaces a GFCI outlet","partsLow":15,"partsHigh":25,"hoursLow":0.5,"hoursHigh":1,"difficulty":2,"risk":"it involves household electricity, so the breaker-off step and the tester check are not optional.","toolCost":25,"url":"/fixit/guides/gfci-outlet/","source":{"title":"HomeGuide: GFCI outlet cost 2026","url":"https://homeguide.com/costs/gfci-outlet-cost"}},{"slug":"leaky-faucet","label":"Fix a dripping faucet","proLow":100,"proHigh":400,"proLabel":"Plumber fixes a dripping faucet","partsLow":15,"partsHigh":60,"hoursLow":0.75,"hoursHigh":1.5,"difficulty":2,"risk":"the shutoff valves under the sink can be stiff; if one won't close, stop and use the “call a pro” list.","toolCost":20,"url":"/fixit/guides/leaky-faucet/","source":{"title":"Angi: Cost to fix a leaky faucet 2026","url":"https://www.angi.com/articles/plumber-cost-to-fix-leaky-faucet.htm"}},{"slug":"hang-heavy","label":"Hang a TV, mirror, or heavy shelf","proLow":158,"proHigh":360,"proLabel":"Handyman mounts a TV on drywall","partsLow":10,"partsHigh":60,"hoursLow":0.5,"hoursHigh":1.5,"difficulty":2,"risk":"","toolCost":40,"url":"/fixit/guides/hang-heavy/","source":{"title":"Angi: Cost to mount a TV 2026","url":"https://www.angi.com/articles/how-much-does-buying-and-repairing-tv-cost.htm"}},{"slug":"drywall-hole","label":"Patch a hole in drywall","proLow":150,"proHigh":350,"proLabel":"Handyman patches a doorknob-sized hole","partsLow":8,"partsHigh":25,"hoursLow":1,"hoursHigh":2,"difficulty":2,"risk":"","toolCost":15,"url":"/fixit/guides/drywall-hole/","source":{"title":"Angi: Drywall repair cost 2026","url":"https://www.angi.com/articles/how-much-does-drywall-repair-cost-small-holes.htm"}},{"slug":"recaulk-tub","label":"Re-caulk a tub or shower","proLow":105,"proHigh":290,"proLabel":"Handyman re-caulks a tub or shower","partsLow":10,"partsHigh":25,"hoursLow":1.5,"hoursHigh":2.5,"difficulty":2,"risk":"","toolCost":15,"url":"/fixit/guides/recaulk-tub/","source":{"title":"Angi: Cost of caulking 2026","url":"https://www.angi.com/articles/cost-to-caulk.htm"}}],"starterKit":150}</script>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Weekend Fixer</strong>
+        <p>Step-by-step home repair guides for first-timers: what to buy, what it costs, exactly what to do, and when to call a pro instead.</p>
+        <p class="small">Repairs shown here are common, low-risk jobs. Gas lines, the main electrical panel, roofing, and anything structural belong to a licensed pro. Follow your local code and permit rules.</p>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <ul>
+          <li><a href="/fixit/guides/">All guides</a></li>
+          <li><a href="/fixit/tools/">Starter toolkit</a></li>
+          <li><a href="/fixit/diy-or-pro/">DIY or pro calculator</a></li>
+          <li><a href="/fixit/checklist/">Seasonal checklist</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Fine print</strong>
+        <ul>
+          <li><a href="/fixit/about/">About</a></li>
+          <li><a href="/fixit/about/#disclosure">Affiliate disclosure</a></li>
+          <li><a href="/fixit/about/#privacy">Privacy policy</a></li>
+          <li><a href="/fixit/about/#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 Weekend Fixer. Some links on this site are affiliate links; we may earn a commission at no cost to you. Pro prices are typical U.S. ranges from published cost guides and vary by region.</p>
+  </div>
+</footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="/fixit/assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+"use strict";
+module.exports = {
+  slug: "slow-drain",
+  title: "How to Unclog a Slow Bathroom Sink (No Chemicals)",
+  short: "Unclog a slow sink drain",
+  blurb: "Hair and soap scum, every time. Fifteen minutes with a plastic strip and a bucket beats any bottle of drain cleaner.",
+  category: "plumbing",
+  summary: "Clear a slow or clogged bathroom sink in 15–45 minutes: pull the stopper, fish out the hair, then open the P-trap. No chemicals, $0–15 in parts.",
+  symptoms: ["sink drains slowly", "bathroom sink clogged", "water backs up in sink", "gurgling drain", "sink smells bad", "standing water in sink", "tub drains slowly", "shower drain clogged with hair", "pop-up stopper stuck", "sink won't drain", "clogged drain"],
+  keywords: ["p-trap", "hair", "drain snake", "zip-it", "pop-up stopper", "pivot rod", "slip nut", "auger", "plunger"],
+  difficulty: 1,
+  time: "15–45 min",
+  timeHours: [0.25, 0.75],
+  partsCost: [0, 15],
+  toolCost: 10,
+  risk: "",
+  proCostKey: "slow-drain",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  diagram: "p-trap",
+  safety: [
+    "Never pour a chemical drain cleaner and then plunge or snake; the splash-back is caustic. If someone already poured one in, wait 24 hours and flush with plenty of water before you open anything.",
+    "Put a bucket under the trap before loosening a nut. It is full of water, and the water is not nice.",
+    "Wear gloves. The clog is unpleasant, not dangerous.",
+  ],
+  callPro: [
+    "Several drains in the house are slow at once, or the toilet gurgles when the sink drains. That's a main line or vent problem, not this sink.",
+    "Water comes up from a floor drain, a tub, or the lowest fixture in the house.",
+    "You've cleared the trap and snaked 15 feet into the wall and it's still slow.",
+    "The pipes are old metal that crumbles or won't turn; replacing a corroded trap is doable, but a seized one can turn into a wall job.",
+  ],
+  tools: [
+    { name: "Plastic drain-cleaning strip (barbed “zip” tool)", q: "plastic drain hair clog remover", note: "Under $10. Solves most bathroom sinks by itself." },
+    { name: "Tongue-and-groove pliers", q: "tongue and groove pliers", note: "For stubborn slip nuts. Hands usually work." },
+    { name: "Bucket and old towel" },
+    { name: "Headlamp or flashlight", q: "LED headlamp" },
+    { name: "Old toothbrush or bottle brush" },
+    { name: "Cup plunger", q: "sink plunger", optional: true },
+    { name: "25 ft hand auger (drum snake)", q: "drum auger 25 ft", optional: true, note: "Only if the clog is past the trap." },
+  ],
+  parts: [
+    { name: "Usually nothing" },
+    { name: "1-1/4 in P-trap kit", q: "1-1/4 inch p-trap kit", optional: true, note: "Only if the old trap is corroded or a slip nut cracks. Bathroom sinks are 1-1/4 in; kitchen sinks are 1-1/2 in." },
+    { name: "Universal pop-up stopper", q: "universal sink pop-up stopper", optional: true, note: "If yours is corroded or the rubber seal is gone." },
+  ],
+  intro: [
+    `<p>Almost every slow bathroom sink is the same clog: hair wrapped around the pop-up stopper's pivot rod, glued together with soap scum and toothpaste. It's within a few inches of the drain opening, which is why a $7 plastic strip fixes it and a $12 bottle of chemical cleaner mostly doesn't.</p>`,
+    `<p>Work in order: stopper, strip, plunger, trap, snake. Most sinks are done after the second step.</p>`,
+  ],
+  diagnose: [
+    { if: "Only this one sink is slow", then: "Local clog in the stopper, tailpiece, or trap. This guide." },
+    { if: "The sink and the tub are both slow, or the toilet gurgles", then: "Branch line or vent problem. Call a pro." },
+    { if: "Drains fine but smells like sewer", then: "Dry trap (run water for a minute) or biofilm on the stopper (step 1)." },
+    { if: "Water stands and won't move at all", then: "Solid blockage. Skip to step 4 (trap)." },
+  ],
+  steps: [
+    {
+      title: "Remove the pop-up stopper",
+      body: `<p>Some stoppers lift straight out with a quarter turn. Most are held by a pivot rod: look under the sink for a horizontal rod entering the back of the drain pipe, held by a nut. Unscrew that nut by hand, pull the rod back out of the pipe, and the stopper lifts out from above.</p><p>Clean the stopper. What's wrapped around its foot is usually half the clog.</p>`,
+      tip: "Put a rag in the drain opening so nothing falls into it while you work.",
+    },
+    {
+      title: "Fish with the plastic strip",
+      body: `<p>Push the barbed strip all the way down the drain, twist it, and pull it up slowly. It will come up with hair. Repeat until it comes up clean, then run hot water for a minute. For many sinks, you're finished here.</p>`,
+    },
+    {
+      title: "Plunge (optional)",
+      body: `<p>Stuff a wet rag into the overflow hole near the rim of the basin, run 2 inches of water into the sink, seat a cup plunger over the drain and give it ten sharp pumps. If the water suddenly drops, run hot water for a minute to carry the loosened gunk through.</p>`,
+    },
+    {
+      title: "Open the P-trap",
+      body: `<p>Bucket under the trap. The U-shaped section is held by two large slip nuts. Loosen both by hand (counterclockwise as you look at the nut from the pipe it's on), or with pliers if they won't budge; plastic nuts rarely need tools. Lower the U into the bucket and dump it.</p><p>Scrub the inside with the brush. Push the plastic strip or your finger into the horizontal trap arm that goes into the wall, and into the vertical tailpiece coming down from the sink, and pull out anything soft.</p>`,
+      warn: "Note which way the tapered washers face before you pull them off (the taper points toward the joint). Backwards washers leak.",
+    },
+    {
+      title: "Snake the trap arm (if it's still blocked)",
+      body: `<p>With the trap off, feed the hand auger into the wall pipe. When it meets resistance, tighten the thumbscrew, crank clockwise while pushing gently, then loosen and feed more cable. Ten to fifteen feet reaches the branch line under most bathrooms. Pull it back, wiping the cable with a rag as it comes.</p>`,
+      warn: "Don't force it. If the cable won't advance after a few tries, the blockage is beyond a DIY snake.",
+    },
+    {
+      title: "Reassemble and test",
+      body: `<p>Slide the washers back in the right direction, thread the slip nuts on by hand, then a quarter turn more. Run the water for a full minute and touch each joint with a dry paper towel. A damp towel means re-seat the washer, not crank the nut tighter.</p>`,
+    },
+    {
+      title: "Reinstall the stopper",
+      body: `<p>Drop the stopper in with its hole or loop facing the back. Push the pivot rod through the pipe so it passes through that loop, then tighten the nut until the rod moves with slight resistance. Test the lift rod: the stopper should seal and open fully.</p>`,
+    },
+  ],
+  troubleshooting: [
+    { q: "A slip nut drips after reassembly", a: `<p>The washer is backwards, folded, or grit is on the mating surface. Take it apart, wipe everything, seat the washer taper-toward-the-joint, and hand-tighten. Replacing the washers ($3) fixes stubborn ones. Don't overtighten plastic; it cracks.</p>` },
+    { q: "Still slow after the trap is clean", a: `<p>The clog is farther down the branch line. Snake from the trap arm (step 5). If ten to fifteen feet of cable doesn't clear it, or other drains are involved, it's a pro job with a powered auger.</p>` },
+    { q: "It's a tub or shower, not a sink", a: `<p>Same idea. Remove the drain cover (usually one or two screws) or the stopper, and use the plastic strip or a longer “hair snake.” For tubs with a trip lever, unscrew the overflow plate and pull the linkage out; hair collects on it.</p>` },
+    { q: "The drain gurgles", a: `<p>Air is being pulled through the trap because the vent stack is partly blocked, often by leaves or a nest on the roof. That's a pro or a roof-safe helper job.</p>` },
+  ],
+  faq: [
+    { q: "Why not just use a chemical drain cleaner?", a: `<p>Three reasons: they're weak against hair, they generate heat that can damage PVC and old metal pipes, and they make the next step (opening the trap) dangerous for whoever does it. Mechanical removal is faster and free.</p>` },
+    { q: "Does baking soda and vinegar work?", a: `<p>The fizz is harmless and mostly for show. Hot (not boiling) water does more against soap scum. Neither moves a hair clog; the strip does.</p>` },
+    { q: "Are enzyme drain products worth it?", a: `<p>As monthly maintenance to slow biofilm, yes. To clear an existing clog, no.</p>` },
+  ],
+  related: ["running-toilet", "leaky-faucet", "garbage-disposal"],
+};

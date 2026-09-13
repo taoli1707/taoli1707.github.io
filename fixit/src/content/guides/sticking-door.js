@@ -1,0 +1,101 @@
+"use strict";
+module.exports = {
+  slug: "sticking-door",
+  title: "How to Fix a Sticking, Sagging, or Squeaky Door",
+  short: "Fix a sticking or squeaky door",
+  blurb: "Nine times out of ten it's a loose top hinge, and the fix is one 3-inch screw. Save the planing for last.",
+  category: "walls-doors",
+  summary: "Fix a door that sticks, sags, won't latch, or squeaks: one 3-inch screw in the top hinge, a strike plate tweak, and lubricated pins. Plane only as a last resort.",
+  symptoms: ["door sticks", "door rubs at top", "door won't latch", "door won't close", "sagging door", "squeaky door hinge", "door swings open by itself", "door drags on carpet", "stripped hinge screw", "door scrapes frame", "door hard to close", "door won't stay open"],
+  keywords: ["hinge", "strike plate", "latch", "3 inch screw", "shim", "plane", "sand", "stripped screw", "toothpick", "silicone spray", "hinge pin", "jamb"],
+  difficulty: 1,
+  time: "15–60 min",
+  timeHours: [0.25, 1],
+  partsCost: [2, 15],
+  toolCost: 0,
+  risk: "",
+  proCostKey: "sticking-door",
+  published: "2026-09-13",
+  updated: "2026-09-13",
+  safety: [
+    "If you take a door off its hinges, have a helper or wedge it: a solid-core door weighs 60–80 pounds and its edge will ruin a floor or a foot.",
+    "Don't use WD-40 as a hinge lubricant. It cleans, then evaporates and attracts dust. Silicone spray or white lithium grease lasts.",
+  ],
+  callPro: [
+    "The frame itself has moved: new diagonal drywall cracks above the door, gaps that changed over months, floors that slope. That's settling or moisture, not the door.",
+    "An exterior door with a rotted jamb, sill, or threshold.",
+    "More than about 1/8 in has to come off the door edge, or the door needs replacing (a pre-hung door is a half-day job with its own learning curve).",
+    "The door between the garage and the house: it's usually fire-rated and shouldn't be planed or modified.",
+  ],
+  tools: [
+    { name: "Screwdriver or drill/driver", q: "cordless drill driver kit" },
+    { name: "Hammer and a nail set or thin nail", q: "16 oz claw hammer", note: "For tapping hinge pins out from below." },
+    { name: "Pencil, lipstick, or a crayon", note: "To mark where the latch hits the strike plate." },
+    { name: "Sanding block (80 grit) or a block plane", q: "block plane", optional: true, note: "Last resort only." },
+    { name: "Metal file", q: "small metal file", optional: true, note: "For opening up the strike plate hole." },
+    { name: "Wood chisel", q: "wood chisel set", optional: true, note: "For moving a strike plate or deepening a hinge mortise." },
+  ],
+  parts: [
+    { name: "#9 × 3 in wood screws", q: "3 inch wood screws #9", note: "Two or three. The single most useful part in this guide." },
+    { name: "Silicone spray lubricant", q: "silicone spray lubricant" },
+    { name: "Wood glue and wooden toothpicks or golf tees", q: "wood glue", note: "For stripped screw holes." },
+    { name: "Thin cardboard (cereal box)", note: "For shimming a hinge." },
+    { name: "Strike plate or strike plate shims", q: "door strike plate", optional: true },
+  ],
+  intro: [
+    `<p>A door is a heavy lever hanging off three small hinges. Over years, the screws holding the top hinge to the jamb loosen and the latch side of the door drops a little, so the top corner rubs and the latch no longer lines up with its hole. People reach for sandpaper first; that removes wood permanently to fix a problem that a 3-inch screw fixes in two minutes by pulling the hinge back tight to the framing.</p>`,
+    `<p>Work in this order: tighten, long-screw, strike plate, shim, and only then sand or plane.</p>`,
+  ],
+  diagnose: [
+    { if: "Rubs at the top corner on the latch side", then: "Top hinge loose or pulled out. Steps 1–3." },
+    { if: "Rubs at the bottom corner on the latch side", then: "Bottom hinge loose, or the frame has shifted. Steps 1–3, then shim (step 6)." },
+    { if: "Closes but the latch doesn't catch, or you have to lift and push", then: "Strike plate misaligned. Step 4." },
+    { if: "Squeaks", then: "Dry hinge pins. Step 5." },
+    { if: "Only sticks in humid weather", then: "Wood swelling. Seal the edges; plane if it persists (step 7)." },
+    { if: "Swings open or closed on its own", then: "Hinges not plumb. Bend a pin (step 5 tip)." },
+  ],
+  steps: [
+    {
+      title: "Tighten every hinge screw",
+      body: `<p>Door side and jamb side, all three hinges. Snug, not gorilla-tight. If a screw just spins, its hole is stripped: next step.</p>`,
+    },
+    {
+      title: "Replace one screw on the top hinge with a 3-inch screw",
+      body: `<p>On the jamb side of the top hinge, remove the screw closest to the door stop (the middle one, on a three-screw hinge) and drive a 3-inch screw in its place. The jamb is only 3/4 in thick; the long screw passes through it and a shim gap into the wall stud behind and pulls the whole hinge, and the door, back up. Drive it slowly so it doesn't strip. Close the door and check the gap at the top: it should be even now.</p>`,
+      tip: "Do the same on the middle hinge if the door is heavy or still sags slightly.",
+    },
+    {
+      title: "Fix stripped screw holes",
+      body: `<p>Dip three or four toothpicks (or a golf tee) in wood glue, push them into the hole, break them off flush, and wait 30 minutes. Drive the screw into the new wood. A 3-inch screw into the stud skips the problem entirely.</p>`,
+    },
+    {
+      title: "Adjust the strike plate",
+      body: `<p>Rub lipstick or pencil on the tip of the latch bolt, close the door gently, and open it. The mark on the strike plate shows where the bolt lands. Off by a hair: file the plate's opening in that direction. Off by more: unscrew the plate, fill the old holes with glued toothpicks, move it, and screw it back. If the latch reaches but won't click, the plate sits too far from the door; shim behind it with cardboard or a purpose-made shim.</p>`,
+    },
+    {
+      title: "Stop the squeak",
+      body: `<p>With the door closed, tap each hinge pin up from below with a nail and hammer, pull it out, wipe it clean, coat it with silicone spray or a film of lithium grease, and tap it back in. Do all three. Swing the door a few times.</p>`,
+      tip: "A door that drifts open or closed on its own: pull one pin, lay it on concrete, tap the middle with a hammer to put a slight bend in it, and reinstall. The extra friction holds the door wherever you leave it.",
+    },
+    {
+      title: "Shim a hinge",
+      body: `<p>If the door binds on the hinge side or the gap is uneven top to bottom, one hinge is set too deep. Unscrew that hinge leaf from the jamb, slip a piece of cereal-box cardboard behind it, and screw it back. Each layer moves the door about 1/32 in. Conversely, if a hinge sits proud, deepen its mortise slightly with a chisel.</p>`,
+    },
+    {
+      title: "Sand or plane (last resort)",
+      body: `<p>Close the door and run a pencil along the frame edge onto the door where it rubs; that line is your target. Pull the pins and lay the door on sawhorses or a padded floor. Sand or plane down to the line, 1/16 in at a time, checking often. Then seal the raw wood with primer or paint, top and bottom edges included; unsealed edges drink humidity and swell right back.</p>`,
+      warn: "Wood only comes off once. Two test-fits beat one regret.",
+    },
+  ],
+  troubleshooting: [
+    { q: "Still rubs after the long screw", a: `<p>Check whether the top hinge leaf is bent or the mortise on the door side is loose (tighten those too). Then try a long screw in the middle hinge. Then shim the bottom hinge out (step 6), which tips the latch side up.</p>` },
+    { q: "The latch bolt won't reach the strike plate", a: `<p>After moving a plate, the bolt may land short. A deeper strike box or a longer-throw latch fixes it, or shim the hinge side to move the door toward the latch.</p>` },
+    { q: "Sticks only in summer", a: `<p>Look at the top and bottom edges of the door. Bare wood there is the problem: paint or seal them.</p>` },
+  ],
+  faq: [
+    { q: "Which screw do I replace with the long one?", a: `<p>Any jamb-side screw on the top hinge works, but the one nearest the door stop is closest to the stud and pulls straightest. Never replace door-side screws with 3-inch ones; they'd go through the door.</p>` },
+    { q: "Why not WD-40?", a: `<p>It's a solvent and water displacer, not a lubricant. Great for freeing a rusted pin, terrible for keeping it quiet. Silicone or lithium.</p>` },
+    { q: "The door is a hollow-core slab that's beyond saving. Replace the slab or the whole pre-hung unit?", a: `<p>A slab needs hinge mortises and a lockset bore cut to match the old one, which is fussy. A pre-hung unit replaces the frame too and is the more forgiving job if the old frame is ugly. Either is a half day for a first-timer.</p>` },
+  ],
+  related: ["drywall-hole", "hang-heavy", "light-switch"],
+};
