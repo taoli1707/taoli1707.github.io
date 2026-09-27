@@ -1,0 +1,101 @@
+{
+  "slug": "bingo-card-creator",
+  "name": "Bingo Card Creator",
+  "founder": "Patrick McKenzie",
+  "url": "https://www.bingocardcreator.com",
+  "tagline": "Software that makes printable bingo cards for elementary school teachers",
+  "category": "saas",
+  "model": "mixed",
+  "channel": "seo",
+  "started": 2006,
+  "revenue": {
+    "amount": 100000,
+    "period": "year",
+    "label": ">$100K sales in 2011 (~$70K profit)",
+    "asOf": "2011-12",
+    "kind": "self-reported",
+    "source": "https://www.kalzumeus.com/2011/12/21/bingo-card-creator-etc-year-in-review-2011/"
+  },
+  "team": "Solo + freelance content writers",
+  "startupCost": "About $60 (launched on a budget of 8 days and $60)",
+  "timeToFirstDollar": null,
+  "stack": [
+    "Ruby on Rails (web version)",
+    "A/Bingo (his own Rails A/B testing library)",
+    "Stripe (from 2012)"
+  ],
+  "summary": "Patrick McKenzie (patio11) built a narrow tool for teachers who make bingo cards and published his sales, profit and marketing experiments every year. He started it while working as a salaryman in Japan. It grew into a profitable, mostly automated side business, and he sold it through FE International in 2015.",
+  "origin": "McKenzie released Bingo Card Creator on July 1, 2006 as downloadable software, built in about eight days for about $60. Teachers made bingo cards for vocabulary and lessons by hand, and he automated that job. He later moved it to a Rails web app, which let him run A/B tests on the funnel.",
+  "howItMakesMoney": "Originally a one-time license (raised from $24.95 to $29.95), with a free trial and a web version later. Revenue came from teachers, with seasonal spikes around holidays.",
+  "growth": [
+    "Long-tail SEO. He made one landing page per narrow topic ('snowflake queries', such as specific holiday or vocabulary bingo cards), later written by freelancers at scale. That content grew to about 50% of sales and 75% of profits.",
+    "Conversion optimization. He wrote A/Bingo, an open-source Rails A/B testing library, and tested copy, landing pages and the purchase flow.",
+    "A 2012 redesign and a switch from PayPal/Google Checkout to Stripe produced large conversion gains. He called them the best thing that happened to the business that year.",
+    "The business ran in maintenance mode about 48 weeks a year, so his time went into marketing systems rather than features."
+  ],
+  "moat": "Years of accumulated long-tail pages and search rankings in a niche too small for bigger companies to target. The product itself is easy to copy. The distribution is not.",
+  "risks": "Google algorithm changes, and free alternatives or template sites. The seasonal teacher market has limited room to grow, and he eventually sold because the upside was capped.",
+  "timeline": [
+    {
+      "date": "2006-07",
+      "event": "Bingo Card Creator launches as downloadable software"
+    },
+    {
+      "date": "2009-08",
+      "event": "Passes $50,000 in lifetime sales; releases A/Bingo split-testing library"
+    },
+    {
+      "date": "2010",
+      "event": "Leaves his Japanese salaryman job to run his software business full time"
+    },
+    {
+      "date": "2011",
+      "event": "Best year to date: breaks $100K in sales for the first time"
+    },
+    {
+      "date": "2012",
+      "event": "Redesign and Stripe checkout lift conversion; product runs in maintenance mode"
+    },
+    {
+      "date": "2015",
+      "event": "Sold through FE International"
+    }
+  ],
+  "lessons": [
+    "Pick a narrow, unglamorous job for a specific user (teachers making bingo cards) where competition is weak.",
+    "Programmatic long-tail content, one page per micro-query, can outperform head-term SEO for small products.",
+    "Instrument everything and A/B test the funnel. Checkout and payment changes can matter more than features.",
+    "Publish your numbers every year. The transparency built him an audience that later paid for consulting and courses."
+  ],
+  "rebuild": {
+    "idea": "A generator for printable, standards-aligned classroom activities (word searches, bingo, flashcards) that takes a teacher's own vocabulary list and aligns to phonics or ESL curricula, sold to homeschoolers and ESL tutors.",
+    "why": "Generic worksheet sites don't map to specific curricula or learner levels. LLMs now make it cheap to produce structured, level-appropriate content from a list, but it needs a strict template layer to print well.",
+    "mvp": [
+      "Pick one curriculum (e.g. a popular phonics sequence or CEFR A1-A2 ESL) and build the generator for it",
+      "Programmatically publish 200 free landing pages, one per lesson or word list, each with a sample PDF",
+      "Put printing behind a $5/mo or $39/yr plan and post in 3 homeschool or ESL tutor communities",
+      "A/B test the paywall copy and checkout from day one"
+    ],
+    "difficulty": 2,
+    "weeklyHours": "5-10 (fits a side hustle)",
+    "fit": "An engineer who can do programmatic SEO and PDF templating and knows (or can interview) teachers"
+  },
+  "sources": [
+    {
+      "title": "Kalzumeus: Bingo Card Creator (and etcetera) Year In Review 2011",
+      "url": "https://www.kalzumeus.com/2011/12/21/bingo-card-creator-etc-year-in-review-2011/"
+    },
+    {
+      "title": "Kalzumeus: Bingo Card Creator (and other stuff) Year in Review 2012",
+      "url": "https://www.kalzumeus.com/2012/12/29/bingo-card-creator-and-other-stuff-year-in-review-2012/"
+    },
+    {
+      "title": "Kalzumeus: Introducing A/Bingo: Rails Split Testing",
+      "url": "https://www.kalzumeus.com/2009/08/15/introducing-abingo-rails-split-testing/"
+    },
+    {
+      "title": "What I Learned Selling Bingo Card Creator",
+      "url": "https://training.kalzumeus.com/newsletters/archive/selling_software_business"
+    }
+  ]
+}

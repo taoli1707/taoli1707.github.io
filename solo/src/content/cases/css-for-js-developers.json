@@ -1,0 +1,95 @@
+{
+  "slug": "css-for-js-developers",
+  "name": "CSS for JavaScript Developers",
+  "founder": "Josh W. Comeau",
+  "url": "https://css-for-js.dev",
+  "tagline": "Interactive self-paced CSS course for React and Vue developers",
+  "category": "info-products",
+  "model": "one-time",
+  "channel": "twitter-x",
+  "started": 2020,
+  "revenue": {
+    "amount": 550000,
+    "period": "total",
+    "label": "~$550K in a one-week pre-sale (Mar 2021)",
+    "asOf": "2021-03",
+    "kind": "self-reported",
+    "source": "https://www.indiehackers.com/post/launched-my-first-course-earned-over-us-500-000-ama-4382405cd5"
+  },
+  "team": "Solo",
+  "startupCost": "Not disclosed",
+  "timeToFirstDollar": "~7 months of building before the pre-sale",
+  "stack": [
+    "Next.js",
+    "MDX",
+    "React",
+    "custom course platform"
+  ],
+  "summary": "Josh W. Comeau, a front-end developer known for his interactive blog, left his job in 2020 to build a CSS course on his own platform. A one-week early-access pre-sale in March 2021 brought in about $550K against a $50K goal. He later released a second course, The Joy of React (2023).",
+  "origin": "Comeau worked at companies including Khan Academy, DigitalOcean and Gatsby, and left in 2020 to build courses. He spent about a year sharing CSS tips on Twitter and his blog, growing to roughly 32,000 followers and a newsletter. After about seven months of building, with the course roughly half done, he opened a one-week pre-sale on March 10-16, 2021.",
+  "howItMakesMoney": "One-time purchase with tiered packages. The 2021 early-access price was $129 (expected full price $349). Sales run in periodic launch windows and discounts to his newsletter list.",
+  "growth": [
+    "Wrote interactive blog posts with live demos that spread on Twitter and developer forums",
+    "Converted Twitter followers into a newsletter before launch",
+    "Ran a time-limited pre-sale at an early-access discount to create urgency",
+    "Built a custom learning platform with exercises and mini-games that set the course apart from video-only courses",
+    "Reused the platform and list for a second course, The Joy of React (2023)"
+  ],
+  "moat": "High production quality and interactive content on a custom platform, plus a trusted personal brand among front-end developers.",
+  "risks": "Launch-driven revenue is lumpy. AI coding assistants may reduce how much developers feel they need to learn CSS fundamentals.",
+  "timeline": [
+    {
+      "date": "2020",
+      "event": "Leaves full-time engineering work to build courses"
+    },
+    {
+      "date": "2021-03",
+      "event": "One-week early-access pre-sale; ~$550K against a $50K target"
+    },
+    {
+      "date": "2021",
+      "event": "Continues building remaining modules for full release"
+    },
+    {
+      "date": "2023-01",
+      "event": "Launches The Joy of React in early access"
+    }
+  ],
+  "lessons": [
+    "A year of free, high-quality teaching content builds the trust that makes a pre-sale work",
+    "Pre-selling a half-finished course funds the rest and validates price",
+    "Owning the platform allows interactive formats competitors on generic course hosts can't match",
+    "Set a modest target; a realistic goal makes the decision to keep going clear"
+  ],
+  "rebuild": {
+    "idea": "An interactive course teaching SQL and data modeling specifically to product managers and analysts in non-tech companies",
+    "why": "Many business staff now query data with AI help but lack fundamentals to check results; most SQL courses target developers or data scientists.",
+    "mvp": [
+      "Publish 3 interactive blog posts with in-browser SQL playgrounds on common business questions",
+      "Collect emails with a free 'SQL mistakes that give wrong numbers' checklist",
+      "Pre-sell the first 3 modules at an early-access price for one week",
+      "Deliver module 1 within 2 weeks of the pre-sale"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "A data analyst or engineer who writes clearly and can build simple web interactives"
+  },
+  "sources": [
+    {
+      "title": "Indie Hackers: Launched my first course, earned over US $500,000! AMA",
+      "url": "https://www.indiehackers.com/post/launched-my-first-course-earned-over-us-500-000-ama-4382405cd5"
+    },
+    {
+      "title": "Failory: Pre-Selling a Programming Course and Making $550k in Revenue",
+      "url": "https://www.failory.com/interview/css-for-js-developers"
+    },
+    {
+      "title": "Hacker News: How Josh Comeau pulled off a $500,000 course launch",
+      "url": "https://news.ycombinator.com/item?id=26692410"
+    },
+    {
+      "title": "The Joy of React launch date (Josh W. Comeau)",
+      "url": "https://www.joshwcomeau.com/email/jor-updates-006-launch-date/"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "slug": "gummysearch",
+  "name": "GummySearch",
+  "founder": "Fed (@foliofed)",
+  "url": "https://gummysearch.com",
+  "tagline": "Audience research tool that mined Reddit for pain points and buying intent",
+  "category": "data-api",
+  "model": "subscription",
+  "channel": "build-in-public",
+  "started": 2021,
+  "revenue": {
+    "amount": 35000,
+    "period": "month",
+    "label": "~$35K MRR at shutdown",
+    "asOf": "2025-11",
+    "kind": "self-reported",
+    "source": "https://newsletter.failory.com/p/when-reddit-pulls-over"
+  },
+  "team": "Solo",
+  "startupCost": "Unknown (self-funded)",
+  "timeToFirstDollar": null,
+  "stack": [
+    "Reddit Data API"
+  ],
+  "summary": "GummySearch let founders and marketers search Reddit communities for pain points, solution requests and buying intent. Its solo founder, Fed, grew it to about 135,000 registered users, roughly 10,000 paying customers, and about $35K MRR. It shut down in November 2025 after failing to get a commercial license for Reddit's Data API. It is a clear example of platform risk for data businesses.",
+  "origin": "Fed first built The Hive Index, a directory of online communities, as a warm-up project after going indie. To promote it on Reddit he wrote scripts to find relevant conversations. That internal tool became GummySearch in 2021.",
+  "howItMakesMoney": "Monthly subscriptions. Reported tiers were Free, Starter $29/mo, Pro $59/mo and Mega $199/mo. Early on, a private lifetime deal priced at 10x the monthly plan raised about $50K from 234 customers.",
+  "growth": [
+    "The audience was indie hackers who live on Reddit and X, and Fed built in public for that same audience.",
+    "The lifetime deal funded early development: about $50K in roughly two months.",
+    "Word of mouth from recommendations. One tweet in Jan 2024 brought 10 customers and $580 MRR, which had previously taken a year.",
+    "Its use as a 'find your customers' research tool made it a common recommendation in founder communities."
+  ],
+  "moat": "A polished UX and categorization layer (pain points, solution requests, themes) on top of Reddit data, plus a strong brand among indie founders. It turned out to have no moat against the data source itself.",
+  "risks": "This risk ended the business. Reddit's 2023 API pricing and data-usage policy meant a commercial license was required, and a solo, non-VC business couldn't reach an agreement. The product closed to new business on November 30, 2025.",
+  "timeline": [
+    {
+      "date": "2021",
+      "event": "Launches as a spin-out of Fed's Reddit scripts for The Hive Index"
+    },
+    {
+      "date": "2022",
+      "event": "Private lifetime deal raises ~$50K from 234 customers"
+    },
+    {
+      "date": "2023-07",
+      "event": "Reddit introduces paid commercial API access"
+    },
+    {
+      "date": "2023-08",
+      "event": "About $3K MRR (Indie Hackers post)"
+    },
+    {
+      "date": "2025-11",
+      "event": "Announces shutdown at ~$35K MRR, ~10,000 paying customers and 135,000 users; stops new sales Nov 30"
+    }
+  ],
+  "lessons": [
+    "If your product is a layer on top of someone else's data, get a license (or a second source) before you get big enough to be noticed.",
+    "Internal scripts you wrote for your own marketing can become the product.",
+    "A 10x-monthly lifetime deal to early fans can fund a solo build without investors.",
+    "Sell insights (pain points, intent), not raw search. That is what people paid $29-199/mo for."
+  ],
+  "rebuild": {
+    "idea": "A customer-research tool built on licensed or first-party sources: public app-store reviews, G2/Capterra-style reviews the customer exports, support tickets and sales call transcripts, clustered into pain points and feature requests.",
+    "why": "GummySearch's shutdown left users looking for alternatives, and the lesson is to avoid data you can't license. Customers' own exported data, plus sources with stable public access, avoid the same fate.",
+    "mvp": [
+      "Build ingestion for 3 sources: app store reviews, CSV exports from a review platform, and Intercom/Zendesk ticket exports",
+      "Cluster into themes with embeddings and show quotes with counts and trends",
+      "Offer a free 'analyze your app's reviews' report as a lead magnet",
+      "Charge $49/mo and sell to 10 indie SaaS or mobile app founders from GummySearch-alternative threads"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "A data engineer comfortable with ETL from many small sources, embeddings and clustering"
+  },
+  "sources": [
+    {
+      "title": "GummySearch: The Final Chapter",
+      "url": "https://gummysearch.com/final-chapter/"
+    },
+    {
+      "title": "Failory: When Reddit Pulls Over",
+      "url": "https://newsletter.failory.com/p/when-reddit-pulls-over"
+    },
+    {
+      "title": "Indie Hackers: Bootstrap SaaS to $100K (audience research tool for Reddit)",
+      "url": "https://www.indiehackers.com/post/bootstrap-saas-to-100k-audience-research-tool-for-reddit-b1a07a4897"
+    },
+    {
+      "title": "Starter Story: I Built A Reddit Search Engine That Generated $60K In Its First Year",
+      "url": "https://www.starterstory.com/stories/gummysearch"
+    }
+  ]
+}

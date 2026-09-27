@@ -1,0 +1,93 @@
+{
+  "slug": "screenshotone",
+  "name": "ScreenshotOne",
+  "founder": "Dmytro Krasun",
+  "url": "https://screenshotone.com",
+  "tagline": "Screenshot API: send a URL or HTML, get back a clean rendered image",
+  "category": "data-api",
+  "model": "subscription",
+  "channel": "seo",
+  "started": 2022,
+  "revenue": {
+    "amount": 32000,
+    "period": "month",
+    "label": "~$32K MRR (plateaued)",
+    "asOf": "2026",
+    "kind": "self-reported",
+    "source": "https://smartbearlive.transistor.fm/1"
+  },
+  "team": "Solo",
+  "startupCost": "Unknown (self-funded, bootstrapped)",
+  "timeToFirstDollar": "About 2 months (launched May 2022; first $7 MRR in July 2022)",
+  "stack": [],
+  "summary": "A developer API that renders any URL, HTML or Markdown into a screenshot, with ad and cookie-banner blocking, full-page capture and video. Dmytro Krasun launched it solo in May 2022 after leaving a server-side engineering job. He grew it to about 1,000 customers and ~$32K MRR, then growth went flat. He publicly analyzed that plateau with Jason Cohen.",
+  "origin": "Krasun, a backend engineer, left his job and chose a market where people already paid to solve the problem: rendering web pages to images. He launched on May 29, 2022, got his first customer at $7/mo in July 2022, and kept shipping features based on customer requests.",
+  "howItMakesMoney": "Tiered monthly plans by screenshot volume. Reported plans: free (100 screenshots/mo), Basic $17/mo (2,000), Growth $79/mo (10,000), Scale $259/mo (50,000), with per-screenshot overage and two months free on annual billing.",
+  "growth": [
+    "Search intent. Coverage reports that most new customers come from high-intent Google queries like 'screenshot API'.",
+    "Free utilities and open documentation earned backlinks that lift the paid API's search ranking.",
+    "Many small integrations and SDKs, and later a CLI and an MCP server, made it easy to adopt from different stacks.",
+    "Steady public reporting of milestones ($10K, $20K, $32K MRR) on X and WIP kept the product visible to indie developers."
+  ],
+  "moat": "A reliable product that renders pages at scale, handles banners, lazy loading and anti-bot quirks, and has earned years of search ranking. It is a boring, hard-to-get-right product, not one with deep defensibility.",
+  "risks": "The market has a ceiling. On the Jason Cohen call, the numbers showed ~9% monthly churn capping MRR near $40K, and no single large, repeatable buyer segment had appeared. Cheap competitors and self-hosted Playwright/Puppeteer also put pressure on price.",
+  "timeline": [
+    {
+      "date": "2022-05",
+      "event": "ScreenshotOne launches"
+    },
+    {
+      "date": "2022-07",
+      "event": "First paying customer at $7/mo"
+    },
+    {
+      "date": "2024",
+      "event": "Crosses ~$14K MRR (Morning Maker Show interview)"
+    },
+    {
+      "date": "2025-06",
+      "event": "Reaches ~$20K MRR"
+    },
+    {
+      "date": "2026",
+      "event": "Around $32K MRR with ~1,000 customers and flat growth; reviews the plateau live with Jason Cohen"
+    }
+  ],
+  "lessons": [
+    "Pick a boring category where people already pay. It removes demand risk, and an existing category makes SEO easy.",
+    "Churn sets a ceiling: max MRR is roughly new MRR per month divided by the churn rate. Measure it before you plan to 3x.",
+    "Free tools and good documentation work as the marketing for an API business.",
+    "A usage-based API with small plans brings many small customers. Growing past a plateau usually takes a new buyer segment, not more of the same traffic."
+  ],
+  "rebuild": {
+    "idea": "A compliance evidence capture API that takes timestamped, hashed and archived captures of web pages (ads, pricing pages, cookie banners, terms) for legal, ad-compliance and brand-protection teams.",
+    "why": "General screenshot APIs compete on price. Regulated buyers such as ad compliance, consumer-protection disputes and affiliate monitoring pay for tamper-evident chain of custody, which generic tools don't offer.",
+    "mvp": [
+      "Wrap Playwright captures with SHA-256 hashing, RFC 3161 timestamping and WARC export",
+      "Add scheduled captures across geographies/proxies with a diff view",
+      "Interview 10 affiliate-compliance or brand-protection managers and pre-sell a $99-299/mo plan",
+      "Ship a one-page 'evidence report' PDF, since that is the artifact buyers forward to lawyers"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "A backend or data engineer who likes infrastructure and can sell to non-technical compliance teams"
+  },
+  "sources": [
+    {
+      "title": "Smart Bear Live E01: Restarting growth when stuck at $32K MRR",
+      "url": "https://smartbearlive.transistor.fm/1"
+    },
+    {
+      "title": "Superframeworks: $32K MRR and Stuck - ScreenshotOne case study",
+      "url": "https://superframeworks.com/case-study/screenshotone"
+    },
+    {
+      "title": "Morning Maker Show: Bootstrapping from $0 to $14k MRR with Dmytro Krasun",
+      "url": "https://creators.spotify.com/pod/profile/dan-mindru/episodes/Bootstrapping-from-0-to-14k-MRR---with-Dmytro-Krasun-from-ScreenshotOne-e307b60"
+    },
+    {
+      "title": "ScreenshotOne pricing",
+      "url": "https://screenshotone.com/pricing/"
+    }
+  ]
+}

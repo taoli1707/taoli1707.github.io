@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad List (now Nomads.com) case study (~$61k/month (Sept 2024)) · Solo Ledger</title>
+<meta name="description" content="Nomad List (now Nomads.com) by Pieter Levels: ~$61k/month (Sept 2024) (self-reported, Sep 2024). How it started, grew, and an idea to build next.">
+<link rel="canonical" href="https://taoli1707.github.io/solo/cases/nomad-list/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Solo Ledger">
+<meta property="og:title" content="Nomad List (now Nomads.com) case study (~$61k/month (Sept 2024))">
+<meta property="og:description" content="Nomad List (now Nomads.com) by Pieter Levels: ~$61k/month (Sept 2024) (self-reported, Sep 2024). How it started, grew, and an idea to build next.">
+<meta property="og:url" content="https://taoli1707.github.io/solo/cases/nomad-list/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/solo/assets/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=JSON.parse(localStorage.getItem("solo.theme"));if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="/solo/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Nomad List (now Nomads.com): one-person business case study","description":"Nomad List (now Nomads.com) by Pieter Levels: ~$61k/month (Sept 2024) (self-reported, Sep 2024). How it started, grew, and an idea to build next.","about":{"@type":"Organization","name":"Nomad List (now Nomads.com)","url":"https://nomads.com","founder":{"@type":"Person","name":"Pieter Levels"}},"dateModified":"2026-09-27","publisher":{"@type":"Organization","name":"Solo Ledger"},"mainEntityOfPage":"https://taoli1707.github.io/solo/cases/nomad-list/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/solo/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M9 22V10m0 12h14M13 19v-4m4 4v-7m4 7v-9" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span>Solo<span class="dot">Ledger</span></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas to build</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="case">
+  <header class="case-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/solo/">Cases</a> / <a href="/solo/#cat=marketplace-directory">Directories &amp; job boards</a></nav>
+      <h1>Nomad List (now Nomads.com)</h1>
+      <p class="lede">City data and a paid community for remote workers choosing where to live</p>
+      <p class="byline">Built by <strong>Pieter Levels</strong> · <a href="https://nomads.com" rel="noopener" target="_blank">nomads.com ↗</a></p>
+      <dl class="facts"><div><dt>Revenue</dt><dd><span class="num">~$61k/month (Sept 2024)</span> <span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span><small>as of Sep 2024 · <a href="https://x.com/levelsio/status/1837707857372106992" rel="noopener" target="_blank">source</a></small></dd></div><div><dt>Founded</dt><dd>2014</dd></div><div><dt>Team</dt><dd>Solo + part-time contractors (e.g. sysadmin)</dd></div><div><dt>Startup cost (approx.)</dt><dd>&lt;$100 (started as a public Google Sheet)</dd></div><div><dt>First dollar</dt><dd>Not disclosed</dd></div><div><dt>Model</dt><dd>Mixed</dd></div><div><dt>Main channel</dt><dd>Build in public</dd></div><div><dt>Stack</dt><dd>PHP, jQuery, SQLite, single VPS</dd></div></dl>
+    </div>
+  </header>
+  <div class="wrap case-grid">
+    <aside class="toc" aria-label="On this page"><strong>On this page</strong><ol><li><a href="#overview">Overview</a></li><li><a href="#origin">Origin</a></li><li><a href="#money">How it makes money</a></li><li><a href="#growth">What drove growth</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#moat">Moat & risks</a></li><li><a href="#lessons">Lessons</a></li><li><a href="#rebuild">Build next</a></li><li><a href="#sources">Sources</a></li></ol></aside>
+    <div class="case-body">
+      <section class="block" id="overview"><h2>Overview</h2><p>Nomad List ranks cities for remote workers on cost of living, internet speed, weather and safety, and sells membership to a community of nomads. Pieter Levels started it in 2014 as a crowdsourced spreadsheet and has run it mostly alone ever since. It was rebranded to Nomads.com in 2024.</p></section>
+      <section class="block" id="origin"><h2>Origin</h2><p>In 2014 Levels was running out of money and set himself a challenge to launch 12 startups in 12 months. He tweeted a public Google Spreadsheet asking people to add data on cities good for remote work, and it filled up quickly. He then turned the sheet into a website, which became Nomad List.</p></section>
+      <section class="block" id="money"><h2>How it makes money</h2><p>Paid membership unlocks the community (chat, meetups, dating and member features) and full city data. The membership price and billing model have changed many times; exact current prices aren&#39;t included here because none could be confirmed from a primary source. Sponsorships and ads have also contributed.</p></section>
+      <section class="block" id="growth"><h2>What drove growth</h2><ul class="ticks"><li>The crowdsourced spreadsheet validated demand before any code was written, and contributors became the first audience.</li><li>SEO: thousands of city and comparison pages (&#39;cost of living in X&#39;) bring in steady organic search traffic.</li><li>Open-startup transparency: Levels published live revenue and user dashboards from 2018, which fed press coverage and his own following.</li><li>Conversion experiments: he reported sign-ups up 26% after adding Stripe Checkout and ran randomized tests of the benefits shown in the sign-up modal.</li><li>Combined with Remote OK, he reported $83,333+/mo (a $1M/yr run rate) in May 2019 with 0 ad budget and 0 funding.</li></ul></section>
+      <section class="block" id="timeline"><h2>Timeline</h2><ol class="timeline"><li><time>2014</time><span>Tweets a crowdsourced Google Sheet of nomad-friendly cities during the 12 startups in 12 months challenge, then launches the site</span></li><li><time>2018-02</time><span>Becomes an Open Startup with public revenue and user stats</span></li><li><time>2019-05</time><span>Nomad List + Remote OK pass $83,333/mo ($1M/yr run rate) with 1 VPS and no funding</span></li><li><time>2020-05</time><span>Levels reports ~$700k/yr across his one-person business, mostly Nomad List and Remote OK</span></li><li><time>2024</time><span>Rebrands to Nomads.com</span></li><li><time>2024-09</time><span>Reports ~$61k/month from Nomad List in a record portfolio month</span></li></ol></section>
+      <section class="block" id="moat"><h2>Moat & risks</h2><div class="two"><div class="panel good"><h3>What protects it</h3><p>More than a decade of crowdsourced city data and reviews, strong SEO rankings, and a paid community with network effects are hard to replicate quickly.</p></div><div class="panel bad"><h3>What could hurt it</h3><p>Revenue swings with travel trends (COVID hit it hard) and with the remote-work cycle. The product depends on one founder who now spreads his attention across many projects.</p></div></div></section>
+      <section class="block" id="lessons"><h2>Lessons you can reuse</h2><ol class="lessons"><li>Validate with a spreadsheet before writing code: a public sheet can prove demand in a day.</li><li>Programmatic data pages (one per city, one per comparison) compound SEO for years.</li><li>Monetize the community, not just the data. Public data brings people in and membership pays the bills.</li><li>Keep infrastructure tiny. Levels reported running both sites from 1 VPS at ~$5.5k/mo total costs in 2019.</li></ol></section>
+      <section class="block rebuild" id="rebuild">
+        <p class="eyebrow">Idea to build next</p>
+        <h2>A &#39;where to live&#39; data site plus paid community for remote-working families: school options, pediatric care, kid-friendly neighborhoods and visa rules for dependents, city by city.</h2>
+        <p><strong>Why now:</strong> Nomad-focused sites are built around single travellers. Families relocating for remote work have different, higher-stakes data needs and are willing to pay more.</p>
+        <dl class="mini">
+          <div><dt>Difficulty</dt><dd><span class="dots" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</dd></div>
+          <div><dt>Hours / week</dt><dd>8-12 (fits a side hustle)</dd></div>
+          <div><dt>Best fit</dt><dd>Parents who have relocated abroad and can seed the community from lived experience</dd></div>
+        </dl>
+        <h3>30-day path to a first paying customer</h3>
+        <ol class="steps"><li>Start a public Google Sheet of 30 cities with columns for international schools, fees and pediatric hospitals, and post it in remote-family Facebook groups and subreddits.</li><li>Interview 10 families who moved abroad and write 5 in-depth city guides from those interviews.</li><li>Ship a static site from the sheet with one page per city.</li><li>Sell a $49/year membership that includes a private chat and monthly city deep-dive calls.</li></ol>
+        <p class="small">This is our idea, not the founder's. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
+      </section>
+      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://x.com/levelsio/status/1134089856265494528" rel="noopener" target="_blank">@levelsio: $83,333+/mo with Nomad List + Remote OK (2019)</a> <span class="host">x.com</span></li><li><a href="https://x.com/levelsio/status/1837707857372106992" rel="noopener" target="_blank">@levelsio: $420k/mo record month breakdown (Sept 2024)</a> <span class="host">x.com</span></li><li><a href="https://x.com/levelsio/status/968219339588493312" rel="noopener" target="_blank">@levelsio: Nomad List is now an Open Startup</a> <span class="host">x.com</span></li><li><a href="https://x.com/levelsio/status/1105345282873581568" rel="noopener" target="_blank">@levelsio: Nomad List + Remote OK monthly costs</a> <span class="host">x.com</span></li><li><a href="https://lexfridman.com/pieter-levels-transcript/" rel="noopener" target="_blank">Lex Fridman Podcast #440 transcript (stack discussion)</a> <span class="host">lexfridman.com</span></li></ol><p class="small">Figures are self-reported and dated Sep 2024. Spotted something out of date? <a href="/solo/about/#corrections">Send a correction</a>.</p></section>
+      <section class="block"><h2>Similar cases</h2><ul class="cards small-cards"><li class="card" data-slug="remote-ok" data-cat="marketplace-directory" data-model="mixed" data-channel="build-in-public" data-band="gt1m" data-annual="1213212" data-started="2015" data-diff="2" data-text="remote ok pieter levels remote job board that started as an aggregator of remote listings a job board for data engineering and analytics engineering roles, aggregated from public ats feeds (greenhouse, lever, ashby), with normalized stack tags (dbt, airflow, spark, snowflake) and salary filters. php (single index.php) jquery">
+  <div class="card-top"><span class="cat">Directories &amp; job boards</span><span class="year">since 2015</span></div>
+  <h3><a href="/solo/cases/remote-ok/">Remote OK</a></h3>
+  <p class="founder">Pieter Levels</p>
+  <p class="tagline">Remote job board that started as an aggregator of remote listings</p>
+  <div class="rev"><span class="num">$101K in one month (Apr 2021 peak)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via Build in public</span></div>
+</li><li class="card" data-slug="betalist" data-cat="marketplace-directory" data-model="mixed" data-channel="word-of-mouth" data-band="100k-1m" data-annual="100000" data-started="2010" data-diff="2" data-text="betalist marc köhlbrugge directory of early-stage startups looking for their first users a curated directory of mcp servers and ai-agent tools with verified install and compatibility testing, a free listing queue and a paid expedited review with a badge. tumblr (mvp)">
+  <div class="card-top"><span class="cat">Directories &amp; job boards</span><span class="year">since 2010</span></div>
+  <h3><a href="/solo/cases/betalist/">BetaList</a></h3>
+  <p class="founder">Marc Köhlbrugge</p>
+  <p class="tagline">Directory of early-stage startups looking for their first users</p>
+  <div class="rev"><span class="num">~$1M lifetime over 10 yrs (~$100K/yr avg)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via Word of mouth</span></div>
+</li><li class="card" data-slug="justin-welsh" data-cat="info-products" data-model="mixed" data-channel="linkedin" data-band="gt1m" data-annual="4150000" data-started="2019" data-diff="2" data-text="the saturday solopreneur + courses justin welsh newsletter and self-paced courses on building a one-person internet business a course and newsletter teaching licensed tradespeople (electricians, hvac techs) to leave employment and run a one-van business, built from one tradesperson&#39;s own numbers gumroad">
+  <div class="card-top"><span class="cat">Courses &amp; info</span><span class="year">since 2019</span></div>
+  <h3><a href="/solo/cases/justin-welsh/">The Saturday Solopreneur + courses</a></h3>
+  <p class="founder">Justin Welsh</p>
+  <p class="tagline">Newsletter and self-paced courses on building a one-person internet business</p>
+  <div class="rev"><span class="num">$4.15M+ in 2024 (~86% margin)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via LinkedIn</span></div>
+</li></ul></section>
+      <nav class="pager" aria-label="More cases"><a href="/solo/cases/photopea/">← Photopea</a><a href="/solo/cases/css-for-js-developers/">CSS for JavaScript Developers →</a></nav>
+    </div>
+  </div>
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Solo Ledger</strong>
+        <p>Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next.</p>
+      </div>
+      <div>
+        <strong>Browse</strong>
+        <ul>
+          <li><a href="/solo/">All cases</a></li>
+          <li><a href="/solo/ideas/">Ideas to build</a></li>
+          <li><a href="/solo/patterns/">Patterns</a></li>
+          <li><a href="/solo/cases.json">Raw data (JSON)</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Fine print</strong>
+        <ul>
+          <li><a href="/solo/about/">How we source numbers</a></li>
+          <li><a href="/solo/about/#corrections">Corrections</a></li>
+          <li><a href="/solo/about/#privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+  </div>
+</footer>
+<script src="/solo/assets/site.js" defer></script>
+</body>
+</html>

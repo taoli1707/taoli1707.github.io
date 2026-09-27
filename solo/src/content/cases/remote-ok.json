@@ -1,0 +1,92 @@
+{
+  "slug": "remote-ok",
+  "name": "Remote OK",
+  "founder": "Pieter Levels",
+  "url": "https://remoteok.com",
+  "tagline": "Remote job board that started as an aggregator of remote listings",
+  "category": "marketplace-directory",
+  "model": "mixed",
+  "channel": "build-in-public",
+  "started": 2015,
+  "revenue": {
+    "amount": 101101,
+    "period": "month",
+    "label": "$101K in one month (Apr 2021 peak)",
+    "asOf": "2021-04",
+    "kind": "self-reported",
+    "source": "https://levels.io/remoteok-single-php-file-101k-month"
+  },
+  "team": "Solo",
+  "startupCost": "Unknown (single PHP file, no frameworks)",
+  "timeToFirstDollar": null,
+  "stack": [
+    "PHP (single index.php)",
+    "jQuery"
+  ],
+  "summary": "Remote OK is one of the largest remote-only job boards. Pieter Levels built it in 2015 by aggregating remote jobs from other boards, then turned it into a paid job-posting board. It is famous for running on a single PHP file. It peaked at $101,101 in one month in April 2021. Later in 2024 Levels said remote work had fallen to 23% of his total revenue.",
+  "origin": "Levels built it as a daily aggregator that pulled remote listings from non-remote job boards. It later merged with his Nomad Jobs board to become a standalone job board, and it launched to #1 on Product Hunt. Traffic from the aggregated listings is what made companies willing to pay to post directly.",
+  "howItMakesMoney": "Employers pay per job post, advertised as 'from $299 for 30 days' with bundles, and add-ons such as highlighting and pinning. Levels frequently tests prices dynamically. In April 2021 revenue was about $92K from job posts plus about $9.5K from ads.",
+  "growth": [
+    "Aggregating listings solved the chicken-and-egg problem. The board had thousands of jobs, and therefore job seekers, before any employer paid.",
+    "Building in public on X and his blog: revenue screenshots and 'single PHP file' posts spread widely.",
+    "SEO from programmatic pages per role, tag and location (e.g. 'remote Python jobs').",
+    "Remote hiring spiked in 2020-2021, and the board was already the obvious destination."
+  ],
+  "moat": "Brand and domain authority built up over a decade, plus a large base of job seekers that employers pay to reach. Neither can be copied quickly.",
+  "risks": "Highly cyclical, since revenue follows remote hiring demand, which cooled after 2021. There are many free competing boards and aggregators, and Google for Jobs sits in front of job boards in search results.",
+  "timeline": [
+    {
+      "date": "2015",
+      "event": "Launches as a remote job aggregator; reaches #1 on Product Hunt"
+    },
+    {
+      "date": "2018",
+      "event": "Nomad List and Remote OK together pass $1M annual revenue after 4 years"
+    },
+    {
+      "date": "2021-04",
+      "event": "Single index.php earns $101,101 in a month"
+    },
+    {
+      "date": "2024-10",
+      "event": "Levels says remote work is now 23% of his revenue, with AI products at 62%"
+    }
+  ],
+  "lessons": [
+    "Seed a marketplace by aggregating existing supply before asking anyone to pay.",
+    "Boring tech is fine. A single PHP file handled six-figure months.",
+    "Keep testing prices on job posts. Employers are much less price-sensitive than job seekers.",
+    "A niche job board follows its labor market. Plan for the cycle turning."
+  ],
+  "rebuild": {
+    "idea": "A job board for data engineering and analytics engineering roles, aggregated from public ATS feeds (Greenhouse, Lever, Ashby), with normalized stack tags (dbt, Airflow, Spark, Snowflake) and salary filters.",
+    "why": "Generic boards tag jobs poorly by data stack, and many ATS systems expose public JSON job feeds. A data engineer can build a much better-structured index than a general board.",
+    "mvp": [
+      "Pull ~2,000 companies' public ATS endpoints nightly and classify postings with keyword rules plus an LLM pass for stack and seniority",
+      "Publish programmatic pages per tool+location (e.g. 'remote dbt jobs')",
+      "Launch a free weekly email digest to build the job-seeker audience",
+      "Charge $199 for a featured post and offer the first 5 free to data-tool startups in exchange for posting"
+    ],
+    "difficulty": 2,
+    "weeklyHours": "8-12 (fits a side hustle)",
+    "fit": "A data engineer who knows the stack vocabulary and can build a reliable nightly ETL"
+  },
+  "sources": [
+    {
+      "title": "levels.io: Remote OK is a single PHP file generating $101,101 this month",
+      "url": "https://levels.io/remoteok-single-php-file-101k-month"
+    },
+    {
+      "title": "levels.io: How I built Remote OK and launched it to #1 on Product Hunt",
+      "url": "https://levels.io/remote-ok"
+    },
+    {
+      "title": "levels.io: It took 4 years to reach $1m annual revenue with Nomad List and Remote OK",
+      "url": "https://levels.io/4-years-to-1m-revenue-nomad-list-remote-ok"
+    },
+    {
+      "title": "@levelsio on X: AI is now 62% of my revenue and remote work just 23%",
+      "url": "https://x.com/levelsio/status/1847644979419562085"
+    }
+  ]
+}

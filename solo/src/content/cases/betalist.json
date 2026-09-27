@@ -1,0 +1,87 @@
+{
+  "slug": "betalist",
+  "name": "BetaList",
+  "founder": "Marc Köhlbrugge",
+  "url": "https://betalist.com",
+  "tagline": "Directory of early-stage startups looking for their first users",
+  "category": "marketplace-directory",
+  "model": "mixed",
+  "channel": "word-of-mouth",
+  "started": 2010,
+  "revenue": {
+    "amount": 100000,
+    "period": "year",
+    "label": "~$1M lifetime over 10 yrs (~$100K/yr avg)",
+    "asOf": "2020-12",
+    "kind": "self-reported",
+    "source": "https://typefully.com/marckohlbrugge/10-years-of-betalist-Uq3vYQJ"
+  },
+  "team": "Solo",
+  "startupCost": "About $0 (MVP was a customized Tumblr theme)",
+  "timeToFirstDollar": null,
+  "stack": [
+    "Tumblr (MVP)"
+  ],
+  "summary": "BetaList features pre-launch and newly launched startups to an audience of early adopters. Marc Köhlbrugge started it in December 2010 on Tumblr. After 10 years it had featured 15,000+ startups, reviewed 70,000+ submissions, and made almost $1M in total revenue. It makes money by charging founders to skip the free review queue and by selling sponsorships.",
+  "origin": "Köhlbrugge started BetaList in December 2010 to get publicity for an iPad app he and friends were building. The MVP was a Tumblr page with a customized theme. He didn't plan to monetize it until companies started asking how to get featured.",
+  "howItMakesMoney": "(1) Sponsorship/ad slots: he started at $50/week and doubled the price until buyers said no, ending around $1,500/week. (2) Expedited review: he first did it free as a favor, then charged $15. It later became a paid plan (reported at $99, then $129) to skip the free queue and get featured on a weekday.",
+  "growth": [
+    "A free submission queue with a paid fast lane. The backlog itself creates demand for the paid option.",
+    "Early press. Marc wrote 'How I tricked TechCrunch into writing about my startup' about getting coverage early.",
+    "Each featured startup shares its listing, which brings in more founders and early-adopter subscribers.",
+    "He kept testing prices on ad slots, doubling until demand dropped."
+  ],
+  "moat": "More than a decade of brand recognition in the startup-launch niche, an email and user base of early adopters, and domain authority that makes a listing worth paying for.",
+  "risks": "Launch directories are easy to start and there are hundreds now. Product Hunt dominates attention, and a directory's value falls if its audience stops engaging.",
+  "timeline": [
+    {
+      "date": "2010-12",
+      "event": "BetaList launches as a Tumblr site"
+    },
+    {
+      "date": "2013",
+      "event": "Marc publishes how he got early TechCrunch coverage"
+    },
+    {
+      "date": "2020-12",
+      "event": "10-year recap: 15,000+ startups featured, 70,000+ submissions reviewed, 100,000+ users, almost $1M total revenue"
+    },
+    {
+      "date": "2020s",
+      "event": "Paid expedited plan (reported $99, then $129) becomes the main submission product"
+    }
+  ],
+  "lessons": [
+    "A free queue plus a paid skip-the-line option is a simple, scalable way for a directory to make money.",
+    "Price ads by doubling until customers say no. His started at $50/week and ended near $1,500/week.",
+    "Start with no-code (a Tumblr theme) and rebuild only after demand shows up.",
+    "Slow, steady revenue from a directory can fund a solo founder's other projects for a decade."
+  ],
+  "rebuild": {
+    "idea": "A curated directory of MCP servers and AI-agent tools with verified install and compatibility testing, a free listing queue and a paid expedited review with a badge.",
+    "why": "The number of agent tools and MCP servers is growing fast, and discovery is fragmented across GitHub and X. Builders will pay for fast review and a trustworthy 'tested' badge.",
+    "mvp": [
+      "Scrape GitHub for MCP server repos and seed 300 listings with auto-extracted metadata",
+      "Run each through a scripted install test and publish pass/fail",
+      "Add a free submit form with a 3-4 week queue and a $49 'review in 48h' option via Stripe",
+      "Post the weekly 'new tools' list on X and in AI builder communities to grow the audience"
+    ],
+    "difficulty": 2,
+    "weeklyHours": "5-10 (fits a side hustle)",
+    "fit": "An engineer who can automate scraping and testing pipelines and enjoys curation"
+  },
+  "sources": [
+    {
+      "title": "Marc Köhlbrugge: 10 years of BetaList",
+      "url": "https://typefully.com/marckohlbrugge/10-years-of-betalist-Uq3vYQJ"
+    },
+    {
+      "title": "Marc Köhlbrugge: How I tricked TechCrunch into writing about my startup",
+      "url": "https://marc.io/betalist"
+    },
+    {
+      "title": "Mixergy: How BetaList is helping startups get their first users",
+      "url": "https://mixergy.com/interviews/marc-kohlbrugge-betalist/"
+    }
+  ]
+}

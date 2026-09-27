@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storemapper case study (~$25K/mo (2017 podcast)) · Solo Ledger</title>
+<meta name="description" content="Storemapper by Tyler Tringas: ~$25K/mo (2017 podcast) (self-reported, 2017). How it started, grew, and an idea to build next.">
+<link rel="canonical" href="https://taoli1707.github.io/solo/cases/storemapper/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Solo Ledger">
+<meta property="og:title" content="Storemapper case study (~$25K/mo (2017 podcast))">
+<meta property="og:description" content="Storemapper by Tyler Tringas: ~$25K/mo (2017 podcast) (self-reported, 2017). How it started, grew, and an idea to build next.">
+<meta property="og:url" content="https://taoli1707.github.io/solo/cases/storemapper/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/solo/assets/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=JSON.parse(localStorage.getItem("solo.theme"));if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="/solo/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Storemapper: one-person business case study","description":"Storemapper by Tyler Tringas: ~$25K/mo (2017 podcast) (self-reported, 2017). How it started, grew, and an idea to build next.","about":{"@type":"Organization","name":"Storemapper","url":"https://www.storemapper.com","founder":{"@type":"Person","name":"Tyler Tringas"}},"dateModified":"2026-09-27","publisher":{"@type":"Organization","name":"Solo Ledger"},"mainEntityOfPage":"https://taoli1707.github.io/solo/cases/storemapper/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/solo/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M9 22V10m0 12h14M13 19v-4m4 4v-7m4 7v-9" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span>Solo<span class="dot">Ledger</span></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas to build</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="case">
+  <header class="case-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/solo/">Cases</a> / <a href="/solo/#cat=saas">SaaS</a></nav>
+      <h1>Storemapper</h1>
+      <p class="lede">Embeddable store locator that shows shoppers where to buy a brand&#39;s products</p>
+      <p class="byline">Built by <strong>Tyler Tringas</strong> · <a href="https://www.storemapper.com" rel="noopener" target="_blank">storemapper.com ↗</a></p>
+      <dl class="facts"><div><dt>Revenue</dt><dd><span class="num">~$25K/mo (2017 podcast)</span> <span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span><small>as of 2017 · <a href="https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper" rel="noopener" target="_blank">source</a></small></dd></div><div><dt>Founded</dt><dd>2012</dd></div><div><dt>Team</dt><dd>Solo founder for most of its life; a small part-time team near the 2017 sale</dd></div><div><dt>Startup cost (approx.)</dt><dd>Unknown (self-taught founder; hosted on Heroku)</dd></div><div><dt>First dollar</dt><dd>About 24 hours after launch (at $5/mo)</dd></div><div><dt>Model</dt><dd>Subscription</dd></div><div><dt>Main channel</dt><dd>Marketplace</dd></div><div><dt>Stack</dt><dd>Ruby on Rails, Heroku</dd></div></dl>
+    </div>
+  </header>
+  <div class="wrap case-grid">
+    <aside class="toc" aria-label="On this page"><strong>On this page</strong><ol><li><a href="#overview">Overview</a></li><li><a href="#origin">Origin</a></li><li><a href="#money">How it makes money</a></li><li><a href="#growth">What drove growth</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#moat">Moat & risks</a></li><li><a href="#lessons">Lessons</a></li><li><a href="#rebuild">Build next</a></li><li><a href="#sources">Sources</a></li></ol></aside>
+    <div class="case-body">
+      <section class="block" id="overview"><h2>Overview</h2><p>Storemapper is a store locator widget for brands that sell through retailers. It embeds on Shopify, BigCommerce, WordPress, Squarespace and other sites. Tyler Tringas taught himself to code, built the first version on a long flight, grew it while traveling, and sold it to SureSwift Capital in July 2017. It is the case he later used to coin the term &#39;micro-SaaS&#39;.</p></section>
+      <section class="block" id="origin"><h2>Origin</h2><p>Tringas spent about nine months learning to code, then built Storemapper&#39;s first version on a single long flight to Argentina. He charged $5/mo because the first version was buggy, and had paying customers within about 24 hours.</p></section>
+      <section class="block" id="money"><h2>How it makes money</h2><p>Monthly subscriptions. It started at $5/mo, and he raised the price 80% to $9/mo for new customers once the product matured, then raised it further in later years. The early low price is his own documented lesson in underpricing.</p></section>
+      <section class="block" id="growth"><h2>What drove growth</h2><ul class="ticks"><li>Platform app stores. Listing on Shopify&#39;s app store and building integrations for BigCommerce, WordPress and Squarespace put it in front of merchants on fast-growing platforms.</li><li>A viral footer. The &#39;powered by Storemapper&#39; link on nearly every customer&#39;s locator produced thousands of clicks a month.</li><li>Organic search for &#39;store locator&#39; terms. He never ran paid ads.</li><li>Repeated price increases on new customers raised ARPU without adding more customers.</li></ul></section>
+      <section class="block" id="timeline"><h2>Timeline</h2><ol class="timeline"><li><time>2012</time><span>Builds the first version on a flight to Argentina and gets paying customers within about a day at $5/mo</span></li><li><time>2014</time><span>Publishes &#39;bootstrapped to $50,000/year in 2 years&#39; with live metrics</span></li><li><time>2015</time><span>Publishes &#39;2015 Roadmap: 100K to 4HWW&#39; about getting to $100K ARR on a four-hour week</span></li><li><time>2016</time><span>Indie Hackers interview: ~$21K/mo, driven by targeting the right niche</span></li><li><time>2017</time><span>Indie Hackers podcast: ~$25K/mo</span></li><li><time>2017-07</time><span>Sold to SureSwift Capital for an undisclosed &#39;level up money&#39; price after meeting buyers at MicroConf</span></li></ol></section>
+      <section class="block" id="moat"><h2>Moat & risks</h2><div class="two"><div class="panel good"><h3>What protects it</h3><p>A small but real set of integrations across ecommerce platforms and embedded widgets that are annoying to replace. The niche was too small for large companies to target.</p></div><div class="panel bad"><h3>What could hurt it</h3><p>Platform dependence: Shopify can ship a native locator or change app-store rules. Competing plugins are cheap, and a low-ARPU product with churn needs constant new customers.</p></div></div></section>
+      <section class="block" id="lessons"><h2>Lessons you can reuse</h2><ol class="lessons"><li>Build on top of a fast-growing platform&#39;s app store. Its growth becomes your distribution.</li><li>Ship embedded products with a &#39;powered by&#39; link so every customer markets for you.</li><li>Don&#39;t anchor on your launch price. Raise it for new customers once the product works.</li><li>A narrow utility can support a traveling solo founder and still be sellable to a SaaS holding company.</li></ol></section>
+      <section class="block rebuild" id="rebuild">
+        <p class="eyebrow">Idea to build next</p>
+        <h2>A &#39;find our product near you&#39; locator for craft breweries, wineries and specialty food brands that ingests messy distributor depletion reports (CSV/Excel) and keeps retailer locations up to date automatically.</h2>
+        <p><strong>Why now:</strong> Generic store locators assume the brand keeps a clean store list. Beverage and food brands selling through distributors get irregular spreadsheets, so their &#39;where to buy&#39; pages go stale.</p>
+        <dl class="mini">
+          <div><dt>Difficulty</dt><dd><span class="dots" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</dd></div>
+          <div><dt>Hours / week</dt><dd>8-12 (fits a side hustle)</dd></div>
+          <div><dt>Best fit</dt><dd>A data engineer who enjoys messy spreadsheet ETL and geocoding</dd></div>
+        </dl>
+        <h3>30-day path to a first paying customer</h3>
+        <ol class="steps"><li>Collect 5 real distributor reports from brewery owners and write a parser that normalizes and geocodes accounts</li><li>Ship an embeddable map widget with Shopify and WordPress snippets</li><li>Charge $29/mo with a monthly &#39;upload your report&#39; email and auto-refresh</li><li>Sell directly to 20 local breweries via Instagram DMs and state brewers&#39; guild forums</li></ol>
+        <p class="small">This is our idea, not the founder's. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
+      </section>
+      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper" rel="noopener" target="_blank">Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas</a> <span class="host">indiehackers.com</span></li><li><a href="https://www.indiehackers.com/interview/how-i-grew-to-21k-mo-by-targeting-the-right-niche-47941ae09d" rel="noopener" target="_blank">Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche</a> <span class="host">indiehackers.com</span></li><li><a href="https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/" rel="noopener" target="_blank">Tyler Tringas: Storemapper bootstrapped to $50,000/year in 2 years</a> <span class="host">tylertringas.com</span></li><li><a href="https://tylertringas.com/selling-my-bootstrapped-saas-business/" rel="noopener" target="_blank">Tyler Tringas: Selling My Bootstrapped SaaS Business</a> <span class="host">tylertringas.com</span></li><li><a href="https://builttosell.com/radio/episode-160/" rel="noopener" target="_blank">Built to Sell Radio ep. 160: Tyler Tringas&#39; SaaS exit</a> <span class="host">builttosell.com</span></li></ol><p class="small">Figures are self-reported and dated 2017. Spotted something out of date? <a href="/solo/about/#corrections">Send a correction</a>.</p></section>
+      <section class="block"><h2>Similar cases</h2><ul class="cards small-cards"><li class="card" data-slug="carrd" data-cat="saas" data-model="subscription" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2016" data-diff="2" data-text="carrd aj (ajlkn) simple, responsive one-page websites for almost anything a one-page site builder just for local tradespeople (plumbers, electricians, cleaners) with built-in quote-request forms, service-area maps and google review embeds, at $29/yr.">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2016</span></div>
+  <h3><a href="/solo/cases/carrd/">Carrd</a></h3>
+  <p class="founder">AJ (ajlkn)</p>
+  <p class="tagline">Simple, responsive one-page websites for almost anything</p>
+  <div class="rev"><span class="num">$1M ARR</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Word of mouth</span></div>
+</li><li class="card" data-slug="pinboard" data-cat="saas" data-model="subscription" data-channel="word-of-mouth" data-band="100k-1m" data-annual="234000" data-started="2009" data-diff="3" data-text="pinboard maciej ceglowski paid, ad-free bookmarking with optional full-page archiving a paid, private archive for a specific profession&#39;s web sources, such as lawyers or journalists capturing web pages as timestamped evidence php mysql">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2009</span></div>
+  <h3><a href="/solo/cases/pinboard/">Pinboard</a></h3>
+  <p class="founder">Maciej Ceglowski</p>
+  <p class="tagline">Paid, ad-free bookmarking with optional full-page archiving</p>
+  <div class="rev"><span class="num">~$234K revenue in 2016, ~$17K/yr costs</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Word of mouth</span></div>
+</li><li class="card" data-slug="photopea" data-cat="saas" data-model="ads" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2013" data-diff="5" data-text="photopea ivan kutskir free browser-based image editor that opens photoshop files, funded by ads a free browser tool that opens and edits a proprietary professional file format with no good free viewer, such as cad/dwg or indesign packages, monetized by ads and a pro tier javascript html5 canvas / webgl">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2013</span></div>
+  <h3><a href="/solo/cases/photopea/">Photopea</a></h3>
+  <p class="founder">Ivan Kutskir</p>
+  <p class="tagline">Free browser-based image editor that opens Photoshop files, funded by ads</p>
+  <div class="rev"><span class="num">~$1M over 12 months (to Apr 2021)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Ads</span><span>via Word of mouth</span></div>
+</li></ul></section>
+      <nav class="pager" aria-label="More cases"><a href="/solo/cases/screenshotone/">← ScreenshotOne</a><a href="/solo/cases/trends-vc/">Trends.vc →</a></nav>
+    </div>
+  </div>
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Solo Ledger</strong>
+        <p>Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next.</p>
+      </div>
+      <div>
+        <strong>Browse</strong>
+        <ul>
+          <li><a href="/solo/">All cases</a></li>
+          <li><a href="/solo/ideas/">Ideas to build</a></li>
+          <li><a href="/solo/patterns/">Patterns</a></li>
+          <li><a href="/solo/cases.json">Raw data (JSON)</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Fine print</strong>
+        <ul>
+          <li><a href="/solo/about/">How we source numbers</a></li>
+          <li><a href="/solo/about/#corrections">Corrections</a></li>
+          <li><a href="/solo/about/#privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+  </div>
+</footer>
+<script src="/solo/assets/site.js" defer></script>
+</body>
+</html>

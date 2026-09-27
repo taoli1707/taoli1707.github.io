@@ -193,9 +193,9 @@ function home(cases) {
     <p class="lede">${cases.length} teardowns of businesses run by a single person: the revenue they disclosed and where it came from, how they started, the channel that brought customers, what protects them, and an adjacent idea you could build with the same playbook.</p>
     <dl class="stats">
       <div><dt>Cases</dt><dd>${cases.length}</dd></div>
-      <div><dt>Combined yearly revenue</dt><dd>${compact(total)}</dd></div>
+      <div><dt>Combined revenue, annualized</dt><dd>${compact(total)}</dd></div>
       <div><dt>Median case</dt><dd>${compact(median(cases.map((c) => c.annual)))}/yr</dd></div>
-      <div><dt>Ideas to build</dt><dd>${cases.length}</dd></div>
+      <div><dt>Founder-reported figures</dt><dd>${cases.filter((c) => c.revenue.kind === "self-reported").length} of ${cases.length}</dd></div>
     </dl>
   </div>
 </section>
@@ -256,7 +256,7 @@ function casePage(c, cases) {
     ["Revenue", `<span class="num">${esc(r.label)}</span> ${kindBadge(r.kind)}<small>as of ${esc(monthLabel(r.asOf))} · <a href="${esc(r.source)}" rel="noopener" target="_blank">source</a></small>`],
     ["Founded", esc(c.started)],
     ["Team", esc(c.team)],
-    ["Startup cost", esc(c.startupCost || "Not disclosed")],
+    ["Startup cost (approx.)", esc(c.startupCost || "Not disclosed")],
     ["First dollar", esc(c.timeToFirstDollar || "Not disclosed")],
     ["Model", esc(modelName(c.model))],
     ["Main channel", esc(channelName(c.channel))],
@@ -339,7 +339,7 @@ function ideasPage(cases) {
 <section class="section"><div class="wrap">
   <ol class="ideas" id="ideas">
 ${sorted.map((c) => `<li class="idea" data-diff="${c.rebuild.difficulty}">
-  <div class="idea-meta">${dots(c.rebuild.difficulty)} <span>${DIFF[c.rebuild.difficulty]}</span><span>${esc(c.rebuild.weeklyHours)} h/wk</span></div>
+  <div class="idea-meta">${dots(c.rebuild.difficulty)} <span>${DIFF[c.rebuild.difficulty]}</span><span>${esc(c.rebuild.weeklyHours.replace(/\s*\(.*\)\s*$/, ""))} h/wk</span></div>
   <h3>${esc(c.rebuild.idea)}</h3>
   <p>${esc(c.rebuild.why)}</p>
   <p class="fit"><strong>Best fit:</strong> ${esc(c.rebuild.fit)}</p>
@@ -378,7 +378,7 @@ function patternsPage(cases) {
   </dl>
 </div></section>
 <section class="section"><div class="wrap narrow">
-  ${patterns.takeaways.length ? `<h2>Takeaways</h2><ol class="lessons">${patterns.takeaways.map((t) => `<li><strong>${esc(t.title)}</strong> ${esc(t.body)}</li>`).join("")}</ol>` : ""}
+  ${patterns.takeaways.length ? `<h2>Takeaways</h2><ol class="lessons">${patterns.takeaways.map((t) => `<li><strong>${esc(t.title)}</strong> ${esc(typeof t.body === "function" ? t.body(cases) : t.body)}</li>`).join("")}</ol>` : ""}
   <h2>By acquisition channel</h2>
   ${groupTable(cases, "channel", channelName, "Channel that brought most customers")}
   <h2>By business model</h2>

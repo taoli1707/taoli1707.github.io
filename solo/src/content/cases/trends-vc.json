@@ -1,0 +1,100 @@
+{
+  "slug": "trends-vc",
+  "name": "Trends.vc",
+  "founder": "Dru Riley",
+  "url": "https://trends.vc",
+  "tagline": "Research reports on emerging markets and business ideas for founders",
+  "category": "content-media",
+  "model": "subscription",
+  "channel": "newsletter",
+  "started": 2020,
+  "revenue": {
+    "amount": 20000,
+    "period": "month",
+    "label": "$20K MRR within a year of launch",
+    "asOf": "2020-09",
+    "kind": "self-reported",
+    "source": "https://www.indiehackers.com/podcast/173-dru-riley-of-trends-vc"
+  },
+  "team": "Solo",
+  "startupCost": "<$100",
+  "timeToFirstDollar": "~3 months (launched Feb 2020, first revenue May 2020)",
+  "stack": [
+    "Gumroad"
+  ],
+  "summary": "Trends.vc is a one-person research newsletter where Dru Riley publishes reports on one emerging market or trend at a time. Free readers get a summary and paid Trends Pro members get full reports and a community. He reported reaching $20K MRR in under a year.",
+  "origin": "Riley quit a big-data engineering job in 2017 and spent about three years traveling and trying side products. His SaaS attempts (StrongStack, then SaaSReport) weren't making money, and he found he preferred writing about trends. He published the first Trends report on February 10, 2020.",
+  "howItMakesMoney": "Trends Pro membership (full reports, databases, community); pricing has changed over time, with an annual plan listed at $299/year. Sponsorships of the free newsletter were added in February 2022.",
+  "growth": [
+    "Used a fixed, recognizable report format (Problem, Players, Predictions, Opportunities, Haters, Links)",
+    "Spent 2-3 months testing the email opt-in page before scaling traffic",
+    "Two Product Hunt launches produced the biggest early jumps in subscribers",
+    "Was active on Indie Hackers and in masterminds, which spread the reports among founders",
+    "Raised prices several times as the report archive grew"
+  ],
+  "moat": "An archive of 100+ researched reports and a paid community of founders; the format and consistency are hard to copy quickly.",
+  "risks": "AI research tools can produce passable market summaries cheaply, pressuring the value of reports. Output depends on one researcher's time.",
+  "timeline": [
+    {
+      "date": "2017-02",
+      "event": "Quits big-data engineering job to explore independent work"
+    },
+    {
+      "date": "2019 (fall)",
+      "event": "Works on StrongStack, later pivoted to SaaSReport"
+    },
+    {
+      "date": "2020-02",
+      "event": "Publishes first Trends report"
+    },
+    {
+      "date": "2020-05",
+      "event": "Starts earning revenue from Trends Pro"
+    },
+    {
+      "date": "2020-09",
+      "event": "Tells Indie Hackers podcast he reached $20K MRR in under a year"
+    },
+    {
+      "date": "2022-02",
+      "event": "Adds sponsorships to the free newsletter"
+    }
+  ],
+  "lessons": [
+    "A strict, repeatable format makes a newsletter recognizable and faster to produce",
+    "Optimize the signup page before spending effort on traffic",
+    "Sell depth to the most engaged 1-2% of readers and keep summaries free",
+    "Failed products can point to what you actually enjoy producing"
+  ],
+  "rebuild": {
+    "idea": "A paid research newsletter on emerging opportunities in one industry vertical, e.g. independent pharmacies or small manufacturing, with supplier and regulation data",
+    "why": "General founder-trend newsletters are crowded, but owners in traditional industries lack concise research on shifts affecting them and will pay for it.",
+    "mvp": [
+      "Define a fixed 6-section report format",
+      "Publish 3 free reports and post them in industry groups and forums",
+      "Put a signup page up and test headlines until a clear conversion rate is found",
+      "Offer a paid tier with full data tables for $20-30/month after report 4"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "An analyst or consultant with background in that industry"
+  },
+  "sources": [
+    {
+      "title": "Indie Hackers Podcast #173: Dru Riley of Trends.vc",
+      "url": "https://www.indiehackers.com/podcast/173-dru-riley-of-trends-vc"
+    },
+    {
+      "title": "Indie Hackers: Growing from 0 to $20K MRR with Winning Trends",
+      "url": "https://www.indiehackers.com/post/growing-from-0-to-20k-mrr-with-winning-trends-dru-riley-bbc7ab2daa"
+    },
+    {
+      "title": "Growth In Reverse: How to Build a $500k/yr Business in 3 Years With Dru Riley",
+      "url": "https://growthinreverse.com/dru-riley/"
+    },
+    {
+      "title": "Gumroad: Creator Spotlight on Dru Riley",
+      "url": "https://gumroad.com/gumroad/p/creator-spotlight-dru-riley-s-success-on-gumroad"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "better-sheets",
+  "name": "Better Sheets",
+  "founder": "Andrew Kamphey",
+  "url": "https://bettersheets.co",
+  "tagline": "Library of Google Sheets tutorials, templates and Apps Script tools",
+  "category": "info-products",
+  "model": "mixed",
+  "channel": "marketplace",
+  "started": 2020,
+  "revenue": {
+    "amount": 67000,
+    "period": "year",
+    "label": "$200K lifetime in first 3 yrs (~$67K/yr avg)",
+    "asOf": "2023-04",
+    "kind": "self-reported",
+    "source": "https://www.indiehackers.com/product/better-sheets/200k-revenue-selling-google-sheet-templates-tutorials-and-tools--NS9z2YbSBAUI4hI7-IN"
+  },
+  "team": "Solo + 1 contractor",
+  "startupCost": "Minimal (built in a 24-hour sprint)",
+  "timeToFirstDollar": "Launch month: 13 sales / $390 in April 2020",
+  "stack": [
+    "Google Sheets",
+    "Google Apps Script"
+  ],
+  "summary": "Better Sheets sells a membership to hundreds of screencast tutorials, templates and small tools that help people get more out of Google Sheets. Andrew Kamphey launched it after a 24-hour sprint in April 2020 and reported $200K in total revenue by its third anniversary. Most of that came from lifetime-access purchases. Note that the revenue figure is a three-year total, not an annual run rate.",
+  "origin": "Kamphey launched Better Sheets on April 3, 2020 after a 24-hour sprint to ship something. He sold lifetime access to Google Sheets tutorial videos. It made $390 from 13 sales in April 2020 and $2,291 from 134 sales in May 2020, and he kept recording tutorials based on what members asked for.",
+  "howItMakesMoney": "Mostly lifetime access. It started at $49 lifetime (or $19/mo) and was later raised to $109 lifetime. A $19/mo access pass is also offered. Lifetime deals made up about 92% of revenue in his 2023 write-up, and AppSumo campaigns were a major channel.",
+  "growth": [
+    "AppSumo lifetime deals put the product in front of a large audience of buyers already looking for tools.",
+    "Answering members' requests with new tutorials kept growing the library, which justified raising the lifetime price.",
+    "YouTube, a newsletter and posts on Indie Hackers and LinkedIn documented each milestone ($100K, then $200K).",
+    "He went full time in 2022 after about $100K in two years."
+  ],
+  "moat": "A large back catalog of focused Sheets tutorials and templates plus a recognizable personal brand ('the Sheets guy'). The content can be copied piece by piece, but the full library and audience are harder to copy.",
+  "risks": "Lifetime pricing makes revenue spiky and front-loaded, with no recurring base. AI assistants inside Google Sheets (Gemini) can answer many 'how do I' questions for free.",
+  "timeline": [
+    {
+      "date": "2020-04",
+      "event": "Launched after a 24-hour sprint; 13 sales / $390 in the first month"
+    },
+    {
+      "date": "2020-05",
+      "event": "134 sales / $2,291 in the second month"
+    },
+    {
+      "date": "2022",
+      "event": "Passes ~$100K in revenue in two years and goes full time"
+    },
+    {
+      "date": "2023-04",
+      "event": "Third anniversary: $200K total revenue"
+    }
+  ],
+  "lessons": [
+    "Teaching a ubiquitous tool (Sheets) to a narrow audience can be a business on its own.",
+    "Lifetime deals raise cash fast but are not recurring revenue. Keep track of which one you are building.",
+    "Let members' questions set the content roadmap. Each answered question becomes a new tutorial.",
+    "Ship in 24 hours, then raise prices as the library grows."
+  ],
+  "rebuild": {
+    "idea": "A library of Google Sheets and Apps Script automations and tutorials for small bookkeeping and accounting practices, such as bank CSV cleanup, client reconciliation trackers and AI-assisted categorization scripts.",
+    "why": "General Sheets tutorials now compete with built-in AI help. Workflow packs for one profession, bundled with working scripts, still save hours and are easy to pay for.",
+    "mvp": [
+      "Interview 10 solo bookkeepers about their most repeated spreadsheet chore",
+      "Build 5 working template+script bundles and a short screencast for each",
+      "Sell a $99/yr membership (plus a lifetime launch price) through bookkeeper Facebook groups and Reddit",
+      "Publish one free tutorial per week for SEO and YouTube"
+    ],
+    "difficulty": 1,
+    "weeklyHours": "5-10 (fits a side hustle)",
+    "fit": "Someone with data-processing and spreadsheet skills who can record clear screencasts"
+  },
+  "sources": [
+    {
+      "title": "Indie Hackers: $200k Revenue Selling Google Sheet Templates, Tutorials, and Tools",
+      "url": "https://www.indiehackers.com/product/better-sheets/200k-revenue-selling-google-sheet-templates-tutorials-and-tools--NS9z2YbSBAUI4hI7-IN"
+    },
+    {
+      "title": "High Signal: $200k from selling Google Sheets tutorials",
+      "url": "https://www.highsignal.io/selling-google-sheets-tutorials/"
+    },
+    {
+      "title": "Indie Bites #94: Andrew Kamphey",
+      "url": "https://indiebites.com/94"
+    }
+  ]
+}

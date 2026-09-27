@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinboard case study (~$234K revenue in 2016, ~$17K/yr costs) · Solo Ledger</title>
+<meta name="description" content="Pinboard by Maciej Ceglowski: ~$234K revenue in 2016, ~$17K/yr costs (self-reported, Jul 2016). How it started, grew, and an idea to build next.">
+<link rel="canonical" href="https://taoli1707.github.io/solo/cases/pinboard/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Solo Ledger">
+<meta property="og:title" content="Pinboard case study (~$234K revenue in 2016, ~$17K/yr costs)">
+<meta property="og:description" content="Pinboard by Maciej Ceglowski: ~$234K revenue in 2016, ~$17K/yr costs (self-reported, Jul 2016). How it started, grew, and an idea to build next.">
+<meta property="og:url" content="https://taoli1707.github.io/solo/cases/pinboard/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/solo/assets/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=JSON.parse(localStorage.getItem("solo.theme"));if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="/solo/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pinboard: one-person business case study","description":"Pinboard by Maciej Ceglowski: ~$234K revenue in 2016, ~$17K/yr costs (self-reported, Jul 2016). How it started, grew, and an idea to build next.","about":{"@type":"Organization","name":"Pinboard","url":"https://pinboard.in","founder":{"@type":"Person","name":"Maciej Ceglowski"}},"dateModified":"2026-09-27","publisher":{"@type":"Organization","name":"Solo Ledger"},"mainEntityOfPage":"https://taoli1707.github.io/solo/cases/pinboard/"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/solo/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M9 22V10m0 12h14M13 19v-4m4 4v-7m4 7v-9" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span>Solo<span class="dot">Ledger</span></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas to build</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="case">
+  <header class="case-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/solo/">Cases</a> / <a href="/solo/#cat=saas">SaaS</a></nav>
+      <h1>Pinboard</h1>
+      <p class="lede">Paid, ad-free bookmarking with optional full-page archiving</p>
+      <p class="byline">Built by <strong>Maciej Ceglowski</strong> · <a href="https://pinboard.in" rel="noopener" target="_blank">pinboard.in ↗</a></p>
+      <dl class="facts"><div><dt>Revenue</dt><dd><span class="num">~$234K revenue in 2016, ~$17K/yr costs</span> <span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span><small>as of Jul 2016 · <a href="https://blog.pinboard.in/2016/07/pinboard_turns_seven/" rel="noopener" target="_blank">source</a></small></dd></div><div><dt>Founded</dt><dd>2009</dd></div><div><dt>Team</dt><dd>Solo</dd></div><div><dt>Startup cost (approx.)</dt><dd>Not disclosed</dd></div><div><dt>First dollar</dt><dd>At launch (paid signup fee from day one)</dd></div><div><dt>Model</dt><dd>Subscription</dd></div><div><dt>Main channel</dt><dd>Word of mouth</dd></div><div><dt>Stack</dt><dd>PHP, MySQL</dd></div></dl>
+    </div>
+  </header>
+  <div class="wrap case-grid">
+    <aside class="toc" aria-label="On this page"><strong>On this page</strong><ol><li><a href="#overview">Overview</a></li><li><a href="#origin">Origin</a></li><li><a href="#money">How it makes money</a></li><li><a href="#growth">What drove growth</a></li><li><a href="#timeline">Timeline</a></li><li><a href="#moat">Moat & risks</a></li><li><a href="#lessons">Lessons</a></li><li><a href="#rebuild">Build next</a></li><li><a href="#sources">Sources</a></li></ol></aside>
+    <div class="case-body">
+      <section class="block" id="overview"><h2>Overview</h2><p>Pinboard is a bookmarking site launched in July 2009 and run by Maciej Ceglowski. It has charged users from the start and has no ads. He published yearly revenue of $117K-$234K for 2010-2016 against running costs of about $17K a year.</p></section>
+      <section class="block" id="origin"><h2>Origin</h2><p>Ceglowski built Pinboard as a faster, simpler alternative to Delicious. At launch it charged a one-time signup fee of a few dollars that rose by a fraction of a cent with each new user, to slow growth and deter spam. Months later he added a $25/year archiving option, and it became his full-time job at around 1,200 users.</p></section>
+      <section class="block" id="money"><h2>How it makes money</h2><p>Annual subscriptions: a standard account (listed at $22/year in recent years) and an archiving account (listed at $39/year) that saves copies of bookmarked pages. It moved from one-time fees to annual subscriptions in 2015.</p></section>
+      <section class="block" id="growth"><h2>What drove growth</h2><ul class="ticks"><li>Absorbed users each time Delicious had trouble (Yahoo&#39;s 2010 plans to sunset it caused a large influx)</li><li>Charging from day one filtered for committed users and kept spam down</li><li>A plain, fast interface appealed to heavy readers and developers who recommended it</li><li>Ceglowski&#39;s writing and talks on the web and privacy kept Pinboard visible</li></ul></section>
+      <section class="block" id="timeline"><h2>Timeline</h2><ol class="timeline"><li><time>2009-07</time><span>Launches with a rising one-time signup fee</span></li><li><time>2009</time><span>Adds $25/year archiving accounts; becomes full-time at ~1,200 users</span></li><li><time>2010</time><span>Delicious shutdown news drives a surge of signups; revenue $117K for the year</span></li><li><time>2015</time><span>Moves to annual subscriptions; revenue dips then recovers</span></li><li><time>2016</time><span>Publishes revenue of $234K for the year and ~$17K annual running costs</span></li><li><time>2017-06</time><span>Buys Delicious for $35,000</span></li></ol></section>
+      <section class="block" id="moat"><h2>Moat & risks</h2><div class="two"><div class="panel good"><h3>What protects it</h3><p>Years of users&#39; bookmark and archive data plus trust in a privacy-respecting, ad-free service; switching means migrating a personal library.</p></div><div class="panel bad"><h3>What could hurt it</h3><p>Single-maintainer bus factor and slow feature development; browser read-later and AI note tools compete for the same use.</p></div></div></section>
+      <section class="block" id="lessons"><h2>Lessons you can reuse</h2><ol class="lessons"><li>Charging from day one limits growth but gives a profitable, low-support user base</li><li>A competitor&#39;s decline can be the main growth channel if you are the obvious alternative</li><li>Keeping infrastructure simple keeps costs a small fraction of revenue</li><li>Recurring annual billing smooths revenue compared with one-time fees</li></ol></section>
+      <section class="block rebuild" id="rebuild">
+        <p class="eyebrow">Idea to build next</p>
+        <h2>A paid, private archive for a specific profession&#39;s web sources, such as lawyers or journalists capturing web pages as timestamped evidence</h2>
+        <p><strong>Why now:</strong> Web pages change or disappear often, and professionals who must prove what a page said have few simple, low-cost tools outside expensive enterprise suites.</p>
+        <dl class="mini">
+          <div><dt>Difficulty</dt><dd><span class="dots" role="img" aria-label="Difficulty 3 of 5">●●●<span class="off">●●</span></span> Moderate</dd></div>
+          <div><dt>Hours / week</dt><dd>10-15 (fits a side hustle)</dd></div>
+          <div><dt>Best fit</dt><dd>A web developer with contacts in journalism or legal work</dd></div>
+        </dl>
+        <h3>30-day path to a first paying customer</h3>
+        <ol class="steps"><li>Build a browser extension that saves a page snapshot with a timestamp and hash</li><li>Give it to 10 journalists or paralegals for feedback</li><li>Charge $5-10/month from the first paying user with a simple export feature</li><li>Write one article on citing archived pages and share it in professional forums</li></ol>
+        <p class="small">This is our idea, not the founder's. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
+      </section>
+      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://blog.pinboard.in/2016/07/pinboard_turns_seven/" rel="noopener" target="_blank">Pinboard Turns Seven (Pinboard Blog)</a> <span class="host">blog.pinboard.in</span></li><li><a href="https://blog.pinboard.in/2020/07/pinboard_is_eleven/" rel="noopener" target="_blank">Pinboard is Eleven (Pinboard Blog)</a> <span class="host">blog.pinboard.in</span></li><li><a href="https://blog.pinboard.in/2017/06/pinboard_acquires_delicious/" rel="noopener" target="_blank">Pinboard Acquires Delicious (Pinboard Blog)</a> <span class="host">blog.pinboard.in</span></li><li><a href="https://en.wikipedia.org/wiki/Pinboard_(website)" rel="noopener" target="_blank">Pinboard (website) - Wikipedia</a> <span class="host">en.wikipedia.org</span></li></ol><p class="small">Figures are self-reported and dated Jul 2016. Spotted something out of date? <a href="/solo/about/#corrections">Send a correction</a>.</p></section>
+      <section class="block"><h2>Similar cases</h2><ul class="cards small-cards"><li class="card" data-slug="carrd" data-cat="saas" data-model="subscription" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2016" data-diff="2" data-text="carrd aj (ajlkn) simple, responsive one-page websites for almost anything a one-page site builder just for local tradespeople (plumbers, electricians, cleaners) with built-in quote-request forms, service-area maps and google review embeds, at $29/yr.">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2016</span></div>
+  <h3><a href="/solo/cases/carrd/">Carrd</a></h3>
+  <p class="founder">AJ (ajlkn)</p>
+  <p class="tagline">Simple, responsive one-page websites for almost anything</p>
+  <div class="rev"><span class="num">$1M ARR</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Word of mouth</span></div>
+</li><li class="card" data-slug="photopea" data-cat="saas" data-model="ads" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2013" data-diff="5" data-text="photopea ivan kutskir free browser-based image editor that opens photoshop files, funded by ads a free browser tool that opens and edits a proprietary professional file format with no good free viewer, such as cad/dwg or indesign packages, monetized by ads and a pro tier javascript html5 canvas / webgl">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2013</span></div>
+  <h3><a href="/solo/cases/photopea/">Photopea</a></h3>
+  <p class="founder">Ivan Kutskir</p>
+  <p class="tagline">Free browser-based image editor that opens Photoshop files, funded by ads</p>
+  <div class="rev"><span class="num">~$1M over 12 months (to Apr 2021)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Ads</span><span>via Word of mouth</span></div>
+</li><li class="card" data-slug="storemapper" data-cat="saas" data-model="subscription" data-channel="marketplace" data-band="100k-1m" data-annual="300000" data-started="2012" data-diff="2" data-text="storemapper tyler tringas embeddable store locator that shows shoppers where to buy a brand&#39;s products a &#39;find our product near you&#39; locator for craft breweries, wineries and specialty food brands that ingests messy distributor depletion reports (csv/excel) and keeps retailer locations up to date automatically. ruby on rails heroku">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2012</span></div>
+  <h3><a href="/solo/cases/storemapper/">Storemapper</a></h3>
+  <p class="founder">Tyler Tringas</p>
+  <p class="tagline">Embeddable store locator that shows shoppers where to buy a brand&#39;s products</p>
+  <div class="rev"><span class="num">~$25K/mo (2017 podcast)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Marketplace</span></div>
+</li></ul></section>
+      <nav class="pager" aria-label="More cases"><a href="/solo/cases/easlo/">← Easlo</a><a href="/solo/cases/shipfast/">ShipFast →</a></nav>
+    </div>
+  </div>
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Solo Ledger</strong>
+        <p>Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next.</p>
+      </div>
+      <div>
+        <strong>Browse</strong>
+        <ul>
+          <li><a href="/solo/">All cases</a></li>
+          <li><a href="/solo/ideas/">Ideas to build</a></li>
+          <li><a href="/solo/patterns/">Patterns</a></li>
+          <li><a href="/solo/cases.json">Raw data (JSON)</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Fine print</strong>
+        <ul>
+          <li><a href="/solo/about/">How we source numbers</a></li>
+          <li><a href="/solo/about/#corrections">Corrections</a></li>
+          <li><a href="/solo/about/#privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+  </div>
+</footer>
+<script src="/solo/assets/site.js" defer></script>
+</body>
+</html>

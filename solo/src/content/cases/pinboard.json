@@ -1,0 +1,100 @@
+{
+  "slug": "pinboard",
+  "name": "Pinboard",
+  "founder": "Maciej Ceglowski",
+  "url": "https://pinboard.in",
+  "tagline": "Paid, ad-free bookmarking with optional full-page archiving",
+  "category": "saas",
+  "model": "subscription",
+  "channel": "word-of-mouth",
+  "started": 2009,
+  "revenue": {
+    "amount": 234000,
+    "period": "year",
+    "label": "~$234K revenue in 2016, ~$17K/yr costs",
+    "asOf": "2016-07",
+    "kind": "self-reported",
+    "source": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/"
+  },
+  "team": "Solo",
+  "startupCost": "Not disclosed",
+  "timeToFirstDollar": "At launch (paid signup fee from day one)",
+  "stack": [
+    "PHP",
+    "MySQL"
+  ],
+  "summary": "Pinboard is a bookmarking site launched in July 2009 and run by Maciej Ceglowski. It has charged users from the start and has no ads. He published yearly revenue of $117K-$234K for 2010-2016 against running costs of about $17K a year.",
+  "origin": "Ceglowski built Pinboard as a faster, simpler alternative to Delicious. At launch it charged a one-time signup fee of a few dollars that rose by a fraction of a cent with each new user, to slow growth and deter spam. Months later he added a $25/year archiving option, and it became his full-time job at around 1,200 users.",
+  "howItMakesMoney": "Annual subscriptions: a standard account (listed at $22/year in recent years) and an archiving account (listed at $39/year) that saves copies of bookmarked pages. It moved from one-time fees to annual subscriptions in 2015.",
+  "growth": [
+    "Absorbed users each time Delicious had trouble (Yahoo's 2010 plans to sunset it caused a large influx)",
+    "Charging from day one filtered for committed users and kept spam down",
+    "A plain, fast interface appealed to heavy readers and developers who recommended it",
+    "Ceglowski's writing and talks on the web and privacy kept Pinboard visible"
+  ],
+  "moat": "Years of users' bookmark and archive data plus trust in a privacy-respecting, ad-free service; switching means migrating a personal library.",
+  "risks": "Single-maintainer bus factor and slow feature development; browser read-later and AI note tools compete for the same use.",
+  "timeline": [
+    {
+      "date": "2009-07",
+      "event": "Launches with a rising one-time signup fee"
+    },
+    {
+      "date": "2009",
+      "event": "Adds $25/year archiving accounts; becomes full-time at ~1,200 users"
+    },
+    {
+      "date": "2010",
+      "event": "Delicious shutdown news drives a surge of signups; revenue $117K for the year"
+    },
+    {
+      "date": "2015",
+      "event": "Moves to annual subscriptions; revenue dips then recovers"
+    },
+    {
+      "date": "2016",
+      "event": "Publishes revenue of $234K for the year and ~$17K annual running costs"
+    },
+    {
+      "date": "2017-06",
+      "event": "Buys Delicious for $35,000"
+    }
+  ],
+  "lessons": [
+    "Charging from day one limits growth but gives a profitable, low-support user base",
+    "A competitor's decline can be the main growth channel if you are the obvious alternative",
+    "Keeping infrastructure simple keeps costs a small fraction of revenue",
+    "Recurring annual billing smooths revenue compared with one-time fees"
+  ],
+  "rebuild": {
+    "idea": "A paid, private archive for a specific profession's web sources, such as lawyers or journalists capturing web pages as timestamped evidence",
+    "why": "Web pages change or disappear often, and professionals who must prove what a page said have few simple, low-cost tools outside expensive enterprise suites.",
+    "mvp": [
+      "Build a browser extension that saves a page snapshot with a timestamp and hash",
+      "Give it to 10 journalists or paralegals for feedback",
+      "Charge $5-10/month from the first paying user with a simple export feature",
+      "Write one article on citing archived pages and share it in professional forums"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "A web developer with contacts in journalism or legal work"
+  },
+  "sources": [
+    {
+      "title": "Pinboard Turns Seven (Pinboard Blog)",
+      "url": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/"
+    },
+    {
+      "title": "Pinboard is Eleven (Pinboard Blog)",
+      "url": "https://blog.pinboard.in/2020/07/pinboard_is_eleven/"
+    },
+    {
+      "title": "Pinboard Acquires Delicious (Pinboard Blog)",
+      "url": "https://blog.pinboard.in/2017/06/pinboard_acquires_delicious/"
+    },
+    {
+      "title": "Pinboard (website) - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Pinboard_(website)"
+    }
+  ]
+}

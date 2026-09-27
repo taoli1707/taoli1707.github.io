@@ -1,0 +1,97 @@
+{
+  "slug": "justin-welsh",
+  "name": "The Saturday Solopreneur + courses",
+  "founder": "Justin Welsh",
+  "url": "https://www.justinwelsh.me",
+  "tagline": "Newsletter and self-paced courses on building a one-person internet business",
+  "category": "info-products",
+  "model": "mixed",
+  "channel": "linkedin",
+  "started": 2019,
+  "revenue": {
+    "amount": 4150000,
+    "period": "year",
+    "label": "$4.15M+ in 2024 (~86% margin)",
+    "asOf": "2024-12",
+    "kind": "self-reported",
+    "source": "https://x.com/thejustinwelsh/status/1874418985271259339"
+  },
+  "team": "Solo + part-time assistant",
+  "startupCost": "Not disclosed",
+  "timeToFirstDollar": null,
+  "stack": [
+    "Gumroad"
+  ],
+  "summary": "Justin Welsh is a former SaaS sales executive who sells self-paced courses (The LinkedIn Operating System, The Content Operating System, The Creator MBA) to an audience built on LinkedIn and X, funneled through a weekly newsletter. He reported $4.15M+ in 2024 revenue at about 86% margins without employees.",
+  "origin": "Welsh was a revenue executive at healthcare SaaS company PatientPop and left after burnout in 2019. He started posting daily on LinkedIn about sales and growth, did some advising, and turned his LinkedIn process into a course. He pre-sold The LinkedIn Operating System in July 2021, about 30 days before it went live.",
+  "howItMakesMoney": "One-time-purchase digital courses sold from his own site and Gumroad. The LinkedIn Operating System has been listed at around $150-$200. The free Saturday newsletter (started January 2022) is the main funnel into the courses and later The Creator MBA bundle.",
+  "growth": [
+    "Posted on LinkedIn and X daily for years, repurposing the same ideas across both platforms",
+    "Pre-sold the LinkedIn course in July 2021 to validate demand before building it",
+    "Launched The Saturday Solopreneur newsletter in January 2022; reported roughly 77K subscribers after one year",
+    "Published revenue and margin numbers openly, which itself became shareable content",
+    "Added higher-priced bundles (The Creator MBA) sold to the existing newsletter list"
+  ],
+  "moat": "A very large personal following on LinkedIn and X plus a newsletter list, both tied to his personal story. Buyers are paying for his specific system and credibility, which a copycat course can't easily replicate.",
+  "risks": "Revenue depends on one person's attention and on platform algorithms (LinkedIn, X). The 'how to grow an audience' course market is crowded and prone to saturation.",
+  "timeline": [
+    {
+      "date": "2019",
+      "event": "Leaves PatientPop executive role after burnout; starts posting daily on LinkedIn"
+    },
+    {
+      "date": "2021-07",
+      "event": "Pre-sells The LinkedIn Operating System 30 days before launch"
+    },
+    {
+      "date": "2022-01",
+      "event": "Starts The Saturday Solopreneur newsletter"
+    },
+    {
+      "date": "2022",
+      "event": "Reported ~$1.7M revenue for the year"
+    },
+    {
+      "date": "2024",
+      "event": "Reports $4.15M+ revenue at ~86% margins; launches two new products"
+    }
+  ],
+  "lessons": [
+    "Pre-sell a course before building it; a 30-day pre-sale gives both validation and a deadline",
+    "Build the audience on one or two platforms with daily posting before expecting product sales",
+    "Use a free newsletter as the owned channel that turns social followers into buyers",
+    "Keep costs low (no staff, off-the-shelf tools) so most revenue becomes profit",
+    "Productize your prior career skill (sales, growth) rather than a topic you are new to"
+  ],
+  "rebuild": {
+    "idea": "A course and newsletter teaching licensed tradespeople (electricians, HVAC techs) to leave employment and run a one-van business, built from one tradesperson's own numbers",
+    "why": "Solopreneur education is aimed almost entirely at knowledge workers; trades have high demand and few people teaching the business side in plain language.",
+    "mvp": [
+      "Post daily on LinkedIn/Facebook trade groups about your own pricing, quoting and client numbers",
+      "Collect emails with a free quoting spreadsheet",
+      "Pre-sell a $99 'first 90 days solo' course to the list with a 30-day delivery date",
+      "Deliver it as 6-8 recorded screen shares plus templates"
+    ],
+    "difficulty": 2,
+    "weeklyHours": "8-12 (fits a side hustle)",
+    "fit": "A working tradesperson who already runs their own small shop and is comfortable posting publicly"
+  },
+  "sources": [
+    {
+      "title": "Justin Welsh on X: 2024 as a solopreneur",
+      "url": "https://x.com/thejustinwelsh/status/1874418985271259339"
+    },
+    {
+      "title": "Growth In Reverse: How Justin Welsh Built a $1.7M Solo Business",
+      "url": "https://growthinreverse.com/justin-welsh/"
+    },
+    {
+      "title": "Starter Story: How Justin Welsh Built A $2M Solopreneur Empire",
+      "url": "https://www.starterstory.com/stories/justin-welsh"
+    },
+    {
+      "title": "The LinkedIn Operating System",
+      "url": "https://learn.justinwelsh.me/linkedin"
+    }
+  ]
+}

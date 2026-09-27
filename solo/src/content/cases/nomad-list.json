@@ -1,0 +1,107 @@
+{
+  "slug": "nomad-list",
+  "name": "Nomad List (now Nomads.com)",
+  "founder": "Pieter Levels",
+  "url": "https://nomads.com",
+  "tagline": "City data and a paid community for remote workers choosing where to live",
+  "category": "marketplace-directory",
+  "model": "mixed",
+  "channel": "build-in-public",
+  "started": 2014,
+  "revenue": {
+    "amount": 61000,
+    "period": "month",
+    "label": "~$61k/month (Sept 2024)",
+    "asOf": "2024-09",
+    "kind": "self-reported",
+    "source": "https://x.com/levelsio/status/1837707857372106992"
+  },
+  "team": "Solo + part-time contractors (e.g. sysadmin)",
+  "startupCost": "<$100 (started as a public Google Sheet)",
+  "timeToFirstDollar": null,
+  "stack": [
+    "PHP",
+    "jQuery",
+    "SQLite",
+    "single VPS"
+  ],
+  "summary": "Nomad List ranks cities for remote workers on cost of living, internet speed, weather and safety, and sells membership to a community of nomads. Pieter Levels started it in 2014 as a crowdsourced spreadsheet and has run it mostly alone ever since. It was rebranded to Nomads.com in 2024.",
+  "origin": "In 2014 Levels was running out of money and set himself a challenge to launch 12 startups in 12 months. He tweeted a public Google Spreadsheet asking people to add data on cities good for remote work, and it filled up quickly. He then turned the sheet into a website, which became Nomad List.",
+  "howItMakesMoney": "Paid membership unlocks the community (chat, meetups, dating and member features) and full city data. The membership price and billing model have changed many times; exact current prices aren't included here because none could be confirmed from a primary source. Sponsorships and ads have also contributed.",
+  "growth": [
+    "The crowdsourced spreadsheet validated demand before any code was written, and contributors became the first audience.",
+    "SEO: thousands of city and comparison pages ('cost of living in X') bring in steady organic search traffic.",
+    "Open-startup transparency: Levels published live revenue and user dashboards from 2018, which fed press coverage and his own following.",
+    "Conversion experiments: he reported sign-ups up 26% after adding Stripe Checkout and ran randomized tests of the benefits shown in the sign-up modal.",
+    "Combined with Remote OK, he reported $83,333+/mo (a $1M/yr run rate) in May 2019 with 0 ad budget and 0 funding."
+  ],
+  "moat": "More than a decade of crowdsourced city data and reviews, strong SEO rankings, and a paid community with network effects are hard to replicate quickly.",
+  "risks": "Revenue swings with travel trends (COVID hit it hard) and with the remote-work cycle. The product depends on one founder who now spreads his attention across many projects.",
+  "timeline": [
+    {
+      "date": "2014",
+      "event": "Tweets a crowdsourced Google Sheet of nomad-friendly cities during the 12 startups in 12 months challenge, then launches the site"
+    },
+    {
+      "date": "2018-02",
+      "event": "Becomes an Open Startup with public revenue and user stats"
+    },
+    {
+      "date": "2019-05",
+      "event": "Nomad List + Remote OK pass $83,333/mo ($1M/yr run rate) with 1 VPS and no funding"
+    },
+    {
+      "date": "2020-05",
+      "event": "Levels reports ~$700k/yr across his one-person business, mostly Nomad List and Remote OK"
+    },
+    {
+      "date": "2024",
+      "event": "Rebrands to Nomads.com"
+    },
+    {
+      "date": "2024-09",
+      "event": "Reports ~$61k/month from Nomad List in a record portfolio month"
+    }
+  ],
+  "lessons": [
+    "Validate with a spreadsheet before writing code: a public sheet can prove demand in a day.",
+    "Programmatic data pages (one per city, one per comparison) compound SEO for years.",
+    "Monetize the community, not just the data. Public data brings people in and membership pays the bills.",
+    "Keep infrastructure tiny. Levels reported running both sites from 1 VPS at ~$5.5k/mo total costs in 2019."
+  ],
+  "rebuild": {
+    "idea": "A 'where to live' data site plus paid community for remote-working families: school options, pediatric care, kid-friendly neighborhoods and visa rules for dependents, city by city.",
+    "why": "Nomad-focused sites are built around single travellers. Families relocating for remote work have different, higher-stakes data needs and are willing to pay more.",
+    "mvp": [
+      "Start a public Google Sheet of 30 cities with columns for international schools, fees and pediatric hospitals, and post it in remote-family Facebook groups and subreddits.",
+      "Interview 10 families who moved abroad and write 5 in-depth city guides from those interviews.",
+      "Ship a static site from the sheet with one page per city.",
+      "Sell a $49/year membership that includes a private chat and monthly city deep-dive calls."
+    ],
+    "difficulty": 2,
+    "weeklyHours": "8-12 (fits a side hustle)",
+    "fit": "Parents who have relocated abroad and can seed the community from lived experience"
+  },
+  "sources": [
+    {
+      "title": "@levelsio: $83,333+/mo with Nomad List + Remote OK (2019)",
+      "url": "https://x.com/levelsio/status/1134089856265494528"
+    },
+    {
+      "title": "@levelsio: $420k/mo record month breakdown (Sept 2024)",
+      "url": "https://x.com/levelsio/status/1837707857372106992"
+    },
+    {
+      "title": "@levelsio: Nomad List is now an Open Startup",
+      "url": "https://x.com/levelsio/status/968219339588493312"
+    },
+    {
+      "title": "@levelsio: Nomad List + Remote OK monthly costs",
+      "url": "https://x.com/levelsio/status/1105345282873581568"
+    },
+    {
+      "title": "Lex Fridman Podcast #440 transcript (stack discussion)",
+      "url": "https://lexfridman.com/pieter-levels-transcript/"
+    }
+  ]
+}

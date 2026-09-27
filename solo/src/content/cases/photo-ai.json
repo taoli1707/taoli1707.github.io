@@ -1,0 +1,111 @@
+{
+  "slug": "photo-ai",
+  "name": "Photo AI",
+  "founder": "Pieter Levels",
+  "url": "https://photoai.com",
+  "tagline": "Upload selfies, train a personal AI model, generate realistic photos of yourself",
+  "category": "ai-app",
+  "model": "subscription",
+  "channel": "build-in-public",
+  "started": 2023,
+  "revenue": {
+    "amount": 150000,
+    "period": "month",
+    "label": "~$150k/month",
+    "asOf": "2025-09",
+    "kind": "self-reported",
+    "source": "https://x.com/levelsio/status/1970858876212756506"
+  },
+  "team": "Solo",
+  "startupCost": "<$1k to launch (plus $40k later spent on the photoai.com domain)",
+  "timeToFirstDollar": "Launch week (Feb 2023)",
+  "stack": [
+    "PHP",
+    "jQuery",
+    "SQLite",
+    "Nginx",
+    "Ubuntu",
+    "Hetzner VPS",
+    "Replicate (GPU inference)"
+  ],
+  "summary": "Photo AI lets users upload photos of themselves, trains a custom image model on them, and then generates realistic photos in any setting or outfit. Pieter Levels runs it alone. In September 2025 he reported ~$150k/month, 2,573 active subscribers and an 87% profit margin.",
+  "origin": "Levels launched Avatar AI in 2022, one of the first apps selling AI-generated avatars from selfies. When the avatar fad faded he pivoted the same fine-tuning pipeline into Photo AI in February 2023. The pitch moved from novelty avatars to realistic photos people could use for dating profiles, social media and work.",
+  "howItMakesMoney": "Monthly subscriptions billed by tier. The public pricing page lists Starter at $19/mo, Pro at $49/mo, Premium at $99/mo and Ultra at $199/mo. Tiers differ mainly in how many models you can train and how many photos you can generate.",
+  "growth": [
+    "Posted MRR, customer counts and costs publicly from week one: $10k MRR after 3 weeks with 318 customers, then $25,337/mo revenue against $5,713/mo costs after 5 weeks.",
+    "Went viral on short video: Levels reported adding $7k MRR in one day from a single TikTok (March 2023).",
+    "An existing audience of several hundred thousand X followers, built over a decade of public building, gave him launch distribution.",
+    "Appeared on the Lex Fridman podcast (Aug 2024). Levels said Photo AI revenue roughly tripled afterwards and posted a $161k/month Photo AI figure in Sept 2024.",
+    "Kept upgrading output quality as newer open image models arrived, including ControlNet shortly after launch, and gave the upgrades to paying tiers."
+  ],
+  "moat": "The moat is distribution more than technology. Levels' audience and track record get every launch seen. Fast iteration on new models, plus years of prompt and pipeline tuning, keeps output quality competitive.",
+  "risks": "Frontier image models from large labs increasingly generate a person's likeness without per-user fine-tuning, which commoditizes the core feature. Revenue depends heavily on one founder's attention, and the market is crowded with clones.",
+  "timeline": [
+    {
+      "date": "2022",
+      "event": "Launches Avatar AI, selling AI avatars generated from selfies"
+    },
+    {
+      "date": "2023-02",
+      "event": "Pivots into Photo AI for realistic AI photos"
+    },
+    {
+      "date": "2023-03",
+      "event": "Reports $10k MRR after 3 weeks, then $18k MRR and buys photoai.com for $40k"
+    },
+    {
+      "date": "2023-03",
+      "event": "Reports $25k MRR after 5 weeks with ~$19.6k/mo profit"
+    },
+    {
+      "date": "2024-09",
+      "event": "Posts $161k/month for Photo AI after appearing on the Lex Fridman podcast"
+    },
+    {
+      "date": "2025-09",
+      "event": "Reports a ~$150k/month record, 2,573 subscribers and 87% margin, still solo"
+    }
+  ],
+  "lessons": [
+    "Reuse the pipeline when a fad dies. Avatar AI's fine-tuning stack became the base for a more durable product.",
+    "Public revenue updates double as marketing: each milestone post was also a launch announcement.",
+    "Rent GPUs through an inference API (Replicate) instead of running your own ML infrastructure, and keep the web app boring (PHP, SQLite, one VPS).",
+    "Put the monthly price up front and tier it by usage. Heavy users self-select into $99 to $199 plans.",
+    "Buy the exact-match domain once revenue justifies it. Levels paid $40k, about 2.2 months of MRR at the time."
+  ],
+  "rebuild": {
+    "idea": "Consistent AI product and lifestyle photos of one physical product (not a person) for small Etsy and Shopify sellers: train on 10 phone photos, then generate catalogue and lifestyle shots on demand.",
+    "why": "Per-subject fine-tuning is now cheap, and small sellers still pay photographers per shoot. Most AI product-photo tools do background swaps, not faithful multi-angle renders of one specific item.",
+    "mvp": [
+      "Build a concierge flow: take 10 photos from a seller, fine-tune an open image model on Replicate, and deliver 40 shots by hand.",
+      "Post 3 to 5 before/after sets in Etsy and Shopify seller communities and offer the first 10 sellers a $29 pack.",
+      "Automate upload, train, generate and email once 5 people have paid.",
+      "Add a $19/mo plan for sellers who add new products every month."
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "Developers comfortable with image-model APIs who can also sell to e-commerce sellers"
+  },
+  "sources": [
+    {
+      "title": "@levelsio: Photo AI reached $150,000/mo, 2,573 subscribers, PHP + jQuery + SQLite",
+      "url": "https://x.com/levelsio/status/1970858876212756506"
+    },
+    {
+      "title": "@levelsio: $10,000 MRR after 3 weeks with 318 customers",
+      "url": "https://x.com/levelsio/status/1631715500010135552"
+    },
+    {
+      "title": "@levelsio: $25,000 MRR after 5 weeks, costs and profit",
+      "url": "https://x.com/levelsio/status/1636770414293843971"
+    },
+    {
+      "title": "@levelsio: $420k/mo record month incl. Photo AI $161K/m",
+      "url": "https://x.com/levelsio/status/1837707857372106992"
+    },
+    {
+      "title": "Photo AI pricing",
+      "url": "https://photoai.com/pricing"
+    }
+  ]
+}

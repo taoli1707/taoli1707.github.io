@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solo Ledger: Real one-person businesses, taken apart.</title>
+<meta name="description" content="Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next.">
+<link rel="canonical" href="https://taoli1707.github.io/solo/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solo Ledger">
+<meta property="og:title" content="Solo Ledger">
+<meta property="og:description" content="Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next.">
+<meta property="og:url" content="https://taoli1707.github.io/solo/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121614" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/solo/assets/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=JSON.parse(localStorage.getItem("solo.theme"));if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="/solo/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Solo Ledger","url":"https://taoli1707.github.io/solo/","description":"Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next."}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/solo/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M9 22V10m0 12h14M13 19v-4m4 4v-7m4 7v-9" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span>Solo<span class="dot">Ledger</span></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Site">
+      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas to build</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
+      <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">One founder. No team. Real numbers.</p>
+    <h1>How one-person businesses actually make money.</h1>
+    <p class="lede">23 teardowns of businesses run by a single person: the revenue they disclosed and where it came from, how they started, the channel that brought customers, what protects them, and an adjacent idea you could build with the same playbook.</p>
+    <dl class="stats">
+      <div><dt>Cases</dt><dd>23</dd></div>
+      <div><dt>Combined revenue, annualized</dt><dd>$34.5M</dd></div>
+      <div><dt>Median case</dt><dd>$550k/yr</dd></div>
+      <div><dt>Founder-reported figures</dt><dd>21 of 23</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="cases">
+  <div class="wrap">
+    <form class="toolbar" id="filters" role="search" onsubmit="return false">
+      <label class="field grow"><span>Search</span><input id="q" type="search" placeholder="Name, founder, stack, idea…" autocomplete="off"></label>
+      <label class="field"><span>Category</span><select id="f-cat"><option value="all">All</option><option value="ai-app">AI apps (3)</option><option value="saas">SaaS (5)</option><option value="dev-tools">Dev tools (1)</option><option value="data-api">Data &amp; APIs (4)</option><option value="content-media">Content &amp; media (2)</option><option value="info-products">Courses &amp; info (4)</option><option value="templates-digital">Templates (1)</option><option value="marketplace-directory">Directories &amp; job boards (3)</option></select></label>
+      <label class="field"><span>Model</span><select id="f-model"><option value="all">All</option><option value="subscription">Subscription (9)</option><option value="one-time">One-time sale (5)</option><option value="ads">Ads (1)</option><option value="mixed">Mixed (8)</option></select></label>
+      <label class="field"><span>Channel</span><select id="f-channel"><option value="all">All</option><option value="build-in-public">Build in public (5)</option><option value="seo">SEO (4)</option><option value="twitter-x">X / Twitter (6)</option><option value="linkedin">LinkedIn (1)</option><option value="newsletter">Newsletter (1)</option><option value="word-of-mouth">Word of mouth (4)</option><option value="marketplace">Marketplace (2)</option></select></label>
+      <label class="field"><span>Revenue</span><select id="f-band"><option value="all">All</option><option value="lt100k">Under $100k/yr (1)</option><option value="100k-1m">$100k–$1M/yr (12)</option><option value="gt1m">$1M+/yr (10)</option></select></label>
+      <label class="field"><span>Sort</span><select id="sort">
+        <option value="annual">Highest revenue</option>
+        <option value="started-desc">Newest</option>
+        <option value="started-asc">Oldest</option>
+        <option value="diff">Easiest idea to build</option>
+        <option value="name">A–Z</option>
+      </select></label>
+    </form>
+    <p class="count" id="count" aria-live="polite">23 cases</p>
+    <ul class="cards" id="cards">
+<li class="card" data-slug="builtwith" data-cat="data-api" data-model="subscription" data-channel="seo" data-band="gt1m" data-annual="14000000" data-started="2007" data-diff="3" data-text="builtwith gary brewer detects the technologies behind websites and sells the results as lead lists an &#39;ai stack&#39; detector that shows which llm providers, vector databases and agent frameworks companies use, drawn from js bundles, dns/cnames, status-page vendors and job posts, and sold as lead lists to ai tooling vendors.">
+  <div class="card-top"><span class="cat">Data &amp; APIs</span><span class="year">since 2007</span></div>
+  <h3><a href="/solo/cases/builtwith/">BuiltWith</a></h3>
+  <p class="founder">Gary Brewer</p>
+  <p class="tagline">Detects the technologies behind websites and sells the results as lead lists</p>
+  <div class="rev"><span class="num">~$14M/yr (widely reported, not audited)</span><span class="kind kind-estimate" title="A third-party or back-of-envelope estimate, not a founder disclosure.">Estimate</span></div>
+  <div class="meta"><span>Subscription</span><span>via SEO</span></div>
+</li>
+<li class="card" data-slug="justin-welsh" data-cat="info-products" data-model="mixed" data-channel="linkedin" data-band="gt1m" data-annual="4150000" data-started="2019" data-diff="2" data-text="the saturday solopreneur + courses justin welsh newsletter and self-paced courses on building a one-person internet business a course and newsletter teaching licensed tradespeople (electricians, hvac techs) to leave employment and run a one-van business, built from one tradesperson&#39;s own numbers gumroad">
+  <div class="card-top"><span class="cat">Courses &amp; info</span><span class="year">since 2019</span></div>
+  <h3><a href="/solo/cases/justin-welsh/">The Saturday Solopreneur + courses</a></h3>
+  <p class="founder">Justin Welsh</p>
+  <p class="tagline">Newsletter and self-paced courses on building a one-person internet business</p>
+  <div class="rev"><span class="num">$4.15M+ in 2024 (~86% margin)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via LinkedIn</span></div>
+</li>
+<li class="card" data-slug="headshotpro" data-cat="ai-app" data-model="one-time" data-channel="seo" data-band="gt1m" data-annual="3600000" data-started="2023" data-diff="2" data-text="headshotpro danny postma ai-generated professional headshots for individuals and remote teams ai-generated, brand-consistent staff photos for small healthcare and real-estate practices, delivered as ready-to-upload website &#39;meet the team&#39; pages and google business profile images.">
+  <div class="card-top"><span class="cat">AI apps</span><span class="year">since 2023</span></div>
+  <h3><a href="/solo/cases/headshotpro/">HeadshotPro</a></h3>
+  <p class="founder">Danny Postma</p>
+  <p class="tagline">AI-generated professional headshots for individuals and remote teams</p>
+  <div class="rev"><span class="num">~$300k/month (widely reported)</span><span class="kind kind-estimate" title="A third-party or back-of-envelope estimate, not a founder disclosure.">Estimate</span></div>
+  <div class="meta"><span>One-time sale</span><span>via SEO</span></div>
+</li>
+<li class="card" data-slug="photo-ai" data-cat="ai-app" data-model="subscription" data-channel="build-in-public" data-band="gt1m" data-annual="1800000" data-started="2023" data-diff="3" data-text="photo ai pieter levels upload selfies, train a personal ai model, generate realistic photos of yourself consistent ai product and lifestyle photos of one physical product (not a person) for small etsy and shopify sellers: train on 10 phone photos, then generate catalogue and lifestyle shots on demand. php jquery sqlite nginx ubuntu hetzner vps replicate (gpu inference)">
+  <div class="card-top"><span class="cat">AI apps</span><span class="year">since 2023</span></div>
+  <h3><a href="/solo/cases/photo-ai/">Photo AI</a></h3>
+  <p class="founder">Pieter Levels</p>
+  <p class="tagline">Upload selfies, train a personal AI model, generate realistic photos of yourself</p>
+  <div class="rev"><span class="num">~$150k/month</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Build in public</span></div>
+</li>
+<li class="card" data-slug="typingmind" data-cat="ai-app" data-model="mixed" data-channel="twitter-x" data-band="gt1m" data-annual="1776000" data-started="2023" data-diff="3" data-text="typingmind tony dinh a better chat interface for llms, used with your own api keys a bring-your-own-key ai workspace for regulated small firms (law offices, accountants, clinics) that ships with audit logs, pii redaction before prompts leave the machine, and ready-made prompt packs for each profession.">
+  <div class="card-top"><span class="cat">AI apps</span><span class="year">since 2023</span></div>
+  <h3><a href="/solo/cases/typingmind/">TypingMind</a></h3>
+  <p class="founder">Tony Dinh</p>
+  <p class="tagline">A better chat interface for LLMs, used with your own API keys</p>
+  <div class="rev"><span class="num">$148k in one month (all-time high)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via X / Twitter</span></div>
+</li>
+<li class="card" data-slug="remote-ok" data-cat="marketplace-directory" data-model="mixed" data-channel="build-in-public" data-band="gt1m" data-annual="1213212" data-started="2015" data-diff="2" data-text="remote ok pieter levels remote job board that started as an aggregator of remote listings a job board for data engineering and analytics engineering roles, aggregated from public ats feeds (greenhouse, lever, ashby), with normalized stack tags (dbt, airflow, spark, snowflake) and salary filters. php (single index.php) jquery">
+  <div class="card-top"><span class="cat">Directories &amp; job boards</span><span class="year">since 2015</span></div>
+  <h3><a href="/solo/cases/remote-ok/">Remote OK</a></h3>
+  <p class="founder">Pieter Levels</p>
+  <p class="tagline">Remote job board that started as an aggregator of remote listings</p>
+  <div class="rev"><span class="num">$101K in one month (Apr 2021 peak)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via Build in public</span></div>
+</li>
+<li class="card" data-slug="bannerbear" data-cat="data-api" data-model="subscription" data-channel="build-in-public" data-band="gt1m" data-annual="1000000" data-started="2019" data-diff="3" data-text="bannerbear jon yongfook api for auto-generating images and videos from templates a template-to-pdf and image api for real-estate agents&#39; listing flyers and social posts, pulling data straight from mls/idx feeds. ruby on rails 6 jquery">
+  <div class="card-top"><span class="cat">Data &amp; APIs</span><span class="year">since 2019</span></div>
+  <h3><a href="/solo/cases/bannerbear/">Bannerbear</a></h3>
+  <p class="founder">Jon Yongfook</p>
+  <p class="tagline">API for auto-generating images and videos from templates</p>
+  <div class="rev"><span class="num">$1M ARR</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Build in public</span></div>
+</li>
+<li class="card" data-slug="carrd" data-cat="saas" data-model="subscription" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2016" data-diff="2" data-text="carrd aj (ajlkn) simple, responsive one-page websites for almost anything a one-page site builder just for local tradespeople (plumbers, electricians, cleaners) with built-in quote-request forms, service-area maps and google review embeds, at $29/yr.">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2016</span></div>
+  <h3><a href="/solo/cases/carrd/">Carrd</a></h3>
+  <p class="founder">AJ (ajlkn)</p>
+  <p class="tagline">Simple, responsive one-page websites for almost anything</p>
+  <div class="rev"><span class="num">$1M ARR</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Word of mouth</span></div>
+</li>
+<li class="card" data-slug="lennys-newsletter" data-cat="content-media" data-model="mixed" data-channel="twitter-x" data-band="gt1m" data-annual="1000000" data-started="2019" data-diff="3" data-text="lenny&#39;s newsletter lenny rachitsky paid substack newsletter and podcast on product, growth and careers a paid newsletter for a professional role that has no &#39;lenny&#39; yet, such as hospital operations managers or clinical research coordinators substack">
+  <div class="card-top"><span class="cat">Content &amp; media</span><span class="year">since 2019</span></div>
+  <h3><a href="/solo/cases/lennys-newsletter/">Lenny&#39;s Newsletter</a></h3>
+  <p class="founder">Lenny Rachitsky</p>
+  <p class="tagline">Paid Substack newsletter and podcast on product, growth and careers</p>
+  <div class="rev"><span class="num">$1M+/yr newsletter + podcast combined</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via X / Twitter</span></div>
+</li>
+<li class="card" data-slug="photopea" data-cat="saas" data-model="ads" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2013" data-diff="5" data-text="photopea ivan kutskir free browser-based image editor that opens photoshop files, funded by ads a free browser tool that opens and edits a proprietary professional file format with no good free viewer, such as cad/dwg or indesign packages, monetized by ads and a pro tier javascript html5 canvas / webgl">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2013</span></div>
+  <h3><a href="/solo/cases/photopea/">Photopea</a></h3>
+  <p class="founder">Ivan Kutskir</p>
+  <p class="tagline">Free browser-based image editor that opens Photoshop files, funded by ads</p>
+  <div class="rev"><span class="num">~$1M over 12 months (to Apr 2021)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Ads</span><span>via Word of mouth</span></div>
+</li>
+<li class="card" data-slug="nomad-list" data-cat="marketplace-directory" data-model="mixed" data-channel="build-in-public" data-band="100k-1m" data-annual="732000" data-started="2014" data-diff="2" data-text="nomad list (now nomads.com) pieter levels city data and a paid community for remote workers choosing where to live a &#39;where to live&#39; data site plus paid community for remote-working families: school options, pediatric care, kid-friendly neighborhoods and visa rules for dependents, city by city. php jquery sqlite single vps">
+  <div class="card-top"><span class="cat">Directories &amp; job boards</span><span class="year">since 2014</span></div>
+  <h3><a href="/solo/cases/nomad-list/">Nomad List (now Nomads.com)</a></h3>
+  <p class="founder">Pieter Levels</p>
+  <p class="tagline">City data and a paid community for remote workers choosing where to live</p>
+  <div class="rev"><span class="num">~$61k/month (Sept 2024)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via Build in public</span></div>
+</li>
+<li class="card" data-slug="css-for-js-developers" data-cat="info-products" data-model="one-time" data-channel="twitter-x" data-band="100k-1m" data-annual="550000" data-started="2020" data-diff="3" data-text="css for javascript developers josh w. comeau interactive self-paced css course for react and vue developers an interactive course teaching sql and data modeling specifically to product managers and analysts in non-tech companies next.js mdx react custom course platform">
+  <div class="card-top"><span class="cat">Courses &amp; info</span><span class="year">since 2020</span></div>
+  <h3><a href="/solo/cases/css-for-js-developers/">CSS for JavaScript Developers</a></h3>
+  <p class="founder">Josh W. Comeau</p>
+  <p class="tagline">Interactive self-paced CSS course for React and Vue developers</p>
+  <div class="rev"><span class="num">~$550K in a one-week pre-sale (Mar 2021)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>One-time sale</span><span>via X / Twitter</span></div>
+</li>
+<li class="card" data-slug="gummysearch" data-cat="data-api" data-model="subscription" data-channel="build-in-public" data-band="100k-1m" data-annual="420000" data-started="2021" data-diff="3" data-text="gummysearch fed (@foliofed) audience research tool that mined reddit for pain points and buying intent a customer-research tool built on licensed or first-party sources: public app-store reviews, g2/capterra-style reviews the customer exports, support tickets and sales call transcripts, clustered into pain points and feature requests. reddit data api">
+  <div class="card-top"><span class="cat">Data &amp; APIs</span><span class="year">since 2021</span></div>
+  <h3><a href="/solo/cases/gummysearch/">GummySearch</a></h3>
+  <p class="founder">Fed (@foliofed)</p>
+  <p class="tagline">Audience research tool that mined Reddit for pain points and buying intent</p>
+  <div class="rev"><span class="num">~$35K MRR at shutdown</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Build in public</span></div>
+</li>
+<li class="card" data-slug="small-bets" data-cat="info-products" data-model="one-time" data-channel="twitter-x" data-band="100k-1m" data-annual="412000" data-started="2019" data-diff="3" data-text="small bets daniel vassallo community and live classes for people building a portfolio of small online bets a lifetime-fee community and class series for early-career public servants or ngo staff building side incomes within their employer&#39;s ethics rules gumroad">
+  <div class="card-top"><span class="cat">Courses &amp; info</span><span class="year">since 2019</span></div>
+  <h3><a href="/solo/cases/small-bets/">Small Bets</a></h3>
+  <p class="founder">Daniel Vassallo</p>
+  <p class="tagline">Community and live classes for people building a portfolio of small online bets</p>
+  <div class="rev"><span class="num">$824K community revenue over 24 months (to Oct 2023)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>One-time sale</span><span>via X / Twitter</span></div>
+</li>
+<li class="card" data-slug="screenshotone" data-cat="data-api" data-model="subscription" data-channel="seo" data-band="100k-1m" data-annual="384000" data-started="2022" data-diff="3" data-text="screenshotone dmytro krasun screenshot api: send a url or html, get back a clean rendered image a compliance evidence capture api that takes timestamped, hashed and archived captures of web pages (ads, pricing pages, cookie banners, terms) for legal, ad-compliance and brand-protection teams.">
+  <div class="card-top"><span class="cat">Data &amp; APIs</span><span class="year">since 2022</span></div>
+  <h3><a href="/solo/cases/screenshotone/">ScreenshotOne</a></h3>
+  <p class="founder">Dmytro Krasun</p>
+  <p class="tagline">Screenshot API: send a URL or HTML, get back a clean rendered image</p>
+  <div class="rev"><span class="num">~$32K MRR (plateaued)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via SEO</span></div>
+</li>
+<li class="card" data-slug="storemapper" data-cat="saas" data-model="subscription" data-channel="marketplace" data-band="100k-1m" data-annual="300000" data-started="2012" data-diff="2" data-text="storemapper tyler tringas embeddable store locator that shows shoppers where to buy a brand&#39;s products a &#39;find our product near you&#39; locator for craft breweries, wineries and specialty food brands that ingests messy distributor depletion reports (csv/excel) and keeps retailer locations up to date automatically. ruby on rails heroku">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2012</span></div>
+  <h3><a href="/solo/cases/storemapper/">Storemapper</a></h3>
+  <p class="founder">Tyler Tringas</p>
+  <p class="tagline">Embeddable store locator that shows shoppers where to buy a brand&#39;s products</p>
+  <div class="rev"><span class="num">~$25K/mo (2017 podcast)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Marketplace</span></div>
+</li>
+<li class="card" data-slug="trends-vc" data-cat="content-media" data-model="subscription" data-channel="newsletter" data-band="100k-1m" data-annual="240000" data-started="2020" data-diff="3" data-text="trends.vc dru riley research reports on emerging markets and business ideas for founders a paid research newsletter on emerging opportunities in one industry vertical, e.g. independent pharmacies or small manufacturing, with supplier and regulation data gumroad">
+  <div class="card-top"><span class="cat">Content &amp; media</span><span class="year">since 2020</span></div>
+  <h3><a href="/solo/cases/trends-vc/">Trends.vc</a></h3>
+  <p class="founder">Dru Riley</p>
+  <p class="tagline">Research reports on emerging markets and business ideas for founders</p>
+  <div class="rev"><span class="num">$20K MRR within a year of launch</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Newsletter</span></div>
+</li>
+<li class="card" data-slug="easlo" data-cat="templates-digital" data-model="one-time" data-channel="twitter-x" data-band="100k-1m" data-annual="239000" data-started="2021" data-diff="2" data-text="easlo jason chin notion templates for students and solo workers, sold on gumroad operating templates for a specific regulated small business (e.g. solo physiotherapists or tutors) in notion or airtable, covering intake, scheduling and compliance records notion gumroad">
+  <div class="card-top"><span class="cat">Templates</span><span class="year">since 2021</span></div>
+  <h3><a href="/solo/cases/easlo/">Easlo</a></h3>
+  <p class="founder">Jason Chin</p>
+  <p class="tagline">Notion templates for students and solo workers, sold on Gumroad</p>
+  <div class="rev"><span class="num">$239K in 2022</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>One-time sale</span><span>via X / Twitter</span></div>
+</li>
+<li class="card" data-slug="pinboard" data-cat="saas" data-model="subscription" data-channel="word-of-mouth" data-band="100k-1m" data-annual="234000" data-started="2009" data-diff="3" data-text="pinboard maciej ceglowski paid, ad-free bookmarking with optional full-page archiving a paid, private archive for a specific profession&#39;s web sources, such as lawyers or journalists capturing web pages as timestamped evidence php mysql">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2009</span></div>
+  <h3><a href="/solo/cases/pinboard/">Pinboard</a></h3>
+  <p class="founder">Maciej Ceglowski</p>
+  <p class="tagline">Paid, ad-free bookmarking with optional full-page archiving</p>
+  <div class="rev"><span class="num">~$234K revenue in 2016, ~$17K/yr costs</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Subscription</span><span>via Word of mouth</span></div>
+</li>
+<li class="card" data-slug="shipfast" data-cat="dev-tools" data-model="one-time" data-channel="twitter-x" data-band="100k-1m" data-annual="206400" data-started="2023" data-diff="3" data-text="shipfast marc lou next.js boilerplate with auth, payments and email pre-wired for saas launches a production-ready starter kit for ai agent apps in regulated or b2b settings: multi-tenant auth, per-customer llm usage metering and billing, audit logs and eval harness pre-wired. next.js react tailwind css stripe">
+  <div class="card-top"><span class="cat">Dev tools</span><span class="year">since 2023</span></div>
+  <h3><a href="/solo/cases/shipfast/">ShipFast</a></h3>
+  <p class="founder">Marc Lou</p>
+  <p class="tagline">Next.js boilerplate with auth, payments and email pre-wired for SaaS launches</p>
+  <div class="rev"><span class="num">$17.2k/month (Jan 2026)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>One-time sale</span><span>via X / Twitter</span></div>
+</li>
+<li class="card" data-slug="betalist" data-cat="marketplace-directory" data-model="mixed" data-channel="word-of-mouth" data-band="100k-1m" data-annual="100000" data-started="2010" data-diff="2" data-text="betalist marc köhlbrugge directory of early-stage startups looking for their first users a curated directory of mcp servers and ai-agent tools with verified install and compatibility testing, a free listing queue and a paid expedited review with a badge. tumblr (mvp)">
+  <div class="card-top"><span class="cat">Directories &amp; job boards</span><span class="year">since 2010</span></div>
+  <h3><a href="/solo/cases/betalist/">BetaList</a></h3>
+  <p class="founder">Marc Köhlbrugge</p>
+  <p class="tagline">Directory of early-stage startups looking for their first users</p>
+  <div class="rev"><span class="num">~$1M lifetime over 10 yrs (~$100K/yr avg)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via Word of mouth</span></div>
+</li>
+<li class="card" data-slug="bingo-card-creator" data-cat="saas" data-model="mixed" data-channel="seo" data-band="100k-1m" data-annual="100000" data-started="2006" data-diff="2" data-text="bingo card creator patrick mckenzie software that makes printable bingo cards for elementary school teachers a generator for printable, standards-aligned classroom activities (word searches, bingo, flashcards) that takes a teacher&#39;s own vocabulary list and aligns to phonics or esl curricula, sold to homeschoolers and esl tutors. ruby on rails (web version) a/bingo (his own rails a/b testing library) stripe (from 2012)">
+  <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2006</span></div>
+  <h3><a href="/solo/cases/bingo-card-creator/">Bingo Card Creator</a></h3>
+  <p class="founder">Patrick McKenzie</p>
+  <p class="tagline">Software that makes printable bingo cards for elementary school teachers</p>
+  <div class="rev"><span class="num">&gt;$100K sales in 2011 (~$70K profit)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via SEO</span></div>
+</li>
+<li class="card" data-slug="better-sheets" data-cat="info-products" data-model="mixed" data-channel="marketplace" data-band="lt100k" data-annual="67000" data-started="2020" data-diff="1" data-text="better sheets andrew kamphey library of google sheets tutorials, templates and apps script tools a library of google sheets and apps script automations and tutorials for small bookkeeping and accounting practices, such as bank csv cleanup, client reconciliation trackers and ai-assisted categorization scripts. google sheets google apps script">
+  <div class="card-top"><span class="cat">Courses &amp; info</span><span class="year">since 2020</span></div>
+  <h3><a href="/solo/cases/better-sheets/">Better Sheets</a></h3>
+  <p class="founder">Andrew Kamphey</p>
+  <p class="tagline">Library of Google Sheets tutorials, templates and Apps Script tools</p>
+  <div class="rev"><span class="num">$200K lifetime in first 3 yrs (~$67K/yr avg)</span><span class="kind kind-self-reported" title="The founder published this number. Nobody audited it.">Self-reported</span></div>
+  <div class="meta"><span>Mixed</span><span>via Marketplace</span></div>
+</li>
+    </ul>
+    <p class="empty" id="empty" hidden>No case matches those filters. <button type="button" class="linkish" id="reset">Clear filters</button></p>
+    <p class="note">Revenue is annualized for sorting (monthly × 12; one-off totals such as a launch week count as one year). Each figure is dated and linked to its source on the case page. <a href="/solo/about/">How we source numbers →</a></p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <strong>Solo Ledger</strong>
+        <p>Case studies of one-person businesses with sourced revenue, how they grew, what protects them, and an adjacent idea you could build next.</p>
+      </div>
+      <div>
+        <strong>Browse</strong>
+        <ul>
+          <li><a href="/solo/">All cases</a></li>
+          <li><a href="/solo/ideas/">Ideas to build</a></li>
+          <li><a href="/solo/patterns/">Patterns</a></li>
+          <li><a href="/solo/cases.json">Raw data (JSON)</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Fine print</strong>
+        <ul>
+          <li><a href="/solo/about/">How we source numbers</a></li>
+          <li><a href="/solo/about/#corrections">Corrections</a></li>
+          <li><a href="/solo/about/#privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+  </div>
+</footer>
+<script src="/solo/assets/site.js" defer></script>
+</body>
+</html>
