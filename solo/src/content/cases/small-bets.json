@@ -1,0 +1,122 @@
+{
+  "slug": "small-bets",
+  "name": "Small Bets",
+  "founder": "Daniel Vassallo",
+  "url": "https://smallbets.com",
+  "tagline": "Community and live classes for people building a portfolio of small online bets",
+  "category": "info-products",
+  "model": "one-time",
+  "channel": "twitter-x",
+  "started": 2019,
+  "revenue": {
+    "amount": 412000,
+    "period": "year",
+    "label": "$824K community revenue over its first 24 months (Nov 2021-Oct 2023)",
+    "asOf": "2023-10",
+    "kind": "self-reported",
+    "source": "https://community.inc/article/small-bets"
+  },
+  "team": "Solo until July 2023, then run as a partnership with Louie Bacaj",
+  "status": {
+    "state": "sold",
+    "date": "2025-04",
+    "note": "Sold to Gumroad for $3.6M; the founder keeps running it."
+  },
+  "startupCost": null,
+  "timeToFirstDollar": null,
+  "stack": [
+    "Gumroad",
+    "Discord"
+  ],
+  "summary": "Daniel Vassallo left a ~$500K/yr Amazon Web Services job and ran several small products instead of one startup: an AWS book, a $25 Twitter audience course, a $375 cohort course, and the Small Bets community with a one-time lifetime fee. Small Bets made $824,409 revenue in its first two years, and he sold it to Gumroad for $3.6M in April 2025.",
+  "origin": "After leaving AWS, Vassallo co-wrote 'The Good Parts of AWS' (launched on Gumroad on Dec 25, 2019 at $65) and in April 2020 released a $25 video course, 'Everyone Can Build a Twitter Audience', that took about 16 hours to make. He then ran a $375 two-week Small Bets cohort course over Zoom, and gave students lifetime access to a Discord. That Discord became the Small Bets community in November 2021.",
+  "howItMakesMoney": "Mainly one-time payments for lifetime membership to Small Bets (live events from members and guest speakers, community chat on Discord, recordings, course deals). The lifetime price has moved between about $185 and $245 with Black Friday promotions, and a one-year $99 option was added in November 2023. Earlier income came from the $25 Twitter course and the AWS book.",
+  "growth": [
+    "Leaving a ~$500K/yr job to work independently gave him a story that drew early attention",
+    "Shared exact revenue and hours per product publicly on X, which became marketing",
+    "The $25 Twitter course (13,000+ sales, ~$310K) proved his audience would buy",
+    "The $375 cohort course sold out week after week ($150K from 400 customers in 5 months) and seeded the community",
+    "Paid members and guest experts (typically $1,000 a session) to teach live events, adding content without him producing it all",
+    "Ran pricing experiments on the lifetime fee, especially on Black Friday; November 2023 was the first $100K revenue month",
+    "Word of mouth and a small affiliate program (20% referral fee)"
+  ],
+  "moat": "Community network effects (thousands of lifetime members and member-run events) plus Vassallo's personal following and public track record.",
+  "risks": "Lifetime pricing means little recurring revenue; income depends on continuous new members. Much of the value was tied to the founder, which is why the Gumroad deal requires him to keep running it for five years.",
+  "timeline": [
+    {
+      "date": "2019-12",
+      "event": "Launches 'The Good Parts of AWS' on Gumroad; $45K in 14 days"
+    },
+    {
+      "date": "2020-04",
+      "event": "Launches $25 'Everyone Can Build a Twitter Audience' course on Gumroad"
+    },
+    {
+      "date": "2021-11",
+      "event": "Launches Small Bets community"
+    },
+    {
+      "date": "2023-06",
+      "event": "Reports Small Bets: 500 hours for $545,072 profit; Twitter course: 16 hours for $270,971 profit"
+    },
+    {
+      "date": "2023-07",
+      "event": "Louie Bacaj joins as partner"
+    },
+    {
+      "date": "2023-11",
+      "event": "First $100K revenue month, driven by a Black Friday offer"
+    },
+    {
+      "date": "2025-04",
+      "event": "Sells Small Bets to Gumroad for $3.6M (50% cash, 50% stock options), 6,692 members; about 8x 2024 profit"
+    }
+  ],
+  "lessons": [
+    "Measure each product by profit per hour invested, not MRR",
+    "A cheap, fast product (a 16-hour video course) can validate an audience before a larger bet",
+    "Communities scale when members teach each other, not just the founder",
+    "Transparency about numbers can be the marketing for a business-advice product",
+    "A lifetime-fee community can still be sold if membership and content are documented"
+  ],
+  "rebuild": {
+    "idea": "A lifetime-fee community and class series for early-career public servants or NGO staff building side incomes within their employer's ethics rules",
+    "why": "Most indie-business communities assume tech workers; government and nonprofit staff face specific conflict-of-interest rules and have no dedicated space.",
+    "mvp": [
+      "Write one public post about your own side income under those constraints",
+      "Run a free live session on what is and isn't allowed, collect emails",
+      "Offer a $99 lifetime founding membership with 4 scheduled live classes",
+      "Invite 2 members to teach classes on their own side projects"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "8-12 (fits a side hustle)",
+    "fit": "Someone who has worked in that sector and already runs a small permitted side project",
+    "stack": [
+      "Circle",
+      "Stripe",
+      "Zoom",
+      "Kit (ConvertKit)"
+    ],
+    "pricing": "One-time lifetime membership at $99 for founding members, raised in steps toward $199-$249 as the recorded class library grows, with an optional $49/year tier.",
+    "potential": "low",
+    "market": "Buyers are early-career public servants and NGO staff who want permitted side income, reached through LinkedIn, sector newsletters and alumni networks of public-policy schools. Competitors are general indie-business communities such as Small Bets and Indie Hackers, plus free Reddit and Facebook groups."
+  },
+  "sources": [
+    {
+      "title": "Community Inc: How Daniel Vassallo Grew Small Bets to $1M",
+      "url": "https://community.inc/article/small-bets"
+    },
+    {
+      "title": "Daniel Vassallo on X: payoffs per hour",
+      "url": "https://twitter.com/dvassallo/status/1666963246694404097"
+    },
+    {
+      "title": "Daniel Vassallo on LinkedIn: I just sold my business Small Bets for $3.6M to Gumroad",
+      "url": "https://www.linkedin.com/posts/danielvassallo_i-just-sold-my-business-small-bets-for-36m-activity-7319108700080599041-SCfp"
+    },
+    {
+      "title": "Alexis Grant on LinkedIn: Small Bets sold to Gumroad for $3.6M",
+      "url": "https://www.linkedin.com/posts/alexisgrant_the-owner-of-a-community-and-course-called-activity-7319105752084733952-rme6"
+    }
+  ]
+}

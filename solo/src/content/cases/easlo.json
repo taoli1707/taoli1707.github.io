@@ -1,0 +1,98 @@
+{
+  "slug": "easlo",
+  "name": "Easlo",
+  "founder": "Jason Chin",
+  "url": "https://www.easlo.co",
+  "tagline": "Notion templates for students and solo workers, sold on Gumroad",
+  "category": "templates-digital",
+  "model": "one-time",
+  "channel": "twitter-x",
+  "started": 2021,
+  "revenue": {
+    "amount": 239000,
+    "period": "year",
+    "label": "$239K in 2022",
+    "asOf": "2022-12",
+    "kind": "self-reported",
+    "source": "https://finance.yahoo.com/news/made-239-000-selling-budgeting-120626735.html"
+  },
+  "team": "Solo in 2022; had hired his sister full time by early 2024",
+  "startupCost": null,
+  "timeToFirstDollar": "Tips on free templates from summer/fall 2021; first paid template (Nov 2021) made over $3,000 in its first month",
+  "stack": [
+    "Notion",
+    "Gumroad"
+  ],
+  "summary": "Easlo is the brand of Jason Chin, a Singaporean creator who sells Notion templates such as the Second Brain system. He reported $239K in template sales in 2022 as a one-person operation (Business Insider verified the figure), and by 2024 had tens of thousands of customers and 1.1M+ followers across platforms.",
+  "origin": "Chin learned Notion from YouTube videos on weekends while doing national service in Singapore. In summer 2021 he released free templates (such as budget and habit trackers) on Gumroad with an optional tip and promoted them on Twitter and Product Hunt. After receiving tips of up to $100, he began charging for new templates in November 2021, and chose to go full time as a creator instead of attending university.",
+  "howItMakesMoney": "One-time purchases of Notion templates on Gumroad, typically $10-$100. In 2022 the flagship Second Brain template sold at $130 and brought in over $100K on its own, while cheaper templates such as a $20 Bullet Journal and $40 Finance Tracker made up nearly half the business. Second Brain is listed at $79 on Gumroad today.",
+  "growth": [
+    "Released templates free with an optional tip first, then emailed everyone who had downloaded them when he started charging",
+    "Started with simple personal-organization templates (budget, habits) aimed at people like himself",
+    "Grew organically on Twitter (over 211K followers by late 2022) with 2-3 tweets a day and a weekly thread, never paying for ads, then repeated the playbook on TikTok and Instagram",
+    "Launched templates on Product Hunt and priced an all-in-one Second Brain system well above single-purpose templates"
+  ],
+  "moat": "Weak on the product (templates are easy to copy) but strong on distribution: a large social following and brand recognition in the Notion template niche.",
+  "risks": "Depends on Notion's popularity and on Notion's own template marketplace; AI tools that generate workspaces could commoditize templates.",
+  "timeline": [
+    {
+      "date": "2021 (summer)",
+      "event": "Releases free Notion templates on Gumroad with optional tips"
+    },
+    {
+      "date": "2021-11",
+      "event": "Starts charging for templates; first paid template makes over $3,000 in its first month"
+    },
+    {
+      "date": "2022",
+      "event": "Reports $239K in template sales for the year"
+    },
+    {
+      "date": "2024-03",
+      "event": "Profiled with tens of thousands of customers, 1.1M+ followers and his sister hired full time"
+    }
+  ],
+  "lessons": [
+    "Launching free with an optional tip is a cheap way to test which product people value",
+    "Build the audience first with free, useful content, then turn on paid products",
+    "An all-in-one system can be the highest-priced and best-selling product",
+    "Visual products sell well on visual social platforms; screenshots are the ad"
+  ],
+  "rebuild": {
+    "idea": "Operating templates for a specific regulated small business (e.g. solo physiotherapists or tutors) in Notion or Airtable, covering intake, scheduling and compliance records",
+    "why": "General productivity templates are saturated, but vertical templates that encode a profession's actual workflow are rare and buyers can expense them.",
+    "mvp": [
+      "Interview 5 practitioners in one profession about their admin workflow",
+      "Build one template for their most painful workflow and give it to those 5 free",
+      "Publish a $49 version on Gumroad and post walkthrough videos in that profession's groups",
+      "Add a paid setup call as an upsell"
+    ],
+    "difficulty": 2,
+    "weeklyHours": "5-10 (fits a side hustle)",
+    "fit": "Someone who works in or alongside that profession and knows Notion or Airtable well",
+    "stack": [
+      "Notion or Airtable",
+      "Gumroad or Lemon Squeezy",
+      "Tally (intake forms)",
+      "Zapier or Make",
+      "Loom (walkthrough videos)"
+    ],
+    "pricing": "A $49 one-time template, a $99 bundle with intake forms and automations, and a $149 setup call as an upsell.",
+    "potential": "low",
+    "market": "Buyers are solo practitioners in one profession (such as physiotherapists or private tutors), reached through their professional Facebook groups, subreddits, associations and YouTube walkthroughs. Competitors are general template marketplaces (Notion's gallery, Etsy, Gumroad) and vertical practice-management software like Jane App, Cliniko or TutorBird."
+  },
+  "sources": [
+    {
+      "title": "Business Insider (via Yahoo Finance): I made $239,000 this year selling templates",
+      "url": "https://finance.yahoo.com/news/made-239-000-selling-budgeting-120626735.html"
+    },
+    {
+      "title": "Ben Lang: tens of thousands of customers selling Notion templates, meet Easlo",
+      "url": "https://benlangsnotes.substack.com/p/tens-thousands-customers-selling-notion-templates-meet-easlo-22-yo"
+    },
+    {
+      "title": "Easlo Second Brain on Gumroad",
+      "url": "https://easlo.gumroad.com/l/brain"
+    }
+  ]
+}

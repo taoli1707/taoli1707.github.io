@@ -1,0 +1,145 @@
+{
+  "slug": "shipfast",
+  "name": "ShipFast",
+  "founder": "Marc Lou",
+  "url": "https://shipfa.st",
+  "tagline": "Next.js boilerplate with auth, payments and email pre-wired for SaaS launches",
+  "category": "dev-tools",
+  "model": "one-time",
+  "channel": "twitter-x",
+  "started": 2023,
+  "revenue": {
+    "amount": 1992,
+    "period": "month",
+    "label": "~$2K in the last 30 days (Sep 2026); $1.27M all-time",
+    "asOf": "2026-09",
+    "kind": "self-reported",
+    "source": "https://trustmrr.com/startup/shipfast"
+  },
+  "team": "Solo",
+  "startupCost": null,
+  "timeToFirstDollar": null,
+  "stack": [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "MongoDB",
+    "Stripe",
+    "Vercel"
+  ],
+  "summary": "ShipFast is a paid Next.js starter codebase with authentication, Stripe payments, database, emails and SEO pages already wired up. Marc Lou launched it on September 1, 2023, packing two years of shipping knowledge into a GitHub repo. It made $40K in its first month and peaked at $133K in monthly revenue in April 2024. His Stripe-verified TrustMRR page shows $1.27M all-time revenue but only about $2K in the last 30 days as of September 2026.",
+  "origin": "Lou, a French developer who had been shipping many small startups in public, packaged the code he kept rewriting for each new project into a boilerplate. He announced it on August 31, 2023 with '$50 off for the first 50 customers', and told his wife they'd be lucky to make $100. It made $40,000 by the end of the first month.",
+  "howItMakesMoney": "One-time purchase for lifetime access to the GitHub repo and updates. As of September 2026 TrustMRR lists Starter at $199 and All-in at $249 (discounted from $299 and $349), plus a ShipFast + CodeFast bundle at $299. It also works as an entry product in Lou's portfolio (CodeFast, DataFast, TrustMRR).",
+  "growth": [
+    "Built in public on X with frequent revenue posts to a fast-growing indie-hacker audience.",
+    "Customer testimonials and 'shipped with ShipFast' posts turned buyers into promoters. He cited 4,200+ developers in August 2024 and 7,200+ by January 2026.",
+    "Named Product Hunt Maker of the Year 2023, which added credibility and backlinks.",
+    "YouTube videos in 2024 pushed monthly revenue to its $133K peak in April 2024, he says.",
+    "Tested paid ads: he reported $8,345 in Facebook ads bringing in $23,283 of ShipFast revenue (April 2024).",
+    "Cross-sold into his other products (CodeFast course, DataFast analytics) as ShipFast declined."
+  ],
+  "moat": "Weak on the code itself, since boilerplates are easy to copy and many clones exist. The defensibility is Lou's audience and brand recognition among indie hackers.",
+  "risks": "AI coding tools now generate boilerplate on demand, which undercuts the core value, and ShipFast's sales have collapsed from $133K in April 2024 to about $2K a month in 2026. Revenue depends on the founder's personal reach.",
+  "timeline": [
+    {
+      "date": "2023-08",
+      "event": "Announces ShipFast with $50 off for the first 50 customers"
+    },
+    {
+      "date": "2023-09",
+      "event": "Makes $40K in its first month"
+    },
+    {
+      "date": "2023-12",
+      "event": "Reaches almost $200K total revenue by year-end; Lou is named Product Hunt Maker of the Year 2023"
+    },
+    {
+      "date": "2024-04",
+      "event": "Reports $384K in the first 7 months; monthly revenue peaks at $133K"
+    },
+    {
+      "date": "2025-07",
+      "event": "ShipFast makes $18.2K of Lou's $48.9K monthly total"
+    },
+    {
+      "date": "2026-01",
+      "event": "ShipFast makes $17.2K; TrustMRR, CodeFast and DataFast all overtake it"
+    },
+    {
+      "date": "2026-09",
+      "event": "TrustMRR shows ~$2K in the last 30 days and $1.27M all-time"
+    }
+  ],
+  "lessons": [
+    "Package the code you already reuse. The fastest product to build is one you have effectively written several times.",
+    "A one-time developer product can spike quickly on an audience but decays without new distribution.",
+    "Use a successful product as a funnel into newer products (courses, SaaS) before it plateaus.",
+    "Share exact ad-spend numbers: the Facebook ads result was itself a viral post."
+  ],
+  "rebuild": {
+    "idea": "A production-ready starter kit for AI agent apps in regulated or B2B settings: multi-tenant auth, per-customer LLM usage metering and billing, audit logs and eval harness pre-wired.",
+    "why": "Generic SaaS boilerplates cover auth and Stripe but not LLM cost metering, tenant isolation or evals, which every B2B AI app now has to rebuild.",
+    "mvp": [
+      "Extract the metering, billing and audit pieces from an AI app you've already built into a clean repo.",
+      "Write a public post comparing the cost of building them from scratch with using the kit.",
+      "Pre-sell at $149 to your network and on X or relevant Discords before polishing.",
+      "Record a 20-minute walkthrough video as the main sales asset."
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "Engineers who have shipped a B2B AI product and have some audience on X or GitHub",
+    "stack": [
+      "Next.js",
+      "Postgres",
+      "Stripe (usage-based billing)",
+      "OpenAI API",
+      "Anthropic API",
+      "Langfuse"
+    ],
+    "pricing": "One-time license at $149 for pre-sales, rising to $249-$349 at launch, with an optional paid team tier or annual updates plan later.",
+    "potential": "low",
+    "market": "Buyers are developers and small agencies building B2B AI products, reached through X, GitHub and AI-engineering Discords and newsletters. Competitors include ShipFast, Supastarter and Makerkit, plus free open-source templates and AI coding tools that generate boilerplate on demand."
+  },
+  "sources": [
+    {
+      "title": "TrustMRR: ShipFast (Stripe-verified revenue)",
+      "url": "https://trustmrr.com/startup/shipfast"
+    },
+    {
+      "title": "Marc Lou: $384,000 and 7 months later",
+      "url": "https://twitter.com/marc_louvion/status/1779491043274260759"
+    },
+    {
+      "title": "Marc Lou: I made $94,799 in January 2026 (ShipFast $17.2K)",
+      "url": "https://x.com/marclou/status/2017579624033866096"
+    },
+    {
+      "title": "Marc Lou: I made $48,921 in July 2025 (ShipFast $18.2K)",
+      "url": "https://x.com/marclou/status/1950900252481130634"
+    },
+    {
+      "title": "Marc Lou: ShipFast launch post",
+      "url": "https://x.com/marc_louvion/status/1697165875957449084"
+    },
+    {
+      "title": "Marc Lou: $8,345 Facebook ads, $23,283 ShipFast revenue",
+      "url": "https://x.com/marclou/status/1780978351693599188"
+    },
+    {
+      "title": "Marc Lou: 21 products, 13 top products, Maker of the Year",
+      "url": "https://x.com/marclou/status/1762496570019459376"
+    },
+    {
+      "title": "Marc Lou newsletter: I've made $3M with my 36 startups (Sep 2026)",
+      "url": "https://newsletter.marclou.com/p/i-ve-made-3m-with-my-36-startups"
+    },
+    {
+      "title": "Marc Lou newsletter: I made $1,032,000 in 2025",
+      "url": "https://newsletter.marclou.com/p/i-made-1-032-000-in-2025"
+    },
+    {
+      "title": "Marc Lou newsletter: I made $1M as a solopreneur (Aug 2024; 4,200+ developers)",
+      "url": "https://newsletter.marclou.com/p/i-made-usd-1m-as-a-solopreneur"
+    }
+  ]
+}

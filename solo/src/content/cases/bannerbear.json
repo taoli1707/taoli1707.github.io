@@ -1,0 +1,127 @@
+{
+  "slug": "bannerbear",
+  "name": "Bannerbear",
+  "founder": "Jon Yongfook",
+  "url": "https://www.bannerbear.com",
+  "tagline": "API for auto-generating images and videos from templates",
+  "category": "data-api",
+  "model": "subscription",
+  "channel": "build-in-public",
+  "started": 2019,
+  "revenue": {
+    "amount": 1000000,
+    "period": "year",
+    "label": "$1M ARR",
+    "asOf": "2025-09",
+    "kind": "self-reported",
+    "source": "https://x.com/yongfook/status/1969022369336356874"
+  },
+  "team": "Solo founder until about $10k MRR (first contractor, a freelance writer, hired May 2021); now founder plus a small team",
+  "startupCost": null,
+  "timeToFirstDollar": "About 9 months with $0 from his 12-startups challenge (Jan to Aug 2019); Previewmojo then reached about $400 MRR by the end of 2019",
+  "stack": [
+    "Ruby on Rails 6",
+    "jQuery"
+  ],
+  "summary": "Bannerbear is an API and no-code tool that generates social images, banners, PDFs and videos from templates. Marketing teams and developers use it to produce creative assets at scale. Jon Yongfook bootstrapped it in public from 2019 and announced $1M ARR in September 2025, built on Rails 6 and jQuery.",
+  "origin": "Yongfook left his job in January 2019 with about two years of savings. He spent most of that year on a '12 startups in 12 months' challenge, launching 7 products that earned no direct revenue. One of them, Previewmojo (launched November 2019), auto-generated open-graph preview images and reached about $400 MRR. Users kept asking for other image sizes, so he widened it and relaunched it as Bannerbear in January 2020, then as a REST API in March 2020.",
+  "howItMakesMoney": "Monthly subscriptions based on API credits: the pricing page lists Automate at $49/mo (1,000 API credits), Scale from $149/mo (10,000+ credits) and Enterprise from $299/mo (50,000+ credits), with a free trial of 30 credits. Early on Yongfook wrote a post titled 'Don't Charge $9 a Month for Your SaaS'.",
+  "growth": [
+    "Pivoted from a narrow OG-image tool to a general image and video API, which widened the market beyond one small use case.",
+    "Integration-led distribution: Zapier, Airtable, Make and WordPress integrations put it in front of no-code users alongside API developers.",
+    "Documentation and tutorials: Yongfook found that the more documentation he wrote, the more conversions he got, and hired a freelance writer for tutorial content in 2021.",
+    "A 50% coding / 50% marketing rhythm (a week of shipping, then a week of tweeting and blogging about it) plus open-startup milestone posts.",
+    "Repositioned around two jobs to be done, 'automate' and 'scale' your marketing, and priced for businesses ($49+ entry tier) instead of cheap consumer plans."
+  ],
+  "moat": "Template tooling, integration listings and accumulated SEO content create switching costs and discovery advantages. Once customers wire the API into their workflows they rarely move.",
+  "risks": "Cheaper alternatives and generative AI image tools compete on price. Growth took years and depends on continued SEO and integration-directory visibility.",
+  "timeline": [
+    {
+      "date": "2019-01",
+      "event": "Quits his job and starts 12 startups in 12 months"
+    },
+    {
+      "date": "2019-11",
+      "event": "Launches Previewmojo (auto OG images), reaching about $400 MRR by the end of the year"
+    },
+    {
+      "date": "2020-01",
+      "event": "Rebrands and pivots to Bannerbear, auto-generating banners in many sizes"
+    },
+    {
+      "date": "2020-03",
+      "event": "Launches the Bannerbear REST API and template editor; pulls out of the Shopify app store"
+    },
+    {
+      "date": "2021-01",
+      "event": "Passes $10k MRR ($10,455), documented in 'Journey to $10k MRR'"
+    },
+    {
+      "date": "2023-07",
+      "event": "Publishes '7 Lessons Growing a Bootstrapped SaaS to $50K MRR'"
+    },
+    {
+      "date": "2025-09",
+      "event": "Announces $1M ARR, built on Rails 6 and jQuery"
+    }
+  ],
+  "lessons": [
+    "Ship many small experiments, then widen the one that gets paying users.",
+    "APIs with no-code integrations reach both developers and operators, so ship integrations early.",
+    "Charge B2B prices from day one. $9/mo plans attract the wrong customers.",
+    "Boring tech (Rails, jQuery) is enough to reach $1M ARR. Spend effort on distribution instead."
+  ],
+  "rebuild": {
+    "idea": "A template-to-PDF and image API for real-estate agents' listing flyers and social posts, pulling data straight from MLS/IDX feeds.",
+    "why": "General image APIs need a developer to wire them up. Agents and brokerages want flyers generated automatically whenever a listing changes.",
+    "mvp": [
+      "Build 5 flyer and social templates and a script that fills them from one brokerage's IDX feed.",
+      "Offer 3 local brokerages a free month, then $49/mo per office.",
+      "Add a Zapier trigger ('new listing' to generate assets).",
+      "Publish SEO pages for 'real estate flyer template + city'."
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15",
+    "fit": "Backend developers with some real-estate industry access",
+    "stack": [
+      "Next.js",
+      "Postgres",
+      "Playwright (HTML-to-PDF/PNG rendering)",
+      "Stripe",
+      "Zapier Platform"
+    ],
+    "pricing": "Per-office subscription starting at $49/mo for up to 50 listings a month, with a $149/mo brokerage plan that adds multiple agents and brand kits.",
+    "potential": "medium",
+    "market": "Buyers are individual agents, small brokerages and marketing coordinators, reached through brokerage owners, local real-estate Facebook groups and MLS vendor marketplaces. Main competitors are Canva, Bannerbear/Placid for developers, and real-estate marketing suites like Luxury Presence."
+  },
+  "sources": [
+    {
+      "title": "Jon Yongfook: Bannerbear got to $1 million ARR on Rails 6 and jQuery",
+      "url": "https://x.com/yongfook/status/1969022369336356874"
+    },
+    {
+      "title": "Bannerbear: Here's How I Bootstrapped a SaaS to $10k MRR",
+      "url": "https://www.bannerbear.com/journey-to-10k-mrr/"
+    },
+    {
+      "title": "Bannerbear: Bootstrapping a SaaS from $10k MRR to $20k MRR",
+      "url": "https://www.bannerbear.com/saas-10k-mrr-to-20k-mrr/"
+    },
+    {
+      "title": "Bannerbear blog: The Pivot",
+      "url": "https://www.bannerbear.com/blog/the-pivot/"
+    },
+    {
+      "title": "Bannerbear blog: 7 Lessons Growing a Bootstrapped SaaS to $50K MRR",
+      "url": "https://www.bannerbear.com/blog/7-lessons-growing-a-bootstrapped-saas-to-50k-mrr/"
+    },
+    {
+      "title": "Bannerbear pricing",
+      "url": "https://www.bannerbear.com/pricing/"
+    },
+    {
+      "title": "Indie Hackers podcast #208: Jon Yongfook (archived)",
+      "url": "https://web.archive.org/web/20250207094028/https://www.indiehackers.com/podcast/208-jon-yongfook"
+    }
+  ]
+}

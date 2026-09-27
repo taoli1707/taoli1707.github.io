@@ -1,0 +1,118 @@
+{
+  "slug": "lennys-newsletter",
+  "name": "Lenny's Newsletter",
+  "founder": "Lenny Rachitsky",
+  "url": "https://www.lennysnewsletter.com",
+  "tagline": "Paid Substack newsletter and podcast on product, growth and careers",
+  "category": "content-media",
+  "model": "mixed",
+  "channel": "twitter-x",
+  "started": 2019,
+  "revenue": {
+    "amount": 1000000,
+    "period": "year",
+    "label": "$1M+/yr: newsletter $500K+ and podcast $500K+",
+    "asOf": "2024-01",
+    "kind": "self-reported",
+    "source": "https://www.cnbc.com/2024/01/15/lenny-rachitskys-advice-for-success-in-a-podcast-and-newsletter.html"
+  },
+  "team": "Solo + contractors (e.g. a podcast producer)",
+  "startupCost": null,
+  "timeToFirstDollar": "~10 months (free newsletter first, paid plan added in 2020)",
+  "stack": [
+    "Substack"
+  ],
+  "summary": "Lenny's Newsletter is a weekly Substack publication on product management and growth, with a paid tier, a podcast funded by sponsors, and a bundle of free software for annual subscribers. CNBC reported in January 2024 that the newsletter brings in more than $500K a year and the podcast more than $500K, over $1M combined. He passed 1 million subscribers in March 2025.",
+  "origin": "Rachitsky spent seven years as a product manager at Airbnb. After leaving, he turned his notes on what he had learned into a Medium post that did very well, wrote a few more, then moved to Substack. After about ten months of free posts he added a paid plan at $15/month; by August 2020 he had about 15,000 free subscribers, 500 paid, and roughly $65K a year before fees.",
+  "howItMakesMoney": "Paid subscriptions ($15/month or $150/year until February 2025, then $20/month or $200/year, plus a $400/year Insider tier), podcast sponsorships, and since February 2025 a bundle ('Product Pass') giving annual subscribers free years of tools like Notion, Linear and Granola, which drives annual upgrades. Many readers expense the subscription.",
+  "growth": [
+    "Wrote deeply researched posts from his own Airbnb experience and from surveys of other operators",
+    "Kept one free post in the mix while most content sat behind the paywall; he says the newsletter grew almost entirely through word of mouth",
+    "Added a podcast in 2022 with well-known product leaders, which also reached YouTube and brought sponsors",
+    "Built a paid-subscriber Slack community as a retention perk",
+    "Negotiated software bundles for annual subscribers and raised prices for the first time at the same moment"
+  ],
+  "moat": "Brand trust in a defined professional niche, a large list, and relationships that let him book top guests and negotiate tool bundles that smaller newsletters can't match.",
+  "risks": "Depends on one author's output and on Substack's platform. Tech layoffs or budget cuts can reduce the number of subscriptions paid by employers.",
+  "timeline": [
+    {
+      "date": "2019",
+      "event": "Leaves Airbnb; publishes lessons post on Medium, then moves the newsletter to Substack"
+    },
+    {
+      "date": "2020",
+      "event": "Launches paid tier at $15/month; ~500 paid subscribers and ~$65K/yr by August"
+    },
+    {
+      "date": "2022",
+      "event": "Starts Lenny's Podcast"
+    },
+    {
+      "date": "2024-01",
+      "event": "CNBC reports newsletter and podcast each bring in $500K+ a year"
+    },
+    {
+      "date": "2025-02",
+      "event": "Launches free-tools bundle for annual subscribers; raises price to $20/month or $200/year"
+    },
+    {
+      "date": "2025-03",
+      "event": "Passes 1 million subscribers"
+    }
+  ],
+  "lessons": [
+    "Run free long enough to learn what readers want, then paywall the core content",
+    "A narrow professional audience will pay more than a broad consumer one, and often on a company card",
+    "A podcast can be a second revenue stream (sponsors) that also feeds the paid list",
+    "Perks from partners can raise the perceived value of a subscription at little cost"
+  ],
+  "rebuild": {
+    "idea": "A paid newsletter for a professional role that has no 'Lenny' yet, such as hospital operations managers or clinical research coordinators",
+    "why": "Tech roles are saturated with newsletters, but many well-paid operational roles have little practitioner-written, tactical content, and employers already pay for training.",
+    "mvp": [
+      "Publish 4 free posts answering real questions from peers in the role",
+      "Share them in LinkedIn and professional association groups to collect the first 500 emails",
+      "Survey readers and write one deep template-backed guide as the first paid post",
+      "Turn on a $15/month or $150/year paid tier with an 'expense it' note"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "A senior practitioner in the role with a network of peers who will share the first posts",
+    "stack": [
+      "Substack or beehiiv",
+      "Stripe",
+      "Typeform (reader surveys)",
+      "Slack or Circle (community)",
+      "Riverside (podcast)"
+    ],
+    "pricing": "Start with a $15/month or $150/year paid tier and a group plan for teams that expense it, then add sponsorships once the free list passes about 10,000.",
+    "potential": "medium",
+    "market": "Buyers are practitioners in the role and their employers' training budgets, reached through LinkedIn, professional associations and conference communities. Competition comes from trade associations' journals (e.g. ACRP or HFMA publications) and vendor-run blogs, not from established independent newsletters."
+  },
+  "sources": [
+    {
+      "title": "CNBC: 42-year-old brings in more than $1 million a year from newsletter, podcast",
+      "url": "https://www.cnbc.com/2024/01/15/lenny-rachitskys-advice-for-success-in-a-podcast-and-newsletter.html"
+    },
+    {
+      "title": "CNBC: Lenny Rachitsky brings in over $500,000 from his podcast",
+      "url": "https://www.cnbc.com/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html"
+    },
+    {
+      "title": "Substack: How Lenny Rachitsky earned $65,000 in his first year of writing",
+      "url": "https://on.substack.com/p/how-lenny-rachitsky-earned-65000"
+    },
+    {
+      "title": "Lenny's Newsletter: 1,000,000",
+      "url": "https://www.lennysnewsletter.com/p/1000000"
+    },
+    {
+      "title": "Lenny's Product Pass",
+      "url": "https://www.lennysnewsletter.com/p/productpass"
+    },
+    {
+      "title": "Lenny Rachitsky on X: announcing the product bundle and price change",
+      "url": "https://x.com/lennysan/status/1886808960931676468"
+    }
+  ]
+}

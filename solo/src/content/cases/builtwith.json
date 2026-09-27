@@ -1,0 +1,112 @@
+{
+  "slug": "builtwith",
+  "name": "BuiltWith",
+  "founder": "Gary Brewer",
+  "url": "https://builtwith.com",
+  "tagline": "Detects the technologies behind websites and sells the results as lead lists",
+  "category": "data-api",
+  "model": "subscription",
+  "channel": "seo",
+  "started": 2007,
+  "revenue": {
+    "amount": 14000000,
+    "period": "year",
+    "label": "~$14M/yr (widely reported, not audited)",
+    "asOf": "2022-01",
+    "kind": "estimate",
+    "source": "https://x.com/nathanbarry/status/1484919289035431937"
+  },
+  "team": "Solo founder (Gary Brewer) plus a non-operating co-founder/advisor (Andrew Rogers) and a content contractor, per 2015 coverage; later reported as one employee",
+  "startupCost": null,
+  "timeToFirstDollar": null,
+  "stack": [],
+  "summary": "BuiltWith crawls the web, detects which technologies each site uses (CMS, analytics, ecommerce platform, CDN and so on), and sells searchable lists of those sites. The main buyers are sales and marketing teams who want leads filtered by technology. The ~$14M/yr figure was spread by Nathan Barry in 2022 and is widely repeated (Starter Story now estimates more), but BuiltWith has never published audited financials.",
+  "origin": "In 2007 Gary Brewer was visiting startup sites and viewing their source to see what they were built with. No tool automated that, so he built one. He worked on it every evening for about four years while holding a full-time job, and by the time Andrew Rogers met him in 2011 it was already making about $40,000 a month.",
+  "howItMakesMoney": "Monthly subscriptions to the full dataset: Basic $295/mo, Pro $495/mo, Team $995/mo, with annual billing at ten times the monthly price. Individual site lookups are free. In 2015 Brewer told Startup Daily it had 'a few thousand' paying users (2,000 to 3,000), split about 40% Basic, 40% Pro and 20% Enterprise.",
+  "growth": [
+    "A free single-site lookup ('what is this site built with?') brings in large organic traffic. In 2015 Startup Daily reported 500,000+ users and about 2M page views a month, with no outbound sales team.",
+    "Users started asking for lists, such as Australian sites on a CDN or stores running Magento. Answering those requests turned a curiosity tool into a lead-generation product.",
+    "The crawl data compounds. Historical records of when a site added or dropped a technology are hard for a newcomer to recreate.",
+    "Pricing is a few high tiers aimed at B2B sales teams who can easily justify $300-1,000 a month, not at many low-price consumers."
+  ],
+  "moat": "More than 15 years of crawl history and technology-detection rules, plus the organic search traffic a lookup tool with that much history earns. A new competitor can detect technologies today but cannot go back and create the historical adoption and churn data.",
+  "risks": "Competitors (Wappalyzer, SimilarTech, HG Insights) and cheap in-house detection with headless browsers push prices down. Lead-list data also depends on privacy and scraping rules staying roughly where they are.",
+  "timeline": [
+    {
+      "date": "2007",
+      "event": "BuiltWith launches as a side project in Australia"
+    },
+    {
+      "date": "2007-2011",
+      "event": "Brewer works on it evenings for about four years while holding a full-time job"
+    },
+    {
+      "date": "2011",
+      "event": "Andrew Rogers meets Brewer, finds it making ~$40k/month, encourages him to go full time and joins for equity with a 'Co-Founder' title"
+    },
+    {
+      "date": "2015-09",
+      "event": "Startup Daily reports 2,000-3,000 paying customers and no staff"
+    },
+    {
+      "date": "2022-01",
+      "event": "Nathan Barry spreads the '$14M a year with one employee' figure"
+    }
+  ],
+  "lessons": [
+    "A free lookup tool can serve as the SEO engine, while the paid product is the same data sold in bulk.",
+    "Watch what power users ask for. BuiltWith's lead-list business came from people emailing to ask for exports.",
+    "Price B2B data by the value of the leads it produces (hundreds of dollars a month), not by what it costs to build.",
+    "Data that builds up over time, such as history and change logs, is a stronger moat than a one-time scrape."
+  ],
+  "rebuild": {
+    "idea": "An 'AI stack' detector that shows which LLM providers, vector databases and agent frameworks companies use, drawn from JS bundles, DNS/CNAMEs, status-page vendors and job posts, and sold as lead lists to AI tooling vendors.",
+    "why": "BuiltWith-style detectors are built around front-end technology fingerprints. Most AI adoption happens on the backend and is only visible through indirect signals such as job posts, subprocessor lists and SDK traces.",
+    "mvp": [
+      "Pick 30 signals, such as OpenAI/Anthropic SDK strings in public JS, Pinecone/Weaviate hostnames, and 'LangChain' in job posts",
+      "Crawl 50k B2B SaaS domains plus their careers and subprocessor pages, and store results with timestamps",
+      "Publish a free 'what AI does X use?' lookup page per company for SEO",
+      "Sell a $199/mo CSV export filtered by signal to 3-5 AI infrastructure startups, found through LinkedIn outreach to their growth leads"
+    ],
+    "difficulty": 3,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "A data engineer comfortable with crawling, entity resolution and scheduled pipelines",
+    "stack": [
+      "Python",
+      "Playwright",
+      "Postgres",
+      "ClickHouse (signal history)",
+      "Next.js",
+      "Stripe"
+    ],
+    "pricing": "Free per-company lookups for SEO, then $199/mo for filtered CSV exports and $499/mo for CRM sync and weekly change alerts.",
+    "potential": "high",
+    "market": "Buyers are growth and sales teams at AI infrastructure and devtool startups, reached through LinkedIn outreach, the free lookup pages and data posts on X. Competitors are BuiltWith, Wappalyzer, HG Insights, Apollo and Clay's technographic enrichments."
+  },
+  "sources": [
+    {
+      "title": "Nathan Barry: Gary Brewer scaled BuiltWith to $14 million in annual revenue with just one employee",
+      "url": "https://x.com/nathanbarry/status/1484919289035431937"
+    },
+    {
+      "title": "Startup Daily: BuiltWith is perhaps one of Australia's most profitable online companies and has zero staff",
+      "url": "https://www.startupdaily.net/advice/builtwith-is-perhaps-one-of-australias-most-profitable-online-companies-and-has-zero-staff/"
+    },
+    {
+      "title": "Andrew Rogers: The Story of BuiltWith",
+      "url": "https://medium.com/@andrewjrogers/the-story-of-builtwith-e3bbc17c239f"
+    },
+    {
+      "title": "Colin Keeley: The Story of BuiltWith: 1 Employee, $14m+ ARR",
+      "url": "https://www.colinkeeley.com/blog/the-story-of-builtwith-1-employee-14m-arr"
+    },
+    {
+      "title": "Starter Story: How Gary Brewer Stumbled Into A $14M Idea",
+      "url": "https://www.starterstory.com/stories/builtwith-technology-lookup-breakdown"
+    },
+    {
+      "title": "BuiltWith Plans & Pricing",
+      "url": "https://builtwith.com/plans"
+    }
+  ]
+}

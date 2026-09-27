@@ -1,0 +1,118 @@
+{
+  "slug": "typingmind",
+  "name": "TypingMind",
+  "founder": "Tony Dinh",
+  "url": "https://www.typingmind.com",
+  "tagline": "A better chat interface for LLMs, used with your own API keys",
+  "category": "ai-app",
+  "model": "mixed",
+  "channel": "twitter-x",
+  "started": 2023,
+  "revenue": {
+    "amount": 148000,
+    "period": "month",
+    "label": "$148k in one month (all-time high)",
+    "asOf": "2025-03",
+    "kind": "self-reported",
+    "source": "https://x.com/tdinh_me/status/1908345028327727335"
+  },
+  "team": "Solo until 2025, then founder + 2 hires (1 dev, 1 designer)",
+  "startupCost": null,
+  "timeToFirstDollar": "Under a day (MVP shared Mar 6, 2023; $428.58 of revenue by the next morning)",
+  "stack": [],
+  "summary": "TypingMind is a chat front-end for ChatGPT, Claude and other models, where users bring their own API keys. Tony Dinh built it alone in March 2023 and sold one-time licenses, later adding cloud-sync and team subscriptions. It passed $500K total revenue in February 2024, and in April 2025 he reported $148K revenue for the previous month, an all-time high, along with his first two hires.",
+  "origin": "Dinh, a Vietnamese developer who had already built DevUtils and Black Magic, was annoyed by ChatGPT's slow typing and lack of search. OpenAI released the ChatGPT API on March 1, 2023; he bought typingmind.com on March 2 and shared the first version on X on March 6. He woke up to $428.58 of revenue, and by his own newsletter account it made about $22.7K in the first 7 days.",
+  "howItMakesMoney": "One-time lifetime licenses for individuals in three tiers (Standard, Extended, Premium). Users pay model providers directly through their own API keys. Subscriptions cover TypingCloud sync and backup and the team product (TypingMind Custom, now documented as TypingMind Teams), which starts at $99/month for 5 seats plus $8 per extra user. In February 2024 the subscription side was at $15K MRR.",
+  "growth": [
+    "Launched on X to an existing audience of developers, with daily revenue updates: $1K, $2K, $4K, then $10K by March 10, 2023; he says 99% of early sales came from his Twitter reach.",
+    "Reached #1 Product of the Day on Product Hunt on March 11, 2023, adding about $5K.",
+    "Rode the ChatGPT API wave: it gave power users a better UI with prompt libraries, plugins and multi-model chat, without a ChatGPT Plus subscription.",
+    "Added support for each new model and feature (web search, image generation, artifacts, MCP) quickly after release.",
+    "Moved upmarket with a team version, which adds recurring B2B revenue on top of one-time licenses.",
+    "Ran an affiliate program until January 2025, then replaced it with a referral program that rewards cloud storage."
+  ],
+  "moat": "The moat is speed and polish more than technology: a large installed base of license holders, a plugin ecosystem, and B2B team deployments that are sticky once rolled out.",
+  "risks": "Model providers keep improving their own chat apps, which shrinks the gap a third-party UI fills. One-time licenses cap lifetime value unless the team and cloud tiers keep growing.",
+  "timeline": [
+    {
+      "date": "2023-03",
+      "event": "Ships TypingMind on March 6 and tweets $428.58 of revenue the next morning"
+    },
+    {
+      "date": "2023-03",
+      "event": "Hits #1 on Product Hunt; ~$22.7K total revenue in the first 7 days"
+    },
+    {
+      "date": "2024-02",
+      "event": "Passes $500K total revenue; subscriptions at $15K MRR"
+    },
+    {
+      "date": "2025-01",
+      "event": "Pauses the affiliate program"
+    },
+    {
+      "date": "2025-04",
+      "event": "Reports $148K for the previous month (all-time high) and hires a developer and a designer"
+    }
+  ],
+  "lessons": [
+    "When a new platform API ships, the first good UI on top of it can win a big share of early adopters.",
+    "Bring-your-own-key pricing removes your biggest variable cost, so a one-time license can be very profitable.",
+    "Sell one-time to individuals and recurring to teams, so each segment pays the way it prefers.",
+    "Share revenue screenshots early: the first-day numbers were themselves the launch marketing."
+  ],
+  "rebuild": {
+    "idea": "A bring-your-own-key AI workspace for regulated small firms (law offices, accountants, clinics) that ships with audit logs, PII redaction before prompts leave the machine, and ready-made prompt packs for each profession.",
+    "why": "General chat UIs target individuals and big enterprises. Small regulated firms want to use AI but need redaction and logging they can show to insurers or regulators.",
+    "mvp": [
+      "Fork or build a simple chat UI with a regex and NER PII-redaction layer and a local audit log export.",
+      "Write 20 prompts for one profession (e.g. small law firms) with a practitioner.",
+      "Offer a $299 one-time license plus a $29/mo 'compliance pack' to 20 firms reached through LinkedIn and local bar associations.",
+      "Collect testimonials and publish a one-page compliance explainer."
+    ],
+    "difficulty": 3,
+    "weeklyHours": "12-18",
+    "fit": "Full-stack developers with a contact inside a regulated profession",
+    "stack": [
+      "Next.js",
+      "Microsoft Presidio",
+      "Postgres",
+      "OpenAI API",
+      "Anthropic API",
+      "Stripe"
+    ],
+    "pricing": "A $299 one-time license per firm for the self-hosted app, plus a $29/month per-seat compliance pack with audit-log export and updated prompt packs.",
+    "potential": "high",
+    "market": "Buyers are managing partners and office managers at small law, accounting and medical practices, reached through LinkedIn, bar and CPA associations, and IT consultants who serve those firms. Competitors include TypingMind, ChatGPT Team/Enterprise, Microsoft Copilot and vertical tools such as Harvey and CoCounsel."
+  },
+  "sources": [
+    {
+      "title": "Tony Dinh: $148k revenue last month, all-time high",
+      "url": "https://x.com/tdinh_me/status/1908345028327727335"
+    },
+    {
+      "title": "Tony Dinh: woke up with $428.58 of revenue for my new product",
+      "url": "https://x.com/tdinh_me/status/1632929052053864456"
+    },
+    {
+      "title": "Making $22K in 7 days: the story (Tony Dinh's newsletter)",
+      "url": "https://news.tonydinh.com/p/making-22k-in-7-days-the-story"
+    },
+    {
+      "title": "$500K milestone: my reflections after 1 year of building Typing Mind (Tony Dinh's newsletter)",
+      "url": "https://news.tonydinh.com/p/500k-milestone-my-reflections-after"
+    },
+    {
+      "title": "TypingMind Docs: Plans & Pricing",
+      "url": "https://docs.typingmind.com/quickstart/typingmind-license-plans"
+    },
+    {
+      "title": "TypingMind Docs: Compare Teams Plans",
+      "url": "https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans"
+    },
+    {
+      "title": "TypingMind Docs: Affiliate Program (Closed)",
+      "url": "https://docs.typingmind.com/affiliate-program-(closed)"
+    }
+  ]
+}

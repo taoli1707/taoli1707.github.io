@@ -1,0 +1,116 @@
+{
+  "slug": "headshotpro",
+  "name": "HeadshotPro",
+  "founder": "Danny Postma",
+  "url": "https://www.headshotpro.com",
+  "tagline": "AI-generated professional headshots for individuals and remote teams",
+  "category": "ai-app",
+  "model": "one-time",
+  "channel": "seo",
+  "started": 2023,
+  "revenue": {
+    "amount": 300000,
+    "period": "month",
+    "label": "~$300K/month (third-party estimate)",
+    "asOf": "2024-12",
+    "kind": "estimate",
+    "source": "https://www.starterstory.com/stories/headshotpro-breakdown"
+  },
+  "team": "Solo founder (a small team is reported later)",
+  "startupCost": null,
+  "timeToFirstDollar": null,
+  "stack": [],
+  "summary": "HeadshotPro turns a set of selfies into studio-style corporate headshots and sells one-time packs to individuals and companies. Danny Postma launched it in March 2023 after his earlier AI avatar app ProfilePicture.AI. It is widely reported at around $300K/month, but that figure is a third-party estimate (Starter Story labels it 'estimated from public sources'). The closest founder statement found is Postma saying on the Indie Hackers podcast in May 2023 that his portfolio of AI products had passed $300K in revenue.",
+  "origin": "Postma, a Dutch indie developer, had earlier built the AI copywriting tool Headlime, one of the first products to use GPT-3, and sold it. He then launched ProfilePicture.AI, an AI avatar app, in 2022. In March 2023 he launched HeadshotPro, aimed at a narrower and more commercial job: professional headshots for remote teams and LinkedIn profiles.",
+  "howItMakesMoney": "One-time packs rather than subscriptions: the pricing page lists Basic $29, Professional $39 and Executive $59 for individuals, and per-person team credits from about $19.50 with volume discounts. Companies buy team packages so remote staff get matching headshots. An affiliate program paid partners 20% of sales at launch.",
+  "growth": [
+    "SEO: Postma said on the Indie Hackers podcast that he uses SEO to drive traffic, and an Indie Hackers community post broke down how HeadshotPro targets 'AI headshots' and related search terms.",
+    "Affiliates: Rewardful published a case study titled 'HeadshotPro earns $50k+ monthly through affiliate marketing'; Postma said the program makes more people write about the product.",
+    "Positioned for B2B team orders (consistent headshots for remote companies), which raises order value compared with individual buyers.",
+    "Launch promotion on X and TikTok, including a $1,000 bonus for the first three creators whose videos passed 100K views."
+  ],
+  "moat": "Search rankings for high-intent terms, a large affiliate network and B2B team accounts are harder to copy than the underlying model pipeline.",
+  "risks": "General image models increasingly produce convincing headshots for free. Paid search and SEO competition for 'AI headshots' is intense, and results depend on Google's ranking decisions.",
+  "timeline": [
+    {
+      "date": "2022",
+      "event": "Launches ProfilePicture.AI, an earlier AI avatar and photo product"
+    },
+    {
+      "date": "2023-03",
+      "event": "Launches HeadshotPro for professional headshots for remote teams"
+    },
+    {
+      "date": "2023-03",
+      "event": "Starts an affiliate program at 20% of sales with TikTok creator bonuses"
+    },
+    {
+      "date": "2023-05",
+      "event": "Tells the Indie Hackers podcast his AI product portfolio has passed $300K in revenue"
+    },
+    {
+      "date": "2024-12",
+      "event": "Starter Story estimates HeadshotPro at ~$300K/month"
+    }
+  ],
+  "lessons": [
+    "Narrow the use case until it has a budget. 'Headshots for work' beats 'fun AI avatars'.",
+    "Reuse what you built for a fading product in a more commercial niche instead of starting from scratch.",
+    "One-time packs match a one-time need and avoid churn and cancellation complaints.",
+    "Affiliates and SEO together can replace a sales team for a consumer and B2B hybrid."
+  ],
+  "rebuild": {
+    "idea": "AI-generated, brand-consistent staff photos for small healthcare and real-estate practices, delivered as ready-to-upload website 'Meet the team' pages and Google Business Profile images.",
+    "why": "Headshot tools stop at the image file. Small practices still pay a photographer and a web designer to get consistent team pages.",
+    "mvp": [
+      "Pick one vertical (e.g. dental clinics) and hand-build 3 sample team pages using existing headshot APIs.",
+      "Cold-email 100 clinics whose websites have mismatched or missing team photos, offering a $199 flat package.",
+      "Deliver the first 5 orders by hand to learn the edge cases.",
+      "Automate intake (a staff upload link per clinic) and template the page export."
+    ],
+    "difficulty": 2,
+    "weeklyHours": "10-15 (fits a side hustle)",
+    "fit": "Developers or designers comfortable with cold outreach to local businesses",
+    "stack": [
+      "Next.js",
+      "Postgres",
+      "fal.ai or Replicate (image models)",
+      "Stripe",
+      "Cloudflare R2",
+      "Resend"
+    ],
+    "pricing": "Sell a flat $199 package per clinic (up to 10 staff) with $15 per extra person, and a $29/mo add-on for new-hire photos and page updates.",
+    "potential": "medium",
+    "market": "Buyers are owners and office managers of dental, medical and real-estate practices, reached by cold email and through website agencies that serve those verticals. Competitors are local photographers plus AI headshot tools such as HeadshotPro, Aragon AI and BetterPic."
+  },
+  "sources": [
+    {
+      "title": "Starter Story: How an Indie Hacker Built an AI Headshot Business to $300K/Month (estimate)",
+      "url": "https://www.starterstory.com/stories/headshotpro-breakdown"
+    },
+    {
+      "title": "Indie Hackers Podcast #278: Growing a Portfolio of AI Products Past $300k (Danny Postma)",
+      "url": "https://dev.to/theindiehackerspodcast/278-growing-a-portfolio-of-ai-products-past-300k-after-a-7-figure-exit-with-danny-postma"
+    },
+    {
+      "title": "HeadshotPro pricing",
+      "url": "https://www.headshotpro.com/pricing"
+    },
+    {
+      "title": "Rewardful case study: HeadshotPro earns $50k+ monthly through affiliate marketing",
+      "url": "https://www.rewardful.com/case-studies/headshotpro"
+    },
+    {
+      "title": "Indie Hackers: Breaking down Danny Postma's SEO strategy for HeadshotPro",
+      "url": "https://www.indiehackers.com/post/breaking-down-danny-postmas-seo-strategy-for-headshotpro-300k-in-1-year-fad0af94d2"
+    },
+    {
+      "title": "Danny Postma: Introducing HeadshotPro (launch post)",
+      "url": "https://x.com/dannypostma/status/1636337910017556480"
+    },
+    {
+      "title": "Danny Postma: HeadshotPro affiliate program terms",
+      "url": "https://x.com/dannypostma/status/1636556544270823425"
+    }
+  ]
+}

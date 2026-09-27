@@ -1,0 +1,124 @@
+{
+  "slug": "photopea",
+  "name": "Photopea",
+  "founder": "Ivan Kutskir",
+  "url": "https://www.photopea.com",
+  "tagline": "Free browser-based image editor that opens Photoshop files, funded by ads",
+  "category": "saas",
+  "model": "ads",
+  "channel": "word-of-mouth",
+  "started": 2013,
+  "revenue": {
+    "amount": 100000,
+    "period": "month",
+    "label": "~$100K/month from ads (Sept 2021)",
+    "asOf": "2021-09",
+    "kind": "self-reported",
+    "source": "https://www.failory.com/interview/photopea"
+  },
+  "team": "Solo",
+  "startupCost": null,
+  "timeToFirstDollar": "~3.5 years (7,000 hours of unpaid work before adding ads)",
+  "stack": [
+    "JavaScript",
+    "HTML5 Canvas / WebGL"
+  ],
+  "summary": "Photopea is a free web image editor built by Ukrainian-born, Prague-based developer Ivan Kutskir that opens PSD and other formats in the browser. It earns mainly from display ads plus an ad-free Premium subscription and licensing. Kutskir made about $500K in 2020, nearly $1M over the 12 months to April 2021, and told Failory in September 2021 that ads bring in about $100K a month. Latka estimates 2024 revenue at about $2.8M (estimate).",
+  "origin": "Kutskir had an idea in 2012, while studying computer science in Prague, for a website that displays PSD files, and released the first version (a PSD viewer) in 2013. It gradually became a full editor. By his 2018 Reddit AMA he said he had put about 7,000 hours into it over 3.5 years without earning a dollar before adding ads. He has worked on it full time since finishing his master's degree in 2017.",
+  "howItMakesMoney": "Display ads to free users (almost 90% of revenue per AIN in 2021; about 6 cents per hour of use per Kutskir), a Premium subscription that removes ads (5 USD/month per the Photopea blog), and licensing deals for companies that embed or self-host Photopea.",
+  "growth": [
+    "Solved a specific need: opening and editing PSD files for free without installing Photoshop",
+    "Kutskir posted about it on Reddit, Hacker News and in comments under 'Photoshop alternatives' articles, and asked YouTubers to review it",
+    "A Reddit AMA in November 2018 brought a wave of new users",
+    "Visitors grew from about 3,000 a month in March 2014, doubling roughly every six months by his account",
+    "Very low running costs (about $50 a year for hosting, since everything runs in the browser) let almost all revenue be profit"
+  ],
+  "moat": "Years of solo work on file-format compatibility (PSD, XCF, Sketch and more) that is hard to replicate, plus strong search presence as the free Photoshop alternative.",
+  "risks": "Heavy reliance on ad networks and search traffic; Adobe's own web and free tiers or AI image tools could erode usage.",
+  "timeline": [
+    {
+      "date": "2012",
+      "event": "Starts building a browser PSD viewer"
+    },
+    {
+      "date": "2013-09",
+      "event": "Releases Photopea"
+    },
+    {
+      "date": "2017",
+      "event": "Finishes master's degree and works on Photopea full time; monetization with ads has started"
+    },
+    {
+      "date": "2018",
+      "event": "Earns about $20K for the year; Reddit AMA in November brings a wave of new users"
+    },
+    {
+      "date": "2020",
+      "event": "Earns ~$500K for the year"
+    },
+    {
+      "date": "2021-04",
+      "event": "Reports nearly $1M over the previous 12 months"
+    },
+    {
+      "date": "2021-09",
+      "event": "Tells Failory ads bring in about $100K/month from 10M monthly visits"
+    }
+  ],
+  "lessons": [
+    "A free tool that replaces an expensive incumbent for a narrow job can grow without marketing spend",
+    "Ads work when usage is large and sessions are long",
+    "Long pre-revenue periods are survivable when costs are near zero",
+    "Doing all the code yourself can make maintenance and fixes faster"
+  ],
+  "rebuild": {
+    "idea": "A free browser tool that opens and edits a proprietary professional file format with no good free viewer, such as CAD/DWG or InDesign packages, monetized by ads and a pro tier",
+    "why": "Browsers (WebAssembly, WebGPU) can now handle heavy files, and many people receive these files occasionally without owning the expensive software.",
+    "mvp": [
+      "Pick one format and build a read-only viewer that opens common files in the browser",
+      "Post it in subreddits and forums where people ask how to open that format",
+      "Add one basic edit or export feature users request most",
+      "Add a single ad slot and a $5/month ad-free option"
+    ],
+    "difficulty": 5,
+    "weeklyHours": "15-20 (serious side project)",
+    "fit": "A strong low-level developer comfortable reverse-engineering file formats",
+    "stack": [
+      "TypeScript",
+      "WebAssembly (Rust or C++)",
+      "WebGPU",
+      "Cloudflare Pages",
+      "Google AdSense",
+      "Stripe"
+    ],
+    "pricing": "Keep the viewer free with one ad slot, and sell a $5/month ad-free plan plus a $20/month pro tier for editing and export features.",
+    "potential": "medium",
+    "market": "Users are contractors, students and small-office staff who receive DWG or InDesign files occasionally, reached through SEO on 'open DWG online' searches and forum answers. Competitors are Autodesk Viewer, ShareCAD and Adobe's own free viewers."
+  },
+  "sources": [
+    {
+      "title": "Failory: Building a Photo Editor and Making $100k/mo as a Solo Founder",
+      "url": "https://www.failory.com/interview/photopea"
+    },
+    {
+      "title": "AIN: Ukrainian single-handedly creates Photopea and makes $1M per year",
+      "url": "https://en.ain.ua/2021/04/15/photopea-history/"
+    },
+    {
+      "title": "Reddit AMA: I made a free alternative to Photoshop (Nov 2018)",
+      "url": "https://www.reddit.com/r/IAmA/comments/9urjmg/"
+    },
+    {
+      "title": "Photopea Blog: Photopea Premium",
+      "url": "https://blog.photopea.com/photopea-premium.html"
+    },
+    {
+      "title": "Photopea - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Photopea"
+    },
+    {
+      "title": "Latka: Photopea revenue estimate",
+      "url": "https://getlatka.com/companies/photopea"
+    }
+  ]
+}
