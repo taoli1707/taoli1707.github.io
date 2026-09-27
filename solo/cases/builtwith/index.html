@@ -29,7 +29,7 @@
     <a class="brand" href="/solo/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M9 22V10m0 12h14M13 19v-4m4 4v-7m4 7v-9" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span>Solo<span class="dot">Ledger</span></span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Site">
-      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas to build</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
+      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas</a><a href="/solo/lists/">Top lists</a><a href="/solo/scanner/">Fit scanner</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
       <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
     </nav>
   </div>
@@ -57,19 +57,24 @@
       <section class="block" id="moat"><h2>Moat & risks</h2><div class="two"><div class="panel good"><h3>What protects it</h3><p>More than 15 years of crawl history and technology-detection rules, plus the organic search traffic a lookup tool with that much history earns. A new competitor can detect technologies today but cannot go back and create the historical adoption and churn data.</p></div><div class="panel bad"><h3>What could hurt it</h3><p>Competitors (Wappalyzer, SimilarTech, HG Insights) and cheap in-house detection with headless browsers push prices down. Lead-list data also depends on privacy and scraping rules staying roughly where they are.</p></div></div></section>
       <section class="block" id="lessons"><h2>Lessons you can reuse</h2><ol class="lessons"><li>A free lookup tool can serve as the SEO engine, while the paid product is the same data sold in bulk.</li><li>Watch what power users ask for. BuiltWith&#39;s lead-list business came from people emailing to ask for exports.</li><li>Price B2B data by the value of the leads it produces (hundreds of dollars a month), not by what it costs to build.</li><li>Data that builds up over time, such as history and change logs, is a stronger moat than a one-time scrape.</li></ol></section>
       <section class="block rebuild" id="rebuild">
-        <p class="eyebrow">Idea to build next</p>
+        <p class="eyebrow">Rebuild plan · idea to build next</p>
         <h2>An &#39;AI stack&#39; detector that shows which LLM providers, vector databases and agent frameworks companies use, drawn from JS bundles, DNS/CNAMEs, status-page vendors and job posts, and sold as lead lists to AI tooling vendors.</h2>
-        <p><strong>Why now:</strong> BuiltWith-style detectors are built around front-end technology fingerprints. Most AI adoption happens on the backend and is only visible through indirect signals such as job posts, subprocessor lists and SDK traces.</p>
         <dl class="mini">
           <div><dt>Difficulty</dt><dd><span class="dots" role="img" aria-label="Difficulty 3 of 5">●●●<span class="off">●●</span></span> Moderate</dd></div>
           <div><dt>Hours / week</dt><dd>10-15 (fits a side hustle)</dd></div>
+          
           <div><dt>Best fit</dt><dd>A data engineer comfortable with crawling, entity resolution and scheduled pipelines</dd></div>
         </dl>
-        <h3>30-day path to a first paying customer</h3>
-        <ol class="steps"><li>Pick 30 signals, such as OpenAI/Anthropic SDK strings in public JS, Pinecone/Weaviate hostnames, and &#39;LangChain&#39; in job posts</li><li>Crawl 50k B2B SaaS domains plus their careers and subprocessor pages, and store results with timestamps</li><li>Publish a free &#39;what AI does X use?&#39; lookup page per company for SEO</li><li>Sell a $199/mo CSV export filtered by signal to 3-5 AI infrastructure startups, found through LinkedIn outreach to their growth leads</li></ol>
-        <p class="small">This is our idea, not the founder's. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
+        <div class="plan">
+          <div class="part"><span class="n">01</span><h3>What to build</h3><p>BuiltWith-style detectors are built around front-end technology fingerprints. Most AI adoption happens on the backend and is only visible through indirect signals such as job posts, subprocessor lists and SDK traces.</p></div>
+          
+          <div class="part"><span class="n">02</span><h3>30-day path to a first paying customer</h3><ol class="steps"><li>Pick 30 signals, such as OpenAI/Anthropic SDK strings in public JS, Pinecone/Weaviate hostnames, and &#39;LangChain&#39; in job posts</li><li>Crawl 50k B2B SaaS domains plus their careers and subprocessor pages, and store results with timestamps</li><li>Publish a free &#39;what AI does X use?&#39; lookup page per company for SEO</li><li>Sell a $199/mo CSV export filtered by signal to 3-5 AI infrastructure startups, found through LinkedIn outreach to their growth leads</li></ol></div>
+          
+          
+        </div>
+        <p class="small">This plan is our idea, not the founder's, and the market notes are our judgment. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
       </section>
-      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://www.startupdaily.net/advice/builtwith-is-perhaps-one-of-australias-most-profitable-online-companies-and-has-zero-staff/" rel="noopener" target="_blank">Startup Daily: BuiltWith is perhaps one of Australia&#39;s most profitable online companies and has zero staff</a> <span class="host">startupdaily.net</span></li><li><a href="https://medium.com/@andrewjrogers/the-story-of-builtwith-e3bbc17c239f" rel="noopener" target="_blank">Andrew Rogers: The Story of BuiltWith</a> <span class="host">medium.com</span></li><li><a href="https://www.starterstory.com/stories/builtwith-technology-lookup-breakdown" rel="noopener" target="_blank">Starter Story: How Gary Brewer Stumbled Into A $14M Idea</a> <span class="host">starterstory.com</span></li><li><a href="https://builtwith.com/plans" rel="noopener" target="_blank">BuiltWith Plans &amp; Pricing</a> <span class="host">builtwith.com</span></li></ol><p class="small">Figures are estimate and dated Jan 2022. Spotted something out of date? <a href="/solo/about/#corrections">Send a correction</a>.</p></section>
+      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://www.startupdaily.net/advice/builtwith-is-perhaps-one-of-australias-most-profitable-online-companies-and-has-zero-staff/" rel="noopener" target="_blank">Startup Daily: BuiltWith is perhaps one of Australia&#39;s most profitable online companies and has zero staff</a> <span class="host">startupdaily.net</span></li><li><a href="https://medium.com/@andrewjrogers/the-story-of-builtwith-e3bbc17c239f" rel="noopener" target="_blank">Andrew Rogers: The Story of BuiltWith</a> <span class="host">medium.com</span></li><li><a href="https://www.starterstory.com/stories/builtwith-technology-lookup-breakdown" rel="noopener" target="_blank">Starter Story: How Gary Brewer Stumbled Into A $14M Idea</a> <span class="host">starterstory.com</span></li><li><a href="https://builtwith.com/plans" rel="noopener" target="_blank">BuiltWith Plans &amp; Pricing</a> <span class="host">builtwith.com</span></li></ol><p class="small">Figures are estimate and dated Jan 2022. Spotted something out of date? <a href="https://github.com/taoli1707/taoli1707.github.io/issues/new?title=Correction%3A%20BuiltWith&amp;body=Page%3A%20https%3A%2F%2Ftaoli1707.github.io%2Fsolo%2Fcases%2Fbuiltwith%2F%0AWhat%20is%20wrong%3A%0ANewer%20or%20better%20source%20(link)%3A%0A" rel="noopener" target="_blank">Send a correction</a>.</p></section>
       <section class="block"><h2>Similar cases</h2><ul class="cards small-cards"><li class="card" data-slug="screenshotone" data-cat="data-api" data-model="subscription" data-channel="seo" data-band="100k-1m" data-annual="384000" data-started="2022" data-diff="3" data-text="screenshotone dmytro krasun screenshot api: send a url or html, get back a clean rendered image a compliance evidence capture api that takes timestamped, hashed and archived captures of web pages (ads, pricing pages, cookie banners, terms) for legal, ad-compliance and brand-protection teams.">
   <div class="card-top"><span class="cat">Data &amp; APIs</span><span class="year">since 2022</span></div>
   <h3><a href="/solo/cases/screenshotone/">ScreenshotOne</a></h3>
@@ -109,6 +114,8 @@
         <ul>
           <li><a href="/solo/">All cases</a></li>
           <li><a href="/solo/ideas/">Ideas to build</a></li>
+          <li><a href="/solo/lists/">Top lists</a></li>
+          <li><a href="/solo/scanner/">Fit scanner</a></li>
           <li><a href="/solo/patterns/">Patterns</a></li>
           <li><a href="/solo/cases.json">Raw data (JSON)</a></li>
         </ul>
@@ -118,11 +125,12 @@
         <ul>
           <li><a href="/solo/about/">How we source numbers</a></li>
           <li><a href="/solo/about/#corrections">Corrections</a></li>
+          <li><a href="https://github.com/taoli1707/taoli1707.github.io/issues/new?title=Case%20suggestion%3A%20%3Cbusiness%20name%3E&amp;body=Business%3A%0AFounder%3A%0AWhy%20it%20counts%20as%20one-person%3A%0APublic%20revenue%20figure%20and%20link%3A%0A" rel="noopener" target="_blank">Suggest a case</a></li>
           <li><a href="/solo/about/#privacy">Privacy</a></li>
         </ul>
       </div>
     </div>
-    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Cases are researched with AI assistance from public sources and can contain errors; check the linked source before relying on a number. Nothing here is financial advice. Not affiliated with any business profiled.</p>
   </div>
 </footer>
 <script src="/solo/assets/site.js" defer></script>

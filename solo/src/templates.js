@@ -36,6 +36,11 @@ function monthLabel(asOf) {
   if (!m) return y;
   return new Date(Date.UTC(+y, +m - 1, 1)).toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 }
+function issueUrl(title, body) {
+  return `${config.issuesUrl}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+}
+const SUGGEST_URL = issueUrl("Case suggestion: <business name>", "Business:\nFounder:\nWhy it counts as one-person:\nPublic revenue figure and link:\n");
+const POTENTIAL = { high: "High potential", medium: "Medium potential", low: "Low potential" };
 function host(url) { try { return new URL(url).hostname.replace(/^www\./, ""); } catch (e) { return url; } }
 
 function dots(n) {
@@ -64,7 +69,9 @@ function layout({ title, description, path, body, jsonLd = [], current = "", typ
   const canonical = abs(path);
   const nav = [
     ["", "Cases"],
-    ["ideas/", "Ideas to build"],
+    ["ideas/", "Ideas"],
+    ["lists/", "Top lists"],
+    ["scanner/", "Fit scanner"],
     ["patterns/", "Patterns"],
     ["about/", "Method"],
   ].map(([p, label]) => `<a href="${u(p)}"${current === p ? ' aria-current="page"' : ""}>${label}</a>`).join("");
@@ -120,6 +127,8 @@ ${body}
         <ul>
           <li><a href="${u("")}">All cases</a></li>
           <li><a href="${u("ideas/")}">Ideas to build</a></li>
+          <li><a href="${u("lists/")}">Top lists</a></li>
+          <li><a href="${u("scanner/")}">Fit scanner</a></li>
           <li><a href="${u("patterns/")}">Patterns</a></li>
           <li><a href="${u("cases.json")}">Raw data (JSON)</a></li>
         </ul>
@@ -129,11 +138,12 @@ ${body}
         <ul>
           <li><a href="${u("about/")}">How we source numbers</a></li>
           <li><a href="${u("about/#corrections")}">Corrections</a></li>
+          <li><a href="${esc(SUGGEST_URL)}" rel="noopener" target="_blank">Suggest a case</a></li>
           <li><a href="${u("about/#privacy")}">Privacy</a></li>
         </ul>
       </div>
     </div>
-    <p class="fine">© ${new Date().getFullYear()} ${esc(config.siteName)}. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+    <p class="fine">© ${new Date().getFullYear()} ${esc(config.siteName)}. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Cases are researched with AI assistance from public sources and can contain errors; check the linked source before relying on a number. Nothing here is financial advice. Not affiliated with any business profiled.</p>
   </div>
 </footer>
 <script src="${u("assets/site.js")}" defer></script>
@@ -197,6 +207,12 @@ function home(cases) {
       <div><dt>Median case</dt><dd>${compact(median(cases.map((c) => c.annual)))}/yr</dd></div>
       <div><dt>Founder-reported figures</dt><dd>${cases.filter((c) => c.revenue.kind === "self-reported").length} of ${cases.length}</dd></div>
     </dl>
+    <nav class="tiles" aria-label="Explore">
+      <a href="${u("ideas/")}"><span>Ideas to build</span><strong>${cases.length} rebuild plans</strong><em>What to build, market, steps, stack, pricing</em></a>
+      <a href="${u("scanner/")}"><span>Fit scanner</span><strong>Which playbook fits you?</strong><em>7 questions, 3 matched cases</em></a>
+      <a href="${u("lists/")}"><span>Top lists</span><strong>${LISTS.length} curated lists</strong><em>Biggest, newest, easiest, data-first…</em></a>
+      <a href="${u("patterns/")}"><span>Patterns</span><strong>What the cases share</strong><em>Channels, models, takeaways</em></a>
+    </nav>
   </div>
 </section>
 
@@ -286,19 +302,24 @@ function casePage(c, cases) {
       ${section("moat", "Moat & risks", `<div class="two"><div class="panel good"><h3>What protects it</h3><p>${esc(c.moat)}</p></div><div class="panel bad"><h3>What could hurt it</h3><p>${esc(c.risks)}</p></div></div>`)}
       ${section("lessons", "Lessons you can reuse", `<ol class="lessons">${c.lessons.map((l) => `<li>${esc(l)}</li>`).join("")}</ol>`)}
       <section class="block rebuild" id="rebuild">
-        <p class="eyebrow">Idea to build next</p>
+        <p class="eyebrow">Rebuild plan · idea to build next</p>
         <h2>${esc(rb.idea)}</h2>
-        <p><strong>Why now:</strong> ${esc(rb.why)}</p>
         <dl class="mini">
           <div><dt>Difficulty</dt><dd>${dots(rb.difficulty)} ${DIFF[rb.difficulty]}</dd></div>
           <div><dt>Hours / week</dt><dd>${esc(rb.weeklyHours)}</dd></div>
+          ${rb.potential ? `<div><dt>Market potential</dt><dd><span class="pot pot-${esc(rb.potential)}">${esc(POTENTIAL[rb.potential] || rb.potential)}</span></dd></div>` : ""}
           <div><dt>Best fit</dt><dd>${esc(rb.fit)}</dd></div>
         </dl>
-        <h3>30-day path to a first paying customer</h3>
-        <ol class="steps">${rb.mvp.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
-        <p class="small">This is our idea, not the founder's. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
+        <div class="plan">
+          <div class="part"><span class="n">01</span><h3>What to build</h3><p>${esc(rb.why)}</p></div>
+          ${rb.market ? `<div class="part"><span class="n">02</span><h3>Market</h3><p>${esc(rb.market)}</p></div>` : ""}
+          <div class="part"><span class="n">${rb.market ? "03" : "02"}</span><h3>30-day path to a first paying customer</h3><ol class="steps">${rb.mvp.map((s) => `<li>${esc(s)}</li>`).join("")}</ol></div>
+          ${rb.stack && rb.stack.length ? `<div class="part"><span class="n">04</span><h3>Tech stack</h3><ul class="tags">${rb.stack.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>` : ""}
+          ${rb.pricing ? `<div class="part"><span class="n">05</span><h3>Revenue model</h3><p>${esc(rb.pricing)}</p></div>` : ""}
+        </div>
+        <p class="small">This plan is our idea, not the founder's, and the market notes are our judgment. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
       </section>
-      ${section("sources", "Sources", `<ol class="sources">${c.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.title)}</a> <span class="host">${esc(host(s.url))}</span></li>`).join("")}</ol><p class="small">Figures are ${esc(KIND[r.kind][0].toLowerCase())} and dated ${esc(monthLabel(r.asOf))}. Spotted something out of date? <a href="${u("about/#corrections")}">Send a correction</a>.</p>`)}
+      ${section("sources", "Sources", `<ol class="sources">${c.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener" target="_blank">${esc(s.title)}</a> <span class="host">${esc(host(s.url))}</span></li>`).join("")}</ol><p class="small">Figures are ${esc(KIND[r.kind][0].toLowerCase())} and dated ${esc(monthLabel(r.asOf))}. Spotted something out of date? <a href="${esc(issueUrl(`Correction: ${c.name}`, `Page: ${abs(`cases/${c.slug}/`)}\nWhat is wrong:\nNewer or better source (link):\n`))}" rel="noopener" target="_blank">Send a correction</a>.</p>`)}
       ${similar.length ? `<section class="block"><h2>Similar cases</h2><ul class="cards small-cards">${similar.map(card).join("")}</ul></section>` : ""}
       <nav class="pager" aria-label="More cases"><a href="${u(`cases/${prev.slug}/`)}">← ${esc(prev.name)}</a><a href="${u(`cases/${next.slug}/`)}">${esc(next.name)} →</a></nav>
     </div>
@@ -339,10 +360,11 @@ function ideasPage(cases) {
 <section class="section"><div class="wrap">
   <ol class="ideas" id="ideas">
 ${sorted.map((c) => `<li class="idea" data-diff="${c.rebuild.difficulty}">
-  <div class="idea-meta">${dots(c.rebuild.difficulty)} <span>${DIFF[c.rebuild.difficulty]}</span><span>${esc(c.rebuild.weeklyHours.replace(/\s*\(.*\)\s*$/, ""))} h/wk</span></div>
+  <div class="idea-meta">${dots(c.rebuild.difficulty)} <span>${DIFF[c.rebuild.difficulty]}</span><span>${esc(c.rebuild.weeklyHours.replace(/\s*\(.*\)\s*$/, ""))} h/wk</span>${c.rebuild.potential ? `<span class="pot pot-${esc(c.rebuild.potential)}">${esc(POTENTIAL[c.rebuild.potential] || c.rebuild.potential)}</span>` : ""}</div>
   <h3>${esc(c.rebuild.idea)}</h3>
   <p>${esc(c.rebuild.why)}</p>
   <p class="fit"><strong>Best fit:</strong> ${esc(c.rebuild.fit)}</p>
+  ${c.rebuild.stack && c.rebuild.stack.length ? `<ul class="tags">${c.rebuild.stack.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>` : ""}
   <p class="from">Playbook from <a href="${u(`cases/${c.slug}/#rebuild`)}">${esc(c.name)}</a> · ${esc(c.revenue.label)}</p>
 </li>`).join("\n")}
   </ol>
@@ -408,10 +430,12 @@ function aboutPage(cases) {
   <p>Numbers carry the month they were true. Revenue in these businesses moves fast, in both directions. For sorting we annualize monthly figures (× 12) and treat one-off totals, such as a launch week, as a year. Annualizing a monthly figure overstates a business that is shrinking and understates one that is growing.</p>
   <h2>Survivorship bias</h2>
   <p>These are businesses that worked and whose founders chose to publish numbers. For every one of them there are many that didn't make money. The "Ideas to build" section is meant to shorten your path to a first test, not to promise a result.</p>
+  <h2>AI assistance</h2>
+  <p>Cases are researched and drafted with AI assistance from public sources: founders' posts, interviews, podcasts, and press. Every figure carries its source link so you can check it. AI can misread a source; if you find an error, please report it.</p>
   <h2>The ideas are ours</h2>
   <p>Each case ends with an adjacent idea that reuses its playbook. The founders didn't suggest them and we haven't validated demand for them.</p>
   <h2 id="corrections">Corrections</h2>
-  <p>If a figure is out of date or wrong, send the newer source and we'll update the page and its date.${config.contactEmail ? ` Email <a href="mailto:${esc(config.contactEmail)}">${esc(config.contactEmail)}</a>.` : " Open an issue on the <a href=\"https://github.com/taoli1707/taoli1707.github.io/issues\">site's GitHub repository</a>."}</p>
+  <p>If a figure is out of date or wrong, use the "Send a correction" link at the bottom of the case page, or <a href="${esc(SUGGEST_URL)}" rel="noopener" target="_blank">suggest a business we missed</a>. Send the newer source and we'll update the page and its date.${config.contactEmail ? ` Email <a href="mailto:${esc(config.contactEmail)}">${esc(config.contactEmail)}</a>.` : " Open an issue on the <a href=\"https://github.com/taoli1707/taoli1707.github.io/issues\">site's GitHub repository</a>."}</p>
   <h2 id="privacy">Privacy</h2>
   <p>The site sets no cookies. Your theme choice is kept in your browser's local storage and never leaves your device.${config.analytics.plausibleDomain ? " We use Plausible for cookieless, aggregate page-view counts." : ""}${config.analytics.gaMeasurementId ? " We use Google Analytics, which sets cookies, to count visits." : ""}</p>
   <h2>Data</h2>
@@ -420,13 +444,97 @@ function aboutPage(cases) {
   return layout({ title: "Method", description: "How Solo Ledger picks one-person business cases and sources their revenue figures.", path: "about/", body, current: "about/" });
 }
 
+/* ---------- top lists ---------- */
+
+const OWN_AUDIENCE = ["build-in-public", "twitter-x", "linkedin", "newsletter", "youtube"];
+const DATA_RE = /\b(data|dataset|scrap\w*|crawl\w*|ETL|pipeline|API|aggregat\w*|index)\b/i;
+const hoursLo = (c) => Number((String(c.rebuild.weeklyHours).match(/\d+/) || [99])[0]);
+const byAnnual = (a, b) => b.annual - a.annual;
+const byDiff = (a, b) => a.rebuild.difficulty - b.rebuild.difficulty || b.annual - a.annual;
+const revStat = (c) => `${c.revenue.label}`;
+const ideaStat = (c) => c.rebuild.idea;
+
+const LISTS = [
+  { id: "biggest", title: "Biggest one-person businesses", blurb: "Ranked by annualized revenue. Estimates are labeled.", pick: (cs) => [...cs].sort(byAnnual), stat: revStat },
+  { id: "newest", title: "Newest businesses already earning", blurb: "Launched in 2021 or later, ranked by revenue. Evidence that the window is still open.", pick: (cs) => cs.filter((c) => c.started >= 2021).sort(byAnnual), stat: revStat },
+  { id: "no-audience", title: "Grew without a personal audience", blurb: "The main channel was SEO, word of mouth, a marketplace or a launch site, not the founder's following.", pick: (cs) => cs.filter((c) => !OWN_AUDIENCE.includes(c.channel)).sort(byAnnual), stat: (c) => `${channelName(c.channel)} · ${c.revenue.label}` },
+  { id: "audience-first", title: "Audience-first businesses", blurb: "The founder's own following brought most customers. Build the audience and the product together.", pick: (cs) => cs.filter((c) => OWN_AUDIENCE.includes(c.channel)).sort(byAnnual), stat: (c) => `${channelName(c.channel)} · ${c.revenue.label}` },
+  { id: "data-first", title: "Best playbooks for data engineers", blurb: "Businesses and ideas built on collecting, cleaning or indexing data.", pick: (cs) => cs.filter((c) => ["data-api", "marketplace-directory"].includes(c.category) || DATA_RE.test(c.rebuild.idea + " " + c.rebuild.fit)).sort(byDiff), stat: ideaStat },
+  { id: "easiest", title: "Easiest ideas to build", blurb: "Lowest difficulty first. Good first projects for nights and weekends.", pick: (cs) => [...cs].sort(byDiff), stat: ideaStat },
+  { id: "side-hustle", title: "Ideas that fit under 10 hours a week", blurb: "Plans whose weekly time estimate starts at 8 hours or less.", pick: (cs) => cs.filter((c) => hoursLo(c) <= 8).sort(byDiff), stat: (c) => `${c.rebuild.weeklyHours.replace(/\s*\(.*\)\s*$/, "")} h/wk · ${c.rebuild.idea}` },
+  { id: "high-potential", title: "Highest-potential ideas", blurb: "Ideas we rate high potential for a solo founder, easiest first. Our judgment, not a forecast.", pick: (cs) => cs.filter((c) => c.rebuild.potential === "high").sort(byDiff), stat: ideaStat },
+  { id: "recurring", title: "Biggest subscription businesses", blurb: "Recurring revenue: slower to start, easier to live on.", pick: (cs) => cs.filter((c) => c.model === "subscription").sort(byAnnual), stat: revStat },
+  { id: "one-time", title: "Pay-once products that worked", blurb: "Templates, courses, boilerplates and credit packs. No churn to fight, but you need new buyers every month.", pick: (cs) => cs.filter((c) => c.model === "one-time").sort(byAnnual), stat: revStat },
+  { id: "oldest", title: "Longest-running", blurb: "Oldest first. Durable niches and what kept them alive.", pick: (cs) => [...cs].sort((a, b) => a.started - b.started), stat: (c) => `Since ${c.started} · ${c.revenue.label}` },
+];
+
+function listsPage(cases) {
+  const lists = LISTS.map((l) => ({ ...l, items: l.pick(cases).slice(0, 10) })).filter((l) => l.items.length >= 3);
+  const body = `
+<section class="hero slim"><div class="wrap">
+  <p class="eyebrow">Top lists</p>
+  <h1>${lists.length} curated lists of one-person businesses.</h1>
+  <p class="lede">Computed from the case data on each build, so they update when a case is added or corrected. Up to 10 entries each.</p>
+  <nav class="chips" aria-label="Jump to a list">${lists.map((l) => `<a class="chip" href="#${l.id}">${esc(l.title)}</a>`).join("")}</nav>
+</div></section>
+<section class="section"><div class="wrap lists">
+${lists.map((l) => `<section class="list panel" id="${l.id}">
+  <h2>${esc(l.title)}</h2>
+  <p class="small">${esc(l.blurb)}</p>
+  <ol>${l.items.map((c) => `<li><a href="${u(`cases/${c.slug}/`)}">${esc(c.name)}</a><span>${esc(l.stat(c))}</span></li>`).join("")}</ol>
+</section>`).join("\n")}
+</div></section>`;
+  return layout({ title: "Top lists", description: `${lists.length} curated lists of one-person businesses: biggest, newest, no-audience-needed, best for data engineers, easiest ideas and more.`, path: "lists/", body, current: "lists/" });
+}
+
+/* ---------- fit scanner ---------- */
+
+const SCANNER = [
+  { id: "hours", q: "How many hours a week can you give it?", opts: [["3", "Under 5"], ["8", "5–10"], ["15", "10–20"], ["25", "20+"]] },
+  { id: "skill", q: "What's your strongest skill?", opts: [["code", "Building web apps"], ["data", "Data: pipelines, scraping, analysis"], ["writing", "Writing or teaching"], ["design", "Design or templates"]] },
+  { id: "audience", q: "How many people follow you somewhere (X, LinkedIn, newsletter, YouTube)?", opts: [["none", "Almost nobody"], ["small", "Under 1,000"], ["medium", "1,000–10,000"], ["large", "10,000+"]] },
+  { id: "posting", q: "Would you post about your work in public every week?", opts: [["yes", "Yes, happily"], ["no", "I'd rather not"]] },
+  { id: "model", q: "How do you want to get paid?", opts: [["recurring", "Monthly subscriptions"], ["once", "One-time sales"], ["ads", "Ads or sponsors"], ["any", "No preference"]] },
+  { id: "platform", q: "Would you build on top of another company's API or platform (OpenAI, Reddit, Notion…)?", opts: [["fine", "Fine, if it's fast"], ["avoid", "I'd rather own the whole thing"]] },
+  { id: "speed", q: "How soon do you need the first dollar?", opts: [["fast", "Within a month"], ["slow", "I can build for months"]] },
+];
+
+function scannerData(cases) {
+  return cases.map((c) => ({
+    slug: c.slug, name: c.name, url: u(`cases/${c.slug}/`), cat: c.category, model: c.model, channel: c.channel,
+    rev: c.revenue.label, diff: c.rebuild.difficulty, hours: hoursLo(c), idea: c.rebuild.idea, potential: c.rebuild.potential || "",
+  }));
+}
+
+function scannerPage(cases) {
+  const body = `
+<section class="hero slim"><div class="wrap">
+  <p class="eyebrow">Fit scanner</p>
+  <h1>Which one-person playbook fits you?</h1>
+  <p class="lede">Seven questions. We score every case against your time, skills, audience and appetite for risk, then show the three playbooks that fit best and the ones to avoid. Nothing you answer leaves your browser.</p>
+</div></section>
+<section class="section"><div class="wrap narrow">
+  <form id="scanner" class="scanner">
+${SCANNER.map((q, i) => `    <fieldset class="panel q">
+      <legend><span class="n">${String(i + 1).padStart(2, "0")}</span> ${esc(q.q)}</legend>
+      <div class="opts">${q.opts.map(([v, label]) => `<label><input type="radio" name="${q.id}" value="${v}" required> <span>${esc(label)}</span></label>`).join("")}</div>
+    </fieldset>`).join("\n")}
+    <button class="btn btn-primary" type="submit">Show my matches</button>
+    <p class="small" id="scanner-missing" hidden>Answer all seven questions first.</p>
+  </form>
+  <div id="scanner-result" class="scanner-result" hidden aria-live="polite"></div>
+  <script type="application/json" id="scanner-data">${JSON.stringify(scannerData(cases)).replace(/</g, "\\u003c")}</script>
+</div></section>`;
+  return layout({ title: "Fit scanner", description: "Answer seven questions to find the one-person business playbooks that fit your time, skills and audience.", path: "scanner/", body, current: "scanner/" });
+}
+
 function publicRecord(c) {
   const { annual, band, ...rest } = c;
   return rest;
 }
 
 function sitemap(cases) {
-  const paths = ["", "ideas/", "patterns/", "about/", ...cases.map((c) => `cases/${c.slug}/`)];
+  const paths = ["", "ideas/", "lists/", "scanner/", "patterns/", "about/", ...cases.map((c) => `cases/${c.slug}/`)];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${paths.map((p) => `  <url><loc>${esc(abs(p))}</loc><lastmod>${BUILD_DATE}</lastmod></url>`).join("\n")}
@@ -434,4 +542,4 @@ ${paths.map((p) => `  <url><loc>${esc(abs(p))}</loc><lastmod>${BUILD_DATE}</last
 `;
 }
 
-module.exports = { home, casePage, ideasPage, patternsPage, aboutPage, publicRecord, sitemap, FAVICON };
+module.exports = { home, casePage, ideasPage, listsPage, scannerPage, patternsPage, aboutPage, publicRecord, sitemap, FAVICON };

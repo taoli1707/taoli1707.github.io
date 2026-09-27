@@ -15,6 +15,9 @@ module.exports = {
 
   contactEmail: "", // shown on the About page when set
 
+  // Corrections and case suggestions open a pre-filled GitHub issue here.
+  issuesUrl: "https://github.com/taoli1707/taoli1707.github.io/issues/new",
+
   analytics: {
     plausibleDomain: "", // e.g. "taoli1707.github.io"
     gaMeasurementId: "", // e.g. "G-XXXXXXX"

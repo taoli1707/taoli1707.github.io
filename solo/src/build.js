@@ -36,6 +36,7 @@ function loadCases() {
     const d = c.rebuild.difficulty;
     if (!(d >= 1 && d <= 5)) throw new Error(`${f}: rebuild.difficulty must be 1-5`);
     if (!c.sources.length) throw new Error(`${f}: needs at least one source`);
+    if (c.rebuild.potential && !["high", "medium", "low"].includes(c.rebuild.potential)) throw new Error(`${f}: rebuild.potential must be high, medium or low`);
     c.annual = annualized(r);
     c.band = config.bands.find((b) => c.annual >= b.min && c.annual < b.max).id;
     c.stack = c.stack || [];
@@ -59,12 +60,14 @@ function main() {
   write("index.html", T.home(cases));
   for (const c of cases) write(`cases/${c.slug}/index.html`, T.casePage(c, cases));
   write("ideas/index.html", T.ideasPage(cases));
+  write("lists/index.html", T.listsPage(cases));
+  write("scanner/index.html", T.scannerPage(cases));
   write("patterns/index.html", T.patternsPage(cases));
   write("about/index.html", T.aboutPage(cases));
   write("cases.json", JSON.stringify(cases.map(T.publicRecord), null, 1));
   write("sitemap.xml", T.sitemap(cases));
   write("assets/favicon.svg", T.FAVICON);
-  console.log(`Done: ${cases.length} cases, ${cases.length + 4} pages.`);
+  console.log(`Done: ${cases.length} cases, ${cases.length + 6} pages.`);
 }
 
 main();

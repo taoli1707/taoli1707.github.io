@@ -29,7 +29,7 @@
     <a class="brand" href="/solo/"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)"/><path d="M9 22V10m0 12h14M13 19v-4m4 4v-7m4 7v-9" stroke="var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span>Solo<span class="dot">Ledger</span></span></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="nav" id="nav" aria-label="Site">
-      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas to build</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
+      <a href="/solo/" aria-current="page">Cases</a><a href="/solo/ideas/">Ideas</a><a href="/solo/lists/">Top lists</a><a href="/solo/scanner/">Fit scanner</a><a href="/solo/patterns/">Patterns</a><a href="/solo/about/">Method</a>
       <button class="theme-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg></button>
     </nav>
   </div>
@@ -57,19 +57,24 @@
       <section class="block" id="moat"><h2>Moat & risks</h2><div class="two"><div class="panel good"><h3>What protects it</h3><p>A small but real set of integrations across ecommerce platforms and embedded widgets that are annoying to replace. The niche was too small for large companies to target.</p></div><div class="panel bad"><h3>What could hurt it</h3><p>Platform dependence: Shopify can ship a native locator or change app-store rules. Competing plugins are cheap, and a low-ARPU product with churn needs constant new customers.</p></div></div></section>
       <section class="block" id="lessons"><h2>Lessons you can reuse</h2><ol class="lessons"><li>Build on top of a fast-growing platform&#39;s app store. Its growth becomes your distribution.</li><li>Ship embedded products with a &#39;powered by&#39; link so every customer markets for you.</li><li>Don&#39;t anchor on your launch price. Raise it for new customers once the product works.</li><li>A narrow utility can support a traveling solo founder and still be sellable to a SaaS holding company.</li></ol></section>
       <section class="block rebuild" id="rebuild">
-        <p class="eyebrow">Idea to build next</p>
+        <p class="eyebrow">Rebuild plan · idea to build next</p>
         <h2>A &#39;find our product near you&#39; locator for craft breweries, wineries and specialty food brands that ingests messy distributor depletion reports (CSV/Excel) and keeps retailer locations up to date automatically.</h2>
-        <p><strong>Why now:</strong> Generic store locators assume the brand keeps a clean store list. Beverage and food brands selling through distributors get irregular spreadsheets, so their &#39;where to buy&#39; pages go stale.</p>
         <dl class="mini">
           <div><dt>Difficulty</dt><dd><span class="dots" role="img" aria-label="Difficulty 2 of 5">●●<span class="off">●●●</span></span> Easy</dd></div>
           <div><dt>Hours / week</dt><dd>8-12 (fits a side hustle)</dd></div>
+          
           <div><dt>Best fit</dt><dd>A data engineer who enjoys messy spreadsheet ETL and geocoding</dd></div>
         </dl>
-        <h3>30-day path to a first paying customer</h3>
-        <ol class="steps"><li>Collect 5 real distributor reports from brewery owners and write a parser that normalizes and geocodes accounts</li><li>Ship an embeddable map widget with Shopify and WordPress snippets</li><li>Charge $29/mo with a monthly &#39;upload your report&#39; email and auto-refresh</li><li>Sell directly to 20 local breweries via Instagram DMs and state brewers&#39; guild forums</li></ol>
-        <p class="small">This is our idea, not the founder's. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
+        <div class="plan">
+          <div class="part"><span class="n">01</span><h3>What to build</h3><p>Generic store locators assume the brand keeps a clean store list. Beverage and food brands selling through distributors get irregular spreadsheets, so their &#39;where to buy&#39; pages go stale.</p></div>
+          
+          <div class="part"><span class="n">02</span><h3>30-day path to a first paying customer</h3><ol class="steps"><li>Collect 5 real distributor reports from brewery owners and write a parser that normalizes and geocodes accounts</li><li>Ship an embeddable map widget with Shopify and WordPress snippets</li><li>Charge $29/mo with a monthly &#39;upload your report&#39; email and auto-refresh</li><li>Sell directly to 20 local breweries via Instagram DMs and state brewers&#39; guild forums</li></ol></div>
+          
+          
+        </div>
+        <p class="small">This plan is our idea, not the founder's, and the market notes are our judgment. We haven't validated the demand: talk to 10 potential buyers before you write code.</p>
       </section>
-      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper" rel="noopener" target="_blank">Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas</a> <span class="host">indiehackers.com</span></li><li><a href="https://www.indiehackers.com/interview/how-i-grew-to-21k-mo-by-targeting-the-right-niche-47941ae09d" rel="noopener" target="_blank">Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche</a> <span class="host">indiehackers.com</span></li><li><a href="https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/" rel="noopener" target="_blank">Tyler Tringas: Storemapper bootstrapped to $50,000/year in 2 years</a> <span class="host">tylertringas.com</span></li><li><a href="https://tylertringas.com/selling-my-bootstrapped-saas-business/" rel="noopener" target="_blank">Tyler Tringas: Selling My Bootstrapped SaaS Business</a> <span class="host">tylertringas.com</span></li><li><a href="https://builttosell.com/radio/episode-160/" rel="noopener" target="_blank">Built to Sell Radio ep. 160: Tyler Tringas&#39; SaaS exit</a> <span class="host">builttosell.com</span></li></ol><p class="small">Figures are self-reported and dated 2017. Spotted something out of date? <a href="/solo/about/#corrections">Send a correction</a>.</p></section>
+      <section class="block" id="sources"><h2>Sources</h2><ol class="sources"><li><a href="https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper" rel="noopener" target="_blank">Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas</a> <span class="host">indiehackers.com</span></li><li><a href="https://www.indiehackers.com/interview/how-i-grew-to-21k-mo-by-targeting-the-right-niche-47941ae09d" rel="noopener" target="_blank">Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche</a> <span class="host">indiehackers.com</span></li><li><a href="https://tylertringas.com/storemapper-bootstrapped-to-50000year-in-2-years-with-live-metrics/" rel="noopener" target="_blank">Tyler Tringas: Storemapper bootstrapped to $50,000/year in 2 years</a> <span class="host">tylertringas.com</span></li><li><a href="https://tylertringas.com/selling-my-bootstrapped-saas-business/" rel="noopener" target="_blank">Tyler Tringas: Selling My Bootstrapped SaaS Business</a> <span class="host">tylertringas.com</span></li><li><a href="https://builttosell.com/radio/episode-160/" rel="noopener" target="_blank">Built to Sell Radio ep. 160: Tyler Tringas&#39; SaaS exit</a> <span class="host">builttosell.com</span></li></ol><p class="small">Figures are self-reported and dated 2017. Spotted something out of date? <a href="https://github.com/taoli1707/taoli1707.github.io/issues/new?title=Correction%3A%20Storemapper&amp;body=Page%3A%20https%3A%2F%2Ftaoli1707.github.io%2Fsolo%2Fcases%2Fstoremapper%2F%0AWhat%20is%20wrong%3A%0ANewer%20or%20better%20source%20(link)%3A%0A" rel="noopener" target="_blank">Send a correction</a>.</p></section>
       <section class="block"><h2>Similar cases</h2><ul class="cards small-cards"><li class="card" data-slug="carrd" data-cat="saas" data-model="subscription" data-channel="word-of-mouth" data-band="gt1m" data-annual="1000000" data-started="2016" data-diff="2" data-text="carrd aj (ajlkn) simple, responsive one-page websites for almost anything a one-page site builder just for local tradespeople (plumbers, electricians, cleaners) with built-in quote-request forms, service-area maps and google review embeds, at $29/yr.">
   <div class="card-top"><span class="cat">SaaS</span><span class="year">since 2016</span></div>
   <h3><a href="/solo/cases/carrd/">Carrd</a></h3>
@@ -109,6 +114,8 @@
         <ul>
           <li><a href="/solo/">All cases</a></li>
           <li><a href="/solo/ideas/">Ideas to build</a></li>
+          <li><a href="/solo/lists/">Top lists</a></li>
+          <li><a href="/solo/scanner/">Fit scanner</a></li>
           <li><a href="/solo/patterns/">Patterns</a></li>
           <li><a href="/solo/cases.json">Raw data (JSON)</a></li>
         </ul>
@@ -118,11 +125,12 @@
         <ul>
           <li><a href="/solo/about/">How we source numbers</a></li>
           <li><a href="/solo/about/#corrections">Corrections</a></li>
+          <li><a href="https://github.com/taoli1707/taoli1707.github.io/issues/new?title=Case%20suggestion%3A%20%3Cbusiness%20name%3E&amp;body=Business%3A%0AFounder%3A%0AWhy%20it%20counts%20as%20one-person%3A%0APublic%20revenue%20figure%20and%20link%3A%0A" rel="noopener" target="_blank">Suggest a case</a></li>
           <li><a href="/solo/about/#privacy">Privacy</a></li>
         </ul>
       </div>
     </div>
-    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Nothing here is financial advice. Not affiliated with any business profiled.</p>
+    <p class="fine">© 2026 Solo Ledger. Revenue figures are mostly self-reported by founders and dated; each one links to its source. Cases are researched with AI assistance from public sources and can contain errors; check the linked source before relying on a number. Nothing here is financial advice. Not affiliated with any business profiled.</p>
   </div>
 </footer>
 <script src="/solo/assets/site.js" defer></script>

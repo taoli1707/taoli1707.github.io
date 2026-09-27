@@ -256,6 +256,56 @@ table.bars td:nth-child(2) { min-width: 140px; }
 .btn { display: inline-block; font: 600 0.95rem Inter, sans-serif; padding: 10px 18px; border-radius: 8px; border: 1px solid transparent; cursor: pointer; text-decoration: none; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
 
+/* home tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 14px; max-width: 1160px; }
+.tiles a { display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-radius: var(--radius); background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); text-decoration: none; color: var(--ink); transition: border-color 0.15s, transform 0.15s; }
+.tiles a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.tiles span { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; color: var(--accent); }
+.tiles strong { font: 700 1.05rem Fraunces, Georgia, serif; }
+.tiles em { font-style: normal; font-size: 0.85rem; color: var(--muted); }
+
+/* rebuild plan parts */
+.plan { display: grid; gap: 12px; }
+.part { position: relative; padding: 14px 16px 6px 58px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.part .n { position: absolute; left: 16px; top: 14px; font: 700 0.9rem "JetBrains Mono", monospace; color: var(--accent); }
+.part h3 { font-size: 1rem; margin-bottom: 6px; }
+.tags { list-style: none; padding: 0; margin: 0 0 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.tags li { font: 500 0.78rem "JetBrains Mono", monospace; padding: 3px 8px; border-radius: 6px; background: var(--panel-2); color: var(--ink-2); }
+.pot { font: 600 0.7rem Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 7px; border-radius: 999px; white-space: nowrap; }
+.pot-high { background: var(--good-soft); color: var(--good); }
+.pot-medium { background: var(--gold-soft); color: var(--gold); }
+.pot-low { background: var(--panel-2); color: var(--muted); }
+
+/* top lists */
+a.chip { text-decoration: none; display: inline-block; }
+.lists { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+@media (max-width: 420px) { .lists { grid-template-columns: 1fr; } }
+.list h2 { font-size: 1.2rem; margin-bottom: 4px; }
+.list ol { margin: 12px 0 0; padding-left: 1.5em; }
+.list li { margin-bottom: 9px; }
+.list li::marker { font: 700 0.85rem "JetBrains Mono", monospace; color: var(--accent); }
+.list li a { font-weight: 600; }
+.list li span { display: block; font-size: 0.86rem; color: var(--muted); }
+
+/* fit scanner */
+.scanner { display: grid; gap: 12px; }
+.scanner fieldset { margin: 0; min-width: 0; }
+.scanner legend { font-weight: 600; padding: 0; margin-bottom: 10px; float: left; width: 100%; }
+.scanner legend .n { font: 700 0.85rem "JetBrains Mono", monospace; color: var(--accent); margin-right: 6px; }
+.opts { clear: both; display: flex; flex-wrap: wrap; gap: 8px; }
+.opts label { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line-2); border-radius: 999px; padding: 7px 14px; cursor: pointer; background: var(--bg); font-size: 0.93rem; }
+.opts label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.opts input { accent-color: var(--accent); margin: 0; }
+.scanner .btn { justify-self: start; }
+.scanner-result { margin-top: 36px; }
+.matches { list-style: none; padding: 0; display: grid; gap: 12px; }
+.matches li { display: flex; gap: 14px; }
+.matches .n { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font: 700 0.95rem "JetBrains Mono", monospace; }
+.matches h3 small { font: 500 0.85rem Inter, sans-serif; color: var(--muted); margin-left: 6px; }
+.matches p { margin: 0 0 6px; }
+.matches .warn { color: var(--bad); }
+.btn-ghost { background: transparent; border-color: var(--line-2); color: var(--ink); }
+
 /* footer */
 footer { border-top: 1px solid var(--line); background: var(--panel); padding: 36px 0 24px; font-size: 0.92rem; color: var(--ink-2); }
 footer .cols { display: grid; grid-template-columns: 1fr; gap: 24px; }
