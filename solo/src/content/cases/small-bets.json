@@ -17,6 +17,11 @@
     "source": "https://community.inc/article/small-bets"
   },
   "team": "Solo until July 2023, then run as a partnership with Louie Bacaj",
+  "status": {
+    "state": "sold",
+    "date": "2025-04",
+    "note": "Sold to Gumroad for $3.6M; the founder keeps running it."
+  },
   "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [

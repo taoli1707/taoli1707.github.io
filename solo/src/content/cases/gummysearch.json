@@ -17,6 +17,11 @@
     "source": "https://newsletter.failory.com/p/when-reddit-pulls-over"
   },
   "team": "Solo",
+  "status": {
+    "state": "shut-down",
+    "date": "2025-11",
+    "note": "Wound down after failing to get a Reddit commercial API license; full shutdown scheduled for Dec 2026."
+  },
   "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [

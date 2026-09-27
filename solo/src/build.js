@@ -40,6 +40,8 @@ function loadCases() {
     c.annual = annualized(r);
     c.band = config.bands.find((b) => c.annual >= b.min && c.annual < b.max).id;
     c.stack = c.stack || [];
+    c.status = c.status || { state: "active" };
+    if (!["active", "sold", "shut-down"].includes(c.status.state)) throw new Error(`${f}: status.state must be active, sold or shut-down`);
     return c;
   });
   // Biggest first; the home page re-sorts client-side.

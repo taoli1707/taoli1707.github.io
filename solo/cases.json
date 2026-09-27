@@ -109,7 +109,10 @@
     "title": "BuiltWith Plans & Pricing",
     "url": "https://builtwith.com/plans"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "justin-welsh",
@@ -232,7 +235,10 @@
     "title": "The LinkedIn Operating System",
     "url": "https://learn.justinwelsh.me/linkedin"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "headshotpro",
@@ -348,7 +354,10 @@
     "title": "Danny Postma: HeadshotPro affiliate program terms",
     "url": "https://x.com/dannypostma/status/1636556544270823425"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "carrd",
@@ -457,7 +466,10 @@
     "title": "Carrd docs: Pro plans",
     "url": "https://carrd.com/docs/pro/plans"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "typingmind",
@@ -478,41 +490,42 @@
    "source": "https://x.com/tdinh_me/status/1908345028327727335"
   },
   "team": "Solo until 2025, then founder + 2 hires (1 dev, 1 designer)",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "Launch day (March 2023)",
+  "startupCost": null,
+  "timeToFirstDollar": "Under a day (MVP shared Mar 6, 2023; $428.58 of revenue by the next morning)",
   "stack": [],
-  "summary": "TypingMind is a chat front-end for ChatGPT, Claude and other models, where users bring their own API keys. Tony Dinh built it alone in early 2023 and sold one-time licenses, later adding team and cloud plans. In April 2025 he reported $148k revenue for the previous month, an all-time high, and his first two hires.",
-  "origin": "Dinh, a Vietnamese developer who had already built DevUtils and Black Magic, shipped TypingMind in early March 2023, shortly after OpenAI released the ChatGPT API. He tweeted that he woke up to $428.58 of revenue for the new product. By his own newsletter account it made about $22k in the first 7 days.",
-  "howItMakesMoney": "One-time licenses for individuals, at $39 (Standard), $79 (Extended) and $99 (Premium) per the current pricing docs. Users pay model providers directly through their own API keys. Subscription offerings include TypingMind Cloud and TypingMind Custom, a white-label chat UI for teams and businesses.",
+  "summary": "TypingMind is a chat front-end for ChatGPT, Claude and other models, where users bring their own API keys. Tony Dinh built it alone in March 2023 and sold one-time licenses, later adding cloud-sync and team subscriptions. It passed $500K total revenue in February 2024, and in April 2025 he reported $148K revenue for the previous month, an all-time high, along with his first two hires.",
+  "origin": "Dinh, a Vietnamese developer who had already built DevUtils and Black Magic, was annoyed by ChatGPT's slow typing and lack of search. OpenAI released the ChatGPT API on March 1, 2023; he bought typingmind.com on March 2 and shared the first version on X on March 6. He woke up to $428.58 of revenue, and by his own newsletter account it made about $22.7K in the first 7 days.",
+  "howItMakesMoney": "One-time lifetime licenses for individuals in three tiers (Standard, Extended, Premium). Users pay model providers directly through their own API keys. Subscriptions cover TypingCloud sync and backup and the team product (TypingMind Custom, now documented as TypingMind Teams), which starts at $99/month for 5 seats plus $8 per extra user. In February 2024 the subscription side was at $15K MRR.",
   "growth": [
-   "Launched on X to an existing audience of developers, with daily revenue screenshots ($428 on day one, $3,100 soon after).",
+   "Launched on X to an existing audience of developers, with daily revenue updates: $1K, $2K, $4K, then $10K by March 10, 2023; he says 99% of early sales came from his Twitter reach.",
+   "Reached #1 Product of the Day on Product Hunt on March 11, 2023, adding about $5K.",
    "Rode the ChatGPT API wave: it gave power users a better UI with prompt libraries, plugins and multi-model chat, without a ChatGPT Plus subscription.",
-   "Added support for each new model and feature (web search, image generation, artifacts, deep research) quickly after release.",
-   "Moved upmarket with TypingMind Custom for teams, which adds recurring B2B revenue on top of one-time licenses.",
-   "Ran an affiliate program from 2023."
+   "Added support for each new model and feature (web search, image generation, artifacts, MCP) quickly after release.",
+   "Moved upmarket with a team version, which adds recurring B2B revenue on top of one-time licenses.",
+   "Ran an affiliate program until January 2025, then replaced it with a referral program that rewards cloud storage."
   ],
   "moat": "The moat is speed and polish more than technology: a large installed base of license holders, a plugin ecosystem, and B2B team deployments that are sticky once rolled out.",
   "risks": "Model providers keep improving their own chat apps, which shrinks the gap a third-party UI fills. One-time licenses cap lifetime value unless the team and cloud tiers keep growing.",
   "timeline": [
    {
     "date": "2023-03",
-    "event": "Launches TypingMind and tweets $428.58 of revenue after the first night"
+    "event": "Ships TypingMind on March 6 and tweets $428.58 of revenue the next morning"
    },
    {
     "date": "2023-03",
-    "event": "Reports ~$22k in the first 7 days"
+    "event": "Hits #1 on Product Hunt; ~$22.7K total revenue in the first 7 days"
    },
    {
-    "date": "2023-06",
-    "event": "Opens an affiliate program"
+    "date": "2024-02",
+    "event": "Passes $500K total revenue; subscriptions at $15K MRR"
+   },
+   {
+    "date": "2025-01",
+    "event": "Pauses the affiliate program"
    },
    {
     "date": "2025-04",
-    "event": "Reports $148k for the previous month (all-time high) and hires a developer and a designer"
-   },
-   {
-    "date": "2025",
-    "event": "Continues adding multi-model, deep research and team features"
+    "event": "Reports $148K for the previous month (all-time high) and hires a developer and a designer"
    }
   ],
   "lessons": [
@@ -532,7 +545,18 @@
    ],
    "difficulty": 3,
    "weeklyHours": "12-18",
-   "fit": "Full-stack developers with a contact inside a regulated profession"
+   "fit": "Full-stack developers with a contact inside a regulated profession",
+   "stack": [
+    "Next.js",
+    "Microsoft Presidio",
+    "Postgres",
+    "OpenAI API",
+    "Anthropic API",
+    "Stripe"
+   ],
+   "pricing": "A $299 one-time license per firm for the self-hosted app, plus a $29/month per-seat compliance pack with audit-log export and updated prompt packs.",
+   "potential": "high",
+   "market": "Buyers are managing partners and office managers at small law, accounting and medical practices, reached through LinkedIn, bar and CPA associations, and IT consultants who serve those firms. Competitors include TypingMind, ChatGPT Team/Enterprise, Microsoft Copilot and vertical tools such as Harvey and CoCounsel."
   },
   "sources": [
    {
@@ -548,10 +572,25 @@
     "url": "https://news.tonydinh.com/p/making-22k-in-7-days-the-story"
    },
    {
+    "title": "$500K milestone: my reflections after 1 year of building Typing Mind (Tony Dinh's newsletter)",
+    "url": "https://news.tonydinh.com/p/500k-milestone-my-reflections-after"
+   },
+   {
     "title": "TypingMind Docs: Plans & Pricing",
     "url": "https://docs.typingmind.com/quickstart/typingmind-license-plans"
+   },
+   {
+    "title": "TypingMind Docs: Compare Teams Plans",
+    "url": "https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans"
+   },
+   {
+    "title": "TypingMind Docs: Affiliate Program (Closed)",
+    "url": "https://docs.typingmind.com/affiliate-program-(closed)"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "photo-ai",
@@ -689,7 +728,10 @@
     "title": "Photo AI pricing",
     "url": "https://photoai.com/pricing"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "remote-ok",
@@ -802,7 +844,10 @@
     "title": "@levelsio on X: AI is now 62% of my revenue and remote work just 23%",
     "url": "https://x.com/levelsio/status/1847644979419562085"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "photopea",
@@ -926,7 +971,10 @@
     "title": "Latka: Photopea revenue estimate",
     "url": "https://getlatka.com/companies/photopea"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "bannerbear",
@@ -1053,7 +1101,10 @@
     "title": "Indie Hackers podcast #208: Jon Yongfook (archived)",
     "url": "https://web.archive.org/web/20250207094028/https://www.indiehackers.com/podcast/208-jon-yongfook"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "lennys-newsletter",
@@ -1171,7 +1222,10 @@
     "title": "Lenny Rachitsky on X: announcing the product bundle and price change",
     "url": "https://x.com/lennysan/status/1886808960931676468"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "nomad-list",
@@ -1308,7 +1362,10 @@
     "title": "Lex Fridman Podcast #440 transcript (Nomad List origin, stack)",
     "url": "https://lexfridman.com/pieter-levels-transcript/"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "css-for-js-developers",
@@ -1413,7 +1470,10 @@
     "title": "The Joy of React launch date (Josh W. Comeau)",
     "url": "https://www.joshwcomeau.com/email/jor-updates-006-launch-date/"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "gummysearch",
@@ -1434,6 +1494,11 @@
    "source": "https://newsletter.failory.com/p/when-reddit-pulls-over"
   },
   "team": "Solo",
+  "status": {
+   "state": "shut-down",
+   "date": "2025-11",
+   "note": "Wound down after failing to get a Reddit commercial API license; full shutdown scheduled for Dec 2026."
+  },
   "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
@@ -1560,6 +1625,11 @@
    "source": "https://community.inc/article/small-bets"
   },
   "team": "Solo until July 2023, then run as a partnership with Louie Bacaj",
+  "status": {
+   "state": "sold",
+   "date": "2025-04",
+   "note": "Sold to Gumroad for $3.6M; the founder keeps running it."
+  },
   "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
@@ -1794,7 +1864,10 @@
     "title": "ScreenshotOne pricing",
     "url": "https://screenshotone.com/pricing/"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "storemapper",
@@ -1815,6 +1888,11 @@
    "source": "https://web.archive.org/web/20221205112244/https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
   },
   "team": "Solo founder for the first years; a small remote team (five people per Built to Sell) by the 2017 sale",
+  "status": {
+   "state": "sold",
+   "date": "2017",
+   "note": "Sold to SureSwift Capital."
+  },
   "startupCost": null,
   "timeToFirstDollar": "Day 1 (3 paying subscribers at $5/mo on launch day)",
   "stack": [
@@ -1856,6 +1934,10 @@
    },
    {
     "date": "2017",
+    "event": "Built to Sell later describes it as reaching ~$50K MRR with a team of five by 2017"
+   },
+   {
+    "date": "2017",
     "event": "Meets SureSwift Capital at MicroConf in March; the sale closes about five months later"
    }
   ],
@@ -1886,7 +1968,7 @@
    ],
    "pricing": "Monthly subscription at $29/mo for a single brand with monthly report uploads, and $79/mo for multiple distributors, automatic refresh and analytics on 'where to buy' searches.",
    "potential": "medium",
-   "market": "Buyers are craft breweries, wineries, distilleries and specialty food brands that sell through distributors, reached through state brewers' guilds, trade shows and direct outreach on Instagram. Competitors include Storemapper, Stockist and Destini (formerly VIP's store locator tooling) plus free Shopify locator apps."
+   "market": "Buyers are craft breweries, wineries, distilleries and specialty food brands that sell through distributors, reached through state brewers' guilds, trade shows and direct outreach on Instagram. Competitors include Destini, Storemapper and Stockist, plus free Shopify locator apps."
   },
   "sources": [
    {
@@ -1927,46 +2009,55 @@
    "label": "$20K MRR within a year of launch",
    "asOf": "2020-09",
    "kind": "self-reported",
-   "source": "https://www.indiehackers.com/podcast/173-dru-riley-of-trends-vc"
+   "source": "https://www.indiehackers.com/post/growing-from-0-to-20k-mrr-with-winning-trends-dru-riley-bbc7ab2daa"
   },
   "team": "Solo",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "~3 months (launched Feb 2020, first revenue May 2020)",
+  "startupCost": null,
+  "timeToFirstDollar": "3 months (first report Feb 10, 2020; first paid revenue May 10, 2020)",
   "stack": [
    "Gumroad"
   ],
-  "summary": "Trends.vc is a one-person research newsletter where Dru Riley publishes reports on one emerging market or trend at a time. Free readers get a summary and paid Trends Pro members get full reports and a community. He reported reaching $20K MRR in under a year.",
-  "origin": "Riley quit a big-data engineering job in 2017 and spent about three years traveling and trying side products. His SaaS attempts (StrongStack, then SaaSReport) weren't making money, and he found he preferred writing about trends. He published the first Trends report on February 10, 2020.",
-  "howItMakesMoney": "Trends Pro membership (full reports, databases, community); pricing has changed over time, with an annual plan listed at $299/year. Sponsorships of the free newsletter were added in February 2022.",
+  "summary": "Trends.vc is a one-person research newsletter where Dru Riley publishes reports on one emerging market or trend at a time. Free readers get a summary and paid Trends Pro members get full reports and a community. He told the Indie Hackers podcast in September 2020 that it had reached $20K MRR in under a year, and it made $38,000 in October 2020.",
+  "origin": "Riley, a software developer (Rails, Scala, Spark), quit his job in February 2017 with $250,000 in savings and went 37 months without income while traveling and trying projects. In fall 2019 he worked on a B2B SaaS marketing playbook and StrongStack, which he pivoted to SaaSReport in January 2020. To 'release steam' he started writing about trends and published the first Trends report, on cloud kitchens, on February 10, 2020.",
+  "howItMakesMoney": "Trends Pro membership (full reports, databases, community, masterminds). The price went from $12/month in May 2020 to $149/year in August 2020 and $297/year in October 2020; Growth in Reverse listed the annual plan at $299/year in 2023. Sponsorships of the free newsletter were added in February 2022, and top reports are also sold as a bundle.",
   "growth": [
-   "Used a fixed, recognizable report format (Problem, Players, Predictions, Opportunities, Haters, Links)",
-   "Spent 2-3 months testing the email opt-in page before scaling traffic",
-   "Two Product Hunt launches produced the biggest early jumps in subscribers",
-   "Was active on Indie Hackers and in masterminds, which spread the reports among founders",
+   "Used a fixed, recognizable report format (Problem, Players, Predictions, Opportunities, Haters, Links) capped at 1,000 words",
+   "Tested the homepage email opt-in for months from May 2020, after seeing another founder report a 40% opt-in rate",
+   "Two Product Hunt launches produced the biggest jumps in subscribers; the first took the list from about 7,000 to 25,000 within days, and it reached #1 on Product Hunt in August 2020",
+   "Was active on Indie Hackers and in the Zero To One Makers mastermind, whose members shared the reports",
+   "Split each report into a free half and a paid half after a paid-only pre-order got zero sales",
    "Raised prices several times as the report archive grew"
   ],
-  "moat": "An archive of 100+ researched reports and a paid community of founders; the format and consistency are hard to copy quickly.",
+  "moat": "A large archive of researched reports and a paid community of founders; the format and consistency are hard to copy quickly.",
   "risks": "AI research tools can produce passable market summaries cheaply, pressuring the value of reports. Output depends on one researcher's time.",
   "timeline": [
    {
     "date": "2017-02",
-    "event": "Quits big-data engineering job to explore independent work"
+    "event": "Quits software developer job to explore independent work"
    },
    {
     "date": "2019 (fall)",
-    "event": "Works on StrongStack, later pivoted to SaaSReport"
+    "event": "Works on StrongStack, pivoted to SaaSReport in January 2020"
    },
    {
     "date": "2020-02",
-    "event": "Publishes first Trends report"
+    "event": "Publishes first Trends report (Feb 10)"
    },
    {
     "date": "2020-05",
-    "event": "Starts earning revenue from Trends Pro"
+    "event": "First Trends Pro revenue: $162 on the first day (May 10)"
+   },
+   {
+    "date": "2020-08",
+    "event": "Reaches #1 on Product Hunt; makes about $24K that month"
    },
    {
     "date": "2020-09",
     "event": "Tells Indie Hackers podcast he reached $20K MRR in under a year"
+   },
+   {
+    "date": "2020-10",
+    "event": "Launches the Trends Pro community; earns $38,000 in the month"
    },
    {
     "date": "2022-02",
@@ -1990,26 +2081,39 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "An analyst or consultant with background in that industry"
+   "fit": "An analyst or consultant with background in that industry",
+   "stack": [
+    "Ghost or beehiiv",
+    "Stripe",
+    "Airtable or Postgres",
+    "Perplexity or OpenAI API",
+    "Metabase"
+   ],
+   "pricing": "Free summary newsletter with a paid tier at $20-30/month or $199-$299/year for full reports and data tables, plus one-off report sales around $49.",
+   "potential": "medium",
+   "market": "Buyers are owners and operators in the chosen vertical (e.g. independent pharmacy owners), reached through trade associations, industry Facebook and LinkedIn groups, and conference talks. Competitors are trade publications and associations' member reports, general newsletters such as Trends.vc and Exploding Topics, and AI research tools."
   },
   "sources": [
-   {
-    "title": "Indie Hackers Podcast #173: Dru Riley of Trends.vc",
-    "url": "https://www.indiehackers.com/podcast/173-dru-riley-of-trends-vc"
-   },
    {
     "title": "Indie Hackers: Growing from 0 to $20K MRR with Winning Trends",
     "url": "https://www.indiehackers.com/post/growing-from-0-to-20k-mrr-with-winning-trends-dru-riley-bbc7ab2daa"
    },
    {
-    "title": "Growth In Reverse: How to Build a $500k/yr Business in 3 Years With Dru Riley",
-    "url": "https://growthinreverse.com/dru-riley/"
+    "title": "Indie Hackers Podcast #173: Dru Riley of Trends.vc (archived)",
+    "url": "https://web.archive.org/web/20260515010803/https://www.indiehackers.com/podcast/173-dru-riley-of-trends-vc"
    },
    {
-    "title": "Gumroad: Creator Spotlight on Dru Riley",
+    "title": "Gumroad: Creator Spotlight on Dru Riley (Dec 2020)",
     "url": "https://gumroad.com/gumroad/p/creator-spotlight-dru-riley-s-success-on-gumroad"
+   },
+   {
+    "title": "Growth In Reverse: How to Build a $500k/yr Business in 3 Years With Dru Riley",
+    "url": "https://growthinreverse.com/dru-riley/"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "easlo",
@@ -2107,7 +2211,10 @@
     "title": "Easlo Second Brain on Gumroad",
     "url": "https://easlo.gumroad.com/l/brain"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "pinboard",
@@ -2238,7 +2345,10 @@
     "title": "Pinboard (website) - Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Pinboard_(website)"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "betalist",
@@ -2336,7 +2446,10 @@
     "title": "Mixergy: How BetaList is helping startups get their first users",
     "url": "https://mixergy.com/interviews/marc-kohlbrugge-betalist/"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "bingo-card-creator",
@@ -2357,6 +2470,11 @@
    "source": "https://www.kalzumeus.com/2012/12/29/bingo-card-creator-and-other-stuff-year-in-review-2012/"
   },
   "team": "Solo + freelance content writers",
+  "status": {
+   "state": "sold",
+   "date": "2015",
+   "note": "Sold through FE International."
+  },
   "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
@@ -2589,7 +2707,10 @@
     "title": "Indie Bites #94: Andrew Kamphey",
     "url": "https://indiebites.com/94"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  },
  {
   "slug": "shipfast",
@@ -2734,6 +2855,9 @@
     "title": "Marc Lou newsletter: I made $1M as a solopreneur (Aug 2024; 4,200+ developers)",
     "url": "https://newsletter.marclou.com/p/i-made-usd-1m-as-a-solopreneur"
    }
-  ]
+  ],
+  "status": {
+   "state": "active"
+  }
  }
 ]

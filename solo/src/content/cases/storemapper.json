@@ -17,6 +17,11 @@
     "source": "https://web.archive.org/web/20221205112244/https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
   },
   "team": "Solo founder for the first years; a small remote team (five people per Built to Sell) by the 2017 sale",
+  "status": {
+    "state": "sold",
+    "date": "2017",
+    "note": "Sold to SureSwift Capital."
+  },
   "startupCost": null,
   "timeToFirstDollar": "Day 1 (3 paying subscribers at $5/mo on launch day)",
   "stack": [
@@ -58,6 +63,10 @@
     },
     {
       "date": "2017",
+      "event": "Built to Sell later describes it as reaching ~$50K MRR with a team of five by 2017"
+    },
+    {
+      "date": "2017",
       "event": "Meets SureSwift Capital at MicroConf in March; the sale closes about five months later"
     }
   ],
@@ -88,7 +97,7 @@
     ],
     "pricing": "Monthly subscription at $29/mo for a single brand with monthly report uploads, and $79/mo for multiple distributors, automatic refresh and analytics on 'where to buy' searches.",
     "potential": "medium",
-    "market": "Buyers are craft breweries, wineries, distilleries and specialty food brands that sell through distributors, reached through state brewers' guilds, trade shows and direct outreach on Instagram. Competitors include Storemapper, Stockist and Destini (formerly VIP's store locator tooling) plus free Shopify locator apps."
+    "market": "Buyers are craft breweries, wineries, distilleries and specialty food brands that sell through distributors, reached through state brewers' guilds, trade shows and direct outreach on Instagram. Competitors include Destini, Storemapper and Stockist, plus free Shopify locator apps."
   },
   "sources": [
     {

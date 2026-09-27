@@ -157,6 +157,10 @@ a:hover { text-decoration-thickness: 2px; }
 .kind { font: 600 0.7rem Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
 .kind-estimate { background: var(--gold-soft); color: var(--gold); }
 .kind-disclosed-sale { background: var(--panel-2); color: var(--ink-2); }
+.status { font: 600 0.68rem Inter, sans-serif; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 6px; border-radius: 999px; margin-right: 4px; }
+.status-sold { background: var(--gold-soft); color: var(--gold); }
+.status-shut-down { background: var(--bad-soft); color: var(--bad); }
+.facts dd .status + small { display: block; margin: 6px 0 0; }
 .dots { color: var(--gold); letter-spacing: 1px; }
 .dots .off { color: var(--line-2); }
 

@@ -14,8 +14,8 @@ module.exports = {
       body: (cs) => `${n(cs, (c) => OWN_AUDIENCE.includes(c.channel))} of ${cs.length} got most customers from the founder's own following (build in public, X, LinkedIn, a newsletter), not from ads. None used paid ads as the main channel. Start posting before you have something to sell.`,
     },
     {
-      title: "The AI apps made money in launch week.",
-      body: (cs) => `${cs.filter((c) => c.category === "ai-app").map((c) => c.name).join(", ")} all launched in 2023 and took payments almost immediately. Arriving early on a new capability matters more than polish. The cost is a moat that erodes as the models get cheaper and competitors arrive.`,
+      title: "The AI apps grew fastest.",
+      body: (cs) => `${cs.filter((c) => c.category === "ai-app").map((c) => c.name).join(", ")} all launched in 2023 and within about two years were among the largest businesses here. Arriving early on a new capability mattered more than polish. The cost is a moat that erodes as models get cheaper and competitors arrive.`,
     },
     {
       title: "Seed the supply side before you charge.",

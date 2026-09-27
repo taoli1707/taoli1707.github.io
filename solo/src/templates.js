@@ -40,6 +40,8 @@ function issueUrl(title, body) {
   return `${config.issuesUrl}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
 }
 const SUGGEST_URL = issueUrl("Case suggestion: <business name>", "Business:\nFounder:\nWhy it counts as one-person:\nPublic revenue figure and link:\n");
+const STATUS = { active: "Active", sold: "Sold", "shut-down": "Shut down" };
+const statusBadge = (st) => st.state === "active" ? "" : `<span class="status status-${st.state}">${STATUS[st.state]}${st.date ? ` ${esc(String(st.date).slice(0, 4))}` : ""}</span>`;
 const POTENTIAL = { high: "High potential", medium: "Medium potential", low: "Low potential" };
 function host(url) { try { return new URL(url).hostname.replace(/^www\./, ""); } catch (e) { return url; } }
 
@@ -156,7 +158,7 @@ ${body}
 
 function card(c) {
   return `<li class="card" data-slug="${esc(c.slug)}" data-cat="${esc(c.category)}" data-model="${esc(c.model)}" data-channel="${esc(c.channel)}" data-band="${esc(c.band)}" data-annual="${c.annual}" data-started="${c.started}" data-diff="${c.rebuild.difficulty}" data-text="${esc([c.name, c.founder, c.tagline, c.rebuild.idea, ...c.stack].join(" ").toLowerCase())}">
-  <div class="card-top"><span class="cat">${esc(catName(c.category))}</span><span class="year">since ${c.started}</span></div>
+  <div class="card-top"><span class="cat">${esc(catName(c.category))}</span><span class="year">${statusBadge(c.status)} since ${c.started}</span></div>
   <h3><a href="${u(`cases/${c.slug}/`)}">${esc(c.name)}</a></h3>
   <p class="founder">${esc(c.founder)}</p>
   <p class="tagline">${esc(c.tagline)}</p>
@@ -272,6 +274,7 @@ function casePage(c, cases) {
     ["Revenue", `<span class="num">${esc(r.label)}</span> ${kindBadge(r.kind)}<small>as of ${esc(monthLabel(r.asOf))} · <a href="${esc(r.source)}" rel="noopener" target="_blank">source</a></small>`],
     ["Founded", esc(c.started)],
     ["Team", esc(c.team)],
+    ["Status", c.status.state === "active" ? "Active" : `${statusBadge(c.status)}<small>${esc(c.status.note || "")}</small>`],
     ["Startup cost (approx.)", esc(c.startupCost || "Not disclosed")],
     ["First dollar", esc(c.timeToFirstDollar || "Not disclosed")],
     ["Model", esc(modelName(c.model))],
@@ -456,7 +459,8 @@ const ideaStat = (c) => c.rebuild.idea;
 
 const LISTS = [
   { id: "biggest", title: "Biggest one-person businesses", blurb: "Ranked by annualized revenue. Estimates are labeled.", pick: (cs) => [...cs].sort(byAnnual), stat: revStat },
-  { id: "newest", title: "Newest businesses already earning", blurb: "Launched in 2021 or later, ranked by revenue. Evidence that the window is still open.", pick: (cs) => cs.filter((c) => c.started >= 2021).sort(byAnnual), stat: revStat },
+  { id: "newest", title: "Newest businesses already earning", blurb: "Launched in 2021 or later, ranked by revenue. Evidence that the window is still open.", pick: (cs) => cs.filter((c) => c.started >= 2021 && c.status.state === "active").sort(byAnnual), stat: revStat },
+  { id: "exits", title: "How they ended: sold or shut down", blurb: "Exits and closures. Selling is a normal ending for a solo business; so is a platform pulling the rug.", pick: (cs) => cs.filter((c) => c.status.state !== "active").sort((a, b) => String(b.status.date).localeCompare(String(a.status.date))), stat: (c) => `${STATUS[c.status.state]} ${c.status.date || ""} · ${c.status.note || ""}` },
   { id: "no-audience", title: "Grew without a personal audience", blurb: "The main channel was SEO, word of mouth, a marketplace or a launch site, not the founder's following.", pick: (cs) => cs.filter((c) => !OWN_AUDIENCE.includes(c.channel)).sort(byAnnual), stat: (c) => `${channelName(c.channel)} · ${c.revenue.label}` },
   { id: "audience-first", title: "Audience-first businesses", blurb: "The founder's own following brought most customers. Build the audience and the product together.", pick: (cs) => cs.filter((c) => OWN_AUDIENCE.includes(c.channel)).sort(byAnnual), stat: (c) => `${channelName(c.channel)} · ${c.revenue.label}` },
   { id: "data-first", title: "Best playbooks for data engineers", blurb: "Businesses and ideas built on collecting, cleaning or indexing data.", pick: (cs) => cs.filter((c) => ["data-api", "marketplace-directory"].includes(c.category) || DATA_RE.test(c.rebuild.idea + " " + c.rebuild.fit)).sort(byDiff), stat: ideaStat },

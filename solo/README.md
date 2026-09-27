@@ -6,7 +6,8 @@ Case studies of one-person businesses, in the spirit of [loot-drop.io](https://w
 
 ```
 solo/
-  index.html, cases/, ideas/, patterns/, about/   generated pages (commit them; Pages serves them)
+  index.html, cases/, ideas/, lists/, scanner/,
+  patterns/, about/                                generated pages (commit them; Pages serves them)
   cases.json, sitemap.xml                          generated
   assets/site.css, site.js, favicon.svg            hand-written runtime (favicon is generated)
   src/
@@ -40,7 +41,8 @@ Copy an existing file in `src/content/cases/`, rename it to the new slug, and ch
 | `summary`, `origin`, `howItMakesMoney`, `moat`, `risks` | body paragraphs |
 | `growth`, `lessons` | bullet lists |
 | `timeline` | `[{ date, event }]` |
-| `rebuild` | `{ idea, why, mvp: [...], difficulty: 1-5, weeklyHours, fit }` |
+| `status` | optional `{ state: "active"\|"sold"\|"shut-down", date, note }`; omitted means active |
+| `rebuild` | `{ idea, why, mvp: [...], difficulty: 1-5, weeklyHours, fit, stack: [...], pricing, potential: "high"\|"medium"\|"low", market }` |
 | `sources` | `[{ title, url }]`, every number must be traceable to one of these |
 
 Sourcing rule: no number without a link. If only an estimate exists, set `kind: "estimate"`.

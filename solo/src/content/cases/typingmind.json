@@ -17,41 +17,42 @@
     "source": "https://x.com/tdinh_me/status/1908345028327727335"
   },
   "team": "Solo until 2025, then founder + 2 hires (1 dev, 1 designer)",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "Launch day (March 2023)",
+  "startupCost": null,
+  "timeToFirstDollar": "Under a day (MVP shared Mar 6, 2023; $428.58 of revenue by the next morning)",
   "stack": [],
-  "summary": "TypingMind is a chat front-end for ChatGPT, Claude and other models, where users bring their own API keys. Tony Dinh built it alone in early 2023 and sold one-time licenses, later adding team and cloud plans. In April 2025 he reported $148k revenue for the previous month, an all-time high, and his first two hires.",
-  "origin": "Dinh, a Vietnamese developer who had already built DevUtils and Black Magic, shipped TypingMind in early March 2023, shortly after OpenAI released the ChatGPT API. He tweeted that he woke up to $428.58 of revenue for the new product. By his own newsletter account it made about $22k in the first 7 days.",
-  "howItMakesMoney": "One-time licenses for individuals, at $39 (Standard), $79 (Extended) and $99 (Premium) per the current pricing docs. Users pay model providers directly through their own API keys. Subscription offerings include TypingMind Cloud and TypingMind Custom, a white-label chat UI for teams and businesses.",
+  "summary": "TypingMind is a chat front-end for ChatGPT, Claude and other models, where users bring their own API keys. Tony Dinh built it alone in March 2023 and sold one-time licenses, later adding cloud-sync and team subscriptions. It passed $500K total revenue in February 2024, and in April 2025 he reported $148K revenue for the previous month, an all-time high, along with his first two hires.",
+  "origin": "Dinh, a Vietnamese developer who had already built DevUtils and Black Magic, was annoyed by ChatGPT's slow typing and lack of search. OpenAI released the ChatGPT API on March 1, 2023; he bought typingmind.com on March 2 and shared the first version on X on March 6. He woke up to $428.58 of revenue, and by his own newsletter account it made about $22.7K in the first 7 days.",
+  "howItMakesMoney": "One-time lifetime licenses for individuals in three tiers (Standard, Extended, Premium). Users pay model providers directly through their own API keys. Subscriptions cover TypingCloud sync and backup and the team product (TypingMind Custom, now documented as TypingMind Teams), which starts at $99/month for 5 seats plus $8 per extra user. In February 2024 the subscription side was at $15K MRR.",
   "growth": [
-    "Launched on X to an existing audience of developers, with daily revenue screenshots ($428 on day one, $3,100 soon after).",
+    "Launched on X to an existing audience of developers, with daily revenue updates: $1K, $2K, $4K, then $10K by March 10, 2023; he says 99% of early sales came from his Twitter reach.",
+    "Reached #1 Product of the Day on Product Hunt on March 11, 2023, adding about $5K.",
     "Rode the ChatGPT API wave: it gave power users a better UI with prompt libraries, plugins and multi-model chat, without a ChatGPT Plus subscription.",
-    "Added support for each new model and feature (web search, image generation, artifacts, deep research) quickly after release.",
-    "Moved upmarket with TypingMind Custom for teams, which adds recurring B2B revenue on top of one-time licenses.",
-    "Ran an affiliate program from 2023."
+    "Added support for each new model and feature (web search, image generation, artifacts, MCP) quickly after release.",
+    "Moved upmarket with a team version, which adds recurring B2B revenue on top of one-time licenses.",
+    "Ran an affiliate program until January 2025, then replaced it with a referral program that rewards cloud storage."
   ],
   "moat": "The moat is speed and polish more than technology: a large installed base of license holders, a plugin ecosystem, and B2B team deployments that are sticky once rolled out.",
   "risks": "Model providers keep improving their own chat apps, which shrinks the gap a third-party UI fills. One-time licenses cap lifetime value unless the team and cloud tiers keep growing.",
   "timeline": [
     {
       "date": "2023-03",
-      "event": "Launches TypingMind and tweets $428.58 of revenue after the first night"
+      "event": "Ships TypingMind on March 6 and tweets $428.58 of revenue the next morning"
     },
     {
       "date": "2023-03",
-      "event": "Reports ~$22k in the first 7 days"
+      "event": "Hits #1 on Product Hunt; ~$22.7K total revenue in the first 7 days"
     },
     {
-      "date": "2023-06",
-      "event": "Opens an affiliate program"
+      "date": "2024-02",
+      "event": "Passes $500K total revenue; subscriptions at $15K MRR"
+    },
+    {
+      "date": "2025-01",
+      "event": "Pauses the affiliate program"
     },
     {
       "date": "2025-04",
-      "event": "Reports $148k for the previous month (all-time high) and hires a developer and a designer"
-    },
-    {
-      "date": "2025",
-      "event": "Continues adding multi-model, deep research and team features"
+      "event": "Reports $148K for the previous month (all-time high) and hires a developer and a designer"
     }
   ],
   "lessons": [
@@ -71,7 +72,18 @@
     ],
     "difficulty": 3,
     "weeklyHours": "12-18",
-    "fit": "Full-stack developers with a contact inside a regulated profession"
+    "fit": "Full-stack developers with a contact inside a regulated profession",
+    "stack": [
+      "Next.js",
+      "Microsoft Presidio",
+      "Postgres",
+      "OpenAI API",
+      "Anthropic API",
+      "Stripe"
+    ],
+    "pricing": "A $299 one-time license per firm for the self-hosted app, plus a $29/month per-seat compliance pack with audit-log export and updated prompt packs.",
+    "potential": "high",
+    "market": "Buyers are managing partners and office managers at small law, accounting and medical practices, reached through LinkedIn, bar and CPA associations, and IT consultants who serve those firms. Competitors include TypingMind, ChatGPT Team/Enterprise, Microsoft Copilot and vertical tools such as Harvey and CoCounsel."
   },
   "sources": [
     {
@@ -87,8 +99,20 @@
       "url": "https://news.tonydinh.com/p/making-22k-in-7-days-the-story"
     },
     {
+      "title": "$500K milestone: my reflections after 1 year of building Typing Mind (Tony Dinh's newsletter)",
+      "url": "https://news.tonydinh.com/p/500k-milestone-my-reflections-after"
+    },
+    {
       "title": "TypingMind Docs: Plans & Pricing",
       "url": "https://docs.typingmind.com/quickstart/typingmind-license-plans"
+    },
+    {
+      "title": "TypingMind Docs: Compare Teams Plans",
+      "url": "https://docs.typingmind.com/typingmind-team/getting-started/compare-typingmind-team-plans"
+    },
+    {
+      "title": "TypingMind Docs: Affiliate Program (Closed)",
+      "url": "https://docs.typingmind.com/affiliate-program-(closed)"
     }
   ]
 }
