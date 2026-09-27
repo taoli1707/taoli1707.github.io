@@ -52,6 +52,7 @@ module.exports = {
     "build-in-public": "Build in public",
     seo: "SEO",
     "twitter-x": "X / Twitter",
+    linkedin: "LinkedIn",
     youtube: "YouTube",
     newsletter: "Newsletter",
     "product-hunt": "Product Hunt",

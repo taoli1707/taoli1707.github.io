@@ -16,6 +16,7 @@ const CASES_DIR = path.join(__dirname, "content", "cases");
 
 const REQUIRED = ["slug", "name", "founder", "url", "tagline", "category", "model", "channel", "started", "revenue", "team", "summary", "origin", "howItMakesMoney", "growth", "moat", "risks", "timeline", "lessons", "rebuild", "sources"];
 
+// "total" is a one-off sum (a launch week, a sale); it sorts as if it were a year.
 function annualized(r) {
   return r.period === "month" ? r.amount * 12 : r.amount;
 }
@@ -30,7 +31,7 @@ function loadCases() {
     if (!config.models[c.model]) throw new Error(`${f}: unknown model ${c.model}`);
     if (!config.channels[c.channel]) throw new Error(`${f}: unknown channel ${c.channel}`);
     const r = c.revenue;
-    if (typeof r.amount !== "number" || !["month", "year"].includes(r.period) || !r.label || !r.asOf || !r.source) throw new Error(`${f}: revenue needs amount, period, label, asOf, source`);
+    if (typeof r.amount !== "number" || !["month", "year", "total"].includes(r.period) || !r.label || !r.asOf || !r.source) throw new Error(`${f}: revenue needs amount, period, label, asOf, source`);
     if (!["self-reported", "estimate", "disclosed-sale"].includes(r.kind)) throw new Error(`${f}: unknown revenue kind ${r.kind}`);
     const d = c.rebuild.difficulty;
     if (!(d >= 1 && d <= 5)) throw new Error(`${f}: rebuild.difficulty must be 1-5`);

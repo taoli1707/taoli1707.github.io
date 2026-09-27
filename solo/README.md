@@ -35,7 +35,7 @@ Copy an existing file in `src/content/cases/`, rename it to the new slug, and ch
 | `slug`, `name`, `founder`, `url`, `tagline` | identity; `slug` must match the file name |
 | `category`, `model`, `channel` | ids from `config.js`; drive the filters and Patterns tables |
 | `started` | launch year |
-| `revenue` | `{ amount, period: "month"\|"year", label, asOf: "YYYY-MM", kind: "self-reported"\|"estimate"\|"disclosed-sale", source }` |
+| `revenue` | `{ amount, period: "month"\|"year"\|"total", label, asOf: "YYYY-MM", kind: "self-reported"\|"estimate"\|"disclosed-sale", source }` |
 | `team`, `startupCost`, `timeToFirstDollar`, `stack` | fact strip; use `null`/`[]` when unknown, never guess |
 | `summary`, `origin`, `howItMakesMoney`, `moat`, `risks` | body paragraphs |
 | `growth`, `lessons` | bullet lists |

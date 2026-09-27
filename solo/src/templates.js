@@ -221,7 +221,7 @@ function home(cases) {
 ${cases.map(card).join("\n")}
     </ul>
     <p class="empty" id="empty" hidden>No case matches those filters. <button type="button" class="linkish" id="reset">Clear filters</button></p>
-    <p class="note">Revenue is annualized for sorting (monthly × 12). Each figure is dated and linked to its source on the case page. <a href="${u("about/")}">How we source numbers →</a></p>
+    <p class="note">Revenue is annualized for sorting (monthly × 12; one-off totals such as a launch week count as one year). Each figure is dated and linked to its source on the case page. <a href="${u("about/")}">How we source numbers →</a></p>
   </div>
 </section>
 ${newsletterBlock() ? `<section class="section"><div class="wrap">${newsletterBlock()}</div></section>` : ""}`;
@@ -405,7 +405,7 @@ function aboutPage(cases) {
     <li>${kindBadge("estimate")} a third party estimated it. Treat it as a rough order of magnitude.</li>
     <li>${kindBadge("disclosed-sale")} the price the business sold for, as disclosed by the buyer or seller.</li>
   </ul>
-  <p>Numbers carry the month they were true. Revenue in these businesses moves fast, in both directions. For sorting we annualize monthly figures (× 12), which overstates a business that is shrinking and understates one that is growing.</p>
+  <p>Numbers carry the month they were true. Revenue in these businesses moves fast, in both directions. For sorting we annualize monthly figures (× 12) and treat one-off totals, such as a launch week, as a year. Annualizing a monthly figure overstates a business that is shrinking and understates one that is growing.</p>
   <h2>Survivorship bias</h2>
   <p>These are businesses that worked and whose founders chose to publish numbers. For every one of them there are many that didn't make money. The "Ideas to build" section is meant to shorten your path to a first test, not to promise a result.</p>
   <h2>The ideas are ours</h2>
