@@ -9,23 +9,23 @@
   "channel": "word-of-mouth",
   "started": 2009,
   "revenue": {
-    "amount": 234000,
+    "amount": 228000,
     "period": "year",
-    "label": "~$234K revenue in 2016, ~$17K/yr costs",
-    "asOf": "2016-07",
+    "label": "~$228K revenue (2024 anniversary stats)",
+    "asOf": "2024-07",
     "kind": "self-reported",
-    "source": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/"
+    "source": "https://x.com/Pinboard/status/1810893626274128048"
   },
   "team": "Solo",
-  "startupCost": "Not disclosed",
+  "startupCost": null,
   "timeToFirstDollar": "At launch (paid signup fee from day one)",
   "stack": [
     "PHP",
     "MySQL"
   ],
-  "summary": "Pinboard is a bookmarking site launched in July 2009 and run by Maciej Ceglowski. It has charged users from the start and has no ads. He published yearly revenue of $117K-$234K for 2010-2016 against running costs of about $17K a year.",
-  "origin": "Ceglowski built Pinboard as a faster, simpler alternative to Delicious. At launch it charged a one-time signup fee of a few dollars that rose by a fraction of a cent with each new user, to slow growth and deter spam. Months later he added a $25/year archiving option, and it became his full-time job at around 1,200 users.",
-  "howItMakesMoney": "Annual subscriptions: a standard account (listed at $22/year in recent years) and an archiving account (listed at $39/year) that saves copies of bookmarked pages. It moved from one-time fees to annual subscriptions in 2015.",
+  "summary": "Pinboard is a bookmarking site launched in July 2009 and run by Maciej Ceglowski. It has charged users from the start and has no ads. In yearly anniversary stats he has published revenue of $117K-$293K a year from 2010 to 2024 ($228K in 2024), and in 2016 said the site cost about $17K a year to run.",
+  "origin": "Ceglowski built Pinboard as a faster, simpler alternative to Delicious. At launch it charged a one-time signup fee of about $3 that rose by a fraction of a cent with each new user, to slow growth and deter spam. Months later he added a $25/year archiving option, and it became his full-time job at around 1,200 users.",
+  "howItMakesMoney": "Annual subscriptions: a regular account at $22/year and an archiving account with full-text search at $39/year, with discounts for multi-year plans. It moved from one-time fees to annual subscriptions in January 2015.",
   "growth": [
     "Absorbed users each time Delicious had trouble (Yahoo's 2010 plans to sunset it caused a large influx)",
     "Charging from day one filtered for committed users and kept spam down",
@@ -45,19 +45,27 @@
     },
     {
       "date": "2010",
-      "event": "Delicious shutdown news drives a surge of signups; revenue $117K for the year"
+      "event": "Yahoo's plan to 'sunset' Delicious drives a surge of signups; revenue $117K for the year"
     },
     {
-      "date": "2015",
-      "event": "Moves to annual subscriptions; revenue dips then recovers"
+      "date": "2015-01",
+      "event": "Moves to annual subscriptions ($11/year for new accounts); revenue dips then recovers"
     },
     {
-      "date": "2016",
-      "event": "Publishes revenue of $234K for the year and ~$17K annual running costs"
+      "date": "2016-07",
+      "event": "Starts publishing revenue: $234K, with ~$17K annual running costs"
     },
     {
       "date": "2017-06",
-      "event": "Buys Delicious for $35,000"
+      "event": "Buys Delicious for $35,000 and makes it read-only"
+    },
+    {
+      "date": "2020-07",
+      "event": "Moves the site onto PHP 7 and current MySQL; revenue $212K"
+    },
+    {
+      "date": "2024-07",
+      "event": "15th-anniversary stats: $228K revenue, 13K active users, $0 funding"
     }
   ],
   "lessons": [
@@ -77,9 +85,24 @@
     ],
     "difficulty": 3,
     "weeklyHours": "10-15 (fits a side hustle)",
-    "fit": "A web developer with contacts in journalism or legal work"
+    "fit": "A web developer with contacts in journalism or legal work",
+    "stack": [
+      "Browser extension (Manifest V3)",
+      "Playwright (page capture)",
+      "Postgres",
+      "S3-compatible storage",
+      "OpenTimestamps or RFC 3161 timestamping",
+      "Stripe"
+    ],
+    "pricing": "Charge $10/month per user from day one with a 7-day refundable trial, and a $49/month team plan with shared folders and exportable evidence reports.",
+    "potential": "medium",
+    "market": "Buyers are litigation paralegals, small law firms, investigative journalists and compliance teams, reached through legal-tech newsletters, bar association CLE sessions and journalism training groups. Competitors are Page Vault, WebPreserver, Hunchly and the free Internet Archive."
   },
   "sources": [
+    {
+      "title": "Pinboard on X: 15th anniversary stats (2024)",
+      "url": "https://x.com/Pinboard/status/1810893626274128048"
+    },
     {
       "title": "Pinboard Turns Seven (Pinboard Blog)",
       "url": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/"
@@ -91,6 +114,14 @@
     {
       "title": "Pinboard Acquires Delicious (Pinboard Blog)",
       "url": "https://blog.pinboard.in/2017/06/pinboard_acquires_delicious/"
+    },
+    {
+      "title": "MakeUseOf: Pinboard Acquires Delicious (reports $35,000 price)",
+      "url": "https://www.makeuseof.com/tag/pinboard-acquires-delicious-shut-down/"
+    },
+    {
+      "title": "Pinboard signup and pricing",
+      "url": "https://pinboard.in/signup/"
     },
     {
       "title": "Pinboard (website) - Wikipedia",

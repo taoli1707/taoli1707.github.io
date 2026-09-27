@@ -130,27 +130,31 @@
    "source": "https://x.com/thejustinwelsh/status/1874418985271259339"
   },
   "team": "Solo + part-time assistant",
-  "startupCost": "Not disclosed",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
    "Gumroad"
   ],
-  "summary": "Justin Welsh is a former SaaS sales executive who sells self-paced courses (The LinkedIn Operating System, The Content Operating System, The Creator MBA) to an audience built on LinkedIn and X, funneled through a weekly newsletter. He reported $4.15M+ in 2024 revenue at about 86% margins without employees.",
-  "origin": "Welsh was a revenue executive at healthcare SaaS company PatientPop and left after burnout in 2019. He started posting daily on LinkedIn about sales and growth, did some advising, and turned his LinkedIn process into a course. He pre-sold The LinkedIn Operating System in July 2021, about 30 days before it went live.",
-  "howItMakesMoney": "One-time-purchase digital courses sold from his own site and Gumroad. The LinkedIn Operating System has been listed at around $150-$200. The free Saturday newsletter (started January 2022) is the main funnel into the courses and later The Creator MBA bundle.",
+  "summary": "Justin Welsh is a former SaaS sales executive who sells self-paced courses (The LinkedIn Operating System, The Content Operating System, The Creator MBA) to an audience built on LinkedIn and X, funneled through a weekly newsletter. He reported $4.15M+ in 2024 revenue at about 86% margins, and in June 2025 wrote that the business had passed $10M in total revenue with no employees.",
+  "origin": "Welsh was SVP of Sales at healthcare SaaS company PatientPop and left after burning out in 2019. He started posting daily on LinkedIn about sales and growth and did some consulting. In April 2020 he put a short $50 course, The LinkedIn Playbook, on Gumroad and made $10,482 in its first month. He rebuilt it as The LinkedIn Operating System, pre-selling it in July 2021 about 30 days before it went live.",
+  "howItMakesMoney": "Mostly one-time-purchase digital courses sold from his own site; The LinkedIn Operating System lists at $200. Other streams he has disclosed: consulting, newsletter sponsorships (two slots per issue at $2,500 each), subscriptions such as The Monthly Templates, and paid communities (an early one he closed, and the newer Unsubscribe membership). The free Saturday newsletter (started January 2022) is the main funnel into the courses and The Creator MBA.",
   "growth": [
-   "Posted on LinkedIn and X daily for years, repurposing the same ideas across both platforms",
-   "Pre-sold the LinkedIn course in July 2021 to validate demand before building it",
-   "Launched The Saturday Solopreneur newsletter in January 2022; reported roughly 77K subscribers after one year",
-   "Published revenue and margin numbers openly, which itself became shareable content",
-   "Added higher-priced bundles (The Creator MBA) sold to the existing newsletter list"
+   "Posted on LinkedIn and later X daily for years, repurposing the same ideas across both platforms; no paid ads",
+   "Tested demand with a cheap $50 course, then rebuilt it and raised the price 3-4x; the second version grossed $186K in 3 months",
+   "Asks course buyers to join an affiliate program; he reports 3,247 affiliates generating $600K in revenue",
+   "Launched The Saturday Solopreneur newsletter in January 2022; reported roughly 77K subscribers after one year and 185K by mid-2025",
+   "Used an 18-week personalized launch plan for The Creator MBA, which sold $1.6M in six days in January 2024"
   ],
   "moat": "A very large personal following on LinkedIn and X plus a newsletter list, both tied to his personal story. Buyers are paying for his specific system and credibility, which a copycat course can't easily replicate.",
   "risks": "Revenue depends on one person's attention and on platform algorithms (LinkedIn, X). The 'how to grow an audience' course market is crowded and prone to saturation.",
   "timeline": [
    {
     "date": "2019",
-    "event": "Leaves PatientPop executive role after burnout; starts posting daily on LinkedIn"
+    "event": "Leaves PatientPop SVP of Sales role after burnout; starts posting daily on LinkedIn"
+   },
+   {
+    "date": "2020-04",
+    "event": "Sells The LinkedIn Playbook ($50) on Gumroad; $10,482 in the first month"
    },
    {
     "date": "2021-07",
@@ -162,11 +166,19 @@
    },
    {
     "date": "2022",
-    "event": "Reported ~$1.7M revenue for the year"
+    "event": "Business does a little more than $1.7M for the year"
+   },
+   {
+    "date": "2024-01",
+    "event": "The Creator MBA launches and sells $1.6M in six days"
    },
    {
     "date": "2024",
     "event": "Reports $4.15M+ revenue at ~86% margins; launches two new products"
+   },
+   {
+    "date": "2025-05",
+    "event": "Passes $10M in total revenue, about 5 years 9 months after launching"
    }
   ],
   "lessons": [
@@ -187,7 +199,17 @@
    ],
    "difficulty": 2,
    "weeklyHours": "8-12 (fits a side hustle)",
-   "fit": "A working tradesperson who already runs their own small shop and is comfortable posting publicly"
+   "fit": "A working tradesperson who already runs their own small shop and is comfortable posting publicly",
+   "stack": [
+    "Kit (ConvertKit)",
+    "Teachable or Podia",
+    "Stripe",
+    "Loom",
+    "Google Sheets templates"
+   ],
+   "pricing": "Start with a free quoting spreadsheet as the lead magnet, a $99 pre-sold course, and a $29/mo templates-and-Q&A membership once 50 students have finished it.",
+   "potential": "medium",
+   "market": "Buyers are licensed electricians, plumbers and HVAC techs thinking about going solo, reached through Facebook trade groups, YouTube and trade subreddits. Competitors are trade-business coaches and programs such as Tommy Mello's Home Service Expert and ServiceTitan's free content."
   },
   "sources": [
    {
@@ -195,12 +217,16 @@
     "url": "https://x.com/thejustinwelsh/status/1874418985271259339"
    },
    {
-    "title": "Growth In Reverse: How Justin Welsh Built a $1.7M Solo Business",
-    "url": "https://growthinreverse.com/justin-welsh/"
+    "title": "Justin Welsh: My complete $10M journey (all 23 steps)",
+    "url": "https://justinwelsh.me/essays/my-10m-journey"
    },
    {
     "title": "Starter Story: How Justin Welsh Built A $2M Solopreneur Empire",
     "url": "https://www.starterstory.com/stories/justin-welsh"
+   },
+   {
+    "title": "Growth In Reverse: How Justin Welsh Built a $1.7M Solo Business",
+    "url": "https://growthinreverse.com/justin-welsh/"
    },
    {
     "title": "The LinkedIn Operating System",
@@ -221,23 +247,23 @@
   "revenue": {
    "amount": 300000,
    "period": "month",
-   "label": "~$300k/month (widely reported)",
-   "asOf": "2024",
+   "label": "~$300K/month (third-party estimate)",
+   "asOf": "2024-12",
    "kind": "estimate",
    "source": "https://www.starterstory.com/stories/headshotpro-breakdown"
   },
   "team": "Solo founder (a small team is reported later)",
-  "startupCost": "<$1k",
-  "timeToFirstDollar": "Launch week (March 2023)",
+  "startupCost": null,
+  "timeToFirstDollar": null,
   "stack": [],
-  "summary": "HeadshotPro turns a set of selfies into studio-style corporate headshots and sells one-time packs to individuals and companies. Danny Postma launched it in March 2023, forking it from his earlier ProfilePicture.AI. It is widely reported at around $300k/month, but no primary source for that figure could be accessed.",
-  "origin": "Postma, a Dutch indie developer who had earlier built and sold the AI copywriting tool Headlime, launched ProfilePicture.AI in late 2022, reportedly built in about 30 hours. He then forked it into HeadshotPro (March 2023), aimed at a narrower and more commercial job: professional headshots for remote teams and LinkedIn profiles. He later said HeadshotPro was thriving while ProfilePictureAI was dying.",
-  "howItMakesMoney": "One-time packs rather than subscriptions: reported tiers of about $29 (40 headshots), $39 (100) and $59 (200). Companies buy team packages so remote staff get matching headshots. An affiliate program pays partners a commission, which Danny advertised at 20% of sales.",
+  "summary": "HeadshotPro turns a set of selfies into studio-style corporate headshots and sells one-time packs to individuals and companies. Danny Postma launched it in March 2023 after his earlier AI avatar app ProfilePicture.AI. It is widely reported at around $300K/month, but that figure is a third-party estimate (Starter Story labels it 'estimated from public sources'). The closest founder statement found is Postma saying on the Indie Hackers podcast in May 2023 that his portfolio of AI products had passed $300K in revenue.",
+  "origin": "Postma, a Dutch indie developer, had earlier built the AI copywriting tool Headlime, one of the first products to use GPT-3, and sold it. He then launched ProfilePicture.AI, an AI avatar app, in 2022. In March 2023 he launched HeadshotPro, aimed at a narrower and more commercial job: professional headshots for remote teams and LinkedIn profiles.",
+  "howItMakesMoney": "One-time packs rather than subscriptions: the pricing page lists Basic $29, Professional $39 and Executive $59 for individuals, and per-person team credits from about $19.50 with volume discounts. Companies buy team packages so remote staff get matching headshots. An affiliate program paid partners 20% of sales at launch.",
   "growth": [
-   "SEO: Postma is known for SEO-first building and targeted 'AI headshots' and 'professional headshots' search intent. Indie Hackers analysed this strategy as driving $300k+ in the first year.",
-   "Affiliates: Rewardful published a case study of HeadshotPro earning $50k+ monthly through affiliate marketing.",
+   "SEO: Postma said on the Indie Hackers podcast that he uses SEO to drive traffic, and an Indie Hackers community post broke down how HeadshotPro targets 'AI headshots' and related search terms.",
+   "Affiliates: Rewardful published a case study titled 'HeadshotPro earns $50k+ monthly through affiliate marketing'; Postma said the program makes more people write about the product.",
    "Positioned for B2B team orders (consistent headshots for remote companies), which raises order value compared with individual buyers.",
-   "Launch promotion on X and TikTok, including a $1,000 bonus for the first creators whose videos passed 100K views."
+   "Launch promotion on X and TikTok, including a $1,000 bonus for the first three creators whose videos passed 100K views."
   ],
   "moat": "Search rankings for high-intent terms, a large affiliate network and B2B team accounts are harder to copy than the underlying model pipeline.",
   "risks": "General image models increasingly produce convincing headshots for free. Paid search and SEO competition for 'AI headshots' is intense, and results depend on Google's ranking decisions.",
@@ -255,17 +281,17 @@
     "event": "Starts an affiliate program at 20% of sales with TikTok creator bonuses"
    },
    {
-    "date": "2024",
-    "event": "Widely reported at ~$300k/month; the Rewardful case study cites $50k+/month from affiliates"
+    "date": "2023-05",
+    "event": "Tells the Indie Hackers podcast his AI product portfolio has passed $300K in revenue"
    },
    {
-    "date": "2024-10",
-    "event": "Postma notes HeadshotPro (thriving) is a fork of ProfilePictureAI (dying)"
+    "date": "2024-12",
+    "event": "Starter Story estimates HeadshotPro at ~$300K/month"
    }
   ],
   "lessons": [
    "Narrow the use case until it has a budget. 'Headshots for work' beats 'fun AI avatars'.",
-   "Fork a declining product into a more commercial niche instead of starting from scratch.",
+   "Reuse what you built for a fading product in a more commercial niche instead of starting from scratch.",
    "One-time packs match a one-time need and avoid churn and cancellation complaints.",
    "Affiliates and SEO together can replace a sales team for a consumer and B2B hybrid."
   ],
@@ -280,12 +306,31 @@
    ],
    "difficulty": 2,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "Developers or designers comfortable with cold outreach to local businesses"
+   "fit": "Developers or designers comfortable with cold outreach to local businesses",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "fal.ai or Replicate (image models)",
+    "Stripe",
+    "Cloudflare R2",
+    "Resend"
+   ],
+   "pricing": "Sell a flat $199 package per clinic (up to 10 staff) with $15 per extra person, and a $29/mo add-on for new-hire photos and page updates.",
+   "potential": "medium",
+   "market": "Buyers are owners and office managers of dental, medical and real-estate practices, reached by cold email and through website agencies that serve those verticals. Competitors are local photographers plus AI headshot tools such as HeadshotPro, Aragon AI and BetterPic."
   },
   "sources": [
    {
-    "title": "Starter Story: How an Indie Hacker Built an AI Headshot Business to $300K/Month",
+    "title": "Starter Story: How an Indie Hacker Built an AI Headshot Business to $300K/Month (estimate)",
     "url": "https://www.starterstory.com/stories/headshotpro-breakdown"
+   },
+   {
+    "title": "Indie Hackers Podcast #278: Growing a Portfolio of AI Products Past $300k (Danny Postma)",
+    "url": "https://dev.to/theindiehackerspodcast/278-growing-a-portfolio-of-ai-products-past-300k-after-a-7-figure-exit-with-danny-postma"
+   },
+   {
+    "title": "HeadshotPro pricing",
+    "url": "https://www.headshotpro.com/pricing"
    },
    {
     "title": "Rewardful case study: HeadshotPro earns $50k+ monthly through affiliate marketing",
@@ -297,7 +342,7 @@
    },
    {
     "title": "Danny Postma: Introducing HeadshotPro (launch post)",
-    "url": "https://x.com/dannypostmaa/status/1636337910017556480"
+    "url": "https://x.com/dannypostma/status/1636337910017556480"
    },
    {
     "title": "Danny Postma: HeadshotPro affiliate program terms",
@@ -415,117 +460,6 @@
   ]
  },
  {
-  "slug": "photo-ai",
-  "name": "Photo AI",
-  "founder": "Pieter Levels",
-  "url": "https://photoai.com",
-  "tagline": "Upload selfies, train a personal AI model, generate realistic photos of yourself",
-  "category": "ai-app",
-  "model": "subscription",
-  "channel": "build-in-public",
-  "started": 2023,
-  "revenue": {
-   "amount": 150000,
-   "period": "month",
-   "label": "~$150k/month",
-   "asOf": "2025-09",
-   "kind": "self-reported",
-   "source": "https://x.com/levelsio/status/1970858876212756506"
-  },
-  "team": "Solo",
-  "startupCost": "<$1k to launch (plus $40k later spent on the photoai.com domain)",
-  "timeToFirstDollar": "Launch week (Feb 2023)",
-  "stack": [
-   "PHP",
-   "jQuery",
-   "SQLite",
-   "Nginx",
-   "Ubuntu",
-   "Hetzner VPS",
-   "Replicate (GPU inference)"
-  ],
-  "summary": "Photo AI lets users upload photos of themselves, trains a custom image model on them, and then generates realistic photos in any setting or outfit. Pieter Levels runs it alone. In September 2025 he reported ~$150k/month, 2,573 active subscribers and an 87% profit margin.",
-  "origin": "Levels launched Avatar AI in 2022, one of the first apps selling AI-generated avatars from selfies. When the avatar fad faded he pivoted the same fine-tuning pipeline into Photo AI in February 2023. The pitch moved from novelty avatars to realistic photos people could use for dating profiles, social media and work.",
-  "howItMakesMoney": "Monthly subscriptions billed by tier. The public pricing page lists Starter at $19/mo, Pro at $49/mo, Premium at $99/mo and Ultra at $199/mo. Tiers differ mainly in how many models you can train and how many photos you can generate.",
-  "growth": [
-   "Posted MRR, customer counts and costs publicly from week one: $10k MRR after 3 weeks with 318 customers, then $25,337/mo revenue against $5,713/mo costs after 5 weeks.",
-   "Went viral on short video: Levels reported adding $7k MRR in one day from a single TikTok (March 2023).",
-   "An existing audience of several hundred thousand X followers, built over a decade of public building, gave him launch distribution.",
-   "Appeared on the Lex Fridman podcast (Aug 2024). Levels said Photo AI revenue roughly tripled afterwards and posted a $161k/month Photo AI figure in Sept 2024.",
-   "Kept upgrading output quality as newer open image models arrived, including ControlNet shortly after launch, and gave the upgrades to paying tiers."
-  ],
-  "moat": "The moat is distribution more than technology. Levels' audience and track record get every launch seen. Fast iteration on new models, plus years of prompt and pipeline tuning, keeps output quality competitive.",
-  "risks": "Frontier image models from large labs increasingly generate a person's likeness without per-user fine-tuning, which commoditizes the core feature. Revenue depends heavily on one founder's attention, and the market is crowded with clones.",
-  "timeline": [
-   {
-    "date": "2022",
-    "event": "Launches Avatar AI, selling AI avatars generated from selfies"
-   },
-   {
-    "date": "2023-02",
-    "event": "Pivots into Photo AI for realistic AI photos"
-   },
-   {
-    "date": "2023-03",
-    "event": "Reports $10k MRR after 3 weeks, then $18k MRR and buys photoai.com for $40k"
-   },
-   {
-    "date": "2023-03",
-    "event": "Reports $25k MRR after 5 weeks with ~$19.6k/mo profit"
-   },
-   {
-    "date": "2024-09",
-    "event": "Posts $161k/month for Photo AI after appearing on the Lex Fridman podcast"
-   },
-   {
-    "date": "2025-09",
-    "event": "Reports a ~$150k/month record, 2,573 subscribers and 87% margin, still solo"
-   }
-  ],
-  "lessons": [
-   "Reuse the pipeline when a fad dies. Avatar AI's fine-tuning stack became the base for a more durable product.",
-   "Public revenue updates double as marketing: each milestone post was also a launch announcement.",
-   "Rent GPUs through an inference API (Replicate) instead of running your own ML infrastructure, and keep the web app boring (PHP, SQLite, one VPS).",
-   "Put the monthly price up front and tier it by usage. Heavy users self-select into $99 to $199 plans.",
-   "Buy the exact-match domain once revenue justifies it. Levels paid $40k, about 2.2 months of MRR at the time."
-  ],
-  "rebuild": {
-   "idea": "Consistent AI product and lifestyle photos of one physical product (not a person) for small Etsy and Shopify sellers: train on 10 phone photos, then generate catalogue and lifestyle shots on demand.",
-   "why": "Per-subject fine-tuning is now cheap, and small sellers still pay photographers per shoot. Most AI product-photo tools do background swaps, not faithful multi-angle renders of one specific item.",
-   "mvp": [
-    "Build a concierge flow: take 10 photos from a seller, fine-tune an open image model on Replicate, and deliver 40 shots by hand.",
-    "Post 3 to 5 before/after sets in Etsy and Shopify seller communities and offer the first 10 sellers a $29 pack.",
-    "Automate upload, train, generate and email once 5 people have paid.",
-    "Add a $19/mo plan for sellers who add new products every month."
-   ],
-   "difficulty": 3,
-   "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "Developers comfortable with image-model APIs who can also sell to e-commerce sellers"
-  },
-  "sources": [
-   {
-    "title": "@levelsio: Photo AI reached $150,000/mo, 2,573 subscribers, PHP + jQuery + SQLite",
-    "url": "https://x.com/levelsio/status/1970858876212756506"
-   },
-   {
-    "title": "@levelsio: $10,000 MRR after 3 weeks with 318 customers",
-    "url": "https://x.com/levelsio/status/1631715500010135552"
-   },
-   {
-    "title": "@levelsio: $25,000 MRR after 5 weeks, costs and profit",
-    "url": "https://x.com/levelsio/status/1636770414293843971"
-   },
-   {
-    "title": "@levelsio: $420k/mo record month incl. Photo AI $161K/m",
-    "url": "https://x.com/levelsio/status/1837707857372106992"
-   },
-   {
-    "title": "Photo AI pricing",
-    "url": "https://photoai.com/pricing"
-   }
-  ]
- },
- {
   "slug": "typingmind",
   "name": "TypingMind",
   "founder": "Tony Dinh",
@@ -620,6 +554,144 @@
   ]
  },
  {
+  "slug": "photo-ai",
+  "name": "Photo AI",
+  "founder": "Pieter Levels",
+  "url": "https://photoai.com",
+  "tagline": "Upload selfies, train a personal AI model, generate realistic photos of yourself",
+  "category": "ai-app",
+  "model": "subscription",
+  "channel": "build-in-public",
+  "started": 2023,
+  "revenue": {
+   "amount": 105000,
+   "period": "month",
+   "label": "~$105K/month revenue, ~$80K/month profit",
+   "asOf": "2026-03",
+   "kind": "self-reported",
+   "source": "https://levels.io/photoai-40870-line-index-php-105k-mo-revenue"
+  },
+  "team": "Solo",
+  "startupCost": null,
+  "timeToFirstDollar": null,
+  "stack": [
+   "PHP",
+   "jQuery",
+   "SQLite",
+   "Nginx",
+   "Ubuntu",
+   "Hetzner VPS",
+   "Replicate, later fal.ai and Wavespeed (GPU inference)"
+  ],
+  "summary": "Photo AI lets users upload photos of themselves, trains a custom image model on them, and then generates realistic photos and videos in any setting or outfit. Pieter Levels runs it alone. In September 2025 he reported a record ~$150K/month with 2,573 active subscribers and an 87% margin; in March 2026 he posted $105K/month revenue and $80K/month profit.",
+  "origin": "Levels launched Avatar AI in 2022, one of the first apps selling AI-generated avatars from selfies. When the avatar fad faded he pivoted into Photo AI in February 2023. The pitch moved from novelty avatars to realistic photos people could use for dating profiles, social media and work. He says output quality only became good enough after the Flux image model arrived in 2024.",
+  "howItMakesMoney": "Monthly subscriptions billed by tier, with discounted yearly plans. The pricing page lists Starter at $19/mo, Pro at $49/mo, Premium at $99/mo and Ultra at $199/mo. Tiers differ mainly in AI credits, photo quality, how many models you can train and parallel generation.",
+  "growth": [
+   "Posted MRR, customer counts and costs publicly from week one: $10k MRR after 3 weeks with 318 customers, then $25,337/mo revenue against $5,713/mo costs after 5 weeks.",
+   "Went viral on short video: Levels reported adding $7k MRR in one day from a single TikTok (March 2023).",
+   "Most traffic now comes from SEO and programmatic pages such as photo packs; Levels says X is only about 9% of traffic and less of paid signups.",
+   "Appeared on the Lex Fridman podcast (Aug 2024). Levels said Photo AI revenue roughly tripled afterwards and posted a $161k/month Photo AI figure for a record day in Sept 2024.",
+   "Kept upgrading output quality as newer image models arrived, from ControlNet shortly after launch to Flux in 2024."
+  ],
+  "moat": "The moat is distribution more than technology. Levels' audience and track record get every launch seen. Fast iteration on new models, plus years of prompt and pipeline tuning, keeps output quality competitive.",
+  "risks": "Frontier image models from large labs increasingly generate a person's likeness without per-user fine-tuning, which commoditizes the core feature. Revenue depends heavily on one founder's attention, and the market is crowded with clones.",
+  "timeline": [
+   {
+    "date": "2022",
+    "event": "Launches Avatar AI, selling AI avatars generated from selfies"
+   },
+   {
+    "date": "2023-02",
+    "event": "Pivots into Photo AI for realistic AI photos"
+   },
+   {
+    "date": "2023-03",
+    "event": "Reports $10k MRR after 3 weeks, then $18k MRR and buys photoai.com for $40k"
+   },
+   {
+    "date": "2023-03",
+    "event": "Reports $25k MRR after 5 weeks with ~$19.6k/mo profit"
+   },
+   {
+    "date": "2024-09",
+    "event": "Posts $161k/month for Photo AI in a record month after the Lex Fridman podcast"
+   },
+   {
+    "date": "2025-09",
+    "event": "Reports a ~$150k/month record, 2,573 subscribers and 87% margin, still solo"
+   },
+   {
+    "date": "2026-03",
+    "event": "Posts $105k/month revenue and $80k/month profit from a 40,870-line index.php"
+   }
+  ],
+  "lessons": [
+   "Reuse the pipeline when a fad dies. Avatar AI's fine-tuning stack became the base for a more durable product.",
+   "Public revenue updates double as marketing: each milestone post was also a launch announcement.",
+   "Rent GPUs through inference APIs (Replicate, later fal.ai) instead of running your own ML infrastructure, and keep the web app boring (PHP, SQLite, one VPS).",
+   "Put the monthly price up front and tier it by usage. Heavy users self-select into $99 to $199 plans.",
+   "Buy the exact-match domain once revenue justifies it. Levels paid $40k, about 2.2 months of MRR at the time."
+  ],
+  "rebuild": {
+   "idea": "Consistent AI product and lifestyle photos of one physical product (not a person) for small Etsy and Shopify sellers: train on 10 phone photos, then generate catalogue and lifestyle shots on demand.",
+   "why": "Per-subject fine-tuning is now cheap, and small sellers still pay photographers per shoot. Most AI product-photo tools do background swaps, not faithful multi-angle renders of one specific item.",
+   "mvp": [
+    "Build a concierge flow: take 10 photos from a seller, fine-tune an open image model on Replicate, and deliver 40 shots by hand.",
+    "Post 3 to 5 before/after sets in Etsy and Shopify seller communities and offer the first 10 sellers a $29 pack.",
+    "Automate upload, train, generate and email once 5 people have paid.",
+    "Add a $19/mo plan for sellers who add new products every month."
+   ],
+   "difficulty": 3,
+   "weeklyHours": "10-15 (fits a side hustle)",
+   "fit": "Developers comfortable with image-model APIs who can also sell to e-commerce sellers",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "fal.ai (fine-tuning + image models)",
+    "Stripe",
+    "Cloudflare R2",
+    "Shopify app API"
+   ],
+   "pricing": "Start with a $29 one-off pack of 40 shots per product, then a $19/mo plan with credits for sellers who add new products every month.",
+   "potential": "high",
+   "market": "Buyers are small Etsy and Shopify sellers, reached through seller communities, a Shopify App Store listing and before/after posts on TikTok. Competitors are Photoroom, Pebblely, Claid.ai and Shopify's own AI image tools."
+  },
+  "sources": [
+   {
+    "title": "@levelsio: Photoai.com is a 40,870 line index.php making $105,000/mo revenue",
+    "url": "https://levels.io/photoai-40870-line-index-php-105k-mo-revenue"
+   },
+   {
+    "title": "@levelsio: Photo AI reached $150,000/mo, 2,573 subscribers, PHP + jQuery + SQLite",
+    "url": "https://x.com/levelsio/status/1970858876212756506"
+   },
+   {
+    "title": "@levelsio: $10,000 MRR after 3 weeks with 318 customers",
+    "url": "https://x.com/levelsio/status/1631715500010135552"
+   },
+   {
+    "title": "@levelsio: $18,000 MRR, $7,000 MRR from one TikTok, bought photoai.com for $40,000",
+    "url": "https://x.com/levelsio/status/1636408627371323393"
+   },
+   {
+    "title": "@levelsio: $25,000 MRR after 5 weeks, costs and profit",
+    "url": "https://x.com/levelsio/status/1636770414293843971"
+   },
+   {
+    "title": "@levelsio: $420k/mo record month incl. Photo AI $161K/m",
+    "url": "https://x.com/levelsio/status/1837707857372106992"
+   },
+   {
+    "title": "@levelsio: invested in Replicate and fal, the inference providers used for Photo AI",
+    "url": "https://levels.io/passed-10m-revenue-investment-gains"
+   },
+   {
+    "title": "Photo AI pricing",
+    "url": "https://photoai.com/pricing"
+   }
+  ]
+ },
+ {
   "slug": "remote-ok",
   "name": "Remote OK",
   "founder": "Pieter Levels",
@@ -632,37 +704,43 @@
   "revenue": {
    "amount": 101101,
    "period": "month",
-   "label": "$101K in one month (Apr 2021 peak)",
+   "label": "$101K in one month (Apr 2021)",
    "asOf": "2021-04",
    "kind": "self-reported",
    "source": "https://levels.io/remoteok-single-php-file-101k-month"
   },
   "team": "Solo",
-  "startupCost": "Unknown (single PHP file, no frameworks)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
    "PHP (single index.php)",
-   "jQuery"
+   "jQuery",
+   "SQLite"
   ],
-  "summary": "Remote OK is one of the largest remote-only job boards. Pieter Levels built it in 2015 by aggregating remote jobs from other boards, then turned it into a paid job-posting board. It is famous for running on a single PHP file. It peaked at $101,101 in one month in April 2021. Later in 2024 Levels said remote work had fallen to 23% of his total revenue.",
-  "origin": "Levels built it as a daily aggregator that pulled remote listings from non-remote job boards. It later merged with his Nomad Jobs board to become a standalone job board, and it launched to #1 on Product Hunt. Traffic from the aggregated listings is what made companies willing to pay to post directly.",
-  "howItMakesMoney": "Employers pay per job post, advertised as 'from $299 for 30 days' with bundles, and add-ons such as highlighting and pinning. Levels frequently tests prices dynamically. In April 2021 revenue was about $92K from job posts plus about $9.5K from ads.",
+  "summary": "Remote OK is a remote-only job board. Pieter Levels launched it in 2015 as an aggregator of remote jobs from other boards, then turned it into a paid job-posting board. It is famous for running on a single PHP file, which he said generated $101,101 in one month in April 2021. In October 2024 Levels said remote work had fallen to 23% of his total revenue.",
+  "origin": "Levels built it in early 2015 as part of his '12 startups in 12 months' challenge. Major job boards didn't categorize remote jobs, so he wrote a PHP script per source feed (RSS or JSON) that detected remote listings, normalized them and stored them in SQLite, crediting and linking back to each source. It reached #1 on Product Hunt at launch. Traffic from the aggregated listings is what made companies willing to pay to post directly.",
+  "howItMakesMoney": "Employers pay per job post, advertised as 'starting from $299 for 30 days', with bundles, auto-renewal and paid add-ons. The site says job-post pricing is dynamic. In April 2021 Levels reported about $92K from job posts (SGD 123.4K) plus about $9.5K from ads.",
   "growth": [
    "Aggregating listings solved the chicken-and-egg problem. The board had thousands of jobs, and therefore job seekers, before any employer paid.",
+   "Launched to #1 on Product Hunt and the top of r/digitalnomad, with an estimated ~100,000 unique visitors in the first month.",
    "Building in public on X and his blog: revenue screenshots and 'single PHP file' posts spread widely.",
-   "SEO from programmatic pages per role, tag and location (e.g. 'remote Python jobs').",
-   "Remote hiring spiked in 2020-2021, and the board was already the obvious destination."
+   "SEO from programmatic filter pages per tag combination (e.g. /remote-reactjs+css+python-jobs), built from day one.",
+   "Remote hiring spiked in 2020-2021, and the board was already an established destination."
   ],
   "moat": "Brand and domain authority built up over a decade, plus a large base of job seekers that employers pay to reach. Neither can be copied quickly.",
   "risks": "Highly cyclical, since revenue follows remote hiring demand, which cooled after 2021. There are many free competing boards and aggregators, and Google for Jobs sits in front of job boards in search results.",
   "timeline": [
    {
-    "date": "2015",
+    "date": "2015-02",
     "event": "Launches as a remote job aggregator; reaches #1 on Product Hunt"
    },
    {
-    "date": "2018",
-    "event": "Nomad List and Remote OK together pass $1M annual revenue after 4 years"
+    "date": "2019-05",
+    "event": "Nomad List and Remote OK together pass $83K/month, a $1M annual run rate, after 4 years"
+   },
+   {
+    "date": "2020-09",
+    "event": "Reports the single PHP file generating $65,651 in a month"
    },
    {
     "date": "2021-04",
@@ -690,11 +768,22 @@
    ],
    "difficulty": 2,
    "weeklyHours": "8-12 (fits a side hustle)",
-   "fit": "A data engineer who knows the stack vocabulary and can build a reliable nightly ETL"
+   "fit": "A data engineer who knows the stack vocabulary and can build a reliable nightly ETL",
+   "stack": [
+    "Python",
+    "Postgres",
+    "OpenAI API",
+    "Next.js",
+    "Stripe",
+    "Resend"
+   ],
+   "pricing": "Charge employers per post: start at $199 for a 30-day featured listing with a 3-post bundle around $499, and keep the job-seeker side and weekly digest free.",
+   "potential": "medium",
+   "market": "Buyers are data-tool startups and data-heavy companies hiring dbt, Airflow and Snowflake engineers, reached through the weekly digest, programmatic SEO pages and data-community newsletters and Slack groups. The main competitors are LinkedIn Jobs, Indeed and Wellfound, plus niche boards such as Remote OK and We Work Remotely."
   },
   "sources": [
    {
-    "title": "levels.io: Remote OK is a single PHP file generating $101,101 this month",
+    "title": "levels.io: Remote OK is a single PHP file generating $101,101 this month (Apr 2021)",
     "url": "https://levels.io/remoteok-single-php-file-101k-month"
    },
    {
@@ -702,12 +791,140 @@
     "url": "https://levels.io/remote-ok"
    },
    {
-    "title": "levels.io: It took 4 years to reach $1m annual revenue with Nomad List and Remote OK",
+    "title": "levels.io: It took 4 years to reach $1m annual revenue with Nomad List and Remote OK (May 2019)",
     "url": "https://levels.io/4-years-to-1m-revenue-nomad-list-remote-ok"
+   },
+   {
+    "title": "Remote OK: Hire remote workers (pricing)",
+    "url": "https://remoteok.com/hire-remotely"
    },
    {
     "title": "@levelsio on X: AI is now 62% of my revenue and remote work just 23%",
     "url": "https://x.com/levelsio/status/1847644979419562085"
+   }
+  ]
+ },
+ {
+  "slug": "photopea",
+  "name": "Photopea",
+  "founder": "Ivan Kutskir",
+  "url": "https://www.photopea.com",
+  "tagline": "Free browser-based image editor that opens Photoshop files, funded by ads",
+  "category": "saas",
+  "model": "ads",
+  "channel": "word-of-mouth",
+  "started": 2013,
+  "revenue": {
+   "amount": 100000,
+   "period": "month",
+   "label": "~$100K/month from ads (Sept 2021)",
+   "asOf": "2021-09",
+   "kind": "self-reported",
+   "source": "https://www.failory.com/interview/photopea"
+  },
+  "team": "Solo",
+  "startupCost": null,
+  "timeToFirstDollar": "~3.5 years (7,000 hours of unpaid work before adding ads)",
+  "stack": [
+   "JavaScript",
+   "HTML5 Canvas / WebGL"
+  ],
+  "summary": "Photopea is a free web image editor built by Ukrainian-born, Prague-based developer Ivan Kutskir that opens PSD and other formats in the browser. It earns mainly from display ads plus an ad-free Premium subscription and licensing. Kutskir made about $500K in 2020, nearly $1M over the 12 months to April 2021, and told Failory in September 2021 that ads bring in about $100K a month. Latka estimates 2024 revenue at about $2.8M (estimate).",
+  "origin": "Kutskir had an idea in 2012, while studying computer science in Prague, for a website that displays PSD files, and released the first version (a PSD viewer) in 2013. It gradually became a full editor. By his 2018 Reddit AMA he said he had put about 7,000 hours into it over 3.5 years without earning a dollar before adding ads. He has worked on it full time since finishing his master's degree in 2017.",
+  "howItMakesMoney": "Display ads to free users (almost 90% of revenue per AIN in 2021; about 6 cents per hour of use per Kutskir), a Premium subscription that removes ads (5 USD/month per the Photopea blog), and licensing deals for companies that embed or self-host Photopea.",
+  "growth": [
+   "Solved a specific need: opening and editing PSD files for free without installing Photoshop",
+   "Kutskir posted about it on Reddit, Hacker News and in comments under 'Photoshop alternatives' articles, and asked YouTubers to review it",
+   "A Reddit AMA in November 2018 brought a wave of new users",
+   "Visitors grew from about 3,000 a month in March 2014, doubling roughly every six months by his account",
+   "Very low running costs (about $50 a year for hosting, since everything runs in the browser) let almost all revenue be profit"
+  ],
+  "moat": "Years of solo work on file-format compatibility (PSD, XCF, Sketch and more) that is hard to replicate, plus strong search presence as the free Photoshop alternative.",
+  "risks": "Heavy reliance on ad networks and search traffic; Adobe's own web and free tiers or AI image tools could erode usage.",
+  "timeline": [
+   {
+    "date": "2012",
+    "event": "Starts building a browser PSD viewer"
+   },
+   {
+    "date": "2013-09",
+    "event": "Releases Photopea"
+   },
+   {
+    "date": "2017",
+    "event": "Finishes master's degree and works on Photopea full time; monetization with ads has started"
+   },
+   {
+    "date": "2018",
+    "event": "Earns about $20K for the year; Reddit AMA in November brings a wave of new users"
+   },
+   {
+    "date": "2020",
+    "event": "Earns ~$500K for the year"
+   },
+   {
+    "date": "2021-04",
+    "event": "Reports nearly $1M over the previous 12 months"
+   },
+   {
+    "date": "2021-09",
+    "event": "Tells Failory ads bring in about $100K/month from 10M monthly visits"
+   }
+  ],
+  "lessons": [
+   "A free tool that replaces an expensive incumbent for a narrow job can grow without marketing spend",
+   "Ads work when usage is large and sessions are long",
+   "Long pre-revenue periods are survivable when costs are near zero",
+   "Doing all the code yourself can make maintenance and fixes faster"
+  ],
+  "rebuild": {
+   "idea": "A free browser tool that opens and edits a proprietary professional file format with no good free viewer, such as CAD/DWG or InDesign packages, monetized by ads and a pro tier",
+   "why": "Browsers (WebAssembly, WebGPU) can now handle heavy files, and many people receive these files occasionally without owning the expensive software.",
+   "mvp": [
+    "Pick one format and build a read-only viewer that opens common files in the browser",
+    "Post it in subreddits and forums where people ask how to open that format",
+    "Add one basic edit or export feature users request most",
+    "Add a single ad slot and a $5/month ad-free option"
+   ],
+   "difficulty": 5,
+   "weeklyHours": "15-20 (serious side project)",
+   "fit": "A strong low-level developer comfortable reverse-engineering file formats",
+   "stack": [
+    "TypeScript",
+    "WebAssembly (Rust or C++)",
+    "WebGPU",
+    "Cloudflare Pages",
+    "Google AdSense",
+    "Stripe"
+   ],
+   "pricing": "Keep the viewer free with one ad slot, and sell a $5/month ad-free plan plus a $20/month pro tier for editing and export features.",
+   "potential": "medium",
+   "market": "Users are contractors, students and small-office staff who receive DWG or InDesign files occasionally, reached through SEO on 'open DWG online' searches and forum answers. Competitors are Autodesk Viewer, ShareCAD and Adobe's own free viewers."
+  },
+  "sources": [
+   {
+    "title": "Failory: Building a Photo Editor and Making $100k/mo as a Solo Founder",
+    "url": "https://www.failory.com/interview/photopea"
+   },
+   {
+    "title": "AIN: Ukrainian single-handedly creates Photopea and makes $1M per year",
+    "url": "https://en.ain.ua/2021/04/15/photopea-history/"
+   },
+   {
+    "title": "Reddit AMA: I made a free alternative to Photoshop (Nov 2018)",
+    "url": "https://www.reddit.com/r/IAmA/comments/9urjmg/"
+   },
+   {
+    "title": "Photopea Blog: Photopea Premium",
+    "url": "https://blog.photopea.com/photopea-premium.html"
+   },
+   {
+    "title": "Photopea - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Photopea"
+   },
+   {
+    "title": "Latka: Photopea revenue estimate",
+    "url": "https://getlatka.com/companies/photopea"
    }
   ]
  },
@@ -851,37 +1068,37 @@
   "revenue": {
    "amount": 1000000,
    "period": "year",
-   "label": "$1M+/yr newsletter + podcast combined",
+   "label": "$1M+/yr: newsletter $500K+ and podcast $500K+",
    "asOf": "2024-01",
    "kind": "self-reported",
-   "source": "https://www.cnbc.com/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html"
+   "source": "https://www.cnbc.com/2024/01/15/lenny-rachitskys-advice-for-success-in-a-podcast-and-newsletter.html"
   },
-  "team": "Solo + contractors (mainly podcast production)",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "~10 months (free newsletter first, paid tier added 2020)",
+  "team": "Solo + contractors (e.g. a podcast producer)",
+  "startupCost": null,
+  "timeToFirstDollar": "~10 months (free newsletter first, paid plan added in 2020)",
   "stack": [
    "Substack"
   ],
-  "summary": "Lenny's Newsletter is a weekly Substack publication on product management and growth, with a paid tier, a podcast funded by sponsors, and a paid-subscriber bundle of software tools. Rachitsky told CNBC in January 2024 that newsletter and podcast together brought in a little over $1M a year; he passed 1 million subscribers in 2025.",
-  "origin": "Rachitsky was a product lead at Airbnb for about seven years and left in 2019 without planning a media business. He wrote a Medium post on lessons from Airbnb, then started a free newsletter answering readers' product questions. After about ten months free, he launched a paid tier in 2020 and had ~450 paid subscribers and ~$56K ARR six weeks in.",
-  "howItMakesMoney": "Paid subscriptions (historically $15/month or $150/year, with a higher 'expense it' tier), podcast sponsorships, and since 2025 an annual-plan bundle ('Product Pass') giving paid subscribers free years of tools like Notion, Linear and Granola, which drives annual upgrades.",
+  "summary": "Lenny's Newsletter is a weekly Substack publication on product management and growth, with a paid tier, a podcast funded by sponsors, and a bundle of free software for annual subscribers. CNBC reported in January 2024 that the newsletter brings in more than $500K a year and the podcast more than $500K, over $1M combined. He passed 1 million subscribers in March 2025.",
+  "origin": "Rachitsky spent seven years as a product manager at Airbnb. After leaving, he turned his notes on what he had learned into a Medium post that did very well, wrote a few more, then moved to Substack. After about ten months of free posts he added a paid plan at $15/month; by August 2020 he had about 15,000 free subscribers, 500 paid, and roughly $65K a year before fees.",
+  "howItMakesMoney": "Paid subscriptions ($15/month or $150/year until February 2025, then $20/month or $200/year, plus a $400/year Insider tier), podcast sponsorships, and since February 2025 a bundle ('Product Pass') giving annual subscribers free years of tools like Notion, Linear and Granola, which drives annual upgrades. Many readers expense the subscription.",
   "growth": [
    "Wrote deeply researched posts from his own Airbnb experience and from surveys of other operators",
-   "Moved most content behind the paywall while keeping some free issues, pushing conversion",
-   "Added a podcast with well-known product leaders, which also reached YouTube and brought sponsors",
+   "Kept one free post in the mix while most content sat behind the paywall; he says the newsletter grew almost entirely through word of mouth",
+   "Added a podcast in 2022 with well-known product leaders, which also reached YouTube and brought sponsors",
    "Built a paid-subscriber Slack community as a retention perk",
-   "Negotiated software bundles for annual subscribers, making the subscription easy to expense"
+   "Negotiated software bundles for annual subscribers and raised prices for the first time at the same moment"
   ],
   "moat": "Brand trust in a defined professional niche, a large list, and relationships that let him book top guests and negotiate tool bundles that smaller newsletters can't match.",
   "risks": "Depends on one author's output and on Substack's platform. Tech layoffs or budget cuts can reduce the number of subscriptions paid by employers.",
   "timeline": [
    {
     "date": "2019",
-    "event": "Leaves Airbnb; publishes lessons post and starts a free newsletter"
+    "event": "Leaves Airbnb; publishes lessons post on Medium, then moves the newsletter to Substack"
    },
    {
     "date": "2020",
-    "event": "Launches paid tier; ~450 paid subscribers and ~$56K ARR after six weeks"
+    "event": "Launches paid tier at $15/month; ~500 paid subscribers and ~$65K/yr by August"
    },
    {
     "date": "2022",
@@ -889,11 +1106,15 @@
    },
    {
     "date": "2024-01",
-    "event": "Tells CNBC newsletter and podcast bring in a little over $1M a year combined"
+    "event": "CNBC reports newsletter and podcast each bring in $500K+ a year"
    },
    {
-    "date": "2025",
-    "event": "Passes 1 million subscribers; launches bundle of free tools for annual subscribers"
+    "date": "2025-02",
+    "event": "Launches free-tools bundle for annual subscribers; raises price to $20/month or $200/year"
+   },
+   {
+    "date": "2025-03",
+    "event": "Passes 1 million subscribers"
    }
   ],
   "lessons": [
@@ -913,9 +1134,23 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "A senior practitioner in the role with a network of peers who will share the first posts"
+   "fit": "A senior practitioner in the role with a network of peers who will share the first posts",
+   "stack": [
+    "Substack or beehiiv",
+    "Stripe",
+    "Typeform (reader surveys)",
+    "Slack or Circle (community)",
+    "Riverside (podcast)"
+   ],
+   "pricing": "Start with a $15/month or $150/year paid tier and a group plan for teams that expense it, then add sponsorships once the free list passes about 10,000.",
+   "potential": "medium",
+   "market": "Buyers are practitioners in the role and their employers' training budgets, reached through LinkedIn, professional associations and conference communities. Competition comes from trade associations' journals (e.g. ACRP or HFMA publications) and vendor-run blogs, not from established independent newsletters."
   },
   "sources": [
+   {
+    "title": "CNBC: 42-year-old brings in more than $1 million a year from newsletter, podcast",
+    "url": "https://www.cnbc.com/2024/01/15/lenny-rachitskys-advice-for-success-in-a-podcast-and-newsletter.html"
+   },
    {
     "title": "CNBC: Lenny Rachitsky brings in over $500,000 from his podcast",
     "url": "https://www.cnbc.com/2024/01/11/lenny-rachitsky-podcast-brings-in-more-than-500k-a-year-heres-how.html"
@@ -925,113 +1160,16 @@
     "url": "https://on.substack.com/p/how-lenny-rachitsky-earned-65000"
    },
    {
+    "title": "Lenny's Newsletter: 1,000,000",
+    "url": "https://www.lennysnewsletter.com/p/1000000"
+   },
+   {
     "title": "Lenny's Product Pass",
     "url": "https://www.lennysnewsletter.com/p/productpass"
    },
    {
-    "title": "Lenny Rachitsky on X: announcing the product bundle",
+    "title": "Lenny Rachitsky on X: announcing the product bundle and price change",
     "url": "https://x.com/lennysan/status/1886808960931676468"
-   }
-  ]
- },
- {
-  "slug": "photopea",
-  "name": "Photopea",
-  "founder": "Ivan Kutskir",
-  "url": "https://www.photopea.com",
-  "tagline": "Free browser-based image editor that opens Photoshop files, funded by ads",
-  "category": "saas",
-  "model": "ads",
-  "channel": "word-of-mouth",
-  "started": 2013,
-  "revenue": {
-   "amount": 1000000,
-   "period": "year",
-   "label": "~$1M over 12 months (to Apr 2021)",
-   "asOf": "2021-04",
-   "kind": "self-reported",
-   "source": "https://en.ain.ua/2021/04/15/photopea-history/"
-  },
-  "team": "Solo",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "~4 years (launched 2013, ads added 2017)",
-  "stack": [
-   "JavaScript",
-   "HTML5 Canvas / WebGL"
-  ],
-  "summary": "Photopea is a free web image editor built by Ukrainian developer Ivan Kutskir that opens PSD and other formats in the browser. It earns mainly from display ads plus an ad-free premium option. Kutskir told AIN he earned about $500K in 2020 and nearly $1M over the 12 months to April 2021; later outside reports put 2024 revenue near $3M (estimate).",
-  "origin": "Kutskir began building a PSD viewer in 2012 as a side project while studying, then extended it into an editor. Photopea was released in September 2013. He added ads in 2017 once it had around 5,000 daily users, at first earning about $500 a month.",
-  "howItMakesMoney": "Display ads to free users, a paid Premium option that removes ads (listed at about $5/month), and licensing deals with other companies.",
-  "growth": [
-   "Solved a specific need: opening and editing PSD files for free without installing Photoshop",
-   "Posted in Photoshop-related subreddits and ran Reddit AMAs (e.g. 2018)",
-   "Kept the product free, so users shared it in schools and design communities",
-   "Ad revenue reportedly doubled roughly every six months after 2017",
-   "Very low running costs (hosting in the hundreds of dollars per year) let almost all revenue be profit"
-  ],
-  "moat": "Years of solo work on file-format compatibility (PSD, XCF, Sketch and more) that is hard to replicate, plus strong search presence as the free Photoshop alternative.",
-  "risks": "Heavy reliance on ad networks and search traffic; Adobe's own web and free tiers or AI image tools could erode usage.",
-  "timeline": [
-   {
-    "date": "2012",
-    "event": "Starts building a browser PSD viewer"
-   },
-   {
-    "date": "2013-09",
-    "event": "Releases Photopea"
-   },
-   {
-    "date": "2017",
-    "event": "Adds ads at ~5,000 daily users; ~$500/month at first"
-   },
-   {
-    "date": "2018",
-    "event": "Reddit AMA brings a wave of new users"
-   },
-   {
-    "date": "2020",
-    "event": "Earns ~$500K for the year (per interview)"
-   },
-   {
-    "date": "2021-04",
-    "event": "Reports nearly $1M over the previous 12 months"
-   }
-  ],
-  "lessons": [
-   "A free tool that replaces an expensive incumbent for a narrow job can grow without marketing spend",
-   "Ads work when usage is large and sessions are long",
-   "Long pre-revenue periods are survivable when costs are near zero",
-   "Doing all the code yourself can make maintenance and fixes faster"
-  ],
-  "rebuild": {
-   "idea": "A free browser tool that opens and edits a proprietary professional file format with no good free viewer, such as CAD/DWG or InDesign packages, monetized by ads and a pro tier",
-   "why": "Browsers (WebAssembly, WebGPU) can now handle heavy files, and many people receive these files occasionally without owning the expensive software.",
-   "mvp": [
-    "Pick one format and build a read-only viewer that opens common files in the browser",
-    "Post it in subreddits and forums where people ask how to open that format",
-    "Add one basic edit or export feature users request most",
-    "Add a single ad slot and a $5/month ad-free option"
-   ],
-   "difficulty": 5,
-   "weeklyHours": "15-20 (serious side project)",
-   "fit": "A strong low-level developer comfortable reverse-engineering file formats"
-  },
-  "sources": [
-   {
-    "title": "AIN: Ukrainian single-handedly creates Photopea and makes $1M per year",
-    "url": "https://en.ain.ua/2021/04/15/photopea-history/"
-   },
-   {
-    "title": "Failory: Building a Photo Editor and Making $100k/mo as a Solo Founder",
-    "url": "https://www.failory.com/interview/photopea"
-   },
-   {
-    "title": "Photopea - Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Photopea"
-   },
-   {
-    "title": "Latka: Photopea revenue estimate",
-    "url": "https://getlatka.com/companies/photopea"
    }
   ]
  },
@@ -1048,13 +1186,13 @@
   "revenue": {
    "amount": 61000,
    "period": "month",
-   "label": "~$61k/month (Sept 2024)",
+   "label": "~$61K/month (Sept 2024 record month, Nomads.com line)",
    "asOf": "2024-09",
    "kind": "self-reported",
    "source": "https://x.com/levelsio/status/1837707857372106992"
   },
   "team": "Solo + part-time contractors (e.g. sysadmin)",
-  "startupCost": "<$100 (started as a public Google Sheet)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
    "PHP",
@@ -1062,18 +1200,18 @@
    "SQLite",
    "single VPS"
   ],
-  "summary": "Nomad List ranks cities for remote workers on cost of living, internet speed, weather and safety, and sells membership to a community of nomads. Pieter Levels started it in 2014 as a crowdsourced spreadsheet and has run it mostly alone ever since. It was rebranded to Nomads.com in 2024.",
-  "origin": "In 2014 Levels was running out of money and set himself a challenge to launch 12 startups in 12 months. He tweeted a public Google Spreadsheet asking people to add data on cities good for remote work, and it filled up quickly. He then turned the sheet into a website, which became Nomad List.",
-  "howItMakesMoney": "Paid membership unlocks the community (chat, meetups, dating and member features) and full city data. The membership price and billing model have changed many times; exact current prices aren't included here because none could be confirmed from a primary source. Sponsorships and ads have also contributed.",
+  "summary": "Nomad List ranks cities for remote workers on cost of living, internet speed, weather and safety, and sold paid membership to a community of nomads. Pieter Levels started it in 2014 as a crowdsourced spreadsheet and has run it mostly alone ever since; it was renamed Nomads.com in 2024. In September 2024 he listed it at $61K/month in a revenue breakdown. In September 2026 he made it almost free ($1 to sign up) after 43,252 paid members over 12 years, betting on sponsors instead.",
+  "origin": "In 2014 Levels was working from Chiang Mai on a small income and had started a challenge to launch 12 startups in 12 months. He tweeted a public Google Spreadsheet asking people to add internet speeds, cost of living and other data on cities good for remote work, and it filled up quickly. He then turned the sheet into a website, which became Nomad List.",
+  "howItMakesMoney": "For most of its life, paid membership unlocked the community (chat, meetups, dating and member features) and full city data; the price and billing model changed many times. Sponsorship (a long-running one with SafetyWing) also contributed. In September 2026 Levels cut the price to a $1 anti-spam signup fee and said sponsors will likely be the future model.",
   "growth": [
    "The crowdsourced spreadsheet validated demand before any code was written, and contributors became the first audience.",
    "SEO: thousands of city and comparison pages ('cost of living in X') bring in steady organic search traffic.",
-   "Open-startup transparency: Levels published live revenue and user dashboards from 2018, which fed press coverage and his own following.",
-   "Conversion experiments: he reported sign-ups up 26% after adding Stripe Checkout and ran randomized tests of the benefits shown in the sign-up modal.",
+   "Open-startup transparency: Levels published live revenue and user dashboards from February 2018, which fed press coverage and his own following.",
+   "Conversion work: he reported sign-ups up 26% after switching Nomad List to Stripe Checkout in 2021.",
    "Combined with Remote OK, he reported $83,333+/mo (a $1M/yr run rate) in May 2019 with 0 ad budget and 0 funding."
   ],
   "moat": "More than a decade of crowdsourced city data and reviews, strong SEO rankings, and a paid community with network effects are hard to replicate quickly.",
-  "risks": "Revenue swings with travel trends (COVID hit it hard) and with the remote-work cycle. The product depends on one founder who now spreads his attention across many projects.",
+  "risks": "Revenue swings with travel trends and the remote-work cycle, and dropping the paid membership in 2026 makes it dependent on sponsors. The product depends on one founder who now spreads his attention across many projects.",
   "timeline": [
    {
     "date": "2014",
@@ -1084,27 +1222,35 @@
     "event": "Becomes an Open Startup with public revenue and user stats"
    },
    {
+    "date": "2019-03",
+    "event": "Shares Nomad List + Remote OK costs: ~$5,450/mo including a part-time sysadmin"
+   },
+   {
     "date": "2019-05",
     "event": "Nomad List + Remote OK pass $83,333/mo ($1M/yr run rate) with 1 VPS and no funding"
    },
    {
     "date": "2020-05",
-    "event": "Levels reports ~$700k/yr across his one-person business, mostly Nomad List and Remote OK"
+    "event": "Levels says his one-person business is at ~$700K/yr, mostly from Nomad List and Remote OK"
    },
    {
     "date": "2024",
-    "event": "Rebrands to Nomads.com"
+    "event": "Renames to Nomads.com"
    },
    {
     "date": "2024-09",
-    "event": "Reports ~$61k/month from Nomad List in a record portfolio month"
+    "event": "Lists Nomads.com at $61K/month in a record $420K/month portfolio breakdown"
+   },
+   {
+    "date": "2026-09",
+    "event": "Makes Nomads.com almost free ($1 signup) after 43,252 paid members"
    }
   ],
   "lessons": [
    "Validate with a spreadsheet before writing code: a public sheet can prove demand in a day.",
    "Programmatic data pages (one per city, one per comparison) compound SEO for years.",
-   "Monetize the community, not just the data. Public data brings people in and membership pays the bills.",
-   "Keep infrastructure tiny. Levels reported running both sites from 1 VPS at ~$5.5k/mo total costs in 2019."
+   "Monetize the community, not just the data. Public data brings people in and membership paid the bills for a decade.",
+   "Keep infrastructure tiny. Levels reported ~$5,450/mo in total costs for both sites in 2019, and 1 VPS."
   ],
   "rebuild": {
    "idea": "A 'where to live' data site plus paid community for remote-working families: school options, pediatric care, kid-friendly neighborhoods and visa rules for dependents, city by city.",
@@ -1117,16 +1263,34 @@
    ],
    "difficulty": 2,
    "weeklyHours": "8-12 (fits a side hustle)",
-   "fit": "Parents who have relocated abroad and can seed the community from lived experience"
+   "fit": "Parents who have relocated abroad and can seed the community from lived experience",
+   "stack": [
+    "Astro or Next.js (static city pages)",
+    "Postgres or SQLite",
+    "Stripe",
+    "Circle or Discourse (community)",
+    "Google Sheets (seed data)"
+   ],
+   "pricing": "Keep city pages free for SEO and charge a $49/year family membership for the community and deep-dive calls, with paid relocation-consultation add-ons at around $150 per call.",
+   "potential": "medium",
+   "market": "Buyers are remote-working parents planning a move abroad, reached through expat-family Facebook groups, subreddits and SEO on 'moving to X with kids'. Competitors are Nomads.com, InterNations, Expatica and relocation consultants."
   },
   "sources": [
+   {
+    "title": "@levelsio: $420k/mo record month breakdown incl. Nomads.com $61K/m (Sept 2024)",
+    "url": "https://x.com/levelsio/status/1837707857372106992"
+   },
+   {
+    "title": "@levelsio: After a decade, I have made nomads.com free for everyone now",
+    "url": "https://levels.io/nomads-com-free-after-a-decade"
+   },
    {
     "title": "@levelsio: $83,333+/mo with Nomad List + Remote OK (2019)",
     "url": "https://x.com/levelsio/status/1134089856265494528"
    },
    {
-    "title": "@levelsio: $420k/mo record month breakdown (Sept 2024)",
-    "url": "https://x.com/levelsio/status/1837707857372106992"
+    "title": "@levelsio: one-person business at ~$700k/y (2020)",
+    "url": "https://x.com/levelsio/status/1258040318517280768"
    },
    {
     "title": "@levelsio: Nomad List is now an Open Startup",
@@ -1137,7 +1301,11 @@
     "url": "https://x.com/levelsio/status/1105345282873581568"
    },
    {
-    "title": "Lex Fridman Podcast #440 transcript (stack discussion)",
+    "title": "@levelsio: Nomad List sign ups up 26% since adding Stripe Checkout",
+    "url": "https://x.com/levelsio/status/1449821367734444033"
+   },
+   {
+    "title": "Lex Fridman Podcast #440 transcript (Nomad List origin, stack)",
     "url": "https://lexfridman.com/pieter-levels-transcript/"
    }
   ]
@@ -1260,48 +1428,57 @@
   "revenue": {
    "amount": 35000,
    "period": "month",
-   "label": "~$35K MRR at shutdown",
+   "label": "~$35K MRR at shutdown (third-party report)",
    "asOf": "2025-11",
-   "kind": "self-reported",
+   "kind": "estimate",
    "source": "https://newsletter.failory.com/p/when-reddit-pulls-over"
   },
   "team": "Solo",
-  "startupCost": "Unknown (self-funded)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
    "Reddit Data API"
   ],
-  "summary": "GummySearch let founders and marketers search Reddit communities for pain points, solution requests and buying intent. Its solo founder, Fed, grew it to about 135,000 registered users, roughly 10,000 paying customers, and about $35K MRR. It shut down in November 2025 after failing to get a commercial license for Reddit's Data API. It is a clear example of platform risk for data businesses.",
+  "summary": "GummySearch let founders and marketers search Reddit communities for pain points, solution requests and buying intent. Its solo founder, Fed, grew it to more than 135,000 users (his figure) and, per Failory, about $35K MRR. He announced in November 2025 that it would stop taking new signups and payments on November 30, 2025, after failing to get a commercial license for Reddit's Data API. It is a clear example of platform risk for data businesses.",
   "origin": "Fed first built The Hive Index, a directory of online communities, as a warm-up project after going indie. To promote it on Reddit he wrote scripts to find relevant conversations. That internal tool became GummySearch in 2021.",
-  "howItMakesMoney": "Monthly subscriptions. Reported tiers were Free, Starter $29/mo, Pro $59/mo and Mega $199/mo. Early on, a private lifetime deal priced at 10x the monthly plan raised about $50K from 234 customers.",
+  "howItMakesMoney": "Monthly or discounted annual subscriptions: Free, Starter $29/mo, Pro $59/mo and Mega $199/mo, plus $10 day passes for one-off research. In early 2022 a private lifetime deal priced at 10x the monthly plan raised about $50K from 234 customers in two months.",
   "growth": [
    "The audience was indie hackers who live on Reddit and X, and Fed built in public for that same audience.",
-   "The lifetime deal funded early development: about $50K in roughly two months.",
-   "Word of mouth from recommendations. One tweet in Jan 2024 brought 10 customers and $580 MRR, which had previously taken a year.",
+   "The lifetime deal, offered first to customers who asked for it, then to trial users, X followers and Facebook LTD groups, brought in about $50K in two months. Fed called it his 'seed round'.",
+   "Sold $10 day passes and heavily discounted annual plans to capture people who research occasionally rather than every month.",
+   "An affiliate program: in its first month one affiliate brought in $3K of new business.",
    "Its use as a 'find your customers' research tool made it a common recommendation in founder communities."
   ],
   "moat": "A polished UX and categorization layer (pain points, solution requests, themes) on top of Reddit data, plus a strong brand among indie founders. It turned out to have no moat against the data source itself.",
-  "risks": "This risk ended the business. Reddit's 2023 API pricing and data-usage policy meant a commercial license was required, and a solo, non-VC business couldn't reach an agreement. The product closed to new business on November 30, 2025.",
+  "risks": "This risk ended the business. Reddit's 2023 API pricing and data-usage policy meant a commercial license was required, and Fed couldn't reach an agreement. The product stopped taking new business on November 30, 2025, and is scheduled to shut down entirely on December 1, 2026.",
   "timeline": [
    {
     "date": "2021",
     "event": "Launches as a spin-out of Fed's Reddit scripts for The Hive Index"
    },
    {
-    "date": "2022",
-    "event": "Private lifetime deal raises ~$50K from 234 customers"
+    "date": "2022-04",
+    "event": "Private lifetime deal raises ~$50K from 234 customers in two months"
+   },
+   {
+    "date": "2022-08",
+    "event": "Starter Story interview: ~$60K revenue in the first year"
    },
    {
     "date": "2023-07",
-    "event": "Reddit introduces paid commercial API access"
+    "event": "Reddit's paid commercial API access takes effect"
    },
    {
     "date": "2023-08",
-    "event": "About $3K MRR (Indie Hackers post)"
+    "event": "Indie Hackers interview: >10K users, 400 active customers, ~$100K lifetime revenue, ~$3K MRR plus one-off sales"
    },
    {
     "date": "2025-11",
-    "event": "Announces shutdown at ~$35K MRR, ~10,000 paying customers and 135,000 users; stops new sales Nov 30"
+    "event": "Announces wind-down after failing to get a Reddit commercial license; stops new sales Nov 30"
+   },
+   {
+    "date": "2026-12",
+    "event": "Scheduled full shutdown and data deletion"
    }
   ],
   "lessons": [
@@ -1321,7 +1498,17 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "A data engineer comfortable with ETL from many small sources, embeddings and clustering"
+   "fit": "A data engineer comfortable with ETL from many small sources, embeddings and clustering",
+   "stack": [
+    "Next.js",
+    "Postgres + pgvector",
+    "OpenAI API (embeddings + summaries)",
+    "Stripe",
+    "Zendesk/Intercom APIs"
+   ],
+   "pricing": "Start with a $49/mo self-serve plan for one product's data sources and a $149/mo plan for agencies with several clients, plus a free one-off review report as the lead magnet.",
+   "potential": "medium",
+   "market": "Buyers are indie SaaS and mobile-app founders, PMs and small agencies, reached through former GummySearch users, founder communities and SEO on 'GummySearch alternative' searches. Main competitors are Enterpret, Dovetail and review-mining tools like AppFollow."
   },
   "sources": [
    {
@@ -1329,8 +1516,16 @@
     "url": "https://gummysearch.com/final-chapter/"
    },
    {
+    "title": "GummySearch pricing",
+    "url": "https://gummysearch.com/pricing/"
+   },
+   {
     "title": "Failory: When Reddit Pulls Over",
     "url": "https://newsletter.failory.com/p/when-reddit-pulls-over"
+   },
+   {
+    "title": "Indie Hackers: How I raised $50k from 234 customers via LTD sale",
+    "url": "https://www.indiehackers.com/post/how-i-raised-50k-from-234-customers-via-ltd-sale-ae249169ec"
    },
    {
     "title": "Indie Hackers: Bootstrap SaaS to $100K (audience research tool for Reddit)",
@@ -1339,6 +1534,10 @@
    {
     "title": "Starter Story: I Built A Reddit Search Engine That Generated $60K In Its First Year",
     "url": "https://www.starterstory.com/stories/gummysearch"
+   },
+   {
+    "title": "Fed on X: winding down a profitable business",
+    "url": "https://x.com/foliofed/status/1986471339470012822"
    }
   ]
  },
@@ -1355,33 +1554,36 @@
   "revenue": {
    "amount": 412000,
    "period": "year",
-   "label": "$824K community revenue over 24 months (to Oct 2023)",
+   "label": "$824K community revenue over its first 24 months (Nov 2021-Oct 2023)",
    "asOf": "2023-10",
    "kind": "self-reported",
    "source": "https://community.inc/article/small-bets"
   },
-  "team": "Solo",
-  "startupCost": "<$100",
+  "team": "Solo until July 2023, then run as a partnership with Louie Bacaj",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
-   "Gumroad"
+   "Gumroad",
+   "Discord"
   ],
-  "summary": "Daniel Vassallo left a ~$500K Amazon job in 2019 and ran several small products instead of one startup: a $25 Twitter audience course, an AWS book, and the Small Bets community with a one-time lifetime fee. Small Bets made $824,409 revenue in its first two years; he sold it to Gumroad for $3.6M in April 2025.",
-  "origin": "Vassallo quit AWS in 2019 and wrote a widely shared post explaining why, which gave him his first few thousand followers. In April 2020 he recorded a 100-minute webcam course on building a Twitter audience in about 16 hours and sold it on Gumroad for $25. He launched Small Bets in November 2021 as a paid community for people following the same approach.",
-  "howItMakesMoney": "One-time payments: a lifetime membership to Small Bets (live classes from members and guests, community chat, recordings), plus the earlier $25 Twitter course and an AWS book. No recurring subscription.",
+  "summary": "Daniel Vassallo left a ~$500K/yr Amazon Web Services job and ran several small products instead of one startup: an AWS book, a $25 Twitter audience course, a $375 cohort course, and the Small Bets community with a one-time lifetime fee. Small Bets made $824,409 revenue in its first two years, and he sold it to Gumroad for $3.6M in April 2025.",
+  "origin": "After leaving AWS, Vassallo co-wrote 'The Good Parts of AWS' (launched on Gumroad on Dec 25, 2019 at $65) and in April 2020 released a $25 video course, 'Everyone Can Build a Twitter Audience', that took about 16 hours to make. He then ran a $375 two-week Small Bets cohort course over Zoom, and gave students lifetime access to a Discord. That Discord became the Small Bets community in November 2021.",
+  "howItMakesMoney": "Mainly one-time payments for lifetime membership to Small Bets (live events from members and guest speakers, community chat on Discord, recordings, course deals). The lifetime price has moved between about $185 and $245 with Black Friday promotions, and a one-year $99 option was added in November 2023. Earlier income came from the $25 Twitter course and the AWS book.",
   "growth": [
-   "The 'why I quit a $500K job' post drove initial attention",
+   "Leaving a ~$500K/yr job to work independently gave him a story that drew early attention",
    "Shared exact revenue and hours per product publicly on X, which became marketing",
    "The $25 Twitter course (13,000+ sales, ~$310K) proved his audience would buy",
-   "Recruited members to teach classes inside Small Bets, adding content without him producing it all",
-   "Raised the lifetime price over time, creating urgency to join early"
+   "The $375 cohort course sold out week after week ($150K from 400 customers in 5 months) and seeded the community",
+   "Paid members and guest experts (typically $1,000 a session) to teach live events, adding content without him producing it all",
+   "Ran pricing experiments on the lifetime fee, especially on Black Friday; November 2023 was the first $100K revenue month",
+   "Word of mouth and a small affiliate program (20% referral fee)"
   ],
-  "moat": "Community network effects (thousands of lifetime members and member-run classes) plus Vassallo's personal following and public track record.",
-  "risks": "Lifetime pricing means no recurring revenue; income depends on continuous new members. Much of the value was tied to the founder, which the sale to Gumroad had to address.",
+  "moat": "Community network effects (thousands of lifetime members and member-run events) plus Vassallo's personal following and public track record.",
+  "risks": "Lifetime pricing means little recurring revenue; income depends on continuous new members. Much of the value was tied to the founder, which is why the Gumroad deal requires him to keep running it for five years.",
   "timeline": [
    {
-    "date": "2019",
-    "event": "Leaves Amazon Web Services job paying ~$500K to work for himself"
+    "date": "2019-12",
+    "event": "Launches 'The Good Parts of AWS' on Gumroad; $45K in 14 days"
    },
    {
     "date": "2020-04",
@@ -1396,13 +1598,21 @@
     "event": "Reports Small Bets: 500 hours for $545,072 profit; Twitter course: 16 hours for $270,971 profit"
    },
    {
+    "date": "2023-07",
+    "event": "Louie Bacaj joins as partner"
+   },
+   {
+    "date": "2023-11",
+    "event": "First $100K revenue month, driven by a Black Friday offer"
+   },
+   {
     "date": "2025-04",
-    "event": "Sells Small Bets to Gumroad for $3.6M (50% cash, 50% stock), ~6,700 members"
+    "event": "Sells Small Bets to Gumroad for $3.6M (50% cash, 50% stock options), 6,692 members; about 8x 2024 profit"
    }
   ],
   "lessons": [
    "Measure each product by profit per hour invested, not MRR",
-   "A cheap, fast product (a 16-hour webcam course) can validate an audience before a larger bet",
+   "A cheap, fast product (a 16-hour video course) can validate an audience before a larger bet",
    "Communities scale when members teach each other, not just the founder",
    "Transparency about numbers can be the marketing for a business-advice product",
    "A lifetime-fee community can still be sold if membership and content are documented"
@@ -1418,7 +1628,16 @@
    ],
    "difficulty": 3,
    "weeklyHours": "8-12 (fits a side hustle)",
-   "fit": "Someone who has worked in that sector and already runs a small permitted side project"
+   "fit": "Someone who has worked in that sector and already runs a small permitted side project",
+   "stack": [
+    "Circle",
+    "Stripe",
+    "Zoom",
+    "Kit (ConvertKit)"
+   ],
+   "pricing": "One-time lifetime membership at $99 for founding members, raised in steps toward $199-$249 as the recorded class library grows, with an optional $49/year tier.",
+   "potential": "low",
+   "market": "Buyers are early-career public servants and NGO staff who want permitted side income, reached through LinkedIn, sector newsletters and alumni networks of public-policy schools. Competitors are general indie-business communities such as Small Bets and Indie Hackers, plus free Reddit and Facebook groups."
   },
   "sources": [
    {
@@ -1430,12 +1649,12 @@
     "url": "https://twitter.com/dvassallo/status/1666963246694404097"
    },
    {
-    "title": "Alexis Grant on LinkedIn: Small Bets sold to Gumroad for $3.6M",
-    "url": "https://www.linkedin.com/posts/alexisgrant_the-owner-of-a-community-and-course-called-activity-7319105752084733952-rme6"
+    "title": "Daniel Vassallo on LinkedIn: I just sold my business Small Bets for $3.6M to Gumroad",
+    "url": "https://www.linkedin.com/posts/danielvassallo_i-just-sold-my-business-small-bets-for-36m-activity-7319108700080599041-SCfp"
    },
    {
-    "title": "Only Intrinsic Motivation Lasts (Vassallo)",
-    "url": "https://dvassallo.medium.com/only-intrinsic-motivation-lasts-92c0497cf97c"
+    "title": "Alexis Grant on LinkedIn: Small Bets sold to Gumroad for $3.6M",
+    "url": "https://www.linkedin.com/posts/alexisgrant_the-owner-of-a-community-and-course-called-activity-7319105752084733952-rme6"
    }
   ]
  },
@@ -1450,48 +1669,59 @@
   "channel": "seo",
   "started": 2022,
   "revenue": {
-   "amount": 32000,
+   "amount": 33000,
    "period": "month",
-   "label": "~$32K MRR (plateaued)",
-   "asOf": "2026",
+   "label": "$33K MRR (May 2026, 4-year mark)",
+   "asOf": "2026-05",
    "kind": "self-reported",
-   "source": "https://smartbearlive.transistor.fm/1"
+   "source": "https://dmytrokrasun.com/posts/screenshotone-4-years/"
   },
   "team": "Solo",
-  "startupCost": "Unknown (self-funded, bootstrapped)",
-  "timeToFirstDollar": "About 2 months (launched May 2022; first $7 MRR in July 2022)",
-  "stack": [],
-  "summary": "A developer API that renders any URL, HTML or Markdown into a screenshot, with ad and cookie-banner blocking, full-page capture and video. Dmytro Krasun launched it solo in May 2022 after leaving a server-side engineering job. He grew it to about 1,000 customers and ~$32K MRR, then growth went flat. He publicly analyzed that plateau with Jason Cohen.",
-  "origin": "Krasun, a backend engineer, left his job and chose a market where people already paid to solve the problem: rendering web pages to images. He launched on May 29, 2022, got his first customer at $7/mo in July 2022, and kept shipping features based on customer requests.",
-  "howItMakesMoney": "Tiered monthly plans by screenshot volume. Reported plans: free (100 screenshots/mo), Basic $17/mo (2,000), Growth $79/mo (10,000), Scale $259/mo (50,000), with per-screenshot overage and two months free on annual billing.",
+  "startupCost": null,
+  "timeToFirstDollar": "About 5 weeks (launched May 29, 2022; first paying customer July 4, 2022)",
+  "stack": [
+   "Google Cloud Platform",
+   "Kubernetes"
+  ],
+  "summary": "A developer API that renders any URL or HTML into a screenshot, with ad and cookie-banner blocking, full-page capture, PDFs and video. Dmytro Krasun launched it solo in May 2022 after leaving a server-side engineering job. On its fourth anniversary in May 2026 he reported $33K MRR, 1,000+ paying customers and 100M+ API requests. Growth had become linear at about $1K of net new MRR a month, and he analyzed that plateau live with Jason Cohen in July 2026.",
+  "origin": "Krasun, a backend engineer, quit his job in 2021 and picked a boring problem that already had many good competitors: rendering web pages to images. He wrote SEO content while building, launched on May 29, 2022, made zero sales in the first month, and got his first paying customer on July 4, 2022. He kept shipping features based on customer requests.",
+  "howItMakesMoney": "Tiered monthly plans by screenshot volume: free (100 screenshots/mo), Basic $17/mo (2,000), Growth $79/mo (10,000) and Scale $259/mo (50,000), with per-screenshot overage ($0.009 down to $0.004) and two months free on annual billing.",
   "growth": [
-   "Search intent. Coverage reports that most new customers come from high-intent Google queries like 'screenshot API'.",
-   "Free utilities and open documentation earned backlinks that lift the paid API's search ranking.",
-   "Many small integrations and SDKs, and later a CLI and an MCP server, made it easy to adopt from different stacks.",
-   "Steady public reporting of milestones ($10K, $20K, $32K MRR) on X and WIP kept the product visible to indie developers."
+   "Search first. He wrote content about the problems he hit while building before launch, and says a lot of customers come from Google.",
+   "A Product Hunt launch and SEO drove the first $1K revenue month in March 2023, which he reported publicly on Indie Hackers.",
+   "SDKs, no-code integrations (Zapier, Make), and later a CLI and an MCP server made it easy to adopt from different stacks.",
+   "Steady public reporting of milestones ($10K MRR in Sept 2024, $20K in June 2025, $33K in May 2026) on X, LinkedIn and his blog kept the product visible to indie developers."
   ],
   "moat": "A reliable product that renders pages at scale, handles banners, lazy loading and anti-bot quirks, and has earned years of search ranking. It is a boring, hard-to-get-right product, not one with deep defensibility.",
-  "risks": "The market has a ceiling. On the Jason Cohen call, the numbers showed ~9% monthly churn capping MRR near $40K, and no single large, repeatable buyer segment had appeared. Cheap competitors and self-hosted Playwright/Puppeteer also put pressure on price.",
+  "risks": "The market has a ceiling. On the Jason Cohen call, ~9% monthly revenue churn against roughly $3K of new MRR a month put the ceiling near $33-40K MRR, and in four years no single large, repeatable buyer segment had appeared. Many customers need screenshots for a one-off project and then leave. Cheap competitors and self-hosted Playwright/Puppeteer also put pressure on price.",
   "timeline": [
    {
     "date": "2022-05",
-    "event": "ScreenshotOne launches"
+    "event": "ScreenshotOne launches (May 29)"
    },
    {
     "date": "2022-07",
-    "event": "First paying customer at $7/mo"
+    "event": "First paying customer (July 4)"
    },
    {
-    "date": "2024",
-    "event": "Crosses ~$14K MRR (Morning Maker Show interview)"
+    "date": "2024-09",
+    "event": "Reaches $10K MRR, his personal goal"
+   },
+   {
+    "date": "2025-03",
+    "event": "Morning Maker Show interview at ~$14K MRR"
    },
    {
     "date": "2025-06",
-    "event": "Reaches ~$20K MRR"
+    "event": "Reaches $20K MRR"
    },
    {
-    "date": "2026",
-    "event": "Around $32K MRR with ~1,000 customers and flat growth; reviews the plateau live with Jason Cohen"
+    "date": "2026-05",
+    "event": "Fourth anniversary: $33K MRR, 1,000+ paying customers, 100M+ API requests"
+   },
+   {
+    "date": "2026-07",
+    "event": "Reviews the $32K MRR plateau and 9% churn live with Jason Cohen"
    }
   ],
   "lessons": [
@@ -1511,9 +1741,31 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "A backend or data engineer who likes infrastructure and can sell to non-technical compliance teams"
+   "fit": "A backend or data engineer who likes infrastructure and can sell to non-technical compliance teams",
+   "stack": [
+    "Playwright",
+    "Node.js",
+    "Postgres",
+    "AWS S3 (Object Lock)",
+    "Stripe"
+   ],
+   "pricing": "Monthly subscriptions by number of monitored pages and capture frequency, starting around $99/mo for a small team and $299/mo with scheduled multi-region captures and evidence-report exports.",
+   "potential": "medium",
+   "market": "Buyers are affiliate-compliance, brand-protection and legal teams at advertisers, affiliate networks and law firms, reached through direct outreach on LinkedIn and compliance communities. Competitors include Page Vault and WebPreserver for legal web capture, plus generic screenshot APIs such as ScreenshotOne and Urlbox."
   },
   "sources": [
+   {
+    "title": "Dmytro Krasun: 4 Years of Running ScreenshotOne (May 2026)",
+    "url": "https://dmytrokrasun.com/posts/screenshotone-4-years/"
+   },
+   {
+    "title": "Dmytro Krasun: Reached $20K MRR. What's next? (July 2025)",
+    "url": "https://dmytrokrasun.com/posts/20k-mrr-whats-next/"
+   },
+   {
+    "title": "Dmytro Krasun: Zero Growth Acceleration (June 2026)",
+    "url": "https://dmytrokrasun.com/posts/zero-growth-acceleration/"
+   },
    {
     "title": "Smart Bear Live E01: Restarting growth when stuck at $32K MRR",
     "url": "https://smartbearlive.transistor.fm/1"
@@ -1523,8 +1775,20 @@
     "url": "https://superframeworks.com/case-study/screenshotone"
    },
    {
+    "title": "ScreenshotOne blog: $200,000 ARR and 400+ paying customers",
+    "url": "https://screenshotone.com/blog/200000-arr-and-400-paying-customers/"
+   },
+   {
+    "title": "Starter Story: ScreenshotOne (first customer and stack)",
+    "url": "https://www.starterstory.com/stories/screenshotone"
+   },
+   {
     "title": "Morning Maker Show: Bootstrapping from $0 to $14k MRR with Dmytro Krasun",
     "url": "https://creators.spotify.com/pod/profile/dan-mindru/episodes/Bootstrapping-from-0-to-14k-MRR---with-Dmytro-Krasun-from-ScreenshotOne-e307b60"
+   },
+   {
+    "title": "ScreenshotOne on Indie Hackers",
+    "url": "https://www.indiehackers.com/product/screenshotone-the-best-screenshot-api"
    },
    {
     "title": "ScreenshotOne pricing",
@@ -1548,41 +1812,42 @@
    "label": "~$25K/mo (2017 podcast)",
    "asOf": "2017",
    "kind": "self-reported",
-   "source": "https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
+   "source": "https://web.archive.org/web/20221205112244/https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
   },
-  "team": "Solo founder for most of its life; a small part-time team near the 2017 sale",
-  "startupCost": "Unknown (self-taught founder; hosted on Heroku)",
-  "timeToFirstDollar": "About 24 hours after launch (at $5/mo)",
+  "team": "Solo founder for the first years; a small remote team (five people per Built to Sell) by the 2017 sale",
+  "startupCost": null,
+  "timeToFirstDollar": "Day 1 (3 paying subscribers at $5/mo on launch day)",
   "stack": [
-   "Ruby on Rails",
-   "Heroku"
+   "Ruby",
+   "Heroku",
+   "Keen (analytics)"
   ],
-  "summary": "Storemapper is a store locator widget for brands that sell through retailers. It embeds on Shopify, BigCommerce, WordPress, Squarespace and other sites. Tyler Tringas taught himself to code, built the first version on a long flight, grew it while traveling, and sold it to SureSwift Capital in July 2017. It is the case he later used to coin the term 'micro-SaaS'.",
-  "origin": "Tringas spent about nine months learning to code, then built Storemapper's first version on a single long flight to Argentina. He charged $5/mo because the first version was buggy, and had paying customers within about 24 hours.",
-  "howItMakesMoney": "Monthly subscriptions. It started at $5/mo, and he raised the price 80% to $9/mo for new customers once the product matured, then raised it further in later years. The early low price is his own documented lesson in underpricing.",
+  "summary": "Storemapper is a store locator widget for brands that sell through retailers. It embeds on any website or ecommerce platform, including Shopify. Tyler Tringas, a self-taught developer, built the first version on a single long flight in 2012, grew it while traveling, and sold it to SureSwift Capital in 2017. He later became known for writing about 'micro-SaaS' businesses like it.",
+  "origin": "In August 2012 Tringas was freelancing for Shopify merchants, and several clients asked for a store locator. He found no good plug-and-play option, then built a stripped-down version during a roughly 36-hour trip from San Francisco to Buenos Aires via New York. He launched it when he landed, emailed his freelance clients, charged $5/mo, and had 3 paying subscribers on day one.",
+  "howItMakesMoney": "Monthly subscriptions, later with tiered plans and annual billing. It started at $5/mo; once the product matured he raised the price 80% to $9/mo for new customers, and three months later to $20/mo. He also offered $99/year annual billing to existing $9/mo customers. The early low price is his own documented lesson in underpricing.",
   "growth": [
-   "Platform app stores. Listing on Shopify's app store and building integrations for BigCommerce, WordPress and Squarespace put it in front of merchants on fast-growing platforms.",
-   "A viral footer. The 'powered by Storemapper' link on nearly every customer's locator produced thousands of clicks a month.",
-   "Organic search for 'store locator' terms. He never ran paid ads.",
+   "Platform app stores. Listing in Shopify's app store put it in front of merchants on a fast-growing platform.",
+   "A viral footer. The 'powered by Storemapper' link on customers' locators produced thousands of click-throughs a month.",
+   "Organic search. By 2014 almost all new customers came from organic search, app stores and the 'powered by' link. He put almost no effort into paid search ads.",
    "Repeated price increases on new customers raised ARPU without adding more customers."
   ],
-  "moat": "A small but real set of integrations across ecommerce platforms and embedded widgets that are annoying to replace. The niche was too small for large companies to target.",
+  "moat": "Embedded widgets that are annoying to replace, plus search ranking and app-store presence. The niche was too small for large companies to target.",
   "risks": "Platform dependence: Shopify can ship a native locator or change app-store rules. Competing plugins are cheap, and a low-ARPU product with churn needs constant new customers.",
   "timeline": [
    {
-    "date": "2012",
-    "event": "Builds the first version on a flight to Argentina and gets paying customers within about a day at $5/mo"
+    "date": "2012-08",
+    "event": "Builds the first version on a flight to Buenos Aires and has 3 paying customers on day one at $5/mo"
    },
    {
-    "date": "2014",
-    "event": "Publishes 'bootstrapped to $50,000/year in 2 years' with live metrics"
+    "date": "2013-12",
+    "event": "Reaches about $2,000 MRR while capping his time at 15 hours a month"
    },
    {
-    "date": "2015",
-    "event": "Publishes '2015 Roadmap: 100K to 4HWW' about getting to $100K ARR on a four-hour week"
+    "date": "2014-08",
+    "event": "Publishes 'bootstrapped to $50,000/year in 2 years' with a live metrics dashboard"
    },
    {
-    "date": "2016",
+    "date": "2016-08",
     "event": "Indie Hackers interview: ~$21K/mo, driven by targeting the right niche"
    },
    {
@@ -1590,8 +1855,8 @@
     "event": "Indie Hackers podcast: ~$25K/mo"
    },
    {
-    "date": "2017-07",
-    "event": "Sold to SureSwift Capital for an undisclosed 'level up money' price after meeting buyers at MicroConf"
+    "date": "2017",
+    "event": "Meets SureSwift Capital at MicroConf in March; the sale closes about five months later"
    }
   ],
   "lessons": [
@@ -1611,15 +1876,25 @@
    ],
    "difficulty": 2,
    "weeklyHours": "8-12 (fits a side hustle)",
-   "fit": "A data engineer who enjoys messy spreadsheet ETL and geocoding"
+   "fit": "A data engineer who enjoys messy spreadsheet ETL and geocoding",
+   "stack": [
+    "Python (pandas)",
+    "Postgres + PostGIS",
+    "Mapbox or Google Maps Platform",
+    "Next.js",
+    "Stripe"
+   ],
+   "pricing": "Monthly subscription at $29/mo for a single brand with monthly report uploads, and $79/mo for multiple distributors, automatic refresh and analytics on 'where to buy' searches.",
+   "potential": "medium",
+   "market": "Buyers are craft breweries, wineries, distilleries and specialty food brands that sell through distributors, reached through state brewers' guilds, trade shows and direct outreach on Instagram. Competitors include Storemapper, Stockist and Destini (formerly VIP's store locator tooling) plus free Shopify locator apps."
   },
   "sources": [
    {
-    "title": "Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas",
-    "url": "https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
+    "title": "Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas (archived)",
+    "url": "https://web.archive.org/web/20221205112244/https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
    },
    {
-    "title": "Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche",
+    "title": "Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche (Aug 2016)",
     "url": "https://www.indiehackers.com/interview/how-i-grew-to-21k-mo-by-targeting-the-right-niche-47941ae09d"
    },
    {
@@ -1631,7 +1906,7 @@
     "url": "https://tylertringas.com/selling-my-bootstrapped-saas-business/"
    },
    {
-    "title": "Built to Sell Radio ep. 160: Tyler Tringas' SaaS exit",
+    "title": "Built to Sell Radio ep. 160: A Small Giant Makes a Great Exit",
     "url": "https://builttosell.com/radio/episode-160/"
    }
   ]
@@ -1845,23 +2120,23 @@
   "channel": "word-of-mouth",
   "started": 2009,
   "revenue": {
-   "amount": 234000,
+   "amount": 228000,
    "period": "year",
-   "label": "~$234K revenue in 2016, ~$17K/yr costs",
-   "asOf": "2016-07",
+   "label": "~$228K revenue (2024 anniversary stats)",
+   "asOf": "2024-07",
    "kind": "self-reported",
-   "source": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/"
+   "source": "https://x.com/Pinboard/status/1810893626274128048"
   },
   "team": "Solo",
-  "startupCost": "Not disclosed",
+  "startupCost": null,
   "timeToFirstDollar": "At launch (paid signup fee from day one)",
   "stack": [
    "PHP",
    "MySQL"
   ],
-  "summary": "Pinboard is a bookmarking site launched in July 2009 and run by Maciej Ceglowski. It has charged users from the start and has no ads. He published yearly revenue of $117K-$234K for 2010-2016 against running costs of about $17K a year.",
-  "origin": "Ceglowski built Pinboard as a faster, simpler alternative to Delicious. At launch it charged a one-time signup fee of a few dollars that rose by a fraction of a cent with each new user, to slow growth and deter spam. Months later he added a $25/year archiving option, and it became his full-time job at around 1,200 users.",
-  "howItMakesMoney": "Annual subscriptions: a standard account (listed at $22/year in recent years) and an archiving account (listed at $39/year) that saves copies of bookmarked pages. It moved from one-time fees to annual subscriptions in 2015.",
+  "summary": "Pinboard is a bookmarking site launched in July 2009 and run by Maciej Ceglowski. It has charged users from the start and has no ads. In yearly anniversary stats he has published revenue of $117K-$293K a year from 2010 to 2024 ($228K in 2024), and in 2016 said the site cost about $17K a year to run.",
+  "origin": "Ceglowski built Pinboard as a faster, simpler alternative to Delicious. At launch it charged a one-time signup fee of about $3 that rose by a fraction of a cent with each new user, to slow growth and deter spam. Months later he added a $25/year archiving option, and it became his full-time job at around 1,200 users.",
+  "howItMakesMoney": "Annual subscriptions: a regular account at $22/year and an archiving account with full-text search at $39/year, with discounts for multi-year plans. It moved from one-time fees to annual subscriptions in January 2015.",
   "growth": [
    "Absorbed users each time Delicious had trouble (Yahoo's 2010 plans to sunset it caused a large influx)",
    "Charging from day one filtered for committed users and kept spam down",
@@ -1881,19 +2156,27 @@
    },
    {
     "date": "2010",
-    "event": "Delicious shutdown news drives a surge of signups; revenue $117K for the year"
+    "event": "Yahoo's plan to 'sunset' Delicious drives a surge of signups; revenue $117K for the year"
    },
    {
-    "date": "2015",
-    "event": "Moves to annual subscriptions; revenue dips then recovers"
+    "date": "2015-01",
+    "event": "Moves to annual subscriptions ($11/year for new accounts); revenue dips then recovers"
    },
    {
-    "date": "2016",
-    "event": "Publishes revenue of $234K for the year and ~$17K annual running costs"
+    "date": "2016-07",
+    "event": "Starts publishing revenue: $234K, with ~$17K annual running costs"
    },
    {
     "date": "2017-06",
-    "event": "Buys Delicious for $35,000"
+    "event": "Buys Delicious for $35,000 and makes it read-only"
+   },
+   {
+    "date": "2020-07",
+    "event": "Moves the site onto PHP 7 and current MySQL; revenue $212K"
+   },
+   {
+    "date": "2024-07",
+    "event": "15th-anniversary stats: $228K revenue, 13K active users, $0 funding"
    }
   ],
   "lessons": [
@@ -1913,9 +2196,24 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "A web developer with contacts in journalism or legal work"
+   "fit": "A web developer with contacts in journalism or legal work",
+   "stack": [
+    "Browser extension (Manifest V3)",
+    "Playwright (page capture)",
+    "Postgres",
+    "S3-compatible storage",
+    "OpenTimestamps or RFC 3161 timestamping",
+    "Stripe"
+   ],
+   "pricing": "Charge $10/month per user from day one with a 7-day refundable trial, and a $49/month team plan with shared folders and exportable evidence reports.",
+   "potential": "medium",
+   "market": "Buyers are litigation paralegals, small law firms, investigative journalists and compliance teams, reached through legal-tech newsletters, bar association CLE sessions and journalism training groups. Competitors are Page Vault, WebPreserver, Hunchly and the free Internet Archive."
   },
   "sources": [
+   {
+    "title": "Pinboard on X: 15th anniversary stats (2024)",
+    "url": "https://x.com/Pinboard/status/1810893626274128048"
+   },
    {
     "title": "Pinboard Turns Seven (Pinboard Blog)",
     "url": "https://blog.pinboard.in/2016/07/pinboard_turns_seven/"
@@ -1929,115 +2227,16 @@
     "url": "https://blog.pinboard.in/2017/06/pinboard_acquires_delicious/"
    },
    {
+    "title": "MakeUseOf: Pinboard Acquires Delicious (reports $35,000 price)",
+    "url": "https://www.makeuseof.com/tag/pinboard-acquires-delicious-shut-down/"
+   },
+   {
+    "title": "Pinboard signup and pricing",
+    "url": "https://pinboard.in/signup/"
+   },
+   {
     "title": "Pinboard (website) - Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Pinboard_(website)"
-   }
-  ]
- },
- {
-  "slug": "shipfast",
-  "name": "ShipFast",
-  "founder": "Marc Lou",
-  "url": "https://shipfa.st",
-  "tagline": "Next.js boilerplate with auth, payments and email pre-wired for SaaS launches",
-  "category": "dev-tools",
-  "model": "one-time",
-  "channel": "twitter-x",
-  "started": 2023,
-  "revenue": {
-   "amount": 17200,
-   "period": "month",
-   "label": "$17.2k/month (Jan 2026)",
-   "asOf": "2026-01",
-   "kind": "self-reported",
-   "source": "https://x.com/marclou/status/2017579624033866096"
-  },
-  "team": "Solo",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "Launch day (Sept 2023)",
-  "stack": [
-   "Next.js",
-   "React",
-   "Tailwind CSS",
-   "Stripe"
-  ],
-  "summary": "ShipFast is a paid Next.js starter codebase with authentication, Stripe payments, database, emails and SEO pages already wired up. Marc Lou built it in about a week in 2023 from code he had reused across his own projects. He reported $384k in its first 7 months and $1M+ lifetime, with monthly sales declining since the 2024 peak.",
-  "origin": "Lou, a French developer who had been shipping many small startups in public, packaged the code he kept rewriting for each new project. He launched it around Aug 31/Sept 1 2023 with '$50 off for the first 50 customers', and told his wife they'd be lucky to make $100.",
-  "howItMakesMoney": "One-time purchase for lifetime access to the GitHub repo and updates. Tiers have ranged from about $169 to $299 depending on whether they include a private Discord community and his CodeFast course. It also works as the entry product in Lou's portfolio (CodeFast, DataFast, TrustMRR).",
-  "growth": [
-   "Built in public on X with frequent revenue posts to a fast-growing indie-hacker audience.",
-   "Leaderboards and 'customers who shipped with ShipFast' posts turned buyers into promoters. He reported 4,000 developers by July 2024 and 5,000+ by Nov 2024.",
-   "Named Product Hunt Maker of the Year 2023, which added credibility and backlinks.",
-   "Tested paid ads: he reported $8,345 in Facebook ads bringing in $23,283 of ShipFast revenue (April 2024).",
-   "Cross-sold into his other products (CodeFast course, DataFast analytics) to offset ShipFast's decline."
-  ],
-  "moat": "Weak on the code itself, since boilerplates are easy to copy and many clones exist. The defensibility is Lou's audience, the community Discord and brand recognition among indie hackers.",
-  "risks": "AI coding tools now generate boilerplate on demand, which undercuts the core value, and ShipFast's monthly sales have fallen well below the 2024 peak. Revenue depends on the founder's personal reach.",
-  "timeline": [
-   {
-    "date": "2023-08",
-    "event": "Launches ShipFast with $50 off for the first 50 customers"
-   },
-   {
-    "date": "2023",
-    "event": "Named Product Hunt Maker of the Year 2023"
-   },
-   {
-    "date": "2024-04",
-    "event": "Reports $384k in the first 7 months"
-   },
-   {
-    "date": "2024-11",
-    "event": "Reports 5,000+ builders have used ShipFast"
-   },
-   {
-    "date": "2025-07",
-    "event": "ShipFast makes $18.2k of Lou's $48.9k monthly total"
-   },
-   {
-    "date": "2026-01",
-    "event": "ShipFast makes $17.2k; TrustMRR has overtaken it as his top product"
-   }
-  ],
-  "lessons": [
-   "Package the code you already reuse. The fastest product to build is one you have effectively written several times.",
-   "A one-time developer product can spike quickly on an audience but decays without new distribution.",
-   "Use a successful product as a funnel into newer products (courses, SaaS) before it plateaus.",
-   "Share exact ad-spend numbers: the Facebook ads result was itself a viral post."
-  ],
-  "rebuild": {
-   "idea": "A production-ready starter kit for AI agent apps in regulated or B2B settings: multi-tenant auth, per-customer LLM usage metering and billing, audit logs and eval harness pre-wired.",
-   "why": "Generic SaaS boilerplates cover auth and Stripe but not LLM cost metering, tenant isolation or evals, which every B2B AI app now has to rebuild.",
-   "mvp": [
-    "Extract the metering, billing and audit pieces from an AI app you've already built into a clean repo.",
-    "Write a public post comparing the cost of building them from scratch with using the kit.",
-    "Pre-sell at $149 to your network and on X or relevant Discords before polishing.",
-    "Record a 20-minute walkthrough video as the main sales asset."
-   ],
-   "difficulty": 3,
-   "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "Engineers who have shipped a B2B AI product and have some audience on X or GitHub"
-  },
-  "sources": [
-   {
-    "title": "Marc Lou: $384,000 and 7 months later",
-    "url": "https://twitter.com/marc_louvion/status/1779491043274260759"
-   },
-   {
-    "title": "Marc Lou: I made $94,799 in January 2026 (ShipFast $17.2K)",
-    "url": "https://x.com/marclou/status/2017579624033866096"
-   },
-   {
-    "title": "Marc Lou: ShipFast launch post",
-    "url": "https://x.com/marc_louvion/status/1697165875957449084"
-   },
-   {
-    "title": "Marc Lou: $8,345 Facebook ads, $23,283 ShipFast revenue",
-    "url": "https://x.com/marclou/status/1780978351693599188"
-   },
-   {
-    "title": "Marc Lou newsletter: I made $1,032,000 in 2025",
-    "url": "https://newsletter.marclou.com/p/i-made-1-032-000-in-2025"
    }
   ]
  },
@@ -2389,6 +2588,151 @@
    {
     "title": "Indie Bites #94: Andrew Kamphey",
     "url": "https://indiebites.com/94"
+   }
+  ]
+ },
+ {
+  "slug": "shipfast",
+  "name": "ShipFast",
+  "founder": "Marc Lou",
+  "url": "https://shipfa.st",
+  "tagline": "Next.js boilerplate with auth, payments and email pre-wired for SaaS launches",
+  "category": "dev-tools",
+  "model": "one-time",
+  "channel": "twitter-x",
+  "started": 2023,
+  "revenue": {
+   "amount": 1992,
+   "period": "month",
+   "label": "~$2K in the last 30 days (Sep 2026); $1.27M all-time",
+   "asOf": "2026-09",
+   "kind": "self-reported",
+   "source": "https://trustmrr.com/startup/shipfast"
+  },
+  "team": "Solo",
+  "startupCost": null,
+  "timeToFirstDollar": null,
+  "stack": [
+   "Next.js",
+   "React",
+   "Tailwind CSS",
+   "MongoDB",
+   "Stripe",
+   "Vercel"
+  ],
+  "summary": "ShipFast is a paid Next.js starter codebase with authentication, Stripe payments, database, emails and SEO pages already wired up. Marc Lou launched it on September 1, 2023, packing two years of shipping knowledge into a GitHub repo. It made $40K in its first month and peaked at $133K in monthly revenue in April 2024. His Stripe-verified TrustMRR page shows $1.27M all-time revenue but only about $2K in the last 30 days as of September 2026.",
+  "origin": "Lou, a French developer who had been shipping many small startups in public, packaged the code he kept rewriting for each new project into a boilerplate. He announced it on August 31, 2023 with '$50 off for the first 50 customers', and told his wife they'd be lucky to make $100. It made $40,000 by the end of the first month.",
+  "howItMakesMoney": "One-time purchase for lifetime access to the GitHub repo and updates. As of September 2026 TrustMRR lists Starter at $199 and All-in at $249 (discounted from $299 and $349), plus a ShipFast + CodeFast bundle at $299. It also works as an entry product in Lou's portfolio (CodeFast, DataFast, TrustMRR).",
+  "growth": [
+   "Built in public on X with frequent revenue posts to a fast-growing indie-hacker audience.",
+   "Customer testimonials and 'shipped with ShipFast' posts turned buyers into promoters. He cited 4,200+ developers in August 2024 and 7,200+ by January 2026.",
+   "Named Product Hunt Maker of the Year 2023, which added credibility and backlinks.",
+   "YouTube videos in 2024 pushed monthly revenue to its $133K peak in April 2024, he says.",
+   "Tested paid ads: he reported $8,345 in Facebook ads bringing in $23,283 of ShipFast revenue (April 2024).",
+   "Cross-sold into his other products (CodeFast course, DataFast analytics) as ShipFast declined."
+  ],
+  "moat": "Weak on the code itself, since boilerplates are easy to copy and many clones exist. The defensibility is Lou's audience and brand recognition among indie hackers.",
+  "risks": "AI coding tools now generate boilerplate on demand, which undercuts the core value, and ShipFast's sales have collapsed from $133K in April 2024 to about $2K a month in 2026. Revenue depends on the founder's personal reach.",
+  "timeline": [
+   {
+    "date": "2023-08",
+    "event": "Announces ShipFast with $50 off for the first 50 customers"
+   },
+   {
+    "date": "2023-09",
+    "event": "Makes $40K in its first month"
+   },
+   {
+    "date": "2023-12",
+    "event": "Reaches almost $200K total revenue by year-end; Lou is named Product Hunt Maker of the Year 2023"
+   },
+   {
+    "date": "2024-04",
+    "event": "Reports $384K in the first 7 months; monthly revenue peaks at $133K"
+   },
+   {
+    "date": "2025-07",
+    "event": "ShipFast makes $18.2K of Lou's $48.9K monthly total"
+   },
+   {
+    "date": "2026-01",
+    "event": "ShipFast makes $17.2K; TrustMRR, CodeFast and DataFast all overtake it"
+   },
+   {
+    "date": "2026-09",
+    "event": "TrustMRR shows ~$2K in the last 30 days and $1.27M all-time"
+   }
+  ],
+  "lessons": [
+   "Package the code you already reuse. The fastest product to build is one you have effectively written several times.",
+   "A one-time developer product can spike quickly on an audience but decays without new distribution.",
+   "Use a successful product as a funnel into newer products (courses, SaaS) before it plateaus.",
+   "Share exact ad-spend numbers: the Facebook ads result was itself a viral post."
+  ],
+  "rebuild": {
+   "idea": "A production-ready starter kit for AI agent apps in regulated or B2B settings: multi-tenant auth, per-customer LLM usage metering and billing, audit logs and eval harness pre-wired.",
+   "why": "Generic SaaS boilerplates cover auth and Stripe but not LLM cost metering, tenant isolation or evals, which every B2B AI app now has to rebuild.",
+   "mvp": [
+    "Extract the metering, billing and audit pieces from an AI app you've already built into a clean repo.",
+    "Write a public post comparing the cost of building them from scratch with using the kit.",
+    "Pre-sell at $149 to your network and on X or relevant Discords before polishing.",
+    "Record a 20-minute walkthrough video as the main sales asset."
+   ],
+   "difficulty": 3,
+   "weeklyHours": "10-15 (fits a side hustle)",
+   "fit": "Engineers who have shipped a B2B AI product and have some audience on X or GitHub",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "Stripe (usage-based billing)",
+    "OpenAI API",
+    "Anthropic API",
+    "Langfuse"
+   ],
+   "pricing": "One-time license at $149 for pre-sales, rising to $249-$349 at launch, with an optional paid team tier or annual updates plan later.",
+   "potential": "low",
+   "market": "Buyers are developers and small agencies building B2B AI products, reached through X, GitHub and AI-engineering Discords and newsletters. Competitors include ShipFast, Supastarter and Makerkit, plus free open-source templates and AI coding tools that generate boilerplate on demand."
+  },
+  "sources": [
+   {
+    "title": "TrustMRR: ShipFast (Stripe-verified revenue)",
+    "url": "https://trustmrr.com/startup/shipfast"
+   },
+   {
+    "title": "Marc Lou: $384,000 and 7 months later",
+    "url": "https://twitter.com/marc_louvion/status/1779491043274260759"
+   },
+   {
+    "title": "Marc Lou: I made $94,799 in January 2026 (ShipFast $17.2K)",
+    "url": "https://x.com/marclou/status/2017579624033866096"
+   },
+   {
+    "title": "Marc Lou: I made $48,921 in July 2025 (ShipFast $18.2K)",
+    "url": "https://x.com/marclou/status/1950900252481130634"
+   },
+   {
+    "title": "Marc Lou: ShipFast launch post",
+    "url": "https://x.com/marc_louvion/status/1697165875957449084"
+   },
+   {
+    "title": "Marc Lou: $8,345 Facebook ads, $23,283 ShipFast revenue",
+    "url": "https://x.com/marclou/status/1780978351693599188"
+   },
+   {
+    "title": "Marc Lou: 21 products, 13 top products, Maker of the Year",
+    "url": "https://x.com/marclou/status/1762496570019459376"
+   },
+   {
+    "title": "Marc Lou newsletter: I've made $3M with my 36 startups (Sep 2026)",
+    "url": "https://newsletter.marclou.com/p/i-ve-made-3m-with-my-36-startups"
+   },
+   {
+    "title": "Marc Lou newsletter: I made $1,032,000 in 2025",
+    "url": "https://newsletter.marclou.com/p/i-made-1-032-000-in-2025"
+   },
+   {
+    "title": "Marc Lou newsletter: I made $1M as a solopreneur (Aug 2024; 4,200+ developers)",
+    "url": "https://newsletter.marclou.com/p/i-made-usd-1m-as-a-solopreneur"
    }
   ]
  }

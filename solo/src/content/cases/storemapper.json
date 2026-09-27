@@ -14,41 +14,42 @@
     "label": "~$25K/mo (2017 podcast)",
     "asOf": "2017",
     "kind": "self-reported",
-    "source": "https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
+    "source": "https://web.archive.org/web/20221205112244/https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
   },
-  "team": "Solo founder for most of its life; a small part-time team near the 2017 sale",
-  "startupCost": "Unknown (self-taught founder; hosted on Heroku)",
-  "timeToFirstDollar": "About 24 hours after launch (at $5/mo)",
+  "team": "Solo founder for the first years; a small remote team (five people per Built to Sell) by the 2017 sale",
+  "startupCost": null,
+  "timeToFirstDollar": "Day 1 (3 paying subscribers at $5/mo on launch day)",
   "stack": [
-    "Ruby on Rails",
-    "Heroku"
+    "Ruby",
+    "Heroku",
+    "Keen (analytics)"
   ],
-  "summary": "Storemapper is a store locator widget for brands that sell through retailers. It embeds on Shopify, BigCommerce, WordPress, Squarespace and other sites. Tyler Tringas taught himself to code, built the first version on a long flight, grew it while traveling, and sold it to SureSwift Capital in July 2017. It is the case he later used to coin the term 'micro-SaaS'.",
-  "origin": "Tringas spent about nine months learning to code, then built Storemapper's first version on a single long flight to Argentina. He charged $5/mo because the first version was buggy, and had paying customers within about 24 hours.",
-  "howItMakesMoney": "Monthly subscriptions. It started at $5/mo, and he raised the price 80% to $9/mo for new customers once the product matured, then raised it further in later years. The early low price is his own documented lesson in underpricing.",
+  "summary": "Storemapper is a store locator widget for brands that sell through retailers. It embeds on any website or ecommerce platform, including Shopify. Tyler Tringas, a self-taught developer, built the first version on a single long flight in 2012, grew it while traveling, and sold it to SureSwift Capital in 2017. He later became known for writing about 'micro-SaaS' businesses like it.",
+  "origin": "In August 2012 Tringas was freelancing for Shopify merchants, and several clients asked for a store locator. He found no good plug-and-play option, then built a stripped-down version during a roughly 36-hour trip from San Francisco to Buenos Aires via New York. He launched it when he landed, emailed his freelance clients, charged $5/mo, and had 3 paying subscribers on day one.",
+  "howItMakesMoney": "Monthly subscriptions, later with tiered plans and annual billing. It started at $5/mo; once the product matured he raised the price 80% to $9/mo for new customers, and three months later to $20/mo. He also offered $99/year annual billing to existing $9/mo customers. The early low price is his own documented lesson in underpricing.",
   "growth": [
-    "Platform app stores. Listing on Shopify's app store and building integrations for BigCommerce, WordPress and Squarespace put it in front of merchants on fast-growing platforms.",
-    "A viral footer. The 'powered by Storemapper' link on nearly every customer's locator produced thousands of clicks a month.",
-    "Organic search for 'store locator' terms. He never ran paid ads.",
+    "Platform app stores. Listing in Shopify's app store put it in front of merchants on a fast-growing platform.",
+    "A viral footer. The 'powered by Storemapper' link on customers' locators produced thousands of click-throughs a month.",
+    "Organic search. By 2014 almost all new customers came from organic search, app stores and the 'powered by' link. He put almost no effort into paid search ads.",
     "Repeated price increases on new customers raised ARPU without adding more customers."
   ],
-  "moat": "A small but real set of integrations across ecommerce platforms and embedded widgets that are annoying to replace. The niche was too small for large companies to target.",
+  "moat": "Embedded widgets that are annoying to replace, plus search ranking and app-store presence. The niche was too small for large companies to target.",
   "risks": "Platform dependence: Shopify can ship a native locator or change app-store rules. Competing plugins are cheap, and a low-ARPU product with churn needs constant new customers.",
   "timeline": [
     {
-      "date": "2012",
-      "event": "Builds the first version on a flight to Argentina and gets paying customers within about a day at $5/mo"
+      "date": "2012-08",
+      "event": "Builds the first version on a flight to Buenos Aires and has 3 paying customers on day one at $5/mo"
     },
     {
-      "date": "2014",
-      "event": "Publishes 'bootstrapped to $50,000/year in 2 years' with live metrics"
+      "date": "2013-12",
+      "event": "Reaches about $2,000 MRR while capping his time at 15 hours a month"
     },
     {
-      "date": "2015",
-      "event": "Publishes '2015 Roadmap: 100K to 4HWW' about getting to $100K ARR on a four-hour week"
+      "date": "2014-08",
+      "event": "Publishes 'bootstrapped to $50,000/year in 2 years' with a live metrics dashboard"
     },
     {
-      "date": "2016",
+      "date": "2016-08",
       "event": "Indie Hackers interview: ~$21K/mo, driven by targeting the right niche"
     },
     {
@@ -56,8 +57,8 @@
       "event": "Indie Hackers podcast: ~$25K/mo"
     },
     {
-      "date": "2017-07",
-      "event": "Sold to SureSwift Capital for an undisclosed 'level up money' price after meeting buyers at MicroConf"
+      "date": "2017",
+      "event": "Meets SureSwift Capital at MicroConf in March; the sale closes about five months later"
     }
   ],
   "lessons": [
@@ -77,15 +78,25 @@
     ],
     "difficulty": 2,
     "weeklyHours": "8-12 (fits a side hustle)",
-    "fit": "A data engineer who enjoys messy spreadsheet ETL and geocoding"
+    "fit": "A data engineer who enjoys messy spreadsheet ETL and geocoding",
+    "stack": [
+      "Python (pandas)",
+      "Postgres + PostGIS",
+      "Mapbox or Google Maps Platform",
+      "Next.js",
+      "Stripe"
+    ],
+    "pricing": "Monthly subscription at $29/mo for a single brand with monthly report uploads, and $79/mo for multiple distributors, automatic refresh and analytics on 'where to buy' searches.",
+    "potential": "medium",
+    "market": "Buyers are craft breweries, wineries, distilleries and specialty food brands that sell through distributors, reached through state brewers' guilds, trade shows and direct outreach on Instagram. Competitors include Storemapper, Stockist and Destini (formerly VIP's store locator tooling) plus free Shopify locator apps."
   },
   "sources": [
     {
-      "title": "Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas",
-      "url": "https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
+      "title": "Indie Hackers Podcast #012: Bootstrapping to $25k/mo with Tyler Tringas (archived)",
+      "url": "https://web.archive.org/web/20221205112244/https://www.indiehackers.com/podcast/012-tyler-tringas-of-storemapper"
     },
     {
-      "title": "Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche",
+      "title": "Indie Hackers: How I Grew to $21K/mo by Targeting the Right Niche (Aug 2016)",
       "url": "https://www.indiehackers.com/interview/how-i-grew-to-21k-mo-by-targeting-the-right-niche-47941ae09d"
     },
     {
@@ -97,7 +108,7 @@
       "url": "https://tylertringas.com/selling-my-bootstrapped-saas-business/"
     },
     {
-      "title": "Built to Sell Radio ep. 160: Tyler Tringas' SaaS exit",
+      "title": "Built to Sell Radio ep. 160: A Small Giant Makes a Great Exit",
       "url": "https://builttosell.com/radio/episode-160/"
     }
   ]

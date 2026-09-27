@@ -11,48 +11,57 @@
   "revenue": {
     "amount": 35000,
     "period": "month",
-    "label": "~$35K MRR at shutdown",
+    "label": "~$35K MRR at shutdown (third-party report)",
     "asOf": "2025-11",
-    "kind": "self-reported",
+    "kind": "estimate",
     "source": "https://newsletter.failory.com/p/when-reddit-pulls-over"
   },
   "team": "Solo",
-  "startupCost": "Unknown (self-funded)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
     "Reddit Data API"
   ],
-  "summary": "GummySearch let founders and marketers search Reddit communities for pain points, solution requests and buying intent. Its solo founder, Fed, grew it to about 135,000 registered users, roughly 10,000 paying customers, and about $35K MRR. It shut down in November 2025 after failing to get a commercial license for Reddit's Data API. It is a clear example of platform risk for data businesses.",
+  "summary": "GummySearch let founders and marketers search Reddit communities for pain points, solution requests and buying intent. Its solo founder, Fed, grew it to more than 135,000 users (his figure) and, per Failory, about $35K MRR. He announced in November 2025 that it would stop taking new signups and payments on November 30, 2025, after failing to get a commercial license for Reddit's Data API. It is a clear example of platform risk for data businesses.",
   "origin": "Fed first built The Hive Index, a directory of online communities, as a warm-up project after going indie. To promote it on Reddit he wrote scripts to find relevant conversations. That internal tool became GummySearch in 2021.",
-  "howItMakesMoney": "Monthly subscriptions. Reported tiers were Free, Starter $29/mo, Pro $59/mo and Mega $199/mo. Early on, a private lifetime deal priced at 10x the monthly plan raised about $50K from 234 customers.",
+  "howItMakesMoney": "Monthly or discounted annual subscriptions: Free, Starter $29/mo, Pro $59/mo and Mega $199/mo, plus $10 day passes for one-off research. In early 2022 a private lifetime deal priced at 10x the monthly plan raised about $50K from 234 customers in two months.",
   "growth": [
     "The audience was indie hackers who live on Reddit and X, and Fed built in public for that same audience.",
-    "The lifetime deal funded early development: about $50K in roughly two months.",
-    "Word of mouth from recommendations. One tweet in Jan 2024 brought 10 customers and $580 MRR, which had previously taken a year.",
+    "The lifetime deal, offered first to customers who asked for it, then to trial users, X followers and Facebook LTD groups, brought in about $50K in two months. Fed called it his 'seed round'.",
+    "Sold $10 day passes and heavily discounted annual plans to capture people who research occasionally rather than every month.",
+    "An affiliate program: in its first month one affiliate brought in $3K of new business.",
     "Its use as a 'find your customers' research tool made it a common recommendation in founder communities."
   ],
   "moat": "A polished UX and categorization layer (pain points, solution requests, themes) on top of Reddit data, plus a strong brand among indie founders. It turned out to have no moat against the data source itself.",
-  "risks": "This risk ended the business. Reddit's 2023 API pricing and data-usage policy meant a commercial license was required, and a solo, non-VC business couldn't reach an agreement. The product closed to new business on November 30, 2025.",
+  "risks": "This risk ended the business. Reddit's 2023 API pricing and data-usage policy meant a commercial license was required, and Fed couldn't reach an agreement. The product stopped taking new business on November 30, 2025, and is scheduled to shut down entirely on December 1, 2026.",
   "timeline": [
     {
       "date": "2021",
       "event": "Launches as a spin-out of Fed's Reddit scripts for The Hive Index"
     },
     {
-      "date": "2022",
-      "event": "Private lifetime deal raises ~$50K from 234 customers"
+      "date": "2022-04",
+      "event": "Private lifetime deal raises ~$50K from 234 customers in two months"
+    },
+    {
+      "date": "2022-08",
+      "event": "Starter Story interview: ~$60K revenue in the first year"
     },
     {
       "date": "2023-07",
-      "event": "Reddit introduces paid commercial API access"
+      "event": "Reddit's paid commercial API access takes effect"
     },
     {
       "date": "2023-08",
-      "event": "About $3K MRR (Indie Hackers post)"
+      "event": "Indie Hackers interview: >10K users, 400 active customers, ~$100K lifetime revenue, ~$3K MRR plus one-off sales"
     },
     {
       "date": "2025-11",
-      "event": "Announces shutdown at ~$35K MRR, ~10,000 paying customers and 135,000 users; stops new sales Nov 30"
+      "event": "Announces wind-down after failing to get a Reddit commercial license; stops new sales Nov 30"
+    },
+    {
+      "date": "2026-12",
+      "event": "Scheduled full shutdown and data deletion"
     }
   ],
   "lessons": [
@@ -72,7 +81,17 @@
     ],
     "difficulty": 3,
     "weeklyHours": "10-15 (fits a side hustle)",
-    "fit": "A data engineer comfortable with ETL from many small sources, embeddings and clustering"
+    "fit": "A data engineer comfortable with ETL from many small sources, embeddings and clustering",
+    "stack": [
+      "Next.js",
+      "Postgres + pgvector",
+      "OpenAI API (embeddings + summaries)",
+      "Stripe",
+      "Zendesk/Intercom APIs"
+    ],
+    "pricing": "Start with a $49/mo self-serve plan for one product's data sources and a $149/mo plan for agencies with several clients, plus a free one-off review report as the lead magnet.",
+    "potential": "medium",
+    "market": "Buyers are indie SaaS and mobile-app founders, PMs and small agencies, reached through former GummySearch users, founder communities and SEO on 'GummySearch alternative' searches. Main competitors are Enterpret, Dovetail and review-mining tools like AppFollow."
   },
   "sources": [
     {
@@ -80,8 +99,16 @@
       "url": "https://gummysearch.com/final-chapter/"
     },
     {
+      "title": "GummySearch pricing",
+      "url": "https://gummysearch.com/pricing/"
+    },
+    {
       "title": "Failory: When Reddit Pulls Over",
       "url": "https://newsletter.failory.com/p/when-reddit-pulls-over"
+    },
+    {
+      "title": "Indie Hackers: How I raised $50k from 234 customers via LTD sale",
+      "url": "https://www.indiehackers.com/post/how-i-raised-50k-from-234-customers-via-ltd-sale-ae249169ec"
     },
     {
       "title": "Indie Hackers: Bootstrap SaaS to $100K (audience research tool for Reddit)",
@@ -90,6 +117,10 @@
     {
       "title": "Starter Story: I Built A Reddit Search Engine That Generated $60K In Its First Year",
       "url": "https://www.starterstory.com/stories/gummysearch"
+    },
+    {
+      "title": "Fed on X: winding down a profitable business",
+      "url": "https://x.com/foliofed/status/1986471339470012822"
     }
   ]
 }

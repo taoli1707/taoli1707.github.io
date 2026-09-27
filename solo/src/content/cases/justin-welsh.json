@@ -17,27 +17,31 @@
     "source": "https://x.com/thejustinwelsh/status/1874418985271259339"
   },
   "team": "Solo + part-time assistant",
-  "startupCost": "Not disclosed",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
     "Gumroad"
   ],
-  "summary": "Justin Welsh is a former SaaS sales executive who sells self-paced courses (The LinkedIn Operating System, The Content Operating System, The Creator MBA) to an audience built on LinkedIn and X, funneled through a weekly newsletter. He reported $4.15M+ in 2024 revenue at about 86% margins without employees.",
-  "origin": "Welsh was a revenue executive at healthcare SaaS company PatientPop and left after burnout in 2019. He started posting daily on LinkedIn about sales and growth, did some advising, and turned his LinkedIn process into a course. He pre-sold The LinkedIn Operating System in July 2021, about 30 days before it went live.",
-  "howItMakesMoney": "One-time-purchase digital courses sold from his own site and Gumroad. The LinkedIn Operating System has been listed at around $150-$200. The free Saturday newsletter (started January 2022) is the main funnel into the courses and later The Creator MBA bundle.",
+  "summary": "Justin Welsh is a former SaaS sales executive who sells self-paced courses (The LinkedIn Operating System, The Content Operating System, The Creator MBA) to an audience built on LinkedIn and X, funneled through a weekly newsletter. He reported $4.15M+ in 2024 revenue at about 86% margins, and in June 2025 wrote that the business had passed $10M in total revenue with no employees.",
+  "origin": "Welsh was SVP of Sales at healthcare SaaS company PatientPop and left after burning out in 2019. He started posting daily on LinkedIn about sales and growth and did some consulting. In April 2020 he put a short $50 course, The LinkedIn Playbook, on Gumroad and made $10,482 in its first month. He rebuilt it as The LinkedIn Operating System, pre-selling it in July 2021 about 30 days before it went live.",
+  "howItMakesMoney": "Mostly one-time-purchase digital courses sold from his own site; The LinkedIn Operating System lists at $200. Other streams he has disclosed: consulting, newsletter sponsorships (two slots per issue at $2,500 each), subscriptions such as The Monthly Templates, and paid communities (an early one he closed, and the newer Unsubscribe membership). The free Saturday newsletter (started January 2022) is the main funnel into the courses and The Creator MBA.",
   "growth": [
-    "Posted on LinkedIn and X daily for years, repurposing the same ideas across both platforms",
-    "Pre-sold the LinkedIn course in July 2021 to validate demand before building it",
-    "Launched The Saturday Solopreneur newsletter in January 2022; reported roughly 77K subscribers after one year",
-    "Published revenue and margin numbers openly, which itself became shareable content",
-    "Added higher-priced bundles (The Creator MBA) sold to the existing newsletter list"
+    "Posted on LinkedIn and later X daily for years, repurposing the same ideas across both platforms; no paid ads",
+    "Tested demand with a cheap $50 course, then rebuilt it and raised the price 3-4x; the second version grossed $186K in 3 months",
+    "Asks course buyers to join an affiliate program; he reports 3,247 affiliates generating $600K in revenue",
+    "Launched The Saturday Solopreneur newsletter in January 2022; reported roughly 77K subscribers after one year and 185K by mid-2025",
+    "Used an 18-week personalized launch plan for The Creator MBA, which sold $1.6M in six days in January 2024"
   ],
   "moat": "A very large personal following on LinkedIn and X plus a newsletter list, both tied to his personal story. Buyers are paying for his specific system and credibility, which a copycat course can't easily replicate.",
   "risks": "Revenue depends on one person's attention and on platform algorithms (LinkedIn, X). The 'how to grow an audience' course market is crowded and prone to saturation.",
   "timeline": [
     {
       "date": "2019",
-      "event": "Leaves PatientPop executive role after burnout; starts posting daily on LinkedIn"
+      "event": "Leaves PatientPop SVP of Sales role after burnout; starts posting daily on LinkedIn"
+    },
+    {
+      "date": "2020-04",
+      "event": "Sells The LinkedIn Playbook ($50) on Gumroad; $10,482 in the first month"
     },
     {
       "date": "2021-07",
@@ -49,11 +53,19 @@
     },
     {
       "date": "2022",
-      "event": "Reported ~$1.7M revenue for the year"
+      "event": "Business does a little more than $1.7M for the year"
+    },
+    {
+      "date": "2024-01",
+      "event": "The Creator MBA launches and sells $1.6M in six days"
     },
     {
       "date": "2024",
       "event": "Reports $4.15M+ revenue at ~86% margins; launches two new products"
+    },
+    {
+      "date": "2025-05",
+      "event": "Passes $10M in total revenue, about 5 years 9 months after launching"
     }
   ],
   "lessons": [
@@ -74,7 +86,17 @@
     ],
     "difficulty": 2,
     "weeklyHours": "8-12 (fits a side hustle)",
-    "fit": "A working tradesperson who already runs their own small shop and is comfortable posting publicly"
+    "fit": "A working tradesperson who already runs their own small shop and is comfortable posting publicly",
+    "stack": [
+      "Kit (ConvertKit)",
+      "Teachable or Podia",
+      "Stripe",
+      "Loom",
+      "Google Sheets templates"
+    ],
+    "pricing": "Start with a free quoting spreadsheet as the lead magnet, a $99 pre-sold course, and a $29/mo templates-and-Q&A membership once 50 students have finished it.",
+    "potential": "medium",
+    "market": "Buyers are licensed electricians, plumbers and HVAC techs thinking about going solo, reached through Facebook trade groups, YouTube and trade subreddits. Competitors are trade-business coaches and programs such as Tommy Mello's Home Service Expert and ServiceTitan's free content."
   },
   "sources": [
     {
@@ -82,12 +104,16 @@
       "url": "https://x.com/thejustinwelsh/status/1874418985271259339"
     },
     {
-      "title": "Growth In Reverse: How Justin Welsh Built a $1.7M Solo Business",
-      "url": "https://growthinreverse.com/justin-welsh/"
+      "title": "Justin Welsh: My complete $10M journey (all 23 steps)",
+      "url": "https://justinwelsh.me/essays/my-10m-journey"
     },
     {
       "title": "Starter Story: How Justin Welsh Built A $2M Solopreneur Empire",
       "url": "https://www.starterstory.com/stories/justin-welsh"
+    },
+    {
+      "title": "Growth In Reverse: How Justin Welsh Built a $1.7M Solo Business",
+      "url": "https://growthinreverse.com/justin-welsh/"
     },
     {
       "title": "The LinkedIn Operating System",

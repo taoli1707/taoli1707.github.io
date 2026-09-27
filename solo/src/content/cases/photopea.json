@@ -9,29 +9,29 @@
   "channel": "word-of-mouth",
   "started": 2013,
   "revenue": {
-    "amount": 1000000,
-    "period": "year",
-    "label": "~$1M over 12 months (to Apr 2021)",
-    "asOf": "2021-04",
+    "amount": 100000,
+    "period": "month",
+    "label": "~$100K/month from ads (Sept 2021)",
+    "asOf": "2021-09",
     "kind": "self-reported",
-    "source": "https://en.ain.ua/2021/04/15/photopea-history/"
+    "source": "https://www.failory.com/interview/photopea"
   },
   "team": "Solo",
-  "startupCost": "<$100",
-  "timeToFirstDollar": "~4 years (launched 2013, ads added 2017)",
+  "startupCost": null,
+  "timeToFirstDollar": "~3.5 years (7,000 hours of unpaid work before adding ads)",
   "stack": [
     "JavaScript",
     "HTML5 Canvas / WebGL"
   ],
-  "summary": "Photopea is a free web image editor built by Ukrainian developer Ivan Kutskir that opens PSD and other formats in the browser. It earns mainly from display ads plus an ad-free premium option. Kutskir told AIN he earned about $500K in 2020 and nearly $1M over the 12 months to April 2021; later outside reports put 2024 revenue near $3M (estimate).",
-  "origin": "Kutskir began building a PSD viewer in 2012 as a side project while studying, then extended it into an editor. Photopea was released in September 2013. He added ads in 2017 once it had around 5,000 daily users, at first earning about $500 a month.",
-  "howItMakesMoney": "Display ads to free users, a paid Premium option that removes ads (listed at about $5/month), and licensing deals with other companies.",
+  "summary": "Photopea is a free web image editor built by Ukrainian-born, Prague-based developer Ivan Kutskir that opens PSD and other formats in the browser. It earns mainly from display ads plus an ad-free Premium subscription and licensing. Kutskir made about $500K in 2020, nearly $1M over the 12 months to April 2021, and told Failory in September 2021 that ads bring in about $100K a month. Latka estimates 2024 revenue at about $2.8M (estimate).",
+  "origin": "Kutskir had an idea in 2012, while studying computer science in Prague, for a website that displays PSD files, and released the first version (a PSD viewer) in 2013. It gradually became a full editor. By his 2018 Reddit AMA he said he had put about 7,000 hours into it over 3.5 years without earning a dollar before adding ads. He has worked on it full time since finishing his master's degree in 2017.",
+  "howItMakesMoney": "Display ads to free users (almost 90% of revenue per AIN in 2021; about 6 cents per hour of use per Kutskir), a Premium subscription that removes ads (5 USD/month per the Photopea blog), and licensing deals for companies that embed or self-host Photopea.",
   "growth": [
     "Solved a specific need: opening and editing PSD files for free without installing Photoshop",
-    "Posted in Photoshop-related subreddits and ran Reddit AMAs (e.g. 2018)",
-    "Kept the product free, so users shared it in schools and design communities",
-    "Ad revenue reportedly doubled roughly every six months after 2017",
-    "Very low running costs (hosting in the hundreds of dollars per year) let almost all revenue be profit"
+    "Kutskir posted about it on Reddit, Hacker News and in comments under 'Photoshop alternatives' articles, and asked YouTubers to review it",
+    "A Reddit AMA in November 2018 brought a wave of new users",
+    "Visitors grew from about 3,000 a month in March 2014, doubling roughly every six months by his account",
+    "Very low running costs (about $50 a year for hosting, since everything runs in the browser) let almost all revenue be profit"
   ],
   "moat": "Years of solo work on file-format compatibility (PSD, XCF, Sketch and more) that is hard to replicate, plus strong search presence as the free Photoshop alternative.",
   "risks": "Heavy reliance on ad networks and search traffic; Adobe's own web and free tiers or AI image tools could erode usage.",
@@ -46,19 +46,23 @@
     },
     {
       "date": "2017",
-      "event": "Adds ads at ~5,000 daily users; ~$500/month at first"
+      "event": "Finishes master's degree and works on Photopea full time; monetization with ads has started"
     },
     {
       "date": "2018",
-      "event": "Reddit AMA brings a wave of new users"
+      "event": "Earns about $20K for the year; Reddit AMA in November brings a wave of new users"
     },
     {
       "date": "2020",
-      "event": "Earns ~$500K for the year (per interview)"
+      "event": "Earns ~$500K for the year"
     },
     {
       "date": "2021-04",
       "event": "Reports nearly $1M over the previous 12 months"
+    },
+    {
+      "date": "2021-09",
+      "event": "Tells Failory ads bring in about $100K/month from 10M monthly visits"
     }
   ],
   "lessons": [
@@ -78,16 +82,35 @@
     ],
     "difficulty": 5,
     "weeklyHours": "15-20 (serious side project)",
-    "fit": "A strong low-level developer comfortable reverse-engineering file formats"
+    "fit": "A strong low-level developer comfortable reverse-engineering file formats",
+    "stack": [
+      "TypeScript",
+      "WebAssembly (Rust or C++)",
+      "WebGPU",
+      "Cloudflare Pages",
+      "Google AdSense",
+      "Stripe"
+    ],
+    "pricing": "Keep the viewer free with one ad slot, and sell a $5/month ad-free plan plus a $20/month pro tier for editing and export features.",
+    "potential": "medium",
+    "market": "Users are contractors, students and small-office staff who receive DWG or InDesign files occasionally, reached through SEO on 'open DWG online' searches and forum answers. Competitors are Autodesk Viewer, ShareCAD and Adobe's own free viewers."
   },
   "sources": [
+    {
+      "title": "Failory: Building a Photo Editor and Making $100k/mo as a Solo Founder",
+      "url": "https://www.failory.com/interview/photopea"
+    },
     {
       "title": "AIN: Ukrainian single-handedly creates Photopea and makes $1M per year",
       "url": "https://en.ain.ua/2021/04/15/photopea-history/"
     },
     {
-      "title": "Failory: Building a Photo Editor and Making $100k/mo as a Solo Founder",
-      "url": "https://www.failory.com/interview/photopea"
+      "title": "Reddit AMA: I made a free alternative to Photoshop (Nov 2018)",
+      "url": "https://www.reddit.com/r/IAmA/comments/9urjmg/"
+    },
+    {
+      "title": "Photopea Blog: Photopea Premium",
+      "url": "https://blog.photopea.com/photopea-premium.html"
     },
     {
       "title": "Photopea - Wikipedia",
