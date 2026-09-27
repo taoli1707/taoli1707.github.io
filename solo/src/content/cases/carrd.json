@@ -9,34 +9,30 @@
   "channel": "word-of-mouth",
   "started": 2016,
   "revenue": {
-    "amount": 1000000,
+    "amount": 2000000,
     "period": "year",
-    "label": "$1M ARR",
-    "asOf": "2021-04",
+    "label": "~$2M ARR",
+    "asOf": "2024-09",
     "kind": "self-reported",
-    "source": "https://x.com/ajlkn/status/1388232473352491009"
+    "source": "https://www.indiehackers.com/post/tech/growing-carrd-to-2m-arr-in-a-crowded-market-with-zero-marketing-by-limiting-features-dbeoP4bDlEL3zzsivdgj"
   },
-  "team": "Solo founder; 2-person team by 2021, later reported as ~4",
-  "startupCost": "<$100",
-  "timeToFirstDollar": null,
+  "team": "Solo founder; AJ (dev/product) plus Doni (operations) as of April 2021",
+  "startupCost": null,
+  "timeToFirstDollar": "First $100 came via Twitter from existing HTML5 UP/Pixelarity customers; $1,000 during the Product Hunt launch",
   "stack": [],
-  "summary": "Carrd is a builder for single-page websites such as personal profiles, landing pages and link-in-bio pages. It has a free tier and cheap annual Pro plans. AJ, a pseudonymous developer, built it alone, reached $1M ARR with 2.5M sites by April 2021, and took a small funding round. Indie Hackers later reported it at about $2M ARR.",
-  "origin": "AJ was already known for free HTML site templates and had a Twitter following from that work. He ran a beta of Carrd in late 2015 and launched it publicly in March 2016 as 'a free platform for building simple, fully responsive one-page sites for pretty much anything', getting early traction from his existing followers and Product Hunt.",
+  "summary": "Carrd is a builder for single-page websites such as personal profiles, landing pages and link-in-bio pages. It has a free tier and cheap annual Pro plans. AJ, a pseudonymous developer, built it alone, reached $1M ARR with 2.5M sites by April 2021 (with a partial VC round and a two-person team), and told Indie Hackers in 2024 it had reached about $2M ARR with no marketing spend.",
+  "origin": "AJ was already known for HTML5 UP, a set of free responsive site templates, and its paid sibling Pixelarity, which gave him a Twitter following. Looking for a bigger challenge, he launched Carrd publicly in March 2016 as 'a free platform for building simple, fully responsive one-page sites for pretty much anything'. His first users and first $100 came from Twitter, and his first 1,000 users and $1,000 from Product Hunt.",
   "howItMakesMoney": "Freemium, billed annually only: Pro Lite $9/yr, Pro Standard $19/yr and Pro Plus $49/yr. Higher tiers unlock custom domains, forms, embeds and more sites. The very low annual price turns a large free user base into a steady stream of small payments.",
   "growth": [
-    "Word of mouth and 'Made with Carrd' branding on free sites act as built-in distribution.",
-    "Adopted by creators, fandom communities and link-in-bio users, a segment larger site builders ignored.",
+    "Word of mouth and 'Made with Carrd' branding on free sites act as built-in distribution; AJ says growth came entirely from word of mouth.",
+    "A signup-free builder flow (you can build a site before creating an account) cut onboarding friction for the Product Hunt launch.",
+    "Adopted as an 'extended profile' linked from Twitter and other social platforms, a segment larger site builders ignored.",
     "Seasonal sales (Oct to Dec 2017, Mar 2018) gave clear revenue bumps, which AJ shared in public stats.",
-    "Deliberately limited features, keeping the product simple rather than chasing full website-builder parity.",
-    "Zero paid marketing: Indie Hackers reported ~$2M ARR in 2024 with a small team and no ad budget."
+    "Deliberately limited features, keeping the product simple rather than chasing full website-builder parity, with no money spent on marketing."
   ],
   "moat": "A very low price anchor ($19/yr) combined with millions of sites and strong brand affinity among young creators makes it hard for competitors to undercut or out-simplify.",
   "risks": "Link-in-bio and AI site generators compete for the same simple-site use case. The low price leaves little room if hosting or support costs rise.",
   "timeline": [
-    {
-      "date": "2015",
-      "event": "Private beta; some beta users still pay years later"
-    },
     {
       "date": "2016-03",
       "event": "Public launch of Carrd"
@@ -47,11 +43,11 @@
     },
     {
       "date": "2021-04",
-      "event": "Announces 2.5M sites, $1M ARR and a funding round"
+      "event": "Announces 2.5M sites, 1.6M users, $1M ARR and a partly VC-funded round; moves fully to AWS"
     },
     {
-      "date": "2024",
-      "event": "Indie Hackers reports Carrd at ~$2M ARR with a small team and no ad spend"
+      "date": "2024-09",
+      "event": "Indie Hackers interview: Carrd at ~$2M ARR with zero marketing spend"
     }
   ],
   "lessons": [
@@ -71,12 +67,27 @@
     ],
     "difficulty": 2,
     "weeklyHours": "8-12 (fits a side hustle)",
-    "fit": "Front-end developers who can do local outreach"
+    "fit": "Front-end developers who can do local outreach",
+    "stack": [
+      "SvelteKit or Next.js",
+      "Postgres",
+      "Cloudflare (hosting and custom domains)",
+      "Twilio (SMS lead alerts)",
+      "Stripe",
+      "Google Business Profile API"
+    ],
+    "pricing": "Free branded page on a subdomain, then $29/yr for a custom domain and quote-form SMS alerts, with a $99 done-for-you setup add-on.",
+    "potential": "medium",
+    "market": "Buyers are owner-operator tradespeople, reached by cold outreach to Google Maps listings without websites, trade Facebook groups and supplier counters. Competitors are Carrd, Wix, Squarespace, GoDaddy's builder and lead platforms like Thumbtack and Angi."
   },
   "sources": [
     {
       "title": "AJ: after 2.5M sites, $1M ARR, and a funding round, AMA",
       "url": "https://x.com/ajlkn/status/1388232473352491009"
+    },
+    {
+      "title": "Indie Hackers AMA: Hi! I'm AJ, maker of Carrd",
+      "url": "https://www.indiehackers.com/post/hi-im-aj-maker-of-carrd-and-after-2-5m-sites-1m-arr-and-a-funding-round-probably-time-for-an-ama-1b7fcf52fe"
     },
     {
       "title": "AJ: Carrd launch announcement (2016)",

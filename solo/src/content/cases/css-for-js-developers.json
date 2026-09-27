@@ -16,35 +16,35 @@
     "kind": "self-reported",
     "source": "https://www.indiehackers.com/post/launched-my-first-course-earned-over-us-500-000-ama-4382405cd5"
   },
-  "team": "Solo",
-  "startupCost": "Not disclosed",
-  "timeToFirstDollar": "~7 months of building before the pre-sale",
+  "team": "Solo, plus a part-time contractor a few hours a week for support and captioning (2021)",
+  "startupCost": null,
+  "timeToFirstDollar": "About 7 months: started the course in August 2020 and opened the pre-sale in March 2021 (after a few quiet direct sales to people who had emailed him)",
   "stack": [
     "Next.js",
-    "MDX",
     "React",
-    "custom course platform"
+    "Custom-built course platform"
   ],
-  "summary": "Josh W. Comeau, a front-end developer known for his interactive blog, left his job in 2020 to build a CSS course on his own platform. A one-week early-access pre-sale in March 2021 brought in about $550K against a $50K goal. He later released a second course, The Joy of React (2023).",
-  "origin": "Comeau worked at companies including Khan Academy, DigitalOcean and Gatsby, and left in 2020 to build courses. He spent about a year sharing CSS tips on Twitter and his blog, growing to roughly 32,000 followers and a newsletter. After about seven months of building, with the course roughly half done, he opened a one-week pre-sale on March 10-16, 2021.",
-  "howItMakesMoney": "One-time purchase with tiered packages. The 2021 early-access price was $129 (expected full price $349). Sales run in periodic launch windows and discounts to his newsletter list.",
+  "summary": "Josh W. Comeau, a front-end developer known for his interactive blog, left his job at Gatsby in 2020 and built a CSS course on his own platform. A one-week early-access pre-sale in March 2021 brought in about $550K against a $50K goal. He later released a second course, The Joy of React (2023).",
+  "origin": "Comeau worked at Khan Academy, DigitalOcean, Concordia University and Gatsby Inc. (as a Staff Software Engineer). After a repetitive stress injury he left his job in summer 2020 and started the course in August. Over 2020 he grew from about 10k Twitter followers and 1k email subscribers to 31k followers and about 28k subscribers, helped by viral blog posts and a free book. With the course roughly half done, he opened a one-week pre-sale on March 10-16, 2021.",
+  "howItMakesMoney": "One-time purchase with tiered packages (Basic, Pro and Ultimate), regional purchasing-power-parity pricing, team licenses and a bundle with The Joy of React. The 2021 early-access price was $129 (expected full price $349).",
   "growth": [
-    "Wrote interactive blog posts with live demos that spread on Twitter and developer forums",
-    "Converted Twitter followers into a newsletter before launch",
-    "Ran a time-limited pre-sale at an early-access discount to create urgency",
-    "Built a custom learning platform with exercises and mini-games that set the course apart from video-only courses",
+    "Wrote interactive blog posts with live demos that spread on Twitter and developer forums; his most popular posts topped 100k visits",
+    "Converted Twitter followers into a newsletter before launch, including a free book (about 8k sign-ups) and an animated sign-up prompt on the blog",
+    "Built in public on Twitter from late 2020, sharing GIFs of the platform and content",
+    "Ran a one-week pre-sale at an early-access discount; the $50K target was hit in about 10 minutes",
+    "Built a custom learning platform with articles, videos, exercises, workshops and mini-games that set the course apart from video-only courses",
     "Reused the platform and list for a second course, The Joy of React (2023)"
   ],
   "moat": "High production quality and interactive content on a custom platform, plus a trusted personal brand among front-end developers.",
   "risks": "Launch-driven revenue is lumpy. AI coding assistants may reduce how much developers feel they need to learn CSS fundamentals.",
   "timeline": [
     {
-      "date": "2020",
-      "event": "Leaves full-time engineering work to build courses"
+      "date": "2020-08",
+      "event": "Starts building the course full time after leaving Gatsby"
     },
     {
       "date": "2021-03",
-      "event": "One-week early-access pre-sale; ~$550K against a $50K target"
+      "event": "One-week early-access pre-sale (Mar 10-16); ~$550K against a $50K target"
     },
     {
       "date": "2021",
@@ -52,7 +52,7 @@
     },
     {
       "date": "2023-01",
-      "event": "Launches The Joy of React in early access"
+      "event": "Launches The Joy of React in early access (Jan 23)"
     }
   ],
   "lessons": [
@@ -72,7 +72,17 @@
     ],
     "difficulty": 3,
     "weeklyHours": "10-15 (fits a side hustle)",
-    "fit": "A data analyst or engineer who writes clearly and can build simple web interactives"
+    "fit": "A data analyst or engineer who writes clearly and can build simple web interactives",
+    "stack": [
+      "Next.js",
+      "MDX",
+      "DuckDB-WASM or sql.js (in-browser SQL)",
+      "ConvertKit (Kit)",
+      "Stripe or Lemon Squeezy"
+    ],
+    "pricing": "One-time purchase with a ~$99 early-access pre-sale, then $199-$349 tiers at full launch, plus team licenses.",
+    "potential": "medium",
+    "market": "Buyers are product managers, ops and marketing analysts at non-tech companies, often on a training budget, reached through LinkedIn posts, SEO on interactive articles and a newsletter. Competitors include DataCamp, Mode's SQL tutorial, Codecademy, Udemy courses and free AI assistants."
   },
   "sources": [
     {

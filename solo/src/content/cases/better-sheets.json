@@ -9,28 +9,30 @@
   "channel": "marketplace",
   "started": 2020,
   "revenue": {
-    "amount": 67000,
-    "period": "year",
-    "label": "$200K lifetime in first 3 yrs (~$67K/yr avg)",
-    "asOf": "2023-04",
+    "amount": 5000,
+    "period": "month",
+    "label": "~$5K/mo (2024); $200K lifetime by April 2023",
+    "asOf": "2024-07",
     "kind": "self-reported",
-    "source": "https://www.indiehackers.com/product/better-sheets/200k-revenue-selling-google-sheet-templates-tutorials-and-tools--NS9z2YbSBAUI4hI7-IN"
+    "source": "https://www.indiehackers.com/post/building-a-5k-mo-lifestyle-business-by-leveraging-lifetime-deals-crXqhfxuHUMbZTrsWnT4"
   },
-  "team": "Solo + 1 contractor",
-  "startupCost": "Minimal (built in a 24-hour sprint)",
+  "team": "Solo",
+  "startupCost": null,
   "timeToFirstDollar": "Launch month: 13 sales / $390 in April 2020",
   "stack": [
     "Google Sheets",
-    "Google Apps Script"
+    "Google Apps Script",
+    "Loom and Gumroad (launch)",
+    "Ruby on Rails (2022 rebuild)"
   ],
-  "summary": "Better Sheets sells a membership to hundreds of screencast tutorials, templates and small tools that help people get more out of Google Sheets. Andrew Kamphey launched it after a 24-hour sprint in April 2020 and reported $200K in total revenue by its third anniversary. Most of that came from lifetime-access purchases. Note that the revenue figure is a three-year total, not an annual run rate.",
-  "origin": "Kamphey launched Better Sheets on April 3, 2020 after a 24-hour sprint to ship something. He sold lifetime access to Google Sheets tutorial videos. It made $390 from 13 sales in April 2020 and $2,291 from 134 sales in May 2020, and he kept recording tutorials based on what members asked for.",
-  "howItMakesMoney": "Mostly lifetime access. It started at $49 lifetime (or $19/mo) and was later raised to $109 lifetime. A $19/mo access pass is also offered. Lifetime deals made up about 92% of revenue in his 2023 write-up, and AppSumo campaigns were a major channel.",
+  "summary": "Better Sheets sells a membership to hundreds of screencast tutorials, templates and small tools that help people get more out of Google Sheets. Andrew Kamphey launched it after a 24-hour sprint in April 2020, passed $100K in top-line revenue after two years and $200K by its third anniversary, mostly from lifetime-access sales on AppSumo. By mid-2024 Indie Hackers profiled it as a ~$5K/month lifestyle business.",
+  "origin": "Kamphey spent about five years as the 'Google Sheets guy' at an entertainment startup, automating work with Apps Script, then went out on his own in 2018. After other products stalled, he launched Better Sheets on April 3, 2020 as a 24-hour project: 8 screencast videos, 4 free and 4 behind a paywall. It made $390 from 13 sales in April 2020 and $2,291 from 134 sales in May 2020, and he kept recording tutorials based on what members asked for.",
+  "howItMakesMoney": "Mostly lifetime memberships. Lifetime access was $19 for the first year or so, then $49, $69 by May 2022, $225 in late 2023 and $250 from February 2024; a monthly plan was added around 2022-23. In his two-year breakdown, lifetime memberships were about 80% of revenue and AppSumo about 85% of sales. By 2024 revenue also came from Gumroad templates, subscriptions and consulting via Stripe, Udemy courses and YouTube ads.",
   "growth": [
-    "AppSumo lifetime deals put the product in front of a large audience of buyers already looking for tools.",
-    "Answering members' requests with new tutorials kept growing the library, which justified raising the lifetime price.",
-    "YouTube, a newsletter and posts on Indie Hackers and LinkedIn documented each milestone ($100K, then $200K).",
-    "He went full time in 2022 after about $100K in two years."
+    "AppSumo's marketplace put the lifetime deal in front of a large audience of buyers already looking for tools, and did much of the marketing in exchange for its cut.",
+    "Answering members' requests with new tutorials kept growing the library, which justified raising the lifetime price step by step.",
+    "A free template pack for AppSumo users (34,000 downloads by May 2022), a Product Hunt launch that reached #1 Product of the Day in 2022, and milestone posts on Indie Hackers.",
+    "Later diversified into Google Sheets add-ons, small one-page tools, Udemy courses and YouTube to smooth out lumpy lifetime-deal revenue."
   ],
   "moat": "A large back catalog of focused Sheets tutorials and templates plus a recognizable personal brand ('the Sheets guy'). The content can be copied piece by piece, but the full library and audience are harder to copy.",
   "risks": "Lifetime pricing makes revenue spiky and front-loaded, with no recurring base. AI assistants inside Google Sheets (Gemini) can answer many 'how do I' questions for free.",
@@ -44,12 +46,16 @@
       "event": "134 sales / $2,291 in the second month"
     },
     {
-      "date": "2022",
-      "event": "Passes ~$100K in revenue in two years and goes full time"
+      "date": "2022-05",
+      "event": "Passes $100K in top-line revenue in two years; relaunches the site on Rails and hits #1 Product of the Day on Product Hunt"
     },
     {
       "date": "2023-04",
       "event": "Third anniversary: $200K total revenue"
+    },
+    {
+      "date": "2024-07",
+      "event": "Indie Hackers profiles Better Sheets as a ~$5K/month lifestyle business"
     }
   ],
   "lessons": [
@@ -69,12 +75,39 @@
     ],
     "difficulty": 1,
     "weeklyHours": "5-10 (fits a side hustle)",
-    "fit": "Someone with data-processing and spreadsheet skills who can record clear screencasts"
+    "fit": "Someone with data-processing and spreadsheet skills who can record clear screencasts",
+    "stack": [
+      "Google Apps Script",
+      "Google Workspace Marketplace add-on",
+      "Next.js",
+      "Stripe",
+      "OpenAI API",
+      "Loom or Screen Studio"
+    ],
+    "pricing": "A $99/yr membership for the full bundle library, with a limited $199 lifetime launch deal and $29-$49 single bundles on Gumroad.",
+    "potential": "medium",
+    "market": "Buyers are solo bookkeepers and small accounting practices, reached through bookkeeper Facebook groups, r/Bookkeeping, YouTube tutorials and SEO. Competitors include Better Sheets itself, template sellers on Etsy and Gumroad, and bookkeeping tools like QuickBooks, Xero and Dext."
   },
   "sources": [
     {
       "title": "Indie Hackers: $200k Revenue Selling Google Sheet Templates, Tutorials, and Tools",
       "url": "https://www.indiehackers.com/product/better-sheets/200k-revenue-selling-google-sheet-templates-tutorials-and-tools--NS9z2YbSBAUI4hI7-IN"
+    },
+    {
+      "title": "Indie Hackers: $100k Revenue in 2 Years, Selling Google Sheet Tutorials",
+      "url": "https://www.indiehackers.com/post/100k-revenue-in-2-years-selling-google-sheet-tutorials-faefa26dfb"
+    },
+    {
+      "title": "Indie Hackers: Building a $5k/mo lifestyle business by leveraging lifetime deals",
+      "url": "https://www.indiehackers.com/post/building-a-5k-mo-lifestyle-business-by-leveraging-lifetime-deals-crXqhfxuHUMbZTrsWnT4"
+    },
+    {
+      "title": "Indie Hackers: Better Sheets product page",
+      "url": "https://www.indiehackers.com/product/better-sheets"
+    },
+    {
+      "title": "Partnerkin: How Andrew Kamphey Built a $5,000 Per Month Business with Google Sheets",
+      "url": "https://partnerkin.com/en/blog/case_study/kamphey-google-sheets-success"
     },
     {
       "title": "High Signal: $200k from selling Google Sheets tutorials",

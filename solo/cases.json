@@ -15,17 +15,17 @@
    "label": "~$14M/yr (widely reported, not audited)",
    "asOf": "2022-01",
    "kind": "estimate",
-   "source": "https://www.starterstory.com/stories/builtwith-technology-lookup-breakdown"
+   "source": "https://x.com/nathanbarry/status/1484919289035431937"
   },
-  "team": "Solo founder + co-founder/advisor (Andrew Rogers) and about 1 employee",
-  "startupCost": "Unknown (built evenings alongside a full-time job)",
+  "team": "Solo founder (Gary Brewer) plus a non-operating co-founder/advisor (Andrew Rogers) and a content contractor, per 2015 coverage; later reported as one employee",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [],
-  "summary": "BuiltWith crawls the web, detects which technologies each site uses (CMS, analytics, ecommerce platform, CDN and so on), and sells searchable lists of those sites. The main buyers are sales and marketing teams who want leads filtered by technology. The ~$14M/yr figure is repeated widely, most recently in 2022-2024 coverage, but BuiltWith has never published audited financials.",
-  "origin": "In 2007 Gary Brewer was going to Sydney startup meetups and viewing the source of startup sites to see what they were built with. No tool automated that, so he built one and launched it in July 2007. He worked on it evenings for about four years while holding a full-time job. Coverage says it was already making about $40,000 a month while it was still a side project.",
-  "howItMakesMoney": "Monthly subscriptions to the full dataset: Basic $295/mo, Pro $495/mo, Team $995/mo, with a discount for annual billing. A free tier allows a handful of lookups a day. In 2015 Brewer told Startup Daily it had 'a few thousand' paying users, split about 40% Basic, 40% Pro and 20% Enterprise.",
+  "summary": "BuiltWith crawls the web, detects which technologies each site uses (CMS, analytics, ecommerce platform, CDN and so on), and sells searchable lists of those sites. The main buyers are sales and marketing teams who want leads filtered by technology. The ~$14M/yr figure was spread by Nathan Barry in 2022 and is widely repeated (Starter Story now estimates more), but BuiltWith has never published audited financials.",
+  "origin": "In 2007 Gary Brewer was visiting startup sites and viewing their source to see what they were built with. No tool automated that, so he built one. He worked on it every evening for about four years while holding a full-time job, and by the time Andrew Rogers met him in 2011 it was already making about $40,000 a month.",
+  "howItMakesMoney": "Monthly subscriptions to the full dataset: Basic $295/mo, Pro $495/mo, Team $995/mo, with annual billing at ten times the monthly price. Individual site lookups are free. In 2015 Brewer told Startup Daily it had 'a few thousand' paying users (2,000 to 3,000), split about 40% Basic, 40% Pro and 20% Enterprise.",
   "growth": [
-   "A free single-site lookup ('what is this site built with?') brings in very large organic traffic. Coverage cites about 2M monthly page views, all organic.",
+   "A free single-site lookup ('what is this site built with?') brings in large organic traffic. In 2015 Startup Daily reported 500,000+ users and about 2M page views a month, with no outbound sales team.",
    "Users started asking for lists, such as Australian sites on a CDN or stores running Magento. Answering those requests turned a curiosity tool into a lead-generation product.",
    "The crawl data compounds. Historical records of when a site added or dropped a technology are hard for a newcomer to recreate.",
    "Pricing is a few high tiers aimed at B2B sales teams who can easily justify $300-1,000 a month, not at many low-price consumers."
@@ -34,28 +34,24 @@
   "risks": "Competitors (Wappalyzer, SimilarTech, HG Insights) and cheap in-house detection with headless browsers push prices down. Lead-list data also depends on privacy and scraping rules staying roughly where they are.",
   "timeline": [
    {
-    "date": "2007-07",
-    "event": "BuiltWith launches as a side project out of Sydney"
+    "date": "2007",
+    "event": "BuiltWith launches as a side project in Australia"
    },
    {
     "date": "2007-2011",
     "event": "Brewer works on it evenings for about four years while holding a full-time job"
    },
    {
-    "date": "2012",
-    "event": "Andrew Rogers meets Brewer over coffee and joins for equity with a 'Co-Founder' title"
+    "date": "2011",
+    "event": "Andrew Rogers meets Brewer, finds it making ~$40k/month, encourages him to go full time and joins for equity with a 'Co-Founder' title"
    },
    {
-    "date": "2015",
-    "event": "Startup Daily reports a few thousand paying users and no staff"
-   },
-   {
-    "date": "2017-07",
-    "event": "BuiltWith marks 10 years"
+    "date": "2015-09",
+    "event": "Startup Daily reports 2,000-3,000 paying customers and no staff"
    },
    {
     "date": "2022-01",
-    "event": "Nathan Barry and others spread the '$14M a year with one employee' figure"
+    "event": "Nathan Barry spreads the '$14M a year with one employee' figure"
    }
   ],
   "lessons": [
@@ -75,9 +71,24 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "A data engineer comfortable with crawling, entity resolution and scheduled pipelines"
+   "fit": "A data engineer comfortable with crawling, entity resolution and scheduled pipelines",
+   "stack": [
+    "Python",
+    "Playwright",
+    "Postgres",
+    "ClickHouse (signal history)",
+    "Next.js",
+    "Stripe"
+   ],
+   "pricing": "Free per-company lookups for SEO, then $199/mo for filtered CSV exports and $499/mo for CRM sync and weekly change alerts.",
+   "potential": "high",
+   "market": "Buyers are growth and sales teams at AI infrastructure and devtool startups, reached through LinkedIn outreach, the free lookup pages and data posts on X. Competitors are BuiltWith, Wappalyzer, HG Insights, Apollo and Clay's technographic enrichments."
   },
   "sources": [
+   {
+    "title": "Nathan Barry: Gary Brewer scaled BuiltWith to $14 million in annual revenue with just one employee",
+    "url": "https://x.com/nathanbarry/status/1484919289035431937"
+   },
    {
     "title": "Startup Daily: BuiltWith is perhaps one of Australia's most profitable online companies and has zero staff",
     "url": "https://www.startupdaily.net/advice/builtwith-is-perhaps-one-of-australias-most-profitable-online-companies-and-has-zero-staff/"
@@ -85,6 +96,10 @@
    {
     "title": "Andrew Rogers: The Story of BuiltWith",
     "url": "https://medium.com/@andrewjrogers/the-story-of-builtwith-e3bbc17c239f"
+   },
+   {
+    "title": "Colin Keeley: The Story of BuiltWith: 1 Employee, $14m+ ARR",
+    "url": "https://www.colinkeeley.com/blog/the-story-of-builtwith-1-employee-14m-arr"
    },
    {
     "title": "Starter Story: How Gary Brewer Stumbled Into A $14M Idea",
@@ -287,6 +302,115 @@
    {
     "title": "Danny Postma: HeadshotPro affiliate program terms",
     "url": "https://x.com/dannypostma/status/1636556544270823425"
+   }
+  ]
+ },
+ {
+  "slug": "carrd",
+  "name": "Carrd",
+  "founder": "AJ (ajlkn)",
+  "url": "https://carrd.co",
+  "tagline": "Simple, responsive one-page websites for almost anything",
+  "category": "saas",
+  "model": "subscription",
+  "channel": "word-of-mouth",
+  "started": 2016,
+  "revenue": {
+   "amount": 2000000,
+   "period": "year",
+   "label": "~$2M ARR",
+   "asOf": "2024-09",
+   "kind": "self-reported",
+   "source": "https://www.indiehackers.com/post/tech/growing-carrd-to-2m-arr-in-a-crowded-market-with-zero-marketing-by-limiting-features-dbeoP4bDlEL3zzsivdgj"
+  },
+  "team": "Solo founder; AJ (dev/product) plus Doni (operations) as of April 2021",
+  "startupCost": null,
+  "timeToFirstDollar": "First $100 came via Twitter from existing HTML5 UP/Pixelarity customers; $1,000 during the Product Hunt launch",
+  "stack": [],
+  "summary": "Carrd is a builder for single-page websites such as personal profiles, landing pages and link-in-bio pages. It has a free tier and cheap annual Pro plans. AJ, a pseudonymous developer, built it alone, reached $1M ARR with 2.5M sites by April 2021 (with a partial VC round and a two-person team), and told Indie Hackers in 2024 it had reached about $2M ARR with no marketing spend.",
+  "origin": "AJ was already known for HTML5 UP, a set of free responsive site templates, and its paid sibling Pixelarity, which gave him a Twitter following. Looking for a bigger challenge, he launched Carrd publicly in March 2016 as 'a free platform for building simple, fully responsive one-page sites for pretty much anything'. His first users and first $100 came from Twitter, and his first 1,000 users and $1,000 from Product Hunt.",
+  "howItMakesMoney": "Freemium, billed annually only: Pro Lite $9/yr, Pro Standard $19/yr and Pro Plus $49/yr. Higher tiers unlock custom domains, forms, embeds and more sites. The very low annual price turns a large free user base into a steady stream of small payments.",
+  "growth": [
+   "Word of mouth and 'Made with Carrd' branding on free sites act as built-in distribution; AJ says growth came entirely from word of mouth.",
+   "A signup-free builder flow (you can build a site before creating an account) cut onboarding friction for the Product Hunt launch.",
+   "Adopted as an 'extended profile' linked from Twitter and other social platforms, a segment larger site builders ignored.",
+   "Seasonal sales (Oct to Dec 2017, Mar 2018) gave clear revenue bumps, which AJ shared in public stats.",
+   "Deliberately limited features, keeping the product simple rather than chasing full website-builder parity, with no money spent on marketing."
+  ],
+  "moat": "A very low price anchor ($19/yr) combined with millions of sites and strong brand affinity among young creators makes it hard for competitors to undercut or out-simplify.",
+  "risks": "Link-in-bio and AI site generators compete for the same simple-site use case. The low price leaves little room if hosting or support costs rise.",
+  "timeline": [
+   {
+    "date": "2016-03",
+    "event": "Public launch of Carrd"
+   },
+   {
+    "date": "2018-05",
+    "event": "AJ publishes monthly users, sites and revenue stats for Jan 2016 to Apr 2018"
+   },
+   {
+    "date": "2021-04",
+    "event": "Announces 2.5M sites, 1.6M users, $1M ARR and a partly VC-funded round; moves fully to AWS"
+   },
+   {
+    "date": "2024-09",
+    "event": "Indie Hackers interview: Carrd at ~$2M ARR with zero marketing spend"
+   }
+  ],
+  "lessons": [
+   "A tiny annual price can beat monthly SaaS pricing when the free tier is huge and the upgrade is obvious.",
+   "Feature restraint is a positioning choice: 'simple one-page' is the product.",
+   "An audience from earlier free work (templates) can seed a paid product's launch.",
+   "Free-tier branding compounds as a zero-cost acquisition channel."
+  ],
+  "rebuild": {
+   "idea": "A one-page site builder just for local tradespeople (plumbers, electricians, cleaners) with built-in quote-request forms, service-area maps and Google review embeds, at $29/yr.",
+   "why": "General builders force tradespeople through design choices they don't care about. Most need one page that ranks locally and collects quote requests.",
+   "mvp": [
+    "Build 3 templates with a quote form that emails and texts the owner.",
+    "Hand-build 10 sites for tradespeople found through Google Maps listings that have no website.",
+    "Charge $29/yr after a 30-day free trial.",
+    "Add 'Built with ...' branding to every free site."
+   ],
+   "difficulty": 2,
+   "weeklyHours": "8-12 (fits a side hustle)",
+   "fit": "Front-end developers who can do local outreach",
+   "stack": [
+    "SvelteKit or Next.js",
+    "Postgres",
+    "Cloudflare (hosting and custom domains)",
+    "Twilio (SMS lead alerts)",
+    "Stripe",
+    "Google Business Profile API"
+   ],
+   "pricing": "Free branded page on a subdomain, then $29/yr for a custom domain and quote-form SMS alerts, with a $99 done-for-you setup add-on.",
+   "potential": "medium",
+   "market": "Buyers are owner-operator tradespeople, reached by cold outreach to Google Maps listings without websites, trade Facebook groups and supplier counters. Competitors are Carrd, Wix, Squarespace, GoDaddy's builder and lead platforms like Thumbtack and Angi."
+  },
+  "sources": [
+   {
+    "title": "AJ: after 2.5M sites, $1M ARR, and a funding round, AMA",
+    "url": "https://x.com/ajlkn/status/1388232473352491009"
+   },
+   {
+    "title": "Indie Hackers AMA: Hi! I'm AJ, maker of Carrd",
+    "url": "https://www.indiehackers.com/post/hi-im-aj-maker-of-carrd-and-after-2-5m-sites-1m-arr-and-a-funding-round-probably-time-for-an-ama-1b7fcf52fe"
+   },
+   {
+    "title": "AJ: Carrd launch announcement (2016)",
+    "url": "https://x.com/ajlkn/status/706918068019191809"
+   },
+   {
+    "title": "AJ: Carrd monthly stats Jan 2016 to Apr 2018",
+    "url": "https://x.com/ajlkn/status/996448887945785345"
+   },
+   {
+    "title": "Indie Hackers: Growing Carrd to $2M ARR by limiting features",
+    "url": "https://www.indiehackers.com/post/tech/growing-carrd-to-2m-arr-in-a-crowded-market-with-zero-marketing-by-limiting-features-dbeoP4bDlEL3zzsivdgj"
+   },
+   {
+    "title": "Carrd docs: Pro plans",
+    "url": "https://carrd.com/docs/pro/plans"
    }
   ]
  },
@@ -605,22 +729,22 @@
    "kind": "self-reported",
    "source": "https://x.com/yongfook/status/1969022369336356874"
   },
-  "team": "Solo founder until ~$10k MRR; now founder + small remote team",
-  "startupCost": "<$1k (self-funded from savings)",
-  "timeToFirstDollar": "Within ~3 months (about $400 MRR by Dec 2019 as Previewmojo)",
+  "team": "Solo founder until about $10k MRR (first contractor, a freelance writer, hired May 2021); now founder plus a small team",
+  "startupCost": null,
+  "timeToFirstDollar": "About 9 months with $0 from his 12-startups challenge (Jan to Aug 2019); Previewmojo then reached about $400 MRR by the end of 2019",
   "stack": [
    "Ruby on Rails 6",
    "jQuery"
   ],
-  "summary": "Bannerbear is an API and no-code tool that generates social images, banners and videos from templates. Marketing teams and developers use it to produce creative assets at scale. Jon Yongfook bootstrapped it in public from 2019 and announced $1M ARR in September 2025, built on Rails 6 and jQuery.",
-  "origin": "Yongfook left a Head of Product job in January 2019 with about two years of runway. He spent most of that year on a '12 startups in 12 months' challenge that earned almost nothing. One of those projects, Previewmojo (Sept 2019), auto-generated open-graph preview images. He widened it into a general image-generation API and relaunched it as Bannerbear in early 2020.",
-  "howItMakesMoney": "Monthly subscriptions based on API credits: the pricing page lists Automate at $49/mo (1,000 credits) and Scale from $149/mo (10,000 credits), with higher custom tiers. Yongfook has argued publicly against $9/mo pricing for B2B SaaS.",
+  "summary": "Bannerbear is an API and no-code tool that generates social images, banners, PDFs and videos from templates. Marketing teams and developers use it to produce creative assets at scale. Jon Yongfook bootstrapped it in public from 2019 and announced $1M ARR in September 2025, built on Rails 6 and jQuery.",
+  "origin": "Yongfook left his job in January 2019 with about two years of savings. He spent most of that year on a '12 startups in 12 months' challenge, launching 7 products that earned no direct revenue. One of them, Previewmojo (launched November 2019), auto-generated open-graph preview images and reached about $400 MRR. Users kept asking for other image sizes, so he widened it and relaunched it as Bannerbear in January 2020, then as a REST API in March 2020.",
+  "howItMakesMoney": "Monthly subscriptions based on API credits: the pricing page lists Automate at $49/mo (1,000 API credits), Scale from $149/mo (10,000+ credits) and Enterprise from $299/mo (50,000+ credits), with a free trial of 30 credits. Early on Yongfook wrote a post titled 'Don't Charge $9 a Month for Your SaaS'.",
   "growth": [
-   "Pivoted from a narrow OG-image tool to a general image and video API, which widened the market to agencies and e-commerce.",
-   "Integration-led distribution: official Zapier partner plus Airtable, Make and WordPress integrations put it in front of no-code users.",
-   "SEO through a large library of tutorials and integration pages on the Bannerbear blog.",
-   "Open-startup milestone posts ('Journey to $10k MRR', '$50K MRR lessons') went viral and brought in customers and backlinks.",
-   "Priced for businesses ($49+ entry tier) instead of cheap consumer plans."
+   "Pivoted from a narrow OG-image tool to a general image and video API, which widened the market beyond one small use case.",
+   "Integration-led distribution: Zapier, Airtable, Make and WordPress integrations put it in front of no-code users alongside API developers.",
+   "Documentation and tutorials: Yongfook found that the more documentation he wrote, the more conversions he got, and hired a freelance writer for tutorial content in 2021.",
+   "A 50% coding / 50% marketing rhythm (a week of shipping, then a week of tweeting and blogging about it) plus open-startup milestone posts.",
+   "Repositioned around two jobs to be done, 'automate' and 'scale' your marketing, and priced for businesses ($49+ entry tier) instead of cheap consumer plans."
   ],
   "moat": "Template tooling, integration listings and accumulated SEO content create switching costs and discovery advantages. Once customers wire the API into their workflows they rarely move.",
   "risks": "Cheaper alternatives and generative AI image tools compete on price. Growth took years and depends on continued SEO and integration-directory visibility.",
@@ -630,20 +754,24 @@
     "event": "Quits his job and starts 12 startups in 12 months"
    },
    {
-    "date": "2019-09",
-    "event": "Launches Previewmojo (auto OG images), reaching about $400 MRR by December"
+    "date": "2019-11",
+    "event": "Launches Previewmojo (auto OG images), reaching about $400 MRR by the end of the year"
    },
    {
     "date": "2020-01",
-    "event": "Rebrands and pivots to Bannerbear, a general image-generation API"
+    "event": "Rebrands and pivots to Bannerbear, auto-generating banners in many sizes"
    },
    {
-    "date": "2021",
-    "event": "Passes $10k MRR, documented in 'Journey to $10k MRR'"
+    "date": "2020-03",
+    "event": "Launches the Bannerbear REST API and template editor; pulls out of the Shopify app store"
    },
    {
-    "date": "2023",
-    "event": "Publishes lessons from growing to $50k MRR"
+    "date": "2021-01",
+    "event": "Passes $10k MRR ($10,455), documented in 'Journey to $10k MRR'"
+   },
+   {
+    "date": "2023-07",
+    "event": "Publishes '7 Lessons Growing a Bootstrapped SaaS to $50K MRR'"
    },
    {
     "date": "2025-09",
@@ -667,7 +795,17 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15",
-   "fit": "Backend developers with some real-estate industry access"
+   "fit": "Backend developers with some real-estate industry access",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "Playwright (HTML-to-PDF/PNG rendering)",
+    "Stripe",
+    "Zapier Platform"
+   ],
+   "pricing": "Per-office subscription starting at $49/mo for up to 50 listings a month, with a $149/mo brokerage plan that adds multiple agents and brand kits.",
+   "potential": "medium",
+   "market": "Buyers are individual agents, small brokerages and marketing coordinators, reached through brokerage owners, local real-estate Facebook groups and MLS vendor marketplaces. Main competitors are Canva, Bannerbear/Placid for developers, and real-estate marketing suites like Luxury Presence."
   },
   "sources": [
    {
@@ -679,114 +817,24 @@
     "url": "https://www.bannerbear.com/journey-to-10k-mrr/"
    },
    {
+    "title": "Bannerbear: Bootstrapping a SaaS from $10k MRR to $20k MRR",
+    "url": "https://www.bannerbear.com/saas-10k-mrr-to-20k-mrr/"
+   },
+   {
     "title": "Bannerbear blog: The Pivot",
     "url": "https://www.bannerbear.com/blog/the-pivot/"
+   },
+   {
+    "title": "Bannerbear blog: 7 Lessons Growing a Bootstrapped SaaS to $50K MRR",
+    "url": "https://www.bannerbear.com/blog/7-lessons-growing-a-bootstrapped-saas-to-50k-mrr/"
    },
    {
     "title": "Bannerbear pricing",
     "url": "https://www.bannerbear.com/pricing/"
    },
    {
-    "title": "Indie Hackers podcast #208: Jon Yongfook",
-    "url": "https://www.indiehackers.com/podcast/208-jon-yongfook"
-   }
-  ]
- },
- {
-  "slug": "carrd",
-  "name": "Carrd",
-  "founder": "AJ (ajlkn)",
-  "url": "https://carrd.co",
-  "tagline": "Simple, responsive one-page websites for almost anything",
-  "category": "saas",
-  "model": "subscription",
-  "channel": "word-of-mouth",
-  "started": 2016,
-  "revenue": {
-   "amount": 1000000,
-   "period": "year",
-   "label": "$1M ARR",
-   "asOf": "2021-04",
-   "kind": "self-reported",
-   "source": "https://x.com/ajlkn/status/1388232473352491009"
-  },
-  "team": "Solo founder; 2-person team by 2021, later reported as ~4",
-  "startupCost": "<$100",
-  "timeToFirstDollar": null,
-  "stack": [],
-  "summary": "Carrd is a builder for single-page websites such as personal profiles, landing pages and link-in-bio pages. It has a free tier and cheap annual Pro plans. AJ, a pseudonymous developer, built it alone, reached $1M ARR with 2.5M sites by April 2021, and took a small funding round. Indie Hackers later reported it at about $2M ARR.",
-  "origin": "AJ was already known for free HTML site templates and had a Twitter following from that work. He ran a beta of Carrd in late 2015 and launched it publicly in March 2016 as 'a free platform for building simple, fully responsive one-page sites for pretty much anything', getting early traction from his existing followers and Product Hunt.",
-  "howItMakesMoney": "Freemium, billed annually only: Pro Lite $9/yr, Pro Standard $19/yr and Pro Plus $49/yr. Higher tiers unlock custom domains, forms, embeds and more sites. The very low annual price turns a large free user base into a steady stream of small payments.",
-  "growth": [
-   "Word of mouth and 'Made with Carrd' branding on free sites act as built-in distribution.",
-   "Adopted by creators, fandom communities and link-in-bio users, a segment larger site builders ignored.",
-   "Seasonal sales (Oct to Dec 2017, Mar 2018) gave clear revenue bumps, which AJ shared in public stats.",
-   "Deliberately limited features, keeping the product simple rather than chasing full website-builder parity.",
-   "Zero paid marketing: Indie Hackers reported ~$2M ARR in 2024 with a small team and no ad budget."
-  ],
-  "moat": "A very low price anchor ($19/yr) combined with millions of sites and strong brand affinity among young creators makes it hard for competitors to undercut or out-simplify.",
-  "risks": "Link-in-bio and AI site generators compete for the same simple-site use case. The low price leaves little room if hosting or support costs rise.",
-  "timeline": [
-   {
-    "date": "2015",
-    "event": "Private beta; some beta users still pay years later"
-   },
-   {
-    "date": "2016-03",
-    "event": "Public launch of Carrd"
-   },
-   {
-    "date": "2018-05",
-    "event": "AJ publishes monthly users, sites and revenue stats for Jan 2016 to Apr 2018"
-   },
-   {
-    "date": "2021-04",
-    "event": "Announces 2.5M sites, $1M ARR and a funding round"
-   },
-   {
-    "date": "2024",
-    "event": "Indie Hackers reports Carrd at ~$2M ARR with a small team and no ad spend"
-   }
-  ],
-  "lessons": [
-   "A tiny annual price can beat monthly SaaS pricing when the free tier is huge and the upgrade is obvious.",
-   "Feature restraint is a positioning choice: 'simple one-page' is the product.",
-   "An audience from earlier free work (templates) can seed a paid product's launch.",
-   "Free-tier branding compounds as a zero-cost acquisition channel."
-  ],
-  "rebuild": {
-   "idea": "A one-page site builder just for local tradespeople (plumbers, electricians, cleaners) with built-in quote-request forms, service-area maps and Google review embeds, at $29/yr.",
-   "why": "General builders force tradespeople through design choices they don't care about. Most need one page that ranks locally and collects quote requests.",
-   "mvp": [
-    "Build 3 templates with a quote form that emails and texts the owner.",
-    "Hand-build 10 sites for tradespeople found through Google Maps listings that have no website.",
-    "Charge $29/yr after a 30-day free trial.",
-    "Add 'Built with ...' branding to every free site."
-   ],
-   "difficulty": 2,
-   "weeklyHours": "8-12 (fits a side hustle)",
-   "fit": "Front-end developers who can do local outreach"
-  },
-  "sources": [
-   {
-    "title": "AJ: after 2.5M sites, $1M ARR, and a funding round, AMA",
-    "url": "https://x.com/ajlkn/status/1388232473352491009"
-   },
-   {
-    "title": "AJ: Carrd launch announcement (2016)",
-    "url": "https://x.com/ajlkn/status/706918068019191809"
-   },
-   {
-    "title": "AJ: Carrd monthly stats Jan 2016 to Apr 2018",
-    "url": "https://x.com/ajlkn/status/996448887945785345"
-   },
-   {
-    "title": "Indie Hackers: Growing Carrd to $2M ARR by limiting features",
-    "url": "https://www.indiehackers.com/post/tech/growing-carrd-to-2m-arr-in-a-crowded-market-with-zero-marketing-by-limiting-features-dbeoP4bDlEL3zzsivdgj"
-   },
-   {
-    "title": "Carrd docs: Pro plans",
-    "url": "https://carrd.com/docs/pro/plans"
+    "title": "Indie Hackers podcast #208: Jon Yongfook (archived)",
+    "url": "https://web.archive.org/web/20250207094028/https://www.indiehackers.com/podcast/208-jon-yongfook"
    }
   ]
  },
@@ -1112,35 +1160,35 @@
    "kind": "self-reported",
    "source": "https://www.indiehackers.com/post/launched-my-first-course-earned-over-us-500-000-ama-4382405cd5"
   },
-  "team": "Solo",
-  "startupCost": "Not disclosed",
-  "timeToFirstDollar": "~7 months of building before the pre-sale",
+  "team": "Solo, plus a part-time contractor a few hours a week for support and captioning (2021)",
+  "startupCost": null,
+  "timeToFirstDollar": "About 7 months: started the course in August 2020 and opened the pre-sale in March 2021 (after a few quiet direct sales to people who had emailed him)",
   "stack": [
    "Next.js",
-   "MDX",
    "React",
-   "custom course platform"
+   "Custom-built course platform"
   ],
-  "summary": "Josh W. Comeau, a front-end developer known for his interactive blog, left his job in 2020 to build a CSS course on his own platform. A one-week early-access pre-sale in March 2021 brought in about $550K against a $50K goal. He later released a second course, The Joy of React (2023).",
-  "origin": "Comeau worked at companies including Khan Academy, DigitalOcean and Gatsby, and left in 2020 to build courses. He spent about a year sharing CSS tips on Twitter and his blog, growing to roughly 32,000 followers and a newsletter. After about seven months of building, with the course roughly half done, he opened a one-week pre-sale on March 10-16, 2021.",
-  "howItMakesMoney": "One-time purchase with tiered packages. The 2021 early-access price was $129 (expected full price $349). Sales run in periodic launch windows and discounts to his newsletter list.",
+  "summary": "Josh W. Comeau, a front-end developer known for his interactive blog, left his job at Gatsby in 2020 and built a CSS course on his own platform. A one-week early-access pre-sale in March 2021 brought in about $550K against a $50K goal. He later released a second course, The Joy of React (2023).",
+  "origin": "Comeau worked at Khan Academy, DigitalOcean, Concordia University and Gatsby Inc. (as a Staff Software Engineer). After a repetitive stress injury he left his job in summer 2020 and started the course in August. Over 2020 he grew from about 10k Twitter followers and 1k email subscribers to 31k followers and about 28k subscribers, helped by viral blog posts and a free book. With the course roughly half done, he opened a one-week pre-sale on March 10-16, 2021.",
+  "howItMakesMoney": "One-time purchase with tiered packages (Basic, Pro and Ultimate), regional purchasing-power-parity pricing, team licenses and a bundle with The Joy of React. The 2021 early-access price was $129 (expected full price $349).",
   "growth": [
-   "Wrote interactive blog posts with live demos that spread on Twitter and developer forums",
-   "Converted Twitter followers into a newsletter before launch",
-   "Ran a time-limited pre-sale at an early-access discount to create urgency",
-   "Built a custom learning platform with exercises and mini-games that set the course apart from video-only courses",
+   "Wrote interactive blog posts with live demos that spread on Twitter and developer forums; his most popular posts topped 100k visits",
+   "Converted Twitter followers into a newsletter before launch, including a free book (about 8k sign-ups) and an animated sign-up prompt on the blog",
+   "Built in public on Twitter from late 2020, sharing GIFs of the platform and content",
+   "Ran a one-week pre-sale at an early-access discount; the $50K target was hit in about 10 minutes",
+   "Built a custom learning platform with articles, videos, exercises, workshops and mini-games that set the course apart from video-only courses",
    "Reused the platform and list for a second course, The Joy of React (2023)"
   ],
   "moat": "High production quality and interactive content on a custom platform, plus a trusted personal brand among front-end developers.",
   "risks": "Launch-driven revenue is lumpy. AI coding assistants may reduce how much developers feel they need to learn CSS fundamentals.",
   "timeline": [
    {
-    "date": "2020",
-    "event": "Leaves full-time engineering work to build courses"
+    "date": "2020-08",
+    "event": "Starts building the course full time after leaving Gatsby"
    },
    {
     "date": "2021-03",
-    "event": "One-week early-access pre-sale; ~$550K against a $50K target"
+    "event": "One-week early-access pre-sale (Mar 10-16); ~$550K against a $50K target"
    },
    {
     "date": "2021",
@@ -1148,7 +1196,7 @@
    },
    {
     "date": "2023-01",
-    "event": "Launches The Joy of React in early access"
+    "event": "Launches The Joy of React in early access (Jan 23)"
    }
   ],
   "lessons": [
@@ -1168,7 +1216,17 @@
    ],
    "difficulty": 3,
    "weeklyHours": "10-15 (fits a side hustle)",
-   "fit": "A data analyst or engineer who writes clearly and can build simple web interactives"
+   "fit": "A data analyst or engineer who writes clearly and can build simple web interactives",
+   "stack": [
+    "Next.js",
+    "MDX",
+    "DuckDB-WASM or sql.js (in-browser SQL)",
+    "ConvertKit (Kit)",
+    "Stripe or Lemon Squeezy"
+   ],
+   "pricing": "One-time purchase with a ~$99 early-access pre-sale, then $199-$349 tiers at full launch, plus team licenses.",
+   "potential": "medium",
+   "market": "Buyers are product managers, ops and marketing analysts at non-tech companies, often on a training budget, reached through LinkedIn posts, SEO on interactive articles and a newsletter. Competitors include DataCamp, Mode's SQL tutorial, Codecademy, Udemy courses and free AI assistants."
   },
   "sources": [
    {
@@ -1696,21 +1754,21 @@
    "kind": "self-reported",
    "source": "https://finance.yahoo.com/news/made-239-000-selling-budgeting-120626735.html"
   },
-  "team": "Solo",
-  "startupCost": "<$100",
-  "timeToFirstDollar": null,
+  "team": "Solo in 2022; had hired his sister full time by early 2024",
+  "startupCost": null,
+  "timeToFirstDollar": "Tips on free templates from summer/fall 2021; first paid template (Nov 2021) made over $3,000 in its first month",
   "stack": [
    "Notion",
    "Gumroad"
   ],
-  "summary": "Easlo is the brand of Jason Chin, who sells Notion templates such as the Second Brain system. He reported $239K revenue in 2022 as a one-person operation and said in March 2023 he was halfway to $1M in cumulative revenue.",
-  "origin": "Chin taught himself Notion from YouTube while a student. In summer 2021 he released free templates (budget and habit trackers) on Gumroad with an optional tip and promoted them on Twitter and Product Hunt. After receiving tips of up to $100, he began charging for new templates in November 2021.",
-  "howItMakesMoney": "One-time purchases of Notion templates on Gumroad. The flagship Second Brain template has been sold at $130 and reportedly passed $100K in sales on its own; smaller single-purpose templates sell for less.",
+  "summary": "Easlo is the brand of Jason Chin, a Singaporean creator who sells Notion templates such as the Second Brain system. He reported $239K in template sales in 2022 as a one-person operation (Business Insider verified the figure), and by 2024 had tens of thousands of customers and 1.1M+ followers across platforms.",
+  "origin": "Chin learned Notion from YouTube videos on weekends while doing national service in Singapore. In summer 2021 he released free templates (such as budget and habit trackers) on Gumroad with an optional tip and promoted them on Twitter and Product Hunt. After receiving tips of up to $100, he began charging for new templates in November 2021, and chose to go full time as a creator instead of attending university.",
+  "howItMakesMoney": "One-time purchases of Notion templates on Gumroad, typically $10-$100. In 2022 the flagship Second Brain template sold at $130 and brought in over $100K on its own, while cheaper templates such as a $20 Bullet Journal and $40 Finance Tracker made up nearly half the business. Second Brain is listed at $79 on Gumroad today.",
   "growth": [
-   "Released templates free with 'pay what you want' first, building a list of past downloaders before charging",
-   "Targeted a narrow starting niche (students organizing school, money and health)",
-   "Posted template screenshots and short threads on X, and later Instagram and TikTok",
-   "Bundled smaller templates into a premium all-in-one Second Brain product at a higher price"
+   "Released templates free with an optional tip first, then emailed everyone who had downloaded them when he started charging",
+   "Started with simple personal-organization templates (budget, habits) aimed at people like himself",
+   "Grew organically on Twitter (over 211K followers by late 2022) with 2-3 tweets a day and a weekly thread, never paying for ads, then repeated the playbook on TikTok and Instagram",
+   "Launched templates on Product Hunt and priced an all-in-one Second Brain system well above single-purpose templates"
   ],
   "moat": "Weak on the product (templates are easy to copy) but strong on distribution: a large social following and brand recognition in the Notion template niche.",
   "risks": "Depends on Notion's popularity and on Notion's own template marketplace; AI tools that generate workspaces could commoditize templates.",
@@ -1721,21 +1779,21 @@
    },
    {
     "date": "2021-11",
-    "event": "Starts charging for templates"
+    "event": "Starts charging for templates; first paid template makes over $3,000 in its first month"
    },
    {
     "date": "2022",
-    "event": "Reports $239K revenue for the year"
+    "event": "Reports $239K in template sales for the year"
    },
    {
-    "date": "2023-03",
-    "event": "Says he is halfway to $1M in total revenue"
+    "date": "2024-03",
+    "event": "Profiled with tens of thousands of customers, 1.1M+ followers and his sister hired full time"
    }
   ],
   "lessons": [
    "Launching free with an optional tip is a cheap way to test which product people value",
-   "Start with a niche you are part of (he was a student making student templates)",
-   "A bundle of existing pieces can be the highest-priced product",
+   "Build the audience first with free, useful content, then turn on paid products",
+   "An all-in-one system can be the highest-priced and best-selling product",
    "Visual products sell well on visual social platforms; screenshots are the ad"
   ],
   "rebuild": {
@@ -1749,7 +1807,17 @@
    ],
    "difficulty": 2,
    "weeklyHours": "5-10 (fits a side hustle)",
-   "fit": "Someone who works in or alongside that profession and knows Notion or Airtable well"
+   "fit": "Someone who works in or alongside that profession and knows Notion or Airtable well",
+   "stack": [
+    "Notion or Airtable",
+    "Gumroad or Lemon Squeezy",
+    "Tally (intake forms)",
+    "Zapier or Make",
+    "Loom (walkthrough videos)"
+   ],
+   "pricing": "A $49 one-time template, a $99 bundle with intake forms and automations, and a $149 setup call as an upsell.",
+   "potential": "low",
+   "market": "Buyers are solo practitioners in one profession (such as physiotherapists or private tutors), reached through their professional Facebook groups, subreddits, associations and YouTube walkthroughs. Competitors are general template marketplaces (Notion's gallery, Etsy, Gumroad) and vertical practice-management software like Jane App, Cliniko or TutorBird."
   },
   "sources": [
    {
@@ -1991,46 +2059,42 @@
    "kind": "self-reported",
    "source": "https://typefully.com/marckohlbrugge/10-years-of-betalist-Uq3vYQJ"
   },
-  "team": "Solo",
-  "startupCost": "About $0 (MVP was a customized Tumblr theme)",
+  "team": "Solo founder; daily operations later delegated to a collaborator (@rpish)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
-   "Tumblr (MVP)"
+   "Tumblr (MVP, customized theme)"
   ],
-  "summary": "BetaList features pre-launch and newly launched startups to an audience of early adopters. Marc Köhlbrugge started it in December 2010 on Tumblr. After 10 years it had featured 15,000+ startups, reviewed 70,000+ submissions, and made almost $1M in total revenue. It makes money by charging founders to skip the free review queue and by selling sponsorships.",
-  "origin": "Köhlbrugge started BetaList in December 2010 to get publicity for an iPad app he and friends were building. The MVP was a Tumblr page with a customized theme. He didn't plan to monetize it until companies started asking how to get featured.",
-  "howItMakesMoney": "(1) Sponsorship/ad slots: he started at $50/week and doubled the price until buyers said no, ending around $1,500/week. (2) Expedited review: he first did it free as a favor, then charged $15. It later became a paid plan (reported at $99, then $129) to skip the free queue and get featured on a weekday.",
+  "summary": "BetaList features pre-launch and newly launched startups to an audience of early adopters. Marc Köhlbrugge started it in December 2010 on Tumblr. After 10 years it had featured 15,000+ startups, reviewed 70,000+ submissions, welcomed 100,000+ registered users and made almost $1M in total revenue. It makes money from advertising and sponsorships and by charging founders to skip the free review queue.",
+  "origin": "In late 2010 Köhlbrugge and friends were building Openmargin, an iPad app, and struggling to get beta sign-ups. Over a weekend he built BetaLi.st, a modified Tumblr theme collecting 'coming soon' pages, and pitched it to TechCrunch, hoping to redirect the coverage to his own app. TechCrunch wrote about it in December 2010. He didn't plan to monetize it until companies started asking how to get featured.",
+  "howItMakesMoney": "(1) Advertising: he started paid slots at $50/week and kept doubling the price until buyers said no, reaching $1,500/week by 2020. The advertise page now lists a $4,999/month sponsorship and self-serve 'Boost' placements at $99/week or $199/month. (2) Expedited review: he first let founders skip the queue for free as a favor, then charged $15, and kept raising it to $199 by 2020.",
   "growth": [
    "A free submission queue with a paid fast lane. The backlog itself creates demand for the paid option.",
-   "Early press. Marc wrote 'How I tricked TechCrunch into writing about my startup' about getting coverage early.",
+   "Early press: a December 2010 TechCrunch article, and later Marc's 2014 post 'How I tricked TechCrunch into writing about my startup', which he says drove even more visits than the original article.",
    "Each featured startup shares its listing, which brings in more founders and early-adopter subscribers.",
-   "He kept testing prices on ad slots, doubling until demand dropped."
+   "He kept testing prices on ad slots and expedited reviews, raising them until demand dropped."
   ],
   "moat": "More than a decade of brand recognition in the startup-launch niche, an email and user base of early adopters, and domain authority that makes a listing worth paying for.",
   "risks": "Launch directories are easy to start and there are hundreds now. Product Hunt dominates attention, and a directory's value falls if its audience stops engaging.",
   "timeline": [
    {
     "date": "2010-12",
-    "event": "BetaList launches as a Tumblr site"
+    "event": "BetaList (then BetaLi.st) launches as a Tumblr site and is covered by TechCrunch"
    },
    {
-    "date": "2013",
-    "event": "Marc publishes how he got early TechCrunch coverage"
+    "date": "2014-06",
+    "event": "Marc publishes 'How I tricked TechCrunch into writing about my startup'"
    },
    {
     "date": "2020-12",
-    "event": "10-year recap: 15,000+ startups featured, 70,000+ submissions reviewed, 100,000+ users, almost $1M total revenue"
-   },
-   {
-    "date": "2020s",
-    "event": "Paid expedited plan (reported $99, then $129) becomes the main submission product"
+    "event": "10-year recap: 15,000+ startups featured, 70,000+ submissions reviewed, 100,000+ users, almost $1M total revenue; ads at $1,500/week and expedited review at $199"
    }
   ],
   "lessons": [
    "A free queue plus a paid skip-the-line option is a simple, scalable way for a directory to make money.",
-   "Price ads by doubling until customers say no. His started at $50/week and ended near $1,500/week.",
+   "Price ads by doubling until customers say no. His started at $50/week and reached $1,500/week.",
    "Start with no-code (a Tumblr theme) and rebuild only after demand shows up.",
-   "Slow, steady revenue from a directory can fund a solo founder's other projects for a decade."
+   "Delegating daily operations freed him to start other products (WIP, startup.jobs) while BetaList kept earning."
   ],
   "rebuild": {
    "idea": "A curated directory of MCP servers and AI-agent tools with verified install and compatibility testing, a free listing queue and a paid expedited review with a badge.",
@@ -2043,7 +2107,18 @@
    ],
    "difficulty": 2,
    "weeklyHours": "5-10 (fits a side hustle)",
-   "fit": "An engineer who can automate scraping and testing pipelines and enjoys curation"
+   "fit": "An engineer who can automate scraping and testing pipelines and enjoys curation",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "GitHub API",
+    "Docker (sandboxed install tests)",
+    "Stripe",
+    "Resend (newsletter)"
+   ],
+   "pricing": "Free listings with a slow queue, a $49 one-time expedited review with a 'tested' badge, and $99/week featured placements once the newsletter has a few thousand subscribers.",
+   "potential": "medium",
+   "market": "Buyers are developers and small AI-tool startups who want users; reach them through X, Hacker News, Reddit and a weekly newsletter. Competitors include Smithery, mcp.so, Glama's MCP directory, the official MCP registry and general launch sites like Product Hunt."
   },
   "sources": [
    {
@@ -2053,6 +2128,10 @@
    {
     "title": "Marc Köhlbrugge: How I tricked TechCrunch into writing about my startup",
     "url": "https://marc.io/betalist"
+   },
+   {
+    "title": "BetaList: Advertise",
+    "url": "https://betalist.com/advertise"
    },
    {
     "title": "Mixergy: How BetaList is helping startups get their first users",
@@ -2071,56 +2150,61 @@
   "channel": "seo",
   "started": 2006,
   "revenue": {
-   "amount": 100000,
+   "amount": 64792,
    "period": "year",
-   "label": ">$100K sales in 2011 (~$70K profit)",
-   "asOf": "2011-12",
+   "label": "$64.8K sales in 2012 (~$38.6K profit), its best year",
+   "asOf": "2012-12",
    "kind": "self-reported",
-   "source": "https://www.kalzumeus.com/2011/12/21/bingo-card-creator-etc-year-in-review-2011/"
+   "source": "https://www.kalzumeus.com/2012/12/29/bingo-card-creator-and-other-stuff-year-in-review-2012/"
   },
   "team": "Solo + freelance content writers",
-  "startupCost": "About $60 (launched on a budget of 8 days and $60)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
-   "Ruby on Rails (web version)",
+   "Java Swing (original desktop app)",
+   "Ruby on Rails (web version from 2009)",
    "A/Bingo (his own Rails A/B testing library)",
    "Stripe (from 2012)"
   ],
-  "summary": "Patrick McKenzie (patio11) built a narrow tool for teachers who make bingo cards and published his sales, profit and marketing experiments every year. He started it while working as a salaryman in Japan. It grew into a profitable, mostly automated side business, and he sold it through FE International in 2015.",
-  "origin": "McKenzie released Bingo Card Creator on July 1, 2006 as downloadable software, built in about eight days for about $60. Teachers made bingo cards for vocabulary and lessons by hand, and he automated that job. He later moved it to a Rails web app, which let him run A/B tests on the funnel.",
-  "howItMakesMoney": "Originally a one-time license (raised from $24.95 to $29.95), with a free trial and a web version later. Revenue came from teachers, with seasonal spikes around holidays.",
+  "summary": "Patrick McKenzie (patio11) built a narrow tool for teachers who make bingo cards and published its sales, profit and marketing experiments every year. He started it in 2006 while working as a salaryman in Japan. It grew into a profitable, mostly automated side business that peaked at about $65K in sales in 2012, and he sold it through FE International in 2015.",
+  "origin": "McKenzie released Bingo Card Creator 1.0 on July 1, 2006 as a downloadable Java app, after about 47 hours of work. Teachers made bingo cards for vocabulary and lessons by hand, and he automated that job. From 2009 it ran almost entirely as a Rails web app, which let him A/B test the funnel.",
+  "howItMakesMoney": "A one-time purchase (raised from $24.95 to $29.95 in 2009) after a free trial, with sales from elementary school teachers and strong seasonal spikes around holidays. Historically it ran at about a 60% profit margin.",
   "growth": [
-   "Long-tail SEO. He made one landing page per narrow topic ('snowflake queries', such as specific holiday or vocabulary bingo cards), later written by freelancers at scale. That content grew to about 50% of sales and 75% of profits.",
+   "Long-tail SEO. He made one landing page per narrow topic (specific holiday or vocabulary bingo cards), later written by freelancers at scale. He says that content grew to about 50% of sales and 75% of profits.",
    "Conversion optimization. He wrote A/Bingo, an open-source Rails A/B testing library, and tested copy, landing pages and the purchase flow.",
-   "A 2012 redesign and a switch from PayPal/Google Checkout to Stripe produced large conversion gains. He called them the best thing that happened to the business that year.",
+   "A 2012 redesign and Stripe card payments lifted trial-to-purchase conversion from 1.8% to 2.4%. He called them the best thing that happened to the business in years.",
    "The business ran in maintenance mode about 48 weeks a year, so his time went into marketing systems rather than features."
   ],
   "moat": "Years of accumulated long-tail pages and search rankings in a niche too small for bigger companies to target. The product itself is easy to copy. The distribution is not.",
-  "risks": "Google algorithm changes, and free alternatives or template sites. The seasonal teacher market has limited room to grow, and he eventually sold because the upside was capped.",
+  "risks": "Google algorithm changes, and free alternatives or template sites. The seasonal teacher market has limited room to grow; sales were roughly flat in 2011, and he eventually sold mainly to focus on his other businesses.",
   "timeline": [
    {
     "date": "2006-07",
-    "event": "Bingo Card Creator launches as downloadable software"
+    "event": "Bingo Card Creator 1.0 launches as downloadable software"
+   },
+   {
+    "date": "2009",
+    "event": "Web version launches; price raised from $24.95 to $29.95"
    },
    {
     "date": "2009-08",
     "event": "Passes $50,000 in lifetime sales; releases A/Bingo split-testing library"
    },
    {
-    "date": "2010",
-    "event": "Leaves his Japanese salaryman job to run his software business full time"
+    "date": "2010-04",
+    "event": "Quits his Japanese salaryman job to run his software business full time"
    },
    {
     "date": "2011",
-    "event": "Best year to date: breaks $100K in sales for the first time"
+    "event": "BCC sales roughly flat at $45.5K (about $22.9K profit) while consulting grows"
    },
    {
     "date": "2012",
-    "event": "Redesign and Stripe checkout lift conversion; product runs in maintenance mode"
+    "event": "Redesign and Stripe checkout lift conversion; best year ever at $64.8K sales and $38.6K profit"
    },
    {
     "date": "2015",
-    "event": "Sold through FE International"
+    "event": "Sold through FE International, about five months from start to close"
    }
   ],
   "lessons": [
@@ -2140,20 +2224,46 @@
    ],
    "difficulty": 2,
    "weeklyHours": "5-10 (fits a side hustle)",
-   "fit": "An engineer who can do programmatic SEO and PDF templating and knows (or can interview) teachers"
+   "fit": "An engineer who can do programmatic SEO and PDF templating and knows (or can interview) teachers",
+   "stack": [
+    "Next.js",
+    "Postgres",
+    "OpenAI API",
+    "React-PDF or Typst (print templates)",
+    "Stripe"
+   ],
+   "pricing": "Freemium generator with watermark-free printing on a $5/mo or $39/yr plan, plus a $99/yr multi-student license for tutors and co-ops.",
+   "potential": "medium",
+   "market": "Buyers are homeschooling parents and independent ESL/phonics tutors, reached through programmatic SEO pages, Pinterest, homeschool Facebook groups and tutor communities. Competitors are Teachers Pay Teachers, Twinkl, Education.com and free generators like Canva and Wordwall."
   },
   "sources": [
-   {
-    "title": "Kalzumeus: Bingo Card Creator (and etcetera) Year In Review 2011",
-    "url": "https://www.kalzumeus.com/2011/12/21/bingo-card-creator-etc-year-in-review-2011/"
-   },
    {
     "title": "Kalzumeus: Bingo Card Creator (and other stuff) Year in Review 2012",
     "url": "https://www.kalzumeus.com/2012/12/29/bingo-card-creator-and-other-stuff-year-in-review-2012/"
    },
    {
+    "title": "Kalzumeus: Bingo Card Creator (and etcetera) Year In Review 2011",
+    "url": "https://www.kalzumeus.com/2011/12/21/bingo-card-creator-etc-year-in-review-2011/"
+   },
+   {
+    "title": "Kalzumeus: Bingo Card Creator (& etc) Year In Review 2010",
+    "url": "https://www.kalzumeus.com/2010/12/17/bingo-card-creator-etc-year-in-review-2010/"
+   },
+   {
+    "title": "Kalzumeus: Bingo Card Creator Year In Review 2009",
+    "url": "https://www.kalzumeus.com/2009/12/18/bingo-card-creator-year-in-review-2009/"
+   },
+   {
+    "title": "Kalzumeus: Bingo Card Creator By the Numbers (2006)",
+    "url": "https://www.kalzumeus.com/2006/07/01/bingo-card-creator-by-the-numbers/"
+   },
+   {
     "title": "Kalzumeus: Introducing A/Bingo: Rails Split Testing",
     "url": "https://www.kalzumeus.com/2009/08/15/introducing-abingo-rails-split-testing/"
+   },
+   {
+    "title": "Kalzumeus: Patio11's Greatest Hits",
+    "url": "https://www.kalzumeus.com/greatest-hits/"
    },
    {
     "title": "What I Learned Selling Bingo Card Creator",
@@ -2172,28 +2282,30 @@
   "channel": "marketplace",
   "started": 2020,
   "revenue": {
-   "amount": 67000,
-   "period": "year",
-   "label": "$200K lifetime in first 3 yrs (~$67K/yr avg)",
-   "asOf": "2023-04",
+   "amount": 5000,
+   "period": "month",
+   "label": "~$5K/mo (2024); $200K lifetime by April 2023",
+   "asOf": "2024-07",
    "kind": "self-reported",
-   "source": "https://www.indiehackers.com/product/better-sheets/200k-revenue-selling-google-sheet-templates-tutorials-and-tools--NS9z2YbSBAUI4hI7-IN"
+   "source": "https://www.indiehackers.com/post/building-a-5k-mo-lifestyle-business-by-leveraging-lifetime-deals-crXqhfxuHUMbZTrsWnT4"
   },
-  "team": "Solo + 1 contractor",
-  "startupCost": "Minimal (built in a 24-hour sprint)",
+  "team": "Solo",
+  "startupCost": null,
   "timeToFirstDollar": "Launch month: 13 sales / $390 in April 2020",
   "stack": [
    "Google Sheets",
-   "Google Apps Script"
+   "Google Apps Script",
+   "Loom and Gumroad (launch)",
+   "Ruby on Rails (2022 rebuild)"
   ],
-  "summary": "Better Sheets sells a membership to hundreds of screencast tutorials, templates and small tools that help people get more out of Google Sheets. Andrew Kamphey launched it after a 24-hour sprint in April 2020 and reported $200K in total revenue by its third anniversary. Most of that came from lifetime-access purchases. Note that the revenue figure is a three-year total, not an annual run rate.",
-  "origin": "Kamphey launched Better Sheets on April 3, 2020 after a 24-hour sprint to ship something. He sold lifetime access to Google Sheets tutorial videos. It made $390 from 13 sales in April 2020 and $2,291 from 134 sales in May 2020, and he kept recording tutorials based on what members asked for.",
-  "howItMakesMoney": "Mostly lifetime access. It started at $49 lifetime (or $19/mo) and was later raised to $109 lifetime. A $19/mo access pass is also offered. Lifetime deals made up about 92% of revenue in his 2023 write-up, and AppSumo campaigns were a major channel.",
+  "summary": "Better Sheets sells a membership to hundreds of screencast tutorials, templates and small tools that help people get more out of Google Sheets. Andrew Kamphey launched it after a 24-hour sprint in April 2020, passed $100K in top-line revenue after two years and $200K by its third anniversary, mostly from lifetime-access sales on AppSumo. By mid-2024 Indie Hackers profiled it as a ~$5K/month lifestyle business.",
+  "origin": "Kamphey spent about five years as the 'Google Sheets guy' at an entertainment startup, automating work with Apps Script, then went out on his own in 2018. After other products stalled, he launched Better Sheets on April 3, 2020 as a 24-hour project: 8 screencast videos, 4 free and 4 behind a paywall. It made $390 from 13 sales in April 2020 and $2,291 from 134 sales in May 2020, and he kept recording tutorials based on what members asked for.",
+  "howItMakesMoney": "Mostly lifetime memberships. Lifetime access was $19 for the first year or so, then $49, $69 by May 2022, $225 in late 2023 and $250 from February 2024; a monthly plan was added around 2022-23. In his two-year breakdown, lifetime memberships were about 80% of revenue and AppSumo about 85% of sales. By 2024 revenue also came from Gumroad templates, subscriptions and consulting via Stripe, Udemy courses and YouTube ads.",
   "growth": [
-   "AppSumo lifetime deals put the product in front of a large audience of buyers already looking for tools.",
-   "Answering members' requests with new tutorials kept growing the library, which justified raising the lifetime price.",
-   "YouTube, a newsletter and posts on Indie Hackers and LinkedIn documented each milestone ($100K, then $200K).",
-   "He went full time in 2022 after about $100K in two years."
+   "AppSumo's marketplace put the lifetime deal in front of a large audience of buyers already looking for tools, and did much of the marketing in exchange for its cut.",
+   "Answering members' requests with new tutorials kept growing the library, which justified raising the lifetime price step by step.",
+   "A free template pack for AppSumo users (34,000 downloads by May 2022), a Product Hunt launch that reached #1 Product of the Day in 2022, and milestone posts on Indie Hackers.",
+   "Later diversified into Google Sheets add-ons, small one-page tools, Udemy courses and YouTube to smooth out lumpy lifetime-deal revenue."
   ],
   "moat": "A large back catalog of focused Sheets tutorials and templates plus a recognizable personal brand ('the Sheets guy'). The content can be copied piece by piece, but the full library and audience are harder to copy.",
   "risks": "Lifetime pricing makes revenue spiky and front-loaded, with no recurring base. AI assistants inside Google Sheets (Gemini) can answer many 'how do I' questions for free.",
@@ -2207,12 +2319,16 @@
     "event": "134 sales / $2,291 in the second month"
    },
    {
-    "date": "2022",
-    "event": "Passes ~$100K in revenue in two years and goes full time"
+    "date": "2022-05",
+    "event": "Passes $100K in top-line revenue in two years; relaunches the site on Rails and hits #1 Product of the Day on Product Hunt"
    },
    {
     "date": "2023-04",
     "event": "Third anniversary: $200K total revenue"
+   },
+   {
+    "date": "2024-07",
+    "event": "Indie Hackers profiles Better Sheets as a ~$5K/month lifestyle business"
    }
   ],
   "lessons": [
@@ -2232,12 +2348,39 @@
    ],
    "difficulty": 1,
    "weeklyHours": "5-10 (fits a side hustle)",
-   "fit": "Someone with data-processing and spreadsheet skills who can record clear screencasts"
+   "fit": "Someone with data-processing and spreadsheet skills who can record clear screencasts",
+   "stack": [
+    "Google Apps Script",
+    "Google Workspace Marketplace add-on",
+    "Next.js",
+    "Stripe",
+    "OpenAI API",
+    "Loom or Screen Studio"
+   ],
+   "pricing": "A $99/yr membership for the full bundle library, with a limited $199 lifetime launch deal and $29-$49 single bundles on Gumroad.",
+   "potential": "medium",
+   "market": "Buyers are solo bookkeepers and small accounting practices, reached through bookkeeper Facebook groups, r/Bookkeeping, YouTube tutorials and SEO. Competitors include Better Sheets itself, template sellers on Etsy and Gumroad, and bookkeeping tools like QuickBooks, Xero and Dext."
   },
   "sources": [
    {
     "title": "Indie Hackers: $200k Revenue Selling Google Sheet Templates, Tutorials, and Tools",
     "url": "https://www.indiehackers.com/product/better-sheets/200k-revenue-selling-google-sheet-templates-tutorials-and-tools--NS9z2YbSBAUI4hI7-IN"
+   },
+   {
+    "title": "Indie Hackers: $100k Revenue in 2 Years, Selling Google Sheet Tutorials",
+    "url": "https://www.indiehackers.com/post/100k-revenue-in-2-years-selling-google-sheet-tutorials-faefa26dfb"
+   },
+   {
+    "title": "Indie Hackers: Building a $5k/mo lifestyle business by leveraging lifetime deals",
+    "url": "https://www.indiehackers.com/post/building-a-5k-mo-lifestyle-business-by-leveraging-lifetime-deals-crXqhfxuHUMbZTrsWnT4"
+   },
+   {
+    "title": "Indie Hackers: Better Sheets product page",
+    "url": "https://www.indiehackers.com/product/better-sheets"
+   },
+   {
+    "title": "Partnerkin: How Andrew Kamphey Built a $5,000 Per Month Business with Google Sheets",
+    "url": "https://partnerkin.com/en/blog/case_study/kamphey-google-sheets-success"
    },
    {
     "title": "High Signal: $200k from selling Google Sheets tutorials",

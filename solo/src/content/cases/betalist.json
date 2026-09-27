@@ -16,46 +16,42 @@
     "kind": "self-reported",
     "source": "https://typefully.com/marckohlbrugge/10-years-of-betalist-Uq3vYQJ"
   },
-  "team": "Solo",
-  "startupCost": "About $0 (MVP was a customized Tumblr theme)",
+  "team": "Solo founder; daily operations later delegated to a collaborator (@rpish)",
+  "startupCost": null,
   "timeToFirstDollar": null,
   "stack": [
-    "Tumblr (MVP)"
+    "Tumblr (MVP, customized theme)"
   ],
-  "summary": "BetaList features pre-launch and newly launched startups to an audience of early adopters. Marc Köhlbrugge started it in December 2010 on Tumblr. After 10 years it had featured 15,000+ startups, reviewed 70,000+ submissions, and made almost $1M in total revenue. It makes money by charging founders to skip the free review queue and by selling sponsorships.",
-  "origin": "Köhlbrugge started BetaList in December 2010 to get publicity for an iPad app he and friends were building. The MVP was a Tumblr page with a customized theme. He didn't plan to monetize it until companies started asking how to get featured.",
-  "howItMakesMoney": "(1) Sponsorship/ad slots: he started at $50/week and doubled the price until buyers said no, ending around $1,500/week. (2) Expedited review: he first did it free as a favor, then charged $15. It later became a paid plan (reported at $99, then $129) to skip the free queue and get featured on a weekday.",
+  "summary": "BetaList features pre-launch and newly launched startups to an audience of early adopters. Marc Köhlbrugge started it in December 2010 on Tumblr. After 10 years it had featured 15,000+ startups, reviewed 70,000+ submissions, welcomed 100,000+ registered users and made almost $1M in total revenue. It makes money from advertising and sponsorships and by charging founders to skip the free review queue.",
+  "origin": "In late 2010 Köhlbrugge and friends were building Openmargin, an iPad app, and struggling to get beta sign-ups. Over a weekend he built BetaLi.st, a modified Tumblr theme collecting 'coming soon' pages, and pitched it to TechCrunch, hoping to redirect the coverage to his own app. TechCrunch wrote about it in December 2010. He didn't plan to monetize it until companies started asking how to get featured.",
+  "howItMakesMoney": "(1) Advertising: he started paid slots at $50/week and kept doubling the price until buyers said no, reaching $1,500/week by 2020. The advertise page now lists a $4,999/month sponsorship and self-serve 'Boost' placements at $99/week or $199/month. (2) Expedited review: he first let founders skip the queue for free as a favor, then charged $15, and kept raising it to $199 by 2020.",
   "growth": [
     "A free submission queue with a paid fast lane. The backlog itself creates demand for the paid option.",
-    "Early press. Marc wrote 'How I tricked TechCrunch into writing about my startup' about getting coverage early.",
+    "Early press: a December 2010 TechCrunch article, and later Marc's 2014 post 'How I tricked TechCrunch into writing about my startup', which he says drove even more visits than the original article.",
     "Each featured startup shares its listing, which brings in more founders and early-adopter subscribers.",
-    "He kept testing prices on ad slots, doubling until demand dropped."
+    "He kept testing prices on ad slots and expedited reviews, raising them until demand dropped."
   ],
   "moat": "More than a decade of brand recognition in the startup-launch niche, an email and user base of early adopters, and domain authority that makes a listing worth paying for.",
   "risks": "Launch directories are easy to start and there are hundreds now. Product Hunt dominates attention, and a directory's value falls if its audience stops engaging.",
   "timeline": [
     {
       "date": "2010-12",
-      "event": "BetaList launches as a Tumblr site"
+      "event": "BetaList (then BetaLi.st) launches as a Tumblr site and is covered by TechCrunch"
     },
     {
-      "date": "2013",
-      "event": "Marc publishes how he got early TechCrunch coverage"
+      "date": "2014-06",
+      "event": "Marc publishes 'How I tricked TechCrunch into writing about my startup'"
     },
     {
       "date": "2020-12",
-      "event": "10-year recap: 15,000+ startups featured, 70,000+ submissions reviewed, 100,000+ users, almost $1M total revenue"
-    },
-    {
-      "date": "2020s",
-      "event": "Paid expedited plan (reported $99, then $129) becomes the main submission product"
+      "event": "10-year recap: 15,000+ startups featured, 70,000+ submissions reviewed, 100,000+ users, almost $1M total revenue; ads at $1,500/week and expedited review at $199"
     }
   ],
   "lessons": [
     "A free queue plus a paid skip-the-line option is a simple, scalable way for a directory to make money.",
-    "Price ads by doubling until customers say no. His started at $50/week and ended near $1,500/week.",
+    "Price ads by doubling until customers say no. His started at $50/week and reached $1,500/week.",
     "Start with no-code (a Tumblr theme) and rebuild only after demand shows up.",
-    "Slow, steady revenue from a directory can fund a solo founder's other projects for a decade."
+    "Delegating daily operations freed him to start other products (WIP, startup.jobs) while BetaList kept earning."
   ],
   "rebuild": {
     "idea": "A curated directory of MCP servers and AI-agent tools with verified install and compatibility testing, a free listing queue and a paid expedited review with a badge.",
@@ -68,7 +64,18 @@
     ],
     "difficulty": 2,
     "weeklyHours": "5-10 (fits a side hustle)",
-    "fit": "An engineer who can automate scraping and testing pipelines and enjoys curation"
+    "fit": "An engineer who can automate scraping and testing pipelines and enjoys curation",
+    "stack": [
+      "Next.js",
+      "Postgres",
+      "GitHub API",
+      "Docker (sandboxed install tests)",
+      "Stripe",
+      "Resend (newsletter)"
+    ],
+    "pricing": "Free listings with a slow queue, a $49 one-time expedited review with a 'tested' badge, and $99/week featured placements once the newsletter has a few thousand subscribers.",
+    "potential": "medium",
+    "market": "Buyers are developers and small AI-tool startups who want users; reach them through X, Hacker News, Reddit and a weekly newsletter. Competitors include Smithery, mcp.so, Glama's MCP directory, the official MCP registry and general launch sites like Product Hunt."
   },
   "sources": [
     {
@@ -78,6 +85,10 @@
     {
       "title": "Marc Köhlbrugge: How I tricked TechCrunch into writing about my startup",
       "url": "https://marc.io/betalist"
+    },
+    {
+      "title": "BetaList: Advertise",
+      "url": "https://betalist.com/advertise"
     },
     {
       "title": "Mixergy: How BetaList is helping startups get their first users",
